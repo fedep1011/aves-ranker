@@ -100,7 +100,6 @@
       </button>
 
       <div class="flex items-center gap-2 min-w-0">
-        <!-- Step / Category indicator during wizard or game -->
         <div id="headerControls" class="hidden flex items-center gap-2 min-w-0">
           <span id="headerStepLabel" class="hidden md:inline text-xs text-muted truncate max-w-xs"></span>
           <button id="btnHeaderHome" onclick="app.goToView('viewHome')" class="shrink-0 text-[11px] sm:text-xs font-medium text-ink hover:text-forest px-2.5 py-1 rounded-full border border-line bg-surface/80 transition">
@@ -121,9 +120,50 @@
   <main id="mainContainer" class="flex-1 flex flex-col justify-start max-w-5xl w-full mx-auto px-3.5 sm:px-8 py-3 sm:py-8">
 
     <!-- ====================================================
-         VISTA 0: PORTADA
+         VISTA 0: PORTADA (+ TARJETA DE DESAFÍO COMPARTIDO POR LINK)
          ==================================================== -->
     <section id="viewHome" class="step-transition max-w-3xl mx-auto w-full text-center space-y-5 sm:space-y-8 py-1 sm:py-4">
+
+      <!-- INCOMING SHARED CHALLENGE BANNER (Visible when opened via WhatsApp / Shared Link ?r=...) -->
+      <div id="incomingChallengeCard" class="hidden bg-surface border-2 border-forest rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-left shadow-md space-y-4">
+        <div class="flex items-start justify-between gap-3">
+          <div class="space-y-1">
+            <span id="challengeBadgeText" class="inline-block text-[10px] font-semibold uppercase tracking-[0.15em] bg-forest text-white px-2.5 py-0.5 rounded-full">
+              Ranking compartido contigo
+            </span>
+            <h2 id="challengeHeadline" class="font-serif text-2xl sm:text-3xl text-ink leading-tight">
+              Mirá el ranking que armaron. ¿Hacés el tuyo con las mismas aves?
+            </h2>
+            <p id="challengeCategorySub" class="text-xs font-medium text-forest"></p>
+          </div>
+          <button onclick="app.dismissChallengeBanner()" class="text-xs text-muted hover:text-ink px-2.5 py-1 rounded-full border border-line shrink-0">
+            ×
+          </button>
+        </div>
+
+        <!-- Mini Top 3 of the friend who sent the link -->
+        <div class="space-y-1.5">
+          <div id="challengeTheirTopLabel" class="text-[11px] uppercase tracking-wider text-muted">Su Podio (Top 3):</div>
+          <div id="challengeTop3Preview" class="grid grid-cols-3 gap-2"></div>
+        </div>
+
+        <!-- Play exact same birds CTA -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1">
+          <button id="btnAcceptChallenge" onclick="app.startSharedChallengeGame()"
+            class="flex-1 py-3.5 px-5 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition shadow-sm text-center">
+            Jugar con estas mismas aves y comparar →
+          </button>
+          <button id="btnToggleFullChallengeList" onclick="app.toggleFullChallengeList()"
+            class="py-2.5 px-4 rounded-full bg-canvas border border-line hover:border-ink text-ink text-xs font-medium transition text-center">
+            Ver su lista completa
+          </button>
+        </div>
+
+        <!-- Expandable full list of the friend's ranking -->
+        <div id="challengeFullListWrap" class="hidden pt-3 border-t border-line grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs"></div>
+      </div>
+
+      <!-- Standard Home Hero -->
       <div class="space-y-2.5 sm:space-y-4">
         <p id="homeKicker" class="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-muted">Más de 11.000 especies del mundo</p>
         <h1 id="homeTitle" class="font-serif text-4xl sm:text-6xl text-ink leading-[1.06] tracking-tight">
@@ -332,7 +372,6 @@
       </div>
 
       <div class="bg-surface border border-line rounded-2xl p-4 sm:p-6 shadow-sm space-y-5 relative overflow-hidden">
-        <!-- Loading Overlay while fetching species -->
         <div id="step3LoadingOverlay" class="hidden absolute inset-0 z-20 bg-surface/95 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-3">
           <div class="w-9 h-9 rounded-full border-line border-t-forest animate-spin" style="border-width: 3px;"></div>
           <div class="space-y-1">
@@ -341,7 +380,6 @@
           </div>
         </div>
 
-        <!-- Found species banner -->
         <div class="flex items-center justify-between border-b border-line pb-4">
           <div>
             <div id="step3CatalogLabel" class="text-[11px] uppercase tracking-wider text-muted">Catálogo disponible</div>
@@ -353,7 +391,6 @@
           <div id="step3MiniPhotos" class="flex -space-x-2.5 overflow-hidden py-1"></div>
         </div>
 
-        <!-- How to pick them: Most Famous vs Random -->
         <div class="space-y-2">
           <label id="step3ModeLabel" class="block text-[11px] uppercase tracking-wider text-muted">1. ¿Cuáles entran al juego?</label>
           <div class="grid grid-cols-2 gap-2.5">
@@ -370,7 +407,6 @@
           </div>
         </div>
 
-        <!-- How many birds to rank (Default 16) -->
         <div class="space-y-3.5 pt-3 border-t border-line">
           <div class="flex items-center justify-between">
             <label id="step3CountLabel" for="limitSlider" class="text-[11px] uppercase tracking-wider text-muted">2. Cantidad de aves (16 por defecto)</label>
@@ -394,7 +430,6 @@
             </button>
           </div>
 
-          <!-- Effort & Clicks Callout Box -->
           <div id="effortCalloutBox" class="rounded-xl bg-forest-soft border border-forest/25 p-3.5 flex items-center justify-between gap-3">
             <div class="space-y-0.5">
               <div class="flex items-center gap-2">
@@ -447,7 +482,6 @@
          ==================================================== -->
     <section id="viewBattle" class="hidden step-transition w-full space-y-2 sm:space-y-4">
       
-      <!-- Top Bar: Active Category + Progress + Question -->
       <div class="max-w-3xl mx-auto space-y-1 text-center">
         <div class="flex flex-wrap items-center justify-center gap-2">
           <span id="battleCategoryBadge" class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-forest-soft text-forest border border-forest/20 truncate max-w-[235px] sm:max-w-md">
@@ -467,7 +501,6 @@
         </div>
       </div>
 
-      <!-- Two Contender Cards: More square on mobile + Ambient Blur + Object-Contain so NO bird is ever cropped -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-6">
         
         <!-- LEFT / TOP BIRD -->
@@ -478,10 +511,8 @@
               <div class="w-6 h-6 rounded-full border-stone-400 border-t-forest animate-spin" style="border-width: 2.5px;"></div>
               <span class="text-[10px] font-medium text-muted">Cargando foto...</span>
             </div>
-            <!-- Ambient blurred background so there are never empty bars -->
             <img id="imgLeftBg" src="" alt="" aria-hidden="true"
               class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
-            <!-- Complete uncropped bird photo -->
             <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.handleImgFallback(this, 'left')"
               class="relative z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
           </div>
@@ -504,10 +535,8 @@
               <div class="w-6 h-6 rounded-full border-stone-400 border-t-forest animate-spin" style="border-width: 2.5px;"></div>
               <span class="text-[10px] font-medium text-muted">Cargando foto...</span>
             </div>
-            <!-- Ambient blurred background -->
             <img id="imgRightBg" src="" alt="" aria-hidden="true"
               class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
-            <!-- Complete uncropped bird photo -->
             <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.handleImgFallback(this, 'right')"
               class="relative z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
           </div>
@@ -531,7 +560,7 @@
 
 
     <!-- ====================================================
-         VISTA 5: RESULTADOS (COMPACTO ARRIBA + FOTOS INMEDIATAS + BOTÓN DISCRETO DE EXPORTAR)
+         VISTA 5: RESULTADOS (COMPACTO ARRIBA + COMPARACIÓN CON AMIGO + FOTOS INMEDIATAS)
          ==================================================== -->
     <section id="viewResults" class="hidden step-transition w-full space-y-5 sm:space-y-8">
 
@@ -559,6 +588,19 @@
         </div>
       </div>
 
+      <!-- SIDE-BY-SIDE COMPARISON BOX (Visible when the user played a shared challenge link!) -->
+      <div id="challengeComparisonBox" class="hidden bg-forest-soft border border-forest/30 rounded-2xl p-4 sm:p-5 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span id="compBadgeLabel" class="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-forest text-white">
+              Comparación de rankings
+            </span>
+            <h3 id="compHeadlineText" class="font-serif text-2xl text-ink mt-1"></h3>
+          </div>
+        </div>
+        <div id="compPodiumCompareGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1"></div>
+      </div>
+
       <!-- TOP 3 PODIUM (FULL UNCROPPED PHOTOS + FUN FACT ON #1) -->
       <div class="space-y-2.5">
         <div id="resultsPodiumLabel" class="text-[11px] uppercase tracking-wider text-muted">Tu Podio (Top 3)</div>
@@ -576,7 +618,7 @@
   </main>
 
   <!-- ====================================================
-       MODAL / SHEET DE EXPORTACIÓN (NATIVO EN CELULAR + VISTA PREVIA CON DATO CURIOSO)
+       MODAL / SHEET DE EXPORTACIÓN (WHATSAPP LINK EMBEBIDO + TARJETA NATIVA)
        ==================================================== -->
   <div id="exportModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 overflow-y-auto">
     <div class="bg-canvas border-t sm:border border-line rounded-t-3xl sm:rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl max-h-[92dvh] flex flex-col">
@@ -585,7 +627,7 @@
       <div class="px-5 sm:px-7 py-3.5 border-b border-line flex items-center justify-between bg-surface shrink-0">
         <div>
           <h3 id="modalExportTitle" class="font-serif text-2xl text-ink leading-none">Exportar resultado</h3>
-          <p id="modalExportSub" class="text-[11px] text-muted mt-0.5">Comparte directo en Instagram, WhatsApp o guarda tu lámina</p>
+          <p id="modalExportSub" class="text-[11px] text-muted mt-0.5">Comparte tu tarjeta o envía el link para que otro juegue con tus mismas aves</p>
         </div>
         <button id="btnCloseExportModal" onclick="app.closeExportModal()" class="text-xs font-medium text-muted hover:text-ink px-3 py-1.5 rounded-full border border-line bg-canvas">
           Cerrar
@@ -595,27 +637,32 @@
       <!-- Scrollable Modal Body -->
       <div class="p-4 sm:p-6 overflow-y-auto grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
         
-        <!-- Left Column: Native Share & Controls -->
-        <div class="md:col-span-6 space-y-4">
-          <!-- Primary Native Mobile Share Button -->
+        <!-- Left Column: WhatsApp Challenge Link + Native Share & Controls -->
+        <div class="md:col-span-6 space-y-3.5">
+          <!-- Primary Actions: 1. Native Share (Image + Challenge Link) & 2. Direct WhatsApp Challenge -->
           <div class="space-y-2">
             <button id="btnNativeExport" onclick="app.shareResultsNative()"
               class="w-full py-3.5 px-5 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition shadow-sm flex items-center justify-center gap-2 disabled:opacity-60">
               <span id="btnNativeExportSpinner" class="hidden w-4 h-4 rounded-full border-2 border-white/40 border-t-white animate-spin"></span>
-              <span id="btnNativeExportText">Compartir imagen (Instagram, WhatsApp...)</span>
+              <span id="btnNativeExportText">Compartir tarjeta + link de desafío</span>
             </button>
 
-            <div class="grid grid-cols-3 gap-2">
+            <button id="btnWhatsAppChallenge" onclick="app.shareChallengeOnWhatsApp()"
+              class="w-full py-3 px-5 rounded-full border-2 border-forest bg-forest-soft hover:bg-forest hover:text-white text-forest text-xs sm:text-sm font-medium transition flex items-center justify-center gap-2">
+              <span id="btnWhatsAppChallengeText">Enviar por WhatsApp ("Mirá el ranking que armé...")</span>
+            </button>
+
+            <div class="grid grid-cols-3 gap-1.5 pt-0.5">
+              <button id="btnCopyChallengeLink" onclick="app.copyChallengeMessage()"
+                class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
+                Copiar link desafío
+              </button>
               <button id="btnQuickCopyImg" onclick="app.copyImageToClipboard()"
-                class="py-2.5 px-2.5 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
+                class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
                 Copiar imagen
               </button>
-              <button id="btnCopyText" onclick="app.copyTextRanking()"
-                class="py-2.5 px-2.5 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
-                Copiar texto
-              </button>
               <button id="btnDownloadPng" onclick="app.downloadPosterImage()"
-                class="py-2.5 px-2.5 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
+                class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
                 Guardar PNG
               </button>
             </div>
@@ -674,7 +721,7 @@
 
         <!-- Right Column: Live Card Preview (Uncropped Top #1 + Fun Fact) -->
         <div class="md:col-span-6 flex flex-col items-center justify-center bg-stone-200/75 rounded-2xl p-3 border border-line">
-          <canvas id="posterCanvas" width="1080" height="1920" class="w-full max-w-[230px] sm:max-w-[260px] h-auto rounded-xl shadow-md bg-white"></canvas>
+          <canvas id="posterCanvas" width="1080" height="1920" class="w-full max-w-[225px] sm:max-w-[255px] h-auto rounded-xl shadow-md bg-white"></canvas>
         </div>
 
       </div>
@@ -696,9 +743,6 @@
        APPLICATION LOGIC
        ==================================================== -->
   <script>
-    /**
-     * DICCIONARIO DE IDIOMAS ESCALABLE (ES Rioplatense/Latam & EN, listo para sumar PT, FR, IT...)
-     */
     const I18N = {
       es: {
         brandSub: "El ranking ornitológico",
@@ -772,12 +816,13 @@
         rankBadgePrefix: "Puesto #",
         funFactLabel: "Dato curioso",
         modalExportTitle: "Exportar resultado",
-        modalExportSub: "Comparte directo en Instagram, WhatsApp o guarda tu lámina",
+        modalExportSub: "Comparte tu tarjeta o envía el link para que otro juegue con tus mismas aves",
         closeBtn: "Cerrar",
-        shareNativeBtn: "Compartir imagen (Instagram, WhatsApp...)",
+        shareNativeBtn: "Compartir tarjeta + link de desafío",
+        whatsappChallengeBtn: "Enviar por WhatsApp (\"Mirá el ranking que armé...\")",
+        copyChallengeBtn: "Copiar link desafío",
         preparingCard: "Preparando tarjeta...",
         copyImgBtn: "Copiar imagen",
-        copyTxtBtn: "Copiar texto",
         savePngBtn: "Guardar PNG",
         modalFormatLabel: "Formato",
         modalThemeLabel: "Acabado",
@@ -862,12 +907,13 @@
         rankBadgePrefix: "Rank #",
         funFactLabel: "Fun fact",
         modalExportTitle: "Export result",
-        modalExportSub: "Share directly to Instagram, WhatsApp, or save your card",
+        modalExportSub: "Share your card or send the link so friends play with your exact same birds",
         closeBtn: "Close",
-        shareNativeBtn: "Share image (Instagram, WhatsApp...)",
+        shareNativeBtn: "Share card + challenge link",
+        whatsappChallengeBtn: "Send via WhatsApp (\"Check out the ranking I made...\")",
+        copyChallengeBtn: "Copy challenge link",
         preparingCard: "Preparing card...",
         copyImgBtn: "Copy image",
-        copyTxtBtn: "Copy text",
         savePngBtn: "Save PNG",
         modalFormatLabel: "Format",
         modalThemeLabel: "Theme",
@@ -882,9 +928,6 @@
       }
     };
 
-    /**
-     * NOMBRES RIOPLATENSES / LATAM NATURALES (Evita traducciones raras como "Avefría tero" o "Tecolote llanero")
-     */
     const RIOPLATENSE_NAME_OVERRIDES = {
       "Ramphastos toco": "Tucán Toco",
       "Ara macao": "Guacamayo Rojo",
@@ -939,9 +982,6 @@
       "Paradisaea apoda": "Ave del Paraíso"
     };
 
-    /**
-     * DATOS CURIOSOS (FUN FACTS) CURADOS PARA EL TOP #1 (con fallback en vivo a Wikipedia API para las +11.000 especies)
-     */
     const CURATED_FUN_FACTS = {
       "Ramphastos toco": {
         es: "Su enorme pico representa un tercio de su cuerpo, pero es tan liviano como una esponja ósea y le sirve como radiador térmico para regular su temperatura.",
@@ -1037,7 +1077,6 @@
       baseUrl: "https://api.inaturalist.org/v1",
       rootAvesId: 3,
 
-      // Las 16 aves más icónicas, coloridas y espectaculares del planeta (exactamente 16 joyas visuales)
       curatedWorldIconsIds: [
         18793,   // 1. Tucán Toco (Ramphastos toco)
         19022,   // 2. Guacamayo Rojo (Ara macao)
@@ -1110,7 +1149,7 @@
 
     const app = {
       state: {
-        lang: "es", // 'es' (Rioplatense/Latam) or 'en' (English)
+        lang: "es",
         places: new Map(),
         guilds: new Set(),
         colors: new Set(),
@@ -1124,6 +1163,12 @@
         placeSearchTimer: null,
         customTextTimer: null,
 
+        // Shared Challenge State (embedded in URL ?r=id1.id2.id3&c=...&a=...)
+        incomingChallengeBirds: [],     // Ordered ranking of the friend who shared the link
+        incomingChallengeCategory: "",  // Category string from the friend's link
+        incomingChallengeAuthor: "",    // Optional name of the friend
+        playingChallengeMode: false,    // True when currently playing the friend's exact bird set
+
         // Game state
         currentLeftBird: null,
         currentRightBird: null,
@@ -1136,7 +1181,6 @@
         posterFormat: "story",
         imageCache: new Map(),
 
-        // Pre-rendered share blob & file so iOS/Android navigator.share triggers immediately on tap
         preparedShareBlob: null,
         preparedShareFile: null,
         isPreparingShare: false
@@ -1147,7 +1191,7 @@
         return dict[key] || I18N.es[key] || key;
       },
 
-      init() {
+      async init() {
         this.applyLanguageToStaticDOM();
         this.renderStep1Places();
         this.renderStep2Traits();
@@ -1159,6 +1203,185 @@
           if (drop && !drop.contains(e.target) && e.target !== inp) {
             drop.classList.add("hidden");
           }
+        });
+
+        // Check if URL contains an embedded challenge (?r=18793.19022...)
+        await this.checkIncomingChallengeUrl();
+      },
+
+      /**
+       * PARSES EMBEDDED URL CHALLENGE (?r=id1.id2.id3...&c=Category&a=Author&l=es)
+       * Allows playing the exact same 16 random/custom birds without any backend!
+       */
+      async checkIncomingChallengeUrl() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const rawIds = params.get("r");
+          if (!rawIds) return;
+
+          const idList = rawIds
+            .split(".")
+            .map(s => s.trim())
+            .filter(s => /^\d+$/.test(s))
+            .slice(0, 64);
+
+          if (idList.length < 2) return;
+
+          const catParam = params.get("c") || "";
+          const authParam = params.get("a") || "";
+          const langParam = params.get("l");
+          if (langParam === "en" || langParam === "es") {
+            await this.setLanguage(langParam);
+          }
+
+          const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${idList.join(",")}&per_page=64&locale=es&preferred_place_id=7259`);
+          if (!res.ok) return;
+          const data = await res.json();
+          const byId = new Map();
+          (data.results || []).forEach(t => {
+            const formatted = this.formatBird(t, t.observations_count);
+            if (formatted && formatted.imagen) {
+              byId.set(String(t.id), formatted);
+            }
+          });
+
+          // Preserve the exact #1..#N order of the friend's ranking
+          const ordered = idList.map(id => byId.get(id)).filter(Boolean);
+          if (ordered.length < 2) return;
+
+          this.state.incomingChallengeBirds = ordered;
+          this.state.incomingChallengeCategory = catParam || `${ordered.length} ${this.t("birdsUnit")}`;
+          this.state.incomingChallengeAuthor = authParam;
+
+          this.renderIncomingChallengeBanner();
+        } catch (e) {
+          console.error(e);
+        }
+      },
+
+      renderIncomingChallengeBanner() {
+        const birds = this.state.incomingChallengeBirds;
+        if (!birds || birds.length < 2) return;
+
+        const isEn = this.state.lang === "en";
+        const card = document.getElementById("incomingChallengeCard");
+        const author = this.state.incomingChallengeAuthor;
+        const cat = this.state.incomingChallengeCategory;
+
+        document.getElementById("challengeBadgeText").textContent = isEn
+          ? `Shared challenge · Exact same ${birds.length} birds`
+          : `Desafío recibido · Las mismas ${birds.length} aves`;
+
+        document.getElementById("challengeHeadline").textContent = author
+          ? (isEn ? `Check out ${author}'s ranking. Play with the same birds and compare!` : `Mirá el ranking que armó ${author}. ¿Hacés el tuyo con las mismas aves?`)
+          : (isEn ? `Check out this bird ranking. Play with the exact same birds and compare!` : `Mirá el ranking que armaron. ¿Hacés el tuyo con las mismas aves y los comparamos?`);
+
+        document.getElementById("challengeCategorySub").textContent = cat;
+        document.getElementById("challengeTheirTopLabel").textContent = isEn ? "Their Podium (Top 3):" : "Su Podio (Top 3):";
+        document.getElementById("btnAcceptChallenge").textContent = isEn
+          ? `Play with these exact ${birds.length} birds & compare →`
+          : `Jugar con estas mismas ${birds.length} aves y comparar →`;
+        document.getElementById("btnToggleFullChallengeList").textContent = isEn
+          ? "See their full ranking"
+          : "Ver su ranking completo";
+
+        const top3Box = document.getElementById("challengeTop3Preview");
+        top3Box.innerHTML = "";
+        birds.slice(0, 3).forEach((b, i) => {
+          const item = document.createElement("div");
+          item.className = "bg-canvas border border-line rounded-xl overflow-hidden flex flex-col";
+          item.innerHTML = `
+            <div class="relative h-20 sm:h-24 w-full bg-stone-800 overflow-hidden">
+              <img src="${b.imagen}" alt="" class="absolute inset-0 w-full h-full object-cover blur-md opacity-60 scale-110" />
+              <img src="${b.imagen}" alt="${b.nombre}" class="relative z-10 w-full h-full object-contain object-center" />
+              <span class="absolute top-1.5 left-1.5 z-20 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-forest text-white">#${i + 1}</span>
+            </div>
+            <div class="p-2">
+              <div class="text-xs font-semibold text-ink truncate">${b.nombre}</div>
+            </div>
+          `;
+          top3Box.appendChild(item);
+        });
+
+        const fullWrap = document.getElementById("challengeFullListWrap");
+        fullWrap.innerHTML = "";
+        birds.forEach((b, i) => {
+          const row = document.createElement("div");
+          row.className = "flex items-center gap-2 p-1.5 rounded-lg bg-canvas border border-line";
+          row.innerHTML = `
+            <span class="font-serif text-sm text-muted w-5 text-center shrink-0">#${i + 1}</span>
+            <img src="${b.imagen}" alt="${b.nombre}" class="w-7 h-7 rounded object-cover shrink-0 bg-stone-200" />
+            <span class="text-[11px] font-medium text-ink truncate">${b.nombre}</span>
+          `;
+          fullWrap.appendChild(row);
+        });
+
+        card.classList.remove("hidden");
+      },
+
+      toggleFullChallengeList() {
+        const wrap = document.getElementById("challengeFullListWrap");
+        wrap.classList.toggle("hidden");
+      },
+
+      dismissChallengeBanner() {
+        document.getElementById("incomingChallengeCard").classList.add("hidden");
+      },
+
+      async startSharedChallengeGame() {
+        if (!this.state.incomingChallengeBirds || this.state.incomingChallengeBirds.length < 2) return;
+        this.state.playingChallengeMode = true;
+        this.state.candidatePool = [...this.state.incomingChallengeBirds];
+        this.state.limit = this.state.incomingChallengeBirds.length;
+        this.state.samplingMode = "random"; // Shuffle the friend's birds for the 1v1 duels
+        await this.startBattleGame(true);
+      },
+
+      /**
+       * BUILDS THE EMBEDDED CHALLENGE URL & CASUAL WHATSAPP COPYWRITING
+       */
+      buildShareChallengeUrl() {
+        const base = window.location.origin + window.location.pathname;
+        const ranking = this.state.finalRanking || [];
+        if (ranking.length === 0) return base;
+
+        const ids = ranking.map(b => b.id).join(".");
+        const params = new URLSearchParams();
+        params.set("r", ids);
+        params.set("c", this.getHumanSummary());
+        const author = (document.getElementById("posterAuthorInput").value || "").trim();
+        if (author) params.set("a", author);
+        if (this.state.lang === "en") params.set("l", "en");
+
+        return `${base}?${params.toString()}`;
+      },
+
+      buildWhatsAppChallengeText() {
+        const url = this.buildShareChallengeUrl();
+        const ranking = this.state.finalRanking || [];
+        const summary = this.getHumanSummary();
+        const top3 = ranking.slice(0, 3).map((b, i) => `${i + 1}. ${b.nombre}`).join("\n");
+
+        if (this.state.lang === "en") {
+          return `Look at the bird ranking I just put together (${summary}):\n${top3}\n\nMake yours with the exact same birds and let's compare:\n${url}`;
+        }
+        return `Mirá el ranking de aves que armé (${summary}):\n${top3}\n\nHacé el tuyo con estas mismas aves y comparémoslo:\n${url}`;
+      },
+
+      shareChallengeOnWhatsApp() {
+        const msg = this.buildWhatsAppChallengeText();
+        const waUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+        window.open(waUrl, "_blank", "noopener");
+      },
+
+      copyChallengeMessage() {
+        const msg = this.buildWhatsAppChallengeText();
+        navigator.clipboard.writeText(msg).then(() => {
+          this.showShareFeedback(
+            this.state.lang === "en"
+              ? "Challenge message & link copied! Paste it on WhatsApp."
+              : "Mensaje y link con tus mismas aves copiado para pegar en WhatsApp."
+          );
         });
       },
 
@@ -1179,7 +1402,6 @@
           btnEs.className = "px-2 py-0.5 rounded-full text-muted hover:text-ink transition";
         }
 
-        // Refresh localized labels of selected places
         this.state.places.forEach((_, id) => {
           const p = CATALOG_DATA.places.find(x => x.id === id);
           if (p) {
@@ -1191,17 +1413,20 @@
         this.renderStep1Places();
         this.renderStep2Traits();
 
-        // Update active bird names in pool & active views immediately
         const updateBirdDisplayName = (b) => {
           if (!b) return;
           b.nombre = this.getLocalizedBirdName(b);
         };
         this.state.candidatePool.forEach(updateBirdDisplayName);
         this.state.finalRanking.forEach(updateBirdDisplayName);
+        this.state.incomingChallengeBirds.forEach(updateBirdDisplayName);
         updateBirdDisplayName(this.state.currentLeftBird);
         updateBirdDisplayName(this.state.currentRightBird);
 
-        // If on Battle screen, update displayed names & category badge
+        if (this.state.incomingChallengeBirds.length >= 2) {
+          this.renderIncomingChallengeBanner();
+        }
+
         if (!document.getElementById("viewBattle").classList.contains("hidden")) {
           document.getElementById("battleCategoryBadge").textContent = this.getHumanSummary();
           if (this.state.currentLeftBird) {
@@ -1212,13 +1437,11 @@
           }
         }
 
-        // If on Step 3, update summary & effort box
         if (!document.getElementById("viewStepSize").classList.contains("hidden")) {
           document.getElementById("step3FilterSummary").textContent = this.getHumanSummary();
           this.onLimitChange(this.state.limit);
         }
 
-        // If on Results screen, re-render podium & fun fact in new language
         if (!document.getElementById("viewResults").classList.contains("hidden") && this.state.finalRanking.length > 0) {
           const titleInp = document.getElementById("posterTitleInput");
           if (titleInp.value === I18N.es.defaultPosterTitle || titleInp.value === I18N.en.defaultPosterTitle) {
@@ -1234,7 +1457,6 @@
           const en = bird.nombreIngles || bird.nombreEs || bird.nombreCientifico || "Bird";
           return en.charAt(0).toUpperCase() + en.slice(1);
         }
-        // Spanish (Rioplatense/Latam priority)
         if (RIOPLATENSE_NAME_OVERRIDES[bird.nombreCientifico]) {
           return RIOPLATENSE_NAME_OVERRIDES[bird.nombreCientifico];
         }
@@ -1311,8 +1533,9 @@
           modalExportSub: "modalExportSub",
           btnCloseExportModal: "closeBtn",
           btnNativeExportText: "shareNativeBtn",
+          btnWhatsAppChallengeText: "whatsappChallengeBtn",
+          btnCopyChallengeLink: "copyChallengeBtn",
           btnQuickCopyImg: "copyImgBtn",
-          btnCopyText: "copyTxtBtn",
           btnDownloadPng: "savePngBtn",
           modalFormatLabel: "modalFormatLabel",
           modalThemeLabel: "modalThemeLabel",
@@ -1377,6 +1600,7 @@
       },
 
       startGuidedSetup() {
+        this.state.playingChallengeMode = false;
         this.state.useCuratedWorldIcons = false;
         this.state.limit = 16;
         this.renderStep1Places();
@@ -1384,6 +1608,7 @@
       },
 
       async quickStartWorldTop() {
+        this.state.playingChallengeMode = false;
         this.state.places.clear();
         this.state.guilds.clear();
         this.state.colors.clear();
@@ -1395,6 +1620,7 @@
       },
 
       async launchSurpriseMe() {
+        this.state.playingChallengeMode = false;
         this.state.places.clear();
         this.state.guilds.clear();
         this.state.colors.clear();
@@ -1454,6 +1680,7 @@
       },
 
       async launchPreset(presetName) {
+        this.state.playingChallengeMode = false;
         this.state.places.clear();
         this.state.guilds.clear();
         this.state.colors.clear();
@@ -1481,9 +1708,6 @@
         await this.goToStep3();
       },
 
-      /**
-       * STEP 1: PLACES
-       */
       renderStep1Places() {
         const hasPlaces = this.state.places.size > 0;
         const btnAll = document.getElementById("btnWorldAll");
@@ -1579,9 +1803,6 @@
         this.goToView("viewStepTraits");
       },
 
-      /**
-       * STEP 2: TRAITS & COLORS
-       */
       renderStep2Traits() {
         const isEn = this.state.lang === "en";
         const hasAny = this.state.guilds.size > 0 || this.state.colors.size > 0 || this.state.keyword.trim().length > 0;
@@ -1653,9 +1874,6 @@
         this.renderStep2Traits();
       },
 
-      /**
-       * STEP 3: FETCH MATCHING BIRDS & DEFAULT TO 16
-       */
       async goToStep3(autoStart = false) {
         this.state.limit = 16;
 
@@ -1686,7 +1904,6 @@
             this.state.colors.size === 0 &&
             !this.state.keyword.trim();
 
-          // Always pass preferred_place_id=7259 (Uruguay/Rioplatense) with locale=es so iNaturalist returns Rioplatense names ("Tero", "Lechucita de campo", "Hornero", "Benteveo")
           const localeParams = "locale=es&preferred_place_id=7259";
 
           if (this.state.useCuratedWorldIcons || (isUnfilteredWorld && this.state.samplingMode === "popular")) {
@@ -1909,6 +2126,9 @@
       },
 
       getHumanSummary() {
+        if (this.state.playingChallengeMode && this.state.incomingChallengeCategory) {
+          return this.state.incomingChallengeCategory;
+        }
         const isEn = this.state.lang === "en";
         if (this.state.useCuratedWorldIcons) {
           return this.t("world16Summary");
@@ -1939,13 +2159,16 @@
       /**
        * VIEW 4: THE 1v1 MERGE SORT GAME
        */
-      async startBattleGame() {
+      async startBattleGame(fromChallenge = false) {
+        if (!fromChallenge) {
+          this.state.playingChallengeMode = false;
+        }
         if (this.state.candidatePool.length < 2) return;
 
         let pool = [...this.state.candidatePool];
         const n = this.state.limit;
 
-        if (this.state.samplingMode === "popular" && !this.state.useCuratedWorldIcons) {
+        if (!fromChallenge && this.state.samplingMode === "popular" && !this.state.useCuratedWorldIcons) {
           pool.sort((a, b) => (b.popularidad || 0) - (a.popularidad || 0));
           pool = pool.slice(0, n);
           this.shuffle(pool);
@@ -2081,9 +2304,6 @@
         imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
       },
 
-      /**
-       * OBTIENE UN DATO CURIOSO / FUN FACT DEL AVE TOP #1 (Curado + Wikipedia REST API en vivo)
-       */
       async resolveTop1FunFact(bird) {
         if (!bird) return "";
         const lang = this.state.lang === "en" ? "en" : "es";
@@ -2092,7 +2312,6 @@
           return curated[lang];
         }
 
-        // Live Wikipedia REST API lookup by scientific name
         try {
           const wikiSlug = encodeURIComponent(bird.nombreCientifico.replace(/\s+/g, "_"));
           const res = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${wikiSlug}`);
@@ -2105,7 +2324,6 @@
                 .split(/(?<=\.)\s+/)
                 .map(s => s.trim())
                 .filter(s => s.length > 35);
-              // Prefer second sentence if it has behavioral/habitat details, otherwise first sentence
               const chosen = sentences[1] || sentences[0] || data.extract;
               return chosen.length > 175 ? chosen.slice(0, 172).trim() + "..." : chosen;
             }
@@ -2118,7 +2336,7 @@
       },
 
       /**
-       * VIEW 5: COMPACT RESULTS HEADER + TOP 3 UNCROPPED PHOTOS + FUN FACT
+       * VIEW 5: RESULTS + CHALLENGE COMPARISON BOX + PODIUM
        */
       async renderResultsView() {
         this.goToView("viewResults");
@@ -2127,7 +2345,15 @@
         document.getElementById("resultsFilterCaption").textContent = summary;
         document.getElementById("posterSubInput").value = summary;
 
-        // Fetch Top #1 Fun Fact
+        // Update browser URL silently so even copying the address bar shares this exact ranking & bird set!
+        try {
+          const shareUrl = this.buildShareChallengeUrl();
+          window.history.replaceState({}, "", shareUrl);
+        } catch (_) {}
+
+        // Render Comparison Box if the user played a shared challenge
+        this.renderChallengeComparisonBox();
+
         this.state.top1FunFact = await this.resolveTop1FunFact(ranking[0]);
 
         const top3Grid = document.getElementById("resultsTop3Grid");
@@ -2167,7 +2393,6 @@
           top3Grid.appendChild(card);
         });
 
-        // Remaining (#4 onwards)
         const rest = ranking.slice(3);
         const restSection = document.getElementById("resultsRestSection");
         const restGrid = document.getElementById("resultsRestGrid");
@@ -2197,8 +2422,57 @@
           });
         }
 
-        // Pre-render the export image in background so native mobile share is instant when the user opens the export sheet
         this.prepareShareableImage();
+      },
+
+      renderChallengeComparisonBox() {
+        const box = document.getElementById("challengeComparisonBox");
+        const theirs = this.state.incomingChallengeBirds;
+        const mine = this.state.finalRanking;
+
+        if (!this.state.playingChallengeMode || !theirs || theirs.length < 2 || !mine || mine.length < 2) {
+          box.classList.add("hidden");
+          return;
+        }
+
+        const isEn = this.state.lang === "en";
+        const n = mine.length;
+        const theirPos = new Map();
+        theirs.forEach((b, idx) => theirPos.set(b.id, idx));
+
+        let totalDiff = 0;
+        mine.forEach((b, myIdx) => {
+          const tIdx = theirPos.has(b.id) ? theirPos.get(b.id) : myIdx;
+          totalDiff += Math.abs(myIdx - tIdx);
+        });
+        const maxDiff = Math.max(1, Math.floor((n * n) / 2));
+        const matchPct = Math.max(5, Math.min(100, Math.round((1 - totalDiff / maxDiff) * 100)));
+
+        const sameTop1 = mine[0] && theirs[0] && mine[0].id === theirs[0].id;
+        const headline = sameTop1
+          ? (isEn ? `${matchPct}% match — You both chose ${mine[0].nombre} as #1!` : `${matchPct}% de coincidencia — ¡Los dos eligieron a ${mine[0].nombre} en el #1!`)
+          : (isEn ? `${matchPct}% taste match with the ranking sent to you` : `${matchPct}% de coincidencia con el ranking que te enviaron`);
+
+        document.getElementById("compBadgeLabel").textContent = isEn ? "Ranking Comparison" : "Comparación de rankings";
+        document.getElementById("compHeadlineText").textContent = headline;
+
+        const grid = document.getElementById("compPodiumCompareGrid");
+        const friendLabel = this.state.incomingChallengeAuthor
+          ? (isEn ? `${this.state.incomingChallengeAuthor}'s Top 3` : `Top 3 de ${this.state.incomingChallengeAuthor}`)
+          : (isEn ? "Their Top 3" : "El Top 3 que te enviaron");
+
+        grid.innerHTML = `
+          <div class="bg-surface border border-line rounded-xl p-3 space-y-1.5">
+            <div class="text-[10px] uppercase tracking-wider font-semibold text-forest">${isEn ? "Your Top 3" : "Tu Top 3"}</div>
+            ${mine.slice(0, 3).map((b, i) => `<div class="text-xs text-ink truncate"><span class="font-semibold">#${i + 1}</span> ${b.nombre}</div>`).join("")}
+          </div>
+          <div class="bg-surface border border-line rounded-xl p-3 space-y-1.5">
+            <div class="text-[10px] uppercase tracking-wider font-semibold text-muted">${friendLabel}</div>
+            ${theirs.slice(0, 3).map((b, i) => `<div class="text-xs text-ink truncate"><span class="font-semibold">#${i + 1}</span> ${b.nombre}</div>`).join("")}
+          </div>
+        `;
+
+        box.classList.remove("hidden");
       },
 
       openExportModal() {
@@ -2219,7 +2493,7 @@
         clearTimeout(this.state.toastTimer);
         this.state.toastTimer = setTimeout(() => {
           toast.classList.add("hidden");
-        }, 3200);
+        }, 3500);
       },
 
       onCustomTextChange() {
@@ -2271,44 +2545,49 @@
       },
 
       /**
-       * NATIVE MOBILE SHARE (iOS Safari / Android Chrome Share Sheet: Instagram, WhatsApp, Copy Image, Save to Photos)
+       * NATIVE MOBILE SHARE (Shares BOTH the PNG Card + the Challenge Text & Embedded Link!)
        */
       async shareResultsNative() {
-        if (this.state.preparedShareFile && navigator.canShare && navigator.canShare({ files: [this.state.preparedShareFile] })) {
+        const challengeText = this.buildWhatsAppChallengeText();
+
+        const attemptNativeShare = async (file) => {
+          if (!file || !navigator.canShare || !navigator.canShare({ files: [file] })) return false;
+          // Try sharing image + WhatsApp challenge text/link together
           try {
             await navigator.share({
-              files: [this.state.preparedShareFile]
+              files: [file],
+              text: challengeText
             });
-            return;
+            return true;
           } catch (err) {
-            if (err && err.name === "AbortError") return;
+            if (err && err.name === "AbortError") return true;
+            // Fallback to pure file share if browser doesn't allow combined files + text
+            try {
+              await navigator.share({ files: [file] });
+              return true;
+            } catch (err2) {
+              if (err2 && err2.name === "AbortError") return true;
+              return false;
+            }
           }
+        };
+
+        if (this.state.preparedShareFile) {
+          const ok = await attemptNativeShare(this.state.preparedShareFile);
+          if (ok) return;
         }
 
         if (this.state.isPreparingShare || !this.state.preparedShareFile) {
           await this.prepareShareableImage();
-          if (this.state.preparedShareFile && navigator.canShare && navigator.canShare({ files: [this.state.preparedShareFile] })) {
-            try {
-              await navigator.share({
-                files: [this.state.preparedShareFile]
-              });
-              return;
-            } catch (err) {
-              if (err && err.name === "AbortError") return;
-              this.showShareFeedback(
-                this.state.lang === "en"
-                  ? "Card ready. Tap 'Share image' once more to open your phone's menu."
-                  : "Tarjeta lista. Toca 'Compartir imagen' una vez más para abrir el menú de tu celular."
-              );
-              return;
-            }
+          if (this.state.preparedShareFile) {
+            const ok = await attemptNativeShare(this.state.preparedShareFile);
+            if (ok) return;
           }
         }
 
+        // If native file share isn't available (e.g. desktop), try text/url native share or download PNG + copy link
         this.downloadPosterImage();
-        this.showShareFeedback(
-          this.state.lang === "en" ? "High-res PNG downloaded." : "Imagen PNG descargada en alta definición."
-        );
+        this.copyChallengeMessage();
       },
 
       async copyImageToClipboard() {
@@ -2328,23 +2607,6 @@
           } catch (_) {}
         }
         this.shareResultsNative();
-      },
-
-      copyTextRanking() {
-        const lines = [
-          `${document.getElementById("posterTitleInput").value || this.t("defaultPosterTitle")} (${this.getHumanSummary()})`,
-          ""
-        ];
-        this.state.finalRanking.forEach((b, i) => {
-          lines.push(`${i + 1}. ${b.nombre} (${b.nombreCientifico})`);
-        });
-        navigator.clipboard.writeText(lines.join("\n")).then(() => {
-          this.showShareFeedback(
-            this.state.lang === "en"
-              ? "Text list copied to clipboard."
-              : "Lista en texto copiada al portapapeles."
-          );
-        });
       },
 
       setPosterFormat(fmt) {
@@ -2431,13 +2693,7 @@
         })();
       },
 
-      /**
-       * SMART PHOTO DRAWING FOR CANVAS:
-       * Draws a soft ambient blurred backdrop of the image to fill the box,
-       * and then draws the 100% COMPLETE UNCROPPED bird photo in the foreground so heads/bodies are NEVER cut off!
-       */
       drawCompleteBirdPhoto(ctx, img, x, y, w, h) {
-        // 1. Ambient blurred/dimmed backdrop filling the box
         ctx.save();
         const ir = img.width / img.height;
         const br = w / h;
@@ -2455,11 +2711,9 @@
         ctx.drawImage(img, sx, sy, sw, sh, x - 20, y - 20, w + 40, h + 40);
         ctx.restore();
 
-        // Dark subtle vignette overlay if filter isn't supported in some older webviews
         ctx.fillStyle = "rgba(18, 22, 19, 0.22)";
         ctx.fillRect(x, y, w, h);
 
-        // 2. Foreground: 100% COMPLETE UNCROPPED image (contain)
         let dw = w, dh = h, dx = x, dy = y;
         if (ir > br) {
           dh = w / ir;
@@ -2517,7 +2771,7 @@
         ctx.fillStyle = pal.bg;
         ctx.fillRect(0, 0, W, H);
 
-        const pad = isStory ? 44 : 44;
+        const pad = 44;
         ctx.strokeStyle = pal.border;
         ctx.lineWidth = 2;
         ctx.strokeRect(pad, pad, W - pad * 2, H - pad * 2);
@@ -2535,9 +2789,6 @@
         );
 
         if (isStory) {
-          // ==================================================
-          // LAYOUT A: INSTAGRAM STORY 9:16 (1080 x 1920 px)
-          // ==================================================
           const sx = 76;
           const innerW = W - sx * 2;
 
@@ -2592,7 +2843,6 @@
             ctx.font = "italic 20px 'Instrument Serif', Georgia, serif";
             ctx.fillText(`(${b1.nombreCientifico.slice(0, 36)})`, sx + 24 + ctx.measureText(b1.nombre.slice(0, 28)).width + 16, y1 + 366);
 
-            // Fun fact box inside #1 Hero Card
             if (funFact) {
               this.roundRect(ctx, sx + 20, y1 + 390, innerW - 40, 96, 14, pal.factBg, null, 0);
               ctx.fillStyle = pal.ink;
@@ -2605,7 +2855,7 @@
             }
           }
 
-          // #2 & #3 SIDE BY SIDE (COMPLETE UNCROPPED PHOTOS)
+          // #2 & #3 SIDE BY SIDE
           const top23 = slice.slice(1, 3);
           const y23 = 754;
           const w23 = (innerW - 22) / 2;
@@ -2690,9 +2940,7 @@
           return;
         }
 
-        // ==================================================
         // LAYOUT B: CLASSIC EDITORIAL POSTER 4:5 (1200 x 1620)
-        // ==================================================
         ctx.fillStyle = pal.muted;
         ctx.font = "500 17px 'Inter', sans-serif";
         ctx.fillText(sub.toUpperCase().slice(0, 75), 84, 104);
@@ -2751,7 +2999,6 @@
           ctx.fillText(bird.nombreCientifico.slice(0, 30), x + 18, y + 374);
         });
 
-        // Top #1 Fun Fact Banner on Classic Poster
         let restStartY = 678;
         if (funFact && slice[0]) {
           this.roundRect(ctx, 84, 668, W - 168, 78, 14, pal.factBg, pal.border, 1);
