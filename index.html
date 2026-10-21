@@ -2483,10 +2483,11 @@
         }
 
         this.state.initialBattlePool = [...pool];
+        this.state.battleSeed = Math.floor(Math.random() * 2147483646) + 1;
         this.state.choiceHistory = [];
         this.state.replayDecisions = [];
         this.state.battleStep = 0;
-        this.state.estimatedTotalSteps = Math.max(1, Math.round(pool.length * Math.log2(pool.length) * 0.8));
+        this.state.estimatedTotalSteps = Math.max(1, Math.round(pool.length * Math.log2(pool.length) * 0.82));
 
         const summary = this.getHumanSummary();
         document.getElementById("battleCategoryBadge").textContent = summary;
@@ -2502,8 +2503,9 @@
       async runTournamentSortFromHistory() {
         this.state.battleStep = 0;
         const poolCopy = [...(this.state.initialBattlePool || [])];
+        const seed = this.state.battleSeed || 1337;
         try {
-          const sorted = await this.mergeSortAsync(poolCopy);
+          const sorted = await this.interleavedBisectSortAsync(poolCopy, seed);
           this.state.finalRanking = sorted;
           await this.renderResultsView();
         } catch (_) {}
@@ -2529,34 +2531,163 @@
       },
 
       shuffle(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-      },
-
-      async mergeSortAsync(arr) {
-        if (arr.length <= 1) return arr;
-        const mid = Math.floor(arr.length / 2);
-        const left = await this.mergeSortAsync(arr.slice(0, mid));
-        const right = await this.mergeSortAsync(arr.slice(mid));
-        return await this.mergeAsync(left, right);
-      },
-
-      async mergeAsync(left, right) {
-        const res = [];
-        let i = 0, j = 0;
-        while (i < left.length && j < right.length) {
-          const pick = await this.askUserPreference(left[i], right[j]);
-          if (pick === "left") {
-            res.push(left[i]);
-            i++;
-          } else {
-            res.push(right[j]);
-            j++;
+        for (let pass = 0; pass < 2; pass++) {
+          for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
           }
         }
-        return res.concat(left.slice(i)).concat(right.slice(j));
+      },
+
+      createSeededRng(seed) {
+        let s = (seed >>> 0) || 1;
+        return () => {
+          s = (s + 0x6D2B79F5) >>> 0;
+          let t = Math.imul(s ^ (s >>> 15), 1 | s);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      },
+
+      /**
+       * Interleaved Midpoint-Bisect Tournament Sort:
+       * 1) Runs bottom-up tournament rounds so all sub-brackets advance in parallel.
+       * 2) Uses Midpoint-Bisect Merge (comparing the middle of B against the middle of A
+       *    and splitting into independent sub-problems) instead of linear 0,1,2,3 stepping,
+       *    preventing any bird from "stepping down a ladder rung by rung".
+       * 3) Schedules ready comparisons across all active brackets to avoid showing
+       *    the same bird back-to-back whenever another bracket is ready.
+       * 4) Deterministically randomizes Left/Right card placement on each duel so
+       *    Undo ("Deshacer") replays the exact same sequence.
+       */
+      async interleavedBisectSortAsync(arr, seed = 1) {
+        if (arr.length <= 1) return arr;
+        const rng = this.createSeededRng(seed);
+        let runs = arr.map((item) => [item]);
+        let lastPairIds = new Set();
+
+        const createBisectNode = (A, B) => {
+          if (A.length === 0) return { done: true, result: B };
+          if (B.length === 0) return { done: true, result: A };
+          return {
+            done: false,
+            A,
+            B,
+            midB: Math.floor(B.length / 2),
+            low: 0,
+            high: A.length,
+            leftChild: null,
+            rightChild: null,
+            result: null
+          };
+        };
+
+        const collectReadyLeaves = (node, out) => {
+          if (!node || node.done) return;
+          if (node.leftChild || node.rightChild) {
+            collectReadyLeaves(node.leftChild, out);
+            collectReadyLeaves(node.rightChild, out);
+          } else if (node.low < node.high) {
+            out.push(node);
+          }
+        };
+
+        const refreshNode = (node) => {
+          if (!node || node.done) return;
+          if (node.leftChild || node.rightChild) {
+            refreshNode(node.leftChild);
+            refreshNode(node.rightChild);
+            if (node.leftChild.done && node.rightChild.done) {
+              const bItem = node.B[node.midB];
+              node.result = [
+                ...node.leftChild.result,
+                bItem,
+                ...node.rightChild.result
+              ];
+              node.done = true;
+            }
+            return;
+          }
+          if (node.low >= node.high) {
+            const splitPos = node.low;
+            const bLeft = node.B.slice(0, node.midB);
+            const bRight = node.B.slice(node.midB + 1);
+            const aLeft = node.A.slice(0, splitPos);
+            const aRight = node.A.slice(splitPos);
+
+            node.leftChild = createBisectNode(aLeft, bLeft);
+            node.rightChild = createBisectNode(aRight, bRight);
+            refreshNode(node);
+          }
+        };
+
+        while (runs.length > 1) {
+          const roots = [];
+          const carry = [];
+          for (let i = 0; i < runs.length; i += 2) {
+            if (i + 1 < runs.length) {
+              const flipRunOrder = rng() < 0.5;
+              const firstRun = flipRunOrder ? runs[i + 1] : runs[i];
+              const secondRun = flipRunOrder ? runs[i] : runs[i + 1];
+              const root = createBisectNode(firstRun, secondRun);
+              refreshNode(root);
+              roots.push(root);
+            } else {
+              carry.push(runs[i]);
+            }
+          }
+
+          while (true) {
+            const readyLeaves = [];
+            for (const r of roots) {
+              refreshNode(r);
+              collectReadyLeaves(r, readyLeaves);
+            }
+            if (readyLeaves.length === 0) break;
+
+            // Score ready leaves: strongly prefer pairs that share 0 birds with the previous duel
+            let bestCandidates = [];
+            let bestOverlap = Infinity;
+            for (const leaf of readyLeaves) {
+              const midA = Math.floor((leaf.low + leaf.high) / 2);
+              const birdA = leaf.A[midA];
+              const birdB = leaf.B[leaf.midB];
+              const overlap = (lastPairIds.has(birdA.id) ? 1 : 0) + (lastPairIds.has(birdB.id) ? 1 : 0);
+              if (overlap < bestOverlap) {
+                bestOverlap = overlap;
+                bestCandidates = [leaf];
+              } else if (overlap === bestOverlap) {
+                bestCandidates.push(leaf);
+              }
+            }
+
+            const chosenLeaf = bestCandidates[Math.floor(rng() * bestCandidates.length)];
+            const midA = Math.floor((chosenLeaf.low + chosenLeaf.high) / 2);
+            const birdA = chosenLeaf.A[midA];
+            const birdB = chosenLeaf.B[chosenLeaf.midB];
+
+            const swapSides = rng() < 0.5;
+            const leftBird = swapSides ? birdB : birdA;
+            const rightBird = swapSides ? birdA : birdB;
+
+            const pick = await this.askUserPreference(leftBird, rightBird);
+            const bBeatsA = swapSides ? (pick === "left") : (pick === "right");
+
+            lastPairIds = new Set([birdA.id, birdB.id]);
+
+            if (bBeatsA) {
+              chosenLeaf.high = midA;
+            } else {
+              chosenLeaf.low = midA + 1;
+            }
+
+            refreshNode(chosenLeaf);
+          }
+
+          runs = roots.map((r) => r.result).concat(carry);
+        }
+
+        return runs[0];
       },
 
       askUserPreference(leftBird, rightBird) {
