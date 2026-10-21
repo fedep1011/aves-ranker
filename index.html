@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVES — El Ranking de Aves del Mundo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            canvas: '#F6F4EF',
+            surface: '#FFFFFF',
+            ink: '#161816',
+            muted: '#696B65',
+            line: '#E4E0D6',
+            forest: {
+              DEFAULT: '#1D3B2A',
+              hover: '#142B1E',
+              soft: '#EBF1EC'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #F6F4EF;
+      color: #161816;
+      -webkit-font-smoothing: antialiased;
+    }
+    .step-transition {
+      animation: stepFade 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes stepFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .photo-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+    .photo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 35px -15px rgba(22, 24, 22, 0.14);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 999px;
+      background: #DCD7CA;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #1D3B2A;
+      border: 3px solid #F6F4EF;
+      margin-top: -9px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans flex flex-col selection:bg-forest selection:text-white">
+
+  <!-- MINIMAL HEADER -->
+  <header class="border-b border-line bg-canvas/90 backdrop-blur-sm sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <button onclick="app.goToView('viewHome')" class="flex items-baseline gap-2.5 text-left focus:outline-none">
+        <span class="font-serif text-3xl tracking-tight text-ink">Aves</span>
+        <span class="text-xs text-muted tracking-wide">El ranking ornitológico</span>
+      </button>
+
+      <!-- Step indicator during wizard / game -->
+      <div id="headerControls" class="hidden flex items-center gap-4">
+        <span id="headerStepLabel" class="text-xs text-muted"></span>
+        <button onclick="app.goToView('viewHome')" class="text-xs font-medium text-ink hover:text-forest underline underline-offset-4 transition">
+          Volver al inicio
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="flex-1 flex flex-col justify-center max-w-5xl w-full mx-auto px-5 sm:px-8 py-10 sm:py-14">
+
+    <!-- ====================================================
+         VISTA 0: PORTADA (EDITORIAL & DIRECTA)
+         ==================================================== -->
+    <section id="viewHome" class="step-transition max-w-3xl mx-auto text-center space-y-8 py-4">
+      <div class="space-y-4">
+        <p class="text-xs uppercase tracking-[0.2em] text-muted">Más de 11.000 especies del mundo</p>
+        <h1 class="font-serif text-5xl sm:text-7xl text-ink leading-[1.04] tracking-tight">
+          Elige cuáles son tus aves favoritas del mundo.
+        </h1>
+        <p class="text-base sm:text-lg text-muted max-w-xl mx-auto leading-relaxed font-normal">
+          Compara fotografías frente a frente, descubre nuevas especies de cualquier país o color y arma tu podio definitivo para compartir.
+        </p>
+      </div>
+
+      <!-- Primary Actions -->
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+        <button onclick="app.quickStartWorldTop()"
+          class="w-full sm:w-auto px-8 py-4 rounded-full bg-forest hover:bg-forest-hover text-white text-sm font-medium tracking-wide transition shadow-sm">
+          Jugar con las 16 más famosas del mundo →
+        </button>
+        <button onclick="app.launchSurpriseMe()"
+          class="w-full sm:w-auto px-7 py-4 rounded-full border-2 border-forest bg-forest-soft hover:bg-forest hover:text-white text-forest text-sm font-medium transition shadow-sm">
+          Sorpréndeme (16 aves al azar)
+        </button>
+        <button onclick="app.startGuidedSetup()"
+          class="w-full sm:w-auto px-7 py-4 rounded-full border border-line bg-surface hover:border-ink/40 text-ink text-sm font-medium transition">
+          Armar mi propia búsqueda
+        </button>
+      </div>
+
+      <!-- Highlighted Curated Collections Section -->
+      <div class="pt-8 mt-4">
+        <div class="bg-surface/90 border border-line rounded-3xl p-6 sm:p-8 space-y-5 shadow-sm text-left">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line pb-4">
+            <div>
+              <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.16em] text-forest bg-forest-soft px-3 py-1 rounded-full mb-1.5">
+                Colecciones listas · 16 aves
+              </span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-ink leading-tight">
+                O empieza directo con una selección curada
+              </h2>
+            </div>
+            <p class="text-xs text-muted sm:text-right max-w-[210px]">
+              Toca cualquiera para entrar directo a tu partida
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button onclick="app.launchPreset('famosas_mundo')"
+              class="group p-4 rounded-2xl bg-canvas/70 hover:bg-surface border border-line hover:border-forest text-left transition flex items-center justify-between gap-3 shadow-sm">
+              <div>
+                <div class="text-sm font-semibold text-ink group-hover:text-forest transition">Las 16 más icónicas del planeta</div>
+                <div class="text-xs text-muted mt-0.5">Tucán, Cóndor, Águila Arpía, Quetzal, Pavo Real, Pingüino Emperador y más</div>
+              </div>
+              <span class="text-sm font-medium text-forest shrink-0 group-hover:translate-x-0.5 transition">→</span>
+            </button>
+
+            <button onclick="app.launchPreset('uruguay')"
+              class="group p-4 rounded-2xl bg-canvas/70 hover:bg-surface border border-line hover:border-forest text-left transition flex items-center justify-between gap-3 shadow-sm">
+              <div>
+                <div class="text-sm font-semibold text-ink group-hover:text-forest transition">Aves de Uruguay</div>
+                <div class="text-xs text-muted mt-0.5">Teros, horneros, cardenales, benteveos y especies autóctonas</div>
+              </div>
+              <span class="text-sm font-medium text-forest shrink-0 group-hover:translate-x-0.5 transition">→</span>
+            </button>
+
+            <button onclick="app.launchPreset('carrona_uy')"
+              class="group p-4 rounded-2xl bg-canvas/70 hover:bg-surface border border-line hover:border-forest text-left transition flex items-center justify-between gap-3 shadow-sm">
+              <div>
+                <div class="text-sm font-semibold text-ink group-hover:text-forest transition">Carroñeras y rapaces del Sur</div>
+                <div class="text-xs text-muted mt-0.5">Caranchos, jotes, chimangos y grandes planeadoras de nuestra región</div>
+              </div>
+              <span class="text-sm font-medium text-forest shrink-0 group-hover:translate-x-0.5 transition">→</span>
+            </button>
+
+            <button onclick="app.launchPreset('rojas_latam')"
+              class="group p-4 rounded-2xl bg-canvas/70 hover:bg-surface border border-line hover:border-forest text-left transition flex items-center justify-between gap-3 shadow-sm">
+              <div>
+                <div class="text-sm font-semibold text-ink group-hover:text-forest transition">Aves rojas de Latinoamérica</div>
+                <div class="text-xs text-muted mt-0.5">Guacamayos escarlata, churrinches, cardenales y gallitos de las rocas</div>
+              </div>
+              <span class="text-sm font-medium text-forest shrink-0 group-hover:translate-x-0.5 transition">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         VISTA 1: PASO 1 — ¿DE QUÉ LUGAR DEL MUNDO?
+         ==================================================== -->
+    <section id="viewStepPlace" class="hidden step-transition max-w-3xl mx-auto w-full space-y-8">
+      <div class="space-y-2">
+        <div class="text-xs uppercase tracking-[0.18em] text-muted">Paso 1 de 3 · Lugar</div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-ink leading-tight">
+          ¿De qué parte del mundo quieres ver aves?
+        </h2>
+        <p class="text-sm sm:text-base text-muted">
+          Deja marcado todo el mundo o toca todos los países y regiones que quieras combinar.
+        </p>
+      </div>
+
+      <div class="space-y-6 bg-surface border border-line rounded-2xl p-6 sm:p-8 shadow-sm">
+        
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-line">
+          <button id="btnWorldAll" onclick="app.clearPlaces()"
+            class="px-5 py-2.5 rounded-full text-sm font-medium transition bg-forest text-white">
+            Todo el mundo
+          </button>
+
+          <!-- Search any country/province -->
+          <div class="relative flex-1 min-w-[240px] max-w-sm">
+            <input id="placeSearchInput" type="text" placeholder="Buscar otro país, provincia o isla..."
+              oninput="app.onPlaceSearch(this.value)"
+              class="w-full rounded-full bg-canvas border border-line px-4 py-2 text-sm text-ink placeholder-muted focus:outline-none focus:border-forest transition" />
+            <div id="placeDropdown" class="hidden absolute left-0 right-0 top-full mt-1.5 z-40 rounded-xl bg-surface border border-line shadow-xl max-h-56 overflow-y-auto divide-y divide-line"></div>
+          </div>
+        </div>
+
+        <!-- Selected places bar -->
+        <div id="selectedPlacesWrap" class="hidden space-y-2">
+          <div class="text-xs text-muted">Lugares elegidos (se incluirán aves presentes en cualquiera de ellos):</div>
+          <div id="selectedPlacesChips" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Clean Country & Region Grid -->
+        <div class="space-y-4">
+          <div class="text-xs uppercase tracking-wider text-muted">Países y regiones principales</div>
+          <div id="placesGrid" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+
+      <!-- Step Navigation -->
+      <div class="flex items-center justify-between pt-2">
+        <button onclick="app.goToView('viewHome')" class="text-sm text-muted hover:text-ink transition">
+          ← Volver a la portada
+        </button>
+        <button onclick="app.goToStep2()"
+          class="px-7 py-3.5 rounded-full bg-forest hover:bg-forest-hover text-white text-sm font-medium transition">
+          Siguiente: Tipo y color →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         VISTA 2: PASO 2 — ¿QUÉ TIPO DE AVES Y DE QUÉ COLOR?
+         ==================================================== -->
+    <section id="viewStepTraits" class="hidden step-transition max-w-3xl mx-auto w-full space-y-8">
+      <div class="space-y-2">
+        <div class="text-xs uppercase tracking-[0.18em] text-muted">Paso 2 de 3 · Tipo y Color</div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-ink leading-tight">
+          ¿Qué tipo de aves o colores quieres incluir?
+        </h2>
+        <p class="text-sm sm:text-base text-muted">
+          Opcional. Puedes elegir aves carroñeras, herbívoras, rapaces o filtrar por el color de sus plumas.
+        </p>
+      </div>
+
+      <div class="space-y-7 bg-surface border border-line rounded-2xl p-6 sm:p-8 shadow-sm">
+        
+        <!-- Quick "All types" reset + Surprise Me -->
+        <div class="pb-5 border-b border-line flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="btnTraitsAll" onclick="app.clearTraitsAndColors()"
+              class="px-5 py-2.5 rounded-full text-sm font-medium transition bg-forest text-white">
+              Cualquier tipo y cualquier color
+            </button>
+            <button type="button" onclick="app.randomizeTraitsStep()"
+              class="px-4 py-2.5 rounded-full text-sm font-medium border border-forest/40 bg-forest-soft text-forest hover:bg-forest hover:text-white transition">
+              Elegir categoría al azar
+            </button>
+          </div>
+          <span id="traitsSummaryHint" class="text-xs text-muted">Todas las familias incluidas</span>
+        </div>
+
+        <!-- Diet & Bird Groups -->
+        <div class="space-y-3">
+          <label class="block text-xs uppercase tracking-wider text-muted">Alimentación y familia</label>
+          <div id="guildsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"></div>
+        </div>
+
+        <!-- Plumage Colors -->
+        <div class="space-y-3 pt-4 border-t border-line">
+          <label class="block text-xs uppercase tracking-wider text-muted">Color de plumaje</label>
+          <div id="colorsGrid" class="flex flex-wrap gap-2.5"></div>
+        </div>
+
+        <!-- Optional Specific Name Filter -->
+        <div class="space-y-2 pt-4 border-t border-line">
+          <label class="block text-xs uppercase tracking-wider text-muted">¿Buscas alguna especie en particular? (Opcional)</label>
+          <input id="keywordInput" type="text" placeholder="Ej. Tucán, Cardenal, Pingüino..."
+            oninput="app.onKeywordChange(this.value)"
+            class="w-full sm:w-80 rounded-full bg-canvas border border-line px-4 py-2 text-sm text-ink placeholder-muted focus:outline-none focus:border-forest transition" />
+        </div>
+
+      </div>
+
+      <!-- Step Navigation -->
+      <div class="flex items-center justify-between pt-2">
+        <button onclick="app.goToView('viewStepPlace')" class="text-sm text-muted hover:text-ink transition">
+          ← Cambiar lugar
+        </button>
+        <button onclick="app.goToStep3()"
+          class="px-7 py-3.5 rounded-full bg-forest hover:bg-forest-hover text-white text-sm font-medium transition">
+          Siguiente: Confirmar partida →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         VISTA 3: PASO 3 — ¿CUÁNTAS AVES Y CÓMO LAS ELEGIMOS?
+         ==================================================== -->
+    <section id="viewStepSize" class="hidden step-transition max-w-2xl mx-auto w-full space-y-8">
+      <div class="space-y-2">
+        <div class="text-xs uppercase tracking-[0.18em] text-muted">Paso 3 de 3 · Confirmar tu partida</div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-ink leading-tight">
+          Tu selección está lista.
+        </h2>
+        <p id="step3FilterSummary" class="text-sm sm:text-base font-medium text-forest"></p>
+      </div>
+
+      <div class="bg-surface border border-line rounded-2xl p-6 sm:p-8 shadow-sm space-y-8 relative overflow-hidden">
+        
+        <!-- Loading Overlay while fetching species -->
+        <div id="step3LoadingOverlay" class="hidden absolute inset-0 z-20 bg-surface/95 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-4">
+          <div class="w-10 h-10 rounded-full border-line border-t-forest animate-spin" style="border-width: 3px;"></div>
+          <div class="space-y-1">
+            <div class="font-serif text-2xl text-ink">Buscando especies y fotografías...</div>
+            <p class="text-xs text-muted">Armando la selección para tu partida</p>
+          </div>
+        </div>
+
+        <!-- Found species banner -->
+        <div class="flex items-center justify-between border-b border-line pb-6">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-muted">Catálogo disponible para esta búsqueda</div>
+            <div class="flex items-baseline gap-2 mt-1">
+              <span id="step3TotalFound" class="font-serif text-5xl text-ink">...</span>
+              <span class="text-sm text-muted">especies con foto</span>
+            </div>
+          </div>
+          <!-- Mini photo stack preview -->
+          <div id="step3MiniPhotos" class="flex -space-x-3 overflow-hidden py-1"></div>
+        </div>
+
+        <!-- How to pick them: Most Famous vs Random -->
+        <div class="space-y-3">
+          <label class="block text-xs uppercase tracking-wider text-muted">1. ¿Cuáles quieres que entren al juego?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button id="btnSamplePopular" onclick="app.setSamplingMode('popular')"
+              class="p-4 rounded-xl border-2 border-forest bg-forest-soft text-left transition">
+              <div class="text-sm font-semibold text-ink">Las más famosas y conocidas</div>
+              <div class="text-xs text-muted mt-1">Selecciona las especies más emblemáticas y populares de esta categoría.</div>
+            </button>
+            <button id="btnSampleRandom" onclick="app.setSamplingMode('random')"
+              class="p-4 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 text-left transition">
+              <div class="text-sm font-semibold text-ink">Al azar (Sorpréndeme)</div>
+              <div class="text-xs text-muted mt-1">Sorteo aleatorio dentro de la categoría para descubrir aves nuevas.</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- How many birds to rank (Default 16) + High Visibility Clicks Callout -->
+        <div class="space-y-5 pt-4 border-t border-line">
+          <div class="flex items-center justify-between">
+            <label for="limitSlider" class="text-xs uppercase tracking-wider text-muted">2. Cantidad de aves a jugar (16 recomendado)</label>
+            <span class="font-serif text-3xl text-ink"><span id="limitValueDisplay">16</span> aves</span>
+          </div>
+
+          <input id="limitSlider" type="range" min="4" max="64" value="16" oninput="app.onLimitChange(this.value)" class="w-full" />
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+            <button onclick="app.onLimitChange(8)" class="py-2 px-3 rounded-xl text-xs font-medium border border-line hover:border-forest bg-canvas/60 text-ink transition">
+              8 aves · Corto
+            </button>
+            <button onclick="app.onLimitChange(16)" class="py-2 px-3 rounded-xl text-xs font-semibold border border-forest/50 bg-forest-soft text-forest transition">
+              16 aves · Por defecto
+            </button>
+            <button onclick="app.onLimitChange(32)" class="py-2 px-3 rounded-xl text-xs font-medium border border-line hover:border-forest bg-canvas/60 text-ink transition">
+              32 aves · Largo
+            </button>
+            <button onclick="app.onLimitChange('MAX')" class="py-2 px-3 rounded-xl text-xs font-medium border border-line hover:border-forest bg-canvas/60 text-ink transition">
+              Todas las disponibles
+            </button>
+          </div>
+
+          <!-- Prominent Effort & Clicks Callout Box -->
+          <div id="effortCalloutBox" class="rounded-2xl bg-forest-soft border border-forest/25 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span id="effortIntensityBadge" class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-forest text-white">
+                  Duración Ideal
+                </span>
+                <span id="effortTimeBadge" class="text-xs font-medium text-forest">
+                  ~1.5 min
+                </span>
+              </div>
+              <p id="durationHintText" class="text-xs text-muted pt-0.5">
+                Vas a hacer unas 45 elecciones rápidas entre pares de fotos.
+              </p>
+            </div>
+
+            <div class="sm:text-right shrink-0 border-t sm:border-t-0 sm:border-l border-forest/15 pt-3 sm:pt-0 sm:pl-5">
+              <div class="font-serif text-3xl sm:text-4xl text-ink leading-none">
+                ~<span id="effortClicksBigNumber">45</span> clics
+              </div>
+              <div class="text-[11px] font-medium text-muted mt-1">
+                duelos 1 vs 1 estimados
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alert if fewer than 2 birds -->
+        <div id="noBirdsWarning" class="hidden p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900">
+          Esa combinación tan específica casi no tiene aves registradas con foto. Vuelve un paso atrás o prueba con otro filtro.
+        </div>
+
+        <!-- Launch Game Button -->
+        <button id="btnLaunchGame" onclick="app.startBattleGame()"
+          class="w-full py-4 rounded-full bg-forest hover:bg-forest-hover text-white font-medium text-base tracking-wide transition shadow-sm">
+          Comenzar partida →
+        </button>
+
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button onclick="app.goToView('viewStepTraits')" class="text-sm text-muted hover:text-ink transition">
+          ← Ajustar filtros
+        </button>
+        <button onclick="app.launchSurpriseMe()" class="text-sm font-medium text-forest hover:underline">
+          Sortear otra categoría al azar
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         VISTA 4: EL JUEGO (1 VS 1 LIMPIO Y ENFOCADO)
+         ==================================================== -->
+    <section id="viewBattle" class="hidden step-transition w-full space-y-6">
+      
+      <!-- Minimal Top Progress -->
+      <div class="max-w-3xl mx-auto space-y-2 text-center">
+        <div class="text-xs uppercase tracking-[0.18em] text-muted">
+          Elección <span id="battleStepNum">1</span> · <span id="battlePctText">0%</span> completado
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-ink">¿Cuál de las dos te gusta más?</h2>
+        <div class="w-48 h-1 bg-line mx-auto rounded-full overflow-hidden">
+          <div id="battleProgressBar" class="h-full bg-forest transition-all duration-300" style="width: 5%"></div>
+        </div>
+      </div>
+
+      <!-- Two Clean Contender Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 pt-2">
+        
+        <!-- LEFT BIRD -->
+        <button id="cardLeftBtn" onclick="app.chooseBird('left')"
+          class="photo-card group text-left bg-surface border border-line hover:border-forest rounded-2xl overflow-hidden flex flex-col focus:outline-none">
+          <div class="relative w-full aspect-[4/3] bg-stone-200 overflow-hidden">
+            <div id="loaderLeft" class="absolute inset-0 z-10 bg-stone-200/90 flex flex-col items-center justify-center gap-2 transition-opacity">
+              <div class="w-7 h-7 rounded-full border-stone-400 border-t-forest animate-spin" style="border-width: 2.5px;"></div>
+              <span class="text-[11px] font-medium text-muted">Cargando foto...</span>
+            </div>
+            <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.handleImgFallback(this, 'left')"
+              class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500" />
+          </div>
+          <div class="p-6 flex items-baseline justify-between gap-4">
+            <div>
+              <h3 id="nameLeft" class="font-serif text-3xl sm:text-4xl text-ink leading-tight"></h3>
+              <p id="sciLeft" class="text-sm italic text-muted mt-0.5"></p>
+            </div>
+            <span class="shrink-0 px-4 py-2 rounded-full text-xs font-medium border border-line group-hover:bg-forest group-hover:text-white group-hover:border-forest transition">
+              Elegir
+            </span>
+          </div>
+        </button>
+
+        <!-- RIGHT BIRD -->
+        <button id="cardRightBtn" onclick="app.chooseBird('right')"
+          class="photo-card group text-left bg-surface border border-line hover:border-forest rounded-2xl overflow-hidden flex flex-col focus:outline-none">
+          <div class="relative w-full aspect-[4/3] bg-stone-200 overflow-hidden">
+            <div id="loaderRight" class="absolute inset-0 z-10 bg-stone-200/90 flex flex-col items-center justify-center gap-2 transition-opacity">
+              <div class="w-7 h-7 rounded-full border-stone-400 border-t-forest animate-spin" style="border-width: 2.5px;"></div>
+              <span class="text-[11px] font-medium text-muted">Cargando foto...</span>
+            </div>
+            <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.handleImgFallback(this, 'right')"
+              class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500" />
+          </div>
+          <div class="p-6 flex items-baseline justify-between gap-4">
+            <div>
+              <h3 id="nameRight" class="font-serif text-3xl sm:text-4xl text-ink leading-tight"></h3>
+              <p id="sciRight" class="text-sm italic text-muted mt-0.5"></p>
+            </div>
+            <span class="shrink-0 px-4 py-2 rounded-full text-xs font-medium border border-line group-hover:bg-forest group-hover:text-white group-hover:border-forest transition">
+              Elegir
+            </span>
+          </div>
+        </button>
+
+      </div>
+
+      <p class="text-center text-xs text-muted pt-2">
+        También puedes elegir con las flechas del teclado <span class="font-medium text-ink">←</span> y <span class="font-medium text-ink">→</span>
+      </p>
+    </section>
+
+
+    <!-- ====================================================
+         VISTA 5: RESULTADOS (UN SOLO BOTÓN DE EXPORTAR LIMPIO)
+         ==================================================== -->
+    <section id="viewResults" class="hidden step-transition w-full space-y-12">
+
+      <!-- Editorial Results Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-line pb-8">
+        <div class="space-y-2">
+          <div class="text-xs uppercase tracking-[0.18em] text-forest font-semibold" id="resultsFilterCaption">Ranking Final</div>
+          <h1 class="font-serif text-5xl sm:text-6xl text-ink leading-none">Tu Ranking de Aves</h1>
+        </div>
+
+        <!-- Single Unified Export CTA + Play Again -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button onclick="app.openPosterModal()"
+            class="px-7 py-4 rounded-full bg-forest hover:bg-forest-hover text-white text-sm font-medium transition shadow-sm">
+            Exportar mis resultados
+          </button>
+          <button onclick="app.goToView('viewHome')"
+            class="px-6 py-4 rounded-full bg-surface border border-line hover:border-ink text-ink text-sm font-medium transition">
+            Jugar de nuevo
+          </button>
+        </div>
+      </div>
+
+      <!-- TOP 3 PODIUM (LARGE EDITORIAL CARDS WITH PHOTOS) -->
+      <div class="space-y-4">
+        <div class="text-xs uppercase tracking-wider text-muted">Tu Podio (Top 3)</div>
+        <div id="resultsTop3Grid" class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch"></div>
+      </div>
+
+      <!-- REST OF RANKING (#4 ONWARDS, SMALLER WITH PHOTOS) -->
+      <div id="resultsRestSection" class="space-y-4 pt-4">
+        <div class="text-xs uppercase tracking-wider text-muted">El resto de tu selección</div>
+        <div id="resultsRestGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ====================================================
+       MODAL UNIFICADO: EXPORTAR TUS RESULTADOS
+       ==================================================== -->
+  <div id="posterModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-canvas border border-line rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl my-8">
+      
+      <div class="px-6 sm:px-8 py-5 border-b border-line flex items-center justify-between bg-surface">
+        <div>
+          <h3 class="font-serif text-2xl sm:text-3xl text-ink">Exportar tus resultados</h3>
+          <p class="text-xs text-muted">Elige el formato (Historia de Instagram o Póster), personalízalo o copia tu lista en texto.</p>
+        </div>
+        <button onclick="app.closePosterModal()" class="text-xs font-medium text-muted hover:text-ink px-3.5 py-1.5 rounded-full border border-line">
+          Cerrar
+        </button>
+      </div>
+
+      <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Unified Export Options -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="space-y-2">
+            <label class="text-xs uppercase tracking-wider text-muted">1. Formato de imagen</label>
+            <div class="grid grid-cols-2 gap-2.5">
+              <button id="formatBtnStory" onclick="app.setPosterFormat('story')"
+                class="py-2.5 px-3 rounded-xl border-2 border-forest bg-forest-soft text-xs font-semibold text-ink text-left">
+                <div>Historia de Instagram</div>
+                <div class="text-[10px] font-normal text-muted mt-0.5">Vertical 9:16</div>
+              </button>
+              <button id="formatBtnPoster" onclick="app.setPosterFormat('poster')"
+                class="py-2.5 px-3 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-left">
+                <div>Póster Clásico</div>
+                <div class="text-[10px] font-normal text-muted mt-0.5">Retrato 4:5</div>
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-xs uppercase tracking-wider text-muted">2. Tema visual</label>
+            <div class="grid grid-cols-2 gap-2.5">
+              <button id="styleBtnLight" onclick="app.setPosterStyle('light')"
+                class="py-2.5 px-3 rounded-xl border-2 border-forest bg-surface text-xs font-medium text-ink">
+                Marfil Editorial (Claro)
+              </button>
+              <button id="styleBtnDark" onclick="app.setPosterStyle('dark')"
+                class="py-2.5 px-3 rounded-xl border border-line bg-stone-900 text-xs font-medium text-stone-100">
+                Bosque Profundo (Oscuro)
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-xs uppercase tracking-wider text-muted">3. Título de la tarjeta</label>
+            <input id="posterTitleInput" type="text" value="Mis Aves Favoritas" oninput="app.drawPosterCanvas()"
+              class="w-full rounded-xl bg-surface border border-line px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-forest" />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-xs uppercase tracking-wider text-muted">Categoría / Subtítulo</label>
+            <input id="posterSubInput" type="text" value="" oninput="app.drawPosterCanvas()"
+              class="w-full rounded-xl bg-surface border border-line px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-forest" />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-xs uppercase tracking-wider text-muted">Tu nombre o firma (Opcional)</label>
+            <input id="posterAuthorInput" type="text" placeholder="Ej. Ranking por Fede" oninput="app.drawPosterCanvas()"
+              class="w-full rounded-xl bg-surface border border-line px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-forest" />
+          </div>
+
+          <!-- All Download / Copy actions together inside the modal -->
+          <div class="pt-3 border-t border-line space-y-2.5">
+            <button id="btnDownloadPoster" onclick="app.downloadPosterImage()"
+              class="w-full py-4 rounded-full bg-forest hover:bg-forest-hover text-white text-sm font-medium transition shadow-sm disabled:opacity-50 disabled:cursor-wait">
+              Descargar Imagen (PNG)
+            </button>
+            <button id="btnCopyText" onclick="app.copyTextRanking()"
+              class="w-full py-3 rounded-full bg-surface border border-line hover:border-ink text-ink text-xs font-medium uppercase tracking-wider transition">
+              Copiar ranking en texto
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Poster Preview with Loading Overlay -->
+        <div class="lg:col-span-7 relative flex flex-col items-center justify-center bg-stone-200/70 rounded-2xl p-4 border border-line min-h-[440px]">
+          <div id="posterLoadingOverlay" class="hidden absolute inset-0 z-20 rounded-2xl bg-canvas/90 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-3">
+            <div class="w-10 h-10 rounded-full border-line border-t-forest animate-spin" style="border-width: 3px;"></div>
+            <div class="font-serif text-2xl text-ink">Generando tu tarjeta en alta definición...</div>
+            <p id="posterLoadingProgressText" class="text-xs text-muted">Cargando fotografías del podio y armando el diseño</p>
+          </div>
+          <canvas id="posterCanvas" width="1080" height="1920" class="w-full max-w-[300px] h-auto rounded-xl shadow-lg bg-white"></canvas>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MINIMAL FOOTER WITH AUTHOR CREDIT -->
+  <footer class="border-t border-line bg-canvas py-6 mt-auto">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+      <div>Aves — El ranking ornitológico interactivo</div>
+      <div>
+        Creado por <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="font-medium text-ink hover:text-forest underline underline-offset-4 transition">fedep1011</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ====================================================
+       APPLICATION LOGIC
+       ==================================================== -->
+  <script>
+    const CATALOG_DATA = {
+      baseUrl: "https://api.inaturalist.org/v1",
+      rootAvesId: 3,
+
+      // Las aves más icónicas y queridas del mundo (Evita que "las 16 más famosas" sean solo patos y gorriones urbanos)
+      curatedWorldIconsIds: [
+        18793,   // Tucán Toco (Ramphastos toco)
+        19022,   // Guacamayo Rojo Escarlata (Ara macao)
+        5305,    // Águila Calva (Haliaeetus leucocephalus)
+        1204,    // Pavo Real (Pavo cristatus)
+        20856,   // Quetzal Resplandeciente (Pharomachrus mocinno)
+        3820,    // Pingüino Emperador (Aptenodytes forsteri)
+        4747,    // Cóndor Andino (Vultur gryphus)
+        5321,    // Águila Arpía (Harpia harpyja)
+        73222,   // Flamenco (Phoenicopterus roseus)
+        144594,  // Búho Nival (Bubo scandiacus)
+        4504,    // Frailecillo Atlántico (Fratercula arctica)
+        2599,    // Martín Pescador (Alcedo atthis)
+        4647,    // Halcón Peregrino (Falco peregrinus)
+        4867,    // Tero Común (Vanellus chilensis)
+        11275,   // Hornero (Furnarius rufus)
+        10254,   // Cardenal de Copete Rojo (Paroaria coronata)
+        18938,   // Guacamayo Azul Jacinto (Anodorhynchus hyacinthinus)
+        8877,    // Gallito de las Rocas (Rupicola peruvianus)
+        4338,    // Picozapato (Balaeniceps rex)
+        117214,  // Ave Secretario (Sagittarius serpentarius)
+        20526,   // Avestruz (Struthio camelus)
+        20500,   // Casuario (Casuarius casuarius)
+        7106,    // Pato Mandarín (Aix galericulata)
+        39,      // Grulla de Manchuria (Grus japonensis)
+        1230,    // Faisán Dorado (Chrysolophus pictus)
+        16956,   // Benteveo (Pitangus sulphuratus)
+        3786,    // Piquero de Patas Azules (Sula nebouxii)
+        72789,   // Cisne de Cuello Negro (Cygnus melancoryphus)
+        2413,    // Cucaburra (Dacelo novaeguineae)
+        20969,   // Abubilla (Upupa epops)
+        9083,    // Cardenal Norteño (Cardinalis cardinalis)
+        1584019  // Kakapo (Strigops habroptilus)
+      ],
+
+      places: [
+        { id: "7259", label: "Uruguay" },
+        { id: "7190", label: "Argentina" },
+        { id: "6878", label: "Brasil" },
+        { id: "7182", label: "Chile" },
+        { id: "7513", label: "Perú" },
+        { id: "7512", label: "Ecuador" },
+        { id: "7196", label: "Colombia" },
+        { id: "7254", label: "Paraguay" },
+        { id: "6783", label: "Bolivia" },
+        { id: "6924", label: "Costa Rica" },
+        { id: "6793", label: "México" },
+        { id: "7259,7190,6878,7182,7513,7512,7196,7254,6783,1303,6924,6793,7003,6940", label: "Toda Latinoamérica" },
+        { id: "97389", label: "Sudamérica" },
+        { id: "1", label: "Estados Unidos" },
+        { id: "6774", label: "España" },
+        { id: "97391", label: "Europa" },
+        { id: "6903", label: "China" },
+        { id: "6737", label: "Japón" },
+        { id: "6681", label: "India" },
+        { id: "97395", label: "Asia" },
+        { id: "97392", label: "África" },
+        { id: "6744", label: "Australia" },
+        { id: "6803", label: "Nueva Zelanda" }
+      ],
+
+      guilds: [
+        { key: "carrona", title: "Aves de carroña", desc: "Cóndores, jotes, buitres y caranchos", taxonIds: [71306, 4637] },
+        { key: "herbivoras", title: "Herbívoras, frugívoras y semilleras", desc: "Loros, tucanes, cardenales, tangaras y patos", taxonIds: [18874, 18485, 2708, 71369, 71305, 6912, 20716, 8659] },
+        { key: "rapaces", title: "Águilas y halcones", desc: "Grandes cazadoras diurnas", taxonIds: [5067, 4637] },
+        { key: "nocturnas", title: "Búhos y lechuzas", desc: "Aves rapaces nocturnas", taxonIds: [19350] },
+        { key: "loros", title: "Loros y guacamayos", desc: "Aves parlanchinas de pico curvo", taxonIds: [18874] },
+        { key: "colibries", title: "Colibríes y picaflores", desc: "Pequeñas aves nectarívoras", taxonIds: [5562] },
+        { key: "tucanes", title: "Tucanes", desc: "Aves tropicales de gran pico", taxonIds: [18485] },
+        { key: "acuaticas", title: "Cisnes, garzas, patos y flamencos", desc: "Aves de lagunas, ríos y bañados", taxonIds: [6912, 4929, 67569, 3727] },
+        { key: "marinas", title: "Pingüinos y aves marinas", desc: "Aves del océano y costas australes", taxonIds: [67564, 67526, 3784] },
+        { key: "cantoras", title: "Aves de campo, monte y jardín", desc: "Horneros, benteveos, cardenales y zorzales", taxonIds: [10732, 980017, 71369, 71305, 11989] },
+        { key: "gigantes", title: "Grandes aves no voladoras", desc: "Ñandúes, avestruces, casuarios y kiwis", taxonIds: [367701, 20487, 367702, 367703] }
+      ],
+
+      colors: [
+        { key: "rojo", label: "Rojo", swatch: "#C83E31", terms: ["rojo", "roja", "colorado", "escarlata", "cardenal", "churrinche", "loica", "rubinus", "coronata", "macao", "cardinalis", "flamenco", "gallito", "red", "scarlet", "crimson", "vermilion", "ruby"], taxonIds: [71305, 71369, 18874, 20716, 8659, 67569, 11989] },
+        { key: "verde", label: "Verde", swatch: "#2D6A4F", terms: ["verde", "esmeralda", "loro", "cotorra", "guacamayo", "quetzal", "colibrí", "amazona", "chlor", "viridis", "green", "emerald", "parrot", "parakeet"], taxonIds: [18874, 5562, 20716, 18485, 71369, 2708] },
+        { key: "azul", label: "Azul", swatch: "#2563EB", terms: ["azul", "celeste", "jacinto", "turquesa", "zafiro", "cyan", "coerule", "blue", "azure", "indigo", "hyacinth"], taxonIds: [71369, 18874, 2314, 5562, 7823] },
+        { key: "amarillo", label: "Amarillo / Dorado", swatch: "#D99B26", terms: ["amarillo", "amarilla", "dorado", "oro", "benteveo", "canario", "chrys", "flav", "sulphur", "yellow", "golden"], taxonIds: [980017, 71369, 11989, 18874, 574] },
+        { key: "negro", label: "Negro", swatch: "#262626", terms: ["negro", "negra", "oscuro", "cuervo", "jote", "tordo", "cóndor", "atratus", "niger", "melan", "black", "raven", "vulture"], taxonIds: [71306, 7823, 11989, 18485, 67564] },
+        { key: "blanco", label: "Blanco", swatch: "#F5F5F4", terms: ["blanco", "blanca", "garza", "cisne", "gaviota", "albatros", "nival", "alba", "leuc", "white", "snowy", "swan", "egret"], taxonIds: [4929, 6912, 67561, 67526, 19350] },
+        { key: "rosa", label: "Rosa", swatch: "#E07A9A", terms: ["rosa", "rosado", "rosada", "flamenco", "espátula", "phoenicopterus", "ajaja", "pink", "roseate", "flamingo"], taxonIds: [67569, 3727] }
+      ]
+    };
+
+    const app = {
+      state: {
+        places: new Map(),
+        guilds: new Set(),
+        colors: new Set(),
+        keyword: "",
+        useCuratedWorldIcons: false,
+        samplingMode: "popular",
+        limit: 16, // Always 16 by default
+
+        totalFound: 0,
+        candidatePool: [],
+        placeSearchTimer: null,
+
+        // Game state
+        battleStep: 0,
+        estimatedTotalSteps: 0,
+        pendingResolver: null,
+        finalRanking: [],
+        posterStyle: "light",
+        posterFormat: "story",
+        imageCache: new Map()
+      },
+
+      init() {
+        this.renderStep1Places();
+        this.renderStep2Traits();
+        this.bindKeyboard();
+
+        document.addEventListener("click", (e) => {
+          const drop = document.getElementById("placeDropdown");
+          const inp = document.getElementById("placeSearchInput");
+          if (drop && !drop.contains(e.target) && e.target !== inp) {
+            drop.classList.add("hidden");
+          }
+        });
+      },
+
+      goToView(viewId) {
+        if (this.state.pendingResolver && viewId !== "viewBattle") {
+          this.state.pendingResolver.reject(new Error("NavigatedAway"));
+          this.state.pendingResolver = null;
+        }
+
+        const views = ["viewHome", "viewStepPlace", "viewStepTraits", "viewStepSize", "viewBattle", "viewResults"];
+        views.forEach(id => {
+          document.getElementById(id).classList.toggle("hidden", id !== viewId);
+        });
+
+        const headerControls = document.getElementById("headerControls");
+        const stepLabel = document.getElementById("headerStepLabel");
+
+        if (viewId === "viewHome") {
+          headerControls.classList.add("hidden");
+        } else {
+          headerControls.classList.remove("hidden");
+          const labels = {
+            viewStepPlace: "Paso 1 de 3",
+            viewStepTraits: "Paso 2 de 3",
+            viewStepSize: "Paso 3 de 3",
+            viewBattle: "Partida en curso",
+            viewResults: "Resultado final"
+          };
+          stepLabel.textContent = labels[viewId] || "";
+        }
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      },
+
+      startGuidedSetup() {
+        this.state.useCuratedWorldIcons = false;
+        this.state.limit = 16;
+        this.renderStep1Places();
+        this.goToView("viewStepPlace");
+      },
+
+      /**
+       * Jugar rápido con las 16 aves más icónicas y famosas del mundo
+       */
+      async quickStartWorldTop() {
+        this.state.places.clear();
+        this.state.guilds.clear();
+        this.state.colors.clear();
+        this.state.keyword = "";
+        this.state.useCuratedWorldIcons = true;
+        this.state.samplingMode = "popular";
+        this.state.limit = 16;
+        await this.goToStep3(true);
+      },
+
+      /**
+       * Botón "Sorpréndeme": sortea una categoría/color/región al azar y selecciona 16 aves al azar
+       */
+      async launchSurpriseMe() {
+        this.state.places.clear();
+        this.state.guilds.clear();
+        this.state.colors.clear();
+        this.state.keyword = "";
+        this.state.useCuratedWorldIcons = false;
+
+        const modeRoll = Math.random();
+        if (modeRoll < 0.45) {
+          const g = CATALOG_DATA.guilds[Math.floor(Math.random() * CATALOG_DATA.guilds.length)];
+          this.state.guilds.add(g.key);
+          if (Math.random() < 0.65) {
+            const p = CATALOG_DATA.places[Math.floor(Math.random() * CATALOG_DATA.places.length)];
+            this.state.places.set(p.id, p.label);
+          }
+        } else if (modeRoll < 0.8) {
+          const c = CATALOG_DATA.colors[Math.floor(Math.random() * CATALOG_DATA.colors.length)];
+          this.state.colors.add(c.key);
+          const broadRegions = CATALOG_DATA.places.filter(p =>
+            ["Toda Latinoamérica", "Sudamérica", "Uruguay", "Argentina", "Brasil", "Chile", "Perú", "Colombia", "Asia", "África", "Australia"].includes(p.label)
+          );
+          if (Math.random() < 0.7 && broadRegions.length > 0) {
+            const p = broadRegions[Math.floor(Math.random() * broadRegions.length)];
+            this.state.places.set(p.id, p.label);
+          }
+        } else {
+          const p = CATALOG_DATA.places[Math.floor(Math.random() * CATALOG_DATA.places.length)];
+          this.state.places.set(p.id, p.label);
+        }
+
+        // Always 16 birds & random selection for Surprise Me
+        this.state.samplingMode = "random";
+        this.state.limit = 16;
+
+        this.renderStep1Places();
+        this.renderStep2Traits();
+        this.setSamplingMode("random");
+        await this.goToStep3();
+      },
+
+      randomizeTraitsStep() {
+        this.state.guilds.clear();
+        this.state.colors.clear();
+        this.state.keyword = "";
+        this.state.useCuratedWorldIcons = false;
+        document.getElementById("keywordInput").value = "";
+
+        const pickGuild = Math.random() < 0.7;
+        if (pickGuild) {
+          const g = CATALOG_DATA.guilds[Math.floor(Math.random() * CATALOG_DATA.guilds.length)];
+          this.state.guilds.add(g.key);
+        }
+        if (!pickGuild || Math.random() < 0.35) {
+          const c = CATALOG_DATA.colors[Math.floor(Math.random() * CATALOG_DATA.colors.length)];
+          this.state.colors.add(c.key);
+        }
+        this.renderStep2Traits();
+      },
+
+      async launchPreset(presetName) {
+        this.state.places.clear();
+        this.state.guilds.clear();
+        this.state.colors.clear();
+        this.state.keyword = "";
+        this.state.useCuratedWorldIcons = false;
+        this.state.samplingMode = "popular";
+        this.state.limit = 16;
+
+        if (presetName === "famosas_mundo") {
+          this.state.useCuratedWorldIcons = true;
+        } else if (presetName === "uruguay") {
+          this.state.places.set("7259", "Uruguay");
+        } else if (presetName === "carrona_uy") {
+          this.state.places.set("7259", "Uruguay");
+          this.state.guilds.add("carrona");
+        } else if (presetName === "rojas_latam") {
+          this.state.places.set("7259,7190,6878,7182,7513,7512,7196,7254,6783,1303,6924,6793,7003,6940", "Toda Latinoamérica");
+          this.state.colors.add("rojo");
+        }
+
+        this.renderStep1Places();
+        this.renderStep2Traits();
+        this.setSamplingMode("popular");
+        await this.goToStep3();
+      },
+
+      /**
+       * STEP 1: PLACES
+       */
+      renderStep1Places() {
+        const hasPlaces = this.state.places.size > 0;
+        const btnAll = document.getElementById("btnWorldAll");
+        btnAll.className = !hasPlaces
+          ? "px-5 py-2.5 rounded-full text-sm font-medium transition bg-forest text-white"
+          : "px-5 py-2.5 rounded-full text-sm font-medium transition bg-canvas text-ink border border-line hover:border-ink/40";
+
+        const wrap = document.getElementById("selectedPlacesWrap");
+        const chips = document.getElementById("selectedPlacesChips");
+        chips.innerHTML = "";
+        if (hasPlaces) {
+          wrap.classList.remove("hidden");
+          this.state.places.forEach((label, id) => {
+            const c = document.createElement("button");
+            c.onclick = () => this.togglePlace(id, label);
+            c.className = "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-forest text-white";
+            c.innerHTML = `<span>${label}</span><span class="opacity-75">×</span>`;
+            chips.appendChild(c);
+          });
+        } else {
+          wrap.classList.add("hidden");
+        }
+
+        const grid = document.getElementById("placesGrid");
+        grid.innerHTML = "";
+        CATALOG_DATA.places.forEach(p => {
+          const active = this.state.places.has(p.id);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.onclick = () => this.togglePlace(p.id, p.label);
+          btn.className = active
+            ? "px-4 py-2 rounded-full text-sm font-medium bg-forest text-white transition"
+            : "px-4 py-2 rounded-full text-sm bg-canvas hover:bg-stone-200/70 text-ink border border-line transition";
+          btn.textContent = p.label;
+          grid.appendChild(btn);
+        });
+      },
+
+      togglePlace(id, label) {
+        this.state.useCuratedWorldIcons = false;
+        if (this.state.places.has(id)) {
+          this.state.places.delete(id);
+        } else {
+          this.state.places.set(id, label);
+        }
+        this.renderStep1Places();
+      },
+
+      clearPlaces() {
+        this.state.places.clear();
+        this.renderStep1Places();
+      },
+
+      onPlaceSearch(query) {
+        clearTimeout(this.state.placeSearchTimer);
+        const drop = document.getElementById("placeDropdown");
+        if (!query || query.trim().length < 2) {
+          drop.classList.add("hidden");
+          return;
+        }
+        this.state.placeSearchTimer = setTimeout(async () => {
+          try {
+            const res = await fetch(`${CATALOG_DATA.baseUrl}/places/autocomplete?q=${encodeURIComponent(query.trim())}&per_page=6`);
+            const data = await res.json();
+            drop.innerHTML = "";
+            if (!data.results || data.results.length === 0) {
+              drop.classList.add("hidden");
+              return;
+            }
+            data.results.forEach(item => {
+              const b = document.createElement("button");
+              b.type = "button";
+              b.className = "w-full text-left px-4 py-2.5 text-xs text-ink hover:bg-forest-soft flex items-center justify-between";
+              b.innerHTML = `<span>${item.display_name}</span><span class="text-forest font-medium">+ Sumar</span>`;
+              b.onclick = () => {
+                this.state.useCuratedWorldIcons = false;
+                this.state.places.set(String(item.id), item.display_name);
+                document.getElementById("placeSearchInput").value = "";
+                drop.classList.add("hidden");
+                this.renderStep1Places();
+              };
+              drop.appendChild(b);
+            });
+            drop.classList.remove("hidden");
+          } catch (_) {}
+        }, 260);
+      },
+
+      goToStep2() {
+        this.renderStep2Traits();
+        this.goToView("viewStepTraits");
+      },
+
+      /**
+       * STEP 2: TRAITS & COLORS
+       */
+      renderStep2Traits() {
+        const hasAny = this.state.guilds.size > 0 || this.state.colors.size > 0 || this.state.keyword.trim().length > 0;
+        const btnAll = document.getElementById("btnTraitsAll");
+        btnAll.className = !hasAny
+          ? "px-5 py-2.5 rounded-full text-sm font-medium transition bg-forest text-white"
+          : "px-5 py-2.5 rounded-full text-sm font-medium transition bg-canvas text-ink border border-line hover:border-ink/40";
+
+        document.getElementById("traitsSummaryHint").textContent = hasAny
+          ? `${this.state.guilds.size + this.state.colors.size} filtros activos`
+          : "Todas las familias incluidas";
+
+        const gGrid = document.getElementById("guildsGrid");
+        gGrid.innerHTML = "";
+        CATALOG_DATA.guilds.forEach(g => {
+          const active = this.state.guilds.has(g.key);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.onclick = () => {
+            this.state.useCuratedWorldIcons = false;
+            if (this.state.guilds.has(g.key)) this.state.guilds.delete(g.key);
+            else this.state.guilds.add(g.key);
+            this.renderStep2Traits();
+          };
+          btn.className = active
+            ? "p-3.5 rounded-xl border-2 border-forest bg-forest-soft text-left transition"
+            : "p-3.5 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 text-left transition";
+          btn.innerHTML = `
+            <div class="text-sm font-medium text-ink">${g.title}</div>
+            <div class="text-xs text-muted mt-0.5">${g.desc}</div>
+          `;
+          gGrid.appendChild(btn);
+        });
+
+        const cGrid = document.getElementById("colorsGrid");
+        cGrid.innerHTML = "";
+        CATALOG_DATA.colors.forEach(c => {
+          const active = this.state.colors.has(c.key);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.onclick = () => {
+            this.state.useCuratedWorldIcons = false;
+            if (this.state.colors.has(c.key)) this.state.colors.delete(c.key);
+            else this.state.colors.add(c.key);
+            this.renderStep2Traits();
+          };
+          btn.className = active
+            ? "inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-medium bg-forest text-white transition"
+            : "inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm bg-canvas hover:bg-stone-200/70 text-ink border border-line transition";
+          btn.innerHTML = `
+            <span class="w-3.5 h-3.5 rounded-full border border-black/15 shrink-0" style="background:${c.swatch}"></span>
+            <span>${c.label}</span>
+          `;
+          cGrid.appendChild(btn);
+        });
+      },
+
+      clearTraitsAndColors() {
+        this.state.guilds.clear();
+        this.state.colors.clear();
+        this.state.keyword = "";
+        document.getElementById("keywordInput").value = "";
+        this.renderStep2Traits();
+      },
+
+      onKeywordChange(val) {
+        this.state.useCuratedWorldIcons = false;
+        this.state.keyword = val || "";
+        this.renderStep2Traits();
+      },
+
+      /**
+       * STEP 3: FETCH MATCHING BIRDS & DEFAULT TO 16
+       */
+      async goToStep3(autoStart = false) {
+        // Default to 16 birds whenever entering Step 3
+        this.state.limit = 16;
+
+        this.goToView("viewStepSize");
+        document.getElementById("step3FilterSummary").textContent = this.getHumanSummary();
+        document.getElementById("step3TotalFound").textContent = "...";
+        document.getElementById("step3MiniPhotos").innerHTML = "";
+        document.getElementById("step3LoadingOverlay").classList.remove("hidden");
+        document.getElementById("btnLaunchGame").disabled = true;
+        document.getElementById("btnLaunchGame").textContent = "Buscando aves...";
+
+        await this.fetchMatchingSpecies();
+
+        document.getElementById("step3LoadingOverlay").classList.add("hidden");
+        document.getElementById("btnLaunchGame").disabled = false;
+        document.getElementById("btnLaunchGame").textContent = "Comenzar partida →";
+
+        if (autoStart && this.state.candidatePool.length >= 2) {
+          this.startBattleGame();
+        }
+      },
+
+      async fetchMatchingSpecies() {
+        try {
+          // If no filters at all (or user clicked "Las 16 más famosas del mundo") and mode is popular,
+          // fetch the curated iconic world species so the user plays with Toucan, Condor, Harpy Eagle, Peacock, Quetzal, Emperor Penguin, etc.
+          const isUnfilteredWorld =
+            this.state.places.size === 0 &&
+            this.state.guilds.size === 0 &&
+            this.state.colors.size === 0 &&
+            !this.state.keyword.trim();
+
+          if (this.state.useCuratedWorldIcons || (isUnfilteredWorld && this.state.samplingMode === "popular")) {
+            const idsParam = CATALOG_DATA.curatedWorldIconsIds.join(",");
+            const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${idsParam}&per_page=40&locale=es`);
+            const data = await res.json();
+            const list = (data.results || [])
+              .map(t => this.formatBird(t, t.observations_count))
+              .filter(b => Boolean(b.imagen));
+
+            this.state.totalFound = 11359;
+            this.state.candidatePool = list;
+            this.updateStep3UI();
+            return;
+          }
+
+          let taxonIds = new Set();
+          if (this.state.guilds.size > 0) {
+            this.state.guilds.forEach(k => {
+              const g = CATALOG_DATA.guilds.find(x => x.key === k);
+              if (g) g.taxonIds.forEach(id => taxonIds.add(id));
+            });
+          }
+          if (taxonIds.size === 0 && this.state.colors.size > 0) {
+            this.state.colors.forEach(k => {
+              const c = CATALOG_DATA.colors.find(x => x.key === k);
+              if (c) c.taxonIds.forEach(id => taxonIds.add(id));
+            });
+          }
+          if (taxonIds.size === 0) {
+            taxonIds.add(CATALOG_DATA.rootAvesId);
+          }
+
+          const placeIds = Array.from(this.state.places.keys()).join(",");
+          const kw = this.state.keyword.trim();
+
+          const params = new URLSearchParams();
+          params.set("taxon_id", Array.from(taxonIds).join(","));
+          params.set("locale", "es");
+          params.set("per_page", "200");
+          params.set("page", "1");
+
+          if (placeIds) params.set("place_id", placeIds);
+          if (kw) params.set("q", kw);
+
+          let url = `${CATALOG_DATA.baseUrl}/observations/species_counts?${params.toString()}`;
+          let useTaxa = false;
+          if (kw && !placeIds) {
+            params.set("rank", "species");
+            params.set("order_by", "observations_count");
+            url = `${CATALOG_DATA.baseUrl}/taxa?${params.toString()}`;
+            useTaxa = true;
+          }
+
+          const res = await fetch(url);
+          const data = await res.json();
+
+          let list = [];
+          let total = data.total_results || 0;
+
+          if (useTaxa) {
+            list = (data.results || []).map(t => this.formatBird(t, t.observations_count));
+          } else {
+            list = (data.results || []).map(e => this.formatBird(e.taxon, e.count));
+          }
+
+          list = list.filter(b => Boolean(b.imagen));
+
+          if (kw && placeIds) {
+            const lowerKw = kw.toLowerCase();
+            list = list.filter(b =>
+              b.nombre.toLowerCase().includes(lowerKw) ||
+              b.nombreCientifico.toLowerCase().includes(lowerKw) ||
+              b.nombreIngles.toLowerCase().includes(lowerKw)
+            );
+          }
+
+          if (this.state.colors.size > 0) {
+            const byColor = list.filter(b => this.matchesColors(b));
+            if (byColor.length >= 4) {
+              list = byColor;
+              total = Math.max(byColor.length, Math.round(total * 0.25));
+            }
+          }
+
+          this.state.totalFound = total;
+          this.state.candidatePool = list;
+          this.updateStep3UI();
+        } catch (err) {
+          console.error(err);
+        }
+      },
+
+      formatBird(taxon, count = 0) {
+        if (!taxon) return {};
+        const photo = taxon.default_photo
+          ? (taxon.default_photo.medium_url || taxon.default_photo.url || "").replace("square.jpg", "medium.jpg")
+          : "";
+        const rawName = taxon.preferred_common_name || taxon.english_common_name || taxon.name || "Ave";
+        return {
+          id: String(taxon.id),
+          nombre: rawName.charAt(0).toUpperCase() + rawName.slice(1),
+          nombreCientifico: taxon.name || "",
+          nombreIngles: taxon.english_common_name || "",
+          imagen: photo,
+          popularidad: count || taxon.observations_count || 0
+        };
+      },
+
+      matchesColors(bird) {
+        const text = `${bird.nombre} ${bird.nombreCientifico} ${bird.nombreIngles}`.toLowerCase();
+        return Array.from(this.state.colors).every(cKey => {
+          const cObj = CATALOG_DATA.colors.find(x => x.key === cKey);
+          if (!cObj) return true;
+          return cObj.terms.some(t => text.includes(t));
+        });
+      },
+
+      updateStep3UI() {
+        const poolCount = this.state.candidatePool.length;
+        const displayTotal = Math.max(poolCount, this.state.totalFound);
+        document.getElementById("step3TotalFound").textContent = displayTotal.toLocaleString("es-UY");
+
+        const mini = document.getElementById("step3MiniPhotos");
+        mini.innerHTML = "";
+        this.state.candidatePool.slice(0, 6).forEach(b => {
+          const img = document.createElement("img");
+          img.src = b.imagen;
+          img.alt = b.nombre;
+          img.className = "w-12 h-12 rounded-full object-cover border-2 border-surface shadow-sm bg-stone-200";
+          mini.appendChild(img);
+        });
+
+        const slider = document.getElementById("limitSlider");
+        const warning = document.getElementById("noBirdsWarning");
+        const launchBtn = document.getElementById("btnLaunchGame");
+
+        if (poolCount < 2) {
+          warning.classList.remove("hidden");
+          launchBtn.disabled = true;
+          launchBtn.classList.add("opacity-40");
+          return;
+        }
+
+        warning.classList.add("hidden");
+        launchBtn.disabled = false;
+        launchBtn.classList.remove("opacity-40");
+
+        const minVal = Math.min(4, poolCount);
+        const maxVal = Math.min(64, poolCount);
+        slider.min = minVal;
+        slider.max = maxVal;
+
+        // Always default to 16 (or max available if fewer than 16)
+        this.state.limit = Math.min(16, maxVal);
+        slider.value = this.state.limit;
+        this.onLimitChange(this.state.limit);
+      },
+
+      setSamplingMode(mode) {
+        this.state.samplingMode = mode;
+        const btnPop = document.getElementById("btnSamplePopular");
+        const btnRnd = document.getElementById("btnSampleRandom");
+
+        if (mode === "popular") {
+          btnPop.className = "p-4 rounded-xl border-2 border-forest bg-forest-soft text-left transition";
+          btnRnd.className = "p-4 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 text-left transition";
+        } else {
+          btnRnd.className = "p-4 rounded-xl border-2 border-forest bg-forest-soft text-left transition";
+          btnPop.className = "p-4 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 text-left transition";
+        }
+      },
+
+      onLimitChange(val) {
+        const maxVal = Math.min(64, this.state.candidatePool.length || 16);
+        const minVal = Math.min(4, maxVal);
+        let n = val === "MAX" ? maxVal : parseInt(val, 10);
+        if (isNaN(n)) n = 16;
+        n = Math.max(minVal, Math.min(maxVal, n));
+
+        this.state.limit = n;
+        document.getElementById("limitSlider").value = n;
+        document.getElementById("limitValueDisplay").textContent = n;
+
+        const estDecisions = Math.max(1, Math.round(n * Math.log2(n) * 0.78));
+        const mins = Math.max(0.5, (estDecisions * 2.2) / 60);
+        const timeStr = mins < 1 ? "Menos de 1 min" : `~${Math.round(mins)} min`;
+
+        document.getElementById("effortClicksBigNumber").textContent = estDecisions;
+        document.getElementById("effortTimeBadge").textContent = timeStr;
+
+        const badge = document.getElementById("effortIntensityBadge");
+        const box = document.getElementById("effortCalloutBox");
+
+        if (estDecisions <= 25) {
+          badge.textContent = "Partida Corta";
+          badge.className = "text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-forest text-white";
+          box.className = "rounded-2xl bg-forest-soft border border-forest/25 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4";
+        } else if (estDecisions <= 65) {
+          badge.textContent = "Duración Ideal";
+          badge.className = "text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-forest text-white";
+          box.className = "rounded-2xl bg-forest-soft border border-forest/25 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4";
+        } else {
+          badge.textContent = "Partida Larga";
+          badge.className = "text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-700 text-white";
+          box.className = "rounded-2xl bg-amber-50 border border-amber-300/80 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4";
+        }
+
+        document.getElementById("durationHintText").textContent =
+          `Vas a hacer unas ${estDecisions} elecciones rápidas entre pares de fotos (${timeStr.toLowerCase()}).`;
+      },
+
+      getHumanSummary() {
+        if (this.state.useCuratedWorldIcons) {
+          return "Las aves más icónicas y famosas del mundo";
+        }
+
+        const places = Array.from(this.state.places.values());
+        const guilds = Array.from(this.state.guilds).map(k => {
+          const g = CATALOG_DATA.guilds.find(x => x.key === k);
+          return g ? g.title : k;
+        });
+        const colors = Array.from(this.state.colors).map(k => {
+          const c = CATALOG_DATA.colors.find(x => x.key === k);
+          return c ? `color ${c.label.toLowerCase()}` : k;
+        });
+
+        const parts = [];
+        if (guilds.length > 0) parts.push(guilds.join(" y "));
+        else parts.push("Aves");
+
+        if (colors.length > 0) parts.push(`de ${colors.join(" y ")}`);
+
+        if (places.length > 0) parts.push(`en ${places.join(", ")}`);
+        else parts.push("de todo el mundo");
+
+        return parts.join(" ");
+      },
+
+      /**
+       * VIEW 4: THE 1v1 MERGE SORT GAME
+       */
+      async startBattleGame() {
+        if (this.state.candidatePool.length < 2) return;
+
+        let pool = [...this.state.candidatePool];
+        const n = this.state.limit;
+
+        if (this.state.samplingMode === "popular" && !this.state.useCuratedWorldIcons) {
+          pool.sort((a, b) => (b.popularidad || 0) - (a.popularidad || 0));
+          pool = pool.slice(0, n);
+          this.shuffle(pool);
+        } else {
+          this.shuffle(pool);
+          pool = pool.slice(0, n);
+        }
+
+        this.state.battleStep = 0;
+        this.state.estimatedTotalSteps = Math.max(1, Math.round(pool.length * Math.log2(pool.length) * 0.8));
+
+        this.goToView("viewBattle");
+
+        try {
+          const sorted = await this.mergeSortAsync(pool);
+          this.state.finalRanking = sorted;
+          this.renderResultsView();
+        } catch (_) {}
+      },
+
+      shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      },
+
+      async mergeSortAsync(arr) {
+        if (arr.length <= 1) return arr;
+        const mid = Math.floor(arr.length / 2);
+        const left = await this.mergeSortAsync(arr.slice(0, mid));
+        const right = await this.mergeSortAsync(arr.slice(mid));
+        return await this.mergeAsync(left, right);
+      },
+
+      async mergeAsync(left, right) {
+        const res = [];
+        let i = 0, j = 0;
+        while (i < left.length && j < right.length) {
+          const pick = await this.askUserPreference(left[i], right[j]);
+          if (pick === "left") {
+            res.push(left[i]);
+            i++;
+          } else {
+            res.push(right[j]);
+            j++;
+          }
+        }
+        return res.concat(left.slice(i)).concat(right.slice(j));
+      },
+
+      askUserPreference(leftBird, rightBird) {
+        this.state.battleStep++;
+        const done = this.state.battleStep - 1;
+        const est = Math.max(this.state.battleStep, this.state.estimatedTotalSteps);
+        const pct = Math.min(98, Math.round((done / est) * 100));
+
+        document.getElementById("battleStepNum").textContent = this.state.battleStep;
+        document.getElementById("battlePctText").textContent = `${pct}%`;
+        document.getElementById("battleProgressBar").style.width = `${Math.max(4, pct)}%`;
+
+        document.getElementById("loaderLeft").classList.remove("hidden");
+        document.getElementById("loaderRight").classList.remove("hidden");
+
+        const imgL = document.getElementById("imgLeft");
+        imgL.alt = leftBird.nombre;
+        imgL.src = leftBird.imagen;
+        document.getElementById("nameLeft").textContent = leftBird.nombre;
+        document.getElementById("sciLeft").textContent = leftBird.nombreCientifico;
+
+        const imgR = document.getElementById("imgRight");
+        imgR.alt = rightBird.nombre;
+        imgR.src = rightBird.imagen;
+        document.getElementById("nameRight").textContent = rightBird.nombre;
+        document.getElementById("sciRight").textContent = rightBird.nombreCientifico;
+
+        return new Promise((resolve, reject) => {
+          this.state.pendingResolver = { resolve, reject };
+        });
+      },
+
+      onBattleImgLoad(side) {
+        const loader = document.getElementById(side === "left" ? "loaderLeft" : "loaderRight");
+        if (loader) loader.classList.add("hidden");
+      },
+
+      chooseBird(side) {
+        if (!this.state.pendingResolver) return;
+        const r = this.state.pendingResolver.resolve;
+        this.state.pendingResolver = null;
+        r(side);
+      },
+
+      bindKeyboard() {
+        window.addEventListener("keydown", (e) => {
+          const onBattle = !document.getElementById("viewBattle").classList.contains("hidden");
+          if (!onBattle || !this.state.pendingResolver) return;
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            this.chooseBird("left");
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            this.chooseBird("right");
+          }
+        });
+      },
+
+      handleImgFallback(imgEl, side) {
+        if (side) this.onBattleImgLoad(side);
+        imgEl.onerror = null;
+        const title = imgEl.alt || "Ave";
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+          <rect width="800" height="600" fill="#E9E5DC"/>
+          <text x="400" y="310" text-anchor="middle" fill="#161816" font-family="Georgia, serif" font-size="32">${title.replace(/[<>&"']/g, "")}</text>
+        </svg>`;
+        imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+      },
+
+      /**
+       * VIEW 5: EDITORIAL RESULTS (TOP 3 LARGE + REST SMALLER WITH PHOTOS)
+       */
+      renderResultsView() {
+        this.goToView("viewResults");
+        const ranking = this.state.finalRanking;
+        const summary = this.getHumanSummary();
+        document.getElementById("resultsFilterCaption").textContent = summary;
+        document.getElementById("posterSubInput").value = summary;
+
+        // Top 3 Podium
+        const top3Grid = document.getElementById("resultsTop3Grid");
+        top3Grid.innerHTML = "";
+        ranking.slice(0, 3).forEach((bird, idx) => {
+          const pos = idx + 1;
+          const isFirst = pos === 1;
+          const colSpan = isFirst ? "md:col-span-6" : "md:col-span-3";
+
+          const card = document.createElement("div");
+          card.className = `${colSpan} bg-surface border border-line rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm`;
+          card.innerHTML = `
+            <div class="relative ${isFirst ? "aspect-[4/3]" : "aspect-square"} w-full bg-stone-200 overflow-hidden">
+              <img src="${bird.imagen}" alt="${bird.nombre}" onerror="app.handleImgFallback(this)"
+                class="w-full h-full object-cover object-center" />
+              <div class="absolute top-4 left-4">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-medium ${isFirst ? "bg-forest text-white" : "bg-surface/95 text-ink border border-line"} shadow-sm">
+                  Puesto #${pos}
+                </span>
+              </div>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-serif ${isFirst ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl"} text-ink leading-tight">${bird.nombre}</h3>
+              <p class="text-xs sm:text-sm italic text-muted mt-1">${bird.nombreCientifico}</p>
+            </div>
+          `;
+          top3Grid.appendChild(card);
+        });
+
+        // Remaining (#4 onwards)
+        const rest = ranking.slice(3);
+        const restSection = document.getElementById("resultsRestSection");
+        const restGrid = document.getElementById("resultsRestGrid");
+        restGrid.innerHTML = "";
+
+        if (rest.length === 0) {
+          restSection.classList.add("hidden");
+        } else {
+          restSection.classList.remove("hidden");
+          rest.forEach((bird, idx) => {
+            const pos = idx + 4;
+            const row = document.createElement("div");
+            row.className = "flex items-center gap-3.5 p-3 rounded-xl bg-surface border border-line";
+            row.innerHTML = `
+              <span class="w-8 text-center font-serif text-xl text-muted shrink-0">#${pos}</span>
+              <img src="${bird.imagen}" alt="${bird.nombre}" onerror="app.handleImgFallback(this)"
+                class="w-14 h-14 rounded-lg object-cover shrink-0 bg-stone-200" />
+              <div class="min-w-0 flex-1">
+                <div class="text-sm font-medium text-ink truncate">${bird.nombre}</div>
+                <div class="text-xs italic text-muted truncate">${bird.nombreCientifico}</div>
+              </div>
+            `;
+            restGrid.appendChild(row);
+          });
+        }
+      },
+
+      copyTextRanking() {
+        const lines = [
+          `${document.getElementById("posterTitleInput").value || "Mis Aves Favoritas"} (${this.getHumanSummary()})`,
+          ""
+        ];
+        this.state.finalRanking.forEach((b, i) => {
+          lines.push(`${i + 1}. ${b.nombre} (${b.nombreCientifico})`);
+        });
+        navigator.clipboard.writeText(lines.join("\n")).then(() => {
+          const btn = document.getElementById("btnCopyText");
+          const prev = btn.textContent;
+          btn.textContent = "Lista copiada al portapapeles";
+          setTimeout(() => { btn.textContent = prev; }, 2000);
+        });
+      },
+
+      /**
+       * UNIFIED EXPORT MODAL (INSTAGRAM STORY 9:16 + CLASSIC POSTER 4:5)
+       */
+      openPosterModal() {
+        document.getElementById("posterModal").classList.remove("hidden");
+        this.drawPosterCanvas();
+      },
+
+      closePosterModal() {
+        document.getElementById("posterModal").classList.add("hidden");
+      },
+
+      setPosterFormat(fmt) {
+        this.state.posterFormat = fmt === "poster" ? "poster" : "story";
+        const btnS = document.getElementById("formatBtnStory");
+        const btnP = document.getElementById("formatBtnPoster");
+        const canvas = document.getElementById("posterCanvas");
+
+        if (this.state.posterFormat === "story") {
+          btnS.className = "py-2.5 px-3 rounded-xl border-2 border-forest bg-forest-soft text-xs font-semibold text-ink text-left";
+          btnP.className = "py-2.5 px-3 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-left";
+          canvas.width = 1080;
+          canvas.height = 1920;
+          canvas.className = "w-full max-w-[300px] h-auto rounded-xl shadow-lg bg-white";
+        } else {
+          btnP.className = "py-2.5 px-3 rounded-xl border-2 border-forest bg-forest-soft text-xs font-semibold text-ink text-left";
+          btnS.className = "py-2.5 px-3 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-left";
+          canvas.width = 1200;
+          canvas.height = 1550;
+          canvas.className = "w-full max-w-sm h-auto rounded-xl shadow-lg bg-white";
+        }
+
+        this.drawPosterCanvas();
+      },
+
+      setPosterStyle(style) {
+        this.state.posterStyle = style;
+        const btnL = document.getElementById("styleBtnLight");
+        const btnD = document.getElementById("styleBtnDark");
+        if (style === "light") {
+          btnL.className = "py-2.5 px-3 rounded-xl border-2 border-forest bg-surface text-xs font-medium text-ink";
+          btnD.className = "py-2.5 px-3 rounded-xl border border-line bg-stone-900 text-xs font-medium text-stone-100";
+        } else {
+          btnD.className = "py-2.5 px-3 rounded-xl border-2 border-emerald-400 bg-stone-900 text-xs font-medium text-stone-100";
+          btnL.className = "py-2.5 px-3 rounded-xl border border-line bg-surface text-xs font-medium text-ink";
+        }
+        this.drawPosterCanvas();
+      },
+
+      loadImgForCanvas(url) {
+        if (!url) return Promise.resolve(null);
+        if (this.state.imageCache.has(url)) return Promise.resolve(this.state.imageCache.get(url));
+
+        const loadFromBlobUrl = (blobUrl, cacheKey) =>
+          new Promise(resolve => {
+            const img = new Image();
+            img.onload = () => {
+              this.state.imageCache.set(cacheKey, img);
+              resolve(img);
+            };
+            img.onerror = () => resolve(null);
+            img.src = blobUrl;
+          });
+
+        const loadWithCorsTag = (srcUrl, cacheKey) =>
+          new Promise(resolve => {
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            img.onload = () => {
+              this.state.imageCache.set(cacheKey, img);
+              resolve(img);
+            };
+            img.onerror = () => resolve(null);
+            img.src = srcUrl;
+          });
+
+        return (async () => {
+          try {
+            const res = await fetch(url, { mode: "cors", cache: "reload" });
+            if (res.ok) {
+              const blob = await res.blob();
+              const objUrl = URL.createObjectURL(blob);
+              const loaded = await loadFromBlobUrl(objUrl, url);
+              if (loaded) return loaded;
+            }
+          } catch (_) {}
+
+          try {
+            const proxyUrl = `https://wsrv.nl/?url=${encodeURIComponent(url)}&output=jpg`;
+            const resProxy = await fetch(proxyUrl, { mode: "cors" });
+            if (resProxy.ok) {
+              const blob = await resProxy.blob();
+              const objUrl = URL.createObjectURL(blob);
+              const loaded = await loadFromBlobUrl(objUrl, url);
+              if (loaded) return loaded;
+            }
+          } catch (_) {}
+
+          const sep = url.includes("?") ? "&" : "?";
+          return await loadWithCorsTag(`${url}${sep}canvas_cors=1`, url);
+        })();
+      },
+
+      async drawPosterCanvas() {
+        const canvas = document.getElementById("posterCanvas");
+        const ctx = canvas.getContext("2d");
+        const ranking = this.state.finalRanking;
+        if (!ranking || ranking.length === 0) return;
+
+        const isStory = this.state.posterFormat === "story";
+        canvas.width = isStory ? 1080 : 1200;
+        canvas.height = isStory ? 1920 : 1550;
+
+        const W = canvas.width;
+        const H = canvas.height;
+        const isLight = this.state.posterStyle === "light";
+
+        const pal = isLight
+          ? { bg: "#F6F4EF", card: "#FFFFFF", border: "#DEDAD0", ink: "#161816", muted: "#696B65", badge: "#1D3B2A", badgeText: "#FFFFFF" }
+          : { bg: "#111613", card: "#1A211D", border: "#2B352F", ink: "#F5F5F0", muted: "#9CA39E", badge: "#E5C170", badgeText: "#111613" };
+
+        ctx.fillStyle = pal.bg;
+        ctx.fillRect(0, 0, W, H);
+
+        const pad = isStory ? 48 : 44;
+        ctx.strokeStyle = pal.border;
+        ctx.lineWidth = 2;
+        ctx.strokeRect(pad, pad, W - pad * 2, H - pad * 2);
+
+        const title = document.getElementById("posterTitleInput").value || "Mis Aves Favoritas";
+        const sub = document.getElementById("posterSubInput").value || this.getHumanSummary();
+        const author = document.getElementById("posterAuthorInput").value.trim();
+
+        const maxItems = isStory ? 11 : 15;
+        const slice = ranking.slice(0, maxItems);
+        const needRemoteLoad = slice.some(b => b.imagen && !this.state.imageCache.has(b.imagen));
+        const overlay = document.getElementById("posterLoadingOverlay");
+        const progressText = document.getElementById("posterLoadingProgressText");
+        const downloadBtn = document.getElementById("btnDownloadPoster");
+
+        if (needRemoteLoad) {
+          overlay.classList.remove("hidden");
+          downloadBtn.disabled = true;
+          downloadBtn.textContent = "Preparando fotografías...";
+        }
+
+        let loadedCount = 0;
+        const imgs = await Promise.all(
+          slice.map(async (b) => {
+            const img = await this.loadImgForCanvas(b.imagen);
+            loadedCount++;
+            if (needRemoteLoad && progressText) {
+              progressText.textContent = `Cargando fotografías en alta definición (${loadedCount} de ${slice.length})...`;
+            }
+            return img;
+          })
+        );
+
+        overlay.classList.add("hidden");
+        downloadBtn.disabled = false;
+        downloadBtn.textContent = isStory
+          ? "Descargar para Historia de Instagram (PNG)"
+          : "Descargar Póster Clásico (PNG)";
+
+        if (isStory) {
+          // ==================================================
+          // LAYOUT A: INSTAGRAM STORY 9:16 (1080 x 1920 px)
+          // ==================================================
+          const sx = 82;
+          const innerW = W - sx * 2;
+
+          ctx.fillStyle = pal.muted;
+          ctx.font = "500 18px 'Inter', sans-serif";
+          ctx.fillText(sub.toUpperCase().slice(0, 62), sx, 118);
+
+          if (author) {
+            ctx.textAlign = "right";
+            ctx.fillText(author, W - sx, 118);
+            ctx.textAlign = "left";
+          }
+
+          ctx.fillStyle = pal.ink;
+          ctx.font = "400 72px 'Instrument Serif', Georgia, serif";
+          ctx.fillText(title.slice(0, 32), sx, 192);
+
+          ctx.strokeStyle = pal.border;
+          ctx.beginPath();
+          ctx.moveTo(sx, 224);
+          ctx.lineTo(W - sx, 224);
+          ctx.stroke();
+
+          // #1 HERO CARD
+          const b1 = slice[0];
+          if (b1) {
+            const y1 = 252;
+            const h1 = 440;
+            this.roundRect(ctx, sx, y1, innerW, h1, 22, pal.card, pal.border, 2);
+
+            ctx.save();
+            this.roundRectPath(ctx, sx + 14, y1 + 14, innerW - 28, 315, 14);
+            ctx.clip();
+            if (imgs[0]) {
+              this.drawCover(ctx, imgs[0], sx + 14, y1 + 14, innerW - 28, 315);
+            } else {
+              ctx.fillStyle = pal.border;
+              ctx.fillRect(sx + 14, y1 + 14, innerW - 28, 315);
+            }
+            ctx.restore();
+
+            this.roundRect(ctx, sx + 30, y1 + 30, 110, 40, 20, pal.badge, null, 0);
+            ctx.fillStyle = pal.badgeText;
+            ctx.font = "600 18px 'Inter', sans-serif";
+            ctx.fillText("TOP #1", sx + 52, y1 + 56);
+
+            ctx.fillStyle = pal.ink;
+            ctx.font = "400 44px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(b1.nombre.slice(0, 28), sx + 24, y1 + 382);
+
+            ctx.fillStyle = pal.muted;
+            ctx.font = "italic 22px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(b1.nombreCientifico.slice(0, 38), sx + 24, y1 + 414);
+          }
+
+          // #2 & #3 SIDE BY SIDE
+          const top23 = slice.slice(1, 3);
+          const y23 = 716;
+          const w23 = (innerW - 24) / 2;
+          const h23 = 380;
+
+          top23.forEach((bird, idx) => {
+            const pos = idx + 2;
+            const cx = sx + idx * (w23 + 24);
+            this.roundRect(ctx, cx, y23, w23, h23, 18, pal.card, pal.border, 1.5);
+
+            ctx.save();
+            this.roundRectPath(ctx, cx + 12, y23 + 12, w23 - 24, 255, 12);
+            ctx.clip();
+            const im = imgs[idx + 1];
+            if (im) {
+              this.drawCover(ctx, im, cx + 12, y23 + 12, w23 - 24, 255);
+            } else {
+              ctx.fillStyle = pal.border;
+              ctx.fillRect(cx + 12, y23 + 12, w23 - 24, 255);
+            }
+            ctx.restore();
+
+            this.roundRect(ctx, cx + 24, y23 + 24, 78, 34, 17, pal.badge, null, 0);
+            ctx.fillStyle = pal.badgeText;
+            ctx.font = "600 16px 'Inter', sans-serif";
+            ctx.fillText(`#${pos}`, cx + 50, y23 + 47);
+
+            ctx.fillStyle = pal.ink;
+            ctx.font = "400 32px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(bird.nombre.slice(0, 22), cx + 18, y23 + 314);
+
+            ctx.fillStyle = pal.muted;
+            ctx.font = "italic 18px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(bird.nombreCientifico.slice(0, 28), cx + 18, y23 + 344);
+          });
+
+          // #4 TO #11 COMPACT 2-COLUMN GRID
+          const restStory = slice.slice(3, 11);
+          if (restStory.length > 0) {
+            const baseY = 1126;
+            const rowH = 148;
+            const colW = (innerW - 24) / 2;
+
+            restStory.forEach((bird, i) => {
+              const pos = i + 4;
+              const col = i % 2;
+              const row = Math.floor(i / 2);
+              const rx = sx + col * (colW + 24);
+              const ry = baseY + row * (rowH + 16);
+
+              this.roundRect(ctx, rx, ry, colW, rowH, 16, pal.card, pal.border, 1);
+
+              ctx.save();
+              this.roundRectPath(ctx, rx + 14, ry + 14, 120, 120, 10);
+              ctx.clip();
+              const rImg = imgs[i + 3];
+              if (rImg) {
+                this.drawCover(ctx, rImg, rx + 14, ry + 14, 120, 120);
+              } else {
+                ctx.fillStyle = pal.border;
+                ctx.fillRect(rx + 14, ry + 14, 120, 120);
+              }
+              ctx.restore();
+
+              ctx.fillStyle = pal.muted;
+              ctx.font = "400 28px 'Instrument Serif', Georgia, serif";
+              ctx.fillText(`#${pos}`, rx + 152, ry + 50);
+
+              ctx.fillStyle = pal.ink;
+              ctx.font = "500 22px 'Inter', sans-serif";
+              ctx.fillText(bird.nombre.slice(0, 18), rx + 152, ry + 84);
+
+              ctx.fillStyle = pal.muted;
+              ctx.font = "italic 17px 'Instrument Serif', Georgia, serif";
+              ctx.fillText(bird.nombreCientifico.slice(0, 24), rx + 152, ry + 112);
+            });
+          }
+
+          ctx.fillStyle = pal.muted;
+          ctx.font = "400 16px 'Inter', sans-serif";
+          ctx.fillText("AVES · Creado por fedep1011", sx, H - 72);
+          return;
+        }
+
+        // ==================================================
+        // LAYOUT B: CLASSIC EDITORIAL POSTER 4:5 (1200 x 1550)
+        // ==================================================
+        ctx.fillStyle = pal.muted;
+        ctx.font = "500 17px 'Inter', sans-serif";
+        ctx.fillText(sub.toUpperCase().slice(0, 75), 84, 108);
+
+        if (author) {
+          ctx.textAlign = "right";
+          ctx.fillText(author, W - 84, 108);
+          ctx.textAlign = "left";
+        }
+
+        ctx.fillStyle = pal.ink;
+        ctx.font = "400 68px 'Instrument Serif', Georgia, serif";
+        ctx.fillText(title, 84, 178);
+
+        ctx.strokeStyle = pal.border;
+        ctx.beginPath();
+        ctx.moveTo(84, 210);
+        ctx.lineTo(W - 84, 210);
+        ctx.stroke();
+
+        const top3 = slice.slice(0, 3);
+        const cardW = 330;
+        const cardH = 445;
+        const gap = 21;
+        const startX = 84;
+        const topY = 242;
+
+        top3.forEach((bird, idx) => {
+          const x = startX + idx * (cardW + gap);
+          const y = topY;
+
+          this.roundRect(ctx, x, y, cardW, cardH, 16, pal.card, pal.border, 1.5);
+
+          ctx.save();
+          this.roundRectPath(ctx, x + 12, y + 12, cardW - 24, 300, 10);
+          ctx.clip();
+          if (imgs[idx]) {
+            this.drawCover(ctx, imgs[idx], x + 12, y + 12, cardW - 24, 300);
+          } else {
+            ctx.fillStyle = pal.border;
+            ctx.fillRect(x + 12, y + 12, cardW - 24, 300);
+          }
+          ctx.restore();
+
+          this.roundRect(ctx, x + 24, y + 24, 72, 34, 17, pal.badge, null, 0);
+          ctx.fillStyle = pal.badgeText;
+          ctx.font = "600 16px 'Inter', sans-serif";
+          ctx.fillText(`#${idx + 1}`, x + 48, y + 46);
+
+          ctx.fillStyle = pal.ink;
+          ctx.font = "400 34px 'Instrument Serif', Georgia, serif";
+          ctx.fillText(bird.nombre.slice(0, 22), x + 18, y + 358);
+
+          ctx.fillStyle = pal.muted;
+          ctx.font = "italic 18px 'Instrument Serif', Georgia, serif";
+          ctx.fillText(bird.nombreCientifico.slice(0, 30), x + 18, y + 388);
+        });
+
+        const rest = slice.slice(3, 15);
+        if (rest.length > 0) {
+          const cols = 2;
+          const colW = (W - 168 - 24) / 2;
+          const rowH = 104;
+          const baseY = 725;
+
+          rest.forEach((bird, i) => {
+            const pos = i + 4;
+            const col = i % cols;
+            const row = Math.floor(i / cols);
+            const rx = 84 + col * (colW + 24);
+            const ry = baseY + row * (rowH + 14);
+
+            this.roundRect(ctx, rx, ry, colW, rowH, 14, pal.card, pal.border, 1);
+
+            ctx.save();
+            this.roundRectPath(ctx, rx + 12, ry + 12, 80, 80, 8);
+            ctx.clip();
+            const rImg = imgs[i + 3];
+            if (rImg) {
+              this.drawCover(ctx, rImg, rx + 12, ry + 12, 80, 80);
+            } else {
+              ctx.fillStyle = pal.border;
+              ctx.fillRect(rx + 12, ry + 12, 80, 80);
+            }
+            ctx.restore();
+
+            ctx.fillStyle = pal.muted;
+            ctx.font = "400 26px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(`#${pos}`, rx + 110, ry + 48);
+
+            ctx.fillStyle = pal.ink;
+            ctx.font = "500 21px 'Inter', sans-serif";
+            ctx.fillText(bird.nombre.slice(0, 23), rx + 155, ry + 46);
+
+            ctx.fillStyle = pal.muted;
+            ctx.font = "italic 17px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(bird.nombreCientifico.slice(0, 34), rx + 155, ry + 74);
+          });
+        }
+
+        ctx.fillStyle = pal.muted;
+        ctx.font = "400 15px 'Inter', sans-serif";
+        ctx.fillText("AVES · Creado por fedep1011", 84, H - 64);
+      },
+
+      roundRectPath(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+      },
+
+      roundRect(ctx, x, y, w, h, r, fill, stroke, lw) {
+        this.roundRectPath(ctx, x, y, w, h, r);
+        if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+        if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
+      },
+
+      drawCover(ctx, img, x, y, w, h) {
+        const ir = img.width / img.height;
+        const br = w / h;
+        let sx = 0, sy = 0, sw = img.width, sh = img.height;
+        if (ir > br) {
+          sw = img.height * br;
+          sx = (img.width - sw) / 2;
+        } else {
+          sh = img.width / br;
+          sy = (img.height - sh) / 2;
+        }
+        ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+      },
+
+      downloadPosterImage() {
+        const canvas = document.getElementById("posterCanvas");
+        const a = document.createElement("a");
+        const suffix = this.state.posterFormat === "story" ? "historia-instagram" : "poster";
+        a.download = `mi-ranking-de-aves-${suffix}.png`;
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+      }
+    };
+
+    window.addEventListener("DOMContentLoaded", () => app.init());
+  </script>
+</body>
+</html>
