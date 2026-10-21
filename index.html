@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<!--
+  FILE MAP (AVES ranker, single file). Search "@@" to jump to a section.
+  Order: <head> (tailwind cfg, CSS) -> <header> -> <main> VIEWS -> export modal -> <footer> -> <script> app object.
+  HTML  @@VIEW:viewHome | viewStepPlace | viewStepTraits | viewStepSize | viewBattle | viewResults
+  JS    one global `app` {state, methods}. Sections tagged @@JS:...
+        STATE+CONSTANTS, SHARED-CHALLENGE, LANGUAGE, NAVIGATION+PRESETS, SETUP-WIZARD,
+        DATA-FETCH, BATTLE, WINNER-EXTRAS, RESULTS, EXPORT
+  Conventions: i18n via this.state.lang ("es"|"en"); share link params r(ids) c(category) a(author) l(lang);
+  undo = replay choiceHistory with same battleSeed; one single winner-audio banner (#winnerAudioPromptBanner).
+  Docs: README.md (public), GUIA_CLONAR_APP.md (how to clone for other topics).
+-->
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -122,6 +133,7 @@
     <!-- ====================================================
          VISTA 0: PORTADA (+ TARJETA DE DESAFÍO COMPARTIDO POR LINK)
          ==================================================== -->
+    <!-- @@VIEW:viewHome -->
     <section id="viewHome" class="step-transition max-w-3xl mx-auto w-full text-center space-y-5 sm:space-y-8 py-1 sm:py-4">
 
       <!-- INCOMING SHARED CHALLENGE BANNER (Visible when opened via WhatsApp / Shared Link ?r=...) -->
@@ -263,6 +275,7 @@
     <!-- ====================================================
          VISTA 1: PASO 1 — LUGAR
          ==================================================== -->
+    <!-- @@VIEW:viewStepPlace -->
     <section id="viewStepPlace" class="hidden step-transition max-w-3xl mx-auto w-full space-y-4 sm:space-y-6">
       <div class="space-y-1">
         <div id="step1Kicker" class="text-[11px] uppercase tracking-[0.18em] text-muted">Paso 1 de 3 · Lugar</div>
@@ -315,6 +328,7 @@
     <!-- ====================================================
          VISTA 2: PASO 2 — TIPO Y COLOR
          ==================================================== -->
+    <!-- @@VIEW:viewStepTraits -->
     <section id="viewStepTraits" class="hidden step-transition max-w-3xl mx-auto w-full space-y-4 sm:space-y-6">
       <div class="space-y-1">
         <div id="step2Kicker" class="text-[11px] uppercase tracking-[0.18em] text-muted">Paso 2 de 3 · Tipo y Color</div>
@@ -381,6 +395,7 @@
     <!-- ====================================================
          VISTA 3: PASO 3 — CONFIRMAR PARTIDA (DEFAULT 16)
          ==================================================== -->
+    <!-- @@VIEW:viewStepSize -->
     <section id="viewStepSize" class="hidden step-transition max-w-2xl mx-auto w-full space-y-4 sm:space-y-6">
       <div class="space-y-1">
         <div id="step3Kicker" class="text-[11px] uppercase tracking-[0.18em] text-muted">Paso 3 de 3 · Confirmar partida</div>
@@ -499,6 +514,7 @@
     <!-- ====================================================
          VISTA 4: EL JUEGO (FOTOS COMPLETAS SIN CORTAR CABEZAS)
          ==================================================== -->
+    <!-- @@VIEW:viewBattle -->
     <section id="viewBattle" class="hidden step-transition w-full space-y-2 sm:space-y-4">
       
       <div class="max-w-3xl mx-auto space-y-1 text-center">
@@ -592,6 +608,7 @@
     <!-- ====================================================
          VISTA 5: RESULTADOS (COMPACTO ARRIBA + COMPARACIÓN CON AMIGO + FOTOS INMEDIATAS)
          ==================================================== -->
+    <!-- @@VIEW:viewResults -->
     <section id="viewResults" class="hidden step-transition w-full space-y-5 sm:space-y-8">
 
       <!-- Compact Closed Results Header so Top 3 Photos appear immediately below -->
@@ -1350,6 +1367,9 @@
         isPreparingShare: false
       },
 
+      // ============================================================
+      // @@JS:STATE+CONSTANTS : state, curated ids, i18n, medals (above) / helpers t(), init()
+      // ============================================================
       getPodiumMedalMeta(pos) {
         const isEn = this.state.lang === "en";
         if (pos === 1) {
@@ -1415,6 +1435,9 @@
        * PARSES EMBEDDED URL CHALLENGE (?r=id1.id2.id3...&c=Category&a=Author&l=es)
        * Allows playing the exact same 16 random/custom birds without any backend!
        */
+      // ============================================================
+      // @@JS:SHARED-CHALLENGE : incoming ?r= link, banner, WhatsApp share URL
+      // ============================================================
       async checkIncomingChallengeUrl() {
         try {
           const params = new URLSearchParams(window.location.search);
@@ -1592,6 +1615,9 @@
       /**
        * SCALABLE LANGUAGE SWITCHER (ES / EN)
        */
+      // ============================================================
+      // @@JS:LANGUAGE : ES/EN switch, localized names, static DOM text
+      // ============================================================
       async setLanguage(lang) {
         if (lang !== "es" && lang !== "en") return;
         this.state.lang = lang;
@@ -1766,6 +1792,9 @@
         if (kwInp) kwInp.placeholder = this.t("keywordPlaceholder");
       },
 
+      // ============================================================
+      // @@JS:NAVIGATION+PRESETS : views, quick start, surprise, presets
+      // ============================================================
       goToView(viewId) {
         if (this.state.pendingResolver && viewId !== "viewBattle") {
           this.state.pendingResolver.reject(new Error("NavigatedAway"));
@@ -1928,6 +1957,9 @@
         await this.goToStep3();
       },
 
+      // ============================================================
+      // @@JS:SETUP-WIZARD : step1 places, step2 traits/keyword, step3 size/mode
+      // ============================================================
       renderStep1Places() {
         const hasPlaces = this.state.places.size > 0;
         const btnAll = document.getElementById("btnWorldAll");
@@ -2144,6 +2176,9 @@
         }
       },
 
+      // ============================================================
+      // @@JS:DATA-FETCH : iNaturalist fetch, formatBird, filters, limit, summary
+      // ============================================================
       async fetchMatchingSpecies() {
         try {
           const isUnfilteredWorld =
@@ -2453,6 +2488,9 @@
       /**
        * VIEW 4: THE 1v1 MERGE SORT GAME (+ UNDO SUPPORT)
        */
+      // ============================================================
+      // @@JS:BATTLE : pool, seeded interleaved bisect sort, undo, ask/choose, keyboard
+      // ============================================================
       async startBattleGame(fromChallenge = false) {
         if (!fromChallenge) {
           this.state.playingChallengeMode = false;
@@ -2811,6 +2849,9 @@
         imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
       },
 
+      // ============================================================
+      // @@JS:WINNER-EXTRAS : fun fact (Wikipedia), winner audio banner + playback
+      // ============================================================
       async resolveTop1FunFact(bird) {
         if (!bird) return "";
         const lang = this.state.lang === "en" ? "en" : "es";
@@ -3178,6 +3219,9 @@
       /**
        * VIEW 5: RESULTS + CHALLENGE COMPARISON BOX + PODIUM (GOLD, SILVER, BRONZE + SPECIES FILTER + ASK & REPLAY AUDIO)
        */
+      // ============================================================
+      // @@JS:RESULTS : podium, ranking cards, challenge comparison
+      // ============================================================
       async renderResultsView() {
         this.goToView("viewResults");
         const ranking = this.state.finalRanking;
@@ -3385,6 +3429,9 @@
         box.classList.remove("hidden");
       },
 
+      // ============================================================
+      // @@JS:EXPORT : modal, share native/clipboard, poster canvas drawing, download
+      // ============================================================
       openExportModal() {
         document.getElementById("exportModal").classList.remove("hidden");
         if (!this.state.preparedShareFile && !this.state.isPreparingShare) {
