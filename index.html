@@ -1007,6 +1007,9 @@
       "Egretta thula": "Garcita Blanca",
       "Platalea ajaja": "Espátula Rosada",
       "Struthio camelus": "Avestruz",
+      "Strigops habroptilus": "Kakapo",
+      "Porphyrio hochstetteri": "Takahē",
+      "Gallirallus australis": "Weka",
       "Paradisaea apoda": "Ave del Paraíso"
     };
 
@@ -1161,7 +1164,7 @@
         { key: "acuaticas", titleEs: "Cisnes, garzas, patos y flamencos", titleEn: "Swans, herons, ducks & flamingos", descEs: "Aves de lagunas, ríos y bañados", descEn: "Wetland, lake & river birds", taxonIds: [6912, 4929, 67569, 3727] },
         { key: "marinas", titleEs: "Pingüinos y aves marinas", titleEn: "Penguins & seabirds", descEs: "Aves del océano y costas australes", descEn: "Oceanic & coastal species", taxonIds: [67564, 67526, 3784] },
         { key: "cantoras", titleEs: "Aves de campo, monte y jardín", titleEn: "Songbirds & garden birds", descEs: "Horneros, benteveos, cardenales y zorzales", descEn: "Horneros, kiskadees, cardinals & thrushes", taxonIds: [10732, 980017, 71369, 71305, 11989] },
-        { key: "gigantes", titleEs: "Grandes aves no voladoras", titleEn: "Large flightless birds", descEs: "Ñandúes, avestruces, casuarios y kiwis", descEn: "Rheas, ostriches, cassowaries & kiwis", taxonIds: [367701, 20487, 367702, 367703] }
+        { key: "gigantes", titleEs: "Grandes aves no voladoras", titleEn: "Large flightless birds", descEs: "Ñandúes, avestruces, casuarios, kiwis y kakapos", descEn: "Rheas, ostriches, cassowaries, kiwis & kakapos", taxonIds: [367701, 20487, 367702, 367703, 1584019, 1289603, 7135, 424597, 436, 75] }
       ],
 
       colors: [
@@ -2079,7 +2082,15 @@
             list = (data.results || []).map(e => this.formatBird(e.taxon, e.count));
           }
 
-          list = list.filter(b => Boolean(b.imagen));
+          // Exclude extinct/fossil taxa (e.g. Struthio daberasensis eggshell fossils), hybrids, and ultra-rare/duplicate records
+          const seenSci = new Set();
+          list = list.filter(b => {
+            if (!b || !b.imagen || b.extinct) return false;
+            if ((b.popularidad || 0) < 15) return false;
+            if (seenSci.has(b.nombreCientifico)) return false;
+            seenSci.add(b.nombreCientifico);
+            return true;
+          });
 
           if (kw && placeIds) {
             const lowerKw = kw.toLowerCase();
@@ -2107,11 +2118,12 @@
       },
 
       formatBird(taxon, count = 0) {
-        if (!taxon) return {};
+        if (!taxon || taxon.extinct === true || taxon.is_active === false) return {};
+        const sciName = taxon.name || "";
+        if (sciName.includes("×")) return {};
         const photo = taxon.default_photo
           ? (taxon.default_photo.medium_url || taxon.default_photo.url || "").replace("square.jpg", "medium.jpg")
           : "";
-        const sciName = taxon.name || "";
         const rawEs = RIOPLATENSE_NAME_OVERRIDES[sciName] || taxon.preferred_common_name || taxon.english_common_name || sciName || "Ave";
         const rawEn = taxon.english_common_name || taxon.preferred_common_name || sciName || "Bird";
 
@@ -2121,6 +2133,7 @@
           nombreIngles: rawEn.charAt(0).toUpperCase() + rawEn.slice(1),
           nombreCientifico: sciName,
           imagen: photo,
+          extinct: Boolean(taxon.extinct),
           popularidad: count || taxon.observations_count || 0
         };
         birdObj.nombre = this.getLocalizedBirdName(birdObj);
