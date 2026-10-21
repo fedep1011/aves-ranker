@@ -242,6 +242,18 @@
               </div>
               <span class="text-xs font-medium text-forest shrink-0">→</span>
             </button>
+
+            <button onclick="app.launchPreset('extintas')"
+              class="sm:col-span-2 group p-3 sm:p-4 rounded-xl bg-amber-50/70 hover:bg-amber-50 border border-amber-300/90 hover:border-amber-600 text-left transition flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <span id="preset5Badge" class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-amber-700 text-white">Especial</span>
+                  <div id="preset5Title" class="text-xs sm:text-sm font-semibold text-ink group-hover:text-amber-900 transition">Pájaros extintos legendarios</div>
+                </div>
+                <div id="preset5Desc" class="text-[11px] text-muted truncate mt-0.5">Dodo, Guacamayo Glauco del Río de la Plata, Moa Gigante, Alca Gigante, Paloma Migratoria y Águila de Haast</div>
+              </div>
+              <span class="text-xs font-medium text-amber-800 shrink-0">→</span>
+            </button>
           </div>
         </div>
       </div>
@@ -491,12 +503,17 @@
       
       <div class="max-w-3xl mx-auto space-y-1 text-center">
         <div class="flex flex-wrap items-center justify-center gap-2">
-          <span id="battleCategoryBadge" class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-forest-soft text-forest border border-forest/20 truncate max-w-[235px] sm:max-w-md">
+          <span id="battleCategoryBadge" class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-forest-soft text-forest border border-forest/20 truncate max-w-[215px] sm:max-w-md">
             Las 16 más famosas del mundo
           </span>
           <span class="text-[11px] uppercase tracking-wider text-muted">
-            <span id="battleDuelWord">Duelo</span> <span id="battleStepNum">1</span> · <span id="battlePctText">0%</span>
+            <span id="battleDuelWord">Duelo</span> <span id="battleStepNum">1</span><span id="battleTotalEstWrap" class="text-muted/75">/~40</span> · <span id="battlePctText">0%</span>
           </span>
+          <button id="btnUndoBattleChoice" type="button" onclick="app.undoLastBattleChoice()"
+            class="hidden items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-surface border border-line hover:border-ink text-ink transition shadow-2xs">
+            <span>↶</span>
+            <span id="btnUndoBattleText">Deshacer</span>
+          </button>
         </div>
 
         <div class="flex items-center justify-center gap-3">
@@ -618,15 +635,56 @@
         <div id="compPodiumCompareGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1"></div>
       </div>
 
-      <!-- TOP 3 PODIUM (FULL UNCROPPED PHOTOS + GOLD/SILVER/BRONZE + AUDIO + FUN FACT ON #1) -->
-      <div class="space-y-2.5">
+      <!-- TOP 3 PODIUM (FULL UNCROPPED PHOTOS + GOLD/SILVER/BRONZE + AUDIO PROMPT & REPLAY + FUN FACT ON #1) -->
+      <div class="space-y-3">
+
+        <!-- Interactive Prompt asking the user if they want to play & repeat the #1 bird's real sound -->
+        <div id="winnerAudioPromptBanner" class="bg-amber-50/90 border border-amber-300/90 rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+          <div class="flex items-center gap-2.5 min-w-0">
+            <span id="promptAudioPulseDot" class="w-2.5 h-2.5 rounded-full bg-amber-600 shrink-0"></span>
+            <div class="min-w-0">
+              <div id="winnerAudioPromptQuestion" class="text-xs sm:text-sm font-semibold text-stone-900 truncate">
+                ¿Querés escuchar el sonido real de tu ave #1?
+              </div>
+              <div id="winnerAudioPromptSub" class="text-[11px] text-stone-600 truncate">
+                Grabación ornitológica de campo · Puedes repetirlo cuando quieras
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <button id="btnPromptPlayAudio" type="button" onclick="app.playWinnerAudioFromUser(1)"
+              class="px-3.5 py-1.5 rounded-full bg-forest hover:bg-forest-hover text-white text-xs font-medium transition shadow-xs">
+              Reproducir sonido
+            </button>
+            <button id="btnPromptReplayAudio" type="button" onclick="app.replayWinnerAudio()"
+              class="hidden px-3.5 py-1.5 rounded-full bg-surface hover:bg-stone-100 text-ink border border-line text-xs font-medium transition">
+              Repetir sonido
+            </button>
+            <button id="btnPromptStopAudio" type="button" onclick="app.stopWinnerAudio()"
+              class="hidden px-3 py-1.5 rounded-full bg-stone-900 text-white text-xs font-medium transition">
+              Detener
+            </button>
+            <button id="btnPromptDismissAudio" type="button" onclick="app.dismissWinnerAudioPrompt()"
+              class="px-2.5 py-1.5 rounded-full text-[11px] font-medium text-muted hover:text-ink transition">
+              Ocultar
+            </button>
+          </div>
+        </div>
+
         <div class="flex items-center justify-between gap-2">
           <div id="resultsPodiumLabel" class="text-[11px] uppercase tracking-wider text-muted">Tu Podio (Top 3 · Oro, Plata y Bronce)</div>
-          <button id="btnWinnerAudioHeader" onclick="app.toggleWinnerAudio()"
-            class="hidden inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100 transition">
-            <span id="winnerAudioDot" class="w-2 h-2 rounded-full bg-amber-600"></span>
-            <span id="winnerAudioHeaderText">Escuchar canto del #1</span>
-          </button>
+          <div class="flex items-center gap-1.5">
+            <button id="btnWinnerAudioHeader" type="button" onclick="app.toggleWinnerAudio()"
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium bg-amber-50 text-amber-950 border border-amber-300 hover:bg-amber-100 transition">
+              <span id="winnerAudioDot" class="w-2 h-2 rounded-full bg-amber-600"></span>
+              <span id="winnerAudioHeaderText">Reproducir sonido del #1</span>
+            </button>
+            <button id="btnWinnerReplayHeader" type="button" onclick="app.replayWinnerAudio()"
+              class="hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium bg-surface text-ink border border-line hover:border-forest transition">
+              <span id="winnerReplayHeaderText">Repetir</span>
+            </button>
+          </div>
         </div>
         <div id="resultsTop3Grid" class="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-5 items-stretch"></div>
       </div>
@@ -791,6 +849,11 @@
         preset3Desc: "Cóndor andino, caranchos, chimangos y grandes planeadoras",
         preset4Title: "Aves rojas de Latinoamérica",
         preset4Desc: "Guacamayos escarlata, churrinches, cardenales y gallito de las rocas",
+        preset5Badge: "Especial",
+        preset5Title: "Pájaros extintos legendarios",
+        preset5Desc: "Dodo, Guacamayo Glauco del Río de la Plata, Moa Gigante, Alca Gigante, Paloma Migratoria y Águila de Haast",
+        extinctSummary: "Pájaros extintos legendarios",
+        undoBtn: "Deshacer",
         step1Kicker: "Paso 1 de 3 · Lugar",
         step1Title: "¿De qué parte del mundo quieres ver aves?",
         step1Sub: "Deja marcado todo el mundo o combina los países y regiones que quieras.",
@@ -882,6 +945,11 @@
         preset3Desc: "Andean Condor, Crested Caracara, Chimango & soaring giants",
         preset4Title: "Red Birds of Latin America",
         preset4Desc: "Scarlet Macaw, Vermilion Flycatcher, Cardinals & Cock-of-the-rock",
+        preset5Badge: "Special",
+        preset5Title: "Legendary Extinct Birds",
+        preset5Desc: "Dodo, Glaucous Macaw, Giant Moa, Great Auk, Passenger Pigeon & Haast's Eagle",
+        extinctSummary: "Legendary Extinct Birds",
+        undoBtn: "Undo",
         step1Kicker: "Step 1 of 3 · Location",
         step1Title: "From which part of the world?",
         step1Sub: "Keep the whole world selected or combine any countries and regions.",
@@ -1010,7 +1078,25 @@
       "Strigops habroptilus": "Kakapo",
       "Porphyrio hochstetteri": "Takahē",
       "Gallirallus australis": "Weka",
-      "Paradisaea apoda": "Ave del Paraíso"
+      "Paradisaea apoda": "Ave del Paraíso",
+      "Raphus cucullatus": "Dodo",
+      "Pinguinus impennis": "Alca Gigante",
+      "Ectopistes migratorius": "Paloma Migratoria",
+      "Anodorhynchus glaucus": "Guacamayo Azul (Glauco)",
+      "Conuropsis carolinensis": "Cotorra de Carolina",
+      "Campephilus imperialis": "Carpintero Imperial",
+      "Heteralocha acutirostris": "Huia de Nueva Zelanda",
+      "Dinornis novaezealandiae": "Moa Gigante",
+      "Hieraaetus moorei": "Águila de Haast",
+      "Aepyornis maximus": "Ave Elefante de Madagascar",
+      "Ara tricolor": "Guacamayo Cubano",
+      "Moho braccatus": "ʻŌʻō de Kauaʻi",
+      "Pezophaps solitaria": "Solitario de Rodrigues",
+      "Camptorhynchus labradorius": "Pato del Labrador",
+      "Numenius borealis": "Playero Esquimal",
+      "Drepanis pacifica": "Mamo Real de Hawái",
+      "Fregilupus varius": "Estornino de Reunión",
+      "Turnagra capensis": "Piopio de Nueva Zelanda"
     };
 
     const CURATED_FUN_FACTS = {
@@ -1101,6 +1187,34 @@
       "Athene cunicularia": {
         es: "A diferencia de otros búhos, vive en cuevas bajo tierra en el campo y suele vérsela de día parada sobre postes vigilando los potreros.",
         en: "Unlike tree-dwelling owls, it nests underground in burrows and stands watch by day atop fenceposts across open grasslands."
+      },
+      "Raphus cucullatus": {
+        es: "Endémico de la isla Mauricio, evolucionó sin depredadores hasta alcanzar 1 metro de altura; se extinguió hacia 1662 y es el símbolo universal de la conservación.",
+        en: "Endemic to Mauritius, this 1-meter-tall flightless pigeon evolved without predators before vanishing around 1662."
+      },
+      "Anodorhynchus glaucus": {
+        es: "Habitaba los palmares de yatay de Uruguay, Argentina, Brasil y Paraguay; anidaba en barrancas de los grandes ríos de la cuenca del Plata.",
+        en: "Once native to the yatay palm groves of Uruguay, Argentina, Brazil, and Paraguay along the Río de la Plata basin."
+      },
+      "Pinguinus impennis": {
+        es: "Fue el 'pingüino original' del Atlántico Norte: medía 80 cm, no volaba y era un buceador extraordinario antes de extinguirse en 1844.",
+        en: "The original 'penguin' of the North Atlantic—standing 80 cm tall, it was an extraordinary deep-sea diver before vanishing in 1844."
+      },
+      "Ectopistes migratorius": {
+        es: "Llegó a ser el ave más abundante de la Tierra con hasta 5.000 millones de individuos cuyas bandadas oscurecían el cielo durante días.",
+        en: "Once the most abundant bird on Earth with up to 5 billion individuals whose flocks darkened the sky for days."
+      },
+      "Dinornis novaezealandiae": {
+        es: "Podía alcanzar los 3,6 metros de altura con el cuello erguido y carecía por completo incluso de huesos vestigiales de alas.",
+        en: "Towering up to 3.6 meters tall, it was the tallest bird in history and completely lacked even vestigial wing bones."
+      },
+      "Hieraaetus moorei": {
+        es: "El águila más grande que jamás existió (hasta 15 kg): cazaba moas gigantes en Nueva Zelanda e inspiró la leyenda maorí del Pouākai.",
+        en: "The largest eagle known to have existed (up to 15 kg), capable of hunting giant moa in the forests of New Zealand."
+      },
+      "Moho braccatus": {
+        es: "El último individuo macho fue grabado en 1987 en la isla de Kauaʻi cantando un dueto nupcial esperando a una hembra que ya no existía.",
+        en: "The last known male was recorded in 1987 on Kauaʻi singing a haunting mating duet, pausing for a female response that never came."
       }
     };
 
@@ -1125,6 +1239,27 @@
         7106,    // 14. Pato Mandarín (Aix galericulata)
         10254,   // 15. Cardenal Copete Rojo (Paroaria coronata)
         1230     // 16. Faisán Dorado (Chrysolophus pictus)
+      ],
+
+      curatedExtinctBirdsIds: [
+        2713,    // 1. Dodo (Raphus cucullatus)
+        18939,   // 2. Guacamayo Azul / Glauco (Anodorhynchus glaucus)
+        4540,    // 3. Alca Gigante (Pinguinus impennis)
+        3665,    // 4. Paloma Migratoria (Ectopistes migratorius)
+        410551,  // 5. Moa Gigante (Dinornis novaezealandiae)
+        567086,  // 6. Águila de Haast (Hieraaetus moorei)
+        546428,  // 7. Ave Elefante de Madagascar (Aepyornis maximus)
+        19204,   // 8. Cotorra de Carolina (Conuropsis carolinensis)
+        18284,   // 9. Carpintero Imperial (Campephilus imperialis)
+        116784,  // 10. Huia de Nueva Zelanda (Heteralocha acutirostris)
+        19023,   // 11. Guacamayo Cubano (Ara tricolor)
+        12672,   // 12. ʻŌʻō de Kauaʻi (Moho braccatus)
+        2711,    // 13. Solitario de Rodrigues (Pezophaps solitaria)
+        7180,    // 14. Pato del Labrador (Camptorhynchus labradorius)
+        3895,    // 15. Playero Esquimal (Numenius borealis)
+        10581,   // 16. Mamo Real de Hawái (Drepanis pacifica)
+        15049,   // 17. Estornino de Reunión (Fregilupus varius)
+        8647     // 18. Piopio de Nueva Zelanda (Turnagra capensis)
       ],
 
       places: [
@@ -1564,6 +1699,10 @@
           preset3Desc: "preset3Desc",
           preset4Title: "preset4Title",
           preset4Desc: "preset4Desc",
+          preset5Badge: "preset5Badge",
+          preset5Title: "preset5Title",
+          preset5Desc: "preset5Desc",
+          btnUndoBattleText: "undoBtn",
           step1Kicker: "step1Kicker",
           step1Title: "step1Title",
           step1Sub: "step1Sub",
@@ -1685,6 +1824,7 @@
       startGuidedSetup() {
         this.state.playingChallengeMode = false;
         this.state.useCuratedWorldIcons = false;
+        this.state.useCuratedExtinctBirds = false;
         this.state.limit = 16;
         this.renderStep1Places();
         this.goToView("viewStepPlace");
@@ -1697,6 +1837,7 @@
         this.state.colors.clear();
         this.state.keyword = "";
         this.state.useCuratedWorldIcons = true;
+        this.state.useCuratedExtinctBirds = false;
         this.state.samplingMode = "popular";
         this.state.limit = 16;
         await this.goToStep3(true);
@@ -1709,11 +1850,13 @@
         this.state.colors.clear();
         this.state.keyword = "";
         this.state.useCuratedWorldIcons = false;
+        this.state.useCuratedExtinctBirds = false;
 
         const isEn = this.state.lang === "en";
+        const livingGuilds = CATALOG_DATA.guilds.filter(g => g.key !== "extintas");
         const modeRoll = Math.random();
         if (modeRoll < 0.45) {
-          const g = CATALOG_DATA.guilds[Math.floor(Math.random() * CATALOG_DATA.guilds.length)];
+          const g = livingGuilds[Math.floor(Math.random() * livingGuilds.length)];
           this.state.guilds.add(g.key);
           if (Math.random() < 0.65) {
             const p = CATALOG_DATA.places[Math.floor(Math.random() * CATALOG_DATA.places.length)];
@@ -1748,6 +1891,7 @@
         this.state.colors.clear();
         this.state.keyword = "";
         this.state.useCuratedWorldIcons = false;
+        this.state.useCuratedExtinctBirds = false;
         document.getElementById("keywordInput").value = "";
 
         const pickGuild = Math.random() < 0.7;
@@ -1769,12 +1913,16 @@
         this.state.colors.clear();
         this.state.keyword = "";
         this.state.useCuratedWorldIcons = false;
+        this.state.useCuratedExtinctBirds = false;
         this.state.samplingMode = "popular";
         this.state.limit = 16;
         const isEn = this.state.lang === "en";
 
         if (presetName === "famosas_mundo") {
           this.state.useCuratedWorldIcons = true;
+        } else if (presetName === "extintas") {
+          this.state.useCuratedExtinctBirds = true;
+          this.state.guilds.add("extintas");
         } else if (presetName === "uruguay") {
           this.state.places.set("7259", "Uruguay");
         } else if (presetName === "carrona_uy") {
@@ -2017,12 +2165,34 @@
 
           const localeParams = "locale=es&preferred_place_id=7259";
 
+          // Special Curated Extinct Birds Collection (18 legendary extinct birds with full illustrations)
+          const isExtinctOnly =
+            this.state.useCuratedExtinctBirds ||
+            (this.state.guilds.size === 1 && this.state.guilds.has("extintas") && !this.state.keyword.trim());
+
+          if (isExtinctOnly) {
+            const idsParam = CATALOG_DATA.curatedExtinctBirdsIds.join(",");
+            const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${idsParam}&per_page=30&${localeParams}`);
+            const data = await res.json();
+            const byId = new Map();
+            (data.results || []).forEach(t => {
+              const b = this.formatBird(t, t.observations_count || 100, true);
+              if (b && b.imagen) byId.set(Number(t.id), b);
+            });
+            const list = CATALOG_DATA.curatedExtinctBirdsIds.map(id => byId.get(id)).filter(Boolean);
+
+            this.state.totalFound = list.length;
+            this.state.candidatePool = list;
+            this.updateStep3UI();
+            return;
+          }
+
           if (this.state.useCuratedWorldIcons || (isUnfilteredWorld && this.state.samplingMode === "popular")) {
             const idsParam = CATALOG_DATA.curatedWorldIconsIds.join(",");
             const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${idsParam}&per_page=30&${localeParams}`);
             const data = await res.json();
             const list = (data.results || [])
-              .map(t => this.formatBird(t, t.observations_count))
+              .map(t => this.formatBird(t, t.observations_count, false))
               .filter(b => Boolean(b.imagen));
 
             this.state.totalFound = 11359;
@@ -2030,6 +2200,8 @@
             this.updateStep3UI();
             return;
           }
+
+          const allowExtinct = this.state.guilds.has("extintas");
 
           let taxonIds = new Set();
           if (this.state.guilds.size > 0) {
@@ -2077,16 +2249,17 @@
           let total = data.total_results || 0;
 
           if (useTaxa) {
-            list = (data.results || []).map(t => this.formatBird(t, t.observations_count));
+            list = (data.results || []).map(t => this.formatBird(t, t.observations_count, allowExtinct));
           } else {
-            list = (data.results || []).map(e => this.formatBird(e.taxon, e.count));
+            list = (data.results || []).map(e => this.formatBird(e.taxon, e.count, allowExtinct));
           }
 
-          // Exclude extinct/fossil taxa (e.g. Struthio daberasensis eggshell fossils), hybrids, and ultra-rare/duplicate records
+          // Exclude extinct/fossil taxa (e.g. Struthio daberasensis eggshell fossils) unless extinct guild is explicitly chosen
           const seenSci = new Set();
           list = list.filter(b => {
-            if (!b || !b.imagen || b.extinct) return false;
-            if ((b.popularidad || 0) < 15) return false;
+            if (!b || !b.imagen) return false;
+            if (b.extinct && !allowExtinct) return false;
+            if (!allowExtinct && (b.popularidad || 0) < 15) return false;
             if (seenSci.has(b.nombreCientifico)) return false;
             seenSci.add(b.nombreCientifico);
             return true;
@@ -2117,8 +2290,9 @@
         }
       },
 
-      formatBird(taxon, count = 0) {
-        if (!taxon || taxon.extinct === true || taxon.is_active === false) return {};
+      formatBird(taxon, count = 0, allowExtinct = true) {
+        if (!taxon || taxon.is_active === false) return {};
+        if (taxon.extinct === true && !allowExtinct) return {};
         const sciName = taxon.name || "";
         if (sciName.includes("×")) return {};
         const photo = taxon.default_photo
@@ -2254,6 +2428,9 @@
         if (this.state.useCuratedWorldIcons) {
           return this.t("world16Summary");
         }
+        if (this.state.useCuratedExtinctBirds) {
+          return this.t("extinctSummary");
+        }
 
         const kwTrim = this.state.keyword.trim();
         const places = Array.from(this.state.places.values());
@@ -2285,7 +2462,7 @@
       },
 
       /**
-       * VIEW 4: THE 1v1 MERGE SORT GAME
+       * VIEW 4: THE 1v1 MERGE SORT GAME (+ UNDO SUPPORT)
        */
       async startBattleGame(fromChallenge = false) {
         if (!fromChallenge) {
@@ -2296,7 +2473,7 @@
         let pool = [...this.state.candidatePool];
         const n = this.state.limit;
 
-        if (!fromChallenge && this.state.samplingMode === "popular" && !this.state.useCuratedWorldIcons) {
+        if (!fromChallenge && this.state.samplingMode === "popular" && !this.state.useCuratedWorldIcons && !this.state.useCuratedExtinctBirds) {
           pool.sort((a, b) => (b.popularidad || 0) - (a.popularidad || 0));
           pool = pool.slice(0, n);
           this.shuffle(pool);
@@ -2305,21 +2482,42 @@
           pool = pool.slice(0, n);
         }
 
+        this.state.initialBattlePool = [...pool];
+        this.state.choiceHistory = [];
+        this.state.replayDecisions = [];
         this.state.battleStep = 0;
         this.state.estimatedTotalSteps = Math.max(1, Math.round(pool.length * Math.log2(pool.length) * 0.8));
 
         const summary = this.getHumanSummary();
         document.getElementById("battleCategoryBadge").textContent = summary;
+        const estWrap = document.getElementById("battleTotalEstWrap");
+        if (estWrap) estWrap.textContent = `/~${this.state.estimatedTotalSteps}`;
 
         this.preloadPoolImagesInBackground(pool);
 
         this.goToView("viewBattle");
+        await this.runTournamentSortFromHistory();
+      },
 
+      async runTournamentSortFromHistory() {
+        this.state.battleStep = 0;
+        const poolCopy = [...(this.state.initialBattlePool || [])];
         try {
-          const sorted = await this.mergeSortAsync(pool);
+          const sorted = await this.mergeSortAsync(poolCopy);
           this.state.finalRanking = sorted;
           await this.renderResultsView();
         } catch (_) {}
+      },
+
+      undoLastBattleChoice() {
+        if (!this.state.choiceHistory || this.state.choiceHistory.length === 0 || !this.state.pendingResolver) return;
+        const prev = this.state.pendingResolver;
+        this.state.pendingResolver = null;
+        prev.reject(new Error("UndoStep"));
+
+        this.state.choiceHistory.pop();
+        this.state.replayDecisions = [...this.state.choiceHistory];
+        this.runTournamentSortFromHistory();
       },
 
       async preloadPoolImagesInBackground(pool) {
@@ -2362,9 +2560,16 @@
       },
 
       askUserPreference(leftBird, rightBird) {
+        this.state.battleStep++;
+
+        // Fast-forward through recorded decisions when undoing a step
+        if (this.state.replayDecisions && this.state.replayDecisions.length > 0) {
+          const recordedPick = this.state.replayDecisions.shift();
+          return Promise.resolve(recordedPick);
+        }
+
         this.state.currentLeftBird = leftBird;
         this.state.currentRightBird = rightBird;
-        this.state.battleStep++;
         const done = this.state.battleStep - 1;
         const est = Math.max(this.state.battleStep, this.state.estimatedTotalSteps);
         const pct = Math.min(98, Math.round((done / est) * 100));
@@ -2372,6 +2577,13 @@
         document.getElementById("battleStepNum").textContent = this.state.battleStep;
         document.getElementById("battlePctText").textContent = `${pct}%`;
         document.getElementById("battleProgressBar").style.width = `${Math.max(4, pct)}%`;
+
+        const undoBtn = document.getElementById("btnUndoBattleChoice");
+        if (undoBtn) {
+          const hasHistory = this.state.choiceHistory && this.state.choiceHistory.length > 0;
+          undoBtn.classList.toggle("hidden", !hasHistory);
+          undoBtn.classList.toggle("inline-flex", Boolean(hasHistory));
+        }
 
         document.getElementById("loaderLeft").classList.remove("hidden");
         document.getElementById("loaderRight").classList.remove("hidden");
@@ -2418,10 +2630,6 @@
         if (loader) loader.classList.add("hidden");
       },
 
-      /**
-       * Nivel 4: Unlocks HTML5 Audio & WebAudio on the user's synchronous duel click
-       * so mobile browsers (Safari iOS / Chrome Android) allow autoplay on the Results screen.
-       */
       unlockWinnerAudioOnGesture() {
         if (this.state.audioUnlocked) return;
         try {
@@ -2429,7 +2637,6 @@
             this.state.winnerAudioEl = new Audio();
             this.state.winnerAudioEl.preload = "auto";
           }
-          // Silent tiny WAV data URI to unlock the media element on user gesture
           this.state.winnerAudioEl.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA";
           this.state.winnerAudioEl.volume = 0.01;
           const p = this.state.winnerAudioEl.play();
@@ -2447,6 +2654,8 @@
       chooseBird(side) {
         if (!this.state.pendingResolver) return;
         this.unlockWinnerAudioOnGesture();
+        if (!this.state.choiceHistory) this.state.choiceHistory = [];
+        this.state.choiceHistory.push(side);
         const r = this.state.pendingResolver.resolve;
         this.state.pendingResolver = null;
         r(side);
@@ -2462,6 +2671,11 @@
           } else if (e.key === "ArrowRight") {
             e.preventDefault();
             this.chooseBird("right");
+          } else if (e.key === "Backspace" || e.key === "z" || e.key === "Z") {
+            if (this.state.choiceHistory && this.state.choiceHistory.length > 0) {
+              e.preventDefault();
+              this.undoLastBattleChoice();
+            }
           }
         });
       },
@@ -2509,8 +2723,7 @@
       },
 
       /**
-       * Nivel 4: Resolves real bird audio from iNaturalist observations (or genus fallback)
-       * and autoplays it 2 times once the Results view loads.
+       * Nivel 4 + UX: Prompts user to play the #1 bird's real sound and allows repeating it anytime
        */
       stopWinnerAudio() {
         if (this.state.synthTimerIds && this.state.synthTimerIds.length > 0) {
@@ -2528,39 +2741,129 @@
         this.updateWinnerAudioUI();
       },
 
+      dismissWinnerAudioPrompt() {
+        const banner = document.getElementById("winnerAudioPromptBanner");
+        if (banner) banner.classList.add("hidden");
+      },
+
+      playWinnerAudioFromUser(times = 1) {
+        const winner = this.state.finalRanking && this.state.finalRanking[0];
+        if (!winner) return;
+        this.state.winnerAudioHasPlayed = true;
+        this.resolveAndPlayWinnerAudio(winner, times);
+      },
+
+      replayWinnerAudio() {
+        const winner = this.state.finalRanking && this.state.finalRanking[0];
+        if (!winner) return;
+        this.state.winnerAudioHasPlayed = true;
+        this.resolveAndPlayWinnerAudio(winner, 1);
+      },
+
       updateWinnerAudioUI() {
         const isEn = this.state.lang === "en";
         const playing = this.state.winnerAudioPlaying;
-        const count = this.state.winnerAudioPlayCount;
-        const max = this.state.winnerAudioMaxPlays;
+        const hasPlayed = Boolean(this.state.winnerAudioHasPlayed);
+        const winner = this.state.finalRanking && this.state.finalRanking[0];
+        const birdName = winner ? winner.nombre : "#1";
 
-        const hdrBtn = document.getElementById("btnWinnerAudioHeader");
-        const hdrTxt = document.getElementById("winnerAudioHeaderText");
-        const hdrDot = document.getElementById("winnerAudioDot");
-        if (hdrBtn && hdrTxt && hdrDot) {
-          hdrBtn.classList.remove("hidden");
+        // 1. Prompt Banner Controls
+        const promptQuestion = document.getElementById("winnerAudioPromptQuestion");
+        const promptSub = document.getElementById("winnerAudioPromptSub");
+        const promptDot = document.getElementById("promptAudioPulseDot");
+        const btnPlay = document.getElementById("btnPromptPlayAudio");
+        const btnReplay = document.getElementById("btnPromptReplayAudio");
+        const btnStop = document.getElementById("btnPromptStopAudio");
+        const btnDismiss = document.getElementById("btnPromptDismissAudio");
+
+        if (promptQuestion && promptSub && btnPlay && btnReplay && btnStop && btnDismiss && promptDot) {
+          btnDismiss.textContent = isEn ? "Hide" : "Ocultar";
           if (playing) {
-            hdrDot.className = "w-2 h-2 rounded-full bg-emerald-600 animate-ping";
-            hdrTxt.textContent = isEn
-              ? `Playing #1 bird call (${Math.min(count + 1, max)}/${max}) · Stop`
-              : `Sonando canto #1 (${Math.min(count + 1, max)}/${max}) · Detener`;
+            promptDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping shrink-0";
+            promptQuestion.textContent = isEn
+              ? `Playing ${birdName}'s call...`
+              : `Reproduciendo el sonido de ${birdName}...`;
+            promptSub.textContent = isEn
+              ? "You can stop it or replay it from the beginning anytime"
+              : "Puedes detenerlo o repetirlo desde el inicio cuando quieras";
+            btnPlay.classList.add("hidden");
+            btnReplay.classList.remove("hidden");
+            btnReplay.textContent = isEn ? "↺ Replay from start" : "↺ Repetir desde el inicio";
+            btnStop.classList.remove("hidden");
+            btnStop.textContent = isEn ? "Stop" : "Detener";
+          } else if (hasPlayed) {
+            promptDot.className = "w-2.5 h-2.5 rounded-full bg-forest shrink-0";
+            promptQuestion.textContent = isEn
+              ? `Want to hear ${birdName} again?`
+              : `¿Querés volver a escuchar a ${birdName}?`;
+            promptSub.textContent = isEn
+              ? "Click replay to listen to the #1 bird sound again"
+              : "Toca repetir para escuchar nuevamente el canto de tu #1";
+            btnPlay.classList.add("hidden");
+            btnReplay.classList.remove("hidden");
+            btnReplay.textContent = isEn ? "↺ Replay sound" : "↺ Repetir sonido";
+            btnStop.classList.add("hidden");
           } else {
-            hdrDot.className = "w-2 h-2 rounded-full bg-amber-600";
-            hdrTxt.textContent = isEn ? "Play #1 bird call (2x)" : "Escuchar canto del #1 (2x)";
+            promptDot.className = "w-2.5 h-2.5 rounded-full bg-amber-600 shrink-0";
+            promptQuestion.textContent = isEn
+              ? `Want to play the sound of your #1 (${birdName})?`
+              : `¿Querés reproducir el sonido de tu #1 (${birdName})?`;
+            promptSub.textContent = isEn
+              ? "Ornithological audio · You can repeat it as many times as you like"
+              : "Audio ornitológico · Podrás repetirlo todas las veces que quieras";
+            btnPlay.classList.remove("hidden");
+            btnPlay.textContent = isEn ? "Play sound" : "Reproducir sonido";
+            btnReplay.classList.add("hidden");
+            btnStop.classList.add("hidden");
           }
         }
 
+        // 2. Podium Header Controls
+        const hdrBtn = document.getElementById("btnWinnerAudioHeader");
+        const hdrTxt = document.getElementById("winnerAudioHeaderText");
+        const hdrDot = document.getElementById("winnerAudioDot");
+        const hdrReplayBtn = document.getElementById("btnWinnerReplayHeader");
+        const hdrReplayTxt = document.getElementById("winnerReplayHeaderText");
+
+        if (hdrBtn && hdrTxt && hdrDot) {
+          if (playing) {
+            hdrDot.className = "w-2 h-2 rounded-full bg-emerald-600 animate-ping";
+            hdrTxt.textContent = isEn ? "Playing #1 · Stop" : "Sonando #1 · Detener";
+            if (hdrReplayBtn && hdrReplayTxt) {
+              hdrReplayBtn.classList.remove("hidden");
+              hdrReplayTxt.textContent = isEn ? "↺ Replay" : "↺ Repetir";
+            }
+          } else if (hasPlayed) {
+            hdrDot.className = "w-2 h-2 rounded-full bg-amber-600";
+            hdrTxt.textContent = isEn ? "↺ Replay #1 sound" : "↺ Repetir sonido del #1";
+            if (hdrReplayBtn) hdrReplayBtn.classList.add("hidden");
+          } else {
+            hdrDot.className = "w-2 h-2 rounded-full bg-amber-600";
+            hdrTxt.textContent = isEn ? "Play #1 sound" : "Reproducir sonido del #1";
+            if (hdrReplayBtn) hdrReplayBtn.classList.add("hidden");
+          }
+        }
+
+        // 3. #1 Gold Card Controls
         const cardBtnTxt = document.getElementById("card1AudioBtnText");
         const cardDot = document.getElementById("card1AudioDot");
+        const cardReplayBtn = document.getElementById("card1ReplayBtn");
         if (cardBtnTxt && cardDot) {
           if (playing) {
-            cardDot.className = "w-2 h-2 rounded-full bg-emerald-500 animate-ping";
-            cardBtnTxt.textContent = isEn
-              ? `Playing song (${Math.min(count + 1, max)}/${max})`
-              : `Sonando canto (${Math.min(count + 1, max)}/${max})`;
+            cardDot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-ping";
+            cardBtnTxt.textContent = isEn ? "Stop sound" : "Detener sonido";
+            if (cardReplayBtn) {
+              cardReplayBtn.classList.remove("hidden");
+              cardReplayBtn.textContent = isEn ? "↺ Replay" : "↺ Repetir";
+            }
+          } else if (hasPlayed) {
+            cardDot.className = "w-2 h-2 rounded-full bg-amber-400";
+            cardBtnTxt.textContent = isEn ? "↺ Replay sound" : "↺ Repetir sonido";
+            if (cardReplayBtn) cardReplayBtn.classList.add("hidden");
           } else {
-            cardDot.className = "w-2 h-2 rounded-full bg-amber-500";
-            cardBtnTxt.textContent = isEn ? "Listen to song" : "Escuchar canto";
+            cardDot.className = "w-2 h-2 rounded-full bg-amber-400";
+            cardBtnTxt.textContent = isEn ? "Play sound" : "Reproducir sonido";
+            if (cardReplayBtn) cardReplayBtn.classList.add("hidden");
           }
         }
       },
@@ -2615,7 +2918,7 @@
         return "";
       },
 
-      playSynthesizedBirdSongFallback(times = 2) {
+      playSynthesizedBirdSongFallback(times = 1) {
         this.stopWinnerAudio();
         try {
           const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -2664,6 +2967,13 @@
               this.updateWinnerAudioUI();
             }, 2200);
             this.state.synthTimerIds.push(t1, t2);
+          } else {
+            const tEnd = setTimeout(() => {
+              this.state.winnerAudioPlaying = false;
+              this.state.winnerAudioPlayCount = 1;
+              this.updateWinnerAudioUI();
+            }, 1150);
+            this.state.synthTimerIds.push(tEnd);
           }
         } catch (_) {
           this.state.winnerAudioPlaying = false;
@@ -2671,10 +2981,11 @@
         }
       },
 
-      async resolveAndPlayWinnerAudio(winnerBird, maxPlays = 2) {
+      async resolveAndPlayWinnerAudio(winnerBird, maxPlays = 1) {
         this.stopWinnerAudio();
         if (!winnerBird) return;
 
+        this.state.winnerAudioHasPlayed = true;
         this.state.winnerAudioMaxPlays = maxPlays;
         this.state.winnerAudioPlayCount = 0;
 
@@ -2708,16 +3019,14 @@
           if (p && typeof p.then === "function") {
             p.then(() => {
               this.updateWinnerAudioUI();
-              // Cap single recording pass at 4.5s so long field recordings repeat cleanly 2x
               const clipTimer = setTimeout(() => {
                 if (this.state.winnerAudioPlaying && !audio.paused) {
                   audio.pause();
                   if (typeof audio.onended === "function") audio.onended();
                 }
-              }, 4500);
+              }, 5500);
               this.state.synthTimerIds.push(clipTimer);
             }).catch(() => {
-              // Browser blocked un-gestured autoplay; keep button ready for 1-click play
               this.state.winnerAudioPlaying = false;
               this.updateWinnerAudioUI();
             });
@@ -2727,7 +3036,7 @@
         audio.onended = () => {
           this.state.winnerAudioPlayCount++;
           if (this.state.winnerAudioPlayCount < this.state.winnerAudioMaxPlays && this.state.winnerAudioPlaying) {
-            const gapTimer = setTimeout(() => playOnce(), 380);
+            const gapTimer = setTimeout(() => playOnce(), 350);
             this.state.synthTimerIds.push(gapTimer);
           } else {
             this.state.winnerAudioPlaying = false;
@@ -2742,15 +3051,12 @@
         if (this.state.winnerAudioPlaying) {
           this.stopWinnerAudio();
         } else {
-          const winner = this.state.finalRanking && this.state.finalRanking[0];
-          if (winner) {
-            this.resolveAndPlayWinnerAudio(winner, 2);
-          }
+          this.playWinnerAudioFromUser(1);
         }
       },
 
       /**
-       * VIEW 5: RESULTS + CHALLENGE COMPARISON BOX + PODIUM (GOLD, SILVER, BRONZE + SPECIES FILTER + 2x AUDIO)
+       * VIEW 5: RESULTS + CHALLENGE COMPARISON BOX + PODIUM (GOLD, SILVER, BRONZE + SPECIES FILTER + ASK & REPLAY AUDIO)
        */
       async renderResultsView() {
         this.goToView("viewResults");
@@ -2758,6 +3064,10 @@
         const summary = this.getHumanSummary();
         const isEn = this.state.lang === "en";
         const kwTrim = this.state.keyword.trim();
+
+        this.state.winnerAudioHasPlayed = false;
+        const promptBanner = document.getElementById("winnerAudioPromptBanner");
+        if (promptBanner) promptBanner.classList.remove("hidden");
 
         document.getElementById("resultsFilterCaption").textContent = summary;
         document.getElementById("posterSubInput").value = summary;
@@ -2804,8 +3114,14 @@
         // Render Comparison Box if the user played a shared challenge
         this.renderChallengeComparisonBox();
 
+        // Pre-fetch #1 audio URL in background so clicking "Play sound" is instant
+        if (ranking[0]) {
+          this.fetchWinnerBirdAudioUrl(ranking[0]).catch(() => {});
+        }
+
         this.state.top1FunFact = await this.resolveTop1FunFact(ranking[0]);
 
+        const wikiLang = isEn ? "en" : "es";
         const top3Grid = document.getElementById("resultsTop3Grid");
         top3Grid.innerHTML = "";
         ranking.slice(0, 3).forEach((bird, idx) => {
@@ -2813,6 +3129,7 @@
           const isFirst = pos === 1;
           const colSpan = isFirst ? "md:col-span-6" : "md:col-span-3";
           const medal = this.getPodiumMedalMeta(pos);
+          const wikiUrl = `https://${wikiLang}.wikipedia.org/wiki/${encodeURIComponent((bird.nombreCientifico || bird.nombre).replace(/\s+/g, "_"))}`;
 
           const card = document.createElement("div");
           card.className = `${colSpan} bg-surface ${medal.cardBorderClass} rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm`;
@@ -2829,11 +3146,17 @@
                 </span>
               </div>
               ${isFirst ? `
-                <button type="button" onclick="app.toggleWinnerAudio()"
-                  class="absolute top-3 right-3 z-20 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-stone-900/85 hover:bg-stone-900 text-white border border-white/20 backdrop-blur-xs transition shadow-sm">
-                  <span id="card1AudioDot" class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  <span id="card1AudioBtnText">${isEn ? "Playing song..." : "Sonando canto..."}</span>
-                </button>
+                <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5">
+                  <button type="button" onclick="app.toggleWinnerAudio()"
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium bg-stone-900/90 hover:bg-stone-900 text-white border border-white/25 backdrop-blur-xs transition shadow-sm">
+                    <span id="card1AudioDot" class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span id="card1AudioBtnText">${isEn ? "Play sound" : "Reproducir sonido"}</span>
+                  </button>
+                  <button id="card1ReplayBtn" type="button" onclick="app.replayWinnerAudio()"
+                    class="hidden px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/95 hover:bg-white text-stone-900 border border-stone-300 transition shadow-sm">
+                    ${isEn ? "↺ Replay" : "↺ Repetir"}
+                  </button>
+                </div>
               ` : ""}
             </div>
             <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-2.5">
@@ -2845,7 +3168,13 @@
                     </span>
                   </div>
                 ` : ""}
-                <h3 class="font-serif ${isFirst ? "text-2xl sm:text-4xl" : "text-xl sm:text-2xl"} text-ink leading-snug">${bird.nombre}</h3>
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="font-serif ${isFirst ? "text-2xl sm:text-4xl" : "text-xl sm:text-2xl"} text-ink leading-snug">${bird.nombre}</h3>
+                  <a href="${wikiUrl}" target="_blank" rel="noopener"
+                    class="shrink-0 mt-1 px-2 py-0.5 rounded-full text-[10px] font-medium text-muted hover:text-forest border border-line hover:border-forest transition">
+                    ${isEn ? "Wiki ↗" : "Ficha ↗"}
+                  </a>
+                </div>
                 <p class="text-xs italic text-muted leading-snug pt-0.5">${bird.nombreCientifico}</p>
               </div>
               ${isFirst && this.state.top1FunFact ? `
@@ -2870,6 +3199,7 @@
           restSection.classList.remove("hidden");
           rest.forEach((bird, idx) => {
             const pos = idx + 4;
+            const wikiUrl = `https://${wikiLang}.wikipedia.org/wiki/${encodeURIComponent((bird.nombreCientifico || bird.nombre).replace(/\s+/g, "_"))}`;
             const row = document.createElement("div");
             row.className = "flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-surface border border-line";
             row.innerHTML = `
@@ -2883,15 +3213,17 @@
                 <div class="text-xs sm:text-sm font-medium text-ink leading-snug truncate">${bird.nombre}</div>
                 <div class="text-[11px] italic text-muted leading-snug truncate">${bird.nombreCientifico}</div>
               </div>
+              <a href="${wikiUrl}" target="_blank" rel="noopener"
+                class="shrink-0 px-2 py-1 rounded-full text-[10px] font-medium text-muted hover:text-forest border border-line hover:border-forest transition">
+                ↗
+              </a>
             `;
             restGrid.appendChild(row);
           });
         }
 
-        // Nivel 4: Trigger 2x autoplay of the #1 winning bird's call once the top view has loaded
-        if (ranking[0]) {
-          this.resolveAndPlayWinnerAudio(ranking[0], 2);
-        }
+        // Update the interactive audio prompt banner with the winning bird's name
+        this.updateWinnerAudioUI();
 
         this.prepareShareableImage();
       },
