@@ -339,8 +339,15 @@
           <div id="colorsGrid" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
         </div>
 
-        <div class="space-y-1.5 pt-3 border-t border-line">
-          <label id="step2KeywordLabel" class="block text-[11px] uppercase tracking-wider text-muted">Especie en particular (Opcional)</label>
+        <div class="space-y-2 pt-3 border-t border-line">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <label id="step2KeywordLabel" class="block text-[11px] uppercase tracking-wider text-muted">Especie en particular (Opcional)</label>
+            <button id="activeKeywordChip" type="button" onclick="app.clearKeywordOnly()"
+              class="hidden inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-forest text-white shadow-sm">
+              <span id="activeKeywordChipText"></span>
+              <span class="opacity-80">×</span>
+            </button>
+          </div>
           <input id="keywordInput" type="text" placeholder="Ej. Tucán, Cardenal, Pingüino..."
             oninput="app.onKeywordChange(this.value)"
             class="w-full sm:w-80 rounded-full bg-canvas border border-line px-3.5 py-2 text-xs sm:text-sm text-ink placeholder-muted focus:outline-none focus:border-forest transition" />
@@ -516,10 +523,13 @@
             <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.handleImgFallback(this, 'left')"
               class="relative z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
           </div>
-          <div class="px-3.5 py-2 sm:p-4 flex items-center justify-between gap-2.5 bg-surface">
-            <div class="min-w-0 flex-1">
-              <h3 id="nameLeft" class="font-serif text-xl sm:text-3xl text-ink leading-tight truncate"></h3>
-              <p id="sciLeft" class="text-[11px] sm:text-sm italic text-muted truncate"></p>
+          <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface">
+            <div class="min-w-0 flex-1 space-y-0.5">
+              <div id="filterTagLeft" class="hidden">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-forest-soft text-forest border border-forest/20 truncate max-w-full"></span>
+              </div>
+              <h3 id="nameLeft" class="font-serif text-xl sm:text-3xl text-ink leading-snug truncate"></h3>
+              <p id="sciLeft" class="text-[11px] sm:text-sm italic text-muted leading-snug truncate pt-0.5"></p>
             </div>
             <span id="chooseBtnLeftText" class="shrink-0 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium border border-line bg-canvas/70 group-hover:bg-forest group-hover:text-white group-hover:border-forest transition">
               Elegir
@@ -540,10 +550,13 @@
             <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.handleImgFallback(this, 'right')"
               class="relative z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
           </div>
-          <div class="px-3.5 py-2 sm:p-4 flex items-center justify-between gap-2.5 bg-surface">
-            <div class="min-w-0 flex-1">
-              <h3 id="nameRight" class="font-serif text-xl sm:text-3xl text-ink leading-tight truncate"></h3>
-              <p id="sciRight" class="text-[11px] sm:text-sm italic text-muted truncate"></p>
+          <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface">
+            <div class="min-w-0 flex-1 space-y-0.5">
+              <div id="filterTagRight" class="hidden">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-forest-soft text-forest border border-forest/20 truncate max-w-full"></span>
+              </div>
+              <h3 id="nameRight" class="font-serif text-xl sm:text-3xl text-ink leading-snug truncate"></h3>
+              <p id="sciRight" class="text-[11px] sm:text-sm italic text-muted leading-snug truncate pt-0.5"></p>
             </div>
             <span id="chooseBtnRightText" class="shrink-0 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium border border-line bg-canvas/70 group-hover:bg-forest group-hover:text-white group-hover:border-forest transition">
               Elegir
@@ -566,13 +579,17 @@
 
       <!-- Compact Closed Results Header so Top 3 Photos appear immediately below -->
       <div class="flex flex-row items-end justify-between gap-3 border-b border-line pb-3.5 sm:pb-5">
-        <div class="min-w-0">
-          <div class="text-[11px] uppercase tracking-[0.15em] text-forest font-semibold truncate" id="resultsFilterCaption">
-            Las 16 más famosas del mundo
+        <div class="min-w-0 space-y-1">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <div class="text-[11px] uppercase tracking-[0.15em] text-forest font-semibold truncate" id="resultsFilterCaption">
+              Las 16 más famosas del mundo
+            </div>
+            <span id="resultsKeywordBadge" class="hidden items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-forest text-white"></span>
           </div>
-          <h1 id="resultsMainTitle" class="font-serif text-3xl sm:text-5xl text-ink leading-none mt-1">
+          <h1 id="resultsMainTitle" class="font-serif text-3xl sm:text-5xl text-ink leading-none">
             Tu Ranking de Aves
           </h1>
+          <p id="resultsFilterCopySub" class="hidden text-xs text-muted"></p>
         </div>
 
         <!-- Discreet, Humble Export Button + Play Again -->
@@ -601,9 +618,16 @@
         <div id="compPodiumCompareGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1"></div>
       </div>
 
-      <!-- TOP 3 PODIUM (FULL UNCROPPED PHOTOS + FUN FACT ON #1) -->
+      <!-- TOP 3 PODIUM (FULL UNCROPPED PHOTOS + GOLD/SILVER/BRONZE + AUDIO + FUN FACT ON #1) -->
       <div class="space-y-2.5">
-        <div id="resultsPodiumLabel" class="text-[11px] uppercase tracking-wider text-muted">Tu Podio (Top 3)</div>
+        <div class="flex items-center justify-between gap-2">
+          <div id="resultsPodiumLabel" class="text-[11px] uppercase tracking-wider text-muted">Tu Podio (Top 3 · Oro, Plata y Bronce)</div>
+          <button id="btnWinnerAudioHeader" onclick="app.toggleWinnerAudio()"
+            class="hidden inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100 transition">
+            <span id="winnerAudioDot" class="w-2 h-2 rounded-full bg-amber-600"></span>
+            <span id="winnerAudioHeaderText">Escuchar canto del #1</span>
+          </button>
+        </div>
         <div id="resultsTop3Grid" class="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-5 items-stretch"></div>
       </div>
 
@@ -618,111 +642,115 @@
   </main>
 
   <!-- ====================================================
-       MODAL / SHEET DE EXPORTACIÓN (WHATSAPP LINK EMBEBIDO + TARJETA NATIVA)
+       MODAL / SHEET DE EXPORTACIÓN COMPACTO (NO TAPA TODA LA PANTALLA EN MÓVIL)
        ==================================================== -->
-  <div id="exportModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 overflow-y-auto">
-    <div class="bg-canvas border-t sm:border border-line rounded-t-3xl sm:rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl max-h-[92dvh] flex flex-col">
+  <div id="exportModal" onclick="if(event.target === this) app.closeExportModal()" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-canvas border-t sm:border border-line rounded-t-3xl sm:rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl max-h-[82dvh] sm:max-h-[88dvh] flex flex-col">
       
       <!-- Modal Header -->
-      <div class="px-5 sm:px-7 py-3.5 border-b border-line flex items-center justify-between bg-surface shrink-0">
+      <div class="px-4 sm:px-6 py-3 border-b border-line flex items-center justify-between bg-surface shrink-0">
         <div>
-          <h3 id="modalExportTitle" class="font-serif text-2xl text-ink leading-none">Exportar resultado</h3>
+          <h3 id="modalExportTitle" class="font-serif text-xl sm:text-2xl text-ink leading-none">Exportar resultado</h3>
           <p id="modalExportSub" class="text-[11px] text-muted mt-0.5">Comparte tu tarjeta o envía el link para que otro juegue con tus mismas aves</p>
         </div>
-        <button id="btnCloseExportModal" onclick="app.closeExportModal()" class="text-xs font-medium text-muted hover:text-ink px-3 py-1.5 rounded-full border border-line bg-canvas">
+        <button id="btnCloseExportModal" onclick="app.closeExportModal()" class="text-xs font-medium text-muted hover:text-ink px-3 py-1 rounded-full border border-line bg-canvas">
           Cerrar
         </button>
       </div>
 
-      <!-- Scrollable Modal Body -->
-      <div class="p-4 sm:p-6 overflow-y-auto grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+      <!-- Compact Scrollable Modal Body -->
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-3.5">
         
-        <!-- Left Column: WhatsApp Challenge Link + Native Share & Controls -->
-        <div class="md:col-span-6 space-y-3.5">
-          <!-- Primary Actions: 1. Native Share (Image + Challenge Link) & 2. Direct WhatsApp Challenge -->
-          <div class="space-y-2">
-            <button id="btnNativeExport" onclick="app.shareResultsNative()"
-              class="w-full py-3.5 px-5 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition shadow-sm flex items-center justify-center gap-2 disabled:opacity-60">
-              <span id="btnNativeExportSpinner" class="hidden w-4 h-4 rounded-full border-2 border-white/40 border-t-white animate-spin"></span>
-              <span id="btnNativeExportText">Compartir tarjeta + link de desafío</span>
+        <!-- Primary Actions: 1. Native Share (Image + Challenge Link) & 2. Direct WhatsApp Challenge -->
+        <div class="space-y-2">
+          <button id="btnNativeExport" onclick="app.shareResultsNative()"
+            class="w-full py-3 px-4 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition shadow-sm flex items-center justify-center gap-2 disabled:opacity-60">
+            <span id="btnNativeExportSpinner" class="hidden w-4 h-4 rounded-full border-2 border-white/40 border-t-white animate-spin"></span>
+            <span id="btnNativeExportText">Compartir tarjeta + link de desafío</span>
+          </button>
+
+          <button id="btnWhatsAppChallenge" onclick="app.shareChallengeOnWhatsApp()"
+            class="w-full py-2.5 px-4 rounded-full border-2 border-forest bg-forest-soft hover:bg-forest hover:text-white text-forest text-xs sm:text-sm font-medium transition flex items-center justify-center gap-2">
+            <span id="btnWhatsAppChallengeText">Enviar por WhatsApp ("Mirá el ranking que armé...")</span>
+          </button>
+
+          <div class="grid grid-cols-3 gap-1.5 pt-0.5">
+            <button id="btnCopyChallengeLink" onclick="app.copyChallengeMessage()"
+              class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
+              Copiar link desafío
             </button>
-
-            <button id="btnWhatsAppChallenge" onclick="app.shareChallengeOnWhatsApp()"
-              class="w-full py-3 px-5 rounded-full border-2 border-forest bg-forest-soft hover:bg-forest hover:text-white text-forest text-xs sm:text-sm font-medium transition flex items-center justify-center gap-2">
-              <span id="btnWhatsAppChallengeText">Enviar por WhatsApp ("Mirá el ranking que armé...")</span>
+            <button id="btnQuickCopyImg" onclick="app.copyImageToClipboard()"
+              class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
+              Copiar imagen
             </button>
-
-            <div class="grid grid-cols-3 gap-1.5 pt-0.5">
-              <button id="btnCopyChallengeLink" onclick="app.copyChallengeMessage()"
-                class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
-                Copiar link desafío
-              </button>
-              <button id="btnQuickCopyImg" onclick="app.copyImageToClipboard()"
-                class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
-                Copiar imagen
-              </button>
-              <button id="btnDownloadPng" onclick="app.downloadPosterImage()"
-                class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
-                Guardar PNG
-              </button>
-            </div>
-
-            <div id="shareFeedbackToast" class="hidden text-xs font-medium text-forest bg-forest-soft border border-forest/20 rounded-xl px-3 py-2 text-center"></div>
+            <button id="btnDownloadPng" onclick="app.downloadPosterImage()"
+              class="py-2 px-2 rounded-full bg-surface border border-line hover:border-forest text-ink text-[11px] font-medium transition">
+              Guardar PNG
+            </button>
           </div>
 
-          <!-- Format & Theme Selectors -->
-          <div class="grid grid-cols-2 gap-3 pt-2 border-t border-line">
-            <div class="space-y-1.5">
-              <label id="modalFormatLabel" class="text-[10px] uppercase tracking-wider text-muted">Formato</label>
-              <div class="grid grid-cols-2 gap-1.5">
-                <button id="formatBtnStory" onclick="app.setPosterFormat('story')"
-                  class="py-2 px-2 rounded-xl border-2 border-forest bg-forest-soft text-[11px] font-semibold text-ink text-center">
-                  Historia 9:16
-                </button>
-                <button id="formatBtnPoster" onclick="app.setPosterFormat('poster')"
-                  class="py-2 px-2 rounded-xl border border-line bg-surface text-[11px] font-medium text-ink text-center">
-                  Póster 4:5
-                </button>
+          <div id="shareFeedbackToast" class="hidden text-xs font-medium text-forest bg-forest-soft border border-forest/20 rounded-xl px-3 py-2 text-center"></div>
+        </div>
+
+        <!-- Collapsible Card Customization & Preview so mobile stays compact -->
+        <details class="group bg-surface border border-line rounded-2xl overflow-hidden">
+          <summary class="px-3.5 py-2.5 text-xs font-medium text-ink cursor-pointer flex items-center justify-between select-none">
+            <span>Personalizar y ver vista previa de la tarjeta</span>
+            <span class="text-muted group-open:rotate-180 transition-transform">▾</span>
+          </summary>
+          <div class="p-3.5 pt-2 border-t border-line space-y-3">
+            <!-- Format & Theme Selectors -->
+            <div class="grid grid-cols-2 gap-2.5">
+              <div class="space-y-1">
+                <label id="modalFormatLabel" class="text-[10px] uppercase tracking-wider text-muted">Formato</label>
+                <div class="grid grid-cols-2 gap-1">
+                  <button id="formatBtnStory" onclick="app.setPosterFormat('story')"
+                    class="py-1.5 px-2 rounded-xl border-2 border-forest bg-forest-soft text-[11px] font-semibold text-ink text-center">
+                    Historia 9:16
+                  </button>
+                  <button id="formatBtnPoster" onclick="app.setPosterFormat('poster')"
+                    class="py-1.5 px-2 rounded-xl border border-line bg-surface text-[11px] font-medium text-ink text-center">
+                    Póster 4:5
+                  </button>
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <label id="modalThemeLabel" class="text-[10px] uppercase tracking-wider text-muted">Acabado</label>
+                <div class="grid grid-cols-2 gap-1">
+                  <button id="styleBtnLight" onclick="app.setPosterStyle('light')"
+                    class="py-1.5 px-2 rounded-xl border-2 border-forest bg-surface text-[11px] font-semibold text-ink text-center">
+                    Claro
+                  </button>
+                  <button id="styleBtnDark" onclick="app.setPosterStyle('dark')"
+                    class="py-1.5 px-2 rounded-xl border border-line bg-stone-900 text-[11px] font-medium text-stone-100 text-center">
+                    Oscuro
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div class="space-y-1.5">
-              <label id="modalThemeLabel" class="text-[10px] uppercase tracking-wider text-muted">Acabado</label>
-              <div class="grid grid-cols-2 gap-1.5">
-                <button id="styleBtnLight" onclick="app.setPosterStyle('light')"
-                  class="py-2 px-2 rounded-xl border-2 border-forest bg-surface text-[11px] font-semibold text-ink text-center">
-                  Claro
-                </button>
-                <button id="styleBtnDark" onclick="app.setPosterStyle('dark')"
-                  class="py-2 px-2 rounded-xl border border-line bg-stone-900 text-[11px] font-medium text-stone-100 text-center">
-                  Oscuro
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Optional Title & Author Customization -->
-          <div class="space-y-2.5 pt-2 border-t border-line">
+            <!-- Optional Title & Author Customization -->
             <div class="grid grid-cols-2 gap-2">
               <div>
                 <label id="modalCustomTitleLabel" class="text-[10px] uppercase tracking-wider text-muted">Título</label>
                 <input id="posterTitleInput" type="text" value="Mis Aves Favoritas" oninput="app.onCustomTextChange()"
-                  class="w-full mt-0.5 rounded-xl bg-surface border border-line px-3 py-1.5 text-xs text-ink focus:outline-none focus:border-forest" />
+                  class="w-full mt-0.5 rounded-xl bg-canvas border border-line px-2.5 py-1.5 text-xs text-ink focus:outline-none focus:border-forest" />
               </div>
               <div>
                 <label id="modalCustomAuthorLabel" class="text-[10px] uppercase tracking-wider text-muted">Firma (Opcional)</label>
                 <input id="posterAuthorInput" type="text" placeholder="Ej. por Fede" oninput="app.onCustomTextChange()"
-                  class="w-full mt-0.5 rounded-xl bg-surface border border-line px-3 py-1.5 text-xs text-ink focus:outline-none focus:border-forest" />
+                  class="w-full mt-0.5 rounded-xl bg-canvas border border-line px-2.5 py-1.5 text-xs text-ink focus:outline-none focus:border-forest" />
               </div>
             </div>
             <input id="posterSubInput" type="hidden" value="" />
-          </div>
-        </div>
 
-        <!-- Right Column: Live Card Preview (Uncropped Top #1 + Fun Fact) -->
-        <div class="md:col-span-6 flex flex-col items-center justify-center bg-stone-200/75 rounded-2xl p-3 border border-line">
-          <canvas id="posterCanvas" width="1080" height="1920" class="w-full max-w-[225px] sm:max-w-[255px] h-auto rounded-xl shadow-md bg-white"></canvas>
-        </div>
+            <!-- Live Card Preview -->
+            <div class="flex flex-col items-center justify-center bg-stone-200/75 rounded-xl p-2.5 border border-line">
+              <canvas id="posterCanvas" width="1080" height="1920" class="w-full max-w-[185px] sm:max-w-[220px] h-auto rounded-lg shadow-md bg-white"></canvas>
+            </div>
+          </div>
+        </details>
 
       </div>
     </div>
@@ -1181,9 +1209,56 @@
         posterFormat: "story",
         imageCache: new Map(),
 
+        // Nivel 4: Winner Audio State (Autoplay 2x + WebAudio/HTML5 Audio unlock)
+        winnerAudioEl: null,
+        winnerAudioUrl: "",
+        winnerAudioPlayCount: 0,
+        winnerAudioMaxPlays: 2,
+        winnerAudioPlaying: false,
+        audioUnlocked: false,
+        synthTimerIds: [],
+
         preparedShareBlob: null,
         preparedShareFile: null,
         isPreparingShare: false
+      },
+
+      getPodiumMedalMeta(pos) {
+        const isEn = this.state.lang === "en";
+        if (pos === 1) {
+          return {
+            label: isEn ? "GOLD · #1" : "ORO · #1",
+            shortLabel: isEn ? "GOLD" : "ORO",
+            badgeClass: "bg-amber-400 text-stone-950 border border-amber-600/40 font-bold",
+            cardBorderClass: "border-2 border-amber-400/90 ring-2 ring-amber-300/35",
+            canvasBg: "#EAB308",
+            canvasText: "#161816",
+            canvasStroke: "#CA8A04",
+            svgIcon: `<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.3 5.9.8-4.3 4.2 1 5.9L12 15.4l-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 2z"/></svg>`
+          };
+        }
+        if (pos === 2) {
+          return {
+            label: isEn ? "SILVER · #2" : "PLATA · #2",
+            shortLabel: isEn ? "SILVER" : "PLATA",
+            badgeClass: "bg-slate-200 text-slate-900 border border-slate-400 font-bold",
+            cardBorderClass: "border-2 border-slate-300",
+            canvasBg: "#CBD5E1",
+            canvasText: "#0F172A",
+            canvasStroke: "#64748B",
+            svgIcon: `<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg>`
+          };
+        }
+        return {
+          label: isEn ? "BRONZE · #3" : "BRONCE · #3",
+          shortLabel: isEn ? "BRONZE" : "BRONCE",
+          badgeClass: "bg-amber-700 text-amber-50 border border-amber-900/50 font-bold",
+          cardBorderClass: "border-2 border-amber-700/60",
+          canvasBg: "#B45309",
+          canvasText: "#FFFBEB",
+          canvasStroke: "#78350F",
+          svgIcon: `<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12,3 20,19 4,19"/></svg>`
+        };
       },
 
       t(key) {
@@ -1288,16 +1363,18 @@
         const top3Box = document.getElementById("challengeTop3Preview");
         top3Box.innerHTML = "";
         birds.slice(0, 3).forEach((b, i) => {
+          const medal = this.getPodiumMedalMeta(i + 1);
           const item = document.createElement("div");
-          item.className = "bg-canvas border border-line rounded-xl overflow-hidden flex flex-col";
+          item.className = `bg-canvas ${medal.cardBorderClass} rounded-xl overflow-hidden flex flex-col`;
           item.innerHTML = `
             <div class="relative h-20 sm:h-24 w-full bg-stone-800 overflow-hidden">
               <img src="${b.imagen}" alt="" class="absolute inset-0 w-full h-full object-cover blur-md opacity-60 scale-110" />
               <img src="${b.imagen}" alt="${b.nombre}" class="relative z-10 w-full h-full object-contain object-center" />
-              <span class="absolute top-1.5 left-1.5 z-20 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-forest text-white">#${i + 1}</span>
+              <span class="absolute top-1.5 left-1.5 z-20 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] ${medal.badgeClass}">${medal.svgIcon}<span>${medal.label}</span></span>
             </div>
             <div class="p-2">
               <div class="text-xs font-semibold text-ink truncate">${b.nombre}</div>
+              <div class="text-[10px] italic text-muted truncate mt-0.5">${b.nombreCientifico}</div>
             </div>
           `;
           top3Box.appendChild(item);
@@ -1563,6 +1640,9 @@
           this.state.pendingResolver.reject(new Error("NavigatedAway"));
           this.state.pendingResolver = null;
         }
+        if (viewId !== "viewResults") {
+          this.stopWinnerAudio();
+        }
 
         const views = ["viewHome", "viewStepPlace", "viewStepTraits", "viewStepSize", "viewBattle", "viewResults"];
         views.forEach(id => {
@@ -1805,15 +1885,36 @@
 
       renderStep2Traits() {
         const isEn = this.state.lang === "en";
-        const hasAny = this.state.guilds.size > 0 || this.state.colors.size > 0 || this.state.keyword.trim().length > 0;
+        const kwTrim = this.state.keyword.trim();
+        const hasKw = kwTrim.length > 0;
+        const activeFilterCount = this.state.guilds.size + this.state.colors.size + (hasKw ? 1 : 0);
+        const hasAny = activeFilterCount > 0;
+
         const btnAll = document.getElementById("btnTraitsAll");
         btnAll.className = !hasAny
           ? "px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-forest text-white"
           : "px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-canvas text-ink border border-line hover:border-ink/40";
 
         document.getElementById("traitsSummaryHint").textContent = hasAny
-          ? `${this.state.guilds.size + this.state.colors.size} ${this.t("activeFiltersSuffix")}`
+          ? `${activeFilterCount} ${this.t("activeFiltersSuffix")}${hasKw ? ` (${isEn ? "Species" : "Especie"}: "${kwTrim}")` : ""}`
           : this.t("allFamiliesIncluded");
+
+        // Nivel 3: Visual indicator chip & input border when a specific species is filtered
+        const kwChip = document.getElementById("activeKeywordChip");
+        const kwChipText = document.getElementById("activeKeywordChipText");
+        const kwInp = document.getElementById("keywordInput");
+        if (kwChip && kwChipText && kwInp) {
+          if (hasKw) {
+            kwChipText.textContent = isEn ? `Filtered: "${kwTrim}"` : `Especie filtrada: "${kwTrim}"`;
+            kwChip.classList.remove("hidden");
+            kwChip.classList.add("inline-flex");
+            kwInp.className = "w-full rounded-xl bg-forest-soft/50 border-2 border-forest px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:outline-none";
+          } else {
+            kwChip.classList.add("hidden");
+            kwChip.classList.remove("inline-flex");
+            kwInp.className = "w-full rounded-xl bg-canvas border border-line px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:outline-none focus:border-forest";
+          }
+        }
 
         const gGrid = document.getElementById("guildsGrid");
         gGrid.innerHTML = "";
@@ -1865,6 +1966,13 @@
         this.state.colors.clear();
         this.state.keyword = "";
         document.getElementById("keywordInput").value = "";
+        this.renderStep2Traits();
+      },
+
+      clearKeywordOnly() {
+        this.state.keyword = "";
+        const kwInp = document.getElementById("keywordInput");
+        if (kwInp) kwInp.value = "";
         this.renderStep2Traits();
       },
 
@@ -2134,6 +2242,7 @@
           return this.t("world16Summary");
         }
 
+        const kwTrim = this.state.keyword.trim();
         const places = Array.from(this.state.places.values());
         const guilds = Array.from(this.state.guilds).map(k => {
           const g = CATALOG_DATA.guilds.find(x => x.key === k);
@@ -2145,8 +2254,14 @@
         });
 
         const parts = [];
-        if (guilds.length > 0) parts.push(guilds.join(isEn ? " & " : " y "));
-        else parts.push(isEn ? "Birds" : "Aves");
+        if (kwTrim) {
+          parts.push(isEn ? `Species: "${kwTrim}"` : `Especie: "${kwTrim}"`);
+          if (guilds.length > 0) parts.push(`· ${guilds.join(isEn ? " & " : " y ")}`);
+        } else if (guilds.length > 0) {
+          parts.push(guilds.join(isEn ? " & " : " y "));
+        } else {
+          parts.push(isEn ? "Birds" : "Aves");
+        }
 
         if (colors.length > 0) parts.push(isEn ? `(${colors.join(", ")})` : `de ${colors.join(" y ")}`);
 
@@ -2262,6 +2377,24 @@
         document.getElementById("nameRight").textContent = rightBird.nombre;
         document.getElementById("sciRight").textContent = rightBird.nombreCientifico;
 
+        // Nivel 3: Reflect active species filter dynamically on battle cards
+        const kwTrim = this.state.keyword.trim();
+        const isEn = this.state.lang === "en";
+        const tagL = document.getElementById("filterTagLeft");
+        const tagR = document.getElementById("filterTagRight");
+        if (tagL && tagR) {
+          if (kwTrim) {
+            const labelTxt = isEn ? `Filtered species: "${kwTrim}"` : `Especie filtrada: "${kwTrim}"`;
+            tagL.querySelector("span").textContent = labelTxt;
+            tagR.querySelector("span").textContent = labelTxt;
+            tagL.classList.remove("hidden");
+            tagR.classList.remove("hidden");
+          } else {
+            tagL.classList.add("hidden");
+            tagR.classList.add("hidden");
+          }
+        }
+
         return new Promise((resolve, reject) => {
           this.state.pendingResolver = { resolve, reject };
         });
@@ -2272,8 +2405,35 @@
         if (loader) loader.classList.add("hidden");
       },
 
+      /**
+       * Nivel 4: Unlocks HTML5 Audio & WebAudio on the user's synchronous duel click
+       * so mobile browsers (Safari iOS / Chrome Android) allow autoplay on the Results screen.
+       */
+      unlockWinnerAudioOnGesture() {
+        if (this.state.audioUnlocked) return;
+        try {
+          if (!this.state.winnerAudioEl) {
+            this.state.winnerAudioEl = new Audio();
+            this.state.winnerAudioEl.preload = "auto";
+          }
+          // Silent tiny WAV data URI to unlock the media element on user gesture
+          this.state.winnerAudioEl.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA";
+          this.state.winnerAudioEl.volume = 0.01;
+          const p = this.state.winnerAudioEl.play();
+          if (p && typeof p.then === "function") {
+            p.then(() => {
+              this.state.winnerAudioEl.pause();
+              this.state.winnerAudioEl.currentTime = 0;
+              this.state.winnerAudioEl.volume = 0.85;
+              this.state.audioUnlocked = true;
+            }).catch(() => {});
+          }
+        } catch (_) {}
+      },
+
       chooseBird(side) {
         if (!this.state.pendingResolver) return;
+        this.unlockWinnerAudioOnGesture();
         const r = this.state.pendingResolver.resolve;
         this.state.pendingResolver = null;
         r(side);
@@ -2336,14 +2496,291 @@
       },
 
       /**
-       * VIEW 5: RESULTS + CHALLENGE COMPARISON BOX + PODIUM
+       * Nivel 4: Resolves real bird audio from iNaturalist observations (or genus fallback)
+       * and autoplays it 2 times once the Results view loads.
+       */
+      stopWinnerAudio() {
+        if (this.state.synthTimerIds && this.state.synthTimerIds.length > 0) {
+          this.state.synthTimerIds.forEach(id => clearTimeout(id));
+          this.state.synthTimerIds = [];
+        }
+        if (this.state.winnerAudioEl) {
+          try {
+            this.state.winnerAudioEl.onended = null;
+            this.state.winnerAudioEl.pause();
+            this.state.winnerAudioEl.currentTime = 0;
+          } catch (_) {}
+        }
+        this.state.winnerAudioPlaying = false;
+        this.updateWinnerAudioUI();
+      },
+
+      updateWinnerAudioUI() {
+        const isEn = this.state.lang === "en";
+        const playing = this.state.winnerAudioPlaying;
+        const count = this.state.winnerAudioPlayCount;
+        const max = this.state.winnerAudioMaxPlays;
+
+        const hdrBtn = document.getElementById("btnWinnerAudioHeader");
+        const hdrTxt = document.getElementById("winnerAudioHeaderText");
+        const hdrDot = document.getElementById("winnerAudioDot");
+        if (hdrBtn && hdrTxt && hdrDot) {
+          hdrBtn.classList.remove("hidden");
+          if (playing) {
+            hdrDot.className = "w-2 h-2 rounded-full bg-emerald-600 animate-ping";
+            hdrTxt.textContent = isEn
+              ? `Playing #1 bird call (${Math.min(count + 1, max)}/${max}) · Stop`
+              : `Sonando canto #1 (${Math.min(count + 1, max)}/${max}) · Detener`;
+          } else {
+            hdrDot.className = "w-2 h-2 rounded-full bg-amber-600";
+            hdrTxt.textContent = isEn ? "Play #1 bird call (2x)" : "Escuchar canto del #1 (2x)";
+          }
+        }
+
+        const cardBtnTxt = document.getElementById("card1AudioBtnText");
+        const cardDot = document.getElementById("card1AudioDot");
+        if (cardBtnTxt && cardDot) {
+          if (playing) {
+            cardDot.className = "w-2 h-2 rounded-full bg-emerald-500 animate-ping";
+            cardBtnTxt.textContent = isEn
+              ? `Playing song (${Math.min(count + 1, max)}/${max})`
+              : `Sonando canto (${Math.min(count + 1, max)}/${max})`;
+          } else {
+            cardDot.className = "w-2 h-2 rounded-full bg-amber-500";
+            cardBtnTxt.textContent = isEn ? "Listen to song" : "Escuchar canto";
+          }
+        }
+      },
+
+      async fetchWinnerBirdAudioUrl(bird) {
+        if (!bird) return "";
+        if (bird.audioUrl) return bird.audioUrl;
+
+        const extractSoundFromObs = (results) => {
+          for (const obs of (results || [])) {
+            if (obs && Array.isArray(obs.sounds)) {
+              for (const s of obs.sounds) {
+                if (s && s.file_url && !s.file_url.endsWith(".wav")) {
+                  return s.file_url;
+                }
+              }
+              if (obs.sounds[0] && obs.sounds[0].file_url) {
+                return obs.sounds[0].file_url;
+              }
+            }
+          }
+          return "";
+        };
+
+        try {
+          const res = await fetch(`${CATALOG_DATA.baseUrl}/observations?taxon_id=${encodeURIComponent(bird.id)}&sounds=true&per_page=8&order_by=votes`);
+          if (res.ok) {
+            const data = await res.json();
+            const found = extractSoundFromObs(data.results);
+            if (found) {
+              bird.audioUrl = found;
+              return found;
+            }
+          }
+        } catch (_) {}
+
+        try {
+          const genus = (bird.nombreCientifico || "").split(" ")[0];
+          if (genus) {
+            const resG = await fetch(`${CATALOG_DATA.baseUrl}/observations?q=${encodeURIComponent(genus)}&taxon_id=3&sounds=true&per_page=6`);
+            if (resG.ok) {
+              const dataG = await resG.json();
+              const foundG = extractSoundFromObs(dataG.results);
+              if (foundG) {
+                bird.audioUrl = foundG;
+                return foundG;
+              }
+            }
+          }
+        } catch (_) {}
+
+        return "";
+      },
+
+      playSynthesizedBirdSongFallback(times = 2) {
+        this.stopWinnerAudio();
+        try {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (!AudioCtx) return;
+          const ctx = new AudioCtx();
+          this.state.winnerAudioPlaying = true;
+          this.state.winnerAudioPlayCount = 0;
+          this.updateWinnerAudioUI();
+
+          const playPhrase = (passIdx) => {
+            if (!this.state.winnerAudioPlaying) return;
+            this.state.winnerAudioPlayCount = passIdx;
+            this.updateWinnerAudioUI();
+
+            const notes = [
+              { f1: 1760, f2: 2480, dur: 0.14, gap: 0.05 },
+              { f1: 2100, f2: 2950, dur: 0.16, gap: 0.06 },
+              { f1: 2640, f2: 1980, dur: 0.24, gap: 0.1 }
+            ];
+            let offset = ctx.currentTime + 0.04;
+            notes.forEach(n => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = "sine";
+              osc.frequency.setValueAtTime(n.f1, offset);
+              osc.frequency.exponentialRampToValueAtTime(n.f2, offset + n.dur);
+
+              gain.gain.setValueAtTime(0.001, offset);
+              gain.gain.exponentialRampToValueAtTime(0.16, offset + 0.03);
+              gain.gain.exponentialRampToValueAtTime(0.001, offset + n.dur);
+
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(offset);
+              osc.stop(offset + n.dur + 0.01);
+              offset += n.dur + n.gap;
+            });
+          };
+
+          playPhrase(0);
+          if (times > 1) {
+            const t1 = setTimeout(() => playPhrase(1), 1100);
+            const t2 = setTimeout(() => {
+              this.state.winnerAudioPlaying = false;
+              this.state.winnerAudioPlayCount = times;
+              this.updateWinnerAudioUI();
+            }, 2200);
+            this.state.synthTimerIds.push(t1, t2);
+          }
+        } catch (_) {
+          this.state.winnerAudioPlaying = false;
+          this.updateWinnerAudioUI();
+        }
+      },
+
+      async resolveAndPlayWinnerAudio(winnerBird, maxPlays = 2) {
+        this.stopWinnerAudio();
+        if (!winnerBird) return;
+
+        this.state.winnerAudioMaxPlays = maxPlays;
+        this.state.winnerAudioPlayCount = 0;
+
+        const audioUrl = await this.fetchWinnerBirdAudioUrl(winnerBird);
+        this.state.winnerAudioUrl = audioUrl;
+
+        // Ensure user is still on Results screen after async fetch
+        if (document.getElementById("viewResults").classList.contains("hidden")) return;
+
+        if (!audioUrl) {
+          this.playSynthesizedBirdSongFallback(maxPlays);
+          return;
+        }
+
+        if (!this.state.winnerAudioEl) {
+          this.state.winnerAudioEl = new Audio();
+        }
+        const audio = this.state.winnerAudioEl;
+        audio.src = audioUrl;
+        audio.volume = 0.85;
+        this.state.winnerAudioPlaying = true;
+        this.updateWinnerAudioUI();
+
+        const playOnce = () => {
+          if (!this.state.winnerAudioPlaying || document.getElementById("viewResults").classList.contains("hidden")) {
+            this.stopWinnerAudio();
+            return;
+          }
+          audio.currentTime = 0;
+          const p = audio.play();
+          if (p && typeof p.then === "function") {
+            p.then(() => {
+              this.updateWinnerAudioUI();
+              // Cap single recording pass at 4.5s so long field recordings repeat cleanly 2x
+              const clipTimer = setTimeout(() => {
+                if (this.state.winnerAudioPlaying && !audio.paused) {
+                  audio.pause();
+                  if (typeof audio.onended === "function") audio.onended();
+                }
+              }, 4500);
+              this.state.synthTimerIds.push(clipTimer);
+            }).catch(() => {
+              // Browser blocked un-gestured autoplay; keep button ready for 1-click play
+              this.state.winnerAudioPlaying = false;
+              this.updateWinnerAudioUI();
+            });
+          }
+        };
+
+        audio.onended = () => {
+          this.state.winnerAudioPlayCount++;
+          if (this.state.winnerAudioPlayCount < this.state.winnerAudioMaxPlays && this.state.winnerAudioPlaying) {
+            const gapTimer = setTimeout(() => playOnce(), 380);
+            this.state.synthTimerIds.push(gapTimer);
+          } else {
+            this.state.winnerAudioPlaying = false;
+            this.updateWinnerAudioUI();
+          }
+        };
+
+        playOnce();
+      },
+
+      toggleWinnerAudio() {
+        if (this.state.winnerAudioPlaying) {
+          this.stopWinnerAudio();
+        } else {
+          const winner = this.state.finalRanking && this.state.finalRanking[0];
+          if (winner) {
+            this.resolveAndPlayWinnerAudio(winner, 2);
+          }
+        }
+      },
+
+      /**
+       * VIEW 5: RESULTS + CHALLENGE COMPARISON BOX + PODIUM (GOLD, SILVER, BRONZE + SPECIES FILTER + 2x AUDIO)
        */
       async renderResultsView() {
         this.goToView("viewResults");
         const ranking = this.state.finalRanking;
         const summary = this.getHumanSummary();
+        const isEn = this.state.lang === "en";
+        const kwTrim = this.state.keyword.trim();
+
         document.getElementById("resultsFilterCaption").textContent = summary;
         document.getElementById("posterSubInput").value = summary;
+
+        // Nivel 3: Dynamic species filter badge & interpolated results copy
+        const kwBadge = document.getElementById("resultsKeywordBadge");
+        const mainTitle = document.getElementById("resultsMainTitle");
+        const filterSub = document.getElementById("resultsFilterCopySub");
+
+        if (kwTrim) {
+          if (kwBadge) {
+            kwBadge.textContent = isEn ? `Filtered species: "${kwTrim}"` : `Especie filtrada: "${kwTrim}"`;
+            kwBadge.classList.remove("hidden");
+            kwBadge.classList.add("inline-flex");
+          }
+          if (mainTitle) {
+            mainTitle.textContent = isEn ? `Your "${kwTrim}" Ranking` : `Tu Ranking de «${kwTrim}»`;
+          }
+          if (filterSub) {
+            filterSub.textContent = isEn
+              ? `Results exclusively filtered for "${kwTrim}" (${ranking.length} species compared).`
+              : `Resultados filtrados especialmente para la especie «${kwTrim}» (${ranking.length} aves comparadas).`;
+            filterSub.classList.remove("hidden");
+          }
+        } else {
+          if (kwBadge) {
+            kwBadge.classList.add("hidden");
+            kwBadge.classList.remove("inline-flex");
+          }
+          if (mainTitle) {
+            mainTitle.textContent = this.t("resultsMainTitle");
+          }
+          if (filterSub) {
+            filterSub.classList.add("hidden");
+          }
+        }
 
         // Update browser URL silently so even copying the address bar shares this exact ranking & bird set!
         try {
@@ -2362,25 +2799,41 @@
           const pos = idx + 1;
           const isFirst = pos === 1;
           const colSpan = isFirst ? "md:col-span-6" : "md:col-span-3";
+          const medal = this.getPodiumMedalMeta(pos);
 
           const card = document.createElement("div");
-          card.className = `${colSpan} bg-surface border border-line rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm`;
+          card.className = `${colSpan} bg-surface ${medal.cardBorderClass} rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm`;
           card.innerHTML = `
             <div class="relative ${isFirst ? "h-56 sm:h-64" : "h-48 sm:h-52"} w-full bg-stone-800 overflow-hidden">
               <img src="${bird.imagen}" alt="" aria-hidden="true"
                 class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
               <img src="${bird.imagen}" alt="${bird.nombre}" onerror="app.handleImgFallback(this)"
                 class="relative z-10 w-full h-full object-contain object-center" />
-              <div class="absolute top-3 left-3 z-20">
-                <span class="px-3 py-1 rounded-full text-xs font-medium ${isFirst ? "bg-forest text-white" : "bg-surface/95 text-ink border border-line"} shadow-sm">
-                  ${this.t("rankBadgePrefix")}${pos}
+              <div class="absolute top-3 left-3 z-20 flex items-center gap-1.5">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs ${medal.badgeClass} shadow-sm">
+                  ${medal.svgIcon}
+                  <span>${medal.label}</span>
                 </span>
               </div>
+              ${isFirst ? `
+                <button type="button" onclick="app.toggleWinnerAudio()"
+                  class="absolute top-3 right-3 z-20 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-stone-900/85 hover:bg-stone-900 text-white border border-white/20 backdrop-blur-xs transition shadow-sm">
+                  <span id="card1AudioDot" class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span id="card1AudioBtnText">${isEn ? "Playing song..." : "Sonando canto..."}</span>
+                </button>
+              ` : ""}
             </div>
-            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-2">
-              <div>
-                <h3 class="font-serif ${isFirst ? "text-2xl sm:text-4xl" : "text-xl sm:text-2xl"} text-ink leading-tight">${bird.nombre}</h3>
-                <p class="text-xs italic text-muted mt-0.5">${bird.nombreCientifico}</p>
+            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-2.5">
+              <div class="space-y-1">
+                ${kwTrim ? `
+                  <div>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-forest-soft text-forest border border-forest/20">
+                      ${isEn ? `Species: "${kwTrim}"` : `Especie: "${kwTrim}"`}
+                    </span>
+                  </div>
+                ` : ""}
+                <h3 class="font-serif ${isFirst ? "text-2xl sm:text-4xl" : "text-xl sm:text-2xl"} text-ink leading-snug">${bird.nombre}</h3>
+                <p class="text-xs italic text-muted leading-snug pt-0.5">${bird.nombreCientifico}</p>
               </div>
               ${isFirst && this.state.top1FunFact ? `
                 <div class="pt-2 border-t border-line/80 text-xs text-ink/90 leading-relaxed">
@@ -2413,13 +2866,18 @@
                 <img src="${bird.imagen}" alt="${bird.nombre}" onerror="app.handleImgFallback(this)"
                   class="relative z-10 w-full h-full object-contain object-center" />
               </div>
-              <div class="min-w-0 flex-1">
-                <div class="text-xs sm:text-sm font-medium text-ink truncate">${bird.nombre}</div>
-                <div class="text-[11px] italic text-muted truncate">${bird.nombreCientifico}</div>
+              <div class="min-w-0 flex-1 space-y-0.5">
+                <div class="text-xs sm:text-sm font-medium text-ink leading-snug truncate">${bird.nombre}</div>
+                <div class="text-[11px] italic text-muted leading-snug truncate">${bird.nombreCientifico}</div>
               </div>
             `;
             restGrid.appendChild(row);
           });
+        }
+
+        // Nivel 4: Trigger 2x autoplay of the #1 winning bird's call once the top view has loaded
+        if (ranking[0]) {
+          this.resolveAndPlayWinnerAudio(ranking[0], 2);
         }
 
         this.prepareShareableImage();
@@ -2812,39 +3270,41 @@
           ctx.lineTo(W - sx, 206);
           ctx.stroke();
 
-          // #1 HERO CARD WITH FULL UNCROPPED PHOTO + FUN FACT
+          // #1 HERO CARD WITH FULL UNCROPPED PHOTO + GOLD MEDAL + NON-OVERLAPPING SCIENTIFIC NAME + FUN FACT
           const b1 = slice[0];
           if (b1) {
             const y1 = 228;
             const h1 = 505;
-            this.roundRect(ctx, sx, y1, innerW, h1, 22, pal.card, pal.border, 2);
+            const m1 = this.getPodiumMedalMeta(1);
+            this.roundRect(ctx, sx, y1, innerW, h1, 22, pal.card, m1.canvasStroke, 3);
 
             ctx.save();
-            this.roundRectPath(ctx, sx + 14, y1 + 14, innerW - 28, 305, 14);
+            this.roundRectPath(ctx, sx + 14, y1 + 14, innerW - 28, 294, 14);
             ctx.clip();
             if (imgs[0]) {
-              this.drawCompleteBirdPhoto(ctx, imgs[0], sx + 14, y1 + 14, innerW - 28, 305);
+              this.drawCompleteBirdPhoto(ctx, imgs[0], sx + 14, y1 + 14, innerW - 28, 294);
             } else {
               ctx.fillStyle = pal.border;
-              ctx.fillRect(sx + 14, y1 + 14, innerW - 28, 305);
+              ctx.fillRect(sx + 14, y1 + 14, innerW - 28, 294);
             }
             ctx.restore();
 
-            this.roundRect(ctx, sx + 28, y1 + 28, 110, 38, 19, pal.badge, null, 0);
-            ctx.fillStyle = pal.badgeText;
-            ctx.font = "600 17px 'Inter', sans-serif";
-            ctx.fillText("TOP #1", sx + 50, y1 + 53);
+            this.roundRect(ctx, sx + 28, y1 + 28, 134, 38, 19, m1.canvasBg, m1.canvasStroke, 1.5);
+            ctx.fillStyle = m1.canvasText;
+            ctx.font = "700 16px 'Inter', sans-serif";
+            ctx.fillText(m1.label, sx + 46, y1 + 53);
 
+            // Nivel 1 Fix: Common name and scientific name on separate lines so they never overlap on elongated cards
             ctx.fillStyle = pal.ink;
-            ctx.font = "400 42px 'Instrument Serif', Georgia, serif";
-            ctx.fillText(b1.nombre.slice(0, 28), sx + 24, y1 + 368);
+            ctx.font = "400 40px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(b1.nombre.slice(0, 32), sx + 24, y1 + 350);
 
             ctx.fillStyle = pal.muted;
-            ctx.font = "italic 20px 'Instrument Serif', Georgia, serif";
-            ctx.fillText(`(${b1.nombreCientifico.slice(0, 36)})`, sx + 24 + ctx.measureText(b1.nombre.slice(0, 28)).width + 16, y1 + 366);
+            ctx.font = "italic 19px 'Instrument Serif', Georgia, serif";
+            ctx.fillText(b1.nombreCientifico.slice(0, 44), sx + 24, y1 + 376);
 
             if (funFact) {
-              this.roundRect(ctx, sx + 20, y1 + 390, innerW - 40, 96, 14, pal.factBg, null, 0);
+              this.roundRect(ctx, sx + 20, y1 + 392, innerW - 40, 94, 14, pal.factBg, null, 0);
               ctx.fillStyle = pal.ink;
               ctx.font = "600 15px 'Inter', sans-serif";
               const factPrefix = `${this.t("funFactLabel").toUpperCase()}: `;
@@ -2855,7 +3315,7 @@
             }
           }
 
-          // #2 & #3 SIDE BY SIDE
+          // #2 (SILVER) & #3 (BRONZE) SIDE BY SIDE
           const top23 = slice.slice(1, 3);
           const y23 = 754;
           const w23 = (innerW - 22) / 2;
@@ -2863,8 +3323,9 @@
 
           top23.forEach((bird, idx) => {
             const pos = idx + 2;
+            const m = this.getPodiumMedalMeta(pos);
             const cx = sx + idx * (w23 + 22);
-            this.roundRect(ctx, cx, y23, w23, h23, 18, pal.card, pal.border, 1.5);
+            this.roundRect(ctx, cx, y23, w23, h23, 18, pal.card, m.canvasStroke, 2);
 
             ctx.save();
             this.roundRectPath(ctx, cx + 12, y23 + 12, w23 - 24, 238, 12);
@@ -2878,10 +3339,10 @@
             }
             ctx.restore();
 
-            this.roundRect(ctx, cx + 22, y23 + 22, 74, 32, 16, pal.badge, null, 0);
-            ctx.fillStyle = pal.badgeText;
-            ctx.font = "600 15px 'Inter', sans-serif";
-            ctx.fillText(`#${pos}`, cx + 47, y23 + 44);
+            this.roundRect(ctx, cx + 22, y23 + 22, 122, 32, 16, m.canvasBg, m.canvasStroke, 1);
+            ctx.fillStyle = m.canvasText;
+            ctx.font = "700 14px 'Inter', sans-serif";
+            ctx.fillText(m.label, cx + 36, y23 + 43);
 
             ctx.fillStyle = pal.ink;
             ctx.font = "400 31px 'Instrument Serif', Georgia, serif";
@@ -2971,8 +3432,9 @@
         top3.forEach((bird, idx) => {
           const x = startX + idx * (cardW + gap);
           const y = topY;
+          const m = this.getPodiumMedalMeta(idx + 1);
 
-          this.roundRect(ctx, x, y, cardW, cardH, 16, pal.card, pal.border, 1.5);
+          this.roundRect(ctx, x, y, cardW, cardH, 16, pal.card, m.canvasStroke, idx === 0 ? 2.5 : 2);
 
           ctx.save();
           this.roundRectPath(ctx, x + 12, y + 12, cardW - 24, 285, 10);
@@ -2985,10 +3447,10 @@
           }
           ctx.restore();
 
-          this.roundRect(ctx, x + 22, y + 22, 72, 32, 16, pal.badge, null, 0);
-          ctx.fillStyle = pal.badgeText;
-          ctx.font = "600 15px 'Inter', sans-serif";
-          ctx.fillText(`#${idx + 1}`, x + 46, y + 43);
+          this.roundRect(ctx, x + 22, y + 22, 122, 32, 16, m.canvasBg, m.canvasStroke, 1);
+          ctx.fillStyle = m.canvasText;
+          ctx.font = "700 14px 'Inter', sans-serif";
+          ctx.fillText(m.label, x + 36, y + 43);
 
           ctx.fillStyle = pal.ink;
           ctx.font = "400 32px 'Instrument Serif', Georgia, serif";
