@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Concept B: Podium VS (3 Steps podium where #1 and #2 clash) -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Podiums -->
+    <!-- #2 Left -->
+    <path d="M48 184 L48 128 L96 128 L96 184 Z" fill="#3B82F6" stroke="#3B82F6" stroke-width="8"/>
+    <!-- #1 Center -->
+    <path d="M104 184 L104 96 L152 96 L152 184 Z" fill="#8B5CF6" stroke="#8B5CF6" stroke-width="8"/>
+    <!-- #3 Right -->
+    <path d="M160 184 L160 144 L208 144 L208 184 Z" fill="#EC4899" stroke="#EC4899" stroke-width="8"/>
+    <!-- VS Swords / Lighting above podium -->
+    <path d="M84 64 L128 88 L172 64" stroke="#F59E0B" stroke-width="12" stroke-linejoin="round"/>
+    <circle cx="128" cy="52" r="14" fill="#F59E0B"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Concept C: Bold Arcade 2 (Electric '2' built from game d-pad & ranking arrows) -->
+  <defs>
+    <linearGradient id="gradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect x="24" y="24" width="208" height="208" rx="48" fill="#18181B" stroke="#27272A" stroke-width="6"/>
+  <!-- Glowing '2' built from game arrows (Upper curve, diagonal slide, horizontal base) -->
+  <path d="M84 94 C84 66, 172 66, 172 106 C172 136, 114 156, 88 184 L176 184" fill="none" stroke="url(#gradC)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Two game battle dots -->
+  <circle cx="84" cy="94" r="7" fill="#FFFFFF"/>
+  <circle cx="176" cy="184" r="7" fill="#FFFFFF"/>
+</svg>
