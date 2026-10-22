@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Concept 4: Cards Forming a 'V' (Versus / Victory) -->
+  <!-- Two stylized card wings meeting symmetrically at the base -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left Card Wing -->
+    <path d="M52 68 L114 196 L124 196 L98 56 Z" fill="#4F46E5" stroke="#FFFFFF" stroke-width="10"/>
+    <!-- Right Card Wing -->
+    <path d="M204 68 L142 196 L132 196 L158 56 Z" fill="#DB2777" stroke="#FFFFFF" stroke-width="10"/>
+    <!-- Central Battle Shield / Diamond in the notch of the V -->
+    <polygon points="128,84 146,112 128,140 110,112" fill="#F59E0B" stroke="#FFFFFF" stroke-width="6"/>
+  </g>
+</svg>
