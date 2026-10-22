@@ -7,18 +7,143 @@
   <meta name="description" content="Duelos 1 contra 1 para armar tu ranking de favoritos: aves, Pokémon, flores y más. Compartí tu podio con amigos." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/tailwind.css" />
 </head>
-<body class="min-h-[100dvh] font-sans flex flex-col selection:bg-forest selection:text-white">
-  <main class="flex-1 max-w-3xl w-full mx-auto px-3.5 sm:px-8 py-10 sm:py-16 space-y-8">
-    <h1 class="font-serif text-5xl sm:text-7xl text-ink tracking-tight">Rankea2</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <a href="/aves/" class="px-5 py-6 rounded-2xl border border-line bg-surface hover:border-forest hover:bg-forest-soft transition flex items-center justify-between">
-        <span class="font-serif text-2xl text-ink">Aves</span>
-        <span class="text-forest">→</span>
+<body class="min-h-[100dvh] font-sans bg-canvas text-ink flex flex-col selection:bg-forest selection:text-white">
+
+  <!-- Minimal Header -->
+  <header class="border-b border-line bg-canvas/90 backdrop-blur-sm sticky top-0 z-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <!-- Logo Icon: Two colliding cards forming the '2' / duel -->
+        <span class="w-8 h-8 rounded-lg bg-forest text-white flex items-center justify-center font-serif text-lg font-bold shadow-sm transition group-hover:scale-105">
+          2
+        </span>
+        <span class="font-serif text-2xl tracking-tight text-ink font-bold">Rankea2</span>
       </a>
+      <span class="text-xs uppercase tracking-widest text-muted font-medium">Arenas 1 vs 1</span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-14 space-y-10">
+    <div class="text-center sm:text-left space-y-3">
+      <h1 class="font-serif text-4xl sm:text-6xl text-ink leading-[1.08] tracking-tight">
+        Elegí tus favoritos en duelos cara a cara.
+      </h1>
+      <p class="text-sm sm:text-base text-muted max-w-xl">
+        Torneos rápidos de 16 participantes. Compara opciones en cada ronda y descubre tu podio definitivo.
+      </p>
+    </div>
+
+    <!-- Arenas Grid -->
+    <div class="space-y-4">
+      <div class="flex items-center justify-between border-b border-line pb-2.5">
+        <h2 class="font-serif text-2xl text-ink">Elegí tu categoría</h2>
+        <span class="text-xs text-muted">1 activa · 3 en camino</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- ACTIVE ARENA: AVES -->
+        <a href="/aves/" class="group relative rounded-2xl border-2 border-forest/70 hover:border-forest bg-surface p-5 sm:p-6 transition shadow-sm hover:shadow-md flex flex-col justify-between overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-forest-soft pointer-events-none group-hover:scale-110 transition duration-300"></div>
+          
+          <div class="relative space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-forest text-white uppercase tracking-wider">
+                Disponible ahora
+              </span>
+              <span class="text-xs text-muted font-medium">11.000+ especies</span>
+            </div>
+            <div>
+              <h3 class="font-serif text-3xl text-ink group-hover:text-forest transition">Aves del Mundo</h3>
+              <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                Tucanes, colibríes, rapaces y especies autóctonas en vivo con cantos y fotos de alta calidad.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative pt-6 flex items-center justify-between text-xs font-semibold text-forest">
+            <span>Entrar al torneo →</span>
+            <span class="w-7 h-7 rounded-full bg-forest-soft flex items-center justify-center group-hover:bg-forest group-hover:text-white transition">
+              →
+            </span>
+          </div>
+        </a>
+
+        <!-- UPCOMING ARENA: POKÉMON -->
+        <div class="relative rounded-2xl border border-line bg-surface/60 p-5 sm:p-6 flex flex-col justify-between opacity-80 hover:opacity-100 transition">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-canvas border border-line text-muted uppercase tracking-wider">
+                Próximamente
+              </span>
+              <span class="text-xs text-muted">1.025 criaturas</span>
+            </div>
+            <div>
+              <h3 class="font-serif text-3xl text-ink">Pokémon</h3>
+              <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                Starters, legendarios, generaciones y tipos elementales. ¿Cuál es tu equipo soñado?
+              </p>
+            </div>
+          </div>
+          <div class="pt-6 text-xs text-muted font-medium">
+            En fase de integración con PokeAPI
+          </div>
+        </div>
+
+        <!-- UPCOMING ARENA: BOTÁNICA & FLORES -->
+        <div class="relative rounded-2xl border border-line bg-surface/60 p-5 sm:p-6 flex flex-col justify-between opacity-80 hover:opacity-100 transition">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-canvas border border-line text-muted uppercase tracking-wider">
+                Próximamente
+              </span>
+              <span class="text-xs text-muted">Catálogo botánico</span>
+            </div>
+            <div>
+              <h3 class="font-serif text-3xl text-ink">Flores y Plantas</h3>
+              <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                Orquídeas, carnívoras, flores silvestres y árboles exóticos de todo el planeta.
+              </p>
+            </div>
+          </div>
+          <div class="pt-6 text-xs text-muted font-medium">
+            En catálogo
+          </div>
+        </div>
+
+        <!-- UPCOMING ARENA: FELINOS & MAMÍFEROS -->
+        <div class="relative rounded-2xl border border-line bg-surface/60 p-5 sm:p-6 flex flex-col justify-between opacity-80 hover:opacity-100 transition">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-canvas border border-line text-muted uppercase tracking-wider">
+                Próximamente
+              </span>
+              <span class="text-xs text-muted">Mamíferos del mundo</span>
+            </div>
+            <div>
+              <h3 class="font-serif text-3xl text-ink">Mamíferos y Felinos</h3>
+              <p class="text-xs sm:text-sm text-muted mt-1 leading-relaxed">
+                Grandes depredadores, razas de gatos y fauna salvaje de todos los continentes.
+              </p>
+            </div>
+          </div>
+          <div class="pt-6 text-xs text-muted font-medium">
+            En catálogo
+          </div>
+        </div>
+
+      </div>
     </div>
   </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-line py-6 text-center text-xs text-muted">
+    <p>Rankea2 · Plataforma interactiva de torneos 1 vs 1</p>
+  </footer>
+
 </body>
 </html>
