@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-versus-v">
+  <title id="title-versus-v">Rankea2 — Versus V Cards Logo</title>
+  <g id="symbol">
+    <!-- Left Card Wing (Exact 1:2 slope: dx=88, dy=176 -> y=40..216, margin T40 B40) -->
+    <path fill="#4F46E5" d="M24 40 H88 L152 168 L112 216 L24 40 Z"/>
+    <!-- Right Card Wing (Exact 1:2 slope: dx=-64, dy=128 -> interlocking with 16-unit negative space) -->
+    <path fill="#EC4899" d="M168 40 H232 L168 168 L136 104 L168 40 Z"/>
+  </g>
+</svg>

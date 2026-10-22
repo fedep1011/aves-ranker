@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="840" viewBox="0 0 1600 840"><rect width="1600" height="840" fill="#f7f7f4"/><text x="60" y="78" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#161616">Rankea2 — Conceptos de Identidad</text><text x="60" y="116" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#6b6b6b">Concepts for review — pick a direction (or tell me what you like in each).</text><rect x="60" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#161616" stroke-width="2"/><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-duel-deck" viewBox="0 0 256 256" x="90" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c0-title-duel-deck">Rankea2 — Duel Deck Logo</title>
+  <g id="c0-symbol">
+    <!-- Left Card (Contender 1 - Tilted left with true mathematical path coordinates, rounded corners, cut out by front card) -->
+    <path fill="#818CF8" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
+    <!-- Right Card (Contender 2 - Solid card with #1 Crown/Podium negative space cutout via evenodd) -->
+    <path fill="#4F46E5" fill-rule="evenodd" d="M104 80 H208 A16 16 0 0 1 224 96 V208 A16 16 0 0 1 208 224 H104 A16 16 0 0 1 88 208 V96 A16 16 0 0 1 104 80 Z M120 176 H192 V136 L172 152 L156 124 L140 152 L120 136 V176 Z"/>
+  </g>
+</svg>
+</g><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-duel-deck" viewBox="0 0 256 256" x="90" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s064-title-duel-deck">Rankea2 — Duel Deck Logo</title>
+  <g id="s064-symbol">
+    <!-- Left Card (Contender 1 - Tilted left with true mathematical path coordinates, rounded corners, cut out by front card) -->
+    <path fill="#818CF8" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
+    <!-- Right Card (Contender 2 - Solid card with #1 Crown/Podium negative space cutout via evenodd) -->
+    <path fill="#4F46E5" fill-rule="evenodd" d="M104 80 H208 A16 16 0 0 1 224 96 V208 A16 16 0 0 1 208 224 H104 A16 16 0 0 1 88 208 V96 A16 16 0 0 1 104 80 Z M120 176 H192 V136 L172 152 L156 124 L140 152 L120 136 V176 Z"/>
+  </g>
+</svg>
+</g><text x="122" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-duel-deck" viewBox="0 0 256 256" x="180" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s032-title-duel-deck">Rankea2 — Duel Deck Logo</title>
+  <g id="s032-symbol">
+    <!-- Left Card (Contender 1 - Tilted left with true mathematical path coordinates, rounded corners, cut out by front card) -->
+    <path fill="#818CF8" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
+    <!-- Right Card (Contender 2 - Solid card with #1 Crown/Podium negative space cutout via evenodd) -->
+    <path fill="#4F46E5" fill-rule="evenodd" d="M104 80 H208 A16 16 0 0 1 224 96 V208 A16 16 0 0 1 208 224 H104 A16 16 0 0 1 88 208 V96 A16 16 0 0 1 104 80 Z M120 176 H192 V136 L172 152 L156 124 L140 152 L120 136 V176 Z"/>
+  </g>
+</svg>
+</g><text x="196" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-duel-deck" viewBox="0 0 256 256" x="238" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s016-title-duel-deck">Rankea2 — Duel Deck Logo</title>
+  <g id="s016-symbol">
+    <!-- Left Card (Contender 1 - Tilted left with true mathematical path coordinates, rounded corners, cut out by front card) -->
+    <path fill="#818CF8" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
+    <!-- Right Card (Contender 2 - Solid card with #1 Crown/Podium negative space cutout via evenodd) -->
+    <path fill="#4F46E5" fill-rule="evenodd" d="M104 80 H208 A16 16 0 0 1 224 96 V208 A16 16 0 0 1 208 224 H104 A16 16 0 0 1 88 208 V96 A16 16 0 0 1 104 80 Z M120 176 H192 V136 L172 152 L156 124 L140 152 L120 136 V176 Z"/>
+  </g>
+</svg>
+</g><text x="246" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">A · Duel Deck</text><text x="90.0" y="664" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#161616" letter-spacing="1.5">RECOMMENDED</text><text x="90.0" y="698" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Dos cartas enfrentadas con corona de</text><text x="90.0" y="724" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">ganador en espacio negativo.</text><rect x="562.667" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-versus-v" viewBox="0 0 256 256" x="592.667" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c1-title-versus-v">Rankea2 — Versus V Cards Logo</title>
+  <g id="c1-symbol">
+    <!-- Left Card Wing (Exact 1:2 slope: dx=88, dy=176 -> y=40..216, margin T40 B40) -->
+    <path fill="#4F46E5" d="M24 40 H88 L152 168 L112 216 L24 40 Z"/>
+    <!-- Right Card Wing (Exact 1:2 slope: dx=-64, dy=128 -> interlocking with 16-unit negative space) -->
+    <path fill="#EC4899" d="M168 40 H232 L168 168 L136 104 L168 40 Z"/>
+  </g>
+</svg>
+</g><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-versus-v" viewBox="0 0 256 256" x="592.667" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s164-title-versus-v">Rankea2 — Versus V Cards Logo</title>
+  <g id="s164-symbol">
+    <!-- Left Card Wing (Exact 1:2 slope: dx=88, dy=176 -> y=40..216, margin T40 B40) -->
+    <path fill="#4F46E5" d="M24 40 H88 L152 168 L112 216 L24 40 Z"/>
+    <!-- Right Card Wing (Exact 1:2 slope: dx=-64, dy=128 -> interlocking with 16-unit negative space) -->
+    <path fill="#EC4899" d="M168 40 H232 L168 168 L136 104 L168 40 Z"/>
+  </g>
+</svg>
+</g><text x="624.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-versus-v" viewBox="0 0 256 256" x="682.667" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s132-title-versus-v">Rankea2 — Versus V Cards Logo</title>
+  <g id="s132-symbol">
+    <!-- Left Card Wing (Exact 1:2 slope: dx=88, dy=176 -> y=40..216, margin T40 B40) -->
+    <path fill="#4F46E5" d="M24 40 H88 L152 168 L112 216 L24 40 Z"/>
+    <!-- Right Card Wing (Exact 1:2 slope: dx=-64, dy=128 -> interlocking with 16-unit negative space) -->
+    <path fill="#EC4899" d="M168 40 H232 L168 168 L136 104 L168 40 Z"/>
+  </g>
+</svg>
+</g><text x="698.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-versus-v" viewBox="0 0 256 256" x="740.667" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s116-title-versus-v">Rankea2 — Versus V Cards Logo</title>
+  <g id="s116-symbol">
+    <!-- Left Card Wing (Exact 1:2 slope: dx=88, dy=176 -> y=40..216, margin T40 B40) -->
+    <path fill="#4F46E5" d="M24 40 H88 L152 168 L112 216 L24 40 Z"/>
+    <!-- Right Card Wing (Exact 1:2 slope: dx=-64, dy=128 -> interlocking with 16-unit negative space) -->
+    <path fill="#EC4899" d="M168 40 H232 L168 168 L136 104 L168 40 Z"/>
+  </g>
+</svg>
+</g><text x="748.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="592.6666666666667" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">B · Versus V</text><text x="592.6666666666667" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Dos alas de cartas en pendiente exacta 1:2</text><text x="592.6666666666667" y="696" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">formando la V.</text><rect x="1065.33" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-split-clash" viewBox="0 0 256 256" x="1095.33" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c2-title-split-clash">Rankea2 — Split Clash Logo</title>
+  <g id="c2-symbol">
+    <!-- Top-Left Contender Half (45-deg cut with lightning step, pure negative space separation) -->
+    <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+    <!-- Bottom-Right Contender Half (Exact point-symmetry around (128,128): every (x,y) -> (256-x, 256-y), zero overlap!) -->
+    <path fill="#10B981" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+  </g>
+</svg>
+</g><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-split-clash" viewBox="0 0 256 256" x="1095.33" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s264-title-split-clash">Rankea2 — Split Clash Logo</title>
+  <g id="s264-symbol">
+    <!-- Top-Left Contender Half (45-deg cut with lightning step, pure negative space separation) -->
+    <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+    <!-- Bottom-Right Contender Half (Exact point-symmetry around (128,128): every (x,y) -> (256-x, 256-y), zero overlap!) -->
+    <path fill="#10B981" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+  </g>
+</svg>
+</g><text x="1127.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-split-clash" viewBox="0 0 256 256" x="1185.33" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s232-title-split-clash">Rankea2 — Split Clash Logo</title>
+  <g id="s232-symbol">
+    <!-- Top-Left Contender Half (45-deg cut with lightning step, pure negative space separation) -->
+    <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+    <!-- Bottom-Right Contender Half (Exact point-symmetry around (128,128): every (x,y) -> (256-x, 256-y), zero overlap!) -->
+    <path fill="#10B981" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+  </g>
+</svg>
+</g><text x="1201.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-split-clash" viewBox="0 0 256 256" x="1243.33" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s216-title-split-clash">Rankea2 — Split Clash Logo</title>
+  <g id="s216-symbol">
+    <!-- Top-Left Contender Half (45-deg cut with lightning step, pure negative space separation) -->
+    <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+    <!-- Bottom-Right Contender Half (Exact point-symmetry around (128,128): every (x,y) -> (256-x, 256-y), zero overlap!) -->
+    <path fill="#10B981" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+  </g>
+</svg>
+</g><text x="1251.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="1095.3333333333335" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">C · Split Clash</text><text x="1095.3333333333335" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Carta partida en rayo con espacio negativo</text><text x="1095.3333333333335" y="696" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">puro.</text></svg>

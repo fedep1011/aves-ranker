@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-duel-deck">
+  <title id="title-duel-deck">Rankea2 — Duel Deck Logo</title>
+  <g id="symbol">
+    <!-- Left Card (Contender 1 - Tilted left with true mathematical path coordinates, rounded corners, cut out by front card) -->
+    <path fill="#818CF8" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
+    <!-- Right Card (Contender 2 - Solid card with #1 Crown/Podium negative space cutout via evenodd) -->
+    <path fill="#4F46E5" fill-rule="evenodd" d="M104 80 H208 A16 16 0 0 1 224 96 V208 A16 16 0 0 1 208 224 H104 A16 16 0 0 1 88 208 V96 A16 16 0 0 1 104 80 Z M120 176 H192 V136 L172 152 L156 124 L140 152 L120 136 V176 Z"/>
+  </g>
+</svg>

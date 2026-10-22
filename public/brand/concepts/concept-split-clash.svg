@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-split-clash">
+  <title id="title-split-clash">Rankea2 — Split Clash Logo</title>
+  <g id="symbol">
+    <!-- Top-Left Contender Half (45-deg cut with lightning step, pure negative space separation) -->
+    <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+    <!-- Bottom-Right Contender Half (Exact point-symmetry around (128,128): every (x,y) -> (256-x, 256-y), zero overlap!) -->
+    <path fill="#10B981" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+  </g>
+</svg>
