@@ -2,53 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-    body {
-      background-color: #F6F4EF;
-      color: #161816;
-      -webkit-font-smoothing: antialiased;
-      -webkit-tap-highlight-color: transparent;
-    }
+.step-transition {
+  animation: fadeStep 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes fadeStep {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .step-transition {
-      animation: fadeStep 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    @keyframes fadeStep {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.photo-card {
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease, border-color 0.18s ease;
+}
+@media (hover: hover) {
+  .photo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(22, 24, 22, 0.12);
+  }
+}
+.photo-card:active {
+  transform: scale(0.99);
+}
 
-    .photo-card {
-      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-    @media (hover: hover) {
-      .photo-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 24px -10px rgba(22, 24, 22, 0.12);
-      }
-    }
-    .photo-card:active {
-      transform: scale(0.99);
-    }
-
-    input[type="range"] {
-      -webkit-appearance: none;
-      appearance: none;
-      background: transparent;
-      cursor: pointer;
-    }
-    input[type="range"]::-webkit-slider-runnable-track {
-      height: 4px;
-      border-radius: 999px;
-      background: #DCD7CA;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #1D3B2A;
-      border: 3px solid #F6F4EF;
-      margin-top: -8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: #DCD7CA;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1D3B2A;
+  border: 3px solid #F6F4EF;
+  margin-top: -8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
