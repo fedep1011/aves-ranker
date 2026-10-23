@@ -1,19 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ["./index.html", "./aves/index.html", "./src/**/*.{js,ts}"],
   theme: {
     extend: {
       fontFamily: {
         serif: ['"Instrument Serif"', "Georgia", "serif"],
-        sans: ['"Inter"', "system-ui", "sans-serif"]
+        sans: ['"Inter"', "system-ui", "sans-serif"],
+        poke: ['"Space Grotesk"', "system-ui", "sans-serif"],
+        flora: ['"Cormorant Garamond"', "Georgia", "serif"]
       },
       colors: {
-        canvas: "#F6F4EF",
-        surface: "#FFFFFF",
-        ink: "#161816",
-        muted: "#696B65",
-        line: "#E4E0D6",
-        forest: { DEFAULT: "#1D3B2A", hover: "#14291D", soft: "#EBF1EC" }
+        canvas: "var(--color-canvas)",
+        surface: "var(--color-surface)",
+        ink: "var(--color-ink)",
+        muted: "var(--color-muted)",
+        line: "var(--color-line)",
+        forest: {
+          DEFAULT: "var(--color-forest)",
+          hover: "var(--color-forest-hover)",
+          soft: "var(--color-forest-soft)"
+        }
       }
     }
   },

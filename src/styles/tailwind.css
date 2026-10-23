@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-canvas: #F6F4EF;
+  --color-surface: #FAF9F6;
+  --color-ink: #161816;
+  --color-muted: #696B65;
+  --color-line: #E4E0D6;
+  --color-forest: #1D3B2A;
+  --color-forest-hover: #14291D;
+  --color-forest-soft: #EBF1EC;
+
+  --hub-bg: #F3F2EE;
+  --hub-surface: #FAF9F6;
+  --hub-ink: #161615;
+  --hub-muted: #6E6D68;
+  --hub-line: #E2DFD7;
+}
+
+html.dark {
+  --color-canvas: #121513;
+  --color-surface: #1B211E;
+  --color-ink: #EEF3EE;
+  --color-muted: #9BA39D;
+  --color-line: #29342B;
+  --color-forest: #2F6946;
+  --color-forest-hover: #3C8358;
+  --color-forest-soft: #1B271F;
+
+  --hub-bg: #141413;
+  --hub-surface: #1E1E1C;
+  --hub-ink: #F3F2EE;
+  --hub-muted: #9A9890;
+  --hub-line: #2C2C29;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
 .step-transition {
   animation: fadeStep 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -32,7 +72,7 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-runnable-track {
   height: 4px;
   border-radius: 999px;
-  background: #DCD7CA;
+  background: var(--color-line);
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -40,8 +80,8 @@ input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #1D3B2A;
-  border: 3px solid #F6F4EF;
+  background: var(--color-forest);
+  border: 3px solid var(--color-canvas);
   margin-top: -8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }

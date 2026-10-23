@@ -60,11 +60,21 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
-    .split-left {
-      clip-path: polygon(0 0, 56% 0, 44% 100%, 0 100%);
+    .half-split-left {
+      position: absolute;
+      inset-block: 0;
+      left: 0;
+      width: 55%;
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+      overflow: hidden;
     }
-    .split-right {
-      clip-path: polygon(56% 0, 100% 0, 100% 100%, 44% 100%);
+    .half-split-right {
+      position: absolute;
+      inset-block: 0;
+      right: 0;
+      width: 55%;
+      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+      overflow: hidden;
     }
 
     .arena-aves {
@@ -188,18 +198,18 @@
 
       <a href="/aves/" class="arena-aves rounded-2xl overflow-hidden flex flex-col group">
         <div class="relative h-44 sm:h-52 w-full bg-[#1C241E] overflow-hidden">
-          <div class="absolute inset-0 split-left overflow-hidden">
+          <div class="half-split-left">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg"
                  alt="Tucán Toco"
-                 class="w-full h-full object-cover object-[70%_center] group-hover:scale-105 transition duration-500" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
           </div>
-          <div class="absolute inset-0 split-right overflow-hidden">
+          <div class="half-split-right">
             <img src="https://static.inaturalist.org/photos/67503679/medium.jpg"
                  alt="Guacamayo Rojo"
-                 class="w-full h-full object-cover object-[30%_center] group-hover:scale-105 transition duration-500" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
           </div>
           <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.8" />
+            <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.8" />
           </svg>
         </div>
 
@@ -215,18 +225,18 @@
 
       <div id="card-pokemon" class="arena-poke rounded-xl overflow-hidden flex flex-col select-none">
         <div class="relative h-44 sm:h-52 w-full overflow-hidden bg-[#18181B]">
-          <div class="absolute inset-0 split-left bg-[#EF4444] flex items-center justify-start pl-6 sm:pl-10">
+          <div class="half-split-left bg-[#EF4444] flex items-center justify-center p-3">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
                  alt="Charizard"
-                 class="w-32 h-32 sm:w-40 sm:h-40 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]" />
+                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]" />
           </div>
-          <div class="absolute inset-0 split-right bg-[#3B82F6] flex items-center justify-end pr-6 sm:pr-10">
+          <div class="half-split-right bg-[#3B82F6] flex items-center justify-center p-3">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
                  alt="Blastoise"
-                 class="w-32 h-32 sm:w-40 sm:h-40 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]" />
+                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]" />
           </div>
           <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#111111" stroke-width="2.5" />
+            <line x1="55" y1="0" x2="44" y2="100" stroke="#111111" stroke-width="2.5" />
           </svg>
         </div>
 
@@ -242,18 +252,18 @@
 
       <div id="card-flores" class="arena-flora rounded-2xl overflow-hidden flex flex-col select-none">
         <div class="relative h-44 sm:h-52 w-full bg-[#DDE5DD] overflow-hidden">
-          <div class="absolute inset-0 split-left overflow-hidden">
+          <div class="half-split-left">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg"
                  alt="Mburucuyá"
-                 class="w-full h-full object-cover object-[65%_center]" />
+                 class="w-full h-full object-cover object-center" />
           </div>
-          <div class="absolute inset-0 split-right overflow-hidden">
+          <div class="half-split-right">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/127799924/medium.jpg"
                  alt="Orquídea"
-                 class="w-full h-full object-cover object-[35%_center]" />
+                 class="w-full h-full object-cover object-center" />
           </div>
           <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="1.8" />
+            <line x1="55" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="1.8" />
           </svg>
         </div>
 
@@ -269,18 +279,18 @@
 
       <div id="card-mamiferos" class="arena-fauna rounded-2xl overflow-hidden flex flex-col select-none">
         <div class="relative h-44 sm:h-52 w-full bg-[#141210] overflow-hidden">
-          <div class="absolute inset-0 split-left overflow-hidden">
+          <div class="half-split-left">
             <img src="https://static.inaturalist.org/photos/51015966/medium.jpg"
                  alt="Yaguareté"
-                 class="w-full h-full object-cover object-[75%_center]" />
+                 class="w-full h-full object-cover object-center" />
           </div>
-          <div class="absolute inset-0 split-right overflow-hidden">
+          <div class="half-split-right">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/43633891/medium.jpg"
                  alt="Tigre"
-                 class="w-full h-full object-cover object-[25%_center]" />
+                 class="w-full h-full object-cover object-center" />
           </div>
           <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="1.8" />
+            <line x1="55" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="1.8" />
           </svg>
         </div>
 

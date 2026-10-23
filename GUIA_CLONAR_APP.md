@@ -19,14 +19,23 @@ Sin backend ni base de datos: todo corre en el navegador y el estado compartido 
 
 ---
 
-## 2. Stack y estructura
+## 2. Stack y estructura modular (Rankea2)
 
-- Un solo `index.html` (HTML + CSS + JS) o un proyecto estático equivalente.
-- Tailwind por CDN o CSS propio (opcional, es decisión de diseño).
-- Hosting estático gratuito (GitHub Pages).
-- Sin build step. Sin framework obligatorio: un objeto `app` con `state` y métodos alcanza.
+La plataforma está organizada en una arquitectura multi-página modular con Vite y Tailwind CSS:
 
-Estructura de vistas (cada una es un `<section>` que se muestra/oculta con `goToView(id)`):
+- **Hub principal (`/`)**: `index.html` — Selector de rankings, cruces destacados y accesos a cada arena.
+- **Arenas temáticas**:
+  - `/aves/` (`aves/index.html` + `src/aves/`)
+  - `/pokemon/` (`pokemon/index.html` + `src/pokemon/`)
+  - `/mamiferos/` (`mamiferos/index.html` + `src/mamiferos/`)
+  - `/flores/` (`flores/index.html` + `src/flores/`)
+- **Motor centralizado (`src/core/`)**:
+  - `src/core/tournament.js`: Algoritmo de torneos determinístico (`interleavedBisectSortAsync`), PRNG con semilla (`createSeededRng`), estimación de pasos, generación y parseo de enlaces de desafío (`?r=id1.id2...`).
+  - `src/core/theme.js`: Sincronización global de Dark Mode / Light Mode vía clase `.dark` y persistencia en `localStorage.getItem('rankea2_theme')`.
+- **Estilos globales (`src/styles/tailwind.css`)**:
+  - Variables semánticas (`--color-canvas`, `--color-surface`, `--color-ink`, `--color-muted`, `--color-line`, etc.) que adaptan toda la plataforma en modo claro y oscuro.
+
+Estructura de vistas recomendada por arena (cada una es un `<section>` que se muestra/oculta con `goToView(id)`):
 
 | Vista | Función |
 |---|---|
@@ -218,18 +227,26 @@ Flujo:
 
 ---
 
-## 11. Checklist de adaptación a un nuevo tema
+## 11. Checklist rápido para clonar una nueva arena (ej. Pokémon o Felinos)
 
-- [ ] Definir la entidad y su objeto normalizado (sección 3).
-- [ ] Elegir fuente de datos y escribir el adaptador `fetchPool(filtros)` que devuelva ese objeto.
-- [ ] Armar 2–3 **presets curados** con ids a mano.
-- [ ] Definir categorías (taxones, tipos, generaciones, familias).
-- [ ] Crear el diccionario `i18n` ES/EN y el de correcciones de nombres.
-- [ ] Decidir si hay audio/dato curioso y de dónde sale.
-- [ ] Copiar el algoritmo de la sección 6 tal cual (no depende del tema).
-- [ ] Copiar el esquema de URL de la sección 9, ajustando solo los ids.
-- [ ] Probar en celular primero.
-- [ ] Publicar en GitHub Pages (Settings → Pages → rama `main`, raíz). El repo debe ser **público** o tener plan que lo permita.
+1. **Crear la carpeta de la arena**:
+   - `mkdir <tema> && cp aves/index.html <tema>/index.html`
+   - `mkdir src/<tema>`
+2. **Importar el motor compartido**:
+   ```js
+   import { interleavedBisectSortAsync, estimateTotalSteps, buildChallengeUrl, parseChallengeUrl } from '/src/core/tournament.js';
+   import { bindThemeButton, initTheme } from '/src/core/theme.js';
+   ```
+3. **Definir el adaptador de datos (`src/<tema>/data.js`)**:
+   - Para Pokémon: llamar a PokeAPI o cargar catálogo curado local.
+   - Para Felinos/Mamíferos: llamar a iNaturalist con taxon `Mammalia` o IDs curados.
+   - Retornar la lista de objetos normalizada `{ id, nombre, nombreCientifico, imagen, popularidad }`.
+4. **Configurar la identidad visual**:
+   - En `<tema>/index.html`, definir las tipografías o acentos de color propios (ej. brutalist para Pokémon, editorial para Aves).
+5. **Vincular en el Hub (`index.html`)**:
+   - Actualizar el href y estado en el array `ARENAS` de `index.html`.
+6. **Probar localmente**:
+   - Abrir `http://localhost:5173/<tema>/` y verificar selector, duelos, podio y dark mode.
 
 ### Ejemplos concretos
 

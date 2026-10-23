@@ -20,16 +20,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/tailwind.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('rankea2_theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
-<body class="min-h-[100dvh] font-sans flex flex-col selection:bg-forest selection:text-white">
+<body class="min-h-[100dvh] font-sans flex flex-col selection:bg-forest selection:text-white bg-canvas text-ink">
 
   <!-- COMPACT STICKY HEADER -->
   <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
-    <div class="max-w-5xl mx-auto px-3.5 sm:px-8 h-11 sm:h-14 flex items-center justify-between gap-2">
-      <button onclick="app.goToView('viewHome')" class="flex items-baseline gap-2 text-left focus:outline-none shrink-0">
-        <span class="font-serif text-2xl sm:text-3xl tracking-tight text-ink">Aves</span>
-        <span id="headerBrandSub" class="hidden sm:inline text-xs text-muted tracking-wide">El ranking ornitológico</span>
-      </button>
+    <div class="max-w-5xl mx-auto px-3.5 sm:px-8 h-12 sm:h-14 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="/" class="font-poke font-extrabold text-base sm:text-lg text-ink tracking-tight hover:opacity-80 transition" title="Ir al Hub">
+          Rankea2
+        </a>
+        <span class="text-muted/50 text-sm">/</span>
+        <button onclick="app.goToView('viewHome')" class="font-serif text-2xl sm:text-3xl tracking-tight text-ink hover:opacity-80 transition">
+          Aves
+        </button>
+        <span id="headerBrandSub" class="hidden md:inline text-[11px] text-muted tracking-wide ml-1">
+          El ranking ornitológico
+        </span>
+      </div>
 
       <div class="flex items-center gap-2 min-w-0">
         <div id="headerControls" class="hidden flex items-center gap-2 min-w-0">
@@ -38,6 +54,19 @@
             Inicio
           </button>
         </div>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button id="themeToggleAves" type="button" aria-label="Cambiar tema"
+          class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5 shrink-0">
+          <svg id="themeIconDarkAves" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <svg id="themeIconLightAves" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span id="themeLabelAves" class="hidden sm:inline">Oscuro</span>
+        </button>
 
         <!-- Scalable Language Switcher (ES / EN) -->
         <div class="inline-flex items-center rounded-full border border-line bg-surface p-0.5 text-[11px] font-medium shrink-0">
@@ -679,8 +708,32 @@
 
 
   <!-- ====================================================
-       APPLICATION LOGIC
+       APPLICATION LOGIC & THEME SYNC
        ==================================================== -->
+  <script>
+    (function () {
+      const btn = document.getElementById('themeToggleAves');
+      const lbl = document.getElementById('themeLabelAves');
+      const icDark = document.getElementById('themeIconDarkAves');
+      const icLight = document.getElementById('themeIconLightAves');
+      function syncTheme() {
+        const isDark = document.documentElement.classList.contains('dark');
+        if (lbl) lbl.textContent = isDark ? 'Claro' : 'Oscuro';
+        if (icDark && icLight) {
+          icDark.classList.toggle('hidden', isDark);
+          icLight.classList.toggle('hidden', !isDark);
+        }
+      }
+      syncTheme();
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('rankea2_theme', isDark ? 'dark' : 'light');
+          syncTheme();
+        });
+      }
+    })();
+  </script>
   <script type="module" src="/src/aves/main.js"></script>
 </body>
 </html>
