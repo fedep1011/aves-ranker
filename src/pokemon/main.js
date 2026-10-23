@@ -2,9 +2,11 @@ import {
   createSeededRng,
   sampleCandidates,
   buildChallengeUrl,
-  parseChallengeUrl
+  parseChallengeUrl,
+  interleavedBisectSortAsync
 } from '../core/tournament.js';
 import { bindThemeButton } from '../core/theme.js';
+import { renderRankingCard, exportRankingCard } from '../core/canvas.js';
 import { POKEMON_TYPES, GENERATIONS, getTypeBadge } from './types.js';
 
 // Preset IDs
@@ -36,7 +38,8 @@ const app = {
     playingChallengeMode: false,
     incomingChallenge: null,
     winnerAudioEl: null,
-    audioUnlocked: false
+    audioUnlocked: false,
+    exportFormat: 'story'
   },
 
   async init() {
@@ -60,9 +63,14 @@ const app = {
       const res = await fetch('/data/pokemon.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      this.state.allPokemon = data;
       this.state.pokemonMap.clear();
-      data.forEach(p => this.state.pokemonMap.set(p.id, p));
+      data.forEach(p => {
+        if (!p.animated_sprite) {
+          p.animated_sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${p.id}.gif`;
+        }
+        this.state.pokemonMap.set(p.id, p);
+      });
+      this.state.allPokemon = data;
       this.state.candidatePool = [...data];
     } catch (err) {
       console.error('Error cargando catálogo Pokémon:', err);
@@ -112,15 +120,33 @@ const app = {
   },
 
   renderWizardFilters() {
-    // 1. Regions / Gens
+    // 1. Regions / Gens with live counts
     const genBox = document.getElementById('genPillContainer');
     if (genBox) {
-      genBox.innerHTML = GENERATIONS.map(g => `
-        <button type="button" onclick="app.setGenFilter('${g.id}')"
-          class="gen-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition ${g.id === this.state.selectedGen ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
-          ${g.name}
-        </button>
-      `).join('');
+      const currentType = this.state.selectedType;
+      const currentRarity = this.state.selectedRarity;
+
+      const countForGen = (gId) => {
+        const targetG = parseInt(String(gId).replace(/\D/g, ''), 10);
+        return this.state.allPokemon.filter(p => {
+          if (gId !== 'all' && !isNaN(targetG) && p.gen !== targetG) return false;
+          if (currentType !== 'all' && !p.types.includes(currentType.toLowerCase())) return false;
+          if (currentRarity === 'starter' && !p.is_starter) return false;
+          if (currentRarity === 'legendary' && !p.is_legendary) return false;
+          return true;
+        }).length;
+      };
+
+      genBox.innerHTML = GENERATIONS.map(g => {
+        const cnt = countForGen(g.id);
+        const isDisabled = cnt === 0;
+        return `
+          <button type="button" onclick="app.setGenFilter('${g.id}')" ${isDisabled ? 'disabled' : ''}
+            class="gen-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition ${isDisabled ? 'opacity-35 cursor-not-allowed border-line bg-surface/50 text-muted' : g.id === this.state.selectedGen ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
+            ${g.name} <span class="text-[10px] opacity-70">(${cnt})</span>
+          </button>
+        `;
+      }).join('');
     }
 
     // 2. Types with live counts
@@ -189,8 +215,10 @@ const app = {
   },
 
   getFilteredPool() {
+    const rawGen = String(this.state.selectedGen || 'all');
+    const targetGen = parseInt(rawGen.replace(/\D/g, ''), 10);
     return this.state.allPokemon.filter(p => {
-      if (this.state.selectedGen !== 'all' && p.gen !== parseInt(this.state.selectedGen, 10)) {
+      if (rawGen !== 'all' && !isNaN(targetGen) && p.gen !== targetGen) {
         return false;
       }
       if (this.state.selectedType !== 'all' && !p.types.includes(this.state.selectedType.toLowerCase())) {
@@ -237,10 +265,11 @@ const app = {
     // Adjust slider range dynamically
     const slider = document.getElementById('limitSlider');
     if (slider) {
-      const minVal = Math.min(4, poolCount);
+      const minVal = Math.min(8, poolCount);
       const maxVal = Math.min(64, poolCount);
       slider.min = minVal;
       slider.max = Math.max(minVal, maxVal);
+      slider.step = poolCount < 8 ? 1 : 8;
       if (this.state.limit > maxVal || this.state.limit < minVal) {
         this.state.limit = Math.min(16, maxVal);
       }
@@ -255,10 +284,16 @@ const app = {
   },
 
   onLimitChange(val, fromSlider = false) {
-    const poolCount = this.state.candidatePool.length || 16;
-    let n = val === 'MAX' ? poolCount : parseInt(val, 10);
-    if (isNaN(n)) n = 16;
-    n = Math.max(2, Math.min(poolCount, n));
+    const poolCount = Array.isArray(this.state.candidatePool) ? this.state.candidatePool.length : 16;
+    let n;
+    if (poolCount === 0) {
+      n = 0;
+    } else {
+      n = val === 'MAX' ? poolCount : parseInt(val, 10);
+      if (isNaN(n)) n = 16;
+      const minLimit = Math.min(8, poolCount);
+      n = Math.max(minLimit, Math.min(poolCount, n));
+    }
     this.state.limit = n;
 
     const slider = document.getElementById('limitSlider');
@@ -277,9 +312,9 @@ const app = {
         : 'size-quick-btn py-1.5 px-2 rounded-lg text-[11px] font-pixel border border-line bg-surface text-ink text-center transition';
     });
 
-    const estDecisions = Math.max(1, Math.round(n * Math.log2(n) * 0.82));
-    const mins = Math.max(0.5, (estDecisions * 2.2) / 60);
-    const timeStr = mins < 1 ? 'Menos de 1 min' : `~${Math.round(mins)} min`;
+    const estDecisions = n > 0 ? Math.max(1, Math.round(n * Math.log2(n) * 0.82)) : 0;
+    const mins = n > 0 ? Math.max(0.5, (estDecisions * 2.2) / 60) : 0;
+    const timeStr = n === 0 ? '0 min' : mins < 1 ? 'Menos de 1 min' : `~${Math.round(mins)} min`;
 
     const clicksEl = document.getElementById('effortClicksBigNumber');
     if (clicksEl) clicksEl.textContent = estDecisions;
@@ -289,7 +324,10 @@ const app = {
 
     const intensityBadge = document.getElementById('effortIntensityBadge');
     if (intensityBadge) {
-      if (estDecisions <= 20) {
+      if (n === 0) {
+        intensityBadge.textContent = 'Sin duelos';
+        intensityBadge.className = 'text-[10px] font-pixel font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-zinc-600 text-white';
+      } else if (estDecisions <= 20) {
         intensityBadge.textContent = 'Partida Rápida';
         intensityBadge.className = 'text-[10px] font-pixel font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-600 text-white';
       } else if (estDecisions <= 60) {
@@ -303,7 +341,9 @@ const app = {
 
     const hintEl = document.getElementById('durationHintText');
     if (hintEl) {
-      hintEl.textContent = `Harás unas ${estDecisions} elecciones rápidas 1 vs 1 (${timeStr.toLowerCase()}).`;
+      hintEl.textContent = n === 0
+        ? 'No hay suficientes Pokémon para iniciar un torneo.'
+        : `Harás unas ${estDecisions} elecciones rápidas 1 vs 1 (${timeStr.toLowerCase()}).`;
     }
   },
 
@@ -360,6 +400,7 @@ const app = {
       });
     }
 
+    this.state.candidatePool = [...pool];
     this.state.initialBattlePool = [...pool];
     this.state.battleSeed = Math.floor(Math.random() * 2147483646) + 1;
     this.state.choiceHistory = [];
@@ -382,10 +423,14 @@ const app = {
 
   async runTournamentSortFromHistory() {
     this.state.battleStep = 0;
-    const poolCopy = [...(this.state.initialBattlePool || [])];
+    const poolCopy = [...(this.state.candidatePool || this.state.initialBattlePool || [])];
     const seed = this.state.battleSeed || 1337;
     try {
-      const sorted = await this.interleavedBisectSortAsync(poolCopy, seed);
+      const sorted = await interleavedBisectSortAsync(
+        this.state.candidatePool,
+        (left, right) => this.askUserPreference(left, right),
+        seed
+      );
       this.state.finalRanking = sorted;
       await this.renderResultsView();
     } catch (_) {}
@@ -403,6 +448,7 @@ const app = {
   },
 
   preloadPoolImagesInBackground(pool) {
+    if (typeof Image === 'undefined') return;
     for (const p of pool) {
       if (p && p.sprite && !this.state.imageCache.has(p.sprite)) {
         const img = new Image();
@@ -430,128 +476,7 @@ const app = {
   },
 
   async interleavedBisectSortAsync(arr, seed = 1) {
-    if (arr.length <= 1) return arr;
-    const rng = this.createSeededRng(seed);
-    let runs = arr.map(item => [item]);
-    let lastPairIds = new Set();
-
-    const createBisectNode = (A, B) => {
-      if (A.length === 0) return { done: true, result: B };
-      if (B.length === 0) return { done: true, result: A };
-      return {
-        done: false,
-        A,
-        B,
-        midB: Math.floor(B.length / 2),
-        low: 0,
-        high: A.length,
-        leftChild: null,
-        rightChild: null,
-        result: null
-      };
-    };
-
-    const collectReadyLeaves = (node, out) => {
-      if (!node || node.done) return;
-      if (node.leftChild || node.rightChild) {
-        collectReadyLeaves(node.leftChild, out);
-        collectReadyLeaves(node.rightChild, out);
-      } else if (node.low < node.high) {
-        out.push(node);
-      }
-    };
-
-    const refreshNode = (node) => {
-      if (!node || node.done) return;
-      if (node.leftChild || node.rightChild) {
-        refreshNode(node.leftChild);
-        refreshNode(node.rightChild);
-        if (node.leftChild.done && node.rightChild.done) {
-          const bItem = node.B[node.midB];
-          node.result = [...node.leftChild.result, bItem, ...node.rightChild.result];
-          node.done = true;
-        }
-        return;
-      }
-      if (node.low >= node.high) {
-        const splitPos = node.low;
-        const bLeft = node.B.slice(0, node.midB);
-        const bRight = node.B.slice(node.midB + 1);
-        const aLeft = node.A.slice(0, splitPos);
-        const aRight = node.A.slice(splitPos);
-
-        node.leftChild = createBisectNode(aLeft, bLeft);
-        node.rightChild = createBisectNode(aRight, bRight);
-        refreshNode(node);
-      }
-    };
-
-    while (runs.length > 1) {
-      const roots = [];
-      const carry = [];
-      for (let i = 0; i < runs.length; i += 2) {
-        if (i + 1 < runs.length) {
-          const flipRunOrder = rng() < 0.5;
-          const firstRun = flipRunOrder ? runs[i + 1] : runs[i];
-          const secondRun = flipRunOrder ? runs[i] : runs[i + 1];
-          const root = createBisectNode(firstRun, secondRun);
-          refreshNode(root);
-          roots.push(root);
-        } else {
-          carry.push(runs[i]);
-        }
-      }
-
-      while (true) {
-        const readyLeaves = [];
-        for (const r of roots) {
-          refreshNode(r);
-          collectReadyLeaves(r, readyLeaves);
-        }
-        if (readyLeaves.length === 0) break;
-
-        let bestCandidates = [];
-        let bestOverlap = Infinity;
-        for (const leaf of readyLeaves) {
-          const midA = Math.floor((leaf.low + leaf.high) / 2);
-          const itemA = leaf.A[midA];
-          const itemB = leaf.B[leaf.midB];
-          const overlap = (lastPairIds.has(itemA.id) ? 1 : 0) + (lastPairIds.has(itemB.id) ? 1 : 0);
-          if (overlap < bestOverlap) {
-            bestOverlap = overlap;
-            bestCandidates = [leaf];
-          } else if (overlap === bestOverlap) {
-            bestCandidates.push(leaf);
-          }
-        }
-
-        const chosenLeaf = bestCandidates[Math.floor(rng() * bestCandidates.length)];
-        const midA = Math.floor((chosenLeaf.low + chosenLeaf.high) / 2);
-        const itemA = chosenLeaf.A[midA];
-        const itemB = chosenLeaf.B[chosenLeaf.midB];
-
-        const swapSides = rng() < 0.5;
-        const leftItem = swapSides ? itemB : itemA;
-        const rightItem = swapSides ? itemA : itemB;
-
-        const pick = await this.askUserPreference(leftItem, rightItem);
-        const bBeatsA = swapSides ? (pick === 'left') : (pick === 'right');
-
-        lastPairIds = new Set([itemA.id, itemB.id]);
-
-        if (bBeatsA) {
-          chosenLeaf.high = midA;
-        } else {
-          chosenLeaf.low = midA + 1;
-        }
-
-        refreshNode(chosenLeaf);
-      }
-
-      runs = roots.map(r => r.result).concat(carry);
-    }
-
-    return runs[0] || [];
+    return interleavedBisectSortAsync(arr, (left, right) => this.askUserPreference(left, right), seed);
   },
 
   askUserPreference(leftPokemon, rightPokemon) {
@@ -591,8 +516,11 @@ const app = {
     // Update Left
     const imgL = document.getElementById('imgLeft');
     if (imgL) {
+      if (!imgL.dataset) imgL.dataset = {};
+      imgL.dataset.fallbackStage = '0';
+      imgL.onerror = () => this.handleImgError('left');
       imgL.alt = leftPokemon.name;
-      imgL.src = leftPokemon.animated_sprite || leftPokemon.sprite;
+      imgL.src = leftPokemon.animated_sprite || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${leftPokemon.id}.gif`;
     }
     const nameL = document.getElementById('nameLeft');
     if (nameL) nameL.textContent = leftPokemon.name;
@@ -606,8 +534,11 @@ const app = {
     // Update Right
     const imgR = document.getElementById('imgRight');
     if (imgR) {
+      if (!imgR.dataset) imgR.dataset = {};
+      imgR.dataset.fallbackStage = '0';
+      imgR.onerror = () => this.handleImgError('right');
       imgR.alt = rightPokemon.name;
-      imgR.src = rightPokemon.animated_sprite || rightPokemon.sprite;
+      imgR.src = rightPokemon.animated_sprite || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${rightPokemon.id}.gif`;
     }
     const nameR = document.getElementById('nameRight');
     if (nameR) nameR.textContent = rightPokemon.name;
@@ -635,10 +566,40 @@ const app = {
   handleImgError(side) {
     const pokemon = side === 'left' ? this.state.currentLeft : this.state.currentRight;
     const img = document.getElementById(side === 'left' ? 'imgLeft' : 'imgRight');
-    if (pokemon && img && pokemon.pixel_sprite && img.src !== pokemon.pixel_sprite) {
-      img.src = pokemon.pixel_sprite;
-    } else {
+    if (!pokemon || !img) {
       this.onBattleImgLoad(side);
+      return;
+    }
+    if (!img.dataset) img.dataset = {};
+    const stage = parseInt(img.dataset.fallbackStage || '0', 10);
+    if (stage === 0 && pokemon.sprite) {
+      img.dataset.fallbackStage = '1';
+      img.src = pokemon.sprite;
+    } else if (stage <= 1 && pokemon.artwork) {
+      img.dataset.fallbackStage = '2';
+      img.src = pokemon.artwork;
+    } else {
+      img.onerror = null;
+      this.onBattleImgLoad(side);
+    }
+  },
+
+  handleImgCascade(img, pokemonId) {
+    const p = this.state.pokemonMap.get(Number(pokemonId));
+    if (!p || !img) {
+      if (img) img.onerror = null;
+      return;
+    }
+    if (!img.dataset) img.dataset = {};
+    const stage = parseInt(img.dataset.fallbackStage || '0', 10);
+    if (stage === 0 && p.sprite) {
+      img.dataset.fallbackStage = '1';
+      img.src = p.sprite;
+    } else if (stage <= 1 && p.artwork) {
+      img.dataset.fallbackStage = '2';
+      img.src = p.artwork;
+    } else {
+      img.onerror = null;
     }
   },
 
@@ -718,10 +679,10 @@ const app = {
         <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-2 sm:order-1">
           <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-2">2° Puesto</span>
           <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
-            <img src="${runnerUp.sprite}" alt="${runnerUp.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
+            <img src="${runnerUp.animated_sprite || runnerUp.sprite}" alt="${runnerUp.name}" onerror="app.handleImgCascade(this, ${runnerUp.id})" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${runnerUp.name}</h4>
-          <span class="font-mono text-xs font-bold text-muted">No. ${String(runnerUp.id).padStart(3, '0')}</span>
+          <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs inline-block my-1">No. ${String(runnerUp.id).padStart(3, '0')}</span>
           <div class="flex gap-1 mt-2">${runnerUp.types.map(t => getTypeBadge(t)).join('')}</div>
         </div>
 
@@ -732,10 +693,10 @@ const app = {
             Campeón
           </div>
           <div class="h-36 sm:h-44 w-full flex items-center justify-center battle-platform rounded-xl mt-2">
-            <img src="${winner.sprite}" alt="${winner.name}" class="pixel-sprite max-h-32 sm:max-h-40 w-auto object-contain" />
+            <img src="${winner.animated_sprite || winner.sprite}" alt="${winner.name}" onerror="app.handleImgCascade(this, ${winner.id})" class="pixel-sprite max-h-32 sm:max-h-40 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-base sm:text-lg text-ink mt-3">${winner.name}</h4>
-          <span class="font-mono text-xs font-bold text-muted">No. ${String(winner.id).padStart(3, '0')} · ${winner.region}</span>
+          <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs inline-block my-1">No. ${String(winner.id).padStart(3, '0')} · ${winner.region}</span>
           <div class="flex gap-1.5 mt-2">${winner.types.map(t => getTypeBadge(t)).join('')}</div>
           
           <button type="button" onclick="app.replayWinnerCry()" class="mt-4 px-3 py-1.5 rounded-lg border border-line bg-surface hover:border-amber-400 text-[11px] font-pixel text-muted hover:text-ink transition flex items-center gap-1.5">
@@ -748,10 +709,10 @@ const app = {
         <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-3">
           <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-amber-700/10 text-amber-700 dark:text-amber-400 mb-2">3° Puesto</span>
           <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
-            <img src="${third.sprite}" alt="${third.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
+            <img src="${third.animated_sprite || third.sprite}" alt="${third.name}" onerror="app.handleImgCascade(this, ${third.id})" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${third.name}</h4>
-          <span class="font-mono text-xs font-bold text-muted">No. ${String(third.id).padStart(3, '0')}</span>
+          <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs inline-block my-1">No. ${String(third.id).padStart(3, '0')}</span>
           <div class="flex gap-1 mt-2">${third.types.map(t => getTypeBadge(t)).join('')}</div>
         </div>
       `;
@@ -768,10 +729,11 @@ const app = {
           <div class="flex items-center justify-between p-3 sm:px-4 hover:bg-canvas/50 transition">
             <div class="flex items-center gap-3">
               <span class="font-pixel text-xs font-bold text-muted w-6">#${idx + 4}</span>
-              <img src="${p.sprite}" alt="${p.name}" class="pixel-sprite w-10 h-10 object-contain" />
+              <img src="${p.animated_sprite || p.sprite}" alt="${p.name}" onerror="app.handleImgCascade(this, ${p.id})" class="pixel-sprite w-10 h-10 object-contain" />
               <div>
                 <span class="font-pixel-title text-xs text-ink block">${p.name}</span>
-                <span class="font-mono text-[11px] font-semibold text-muted">No. ${String(p.id).padStart(3, '0')} · ${p.region}</span>
+                <span class="font-mono text-[11px] font-bold px-1.5 py-0.5 rounded bg-canvas/90 text-ink border border-line tracking-wider inline-block mt-0.5">No. ${String(p.id).padStart(3, '0')}</span>
+                <span class="text-[11px] text-muted">· ${p.region}</span>
               </div>
             </div>
             <div class="flex gap-1">${p.types.map(t => getTypeBadge(t)).join('')}</div>
@@ -808,9 +770,130 @@ const app = {
     } catch {
       prompt('Copia este link de desafío:', challengeUrl);
     }
+  },
+
+  // ============================================================
+  // EXPORT MODAL & CANVAS 2.0
+  // ============================================================
+  async openExportModal() {
+    const modal = document.getElementById('exportModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    await this.renderExportCard();
+  },
+
+  closeExportModal() {
+    const modal = document.getElementById('exportModal');
+    if (modal) modal.classList.add('hidden');
+  },
+
+  setExportFormat(fmt) {
+    this.state.exportFormat = fmt === 'poster' ? 'poster' : 'story';
+    const btnS = document.getElementById('formatBtnStory');
+    const btnP = document.getElementById('formatBtnPoster');
+
+    if (btnS && btnP) {
+      if (this.state.exportFormat === 'story') {
+        btnS.className = 'py-2 px-3 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-xs font-pixel font-bold text-ink text-center transition';
+        btnP.className = 'py-2 px-3 rounded-xl border border-line bg-canvas text-xs font-pixel text-muted hover:text-ink text-center transition';
+      } else {
+        btnP.className = 'py-2 px-3 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-xs font-pixel font-bold text-ink text-center transition';
+        btnS.className = 'py-2 px-3 rounded-xl border border-line bg-canvas text-xs font-pixel text-muted hover:text-ink text-center transition';
+      }
+    }
+
+    this.renderExportCard();
+  },
+
+  async renderExportCard() {
+    const canvas = document.getElementById('exportCardCanvas');
+    const loader = document.getElementById('exportCanvasLoader');
+    if (!canvas || !this.state.finalRanking || this.state.finalRanking.length === 0) return;
+
+    if (loader) loader.classList.remove('hidden');
+    canvas.classList.add('opacity-40');
+
+    try {
+      const winner = this.state.finalRanking[0];
+      const top3 = this.state.finalRanking.slice(0, 3);
+      await renderRankingCard({
+        arena: 'pokemon',
+        winner,
+        top3,
+        format: this.state.exportFormat || 'story',
+        options: {
+          canvas,
+          ranking: this.state.finalRanking
+        }
+      });
+    } catch (err) {
+      console.error('Error renderizando tarjeta visual:', err);
+    } finally {
+      if (loader) loader.classList.add('hidden');
+      canvas.classList.remove('opacity-40');
+    }
+  },
+
+  async shareExportCard() {
+    const canvas = document.getElementById('exportCardCanvas');
+    if (!canvas) return;
+    const suffix = this.state.exportFormat === 'poster' ? 'poster' : 'historia';
+    const result = await exportRankingCard({
+      canvas,
+      filename: `rankea2-pokemon-${suffix}.png`,
+      title: 'Rankea2 · Mi Ranking Pokémon',
+      text: '¡Mirá el podio Pokémon que armé en Rankea2!'
+    });
+
+    if (result.copied) {
+      this.showExportToast('¡Tarjeta copiada al portapapeles!');
+    } else if (result.downloaded) {
+      this.showExportToast('¡Tarjeta descargada como PNG!');
+    }
+  },
+
+  async copyExportCardImage() {
+    const canvas = document.getElementById('exportCardCanvas');
+    if (!canvas) return;
+    const suffix = this.state.exportFormat === 'poster' ? 'poster' : 'historia';
+    const result = await exportRankingCard({
+      canvas,
+      filename: `rankea2-pokemon-${suffix}.png`,
+      action: 'copy'
+    });
+    if (result.copied) {
+      this.showExportToast('¡Tarjeta copiada al portapapeles!');
+    } else {
+      this.showExportToast('No se pudo copiar directo. Guardando PNG...');
+    }
+  },
+
+  async downloadExportCardPng() {
+    const canvas = document.getElementById('exportCardCanvas');
+    if (!canvas) return;
+    const suffix = this.state.exportFormat === 'poster' ? 'poster' : 'historia';
+    await exportRankingCard({
+      canvas,
+      filename: `rankea2-pokemon-${suffix}.png`,
+      action: 'download'
+    });
+    this.showExportToast('¡Tarjeta descargada como PNG!');
+  },
+
+  showExportToast(msg) {
+    const toast = document.getElementById('exportFeedbackToast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.remove('hidden');
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 2500);
   }
 };
 
-window.app = app;
-window.addEventListener('DOMContentLoaded', () => app.init());
+if (typeof window !== 'undefined') {
+  window.app = app;
+  window.addEventListener('DOMContentLoaded', () => app.init());
+}
 export default app;

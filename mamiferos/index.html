@@ -127,8 +127,10 @@
             <div id="loaderLeft" class="absolute inset-0 z-20 bg-stone-200/90 flex flex-col items-center justify-center gap-1">
               <span class="text-xs font-medium text-muted">Cargando foto...</span>
             </div>
+            <img id="imgLeftBg" src="" alt="" aria-hidden="true"
+              class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
             <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+              class="relative z-10 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div class="p-4 flex items-center justify-between gap-2">
             <div class="space-y-0.5 min-w-0">
@@ -149,8 +151,10 @@
             <div id="loaderRight" class="absolute inset-0 z-20 bg-stone-200/90 flex flex-col items-center justify-center gap-1">
               <span class="text-xs font-medium text-muted">Cargando foto...</span>
             </div>
+            <img id="imgRightBg" src="" alt="" aria-hidden="true"
+              class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
             <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+              class="relative z-10 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500" />
           </div>
           <div class="p-4 flex items-center justify-between gap-2">
             <div class="space-y-0.5 min-w-0">
@@ -186,6 +190,10 @@
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-line">
+        <button id="btnOpenExportModal" onclick="app.openExportModal()" class="px-5 py-2.5 rounded-full border border-amber-800/40 bg-amber-800/10 hover:bg-amber-800 hover:text-white text-amber-900 dark:text-amber-300 font-medium text-xs sm:text-sm transition flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Descargar tarjeta visual</span>
+        </button>
         <button onclick="app.shareChallenge()" class="px-5 py-2.5 rounded-full bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs sm:text-sm transition flex items-center gap-2">
           <span id="shareBtnLabel">Copiar link de desafío</span>
         </button>
@@ -197,6 +205,75 @@
         </button>
       </div>
     </section>
+
+    <!-- ========================================== -->
+    <!-- MODAL DE EXPORTACIÓN VISUAL (CANVAS 2.0)   -->
+    <!-- ========================================== -->
+    <div id="exportModal" onclick="if(event.target === this) app.closeExportModal()" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+      <div class="bg-surface border-t sm:border border-line rounded-t-3xl sm:rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl max-h-[88dvh] flex flex-col">
+        <!-- Modal Header -->
+        <div class="px-4 sm:px-6 py-3.5 border-b border-line flex items-center justify-between bg-canvas shrink-0">
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl text-ink leading-tight">Tarjeta de Ranking</h3>
+            <p class="text-[11px] text-muted mt-0.5">Exportá tu podio para compartir en redes sociales</p>
+          </div>
+          <button type="button" onclick="app.closeExportModal()" class="text-xs font-medium text-muted hover:text-ink px-3 py-1 rounded-full border border-line bg-surface">
+            Cerrar
+          </button>
+        </div>
+
+        <!-- Modal Body (Scrollable) -->
+        <div class="p-4 sm:p-5 overflow-y-auto space-y-4">
+          <!-- Format switcher (Historia 9:16 vs Poster 4:5) -->
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-mono uppercase tracking-wider text-muted">Formato</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="formatBtnStory" onclick="app.setExportFormat('story')"
+                class="py-2 px-3 rounded-xl border-2 border-amber-800 bg-amber-800/10 text-xs font-semibold text-ink text-center transition">
+                Historia 9:16
+              </button>
+              <button type="button" id="formatBtnPoster" onclick="app.setExportFormat('poster')"
+                class="py-2 px-3 rounded-xl border border-line bg-canvas text-xs font-medium text-muted hover:text-ink text-center transition">
+                Póster 4:5
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas preview container -->
+          <div class="flex flex-col items-center justify-center bg-canvas rounded-2xl p-3 border border-line min-h-[240px]">
+            <div id="exportCanvasLoader" class="hidden flex-col items-center justify-center py-8 gap-2">
+              <div class="w-6 h-6 rounded-full border-2 border-amber-800 border-t-transparent animate-spin"></div>
+              <span class="text-xs font-medium text-muted">Generando tarjeta visual...</span>
+            </div>
+            <canvas id="exportCardCanvas" width="1080" height="1920" class="w-full max-w-[200px] sm:max-w-[220px] h-auto rounded-xl shadow-md bg-stone-900"></canvas>
+          </div>
+
+          <!-- Actions -->
+          <div class="space-y-2 pt-1">
+            <button type="button" id="btnShareCard" onclick="app.shareExportCard()"
+              class="w-full py-2.5 px-4 rounded-full bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs sm:text-sm transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+              <span>Compartir tarjeta</span>
+            </button>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="btnCopyCardImage" onclick="app.copyExportCardImage()"
+                class="py-2 px-3 rounded-full bg-surface border border-line hover:border-amber-800 text-ink text-xs font-medium transition flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                <span>Copiar imagen</span>
+              </button>
+              <button type="button" id="btnDownloadCardPng" onclick="app.downloadExportCardPng()"
+                class="py-2 px-3 rounded-full bg-surface border border-line hover:border-amber-800 text-ink text-xs font-medium transition flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>Descargar PNG</span>
+              </button>
+            </div>
+
+            <div id="exportFeedbackToast" class="hidden text-xs font-medium text-center py-2 px-3 rounded-xl bg-amber-800/10 border border-amber-800/20 text-amber-800 dark:text-amber-300"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </main>
 

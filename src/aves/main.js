@@ -686,7 +686,7 @@ const I18N = {
           row.className = "flex items-center gap-2 p-1.5 rounded-lg bg-canvas border border-line";
           row.innerHTML = `
             <span class="font-serif text-sm text-muted w-5 text-center shrink-0">#${i + 1}</span>
-            <img src="${b.imagen}" alt="${safeName}" class="w-7 h-7 rounded object-cover shrink-0 bg-stone-200" />
+            <img src="${b.imagen}" alt="${safeName}" class="w-7 h-7 rounded object-contain object-center shrink-0 bg-stone-200" />
             <span class="text-[11px] font-medium text-ink truncate">${safeName}</span>
           `;
           fullWrap.appendChild(row);
@@ -2156,55 +2156,6 @@ const I18N = {
             btnPlay.textContent = isEn ? "Play sound" : "Reproducir sonido";
             btnReplay.classList.add("hidden");
             btnStop.classList.add("hidden");
-          }
-        }
-
-        // 2. Podium Header Controls
-        const hdrBtn = document.getElementById("btnWinnerAudioHeader");
-        const hdrTxt = document.getElementById("winnerAudioHeaderText");
-        const hdrDot = document.getElementById("winnerAudioDot");
-        const hdrReplayBtn = document.getElementById("btnWinnerReplayHeader");
-        const hdrReplayTxt = document.getElementById("winnerReplayHeaderText");
-
-        if (hdrBtn && hdrTxt && hdrDot) {
-          if (playing) {
-            hdrDot.className = "w-2 h-2 rounded-full bg-emerald-600 animate-ping";
-            hdrTxt.textContent = isEn ? "Playing #1 · Stop" : "Sonando #1 · Detener";
-            if (hdrReplayBtn && hdrReplayTxt) {
-              hdrReplayBtn.classList.remove("hidden");
-              hdrReplayTxt.textContent = isEn ? "↺ Replay" : "↺ Repetir";
-            }
-          } else if (hasPlayed) {
-            hdrDot.className = "w-2 h-2 rounded-full bg-amber-600";
-            hdrTxt.textContent = isEn ? "↺ Replay #1 sound" : "↺ Repetir sonido del #1";
-            if (hdrReplayBtn) hdrReplayBtn.classList.add("hidden");
-          } else {
-            hdrDot.className = "w-2 h-2 rounded-full bg-amber-600";
-            hdrTxt.textContent = isEn ? "Play #1 sound" : "Reproducir sonido del #1";
-            if (hdrReplayBtn) hdrReplayBtn.classList.add("hidden");
-          }
-        }
-
-        // 3. #1 Gold Card Controls
-        const cardBtnTxt = document.getElementById("card1AudioBtnText");
-        const cardDot = document.getElementById("card1AudioDot");
-        const cardReplayBtn = document.getElementById("card1ReplayBtn");
-        if (cardBtnTxt && cardDot) {
-          if (playing) {
-            cardDot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-ping";
-            cardBtnTxt.textContent = isEn ? "Stop sound" : "Detener sonido";
-            if (cardReplayBtn) {
-              cardReplayBtn.classList.remove("hidden");
-              cardReplayBtn.textContent = isEn ? "↺ Replay" : "↺ Repetir";
-            }
-          } else if (hasPlayed) {
-            cardDot.className = "w-2 h-2 rounded-full bg-amber-400";
-            cardBtnTxt.textContent = isEn ? "↺ Replay sound" : "↺ Repetir sonido";
-            if (cardReplayBtn) cardReplayBtn.classList.add("hidden");
-          } else {
-            cardDot.className = "w-2 h-2 rounded-full bg-amber-400";
-            cardBtnTxt.textContent = isEn ? "Play sound" : "Reproducir sonido";
-            if (cardReplayBtn) cardReplayBtn.classList.add("hidden");
           }
         }
       },

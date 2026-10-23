@@ -190,7 +190,13 @@ export async function interleavedBisectSortAsync(arr, askUserPreference, seed = 
   return runs[0] || [];
 }
 
-export function buildChallengeUrl({ baseUrl = window.location.href, ids = [], category = '', author = '', lang = 'es' }) {
+export function buildChallengeUrl({
+  baseUrl = (typeof window !== 'undefined' ? window.location.href : 'http://localhost/'),
+  ids = [],
+  category = '',
+  author = '',
+  lang = 'es'
+} = {}) {
   const url = new URL(baseUrl);
   url.searchParams.set('r', ids.join('.'));
   if (category) url.searchParams.set('c', category);
@@ -199,7 +205,7 @@ export function buildChallengeUrl({ baseUrl = window.location.href, ids = [], ca
   return url.toString();
 }
 
-export function parseChallengeUrl(search = window.location.search) {
+export function parseChallengeUrl(search = (typeof window !== 'undefined' ? window.location.search : '')) {
   const params = new URLSearchParams(search);
   const rawIds = params.get('r');
   if (!rawIds) return null;

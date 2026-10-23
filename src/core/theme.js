@@ -26,13 +26,16 @@ export function toggleTheme() {
   return next;
 }
 
-export function bindThemeButton({ buttonId, labelId, darkIconId, lightIconId }) {
+export function bindThemeButton({ buttonId, labelId, darkIconId, lightIconId, iconDarkId, iconLightId } = {}) {
   const btn = document.getElementById(buttonId);
   if (!btn) return;
 
+  const darkId = darkIconId || iconDarkId;
+  const lightId = lightIconId || iconLightId;
+
   const lbl = labelId ? document.getElementById(labelId) : null;
-  const icDark = darkIconId ? document.getElementById(darkIconId) : null;
-  const icLight = lightIconId ? document.getElementById(lightIconId) : null;
+  const icDark = darkId ? document.getElementById(darkId) : null;
+  const icLight = lightId ? document.getElementById(lightId) : null;
 
   function update() {
     const isDark = document.documentElement.classList.contains('dark');

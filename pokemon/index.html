@@ -263,7 +263,7 @@
             <span class="font-pixel-title text-sm text-rose-500"><span id="limitValueDisplay">16</span> PKMN</span>
           </div>
           
-          <input id="limitSlider" type="range" min="4" max="64" value="16" step="1" oninput="app.onSliderInput(this.value)"
+          <input id="limitSlider" type="range" min="8" max="64" value="16" step="8" oninput="app.onSliderInput(this.value)"
             class="w-full h-2.5 bg-line rounded-lg appearance-none cursor-pointer accent-rose-600 focus:outline-none" />
 
           <div class="grid grid-cols-4 gap-2 pt-1">
@@ -358,7 +358,7 @@
         <button id="cardLeftBtn" type="button" onclick="app.chooseCandidate('left')"
           class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
           <div class="flex items-center justify-between mb-2">
-            <span id="dexLeft" class="font-mono text-xs font-bold text-rose-500">No. 000</span>
+            <span id="dexLeft" class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs">No. 000</span>
             <span id="regLeft" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
@@ -386,7 +386,7 @@
         <button id="cardRightBtn" type="button" onclick="app.chooseCandidate('right')"
           class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
           <div class="flex items-center justify-between mb-2">
-            <span id="dexRight" class="font-mono text-xs font-bold text-rose-500">No. 000</span>
+            <span id="dexRight" class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs">No. 000</span>
             <span id="regRight" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
@@ -442,6 +442,10 @@
 
       <!-- Actions -->
       <div class="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-line">
+        <button id="btnOpenExportModal" onclick="app.openExportModal()" class="px-5 py-2.5 rounded-xl retro-btn bg-surface hover:bg-canvas text-ink font-pixel text-xs flex items-center gap-2 border border-line">
+          <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Descargar tarjeta visual</span>
+        </button>
         <button onclick="app.shareChallenge()" class="px-5 py-2.5 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs flex items-center gap-2">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
           <span id="shareBtnLabel">Copiar link de desafío</span>
@@ -454,6 +458,75 @@
         </button>
       </div>
     </section>
+
+    <!-- ========================================== -->
+    <!-- MODAL DE EXPORTACIÓN VISUAL (CANVAS 2.0)   -->
+    <!-- ========================================== -->
+    <div id="exportModal" onclick="if(event.target === this) app.closeExportModal()" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+      <div class="bg-surface border-t-2 sm:border-2 border-line sm:rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl max-h-[88dvh] flex flex-col retro-box">
+        <!-- Modal Header -->
+        <div class="px-4 sm:px-6 py-3.5 border-b border-line flex items-center justify-between bg-canvas shrink-0">
+          <div>
+            <h3 class="font-poke font-bold text-lg sm:text-xl text-ink leading-tight">Tarjeta de Ranking</h3>
+            <p class="text-[11px] font-pixel text-muted mt-0.5">Exportá tu podio para compartir en redes sociales</p>
+          </div>
+          <button type="button" onclick="app.closeExportModal()" class="text-xs font-pixel text-muted hover:text-ink px-3 py-1 rounded-lg border border-line bg-surface">
+            Cerrar
+          </button>
+        </div>
+
+        <!-- Modal Body (Scrollable) -->
+        <div class="p-4 sm:p-5 overflow-y-auto space-y-4">
+          <!-- Format switcher (Historia 9:16 vs Poster 4:5) -->
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-pixel uppercase tracking-wider text-muted">Formato</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="formatBtnStory" onclick="app.setExportFormat('story')"
+                class="py-2 px-3 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-xs font-pixel font-bold text-ink text-center transition">
+                Historia 9:16
+              </button>
+              <button type="button" id="formatBtnPoster" onclick="app.setExportFormat('poster')"
+                class="py-2 px-3 rounded-xl border border-line bg-canvas text-xs font-pixel text-muted hover:text-ink text-center transition">
+                Póster 4:5
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas preview container -->
+          <div class="flex flex-col items-center justify-center bg-canvas rounded-xl p-3 border border-line min-h-[240px]">
+            <div id="exportCanvasLoader" class="hidden flex-col items-center justify-center py-8 gap-2">
+              <div class="w-6 h-6 rounded-full border-2 border-rose-500 border-t-transparent animate-spin"></div>
+              <span class="text-xs font-pixel text-muted">Generando tarjeta visual...</span>
+            </div>
+            <canvas id="exportCardCanvas" width="1080" height="1920" class="w-full max-w-[200px] sm:max-w-[220px] h-auto rounded-lg shadow-md bg-stone-900"></canvas>
+          </div>
+
+          <!-- Actions -->
+          <div class="space-y-2 pt-1">
+            <button type="button" id="btnShareCard" onclick="app.shareExportCard()"
+              class="w-full py-2.5 px-4 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+              <span>Compartir tarjeta</span>
+            </button>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="btnCopyCardImage" onclick="app.copyExportCardImage()"
+                class="py-2 px-3 rounded-xl retro-btn bg-surface border border-line hover:border-ink text-ink font-pixel text-[11px] transition flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                <span>Copiar imagen</span>
+              </button>
+              <button type="button" id="btnDownloadCardPng" onclick="app.downloadExportCardPng()"
+                class="py-2 px-3 rounded-xl retro-btn bg-surface border border-line hover:border-ink text-ink font-pixel text-[11px] transition flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>Descargar PNG</span>
+              </button>
+            </div>
+
+            <div id="exportFeedbackToast" class="hidden text-xs font-pixel text-center py-2 px-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </main>
 
