@@ -1,7 +1,7 @@
 const I18N = {
       es: {
         brandSub: "El ranking ornitológico",
-        homeBtn: "Inicio",        homeTitle: "Elige cuáles son tus aves favoritas del mundo.",        btnHomeQuick16: "Jugar con las 16 más famosas del mundo →",
+        homeBtn: "Inicio",        homeTitle: "El Ranking Ornitológico Definitivo.", homeDesc: "Desde el colibrí más diminuto hasta los grandes cóndores. 10.000 aves del mundo enfrentadas para encontrar tu preferida.",        btnHomeQuick16: "Jugar con las 16 más famosas del mundo →",
         btnHomeSurprise: "Sorpréndeme (16 al azar)",
         btnHomeCustom: "Armar mi búsqueda",        extinctSummary: "Pájaros extintos legendarios",
         undoBtn: "Deshacer",
@@ -79,7 +79,7 @@ const I18N = {
       },
       en: {
         brandSub: "The Ornithological Ranking",
-        homeBtn: "Home",        homeTitle: "Choose your favorite birds in the world.",        btnHomeQuick16: "Play with the Top 16 Iconic Birds →",
+        homeBtn: "Home",        homeTitle: "The Definitive Bird Ranking.", homeDesc: "From the tiniest hummingbird to giant condors. 10,000 birds facing off to crown your favorite.",        btnHomeQuick16: "Play with the Top 16 Iconic Birds →",
         btnHomeSurprise: "Surprise Me (16 random)",
         btnHomeCustom: "Build custom search",        extinctSummary: "Legendary Extinct Birds",
         undoBtn: "Undo",
@@ -859,7 +859,7 @@ const I18N = {
       applyLanguageToStaticDOM() {
         const map = {
           headerBrandSub: "brandSub",
-          btnHeaderHome: "homeBtn",          homeTitle: "homeTitle",          btnHomeQuick16: "btnHomeQuick16",
+          btnHeaderHome: "homeBtn",          homeTitle: "homeTitle", homeDesc: "homeDesc",          btnHomeQuick16: "btnHomeQuick16",
           btnHomeSurprise: "btnHomeSurprise",
           btnHomeCustom: "btnHomeCustom",          btnUndoBattleText: "undoBtn",
           step1Kicker: "step1Kicker",
