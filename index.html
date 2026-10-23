@@ -19,7 +19,7 @@
   </script>
   <style>
     :root {
-      --hub-bg: #F3F2EE;
+      --hub-bg: #F4F3EF;
       --hub-surface: #FFFFFF;
       --hub-ink: #161615;
       --hub-muted: #6E6D68;
@@ -27,10 +27,10 @@
     }
     html.dark {
       --hub-bg: #141413;
-      --hub-surface: #1E1E1C;
+      --hub-surface: #1C1C1A;
       --hub-ink: #F3F2EE;
       --hub-muted: #9A9890;
-      --hub-line: #2C2C29;
+      --hub-line: #2A2A26;
     }
     body {
       background-color: var(--hub-bg);
@@ -60,48 +60,56 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
-    /* Diagonal split inside arena cards */
-    .split-left {
-      clip-path: polygon(0 0, 56% 0, 44% 100%, 0 100%);
-    }
-    .split-right {
-      clip-path: polygon(56% 0, 100% 0, 100% 100%, 44% 100%);
-    }
-
     /* Card 1: Aves (Editorial Natural) */
     .arena-aves {
-      background-color: #F6F4EF;
+      background-color: #F8F7F3;
+      border: 1.5px solid #1D3B2A;
       color: #161816;
-      border: 2px solid #1D3B2A;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    html.dark .arena-aves {
+      background-color: #131A15;
+      border-color: #2D5A3F;
+      color: #EDF3EE;
     }
     .arena-aves:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 28px -10px rgba(29, 59, 42, 0.28);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px -8px rgba(29, 59, 42, 0.22);
     }
 
     /* Card 2: Pokémon (Arcade Brutalist) */
     .arena-poke {
-      background-color: #FFDE59;
+      background-color: #FFF9E0;
       color: #111111;
-      border: 3px solid #111111;
-      box-shadow: 5px 5px 0px #111111;
+      border: 2px solid #111111;
+      box-shadow: 3px 3px 0px #111111;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
     html.dark .arena-poke {
-      box-shadow: 5px 5px 0px #000000;
+      background-color: #1F1D16;
+      border-color: #FFDE59;
+      color: #F8F7F3;
+      box-shadow: 3px 3px 0px #FFDE59;
     }
     .arena-poke:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 7px 7px 0px #111111;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px #111111;
+    }
+    html.dark .arena-poke:hover {
+      box-shadow: 4px 4px 0px #FFDE59;
     }
 
     /* Card 3: Flores y Plantas (Botanical Delicate) */
     .arena-flora {
-      background-color: #EFECE6;
-      color: #2B332C;
-      border: 1.5px solid #B7C4B8;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      background-color: #F3F1EC;
+      color: #283129;
+      border: 1px solid #BAC7BA;
+      transition: transform 0.18s ease;
+    }
+    html.dark .arena-flora {
+      background-color: #151A16;
+      border-color: #2F3B31;
+      color: #E2ECE3;
     }
     .arena-flora:hover {
       transform: translateY(-2px);
@@ -109,10 +117,15 @@
 
     /* Card 4: Mamíferos y Felinos (Wild Earth) */
     .arena-fauna {
-      background-color: #1E1B18;
-      color: #F5EFE6;
-      border: 2px solid #8C6239;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      background-color: #F5EFE8;
+      color: #26211C;
+      border: 1px solid #8C6239;
+      transition: transform 0.18s ease;
+    }
+    html.dark .arena-fauna {
+      background-color: #1A1714;
+      border-color: #8C6239;
+      color: #F2EAE0;
     }
     .arena-fauna:hover {
       transform: translateY(-2px);
@@ -121,168 +134,148 @@
 </head>
 <body class="min-h-[100dvh] flex flex-col">
 
-  <!-- HEADER -->
+  <!-- COMPACT HEADER -->
   <header class="hub-header sticky top-0 z-30 backdrop-blur-sm">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5 focus:outline-none">
-        <svg class="w-7 h-7" viewBox="0 0 256 256" aria-hidden="true">
-          <path fill="currentColor" opacity="0.45" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
+    <div class="max-w-4xl mx-auto px-4 h-12 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 focus:outline-none">
+        <svg class="w-6 h-6" viewBox="0 0 256 256" aria-hidden="true">
+          <path fill="currentColor" opacity="0.4" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
           <path fill="currentColor" fill-rule="evenodd" d="M104 80 H208 A16 16 0 0 1 224 96 V208 A16 16 0 0 1 208 224 H104 A16 16 0 0 1 88 208 V96 A16 16 0 0 1 104 80 Z M120 176 H192 V136 L172 152 L156 124 L140 152 L120 136 V176 Z"/>
         </svg>
-        <span class="font-poke font-extrabold text-xl tracking-tight">Rankea2</span>
+        <span class="font-poke font-extrabold text-lg tracking-tight">Rankea2</span>
       </a>
 
       <button id="themeToggle" type="button" aria-label="Cambiar tema"
-        class="hub-surface border px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 transition hover:opacity-80">
+        class="hub-surface border px-2.5 py-1 rounded-full text-xs font-medium flex items-center gap-1.5 transition hover:opacity-80">
         <span id="themeIcon">◐</span>
         <span id="themeLabel">Oscuro</span>
       </button>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-10">
+  <!-- MAIN WITH COMPACT DENSITY -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-5 sm:py-7 space-y-5 sm:space-y-6">
 
-    <!-- NON-INVASIVE INTERACTIVE HOOK: ¿Qué ranking preferís hoy? -->
-    <section class="hub-surface border rounded-2xl p-4 sm:p-5">
-      <div class="flex items-center justify-between gap-2 mb-3">
-        <h1 class="text-base sm:text-lg font-semibold tracking-tight">
+    <!-- COMPACT HOOK: ¿Qué ranking preferís hoy? -->
+    <section class="hub-surface border rounded-xl p-3 sm:p-4">
+      <div class="flex items-center justify-between gap-2 mb-2.5">
+        <h1 class="text-xs sm:text-sm font-semibold tracking-tight uppercase hub-muted">
           ¿Qué ranking preferís hoy?
         </h1>
         <button id="shuffleMatchupBtn" type="button"
-          class="text-xs hub-muted hover: opacity-80 px-2.5 py-1 rounded-full border border-current/15 transition">
+          class="text-[11px] hub-muted hover:opacity-80 px-2 py-0.5 rounded-full border border-current/15 transition">
           Otro cruce ↻
         </button>
       </div>
 
-      <div id="quickDuelContainer" class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-stretch gap-2.5 sm:gap-3">
+      <div id="quickDuelContainer" class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-stretch gap-2">
         <!-- Populated by JS -->
       </div>
     </section>
 
-    <!-- ARENAS GRID (2 wide columns on desktop, each with its own visual world) -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+    <!-- 2-COLUMN BALANCED GRID -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
       <!-- 1. AVES DEL MUNDO (Active — Editorial Natural) -->
-      <a href="/aves/" class="arena-aves rounded-2xl overflow-hidden flex flex-col group">
-        <div class="relative h-48 sm:h-56 w-full bg-[#1C241E] overflow-hidden">
-          <!-- Left Half: Toco Toucan -->
-          <div class="absolute inset-0 split-left overflow-hidden">
+      <a href="/aves/" class="arena-aves rounded-xl p-3 sm:p-4 flex flex-col justify-between group">
+        <!-- Complete Facing Photos (Not cropped) -->
+        <div class="grid grid-cols-2 gap-2 h-28 sm:h-32 mb-3">
+          <div class="relative rounded-lg overflow-hidden bg-black/10">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg"
                  alt="Tucán Toco"
-                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-300" />
           </div>
-          <!-- Right Half: Scarlet Macaw -->
-          <div class="absolute inset-0 split-right overflow-hidden">
+          <div class="relative rounded-lg overflow-hidden bg-black/10">
             <img src="https://static.inaturalist.org/photos/67503679/medium.jpg"
                  alt="Guacamayo Rojo"
-                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-300" />
           </div>
-          <!-- Diagonal divider line -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.5" />
-          </svg>
         </div>
 
-        <div class="px-5 py-4 flex items-center justify-between bg-[#F6F4EF]">
-          <h2 class="font-aves text-3xl sm:text-4xl text-[#161816] leading-none">
+        <div class="flex items-center justify-between pt-1">
+          <h2 class="font-aves text-2xl sm:text-3xl leading-none">
             Aves del Mundo
           </h2>
-          <span class="w-9 h-9 rounded-full bg-[#1D3B2A] text-white flex items-center justify-center text-sm font-medium group-hover:translate-x-0.5 transition">
+          <span class="w-7 h-7 rounded-full bg-[#1D3B2A] text-white flex items-center justify-center text-xs font-medium group-hover:translate-x-0.5 transition shrink-0">
             →
           </span>
         </div>
       </a>
 
       <!-- 2. POKÉMON (Upcoming — Arcade Brutalist) -->
-      <div id="card-pokemon" class="arena-poke rounded-xl overflow-hidden flex flex-col select-none">
-        <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-[#18181B]">
-          <!-- Left Half: Charizard on warm red/orange -->
-          <div class="absolute inset-0 split-left bg-[#EF4444] flex items-center justify-start pl-4 sm:pl-7">
+      <div id="card-pokemon" class="arena-poke rounded-xl p-3 sm:p-4 flex flex-col justify-between select-none">
+        <!-- Complete Facing Sprites -->
+        <div class="grid grid-cols-2 gap-2 h-28 sm:h-32 mb-3">
+          <div class="rounded-lg bg-[#EF4444]/15 border border-[#EF4444]/30 flex items-center justify-center p-1">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
                  alt="Charizard"
-                 class="w-36 h-36 sm:w-44 sm:h-44 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.35)]" />
+                 class="w-full h-full object-contain" />
           </div>
-          <!-- Right Half: Blastoise on electric blue -->
-          <div class="absolute inset-0 split-right bg-[#3B82F6] flex items-center justify-end pr-4 sm:pr-7">
+          <div class="rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 flex items-center justify-center p-1">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
                  alt="Blastoise"
-                 class="w-36 h-36 sm:w-44 sm:h-44 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.35)]" />
+                 class="w-full h-full object-contain" />
           </div>
-          <!-- Hard black diagonal divider -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#111111" stroke-width="2.2" />
-          </svg>
         </div>
 
-        <div class="px-5 py-4 flex items-center justify-between bg-[#FFDE59] border-t-[3px] border-[#111111]">
-          <h2 class="font-poke font-extrabold text-2xl sm:text-3xl tracking-tight text-[#111111] uppercase leading-none">
+        <div class="flex items-center justify-between pt-1">
+          <h2 class="font-poke font-extrabold text-xl sm:text-2xl uppercase tracking-tight leading-none">
             Pokémon
           </h2>
-          <span class="px-2.5 py-1 rounded bg-[#111111] text-[#FFDE59] font-poke text-[11px] font-bold uppercase tracking-wider">
-            Próximamente
+          <span class="px-2 py-0.5 rounded bg-[#111111] text-[#FFDE59] dark:bg-[#FFDE59] dark:text-[#111111] font-poke text-[10px] font-bold uppercase tracking-wider">
+            Pronto
           </span>
         </div>
       </div>
 
       <!-- 3. FLORES Y PLANTAS (Upcoming — Botanical Delicate) -->
-      <div id="card-flores" class="arena-flora rounded-2xl overflow-hidden flex flex-col select-none">
-        <div class="relative h-48 sm:h-56 w-full bg-[#DDE5DD] overflow-hidden">
-          <!-- Left Half: Passiflora -->
-          <div class="absolute inset-0 split-left overflow-hidden">
+      <div id="card-flores" class="arena-flora rounded-xl p-3 sm:p-4 flex flex-col justify-between select-none">
+        <!-- Complete Facing Photos -->
+        <div class="grid grid-cols-2 gap-2 h-28 sm:h-32 mb-3">
+          <div class="rounded-lg overflow-hidden bg-black/5">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg"
                  alt="Mburucuyá"
                  class="w-full h-full object-cover object-center" />
           </div>
-          <!-- Right Half: Cattleya Orchid -->
-          <div class="absolute inset-0 split-right overflow-hidden">
+          <div class="rounded-lg overflow-hidden bg-black/5">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/127799924/medium.jpg"
                  alt="Orquídea"
                  class="w-full h-full object-cover object-center" />
           </div>
-          <!-- Soft botanical divider -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="1.5" />
-          </svg>
         </div>
 
-        <div class="px-5 py-4 flex items-center justify-between bg-[#EFECE6]">
-          <h2 class="font-flora italic font-semibold text-3xl sm:text-4xl text-[#2B332C] leading-none">
+        <div class="flex items-center justify-between pt-1">
+          <h2 class="font-flora italic font-semibold text-2xl sm:text-3xl leading-none">
             Flores y Plantas
           </h2>
-          <span class="px-2.5 py-1 rounded-full bg-[#DDE5DD] text-[#2B332C] text-[11px] font-medium">
-            Próximamente
+          <span class="px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-[10px] font-medium">
+            Pronto
           </span>
         </div>
       </div>
 
       <!-- 4. MAMÍFEROS Y FELINOS (Upcoming — Wild Earth) -->
-      <div id="card-mamiferos" class="arena-fauna rounded-2xl overflow-hidden flex flex-col select-none">
-        <div class="relative h-48 sm:h-56 w-full bg-[#141210] overflow-hidden">
-          <!-- Left Half: Jaguar -->
-          <div class="absolute inset-0 split-left overflow-hidden">
+      <div id="card-mamiferos" class="arena-fauna rounded-xl p-3 sm:p-4 flex flex-col justify-between select-none">
+        <!-- Complete Facing Photos -->
+        <div class="grid grid-cols-2 gap-2 h-28 sm:h-32 mb-3">
+          <div class="rounded-lg overflow-hidden bg-black/20">
             <img src="https://static.inaturalist.org/photos/51015966/medium.jpg"
                  alt="Yaguareté"
                  class="w-full h-full object-cover object-center" />
           </div>
-          <!-- Right Half: Tiger -->
-          <div class="absolute inset-0 split-right overflow-hidden">
+          <div class="rounded-lg overflow-hidden bg-black/20">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/43633891/medium.jpg"
                  alt="Tigre"
                  class="w-full h-full object-cover object-center" />
           </div>
-          <!-- Ochre divider -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="56" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="1.5" />
-          </svg>
         </div>
 
-        <div class="px-5 py-4 flex items-center justify-between bg-[#1E1B18]">
-          <h2 class="font-aves text-3xl sm:text-4xl text-[#F5EFE6] leading-none tracking-wide">
+        <div class="flex items-center justify-between pt-1">
+          <h2 class="font-aves text-2xl sm:text-3xl leading-none tracking-wide">
             Mamíferos y Felinos
           </h2>
-          <span class="px-2.5 py-1 rounded-full bg-[#2E2720] text-[#D4A373] border border-[#8C6239]/40 text-[11px] font-medium">
-            Próximamente
+          <span class="px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-[10px] font-medium">
+            Pronto
           </span>
         </div>
       </div>
@@ -316,8 +309,7 @@
         href: '/aves/',
         active: true,
         thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg',
-        pillClass: 'bg-[#F6F4EF] text-[#161816] border-[#1D3B2A]',
-        fontClass: 'font-aves text-2xl'
+        fontClass: 'font-aves text-xl sm:text-2xl'
       },
       {
         id: 'pokemon',
@@ -325,8 +317,7 @@
         href: '#card-pokemon',
         active: false,
         thumb: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png',
-        pillClass: 'bg-[#FFDE59] text-[#111111] border-[#111111]',
-        fontClass: 'font-poke font-extrabold text-lg uppercase'
+        fontClass: 'font-poke font-extrabold text-base sm:text-lg uppercase'
       },
       {
         id: 'flores',
@@ -334,8 +325,7 @@
         href: '#card-flores',
         active: false,
         thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg',
-        pillClass: 'bg-[#EFECE6] text-[#2B332C] border-[#B7C4B8]',
-        fontClass: 'font-flora italic font-semibold text-2xl'
+        fontClass: 'font-flora italic font-semibold text-xl sm:text-2xl'
       },
       {
         id: 'mamiferos',
@@ -343,8 +333,7 @@
         href: '#card-mamiferos',
         active: false,
         thumb: 'https://static.inaturalist.org/photos/51015966/medium.jpg',
-        pillClass: 'bg-[#1E1B18] text-[#F5EFE6] border-[#8C6239]',
-        fontClass: 'font-aves text-2xl'
+        fontClass: 'font-aves text-xl sm:text-2xl'
       }
     ];
 
@@ -364,18 +353,18 @@
 
       const renderChoice = (item) => `
         <a href="${item.href}"
-           class="flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl border-2 ${item.pillClass} transition hover:scale-[1.01]">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="${item.thumb}" alt="${item.title}" class="w-10 h-10 rounded-lg object-cover bg-black/10 shrink-0" />
+           class="hub-surface border flex items-center justify-between gap-2.5 px-3 py-2 rounded-lg transition hover:opacity-85">
+          <div class="flex items-center gap-2.5 min-w-0">
+            <img src="${item.thumb}" alt="${item.title}" class="w-8 h-8 rounded-md object-cover bg-black/5 shrink-0" />
             <span class="${item.fontClass} truncate leading-none">${item.title}</span>
           </div>
-          <span class="text-xs font-medium shrink-0 opacity-75">${item.active ? 'Jugar →' : 'Pronto'}</span>
+          <span class="text-[11px] font-medium shrink-0 hub-muted">${item.active ? 'Jugar →' : 'Pronto'}</span>
         </a>
       `;
 
       box.innerHTML = `
         ${renderChoice(a)}
-        <div class="flex items-center justify-center text-xs font-bold hub-muted px-1">VS</div>
+        <div class="flex items-center justify-center text-[10px] font-bold hub-muted px-1">VS</div>
         ${renderChoice(b)}
       `;
     }
