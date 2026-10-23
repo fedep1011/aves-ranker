@@ -7,7 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         hub: resolve(__dirname, "index.html"),
-        aves: resolve(__dirname, "aves/index.html")
+        aves: resolve(__dirname, "aves/index.html"),
+        pokemon: resolve(__dirname, "pokemon/index.html")
       }
     }
   }

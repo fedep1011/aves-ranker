@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Rankea2 · Pokémon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tailwind.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('rankea2_theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-[100dvh] font-sans flex flex-col bg-canvas text-ink selection:bg-rose-600 selection:text-white">
+
+  <!-- STICKY COMPACT HEADER -->
+  <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <a href="/" class="font-poke font-extrabold text-base sm:text-lg text-ink tracking-tight hover:opacity-80 transition" title="Ir al Hub">
+          Rankea2
+        </a>
+        <span class="text-muted/50 text-sm">/</span>
+        <button id="btnHeaderBrand" class="font-poke font-bold text-lg sm:text-xl tracking-tight text-ink hover:opacity-80 transition">
+          Pokémon
+        </button>
+        <span class="hidden md:inline text-[11px] text-muted tracking-wide ml-1">
+          El ranking de criaturas
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="btnHeaderHome" class="hidden text-xs font-medium text-ink hover:text-rose-600 px-3 py-1 rounded-full border border-line bg-surface/80 transition">
+          Inicio
+        </button>
+
+        <button id="themeToggle" type="button" aria-label="Cambiar tema"
+          class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5">
+          <svg id="themeIconDark" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <svg id="themeIconLight" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span id="themeLabel" class="hidden sm:inline">Oscuro</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 flex flex-col justify-start max-w-5xl w-full mx-auto px-4 sm:px-8 py-4 sm:py-8">
+
+    <!-- ========================================== -->
+    <!-- VIEW: HOME (Portada y presets rápidos) -->
+    <!-- ========================================== -->
+    <section id="viewHome" class="space-y-6 sm:space-y-8 max-w-3xl mx-auto w-full text-center py-2 sm:py-6">
+      
+      <!-- Shared challenge alert banner -->
+      <div id="challengeBanner" class="hidden bg-surface border-2 border-rose-500 rounded-2xl p-4 sm:p-5 text-left shadow-sm space-y-3">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-rose-500/10 text-rose-600 font-bold mb-1">Desafío recibido</span>
+            <h2 class="font-poke text-xl sm:text-2xl text-ink">¿Hacés tu ranking con los mismos Pokémon?</h2>
+          </div>
+          <button id="btnDismissChallenge" class="text-muted hover:text-ink text-lg leading-none w-7 h-7 rounded-full border border-line">×</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btnAcceptChallenge" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-medium text-xs sm:text-sm transition">
+            Aceptar desafío →
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-line bg-surface text-muted">
+          1025 criaturas · Generaciones 1 a 9
+        </span>
+        <h1 class="font-poke font-bold text-3xl sm:text-5xl text-ink tracking-tight">
+          Elegí tus Pokémon favoritos.
+        </h1>
+        <p class="text-sm sm:text-base text-muted max-w-xl mx-auto">
+          Duelos 1 contra 1 para ordenar tu propio podio definitivo de forma rápida y sin empates.
+        </p>
+      </div>
+
+      <!-- Quick presets -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+        <button id="btnPresetKanto" class="group p-4 sm:p-5 rounded-2xl border border-line bg-surface hover:border-rose-500 transition shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold text-rose-600 uppercase tracking-wider">Kanto · Gen 1</span>
+              <span class="text-xs text-muted">16 criaturas</span>
+            </div>
+            <h3 class="font-poke text-lg text-ink font-bold group-hover:text-rose-600 transition">Los 16 Clásicos</h3>
+            <p class="text-xs text-muted mt-1">Pikachu, Charizard, Gengar, Mewtwo y los pilares originales.</p>
+          </div>
+          <span class="inline-flex items-center text-xs font-medium text-rose-600 mt-4 group-hover:translate-x-0.5 transition">Jugar ahora →</span>
+        </button>
+
+        <button id="btnPresetStarters" class="group p-4 sm:p-5 rounded-2xl border border-line bg-surface hover:border-rose-500 transition shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-wider">Iniciales</span>
+              <span class="text-xs text-muted">16 criaturas</span>
+            </div>
+            <h3 class="font-poke text-lg text-ink font-bold group-hover:text-rose-600 transition">Iniciales Icónicos</h3>
+            <p class="text-xs text-muted mt-1">Planta, Fuego y Agua de todas las regiones enfrentados.</p>
+          </div>
+          <span class="inline-flex items-center text-xs font-medium text-rose-600 mt-4 group-hover:translate-x-0.5 transition">Jugar ahora →</span>
+        </button>
+
+        <button id="btnPresetLegendaries" class="group p-4 sm:p-5 rounded-2xl border border-line bg-surface hover:border-rose-500 transition shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold text-purple-500 uppercase tracking-wider">Mitos y Leyendas</span>
+              <span class="text-xs text-muted">16 criaturas</span>
+            </div>
+            <h3 class="font-poke text-lg text-ink font-bold group-hover:text-rose-600 transition">Legendarios</h3>
+            <p class="text-xs text-muted mt-1">Rayquaza, Lugia, Arceus, Giratina y el poder absoluto.</p>
+          </div>
+          <span class="inline-flex items-center text-xs font-medium text-rose-600 mt-4 group-hover:translate-x-0.5 transition">Jugar ahora →</span>
+        </button>
+      </div>
+
+      <!-- Custom tournament launcher -->
+      <div class="pt-2">
+        <button id="btnOpenWizard" class="w-full sm:w-auto px-6 py-3 rounded-full bg-surface border border-line hover:border-ink text-ink font-medium text-sm transition shadow-xs">
+          Armar torneo personalizado (Filtros por Tipo, Gen y Cantidad) →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW: WIZARD (Configurador paso a paso) -->
+    <!-- ========================================== -->
+    <section id="viewWizard" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
+      <div class="flex items-center justify-between border-b border-line pb-4">
+        <div>
+          <span class="text-xs font-mono text-muted uppercase tracking-wider">Configurador</span>
+          <h2 class="font-poke font-bold text-2xl text-ink">Personalizá tu torneo</h2>
+        </div>
+        <button id="btnCancelWizard" class="text-xs font-medium text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
+          Cancelar
+        </button>
+      </div>
+
+      <!-- Step 1: Generación / Región -->
+      <div class="space-y-3">
+        <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">1. Región o Generación</label>
+        <div id="genPillContainer" class="flex flex-wrap gap-1.5 sm:gap-2">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Step 2: Tipo Elemental -->
+      <div class="space-y-3">
+        <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">2. Tipo elemental</label>
+        <div id="typePillContainer" class="flex flex-wrap gap-1.5 sm:gap-2">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Step 3: Rareza -->
+      <div class="space-y-3">
+        <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">3. Categoría especial</label>
+        <div class="grid grid-cols-3 gap-2">
+          <button data-rarity="all" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-center transition">
+            Todos
+          </button>
+          <button data-rarity="starter" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-center transition">
+            Solo Iniciales
+          </button>
+          <button data-rarity="legendary" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-center transition">
+            Legendarios
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: Tamaño del Torneo -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">4. Cantidad de Pokémon</label>
+          <span id="availableCountLabel" class="text-xs font-mono text-muted"></span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <button data-size="8" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
+            <span class="block font-poke text-lg text-ink font-bold">8</span>
+            <span class="block text-[11px] text-muted">~12 duelos</span>
+          </button>
+          <button data-size="16" class="size-btn p-3 rounded-xl border-2 border-rose-500 bg-surface text-left transition">
+            <span class="block font-poke text-lg text-ink font-bold">16</span>
+            <span class="block text-[11px] text-muted">~32 duelos · Recomendado</span>
+          </button>
+          <button data-size="32" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
+            <span class="block font-poke text-lg text-ink font-bold">32</span>
+            <span class="block text-[11px] text-muted">~80 duelos</span>
+          </button>
+          <button data-size="64" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
+            <span class="block font-poke text-lg text-ink font-bold">64</span>
+            <span class="block text-[11px] text-muted">~190 duelos</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action -->
+      <div class="pt-4 flex items-center justify-end gap-3 border-t border-line">
+        <button id="btnStartWizardTournament" class="w-full sm:w-auto px-6 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-sm transition shadow-sm">
+          Comenzar Torneo →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW: BATTLE (Duelo 1 vs 1) -->
+    <!-- ========================================== -->
+    <section id="viewBattle" class="hidden space-y-4 max-w-4xl mx-auto w-full py-1">
+      <!-- Progress and undo bar -->
+      <div class="flex items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2">
+          <span id="battleRoundLabel" class="font-mono text-muted">Duelo 1</span>
+        </div>
+        <div class="flex-1 max-w-xs bg-line rounded-full h-1.5 overflow-hidden">
+          <div id="battleProgressBar" class="bg-rose-500 h-full w-0 transition-all duration-300"></div>
+        </div>
+        <button id="btnUndoBattle" class="font-medium text-muted hover:text-ink px-2.5 py-1 rounded-full border border-line text-xs transition">
+          Deshacer
+        </button>
+      </div>
+
+      <!-- Question -->
+      <div class="text-center">
+        <h2 class="font-poke font-bold text-xl sm:text-2xl text-ink">
+          ¿Cuál de los dos te gusta más?
+        </h2>
+      </div>
+
+      <!-- Duel matchup grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-1">
+        
+        <!-- Left card -->
+        <button id="cardLeft" class="group relative flex flex-col justify-between p-5 sm:p-7 rounded-3xl border-2 border-line bg-surface hover:border-rose-500 hover:shadow-lg transition text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-500">
+          <div class="flex items-center justify-between mb-3">
+            <span id="cardLeftDex" class="font-mono text-xs font-bold text-muted">#000</span>
+            <span id="cardLeftRegion" class="text-[11px] font-mono uppercase text-muted"></span>
+          </div>
+
+          <div class="flex-1 flex items-center justify-center py-4 min-h-[220px]">
+            <img id="cardLeftImg" src="" alt="" class="max-h-48 sm:max-h-56 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-200" />
+          </div>
+
+          <div class="space-y-2 mt-2">
+            <h3 id="cardLeftName" class="font-poke font-bold text-2xl sm:text-3xl text-ink group-hover:text-rose-600 transition"></h3>
+            <div id="cardLeftTypes" class="flex flex-wrap gap-1.5"></div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs text-muted">
+            <span class="font-medium group-hover:text-rose-600 transition">Elegir este</span>
+            <span class="font-mono text-[11px] hidden sm:inline opacity-70 group-hover:opacity-100">Tecla ←</span>
+          </div>
+        </button>
+
+        <!-- Right card -->
+        <button id="cardRight" class="group relative flex flex-col justify-between p-5 sm:p-7 rounded-3xl border-2 border-line bg-surface hover:border-rose-500 hover:shadow-lg transition text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-500">
+          <div class="flex items-center justify-between mb-3">
+            <span id="cardRightDex" class="font-mono text-xs font-bold text-muted">#000</span>
+            <span id="cardRightRegion" class="text-[11px] font-mono uppercase text-muted"></span>
+          </div>
+
+          <div class="flex-1 flex items-center justify-center py-4 min-h-[220px]">
+            <img id="cardRightImg" src="" alt="" class="max-h-48 sm:max-h-56 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-200" />
+          </div>
+
+          <div class="space-y-2 mt-2">
+            <h3 id="cardRightName" class="font-poke font-bold text-2xl sm:text-3xl text-ink group-hover:text-rose-600 transition"></h3>
+            <div id="cardRightTypes" class="flex flex-wrap gap-1.5"></div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs text-muted">
+            <span class="font-medium group-hover:text-rose-600 transition">Elegir este</span>
+            <span class="font-mono text-[11px] hidden sm:inline opacity-70 group-hover:opacity-100">Tecla →</span>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW: RESULTS (Podio y Ranking Completo) -->
+    <!-- ========================================== -->
+    <section id="viewResults" class="hidden space-y-8 max-w-3xl mx-auto w-full py-4 text-center">
+      <div class="space-y-2">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/10 text-amber-600">
+          Torneo Finalizado
+        </span>
+        <h2 class="font-poke font-bold text-3xl sm:text-4xl text-ink">
+          Tu Ranking Pokémon
+        </h2>
+      </div>
+
+      <!-- PODIUM TOP 3 -->
+      <div id="podiumContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left items-end">
+        <!-- Injected via JS: 2nd place, 1st place (center & elevated), 3rd place -->
+      </div>
+
+      <!-- Rest of ranking -->
+      <div class="space-y-3 text-left">
+        <h3 class="font-poke font-bold text-lg text-ink">Resto de tus posiciones</h3>
+        <div id="restRankingContainer" class="divide-y divide-line border border-line rounded-2xl bg-surface overflow-hidden">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-line">
+        <button id="btnShareChallenge" class="px-5 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-xs sm:text-sm transition flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+          <span id="shareBtnLabel">Copiar link de desafío</span>
+        </button>
+        <button id="btnPlayAgain" class="px-5 py-2.5 rounded-full border border-line bg-surface hover:border-ink text-ink font-medium text-xs sm:text-sm transition">
+          Jugar de nuevo
+        </button>
+        <button id="btnGoHomeResults" class="px-5 py-2.5 rounded-full border border-line bg-surface hover:border-ink text-muted hover:text-ink font-medium text-xs sm:text-sm transition">
+          Portada
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Audio element for winner cry -->
+  <audio id="winnerCryAudio" preload="none"></audio>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-canvas py-4 sm:py-6 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-between text-xs text-muted">
+      <div>Rankea2 · Pokémon</div>
+      <div>
+        Creado por <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="font-medium text-ink hover:text-rose-600 underline underline-offset-4 transition">fedep1011</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/pokemon/main.js"></script>
+</body>
+</html>

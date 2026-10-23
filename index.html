@@ -223,17 +223,17 @@
         </div>
       </a>
 
-      <div id="card-pokemon" class="arena-poke rounded-xl overflow-hidden flex flex-col select-none">
+      <a href="/pokemon/" class="arena-poke rounded-xl overflow-hidden flex flex-col group">
         <div class="relative h-44 sm:h-52 w-full overflow-hidden bg-[#18181B]">
           <div class="half-split-left bg-[#EF4444] flex items-center justify-center p-3">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
                  alt="Charizard"
-                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]" />
+                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300" />
           </div>
           <div class="half-split-right bg-[#3B82F6] flex items-center justify-center p-3">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
                  alt="Blastoise"
-                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]" />
+                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300" />
           </div>
           <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
             <line x1="55" y1="0" x2="44" y2="100" stroke="#111111" stroke-width="2.5" />
@@ -244,11 +244,11 @@
           <h2 class="font-poke font-extrabold text-2xl sm:text-3xl tracking-tight uppercase leading-none">
             Pokémon
           </h2>
-          <span class="px-2.5 py-1 rounded bg-[#111111] text-[#FFDE59] dark:bg-[#FFDE59] dark:text-[#111111] font-poke text-[11px] font-bold uppercase tracking-wider">
-            Pronto
+          <span class="w-9 h-9 rounded bg-[#111111] text-[#FFDE59] dark:bg-[#FFDE59] dark:text-[#111111] flex items-center justify-center font-poke text-base font-bold group-hover:translate-x-0.5 transition shrink-0">
+            →
           </span>
         </div>
-      </div>
+      </a>
 
       <div id="card-flores" class="arena-flora rounded-2xl overflow-hidden flex flex-col select-none">
         <div class="relative h-44 sm:h-52 w-full bg-[#DDE5DD] overflow-hidden">
@@ -343,8 +343,8 @@
       {
         id: 'pokemon',
         title: 'Pokémon',
-        href: '#card-pokemon',
-        active: false,
+        href: '/pokemon/',
+        active: true,
         thumb: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png',
         pillClass: 'bg-[#FFDE59] text-[#111111] border-[#111111] dark:bg-[#1F1D16] dark:text-[#FFDE59] dark:border-[#FFDE59]',
         fontClass: 'font-poke font-extrabold text-lg uppercase'
