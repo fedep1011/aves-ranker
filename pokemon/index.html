@@ -6,7 +6,7 @@
   <title>Rankea2 · Pokémon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&family=Pixelify+Sans:wght@400;600&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/tailwind.css" />
   <style>
     .font-pixel-title {
@@ -49,6 +49,92 @@
     html.dark .battle-platform {
       background: radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
     }
+
+    /* Pixel Art UI 8-bit / 16-bit: bloques cuadrados, marcos escalonados, sombras duras, colores planos */
+    body.pixel-ui {
+      font-family: 'Pixelify Sans', 'VT323', monospace;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: none;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+    html.dark body.pixel-ui {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    }
+    body.pixel-ui h1, body.pixel-ui h2, body.pixel-ui h3 {
+      font-family: 'Press Start 2P', monospace;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    body.pixel-ui [class*="rounded"]:not(.animate-spin) {
+      border-radius: 0 !important;
+    }
+    body.pixel-ui * {
+      backdrop-filter: none !important;
+    }
+    body.pixel-ui section [class*="bg-surface"][class*="border"] {
+      border: 0 !important;
+      margin: 3px;
+      box-shadow:
+        0 -3px 0 0 currentColor,
+        0 3px 0 0 currentColor,
+        -3px 0 0 0 currentColor,
+        3px 0 0 0 currentColor,
+        6px 9px 0 0 rgba(0, 0, 0, 0.9),
+        9px 6px 0 0 rgba(0, 0, 0, 0.9);
+    }
+    html.dark body.pixel-ui section [class*="bg-surface"][class*="border"] {
+      box-shadow:
+        0 -3px 0 0 currentColor,
+        0 3px 0 0 currentColor,
+        -3px 0 0 0 currentColor,
+        3px 0 0 0 currentColor,
+        6px 9px 0 0 rgba(255, 222, 89, 0.35),
+        9px 6px 0 0 rgba(255, 222, 89, 0.35);
+    }
+    body.pixel-ui section button[class*="border"] {
+      border-width: 3px;
+      box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.9);
+    }
+    html.dark body.pixel-ui section button[class*="border"] {
+      box-shadow: 4px 4px 0 0 rgba(255, 222, 89, 0.35);
+    }
+    body.pixel-ui section button:not(:disabled):active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.9);
+    }
+    body.pixel-ui .battle-platform { background: none; }
+    body.pixel-ui [class*="shadow-"], body.pixel-ui [class*="drop-shadow"] { filter: none; }
+    body.pixel-ui img, body.pixel-ui canvas {
+      image-rendering: pixelated;
+    }
+    body.pixel-ui input[type="range"] {
+      height: 12px;
+      border: 3px solid currentColor;
+      background: transparent;
+    }
+    body.pixel-ui input[type="range"]::-webkit-slider-thumb {
+      width: 18px;
+      height: 22px;
+      border-radius: 0;
+      border: 3px solid #111111;
+      background: #f43f5e;
+    }
+    body.pixel-ui input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 22px;
+      border-radius: 0;
+      border: 3px solid #111111;
+      background: #f43f5e;
+    }
+    body.pixel-ui ::-webkit-scrollbar { width: 12px; height: 12px; }
+    body.pixel-ui ::-webkit-scrollbar-thumb { background: #f43f5e; border: 3px solid #111111; }
+    body.pixel-ui ::-webkit-scrollbar-track { background: rgba(0,0,0,0.15); }
   </style>
   <script>
     (function () {
@@ -59,7 +145,7 @@
     })();
   </script>
 </head>
-<body class="min-h-[100dvh] font-sans flex flex-col bg-canvas text-ink selection:bg-rose-600 selection:text-white">
+<body class="pixel-ui min-h-[100dvh] font-sans flex flex-col bg-canvas text-ink selection:bg-rose-600 selection:text-white">
 
   <!-- STICKY COMPACT HEADER -->
   <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
