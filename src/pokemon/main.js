@@ -1,625 +1,693 @@
 import {
-  interleavedBisectSortAsync,
   createSeededRng,
-  fisherYatesShuffle,
-  estimateTotalSteps,
   buildChallengeUrl,
   parseChallengeUrl
 } from '../core/tournament.js';
 import { bindThemeButton } from '../core/theme.js';
 import { POKEMON_TYPES, GENERATIONS, getTypeBadge } from './types.js';
 
-// DOM Elements
-const views = {
-  home: document.getElementById('viewHome'),
-  wizard: document.getElementById('viewWizard'),
-  battle: document.getElementById('viewBattle'),
-  results: document.getElementById('viewResults')
-};
-
-const elements = {
-  themeToggle: document.getElementById('themeToggle'),
-  themeLabel: document.getElementById('themeLabel'),
-  themeIconDark: document.getElementById('themeIconDark'),
-  themeIconLight: document.getElementById('themeIconLight'),
-  btnHeaderBrand: document.getElementById('btnHeaderBrand'),
-  btnHeaderHome: document.getElementById('btnHeaderHome'),
-  challengeBanner: document.getElementById('challengeBanner'),
-  btnAcceptChallenge: document.getElementById('btnAcceptChallenge'),
-  btnDismissChallenge: document.getElementById('btnDismissChallenge'),
-  btnPresetKanto: document.getElementById('btnPresetKanto'),
-  btnPresetStarters: document.getElementById('btnPresetStarters'),
-  btnPresetLegendaries: document.getElementById('btnPresetLegendaries'),
-  btnOpenWizard: document.getElementById('btnOpenWizard'),
-  btnCancelWizard: document.getElementById('btnCancelWizard'),
-  genPillContainer: document.getElementById('genPillContainer'),
-  typePillContainer: document.getElementById('typePillContainer'),
-  availableCountLabel: document.getElementById('availableCountLabel'),
-  btnStartWizardTournament: document.getElementById('btnStartWizardTournament'),
-  battleRoundLabel: document.getElementById('battleRoundLabel'),
-  battleProgressBar: document.getElementById('battleProgressBar'),
-  btnUndoBattle: document.getElementById('btnUndoBattle'),
-  cardLeft: document.getElementById('cardLeft'),
-  cardLeftDex: document.getElementById('cardLeftDex'),
-  cardLeftRegion: document.getElementById('cardLeftRegion'),
-  cardLeftLoader: document.getElementById('cardLeftLoader'),
-  cardLeftImg: document.getElementById('cardLeftImg'),
-  cardLeftName: document.getElementById('cardLeftName'),
-  cardLeftTypes: document.getElementById('cardLeftTypes'),
-  cardRight: document.getElementById('cardRight'),
-  cardRightDex: document.getElementById('cardRightDex'),
-  cardRightRegion: document.getElementById('cardRightRegion'),
-  cardRightLoader: document.getElementById('cardRightLoader'),
-  cardRightImg: document.getElementById('cardRightImg'),
-  cardRightName: document.getElementById('cardRightName'),
-  cardRightTypes: document.getElementById('cardRightTypes'),
-  podiumContainer: document.getElementById('podiumContainer'),
-  restRankingContainer: document.getElementById('restRankingContainer'),
-  btnShareChallenge: document.getElementById('btnShareChallenge'),
-  shareBtnLabel: document.getElementById('shareBtnLabel'),
-  btnPlayAgain: document.getElementById('btnPlayAgain'),
-  btnGoHomeResults: document.getElementById('btnGoHomeResults'),
-  winnerCryAudio: document.getElementById('winnerCryAudio')
-};
-
 // Preset IDs
 const PRESET_KANTO_IDS = [1, 4, 7, 25, 94, 150, 143, 133, 130, 149, 65, 131, 68, 59, 123, 39];
 const PRESET_STARTERS_IDS = [3, 6, 9, 154, 157, 160, 254, 257, 260, 389, 392, 658, 724, 815, 908, 911];
 const PRESET_LEGENDARIES_IDS = [150, 151, 249, 250, 384, 382, 383, 483, 484, 487, 493, 643, 644, 716, 888, 1007];
 
-// State
-const state = {
-  allPokemon: [],
-  pokemonMap: new Map(),
-  imageCache: new Set(),
-  wizard: {
-    gen: 'all',
-    type: 'all',
-    rarity: 'all',
-    size: 16
-  },
-  currentTournament: {
-    candidates: [],
-    seed: 1,
+const app = {
+  state: {
+    allPokemon: [],
+    pokemonMap: new Map(),
+    candidatePool: [],
+    initialBattlePool: [],
+    currentLeft: null,
+    currentRight: null,
+    battleStep: 0,
+    estimatedTotalSteps: 0,
+    battleSeed: 1337,
     choiceHistory: [],
     replayDecisions: [],
     pendingResolver: null,
-    stepCount: 0,
-    estimatedSteps: 32,
-    activeLeft: null,
-    activeRight: null,
-    ranking: []
+    finalRanking: [],
+    imageCache: new Set(),
+    selectedGen: 'all',
+    selectedType: 'all',
+    selectedRarity: 'all',
+    limit: 16,
+    samplingMode: 'popular',
+    playingChallengeMode: false,
+    incomingChallenge: null,
+    winnerAudioEl: null,
+    audioUnlocked: false
   },
-  isSelecting: false,
-  incomingChallenge: null
-};
 
-// Init Theme toggle
-bindThemeButton({
-  buttonId: 'themeToggle',
-  labelId: 'themeLabel',
-  iconDarkId: 'themeIconDark',
-  iconLightId: 'themeIconLight'
-});
-
-// View Navigation
-function switchView(viewName) {
-  Object.keys(views).forEach(key => {
-    if (views[key]) {
-      views[key].classList.toggle('hidden', key !== viewName);
-    }
-  });
-
-  if (elements.btnHeaderHome) {
-    elements.btnHeaderHome.classList.toggle('hidden', viewName === 'home');
-  }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Load Dataset
-async function loadDataset() {
-  try {
-    const res = await fetch('/data/pokemon.json');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    state.allPokemon = await res.json();
-    state.pokemonMap.clear();
-    state.allPokemon.forEach(p => state.pokemonMap.set(p.id, p));
-    initWizardOptions();
-    checkIncomingChallenge();
-  } catch (err) {
-    console.error('Error cargando catálogo Pokémon:', err);
-  }
-}
-
-// Check Incoming URL Challenge (?r=id1.id2...)
-function checkIncomingChallenge() {
-  const challenge = parseChallengeUrl();
-  if (challenge && challenge.ids && challenge.ids.length >= 2) {
-    state.incomingChallenge = challenge;
-    elements.challengeBanner?.classList.remove('hidden');
-  }
-}
-
-// Preload sprites of candidates in background (2KB per sprite, finishes in ~50ms)
-function preloadCandidateImages(pool) {
-  if (!pool || !Array.isArray(pool)) return;
-  pool.forEach(p => {
-    if (p && p.sprite && !state.imageCache.has(p.sprite)) {
-      const img = new Image();
-      img.src = p.sprite;
-      img.onload = () => state.imageCache.add(p.sprite);
-    }
-  });
-}
-
-// Wizard Setup
-function initWizardOptions() {
-  // Gens
-  if (elements.genPillContainer) {
-    elements.genPillContainer.innerHTML = GENERATIONS.map(g => `
-      <button data-gen="${g.id}" class="gen-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition ${g.id === 'all' ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
-        ${g.name}
-      </button>
-    `).join('');
-
-    elements.genPillContainer.querySelectorAll('.gen-pill').forEach(btn => {
-      btn.addEventListener('click', () => {
-        state.wizard.gen = btn.dataset.gen;
-        elements.genPillContainer.querySelectorAll('.gen-pill').forEach(b => {
-          const active = b.dataset.gen === state.wizard.gen;
-          b.className = `gen-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition ${active ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}`;
-        });
-        updateAvailableCount();
-      });
+  async init() {
+    bindThemeButton({
+      buttonId: 'themeToggle',
+      labelId: 'themeLabel',
+      iconDarkId: 'themeIconDark',
+      iconLightId: 'themeIconLight'
     });
-  }
 
-  // Types
-  if (elements.typePillContainer) {
-    const typeEntries = Object.entries(POKEMON_TYPES);
-    elements.typePillContainer.innerHTML = `
-      <button data-type="all" class="type-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition border-rose-500 bg-rose-500/10 text-rose-500 font-bold">
-        Todos los tipos
-      </button>
-      ${typeEntries.map(([k, t]) => `
-        <button data-type="${k}" class="type-pill px-3 py-1.5 rounded-xl border border-line bg-surface text-ink text-xs font-pixel transition hover:border-muted flex items-center gap-1.5">
-          <span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: ${t.color}"></span>
-          ${t.name}
-        </button>
-      `).join('')}
-    `;
+    this.state.winnerAudioEl = document.getElementById('winnerCryAudio');
+    this.bindKeyboard();
+    await this.loadDataset();
+    this.renderWizardFilters();
+    this.checkIncomingChallenge();
+  },
 
-    elements.typePillContainer.querySelectorAll('.type-pill').forEach(btn => {
-      btn.addEventListener('click', () => {
-        state.wizard.type = btn.dataset.type;
-        elements.typePillContainer.querySelectorAll('.type-pill').forEach(b => {
-          const active = b.dataset.type === state.wizard.type;
-          b.classList.toggle('border-rose-500', active);
-          b.classList.toggle('bg-rose-500/10', active);
-          b.classList.toggle('text-rose-500', active);
-          b.classList.toggle('font-bold', active);
-          b.classList.toggle('border-line', !active);
-        });
-        updateAvailableCount();
-      });
-    });
-  }
-
-  // Rarity buttons
-  document.querySelectorAll('.rarity-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.wizard.rarity = btn.dataset.rarity;
-      document.querySelectorAll('.rarity-btn').forEach(b => {
-        const active = b.dataset.rarity === state.wizard.rarity;
-        b.classList.toggle('border-rose-500', active);
-        b.classList.toggle('bg-rose-500/10', active);
-        b.classList.toggle('text-rose-500', active);
-        b.classList.toggle('font-bold', active);
-      });
-      updateAvailableCount();
-    });
-  });
-
-  // Size buttons
-  document.querySelectorAll('.size-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.wizard.size = parseInt(btn.dataset.size, 10);
-      document.querySelectorAll('.size-btn').forEach(b => {
-        const active = parseInt(b.dataset.size, 10) === state.wizard.size;
-        b.classList.toggle('border-rose-500', active);
-        b.classList.toggle('border-2', active);
-        b.classList.toggle('border-line', !active);
-      });
-    });
-  });
-
-  updateAvailableCount();
-}
-
-function getFilteredPokemon() {
-  return state.allPokemon.filter(p => {
-    // Gen
-    if (state.wizard.gen !== 'all' && p.gen !== parseInt(state.wizard.gen, 10)) {
-      return false;
-    }
-    // Type
-    if (state.wizard.type !== 'all' && !p.types.includes(state.wizard.type.toLowerCase())) {
-      return false;
-    }
-    // Rarity
-    if (state.wizard.rarity === 'starter' && !p.is_starter) {
-      return false;
-    }
-    if (state.wizard.rarity === 'legendary' && !p.is_legendary) {
-      return false;
-    }
-    return true;
-  });
-}
-
-function updateAvailableCount() {
-  const matching = getFilteredPokemon();
-  if (elements.availableCountLabel) {
-    elements.availableCountLabel.textContent = `${matching.length} Pokémon disponibles`;
-  }
-  if (elements.btnStartWizardTournament) {
-    elements.btnStartWizardTournament.disabled = matching.length < 4;
-    elements.btnStartWizardTournament.textContent = matching.length < 4
-      ? 'Filtro muy estricto (mínimo 4)'
-      : `Comenzar Torneo (${Math.min(matching.length, state.wizard.size)} criaturas) →`;
-  }
-}
-
-// Start Tournament with candidate pool
-function startTournamentWithCandidates(candidates) {
-  if (!candidates || candidates.length < 2) return;
-
-  preloadCandidateImages(candidates);
-
-  const seed = Math.floor(Math.random() * 999999) + 1;
-  const rng = createSeededRng(seed);
-  const shuffled = fisherYatesShuffle(candidates, rng);
-
-  state.currentTournament = {
-    candidates: shuffled,
-    seed,
-    choiceHistory: [],
-    replayDecisions: [],
-    pendingResolver: null,
-    stepCount: 0,
-    estimatedSteps: estimateTotalSteps(shuffled.length),
-    activeLeft: null,
-    activeRight: null,
-    ranking: []
-  };
-
-  switchView('battle');
-  runTournamentEngine();
-}
-
-// Engine execution with replay support for undo
-async function runTournamentEngine() {
-  const t = state.currentTournament;
-
-  // Abort previous running promise if any
-  if (t.pendingResolver) {
+  async loadDataset() {
     try {
-      t.pendingResolver.reject(new Error('ResetRun'));
-    } catch (_) {}
-    t.pendingResolver = null;
-  }
+      const res = await fetch('/data/pokemon.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      this.state.allPokemon = data;
+      this.state.pokemonMap.clear();
+      data.forEach(p => this.state.pokemonMap.set(p.id, p));
+      this.state.candidatePool = [...data];
+    } catch (err) {
+      console.error('Error cargando catálogo Pokémon:', err);
+    }
+  },
 
-  const askPreference = (left, right) => {
-    t.stepCount++;
+  checkIncomingChallenge() {
+    const challenge = parseChallengeUrl();
+    if (challenge && challenge.ids && challenge.ids.length >= 2) {
+      this.state.incomingChallenge = challenge;
+      const banner = document.getElementById('challengeBanner');
+      if (banner) banner.classList.remove('hidden');
+    }
+  },
+
+  dismissChallengeBanner() {
+    const banner = document.getElementById('challengeBanner');
+    if (banner) banner.classList.add('hidden');
+  },
+
+  acceptChallenge() {
+    this.dismissChallengeBanner();
+    if (!this.state.incomingChallenge) return;
+    const candidates = this.state.incomingChallenge.ids
+      .map(rawId => this.state.pokemonMap.get(parseInt(rawId, 10)))
+      .filter(Boolean);
+    if (candidates.length >= 2) {
+      this.state.candidatePool = candidates;
+      this.state.limit = candidates.length;
+      this.startBattleGame(true);
+    }
+  },
+
+  goToView(viewId) {
+    const viewIds = ['viewHome', 'viewStepPlace', 'viewStepTraits', 'viewStepSize', 'viewBattle', 'viewResults'];
+    viewIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('hidden', id !== viewId);
+    });
+
+    const btnHome = document.getElementById('btnHeaderHome');
+    if (btnHome) {
+      btnHome.classList.toggle('hidden', viewId === 'viewHome');
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
+
+  renderWizardFilters() {
+    // Step 1: Regions / Gens
+    const genBox = document.getElementById('genPillContainer');
+    if (genBox) {
+      genBox.innerHTML = GENERATIONS.map(g => `
+        <button type="button" onclick="app.setGenFilter('${g.id}')"
+          class="gen-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition ${g.id === this.state.selectedGen ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
+          ${g.name}
+        </button>
+      `).join('');
+    }
+
+    // Step 2: Types
+    const typeBox = document.getElementById('typePillContainer');
+    if (typeBox) {
+      const typeEntries = Object.entries(POKEMON_TYPES);
+      typeBox.innerHTML = `
+        <button type="button" onclick="app.setTypeFilter('all')"
+          class="type-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition ${this.state.selectedType === 'all' ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
+          Todos los tipos
+        </button>
+        ${typeEntries.map(([k, t]) => `
+          <button type="button" onclick="app.setTypeFilter('${k}')"
+            class="type-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition hover:border-muted flex items-center gap-1.5 ${this.state.selectedType === k ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink'}">
+            <span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: ${t.color}"></span>
+            ${t.name}
+          </button>
+        `).join('')}
+      `;
+    }
+
+    this.updateMatchingCount();
+  },
+
+  setGenFilter(genId) {
+    this.state.selectedGen = genId;
+    this.renderWizardFilters();
+  },
+
+  setTypeFilter(typeKey) {
+    this.state.selectedType = typeKey;
+    this.renderWizardFilters();
+  },
+
+  setRarityFilter(rarity) {
+    this.state.selectedRarity = rarity;
+    document.querySelectorAll('.rarity-btn').forEach(b => {
+      const active = b.dataset.rarity === rarity;
+      b.classList.toggle('border-rose-500', active);
+      b.classList.toggle('bg-rose-500/10', active);
+      b.classList.toggle('text-rose-500', active);
+      b.classList.toggle('font-bold', active);
+    });
+    this.updateMatchingCount();
+  },
+
+  getFilteredPool() {
+    return this.state.allPokemon.filter(p => {
+      if (this.state.selectedGen !== 'all' && p.gen !== parseInt(this.state.selectedGen, 10)) {
+        return false;
+      }
+      if (this.state.selectedType !== 'all' && !p.types.includes(this.state.selectedType.toLowerCase())) {
+        return false;
+      }
+      if (this.state.selectedRarity === 'starter' && !p.is_starter) {
+        return false;
+      }
+      if (this.state.selectedRarity === 'legendary' && !p.is_legendary) {
+        return false;
+      }
+      return true;
+    });
+  },
+
+  updateMatchingCount() {
+    const matching = this.getFilteredPool();
+    this.state.candidatePool = matching;
+    const countEl = document.getElementById('step3TotalFound');
+    if (countEl) countEl.textContent = matching.length;
+
+    const summaryEl = document.getElementById('step3FilterSummary');
+    if (summaryEl) summaryEl.textContent = this.getHumanSummary();
+
+    const launchBtn = document.getElementById('btnLaunchGame');
+    if (launchBtn) {
+      launchBtn.disabled = matching.length < 2;
+      launchBtn.classList.toggle('opacity-40', matching.length < 2);
+    }
+
+    this.onLimitChange(this.state.limit);
+  },
+
+  onLimitChange(val) {
+    const poolCount = this.state.candidatePool.length || 16;
+    let n = parseInt(val, 10) || 16;
+    n = Math.min(poolCount, n);
+    this.state.limit = n;
+
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      const active = parseInt(btn.dataset.size, 10) === n;
+      btn.classList.toggle('border-rose-500', active);
+      btn.classList.toggle('border-2', active);
+      btn.classList.toggle('border-line', !active);
+    });
+
+    const estDecisions = Math.max(1, Math.round(n * Math.log2(n) * 0.82));
+    const clicksEl = document.getElementById('effortClicksBigNumber');
+    if (clicksEl) clicksEl.textContent = estDecisions;
+  },
+
+  setSamplingMode(mode) {
+    this.state.samplingMode = mode;
+    const btnPop = document.getElementById('btnSamplePopular');
+    const btnRnd = document.getElementById('btnSampleRandom');
+    if (btnPop && btnRnd) {
+      if (mode === 'popular') {
+        btnPop.className = 'p-3 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-left transition';
+        btnRnd.className = 'p-3 rounded-xl border border-line bg-surface text-left transition';
+      } else {
+        btnRnd.className = 'p-3 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-left transition';
+        btnPop.className = 'p-3 rounded-xl border border-line bg-surface text-left transition';
+      }
+    }
+  },
+
+  getHumanSummary() {
+    const genObj = GENERATIONS.find(g => g.id === this.state.selectedGen);
+    const genTxt = genObj ? genObj.name : 'Todas las regiones';
+    const typeTxt = this.state.selectedType !== 'all' ? `Tipo ${POKEMON_TYPES[this.state.selectedType]?.name}` : 'Todos los tipos';
+    const rarityTxt = this.state.selectedRarity === 'starter' ? 'Iniciales' : this.state.selectedRarity === 'legendary' ? 'Legendarios' : '';
+    return [genTxt, typeTxt, rarityTxt].filter(Boolean).join(' · ');
+  },
+
+  // Presets
+  launchPreset(presetName) {
+    let ids = PRESET_KANTO_IDS;
+    if (presetName === 'starters') ids = PRESET_STARTERS_IDS;
+    else if (presetName === 'legendaries') ids = PRESET_LEGENDARIES_IDS;
+
+    const candidates = ids.map(id => this.state.pokemonMap.get(id)).filter(Boolean);
+    this.state.candidatePool = candidates;
+    this.state.limit = candidates.length;
+    this.startBattleGame(false);
+  },
+
+  // ============================================================
+  // BATTLE ENGINE: Interleaved Bisect Sort with Undo & Preload
+  // ============================================================
+  async startBattleGame(fromChallenge = false) {
+    if (this.state.candidatePool.length < 2) return;
+
+    let pool = [...this.state.candidatePool];
+    const n = Math.min(pool.length, this.state.limit);
+
+    this.shuffle(pool);
+    pool = pool.slice(0, n);
+
+    this.state.initialBattlePool = [...pool];
+    this.state.battleSeed = Math.floor(Math.random() * 2147483646) + 1;
+    this.state.choiceHistory = [];
+    this.state.replayDecisions = [];
+    this.state.battleStep = 0;
+    this.state.estimatedTotalSteps = Math.max(1, Math.round(pool.length * Math.log2(pool.length) * 0.82));
+
+    const badge = document.getElementById('battleCategoryBadge');
+    if (badge) badge.textContent = fromChallenge ? 'Desafío compartido' : this.getHumanSummary();
+
+    const estWrap = document.getElementById('battleTotalEstWrap');
+    if (estWrap) estWrap.textContent = `/~${this.state.estimatedTotalSteps}`;
+
+    // Preload candidate sprites in background
+    this.preloadPoolImagesInBackground(pool);
+
+    this.goToView('viewBattle');
+    await this.runTournamentSortFromHistory();
+  },
+
+  async runTournamentSortFromHistory() {
+    this.state.battleStep = 0;
+    const poolCopy = [...(this.state.initialBattlePool || [])];
+    const seed = this.state.battleSeed || 1337;
+    try {
+      const sorted = await this.interleavedBisectSortAsync(poolCopy, seed);
+      this.state.finalRanking = sorted;
+      await this.renderResultsView();
+    } catch (_) {}
+  },
+
+  undoLastBattleChoice() {
+    if (!this.state.choiceHistory || this.state.choiceHistory.length === 0 || !this.state.pendingResolver) return;
+    const prev = this.state.pendingResolver;
+    this.state.pendingResolver = null;
+    prev.reject(new Error('UndoStep'));
+
+    this.state.choiceHistory.pop();
+    this.state.replayDecisions = [...this.state.choiceHistory];
+    this.runTournamentSortFromHistory();
+  },
+
+  preloadPoolImagesInBackground(pool) {
+    for (const p of pool) {
+      if (p && p.sprite && !this.state.imageCache.has(p.sprite)) {
+        const img = new Image();
+        img.src = p.sprite;
+        this.state.imageCache.add(p.sprite);
+      }
+    }
+  },
+
+  shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  },
+
+  createSeededRng(seed) {
+    let s = (seed >>> 0) || 1;
+    return () => {
+      s = (s + 0x6D2B79F5) >>> 0;
+      let t = Math.imul(s ^ (s >>> 15), 1 | s);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  },
+
+  async interleavedBisectSortAsync(arr, seed = 1) {
+    if (arr.length <= 1) return arr;
+    const rng = this.createSeededRng(seed);
+    let runs = arr.map(item => [item]);
+    let lastPairIds = new Set();
+
+    const createBisectNode = (A, B) => {
+      if (A.length === 0) return { done: true, result: B };
+      if (B.length === 0) return { done: true, result: A };
+      return {
+        done: false,
+        A,
+        B,
+        midB: Math.floor(B.length / 2),
+        low: 0,
+        high: A.length,
+        leftChild: null,
+        rightChild: null,
+        result: null
+      };
+    };
+
+    const collectReadyLeaves = (node, out) => {
+      if (!node || node.done) return;
+      if (node.leftChild || node.rightChild) {
+        collectReadyLeaves(node.leftChild, out);
+        collectReadyLeaves(node.rightChild, out);
+      } else if (node.low < node.high) {
+        out.push(node);
+      }
+    };
+
+    const refreshNode = (node) => {
+      if (!node || node.done) return;
+      if (node.leftChild || node.rightChild) {
+        refreshNode(node.leftChild);
+        refreshNode(node.rightChild);
+        if (node.leftChild.done && node.rightChild.done) {
+          const bItem = node.B[node.midB];
+          node.result = [...node.leftChild.result, bItem, ...node.rightChild.result];
+          node.done = true;
+        }
+        return;
+      }
+      if (node.low >= node.high) {
+        const splitPos = node.low;
+        const bLeft = node.B.slice(0, node.midB);
+        const bRight = node.B.slice(node.midB + 1);
+        const aLeft = node.A.slice(0, splitPos);
+        const aRight = node.A.slice(splitPos);
+
+        node.leftChild = createBisectNode(aLeft, bLeft);
+        node.rightChild = createBisectNode(aRight, bRight);
+        refreshNode(node);
+      }
+    };
+
+    while (runs.length > 1) {
+      const roots = [];
+      const carry = [];
+      for (let i = 0; i < runs.length; i += 2) {
+        if (i + 1 < runs.length) {
+          const flipRunOrder = rng() < 0.5;
+          const firstRun = flipRunOrder ? runs[i + 1] : runs[i];
+          const secondRun = flipRunOrder ? runs[i] : runs[i + 1];
+          const root = createBisectNode(firstRun, secondRun);
+          refreshNode(root);
+          roots.push(root);
+        } else {
+          carry.push(runs[i]);
+        }
+      }
+
+      while (true) {
+        const readyLeaves = [];
+        for (const r of roots) {
+          refreshNode(r);
+          collectReadyLeaves(r, readyLeaves);
+        }
+        if (readyLeaves.length === 0) break;
+
+        let bestCandidates = [];
+        let bestOverlap = Infinity;
+        for (const leaf of readyLeaves) {
+          const midA = Math.floor((leaf.low + leaf.high) / 2);
+          const itemA = leaf.A[midA];
+          const itemB = leaf.B[leaf.midB];
+          const overlap = (lastPairIds.has(itemA.id) ? 1 : 0) + (lastPairIds.has(itemB.id) ? 1 : 0);
+          if (overlap < bestOverlap) {
+            bestOverlap = overlap;
+            bestCandidates = [leaf];
+          } else if (overlap === bestOverlap) {
+            bestCandidates.push(leaf);
+          }
+        }
+
+        const chosenLeaf = bestCandidates[Math.floor(rng() * bestCandidates.length)];
+        const midA = Math.floor((chosenLeaf.low + chosenLeaf.high) / 2);
+        const itemA = chosenLeaf.A[midA];
+        const itemB = chosenLeaf.B[chosenLeaf.midB];
+
+        const swapSides = rng() < 0.5;
+        const leftItem = swapSides ? itemB : itemA;
+        const rightItem = swapSides ? itemA : itemB;
+
+        const pick = await this.askUserPreference(leftItem, rightItem);
+        const bBeatsA = swapSides ? (pick === 'left') : (pick === 'right');
+
+        lastPairIds = new Set([itemA.id, itemB.id]);
+
+        if (bBeatsA) {
+          chosenLeaf.high = midA;
+        } else {
+          chosenLeaf.low = midA + 1;
+        }
+
+        refreshNode(chosenLeaf);
+      }
+
+      runs = roots.map(r => r.result).concat(carry);
+    }
+
+    return runs[0] || [];
+  },
+
+  askUserPreference(leftPokemon, rightPokemon) {
+    this.state.battleStep++;
 
     // Fast-forward through recorded decisions when undoing a step
-    if (t.replayDecisions && t.replayDecisions.length > 0) {
-      const recordedPick = t.replayDecisions.shift();
+    if (this.state.replayDecisions && this.state.replayDecisions.length > 0) {
+      const recordedPick = this.state.replayDecisions.shift();
       return Promise.resolve(recordedPick);
     }
 
-    t.activeLeft = left;
-    t.activeRight = right;
-    updateBattleProgress();
+    this.state.currentLeft = leftPokemon;
+    this.state.currentRight = rightPokemon;
+
+    const done = this.state.battleStep - 1;
+    const est = Math.max(this.state.battleStep, this.state.estimatedTotalSteps);
+    const pct = Math.min(98, Math.round((done / est) * 100));
+
+    const stepNumEl = document.getElementById('battleStepNum');
+    if (stepNumEl) stepNumEl.textContent = this.state.battleStep;
+    const pctEl = document.getElementById('battlePctText');
+    if (pctEl) pctEl.textContent = `${pct}%`;
+    const barEl = document.getElementById('battleProgressBar');
+    if (barEl) barEl.style.width = `${Math.max(4, pct)}%`;
+
+    const undoBtn = document.getElementById('btnUndoBattleChoice');
+    if (undoBtn) {
+      const hasHistory = this.state.choiceHistory && this.state.choiceHistory.length > 0;
+      undoBtn.classList.toggle('hidden', !hasHistory);
+      undoBtn.classList.toggle('inline-flex', Boolean(hasHistory));
+    }
+
+    // Show loaders while sprites swap
+    document.getElementById('loaderLeft')?.classList.remove('hidden');
+    document.getElementById('loaderRight')?.classList.remove('hidden');
+
+    // Update Left
+    const imgL = document.getElementById('imgLeft');
+    if (imgL) {
+      imgL.alt = leftPokemon.name;
+      imgL.src = leftPokemon.sprite;
+    }
+    const nameL = document.getElementById('nameLeft');
+    if (nameL) nameL.textContent = leftPokemon.name;
+    const dexL = document.getElementById('dexLeft');
+    if (dexL) dexL.textContent = `#${String(leftPokemon.id).padStart(3, '0')}`;
+    const regL = document.getElementById('regLeft');
+    if (regL) regL.textContent = `${leftPokemon.region} · Gen ${leftPokemon.gen}`;
+    const typesL = document.getElementById('typesLeft');
+    if (typesL) typesL.innerHTML = leftPokemon.types.map(t => getTypeBadge(t)).join('');
+
+    // Update Right
+    const imgR = document.getElementById('imgRight');
+    if (imgR) {
+      imgR.alt = rightPokemon.name;
+      imgR.src = rightPokemon.sprite;
+    }
+    const nameR = document.getElementById('nameRight');
+    if (nameR) nameR.textContent = rightPokemon.name;
+    const dexR = document.getElementById('dexRight');
+    if (dexR) dexR.textContent = `#${String(rightPokemon.id).padStart(3, '0')}`;
+    const regR = document.getElementById('regRight');
+    if (regR) regR.textContent = `${rightPokemon.region} · Gen ${rightPokemon.gen}`;
+    const typesR = document.getElementById('typesRight');
+    if (typesR) typesR.innerHTML = rightPokemon.types.map(t => getTypeBadge(t)).join('');
+
+    // If images were already pre-cached in memory, hide loaders immediately
+    if (imgL && imgL.complete) this.onBattleImgLoad('left');
+    if (imgR && imgR.complete) this.onBattleImgLoad('right');
 
     return new Promise((resolve, reject) => {
-      t.pendingResolver = { resolve, reject };
-
-      renderBattleCard(
-        left,
-        elements.cardLeftDex,
-        elements.cardLeftRegion,
-        elements.cardLeftImg,
-        elements.cardLeftName,
-        elements.cardLeftTypes,
-        elements.cardLeftLoader
-      );
-
-      renderBattleCard(
-        right,
-        elements.cardRightDex,
-        elements.cardRightRegion,
-        elements.cardRightImg,
-        elements.cardRightName,
-        elements.cardRightTypes,
-        elements.cardRightLoader
-      );
+      this.state.pendingResolver = { resolve, reject };
     });
-  };
+  },
 
-  updateBattleProgress();
+  onBattleImgLoad(side) {
+    const loader = document.getElementById(side === 'left' ? 'loaderLeft' : 'loaderRight');
+    if (loader) loader.classList.add('hidden');
+  },
 
-  try {
-    const finalRanking = await interleavedBisectSortAsync(t.candidates, askPreference, t.seed);
-    t.ranking = finalRanking;
-    showResults(finalRanking);
-  } catch (err) {
-    if (err && err.message === 'UndoStep') {
-      // Cleanly handled by handleUndo
-      return;
-    }
-  }
-}
-
-function updateBattleProgress() {
-  const t = state.currentTournament;
-  const currentStep = t.choiceHistory.length + 1;
-  if (elements.battleRoundLabel) {
-    elements.battleRoundLabel.textContent = `Duelo ${currentStep} de ~${t.estimatedSteps}`;
-  }
-  if (elements.battleProgressBar) {
-    const pct = Math.min(98, Math.round((t.choiceHistory.length / Math.max(1, t.estimatedSteps)) * 100));
-    elements.battleProgressBar.style.width = `${Math.max(4, pct)}%`;
-  }
-  if (elements.btnUndoBattle) {
-    const hasHistory = t.choiceHistory && t.choiceHistory.length > 0;
-    elements.btnUndoBattle.classList.toggle('opacity-40', !hasHistory);
-    elements.btnUndoBattle.disabled = !hasHistory;
-  }
-}
-
-function renderBattleCard(pokemon, dexEl, regEl, imgEl, nameEl, typesEl, loaderEl) {
-  if (!pokemon) return;
-
-  dexEl.textContent = `#${String(pokemon.id).padStart(3, '0')}`;
-  regEl.textContent = `${pokemon.region} · Gen ${pokemon.gen}`;
-  nameEl.textContent = pokemon.name;
-  typesEl.innerHTML = pokemon.types.map(t => getTypeBadge(t)).join('');
-
-  // Sprite loading with indicator
-  if (loaderEl) loaderEl.classList.remove('hidden');
-
-  const spriteUrl = pokemon.sprite;
-  const tempImg = new Image();
-  tempImg.onload = () => {
-    imgEl.src = spriteUrl;
-    imgEl.alt = pokemon.name;
-    if (loaderEl) loaderEl.classList.add('hidden');
-    state.imageCache.add(spriteUrl);
-  };
-  tempImg.onerror = () => {
-    imgEl.src = spriteUrl;
-    if (loaderEl) loaderEl.classList.add('hidden');
-  };
-  tempImg.src = spriteUrl;
-
-  if (tempImg.complete) {
-    imgEl.src = spriteUrl;
-    imgEl.alt = pokemon.name;
-    if (loaderEl) loaderEl.classList.add('hidden');
-  }
-}
-
-function handleDuelChoice(side) {
-  if (state.isSelecting) return;
-  const t = state.currentTournament;
-  if (!t.pendingResolver) return;
-
-  state.isSelecting = true;
-
-  // Flash selected card
-  const cardEl = side === 'left' ? elements.cardLeft : elements.cardRight;
-  cardEl.classList.add('border-rose-500');
-
-  t.choiceHistory.push(side);
-  const resolver = t.pendingResolver.resolve;
-  t.pendingResolver = null;
-
-  setTimeout(() => {
-    cardEl.classList.remove('border-rose-500');
-    state.isSelecting = false;
-    resolver(side);
-  }, 90);
-}
-
-function handleUndo() {
-  const t = state.currentTournament;
-  if (!t.choiceHistory || t.choiceHistory.length === 0 || !t.pendingResolver) return;
-
-  const prev = t.pendingResolver;
-  t.pendingResolver = null;
-  prev.reject(new Error('UndoStep'));
-
-  t.choiceHistory.pop();
-  t.replayDecisions = [...t.choiceHistory];
-  t.stepCount = 0;
-
-  runTournamentEngine();
-}
-
-// Results & Podium
-function showResults(ranking) {
-  switchView('results');
-
-  const winner = ranking[0];
-  const runnerUp = ranking[1];
-  const third = ranking[2];
-
-  // Play Winner Cry (Only sound in the entire tournament, as decided in grill-me)
-  if (winner && winner.cry && elements.winnerCryAudio) {
-    elements.winnerCryAudio.src = winner.cry;
-    elements.winnerCryAudio.volume = 0.6;
-    elements.winnerCryAudio.play().catch(e => console.log('Audio autoplay prevented:', e));
-  }
-
-  // Render Podium (2nd, 1st elevated, 3rd)
-  if (elements.podiumContainer) {
-    elements.podiumContainer.innerHTML = `
-      <!-- 2ND PLACE -->
-      <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-2 sm:order-1">
-        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-2">2° Puesto</span>
-        <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
-          <img src="${runnerUp.sprite}" alt="${runnerUp.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
-        </div>
-        <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${runnerUp.name}</h4>
-        <span class="font-pixel text-[11px] text-muted">#${String(runnerUp.id).padStart(3, '0')}</span>
-        <div class="flex gap-1 mt-2">${runnerUp.types.map(t => getTypeBadge(t)).join('')}</div>
-      </div>
-
-      <!-- 1ST PLACE (GOLD) -->
-      <div class="p-5 sm:p-6 rounded-2xl retro-box border-amber-400 bg-surface flex flex-col items-center text-center order-1 sm:order-2 relative shadow-lg">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-md bg-amber-400 text-zinc-950 font-pixel text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm border border-black">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          Campeón
-        </div>
-        <div class="h-36 sm:h-44 w-full flex items-center justify-center battle-platform rounded-xl mt-2">
-          <img src="${winner.sprite}" alt="${winner.name}" class="pixel-sprite max-h-32 sm:max-h-40 w-auto object-contain" />
-        </div>
-        <h4 class="font-pixel-title text-base sm:text-lg text-ink mt-3">${winner.name}</h4>
-        <span class="font-pixel text-[11px] text-muted">#${String(winner.id).padStart(3, '0')} · ${winner.region}</span>
-        <div class="flex gap-1.5 mt-2">${winner.types.map(t => getTypeBadge(t)).join('')}</div>
-        
-        <button id="btnReplayWinnerCry" class="mt-4 px-3 py-1.5 rounded-lg border border-line bg-surface hover:border-amber-400 text-[11px] font-pixel text-muted hover:text-ink transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-          Reescuchar rugido
-        </button>
-      </div>
-
-      <!-- 3RD PLACE -->
-      <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-3">
-        <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-amber-700/10 text-amber-700 dark:text-amber-400 mb-2">3° Puesto</span>
-        <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
-          <img src="${third.sprite}" alt="${third.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
-        </div>
-        <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${third.name}</h4>
-        <span class="font-pixel text-[11px] text-muted">#${String(third.id).padStart(3, '0')}</span>
-        <div class="flex gap-1 mt-2">${third.types.map(t => getTypeBadge(t)).join('')}</div>
-      </div>
-    `;
-
-    document.getElementById('btnReplayWinnerCry')?.addEventListener('click', () => {
-      if (elements.winnerCryAudio) {
-        elements.winnerCryAudio.currentTime = 0;
-        elements.winnerCryAudio.play();
+  unlockWinnerAudioOnGesture() {
+    try {
+      if (this.state.audioUnlocked || !this.state.winnerAudioEl) return;
+      this.state.winnerAudioEl.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
+      this.state.winnerAudioEl.volume = 0.01;
+      const p = this.state.winnerAudioEl.play();
+      if (p && typeof p.then === 'function') {
+        p.then(() => {
+          this.state.winnerAudioEl.pause();
+          this.state.winnerAudioEl.currentTime = 0;
+          this.state.winnerAudioEl.volume = 0.7;
+          this.state.audioUnlocked = true;
+        }).catch(() => {});
       }
-    });
-  }
+    } catch (_) {}
+  },
 
-  // Rest of positions (#4 to #N)
-  if (elements.restRankingContainer) {
-    const rest = ranking.slice(3);
-    if (rest.length === 0) {
-      elements.restRankingContainer.parentElement.classList.add('hidden');
-    } else {
-      elements.restRankingContainer.parentElement.classList.remove('hidden');
-      elements.restRankingContainer.innerHTML = rest.map((p, idx) => `
-        <div class="flex items-center justify-between p-3 sm:px-4 hover:bg-canvas/50 transition">
-          <div class="flex items-center gap-3">
-            <span class="font-pixel text-xs font-bold text-muted w-6">#${idx + 4}</span>
-            <img src="${p.sprite}" alt="${p.name}" class="pixel-sprite w-10 h-10 object-contain" />
-            <div>
-              <span class="font-pixel-title text-xs text-ink block">${p.name}</span>
-              <span class="font-pixel text-[10px] text-muted">#${String(p.id).padStart(3, '0')} · ${p.region}</span>
-            </div>
-          </div>
-          <div class="flex gap-1">${p.types.map(t => getTypeBadge(t)).join('')}</div>
-        </div>
-      `).join('');
+  chooseCandidate(side) {
+    if (!this.state.pendingResolver) return;
+    this.unlockWinnerAudioOnGesture();
+
+    // Visual card click flash
+    const cardEl = document.getElementById(side === 'left' ? 'cardLeftBtn' : 'cardRightBtn');
+    if (cardEl) {
+      cardEl.classList.add('border-rose-500');
+      setTimeout(() => cardEl.classList.remove('border-rose-500'), 100);
     }
-  }
-}
 
-// Event Bindings
-function bindEvents() {
-  // Navigation
-  elements.btnHeaderBrand?.addEventListener('click', () => switchView('home'));
-  elements.btnHeaderHome?.addEventListener('click', () => switchView('home'));
-  elements.btnCancelWizard?.addEventListener('click', () => switchView('home'));
-  elements.btnGoHomeResults?.addEventListener('click', () => switchView('home'));
-  elements.btnPlayAgain?.addEventListener('click', () => {
-    startTournamentWithCandidates(state.currentTournament.candidates);
-  });
+    if (!this.state.choiceHistory) this.state.choiceHistory = [];
+    this.state.choiceHistory.push(side);
+    const r = this.state.pendingResolver.resolve;
+    this.state.pendingResolver = null;
+    r(side);
+  },
 
-  // Open Wizard
-  elements.btnOpenWizard?.addEventListener('click', () => switchView('wizard'));
-
-  // Presets
-  elements.btnPresetKanto?.addEventListener('click', () => {
-    const candidates = PRESET_KANTO_IDS.map(id => state.pokemonMap.get(id)).filter(Boolean);
-    startTournamentWithCandidates(candidates);
-  });
-
-  elements.btnPresetStarters?.addEventListener('click', () => {
-    const candidates = PRESET_STARTERS_IDS.map(id => state.pokemonMap.get(id)).filter(Boolean);
-    startTournamentWithCandidates(candidates);
-  });
-
-  elements.btnPresetLegendaries?.addEventListener('click', () => {
-    const candidates = PRESET_LEGENDARIES_IDS.map(id => state.pokemonMap.get(id)).filter(Boolean);
-    startTournamentWithCandidates(candidates);
-  });
-
-  // Start from Wizard
-  elements.btnStartWizardTournament?.addEventListener('click', () => {
-    const pool = getFilteredPokemon();
-    const count = Math.min(pool.length, state.wizard.size);
-    const rng = createSeededRng(Date.now());
-    const candidates = fisherYatesShuffle(pool, rng).slice(0, count);
-    startTournamentWithCandidates(candidates);
-  });
-
-  // Duel Card Clicks
-  elements.cardLeft?.addEventListener('click', () => handleDuelChoice('left'));
-  elements.cardRight?.addEventListener('click', () => handleDuelChoice('right'));
-  elements.btnUndoBattle?.addEventListener('click', handleUndo);
-
-  // Keyboard navigation
-  window.addEventListener('keydown', (e) => {
-    if (views.battle && !views.battle.classList.contains('hidden')) {
+  bindKeyboard() {
+    window.addEventListener('keydown', (e) => {
+      const onBattle = !document.getElementById('viewBattle')?.classList.contains('hidden');
+      if (!onBattle || !this.state.pendingResolver) return;
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
-        handleDuelChoice('left');
+        this.chooseCandidate('left');
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
-        handleDuelChoice('right');
+        this.chooseCandidate('right');
       } else if (e.key === 'z' && (e.ctrlKey || e.metaKey)) {
         e.preventDefault();
-        handleUndo();
+        this.undoLastBattleChoice();
+      }
+    });
+  },
+
+  // ============================================================
+  // RESULTS & PODIUM VIEW
+  // ============================================================
+  async renderResultsView() {
+    this.goToView('viewResults');
+    const ranking = this.state.finalRanking;
+    const winner = ranking[0];
+    const runnerUp = ranking[1];
+    const third = ranking[2];
+
+    // Winner Cry (Only sound in the entire tournament, as decided in grill-me)
+    if (winner && winner.cry && this.state.winnerAudioEl) {
+      this.state.winnerAudioEl.src = winner.cry;
+      this.state.winnerAudioEl.volume = 0.7;
+      this.state.winnerAudioEl.play().catch(e => console.log('Audio autoplay prevented:', e));
+    }
+
+    const podBox = document.getElementById('podiumContainer');
+    if (podBox && winner) {
+      podBox.innerHTML = `
+        <!-- 2ND PLACE -->
+        <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-2 sm:order-1">
+          <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-2">2° Puesto</span>
+          <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
+            <img src="${runnerUp.sprite}" alt="${runnerUp.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
+          </div>
+          <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${runnerUp.name}</h4>
+          <span class="font-pixel text-[11px] text-muted">#${String(runnerUp.id).padStart(3, '0')}</span>
+          <div class="flex gap-1 mt-2">${runnerUp.types.map(t => getTypeBadge(t)).join('')}</div>
+        </div>
+
+        <!-- 1ST PLACE (CHAMPION) -->
+        <div class="p-5 sm:p-6 rounded-2xl retro-box border-amber-400 bg-surface flex flex-col items-center text-center order-1 sm:order-2 relative shadow-lg">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-md bg-amber-400 text-zinc-950 font-pixel text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm border border-black">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Campeón
+          </div>
+          <div class="h-36 sm:h-44 w-full flex items-center justify-center battle-platform rounded-xl mt-2">
+            <img src="${winner.sprite}" alt="${winner.name}" class="pixel-sprite max-h-32 sm:max-h-40 w-auto object-contain" />
+          </div>
+          <h4 class="font-pixel-title text-base sm:text-lg text-ink mt-3">${winner.name}</h4>
+          <span class="font-pixel text-[11px] text-muted">#${String(winner.id).padStart(3, '0')} · ${winner.region}</span>
+          <div class="flex gap-1.5 mt-2">${winner.types.map(t => getTypeBadge(t)).join('')}</div>
+          
+          <button type="button" onclick="app.replayWinnerCry()" class="mt-4 px-3 py-1.5 rounded-lg border border-line bg-surface hover:border-amber-400 text-[11px] font-pixel text-muted hover:text-ink transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+            Reescuchar rugido
+          </button>
+        </div>
+
+        <!-- 3RD PLACE -->
+        <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-3">
+          <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-amber-700/10 text-amber-700 dark:text-amber-400 mb-2">3° Puesto</span>
+          <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
+            <img src="${third.sprite}" alt="${third.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
+          </div>
+          <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${third.name}</h4>
+          <span class="font-pixel text-[11px] text-muted">#${String(third.id).padStart(3, '0')}</span>
+          <div class="flex gap-1 mt-2">${third.types.map(t => getTypeBadge(t)).join('')}</div>
+        </div>
+      `;
+    }
+
+    const restBox = document.getElementById('restRankingContainer');
+    if (restBox) {
+      const rest = ranking.slice(3);
+      if (rest.length === 0) {
+        restBox.parentElement.classList.add('hidden');
+      } else {
+        restBox.parentElement.classList.remove('hidden');
+        restBox.innerHTML = rest.map((p, idx) => `
+          <div class="flex items-center justify-between p-3 sm:px-4 hover:bg-canvas/50 transition">
+            <div class="flex items-center gap-3">
+              <span class="font-pixel text-xs font-bold text-muted w-6">#${idx + 4}</span>
+              <img src="${p.sprite}" alt="${p.name}" class="pixel-sprite w-10 h-10 object-contain" />
+              <div>
+                <span class="font-pixel-title text-xs text-ink block">${p.name}</span>
+                <span class="font-pixel text-[10px] text-muted">#${String(p.id).padStart(3, '0')} · ${p.region}</span>
+              </div>
+            </div>
+            <div class="flex gap-1">${p.types.map(t => getTypeBadge(t)).join('')}</div>
+          </div>
+        `).join('');
       }
     }
-  });
+  },
 
-  // Challenge Banner Actions
-  elements.btnDismissChallenge?.addEventListener('click', () => {
-    elements.challengeBanner?.classList.add('hidden');
-  });
-
-  elements.btnAcceptChallenge?.addEventListener('click', () => {
-    if (state.incomingChallenge && state.incomingChallenge.ids) {
-      const candidates = state.incomingChallenge.ids
-        .map(rawId => state.pokemonMap.get(parseInt(rawId, 10)))
-        .filter(Boolean);
-      elements.challengeBanner?.classList.add('hidden');
-      startTournamentWithCandidates(candidates);
+  replayWinnerCry() {
+    if (this.state.winnerAudioEl) {
+      this.state.winnerAudioEl.currentTime = 0;
+      this.state.winnerAudioEl.play();
     }
-  });
+  },
 
-  // Share Challenge Button
-  elements.btnShareChallenge?.addEventListener('click', async () => {
-    const t = state.currentTournament;
-    if (!t.candidates || t.candidates.length === 0) return;
-    const ids = t.candidates.map(p => p.id);
+  async shareChallenge() {
+    const pool = this.state.initialBattlePool;
+    if (!pool || pool.length === 0) return;
+    const ids = pool.map(p => p.id);
     const challengeUrl = buildChallengeUrl({
       baseUrl: window.location.origin + window.location.pathname,
       ids,
@@ -628,18 +696,17 @@ function bindEvents() {
 
     try {
       await navigator.clipboard.writeText(challengeUrl);
-      if (elements.shareBtnLabel) {
-        elements.shareBtnLabel.textContent = '¡Link copiado!';
-        setTimeout(() => {
-          elements.shareBtnLabel.textContent = 'Copiar link de desafío';
-        }, 2500);
+      const label = document.getElementById('shareBtnLabel');
+      if (label) {
+        label.textContent = '¡Link copiado!';
+        setTimeout(() => { label.textContent = 'Copiar link de desafío'; }, 2500);
       }
     } catch {
       prompt('Copia este link de desafío:', challengeUrl);
     }
-  });
-}
+  }
+};
 
-// Bootstrap
-bindEvents();
-loadDataset();
+window.app = app;
+window.addEventListener('DOMContentLoaded', () => app.init());
+export default app;

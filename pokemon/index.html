@@ -69,7 +69,7 @@
           Rankea2
         </a>
         <span class="text-muted/50 text-sm">/</span>
-        <button id="btnHeaderBrand" class="font-poke font-bold text-lg sm:text-xl tracking-tight text-ink hover:opacity-80 transition">
+        <button onclick="app.goToView('viewHome')" class="font-poke font-bold text-lg sm:text-xl tracking-tight text-ink hover:opacity-80 transition">
           Pokémon
         </button>
         <span class="hidden md:inline text-[11px] text-muted tracking-wide ml-1">
@@ -78,7 +78,7 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <button id="btnHeaderHome" class="hidden text-xs font-medium text-ink hover:text-rose-600 px-3 py-1 rounded-full border border-line bg-surface/80 transition">
+        <button id="btnHeaderHome" onclick="app.goToView('viewHome')" class="hidden text-xs font-pixel text-ink hover:text-rose-500 px-3 py-1 rounded-full border border-line bg-surface/80 transition">
           Inicio
         </button>
 
@@ -109,20 +109,20 @@
       <div id="challengeBanner" class="hidden bg-surface border-2 border-rose-500 rounded-2xl p-4 sm:p-5 text-left shadow-sm space-y-3">
         <div class="flex items-start justify-between gap-3">
           <div>
-            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-rose-500/10 text-rose-600 font-bold mb-1">Desafío recibido</span>
+            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel uppercase tracking-wider bg-rose-500/10 text-rose-500 font-bold mb-1">Desafío recibido</span>
             <h2 class="font-poke text-xl sm:text-2xl text-ink">¿Hacés tu ranking con los mismos Pokémon?</h2>
           </div>
-          <button id="btnDismissChallenge" class="text-muted hover:text-ink text-lg leading-none w-7 h-7 rounded-full border border-line">×</button>
+          <button onclick="app.dismissChallengeBanner()" class="text-muted hover:text-ink text-lg leading-none w-7 h-7 rounded-full border border-line">×</button>
         </div>
         <div class="flex items-center gap-2">
-          <button id="btnAcceptChallenge" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-medium text-xs sm:text-sm transition">
+          <button onclick="app.acceptChallenge()" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-pixel text-xs transition">
             Aceptar desafío →
           </button>
         </div>
       </div>
 
       <div class="space-y-3">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-line bg-surface text-muted">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-pixel border border-line bg-surface text-muted">
           1025 criaturas · Generaciones 1 a 9
         </span>
         <h1 class="font-poke font-bold text-3xl sm:text-5xl text-ink tracking-tight">
@@ -135,7 +135,7 @@
 
       <!-- Quick presets -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left">
-        <button id="btnPresetKanto" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
+        <button onclick="app.launchPreset('kanto')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-[10px] font-pixel font-bold text-rose-500 uppercase tracking-wider">Kanto · Gen 1</span>
@@ -147,7 +147,7 @@
           <span class="inline-flex items-center text-xs font-pixel text-rose-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
 
-        <button id="btnPresetStarters" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
+        <button onclick="app.launchPreset('starters')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-[10px] font-pixel font-bold text-amber-500 uppercase tracking-wider">Iniciales</span>
@@ -159,7 +159,7 @@
           <span class="inline-flex items-center text-xs font-pixel text-amber-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
 
-        <button id="btnPresetLegendaries" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
+        <button onclick="app.launchPreset('legendaries')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-[10px] font-pixel font-bold text-purple-500 uppercase tracking-wider">Mitos y Leyendas</span>
@@ -174,7 +174,7 @@
 
       <!-- Custom tournament launcher -->
       <div class="pt-2">
-        <button id="btnOpenWizard" class="w-full sm:w-auto px-6 py-3 rounded-full bg-surface border border-line hover:border-ink text-ink font-medium text-sm transition shadow-xs">
+        <button onclick="app.goToView('viewStepPlace')" class="w-full sm:w-auto px-6 py-3 rounded-xl retro-btn bg-surface text-ink font-pixel text-xs transition">
           Armar torneo personalizado (Filtros por Tipo, Gen y Cantidad) →
         </button>
       </div>
@@ -182,80 +182,147 @@
 
 
     <!-- ========================================== -->
-    <!-- VIEW: WIZARD (Configurador paso a paso) -->
+    <!-- VIEW: STEP 1 (Región / Generación) -->
     <!-- ========================================== -->
-    <section id="viewWizard" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
+    <section id="viewStepPlace" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
       <div class="flex items-center justify-between border-b border-line pb-4">
         <div>
-          <span class="text-xs font-mono text-muted uppercase tracking-wider">Configurador</span>
-          <h2 class="font-poke font-bold text-2xl text-ink">Personalizá tu torneo</h2>
+          <span class="text-xs font-pixel text-muted uppercase tracking-wider">Paso 1 de 3 · Región</span>
+          <h2 class="font-poke font-bold text-2xl text-ink">¿De qué región quieres ver Pokémon?</h2>
         </div>
-        <button id="btnCancelWizard" class="text-xs font-medium text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
+        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
           Cancelar
         </button>
       </div>
 
-      <!-- Step 1: Generación / Región -->
       <div class="space-y-3">
-        <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">1. Región o Generación</label>
-        <div id="genPillContainer" class="flex flex-wrap gap-1.5 sm:gap-2">
-          <!-- Populated by JS -->
-        </div>
+        <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Regiones disponibles</label>
+        <div id="genPillContainer" class="flex flex-wrap gap-2"></div>
       </div>
 
-      <!-- Step 2: Tipo Elemental -->
-      <div class="space-y-3">
-        <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">2. Tipo elemental</label>
-        <div id="typePillContainer" class="flex flex-wrap gap-1.5 sm:gap-2">
-          <!-- Populated by JS -->
+      <div class="pt-4 flex items-center justify-between border-t border-line">
+        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink">
+          ← Portada
+        </button>
+        <button onclick="app.goToView('viewStepTraits')" class="px-5 py-2.5 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs">
+          Siguiente: Tipo y Rareza →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW: STEP 2 (Tipo y Rareza) -->
+    <!-- ========================================== -->
+    <section id="viewStepTraits" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
+      <div class="flex items-center justify-between border-b border-line pb-4">
+        <div>
+          <span class="text-xs font-pixel text-muted uppercase tracking-wider">Paso 2 de 3 · Tipo y Rareza</span>
+          <h2 class="font-poke font-bold text-2xl text-ink">¿Qué tipo o categoría prefieres?</h2>
         </div>
+        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
+          Cancelar
+        </button>
       </div>
 
-      <!-- Step 3: Rareza -->
+      <!-- Tipos elementales -->
       <div class="space-y-3">
-        <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">3. Categoría especial</label>
+        <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Tipo elemental</label>
+        <div id="typePillContainer" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Categoría / Rareza -->
+      <div class="space-y-3">
+        <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Categoría especial</label>
         <div class="grid grid-cols-3 gap-2">
-          <button data-rarity="all" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-center transition">
+          <button data-rarity="all" onclick="app.setRarityFilter('all')" class="rarity-btn px-3 py-2 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-rose-500 font-pixel font-bold text-xs text-center transition">
             Todos
           </button>
-          <button data-rarity="starter" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-center transition">
+          <button data-rarity="starter" onclick="app.setRarityFilter('starter')" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface font-pixel text-xs text-ink text-center transition">
             Solo Iniciales
           </button>
-          <button data-rarity="legendary" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface text-xs font-medium text-ink text-center transition">
+          <button data-rarity="legendary" onclick="app.setRarityFilter('legendary')" class="rarity-btn px-3 py-2 rounded-xl border border-line bg-surface font-pixel text-xs text-ink text-center transition">
             Legendarios
           </button>
         </div>
       </div>
 
-      <!-- Step 4: Tamaño del Torneo -->
+      <div class="pt-4 flex items-center justify-between border-t border-line">
+        <button onclick="app.goToView('viewStepPlace')" class="text-xs font-pixel text-muted hover:text-ink">
+          ← Cambiar región
+        </button>
+        <button onclick="app.goToView('viewStepSize')" class="px-5 py-2.5 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs">
+          Siguiente: Confirmar →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW: STEP 3 (Tamaño y Confirmar partida) -->
+    <!-- ========================================== -->
+    <section id="viewStepSize" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
+      <div class="flex items-center justify-between border-b border-line pb-4">
+        <div>
+          <span class="text-xs font-pixel text-muted uppercase tracking-wider">Paso 3 de 3 · Confirmar partida</span>
+          <h2 class="font-poke font-bold text-2xl text-ink">Tu selección está lista</h2>
+        </div>
+        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
+          Cancelar
+        </button>
+      </div>
+
+      <!-- Resumen -->
+      <div class="p-4 rounded-xl retro-box bg-surface border-ink space-y-1">
+        <span class="text-[10px] font-pixel text-muted uppercase tracking-wider">Resumen de partida</span>
+        <div id="step3FilterSummary" class="font-pixel-title text-xs sm:text-sm text-ink"></div>
+        <div class="text-xs font-pixel text-rose-500 pt-1">
+          <span id="step3TotalFound">0</span> criaturas disponibles en este filtro
+        </div>
+      </div>
+
+      <!-- Tamaño del Torneo -->
       <div class="space-y-3">
         <div class="flex items-center justify-between">
-          <label class="text-xs font-mono font-bold uppercase tracking-wider text-muted">4. Cantidad de Pokémon</label>
-          <span id="availableCountLabel" class="text-xs font-mono text-muted"></span>
+          <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Cantidad de Pokémon</label>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          <button data-size="8" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
-            <span class="block font-poke text-lg text-ink font-bold">8</span>
-            <span class="block text-[11px] text-muted">~12 duelos</span>
+          <button data-size="8" onclick="app.onLimitChange(8)" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
+            <span class="block font-pixel-title text-base text-ink">8</span>
+            <span class="block font-pixel text-[10px] text-muted mt-1">~12 duelos</span>
           </button>
-          <button data-size="16" class="size-btn p-3 rounded-xl border-2 border-rose-500 bg-surface text-left transition">
-            <span class="block font-poke text-lg text-ink font-bold">16</span>
-            <span class="block text-[11px] text-muted">~32 duelos · Recomendado</span>
+          <button data-size="16" onclick="app.onLimitChange(16)" class="size-btn p-3 rounded-xl border-2 border-rose-500 bg-surface text-left transition">
+            <span class="block font-pixel-title text-base text-ink">16</span>
+            <span class="block font-pixel text-[10px] text-muted mt-1">~32 duelos</span>
           </button>
-          <button data-size="32" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
-            <span class="block font-poke text-lg text-ink font-bold">32</span>
-            <span class="block text-[11px] text-muted">~80 duelos</span>
+          <button data-size="32" onclick="app.onLimitChange(32)" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
+            <span class="block font-pixel-title text-base text-ink">32</span>
+            <span class="block font-pixel text-[10px] text-muted mt-1">~80 duelos</span>
           </button>
-          <button data-size="64" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
-            <span class="block font-poke text-lg text-ink font-bold">64</span>
-            <span class="block text-[11px] text-muted">~190 duelos</span>
+          <button data-size="64" onclick="app.onLimitChange(64)" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
+            <span class="block font-pixel-title text-base text-ink">64</span>
+            <span class="block font-pixel text-[10px] text-muted mt-1">~190 duelos</span>
           </button>
         </div>
       </div>
 
-      <!-- Action -->
-      <div class="pt-4 flex items-center justify-end gap-3 border-t border-line">
-        <button id="btnStartWizardTournament" class="w-full sm:w-auto px-6 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-sm transition shadow-sm">
+      <!-- Clics estimados -->
+      <div class="p-3.5 rounded-xl border border-line bg-surface flex items-center justify-between">
+        <div>
+          <span class="font-pixel text-xs text-ink block">Duración estimada</span>
+          <span class="text-[11px] text-muted">Elecciones rápidas 1 vs 1</span>
+        </div>
+        <div class="text-right">
+          <span class="font-pixel-title text-xl text-rose-500">~<span id="effortClicksBigNumber">32</span></span>
+          <span class="font-pixel text-[10px] text-muted block">duelos</span>
+        </div>
+      </div>
+
+      <div class="pt-4 flex items-center justify-between border-t border-line">
+        <button onclick="app.goToView('viewStepTraits')" class="text-xs font-pixel text-muted hover:text-ink">
+          ← Ajustar filtros
+        </button>
+        <button id="btnLaunchGame" onclick="app.startBattleGame()" class="px-6 py-3 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs">
           Comenzar Torneo →
         </button>
       </div>
@@ -263,19 +330,25 @@
 
 
     <!-- ========================================== -->
-    <!-- VIEW: BATTLE (Duelo 1 vs 1) -->
+    <!-- VIEW: BATTLE (Duelo 1 vs 1 exacto a Aves) -->
     <!-- ========================================== -->
     <section id="viewBattle" class="hidden space-y-4 max-w-4xl mx-auto w-full py-1">
+      
       <!-- Progress and undo bar -->
       <div class="flex items-center justify-between gap-3 text-xs">
         <div class="flex items-center gap-2">
-          <span id="battleRoundLabel" class="font-mono text-muted">Duelo 1</span>
+          <span id="battleCategoryBadge" class="font-pixel text-[10px] text-rose-500 uppercase tracking-wider truncate max-w-[180px] sm:max-w-md"></span>
+          <span class="font-pixel text-muted text-[10px]">
+            Duelo <span id="battleStepNum">1</span><span id="battleTotalEstWrap" class="text-muted/75">/~32</span> · <span id="battlePctText">0%</span>
+          </span>
         </div>
         <div class="flex-1 max-w-xs bg-line rounded-full h-1.5 overflow-hidden">
           <div id="battleProgressBar" class="bg-rose-500 h-full w-0 transition-all duration-300"></div>
         </div>
-        <button id="btnUndoBattle" class="font-medium text-muted hover:text-ink px-2.5 py-1 rounded-full border border-line text-xs transition">
-          Deshacer
+        <button id="btnUndoBattleChoice" type="button" onclick="app.undoLastBattleChoice()"
+          class="hidden items-center gap-1 px-3 py-1 rounded-lg retro-btn bg-surface font-pixel text-[10px] text-ink">
+          <span>↶</span>
+          <span>Deshacer</span>
         </button>
       </div>
 
@@ -287,26 +360,28 @@
       </div>
 
       <!-- Duel matchup grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-1">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-1">
         
         <!-- Left card -->
-        <button id="cardLeft" class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
+        <button id="cardLeftBtn" type="button" onclick="app.chooseCandidate('left')"
+          class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
           <div class="flex items-center justify-between mb-2">
-            <span id="cardLeftDex" class="font-pixel text-xs font-bold text-rose-500">#000</span>
-            <span id="cardLeftRegion" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
+            <span id="dexLeft" class="font-pixel text-xs font-bold text-rose-500">#000</span>
+            <span id="regLeft" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
           <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] battle-platform rounded-xl overflow-hidden">
             <!-- Loading indicator -->
-            <div id="cardLeftLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-surface/80 backdrop-blur-xs z-10 transition-opacity duration-150">
-              <span class="font-pixel text-[11px] text-muted animate-pulse">Cargando sprite...</span>
+            <div id="loaderLeft" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-surface/85 backdrop-blur-xs transition-opacity">
+              <span class="font-pixel text-[10px] text-muted animate-pulse">Cargando sprite...</span>
             </div>
-            <img id="cardLeftImg" src="" alt="" class="pixel-sprite max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
+            <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')"
+              class="pixel-sprite relative z-10 max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
           </div>
 
           <div class="space-y-2 mt-3">
-            <h3 id="cardLeftName" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
-            <div id="cardLeftTypes" class="flex flex-wrap gap-1.5"></div>
+            <h3 id="nameLeft" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
+            <div id="typesLeft" class="flex flex-wrap gap-1.5"></div>
           </div>
 
           <div class="mt-4 pt-3 border-t-2 border-line flex items-center justify-between text-xs text-muted">
@@ -316,23 +391,25 @@
         </button>
 
         <!-- Right card -->
-        <button id="cardRight" class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
+        <button id="cardRightBtn" type="button" onclick="app.chooseCandidate('right')"
+          class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
           <div class="flex items-center justify-between mb-2">
-            <span id="cardRightDex" class="font-pixel text-xs font-bold text-rose-500">#000</span>
-            <span id="cardRightRegion" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
+            <span id="dexRight" class="font-pixel text-xs font-bold text-rose-500">#000</span>
+            <span id="regRight" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
           <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] battle-platform rounded-xl overflow-hidden">
             <!-- Loading indicator -->
-            <div id="cardRightLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-surface/80 backdrop-blur-xs z-10 transition-opacity duration-150">
-              <span class="font-pixel text-[11px] text-muted animate-pulse">Cargando sprite...</span>
+            <div id="loaderRight" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-surface/85 backdrop-blur-xs transition-opacity">
+              <span class="font-pixel text-[10px] text-muted animate-pulse">Cargando sprite...</span>
             </div>
-            <img id="cardRightImg" src="" alt="" class="pixel-sprite max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
+            <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')"
+              class="pixel-sprite relative z-10 max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
           </div>
 
           <div class="space-y-2 mt-3">
-            <h3 id="cardRightName" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
-            <div id="cardRightTypes" class="flex flex-wrap gap-1.5"></div>
+            <h3 id="nameRight" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
+            <div id="typesRight" class="flex flex-wrap gap-1.5"></div>
           </div>
 
           <div class="mt-4 pt-3 border-t-2 border-line flex items-center justify-between text-xs text-muted">
@@ -350,7 +427,7 @@
     <!-- ========================================== -->
     <section id="viewResults" class="hidden space-y-8 max-w-3xl mx-auto w-full py-4 text-center">
       <div class="space-y-2">
-        <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/10 text-amber-600">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-pixel font-bold uppercase tracking-wider bg-amber-500/10 text-amber-600">
           Torneo Finalizado
         </span>
         <h2 class="font-poke font-bold text-3xl sm:text-4xl text-ink">
@@ -360,27 +437,27 @@
 
       <!-- PODIUM TOP 3 -->
       <div id="podiumContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left items-end">
-        <!-- Injected via JS: 2nd place, 1st place (center & elevated), 3rd place -->
+        <!-- Injected via JS -->
       </div>
 
       <!-- Rest of ranking -->
       <div class="space-y-3 text-left">
-        <h3 class="font-poke font-bold text-lg text-ink">Resto de tus posiciones</h3>
-        <div id="restRankingContainer" class="divide-y divide-line border border-line rounded-2xl bg-surface overflow-hidden">
+        <h3 class="font-pixel-title text-sm text-ink">Resto de tus posiciones</h3>
+        <div id="restRankingContainer" class="divide-y divide-line border-2 border-line rounded-xl bg-surface overflow-hidden">
           <!-- Injected via JS -->
         </div>
       </div>
 
       <!-- Actions -->
       <div class="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-line">
-        <button id="btnShareChallenge" class="px-5 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-xs sm:text-sm transition flex items-center gap-2">
+        <button onclick="app.shareChallenge()" class="px-5 py-2.5 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs flex items-center gap-2">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
           <span id="shareBtnLabel">Copiar link de desafío</span>
         </button>
-        <button id="btnPlayAgain" class="px-5 py-2.5 rounded-full border border-line bg-surface hover:border-ink text-ink font-medium text-xs sm:text-sm transition">
+        <button onclick="app.startBattleGame()" class="px-5 py-2.5 rounded-xl retro-btn bg-surface text-ink font-pixel text-xs">
           Jugar de nuevo
         </button>
-        <button id="btnGoHomeResults" class="px-5 py-2.5 rounded-full border border-line bg-surface hover:border-ink text-muted hover:text-ink font-medium text-xs sm:text-sm transition">
+        <button onclick="app.goToView('viewHome')" class="px-5 py-2.5 rounded-xl retro-btn bg-surface text-muted hover:text-ink font-pixel text-xs">
           Portada
         </button>
       </div>
@@ -394,9 +471,9 @@
   <!-- FOOTER -->
   <footer class="border-t border-line bg-canvas py-4 sm:py-6 mt-auto">
     <div class="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-between text-xs text-muted">
-      <div>Rankea2 · Pokémon</div>
-      <div>
-        Creado por <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="font-medium text-ink hover:text-rose-600 underline underline-offset-4 transition">fedep1011</a>
+      <div class="font-pixel text-[11px]">Rankea2 · Pokémon</div>
+      <div class="font-pixel text-[11px]">
+        Creado por <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="text-ink hover:text-rose-500 underline underline-offset-4 transition">fedep1011</a>
       </div>
     </div>
   </footer>
