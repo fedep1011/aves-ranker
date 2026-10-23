@@ -6,8 +6,50 @@
   <title>Rankea2 · Pokémon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/tailwind.css" />
+  <style>
+    .font-pixel-title {
+      font-family: 'Press Start 2P', monospace;
+    }
+    .font-pixel {
+      font-family: 'Silkscreen', monospace;
+    }
+    .pixel-sprite {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+    .retro-box {
+      border: 3px solid currentColor;
+      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.9);
+    }
+    html.dark .retro-box {
+      box-shadow: 4px 4px 0px 0px rgba(255, 222, 89, 0.3);
+    }
+    .retro-btn {
+      border: 2px solid currentColor;
+      box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.9);
+      transition: all 0.1s ease-in-out;
+    }
+    html.dark .retro-btn {
+      box-shadow: 3px 3px 0px 0px rgba(255, 222, 89, 0.3);
+    }
+    .retro-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.9);
+    }
+    .retro-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.9);
+    }
+    .battle-platform {
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0) 70%);
+    }
+    html.dark .battle-platform {
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
+    }
+  </style>
   <script>
     (function () {
       const saved = localStorage.getItem('rankea2_theme');
@@ -92,41 +134,41 @@
       </div>
 
       <!-- Quick presets -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-        <button id="btnPresetKanto" class="group p-4 sm:p-5 rounded-2xl border border-line bg-surface hover:border-rose-500 transition shadow-xs flex flex-col justify-between">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left">
+        <button id="btnPresetKanto" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-rose-600 uppercase tracking-wider">Kanto · Gen 1</span>
-              <span class="text-xs text-muted">16 criaturas</span>
+              <span class="text-[10px] font-pixel font-bold text-rose-500 uppercase tracking-wider">Kanto · Gen 1</span>
+              <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
             </div>
-            <h3 class="font-poke text-lg text-ink font-bold group-hover:text-rose-600 transition">Los 16 Clásicos</h3>
-            <p class="text-xs text-muted mt-1">Pikachu, Charizard, Gengar, Mewtwo y los pilares originales.</p>
+            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-rose-500 transition-colors">Los 16 Clásicos</h3>
+            <p class="text-xs text-muted mt-2">Pikachu, Charizard, Gengar, Mewtwo y los pilares originales.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-medium text-rose-600 mt-4 group-hover:translate-x-0.5 transition">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel text-rose-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
 
-        <button id="btnPresetStarters" class="group p-4 sm:p-5 rounded-2xl border border-line bg-surface hover:border-rose-500 transition shadow-xs flex flex-col justify-between">
+        <button id="btnPresetStarters" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-wider">Iniciales</span>
-              <span class="text-xs text-muted">16 criaturas</span>
+              <span class="text-[10px] font-pixel font-bold text-amber-500 uppercase tracking-wider">Iniciales</span>
+              <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
             </div>
-            <h3 class="font-poke text-lg text-ink font-bold group-hover:text-rose-600 transition">Iniciales Icónicos</h3>
-            <p class="text-xs text-muted mt-1">Planta, Fuego y Agua de todas las regiones enfrentados.</p>
+            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-amber-500 transition-colors">Iniciales Icónicos</h3>
+            <p class="text-xs text-muted mt-2">Planta, Fuego y Agua de todas las regiones enfrentados.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-medium text-rose-600 mt-4 group-hover:translate-x-0.5 transition">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel text-amber-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
 
-        <button id="btnPresetLegendaries" class="group p-4 sm:p-5 rounded-2xl border border-line bg-surface hover:border-rose-500 transition shadow-xs flex flex-col justify-between">
+        <button id="btnPresetLegendaries" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-purple-500 uppercase tracking-wider">Mitos y Leyendas</span>
-              <span class="text-xs text-muted">16 criaturas</span>
+              <span class="text-[10px] font-pixel font-bold text-purple-500 uppercase tracking-wider">Mitos y Leyendas</span>
+              <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
             </div>
-            <h3 class="font-poke text-lg text-ink font-bold group-hover:text-rose-600 transition">Legendarios</h3>
-            <p class="text-xs text-muted mt-1">Rayquaza, Lugia, Arceus, Giratina y el poder absoluto.</p>
+            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-purple-500 transition-colors">Legendarios</h3>
+            <p class="text-xs text-muted mt-2">Rayquaza, Lugia, Arceus, Giratina y el poder absoluto.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-medium text-rose-600 mt-4 group-hover:translate-x-0.5 transition">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel text-purple-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
       </div>
 
@@ -248,46 +290,54 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-1">
         
         <!-- Left card -->
-        <button id="cardLeft" class="group relative flex flex-col justify-between p-5 sm:p-7 rounded-3xl border-2 border-line bg-surface hover:border-rose-500 hover:shadow-lg transition text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-500">
-          <div class="flex items-center justify-between mb-3">
-            <span id="cardLeftDex" class="font-mono text-xs font-bold text-muted">#000</span>
-            <span id="cardLeftRegion" class="text-[11px] font-mono uppercase text-muted"></span>
+        <button id="cardLeft" class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
+          <div class="flex items-center justify-between mb-2">
+            <span id="cardLeftDex" class="font-pixel text-xs font-bold text-rose-500">#000</span>
+            <span id="cardLeftRegion" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
-          <div class="flex-1 flex items-center justify-center py-4 min-h-[220px]">
-            <img id="cardLeftImg" src="" alt="" class="max-h-48 sm:max-h-56 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-200" />
+          <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] battle-platform rounded-xl overflow-hidden">
+            <!-- Loading indicator -->
+            <div id="cardLeftLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-surface/80 backdrop-blur-xs z-10 transition-opacity duration-150">
+              <span class="font-pixel text-[11px] text-muted animate-pulse">Cargando sprite...</span>
+            </div>
+            <img id="cardLeftImg" src="" alt="" class="pixel-sprite max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
           </div>
 
-          <div class="space-y-2 mt-2">
-            <h3 id="cardLeftName" class="font-poke font-bold text-2xl sm:text-3xl text-ink group-hover:text-rose-600 transition"></h3>
+          <div class="space-y-2 mt-3">
+            <h3 id="cardLeftName" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
             <div id="cardLeftTypes" class="flex flex-wrap gap-1.5"></div>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs text-muted">
-            <span class="font-medium group-hover:text-rose-600 transition">Elegir este</span>
-            <span class="font-mono text-[11px] hidden sm:inline opacity-70 group-hover:opacity-100">Tecla ←</span>
+          <div class="mt-4 pt-3 border-t-2 border-line flex items-center justify-between text-xs text-muted">
+            <span class="font-pixel text-xs text-rose-500 group-hover:underline">Elegir este</span>
+            <span class="font-pixel text-[10px] hidden sm:inline opacity-70 group-hover:opacity-100">[Tecla ←]</span>
           </div>
         </button>
 
         <!-- Right card -->
-        <button id="cardRight" class="group relative flex flex-col justify-between p-5 sm:p-7 rounded-3xl border-2 border-line bg-surface hover:border-rose-500 hover:shadow-lg transition text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-500">
-          <div class="flex items-center justify-between mb-3">
-            <span id="cardRightDex" class="font-mono text-xs font-bold text-muted">#000</span>
-            <span id="cardRightRegion" class="text-[11px] font-mono uppercase text-muted"></span>
+        <button id="cardRight" class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
+          <div class="flex items-center justify-between mb-2">
+            <span id="cardRightDex" class="font-pixel text-xs font-bold text-rose-500">#000</span>
+            <span id="cardRightRegion" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
-          <div class="flex-1 flex items-center justify-center py-4 min-h-[220px]">
-            <img id="cardRightImg" src="" alt="" class="max-h-48 sm:max-h-56 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-200" />
+          <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] battle-platform rounded-xl overflow-hidden">
+            <!-- Loading indicator -->
+            <div id="cardRightLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-surface/80 backdrop-blur-xs z-10 transition-opacity duration-150">
+              <span class="font-pixel text-[11px] text-muted animate-pulse">Cargando sprite...</span>
+            </div>
+            <img id="cardRightImg" src="" alt="" class="pixel-sprite max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
           </div>
 
-          <div class="space-y-2 mt-2">
-            <h3 id="cardRightName" class="font-poke font-bold text-2xl sm:text-3xl text-ink group-hover:text-rose-600 transition"></h3>
+          <div class="space-y-2 mt-3">
+            <h3 id="cardRightName" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
             <div id="cardRightTypes" class="flex flex-wrap gap-1.5"></div>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs text-muted">
-            <span class="font-medium group-hover:text-rose-600 transition">Elegir este</span>
-            <span class="font-mono text-[11px] hidden sm:inline opacity-70 group-hover:opacity-100">Tecla →</span>
+          <div class="mt-4 pt-3 border-t-2 border-line flex items-center justify-between text-xs text-muted">
+            <span class="font-pixel text-xs text-rose-500 group-hover:underline">Elegir este</span>
+            <span class="font-pixel text-[10px] hidden sm:inline opacity-70 group-hover:opacity-100">[Tecla →]</span>
           </div>
         </button>
 
