@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Rankea2 · Mamíferos y Felinos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tailwind.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('rankea2_theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-[100dvh] font-sans flex flex-col bg-canvas text-ink selection:bg-amber-800 selection:text-white">
+
+  <!-- HEADER -->
+  <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <a href="/" class="font-poke font-extrabold text-base sm:text-lg text-ink tracking-tight hover:opacity-80 transition" title="Ir al Hub">
+          Rankea2
+        </a>
+        <span class="text-muted/50 text-sm">/</span>
+        <button onclick="app.goToView('viewHome')" class="font-serif text-2xl sm:text-3xl tracking-tight text-ink hover:opacity-80 transition">
+          Mamíferos
+        </button>
+        <span class="hidden md:inline text-[11px] text-muted tracking-wide ml-1">
+          Fauna y depredadores
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="btnHeaderHome" onclick="app.goToView('viewHome')" class="hidden text-xs font-medium text-ink hover:text-amber-800 px-3 py-1 rounded-full border border-line bg-surface/80 transition">
+          Inicio
+        </button>
+
+        <button id="themeToggle" type="button" aria-label="Cambiar tema"
+          class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5">
+          <svg id="themeIconDark" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <svg id="themeIconLight" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span id="themeLabel" class="hidden sm:inline">Oscuro</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 flex flex-col justify-start max-w-5xl w-full mx-auto px-4 sm:px-8 py-4 sm:py-8">
+
+    <!-- VIEW HOME -->
+    <section id="viewHome" class="space-y-6 sm:space-y-8 max-w-3xl mx-auto w-full text-center py-4 sm:py-8">
+      
+      <div id="challengeBanner" class="hidden bg-surface border-2 border-amber-800 rounded-2xl p-4 sm:p-5 text-left shadow-sm space-y-3">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-800/10 text-amber-800 font-bold mb-1">Desafío recibido</span>
+            <h2 class="font-serif text-2xl text-ink">¿Hacés tu ranking con los mismos animales?</h2>
+          </div>
+          <button onclick="app.dismissChallengeBanner()" class="text-muted hover:text-ink text-lg leading-none w-7 h-7 rounded-full border border-line">×</button>
+        </div>
+        <button onclick="app.acceptChallenge()" class="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs sm:text-sm transition">
+          Aceptar desafío →
+        </button>
+      </div>
+
+      <div class="space-y-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-line bg-surface text-muted">
+          16 depredadores y grandes mamíferos
+        </span>
+        <h1 class="font-serif text-3xl sm:text-5xl text-ink tracking-tight">
+          Elegí tus mamíferos favoritos.
+        </h1>
+        <p class="text-sm sm:text-base text-muted max-w-xl mx-auto">
+          Grandes felinos, osos y fauna silvestre frente a frente en duelos 1 vs 1.
+        </p>
+      </div>
+
+      <div class="pt-2">
+        <button onclick="app.startBattleGame()" class="px-8 py-3.5 rounded-full bg-amber-800 hover:bg-amber-900 text-white font-medium text-sm sm:text-base transition shadow-sm">
+          Jugar con los 16 clásicos salvajes →
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW BATTLE -->
+    <section id="viewBattle" class="hidden space-y-4 max-w-4xl mx-auto w-full py-1">
+      <div class="flex items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="text-muted">
+            Duelo <span id="battleStepNum">1</span><span id="battleTotalEstWrap" class="text-muted/75">/~32</span> · <span id="battlePctText">0%</span>
+          </span>
+        </div>
+        <div class="flex-1 max-w-xs bg-line rounded-full h-1.5 overflow-hidden">
+          <div id="battleProgressBar" class="bg-amber-800 h-full w-0 transition-all duration-300"></div>
+        </div>
+        <button id="btnUndoBattleChoice" type="button" onclick="app.undoLastBattleChoice()"
+          class="hidden items-center gap-1 px-3 py-1 rounded-full border border-line bg-surface font-medium text-xs text-ink hover:text-amber-800 transition">
+          <span>↶</span>
+          <span>Deshacer</span>
+        </button>
+      </div>
+
+      <div class="text-center">
+        <h2 class="font-serif text-2xl sm:text-3xl text-ink">
+          ¿Cuál de los dos te gusta más?
+        </h2>
+      </div>
+
+      <!-- Duel cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-1">
+        
+        <!-- Left -->
+        <button id="cardLeftBtn" type="button" onclick="app.chooseCandidate('left')"
+          class="group text-left bg-surface border border-line hover:border-amber-800 rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm transition">
+          <div class="relative w-full aspect-[4/3] bg-stone-900 overflow-hidden">
+            <div id="loaderLeft" class="absolute inset-0 z-20 bg-stone-200/90 flex flex-col items-center justify-center gap-1">
+              <span class="text-xs font-medium text-muted">Cargando foto...</span>
+            </div>
+            <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div class="space-y-0.5 min-w-0">
+              <span id="tagLeft" class="text-[10px] font-mono uppercase text-muted block truncate"></span>
+              <h3 id="nameLeft" class="font-serif text-2xl text-ink truncate"></h3>
+              <p id="sciLeft" class="text-xs italic text-muted truncate"></p>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-canvas group-hover:bg-amber-800 group-hover:text-white transition shrink-0">
+              Elegir
+            </span>
+          </div>
+        </button>
+
+        <!-- Right -->
+        <button id="cardRightBtn" type="button" onclick="app.chooseCandidate('right')"
+          class="group text-left bg-surface border border-line hover:border-amber-800 rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm transition">
+          <div class="relative w-full aspect-[4/3] bg-stone-900 overflow-hidden">
+            <div id="loaderRight" class="absolute inset-0 z-20 bg-stone-200/90 flex flex-col items-center justify-center gap-1">
+              <span class="text-xs font-medium text-muted">Cargando foto...</span>
+            </div>
+            <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div class="space-y-0.5 min-w-0">
+              <span id="tagRight" class="text-[10px] font-mono uppercase text-muted block truncate"></span>
+              <h3 id="nameRight" class="font-serif text-2xl text-ink truncate"></h3>
+              <p id="sciRight" class="text-xs italic text-muted truncate"></p>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-canvas group-hover:bg-amber-800 group-hover:text-white transition shrink-0">
+              Elegir
+            </span>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- VIEW RESULTS -->
+    <section id="viewResults" class="hidden space-y-8 max-w-3xl mx-auto w-full py-4 text-center">
+      <div class="space-y-2">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-800/10 text-amber-800">
+          Torneo Finalizado
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-ink">
+          Tu Ranking de Mamíferos
+        </h2>
+      </div>
+
+      <div id="podiumContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left items-end"></div>
+
+      <div class="space-y-3 text-left">
+        <h3 class="font-serif text-xl text-ink">Resto de tus posiciones</h3>
+        <div id="restRankingContainer" class="divide-y divide-line border border-line rounded-2xl bg-surface overflow-hidden"></div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-line">
+        <button onclick="app.shareChallenge()" class="px-5 py-2.5 rounded-full bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs sm:text-sm transition flex items-center gap-2">
+          <span id="shareBtnLabel">Copiar link de desafío</span>
+        </button>
+        <button onclick="app.startBattleGame()" class="px-5 py-2.5 rounded-full border border-line bg-surface hover:border-ink text-ink font-medium text-xs sm:text-sm transition">
+          Jugar de nuevo
+        </button>
+        <button onclick="app.goToView('viewHome')" class="px-5 py-2.5 rounded-full border border-line bg-surface text-muted hover:text-ink font-medium text-xs sm:text-sm transition">
+          Portada
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-line bg-canvas py-4 sm:py-6 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-between text-xs text-muted">
+      <div>Rankea2 · Mamíferos y Felinos</div>
+      <div>
+        Creado por <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="text-ink hover:text-amber-800 underline underline-offset-4 transition">fedep1011</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/mamiferos/main.js"></script>
+</body>
+</html>

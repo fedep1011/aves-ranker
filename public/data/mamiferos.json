@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "name": "Jaguar",
+    "sci_name": "Panthera onca",
+    "family": "Felidae",
+    "region": "América",
+    "photo": "https://static.inaturalist.org/photos/51015966/medium.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Tigre de Bengala",
+    "sci_name": "Panthera tigris",
+    "family": "Felidae",
+    "region": "Asia",
+    "photo": "https://static.inaturalist.org/photos/47940173/medium.jpg"
+  },
+  {
+    "id": 3,
+    "name": "León Africano",
+    "sci_name": "Panthera leo",
+    "family": "Felidae",
+    "region": "África",
+    "photo": "https://static.inaturalist.org/photos/22194686/medium.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Leopardo de las Nieves",
+    "sci_name": "Panthera uncia",
+    "family": "Felidae",
+    "region": "Asia Central",
+    "photo": "https://static.inaturalist.org/photos/4014138/medium.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Guepardo",
+    "sci_name": "Acinonyx jubatus",
+    "family": "Felidae",
+    "region": "África",
+    "photo": "https://static.inaturalist.org/photos/54366613/medium.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Puma",
+    "sci_name": "Puma concolor",
+    "family": "Felidae",
+    "region": "América",
+    "photo": "https://static.inaturalist.org/photos/6398934/medium.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Lobo Gris",
+    "sci_name": "Canis lupus",
+    "family": "Canidae",
+    "region": "Holarctis",
+    "photo": "https://static.inaturalist.org/photos/3472019/medium.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Oso Polar",
+    "sci_name": "Ursus maritimus",
+    "family": "Ursidae",
+    "region": "Ártico",
+    "photo": "https://static.inaturalist.org/photos/65171780/medium.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Oso Pardo",
+    "sci_name": "Ursus arctos",
+    "family": "Ursidae",
+    "region": "Eurasia y Norteamérica",
+    "photo": "https://static.inaturalist.org/photos/25925345/medium.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Panda Gigante",
+    "sci_name": "Ailuropoda melanoleuca",
+    "family": "Ursidae",
+    "region": "Asia",
+    "photo": "https://static.inaturalist.org/photos/3055415/medium.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Elefante Africano",
+    "sci_name": "Loxodonta africana",
+    "family": "Elephantidae",
+    "region": "África",
+    "photo": "https://static.inaturalist.org/photos/56084560/medium.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Rinoceronte Blanco",
+    "sci_name": "Ceratotherium simum",
+    "family": "Rhinocerotidae",
+    "region": "África",
+    "photo": "https://static.inaturalist.org/photos/10328905/medium.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Jirafa",
+    "sci_name": "Giraffa camelopardalis",
+    "family": "Giraffidae",
+    "region": "África",
+    "photo": "https://static.inaturalist.org/photos/16886478/medium.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Gorila de Montaña",
+    "sci_name": "Gorilla beringei",
+    "family": "Hominidae",
+    "region": "África",
+    "photo": "https://static.inaturalist.org/photos/3983758/medium.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Zorro Rojo",
+    "sci_name": "Vulpes vulpes",
+    "family": "Canidae",
+    "region": "Holarctis",
+    "photo": "https://static.inaturalist.org/photos/16605797/medium.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Nutria Gigante",
+    "sci_name": "Pteronura brasiliensis",
+    "family": "Mustelidae",
+    "region": "Sudamérica",
+    "photo": "https://static.inaturalist.org/photos/5536412/medium.jpg"
+  }
+]

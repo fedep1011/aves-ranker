@@ -250,17 +250,17 @@
         </div>
       </a>
 
-      <div id="card-flores" class="arena-flora rounded-2xl overflow-hidden flex flex-col select-none">
+      <a href="/flores/" class="arena-flora rounded-2xl overflow-hidden flex flex-col group">
         <div class="relative h-44 sm:h-52 w-full bg-[#DDE5DD] overflow-hidden">
           <div class="half-split-left">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg"
                  alt="Mburucuyá"
-                 class="w-full h-full object-cover object-center" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
           </div>
           <div class="half-split-right">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/127799924/medium.jpg"
                  alt="Orquídea"
-                 class="w-full h-full object-cover object-center" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
           </div>
           <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
             <line x1="55" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="1.8" />
@@ -271,23 +271,23 @@
           <h2 class="font-flora italic font-semibold text-3xl sm:text-4xl leading-none">
             Flores y Plantas
           </h2>
-          <span class="px-2.5 py-1 rounded-full bg-black/10 dark:bg-white/10 text-[11px] font-medium">
-            Pronto
+          <span class="w-9 h-9 rounded-full bg-[#2B332C] text-[#EFECE6] flex items-center justify-center text-sm font-medium group-hover:translate-x-0.5 transition shrink-0">
+            →
           </span>
         </div>
-      </div>
+      </a>
 
-      <div id="card-mamiferos" class="arena-fauna rounded-2xl overflow-hidden flex flex-col select-none">
+      <a href="/mamiferos/" class="arena-fauna rounded-2xl overflow-hidden flex flex-col group">
         <div class="relative h-44 sm:h-52 w-full bg-[#141210] overflow-hidden">
           <div class="half-split-left">
             <img src="https://static.inaturalist.org/photos/51015966/medium.jpg"
                  alt="Yaguareté"
-                 class="w-full h-full object-cover object-center" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
           </div>
           <div class="half-split-right">
             <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/43633891/medium.jpg"
                  alt="Tigre"
-                 class="w-full h-full object-cover object-center" />
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
           </div>
           <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
             <line x1="55" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="1.8" />
@@ -298,11 +298,11 @@
           <h2 class="font-aves text-3xl sm:text-4xl leading-none tracking-wide">
             Mamíferos y Felinos
           </h2>
-          <span class="px-2.5 py-1 rounded-full bg-black/20 dark:bg-white/10 text-[11px] font-medium border border-current/20">
-            Pronto
+          <span class="w-9 h-9 rounded-full bg-[#8C6239] text-[#F5EFE6] flex items-center justify-center text-sm font-medium group-hover:translate-x-0.5 transition shrink-0">
+            →
           </span>
         </div>
-      </div>
+      </a>
 
     </section>
 
@@ -352,8 +352,8 @@
       {
         id: 'flores',
         title: 'Flores y Plantas',
-        href: '#card-flores',
-        active: false,
+        href: '/flores/',
+        active: true,
         thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg',
         pillClass: 'bg-[#EFECE6] text-[#2B332C] border-[#B7C4B8] dark:bg-[#151A16] dark:text-[#E2ECE3] dark:border-[#38473A]',
         fontClass: 'font-flora italic font-semibold text-2xl'
@@ -361,8 +361,8 @@
       {
         id: 'mamiferos',
         title: 'Mamíferos y Felinos',
-        href: '#card-mamiferos',
-        active: false,
+        href: '/mamiferos/',
+        active: true,
         thumb: 'https://static.inaturalist.org/photos/51015966/medium.jpg',
         pillClass: 'bg-[#1E1B18] text-[#F5EFE6] border-[#8C6239] dark:bg-[#1A1714] dark:text-[#F5EFE6] dark:border-[#A67848]',
         fontClass: 'font-aves text-2xl'

@@ -9,19 +9,19 @@ Plataforma web interactiva para descubrir, rankear y compartir tus favoritos en 
 
 ## Arenas y Categorías
 
-- **Aves del Mundo (Activa):** Más de 11.000 especies con fotografías en tiempo real, cantos en vivo de iNaturalist y filtros por país/color/bioma.
-- **Pokémon (En desarrollo):** Duelos de criaturas, generaciones y tipos elementales mediante PokeAPI.
-- **Botánica & Fauna (Próximamente):** Flores, orquídeas y mamíferos del planeta.
+- **Aves del Mundo (Activa):** Más de 11.000 especies con fotografías en tiempo real, cantos en vivo de iNaturalist y filtros por país/color/bioma. [Jugar Aves →](/aves/)
+- **Pokémon (Activa):** Las 1025 criaturas de Generaciones 1 a 9, filtros por región, 18 tipos elementales y rareza (iniciales y legendarios) con sprites animados y estética arcade retro. [Jugar Pokémon →](/pokemon/)
+- **Mamíferos y Felinos (En camino):** Depredadores, felinos y fauna silvestre mundial.
+- **Flores y Botánica (En camino):** Orquídeas y flora emblemática.
 
-## Características Técnicas
+## Arquitectura y Decisiones Técnicas
 
-- **Ordenamiento Inteligente:** Torneos rápidos optimizados con `Merge Sort` asíncrono e historial de deshacer (*undo*).
-- **Semillas Determinísticas:** Desafíos reproducibles mediante links de invitación (`?r=...`) que permiten jugar exactamente con los mismos contrincantes y comparar resultados.
-- **Exportación en Alta Resolución:** Láminas para compartir en historias (9:16) y pósters (4:5) con podio Oro, Plata y Bronce.
-- **Arquitectura:**
-  - Frontend moderno: **Vite + Tailwind CSS** (compilado).
-  - Alojamiento y CDN: **Cloudflare Pages**.
-  - Escalabilidad de datos: Preparado para persistencia y desafíos diarios con **Supabase**.
+- **Multi-Página Vite:** Entrada multi-página nativa con aislamiento estético y empaquetado optimizado (`vite.config.js`). Consultar [ADR 0001: Arquitectura Multi-Página](docs/adr/0001-multi-page-vite-core-engine.md).
+- **Motor Central Compartido (`src/core/`):**
+  - `tournament.js`: Ordenamiento asíncrono determinista `interleavedBisectSortAsync`, generador pseudoaleatorio seeded mulberry32 y serializador de desafíos compartidos (`?r=id1.id2...`).
+  - `theme.js`: Sincronización desacoplada de tema claro y oscuro persistido en `localStorage`.
+- **Cero Latencia en Duelos:** Ejecución 100% en memoria del cliente sin bloqueos por rate-limiting durante las votaciones.
+- **Auditoría de Calidad:** Sin emojis en la interfaz pública y validación estricta de contraste WCAG 2.2 AA.
 
 ## Desarrollo Local
 

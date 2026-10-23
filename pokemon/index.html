@@ -227,7 +227,7 @@
         </div>
       </div>
 
-      <!-- 4. Resumen en vivo, Slider y Cantidad -->
+      <!-- 4. Resumen en vivo, Selección y Cantidad -->
       <div class="space-y-4 pt-2 border-t border-line">
         <div class="p-4 rounded-xl retro-box bg-surface border-ink space-y-1">
           <div class="flex items-center justify-between">
@@ -239,10 +239,27 @@
           <div id="step3FilterSummary" class="font-pixel-title text-xs sm:text-sm text-ink truncate"></div>
         </div>
 
-        <!-- Slider deslizador de cantidad (Idéntico a Aves) -->
+        <!-- Criterio de selección (Más famosos vs Al azar) -->
+        <div class="space-y-2">
+          <label class="block text-xs font-pixel font-bold uppercase tracking-wider text-muted">4. Criterio de selección</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button type="button" id="btnSamplePopular" onclick="app.setSamplingMode('popular')"
+              class="p-3 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-left transition">
+              <div class="text-xs sm:text-sm font-pixel font-bold text-ink">Más famosos</div>
+              <div class="text-[11px] text-muted mt-0.5">Orden canónico y emblemáticos de la categoría.</div>
+            </button>
+            <button type="button" id="btnSampleRandom" onclick="app.setSamplingMode('random')"
+              class="p-3 rounded-xl border border-line bg-surface text-left transition">
+              <div class="text-xs sm:text-sm font-pixel font-bold text-ink">Al azar (Sorpresa)</div>
+              <div class="text-[11px] text-muted mt-0.5">Sorteo aleatorio para descubrir criaturas.</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider deslizador de cantidad -->
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">4. Cantidad de Pokémon a rankear</label>
+            <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">5. Cantidad de Pokémon a rankear</label>
             <span class="font-pixel-title text-sm text-rose-500"><span id="limitValueDisplay">16</span> PKMN</span>
           </div>
           

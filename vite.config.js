@@ -8,7 +8,9 @@ export default defineConfig({
       input: {
         hub: resolve(__dirname, "index.html"),
         aves: resolve(__dirname, "aves/index.html"),
-        pokemon: resolve(__dirname, "pokemon/index.html")
+        pokemon: resolve(__dirname, "pokemon/index.html"),
+        mamiferos: resolve(__dirname, "mamiferos/index.html"),
+        flores: resolve(__dirname, "flores/index.html")
       }
     }
   }

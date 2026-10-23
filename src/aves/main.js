@@ -1685,6 +1685,7 @@ const I18N = {
           this.shuffle(pool);
         } else {
           this.shuffle(pool);
+          this.shuffle(pool);
           pool = pool.slice(0, n);
         }
 

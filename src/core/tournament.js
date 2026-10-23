@@ -28,6 +28,35 @@ export function estimateTotalSteps(n) {
 }
 
 /**
+ * Samples a tournament pool of size N from a list of candidates:
+ * - 'popular': sorts by custom comparator/score or preserves existing canonical order,
+ *              takes the top N, then shuffles them so the initial bracket is unbiased.
+ * - 'random': applies a double Fisher-Yates shuffle across the entire pool before slicing N,
+ *             guaranteeing unexpected and rare candidates enter the tournament.
+ */
+export function sampleCandidates(pool, n, mode = 'popular', { rng = Math.random, compareFn } = {}) {
+  const limit = Math.min(pool.length, n);
+  if (pool.length <= limit) {
+    return fisherYatesShuffle(pool, rng);
+  }
+
+  if (mode === 'popular') {
+    let sorted = [...pool];
+    if (typeof compareFn === 'function') {
+      sorted.sort(compareFn);
+    }
+    const topN = sorted.slice(0, limit);
+    return fisherYatesShuffle(topN, rng);
+  }
+
+  // mode === 'random' (Surprise / Random)
+  // Double Fisher-Yates across the entire pool before slicing N
+  const pass1 = fisherYatesShuffle(pool, rng);
+  const pass2 = fisherYatesShuffle(pass1, rng);
+  return pass2.slice(0, limit);
+}
+
+/**
  * Interleaved Midpoint-Bisect Tournament Sort:
  * Runs bottom-up tournament rounds so all sub-brackets advance in parallel.
  * Deterministic with seeded RNG, and supports Undo by replaying decisions.

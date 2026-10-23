@@ -1,5 +1,6 @@
 import {
   createSeededRng,
+  sampleCandidates,
   buildChallengeUrl,
   parseChallengeUrl
 } from '../core/tournament.js';
@@ -50,6 +51,7 @@ const app = {
     this.bindKeyboard();
     await this.loadDataset();
     this.renderWizardFilters();
+    this.setSamplingMode(this.state.samplingMode);
     this.checkIncomingChallenge();
   },
 
@@ -349,8 +351,14 @@ const app = {
     let pool = [...this.state.candidatePool];
     const n = Math.min(pool.length, this.state.limit);
 
-    this.shuffle(pool);
-    pool = pool.slice(0, n);
+    if (fromChallenge) {
+      this.shuffle(pool);
+      pool = pool.slice(0, n);
+    } else {
+      pool = sampleCandidates(pool, n, this.state.samplingMode, {
+        compareFn: (a, b) => (a.id || 0) - (b.id || 0)
+      });
+    }
 
     this.state.initialBattlePool = [...pool];
     this.state.battleSeed = Math.floor(Math.random() * 2147483646) + 1;
