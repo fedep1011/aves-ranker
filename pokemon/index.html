@@ -174,7 +174,7 @@
 
       <!-- Custom tournament launcher -->
       <div class="pt-2">
-        <button onclick="app.goToView('viewStepPlace')" class="w-full sm:w-auto px-6 py-3 rounded-xl retro-btn bg-surface text-ink font-pixel text-xs transition">
+        <button onclick="app.goToView('viewWizard')" class="w-full sm:w-auto px-6 py-3 rounded-xl retro-btn bg-surface text-ink font-pixel text-xs transition">
           Armar torneo personalizado (Filtros por Tipo, Gen y Cantidad) →
         </button>
       </div>
@@ -182,58 +182,38 @@
 
 
     <!-- ========================================== -->
-    <!-- VIEW: STEP 1 (Región / Generación) -->
+    <!-- VIEW: WIZARD UNIFICADO (En una sola pantalla) -->
     <!-- ========================================== -->
-    <section id="viewStepPlace" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
+    <section id="viewWizard" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
       <div class="flex items-center justify-between border-b border-line pb-4">
         <div>
-          <span class="text-xs font-pixel text-muted uppercase tracking-wider">Paso 1 de 3 · Región</span>
-          <h2 class="font-poke font-bold text-2xl text-ink">¿De qué región quieres ver Pokémon?</h2>
+          <span class="text-xs font-pixel text-muted uppercase tracking-wider">Configurador</span>
+          <h2 class="font-poke font-bold text-2xl text-ink">Personalizá tu torneo</h2>
         </div>
         <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
-          Cancelar
+          Volver
         </button>
       </div>
 
-      <div class="space-y-3">
-        <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Regiones disponibles</label>
-        <div id="genPillContainer" class="flex flex-wrap gap-2"></div>
-      </div>
-
-      <div class="pt-4 flex items-center justify-between border-t border-line">
-        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink">
-          ← Portada
-        </button>
-        <button onclick="app.goToView('viewStepTraits')" class="px-5 py-2.5 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs">
-          Siguiente: Tipo y Rareza →
-        </button>
-      </div>
-    </section>
-
-
-    <!-- ========================================== -->
-    <!-- VIEW: STEP 2 (Tipo y Rareza) -->
-    <!-- ========================================== -->
-    <section id="viewStepTraits" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
-      <div class="flex items-center justify-between border-b border-line pb-4">
-        <div>
-          <span class="text-xs font-pixel text-muted uppercase tracking-wider">Paso 2 de 3 · Tipo y Rareza</span>
-          <h2 class="font-poke font-bold text-2xl text-ink">¿Qué tipo o categoría prefieres?</h2>
+      <!-- 1. Región / Generación -->
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">1. Región o Generación</label>
         </div>
-        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
-          Cancelar
-        </button>
+        <div id="genPillContainer" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
       </div>
 
-      <!-- Tipos elementales -->
-      <div class="space-y-3">
-        <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Tipo elemental</label>
-        <div id="typePillContainer" class="flex flex-wrap gap-2"></div>
+      <!-- 2. Tipo Elemental -->
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">2. Tipo elemental</label>
+        </div>
+        <div id="typePillContainer" class="flex flex-wrap gap-1.5 sm:gap-2 max-h-48 overflow-y-auto p-1"></div>
       </div>
 
-      <!-- Categoría / Rareza -->
-      <div class="space-y-3">
-        <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Categoría especial</label>
+      <!-- 3. Categoría / Rareza -->
+      <div class="space-y-2.5">
+        <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">3. Categoría especial</label>
         <div class="grid grid-cols-3 gap-2">
           <button data-rarity="all" onclick="app.setRarityFilter('all')" class="rarity-btn px-3 py-2 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-rose-500 font-pixel font-bold text-xs text-center transition">
             Todos
@@ -247,82 +227,77 @@
         </div>
       </div>
 
+      <!-- 4. Resumen en vivo, Slider y Cantidad -->
+      <div class="space-y-4 pt-2 border-t border-line">
+        <div class="p-4 rounded-xl retro-box bg-surface border-ink space-y-1">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-pixel text-muted uppercase tracking-wider">Filtro activo</span>
+            <span id="livePoolBadge" class="font-pixel text-[11px] font-bold text-rose-500">
+              <span id="step3TotalFound">0</span> criaturas
+            </span>
+          </div>
+          <div id="step3FilterSummary" class="font-pixel-title text-xs sm:text-sm text-ink truncate"></div>
+        </div>
+
+        <!-- Slider deslizador de cantidad (Idéntico a Aves) -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">4. Cantidad de Pokémon a rankear</label>
+            <span class="font-pixel-title text-sm text-rose-500"><span id="limitValueDisplay">16</span> PKMN</span>
+          </div>
+          
+          <input id="limitSlider" type="range" min="4" max="64" value="16" step="1" oninput="app.onSliderInput(this.value)"
+            class="w-full h-2.5 bg-line rounded-lg appearance-none cursor-pointer accent-rose-600 focus:outline-none" />
+
+          <div class="grid grid-cols-4 gap-2 pt-1">
+            <button type="button" onclick="app.onLimitChange(8)" class="size-quick-btn py-1.5 px-2 rounded-lg text-[11px] font-pixel border border-line bg-surface text-ink text-center transition">
+              8 · Rápido
+            </button>
+            <button type="button" onclick="app.onLimitChange(16)" class="size-quick-btn py-1.5 px-2 rounded-lg text-[11px] font-pixel border-2 border-rose-500 bg-rose-500/10 text-rose-500 text-center transition font-bold">
+              16 · Ideal
+            </button>
+            <button type="button" onclick="app.onLimitChange(32)" class="size-quick-btn py-1.5 px-2 rounded-lg text-[11px] font-pixel border border-line bg-surface text-ink text-center transition">
+              32 · Largo
+            </button>
+            <button type="button" onclick="app.onLimitChange('MAX')" class="size-quick-btn py-1.5 px-2 rounded-lg text-[11px] font-pixel border border-line bg-surface text-ink text-center transition">
+              Todas
+            </button>
+          </div>
+        </div>
+
+        <!-- Callout box de esfuerzo y tiempo estimado -->
+        <div id="effortCalloutBox" class="p-3.5 rounded-xl border border-rose-500/30 bg-rose-500/5 flex items-center justify-between">
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-2">
+              <span id="effortIntensityBadge" class="text-[10px] font-pixel font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-rose-600 text-white">
+                Duración Ideal
+              </span>
+              <span id="effortTimeBadge" class="font-pixel text-[11px] text-rose-500">
+                ~1.5 min
+              </span>
+            </div>
+            <p id="durationHintText" class="text-[11px] text-muted pt-0.5">
+              Harás unas 32 elecciones rápidas 1 vs 1.
+            </p>
+          </div>
+          <div class="text-right shrink-0 pl-3 border-l border-rose-500/20">
+            <span class="font-pixel-title text-xl sm:text-2xl text-ink leading-none">~<span id="effortClicksBigNumber">32</span></span>
+            <span class="font-pixel text-[10px] text-muted block mt-0.5">duelos</span>
+          </div>
+        </div>
+
+        <!-- Warning si hay menos de 2 Pokémon -->
+        <div id="noPokemonWarning" class="hidden p-3 rounded-xl bg-amber-500/10 border border-amber-500 text-xs font-pixel text-amber-600">
+          Esta combinación tiene muy pocos Pokémon. Probá cambiando la región o el tipo elemental.
+        </div>
+      </div>
+
+      <!-- Action -->
       <div class="pt-4 flex items-center justify-between border-t border-line">
-        <button onclick="app.goToView('viewStepPlace')" class="text-xs font-pixel text-muted hover:text-ink">
-          ← Cambiar región
+        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink">
+          ← Portada
         </button>
-        <button onclick="app.goToView('viewStepSize')" class="px-5 py-2.5 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs">
-          Siguiente: Confirmar →
-        </button>
-      </div>
-    </section>
-
-
-    <!-- ========================================== -->
-    <!-- VIEW: STEP 3 (Tamaño y Confirmar partida) -->
-    <!-- ========================================== -->
-    <section id="viewStepSize" class="hidden space-y-6 max-w-3xl mx-auto w-full py-2 sm:py-4">
-      <div class="flex items-center justify-between border-b border-line pb-4">
-        <div>
-          <span class="text-xs font-pixel text-muted uppercase tracking-wider">Paso 3 de 3 · Confirmar partida</span>
-          <h2 class="font-poke font-bold text-2xl text-ink">Tu selección está lista</h2>
-        </div>
-        <button onclick="app.goToView('viewHome')" class="text-xs font-pixel text-muted hover:text-ink px-3 py-1 rounded-full border border-line">
-          Cancelar
-        </button>
-      </div>
-
-      <!-- Resumen -->
-      <div class="p-4 rounded-xl retro-box bg-surface border-ink space-y-1">
-        <span class="text-[10px] font-pixel text-muted uppercase tracking-wider">Resumen de partida</span>
-        <div id="step3FilterSummary" class="font-pixel-title text-xs sm:text-sm text-ink"></div>
-        <div class="text-xs font-pixel text-rose-500 pt-1">
-          <span id="step3TotalFound">0</span> criaturas disponibles en este filtro
-        </div>
-      </div>
-
-      <!-- Tamaño del Torneo -->
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">Cantidad de Pokémon</label>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          <button data-size="8" onclick="app.onLimitChange(8)" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
-            <span class="block font-pixel-title text-base text-ink">8</span>
-            <span class="block font-pixel text-[10px] text-muted mt-1">~12 duelos</span>
-          </button>
-          <button data-size="16" onclick="app.onLimitChange(16)" class="size-btn p-3 rounded-xl border-2 border-rose-500 bg-surface text-left transition">
-            <span class="block font-pixel-title text-base text-ink">16</span>
-            <span class="block font-pixel text-[10px] text-muted mt-1">~32 duelos</span>
-          </button>
-          <button data-size="32" onclick="app.onLimitChange(32)" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
-            <span class="block font-pixel-title text-base text-ink">32</span>
-            <span class="block font-pixel text-[10px] text-muted mt-1">~80 duelos</span>
-          </button>
-          <button data-size="64" onclick="app.onLimitChange(64)" class="size-btn p-3 rounded-xl border border-line bg-surface text-left transition">
-            <span class="block font-pixel-title text-base text-ink">64</span>
-            <span class="block font-pixel text-[10px] text-muted mt-1">~190 duelos</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Clics estimados -->
-      <div class="p-3.5 rounded-xl border border-line bg-surface flex items-center justify-between">
-        <div>
-          <span class="font-pixel text-xs text-ink block">Duración estimada</span>
-          <span class="text-[11px] text-muted">Elecciones rápidas 1 vs 1</span>
-        </div>
-        <div class="text-right">
-          <span class="font-pixel-title text-xl text-rose-500">~<span id="effortClicksBigNumber">32</span></span>
-          <span class="font-pixel text-[10px] text-muted block">duelos</span>
-        </div>
-      </div>
-
-      <div class="pt-4 flex items-center justify-between border-t border-line">
-        <button onclick="app.goToView('viewStepTraits')" class="text-xs font-pixel text-muted hover:text-ink">
-          ← Ajustar filtros
-        </button>
-        <button id="btnLaunchGame" onclick="app.startBattleGame()" class="px-6 py-3 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs">
+        <button id="btnLaunchGame" onclick="app.startBattleGame()" class="px-6 py-3 rounded-xl retro-btn bg-rose-600 text-white font-pixel text-xs transition">
           Comenzar Torneo →
         </button>
       </div>
@@ -366,7 +341,7 @@
         <button id="cardLeftBtn" type="button" onclick="app.chooseCandidate('left')"
           class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
           <div class="flex items-center justify-between mb-2">
-            <span id="dexLeft" class="font-pixel text-xs font-bold text-rose-500">#000</span>
+            <span id="dexLeft" class="font-mono text-xs font-bold text-rose-500">No. 000</span>
             <span id="regLeft" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
@@ -375,7 +350,7 @@
             <div id="loaderLeft" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-surface/85 backdrop-blur-xs transition-opacity">
               <span class="font-pixel text-[10px] text-muted animate-pulse">Cargando sprite...</span>
             </div>
-            <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')"
+            <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.handleImgError('left')"
               class="pixel-sprite relative z-10 max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
           </div>
 
@@ -394,7 +369,7 @@
         <button id="cardRightBtn" type="button" onclick="app.chooseCandidate('right')"
           class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
           <div class="flex items-center justify-between mb-2">
-            <span id="dexRight" class="font-pixel text-xs font-bold text-rose-500">#000</span>
+            <span id="dexRight" class="font-mono text-xs font-bold text-rose-500">No. 000</span>
             <span id="regRight" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
@@ -403,7 +378,7 @@
             <div id="loaderRight" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-surface/85 backdrop-blur-xs transition-opacity">
               <span class="font-pixel text-[10px] text-muted animate-pulse">Cargando sprite...</span>
             </div>
-            <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')"
+            <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.handleImgError('right')"
               class="pixel-sprite relative z-10 max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
           </div>
 

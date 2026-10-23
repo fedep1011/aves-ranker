@@ -95,7 +95,7 @@ const app = {
   },
 
   goToView(viewId) {
-    const viewIds = ['viewHome', 'viewStepPlace', 'viewStepTraits', 'viewStepSize', 'viewBattle', 'viewResults'];
+    const viewIds = ['viewHome', 'viewWizard', 'viewBattle', 'viewResults'];
     viewIds.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.toggle('hidden', id !== viewId);
@@ -110,7 +110,7 @@ const app = {
   },
 
   renderWizardFilters() {
-    // Step 1: Regions / Gens
+    // 1. Regions / Gens
     const genBox = document.getElementById('genPillContainer');
     if (genBox) {
       genBox.innerHTML = GENERATIONS.map(g => `
@@ -121,22 +121,43 @@ const app = {
       `).join('');
     }
 
-    // Step 2: Types
+    // 2. Types with live counts
     const typeBox = document.getElementById('typePillContainer');
     if (typeBox) {
       const typeEntries = Object.entries(POKEMON_TYPES);
+      const currentGen = this.state.selectedGen;
+      const currentRarity = this.state.selectedRarity;
+
+      // Helper to count pokemon per type under active gen & rarity
+      const countForType = (tKey) => {
+        return this.state.allPokemon.filter(p => {
+          if (currentGen !== 'all' && p.gen !== parseInt(currentGen, 10)) return false;
+          if (currentRarity === 'starter' && !p.is_starter) return false;
+          if (currentRarity === 'legendary' && !p.is_legendary) return false;
+          if (tKey !== 'all' && !p.types.includes(tKey)) return false;
+          return true;
+        }).length;
+      };
+
+      const allCount = countForType('all');
+
       typeBox.innerHTML = `
         <button type="button" onclick="app.setTypeFilter('all')"
-          class="type-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition ${this.state.selectedType === 'all' ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
-          Todos los tipos
+          class="type-pill px-2.5 py-1.5 rounded-xl border text-xs font-pixel transition ${this.state.selectedType === 'all' ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
+          Todos (${allCount})
         </button>
-        ${typeEntries.map(([k, t]) => `
-          <button type="button" onclick="app.setTypeFilter('${k}')"
-            class="type-pill px-3 py-1.5 rounded-xl border text-xs font-pixel transition hover:border-muted flex items-center gap-1.5 ${this.state.selectedType === k ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink'}">
-            <span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: ${t.color}"></span>
-            ${t.name}
-          </button>
-        `).join('')}
+        ${typeEntries.map(([k, t]) => {
+          const cnt = countForType(k);
+          const isDisabled = cnt === 0;
+          return `
+            <button type="button" onclick="app.setTypeFilter('${k}')" ${isDisabled ? 'disabled' : ''}
+              class="type-pill px-2.5 py-1.5 rounded-xl border text-xs font-pixel transition flex items-center gap-1.5 ${isDisabled ? 'opacity-35 cursor-not-allowed border-line bg-surface/50 text-muted' : this.state.selectedType === k ? 'border-rose-500 bg-rose-500/10 text-rose-500 font-bold' : 'border-line bg-surface text-ink hover:border-muted'}">
+              <span class="w-2.5 h-2.5 rounded-full inline-block shrink-0" style="background-color: ${t.color}"></span>
+              <span>${t.name}</span>
+              <span class="text-[10px] opacity-70">(${cnt})</span>
+            </button>
+          `;
+        }).join('')}
       `;
     }
 
@@ -162,7 +183,7 @@ const app = {
       b.classList.toggle('text-rose-500', active);
       b.classList.toggle('font-bold', active);
     });
-    this.updateMatchingCount();
+    this.renderWizardFilters();
   },
 
   getFilteredPool() {
@@ -186,37 +207,102 @@ const app = {
   updateMatchingCount() {
     const matching = this.getFilteredPool();
     this.state.candidatePool = matching;
+    const poolCount = matching.length;
+
     const countEl = document.getElementById('step3TotalFound');
-    if (countEl) countEl.textContent = matching.length;
+    if (countEl) countEl.textContent = poolCount;
 
     const summaryEl = document.getElementById('step3FilterSummary');
     if (summaryEl) summaryEl.textContent = this.getHumanSummary();
 
+    const warningEl = document.getElementById('noPokemonWarning');
     const launchBtn = document.getElementById('btnLaunchGame');
-    if (launchBtn) {
-      launchBtn.disabled = matching.length < 2;
-      launchBtn.classList.toggle('opacity-40', matching.length < 2);
+
+    if (poolCount < 2) {
+      if (warningEl) warningEl.classList.remove('hidden');
+      if (launchBtn) {
+        launchBtn.disabled = true;
+        launchBtn.classList.add('opacity-40');
+      }
+    } else {
+      if (warningEl) warningEl.classList.add('hidden');
+      if (launchBtn) {
+        launchBtn.disabled = false;
+        launchBtn.classList.remove('opacity-40');
+      }
+    }
+
+    // Adjust slider range dynamically
+    const slider = document.getElementById('limitSlider');
+    if (slider) {
+      const minVal = Math.min(4, poolCount);
+      const maxVal = Math.min(64, poolCount);
+      slider.min = minVal;
+      slider.max = Math.max(minVal, maxVal);
+      if (this.state.limit > maxVal || this.state.limit < minVal) {
+        this.state.limit = Math.min(16, maxVal);
+      }
+      slider.value = this.state.limit;
     }
 
     this.onLimitChange(this.state.limit);
   },
 
-  onLimitChange(val) {
+  onSliderInput(val) {
+    this.onLimitChange(val, true);
+  },
+
+  onLimitChange(val, fromSlider = false) {
     const poolCount = this.state.candidatePool.length || 16;
-    let n = parseInt(val, 10) || 16;
-    n = Math.min(poolCount, n);
+    let n = val === 'MAX' ? poolCount : parseInt(val, 10);
+    if (isNaN(n)) n = 16;
+    n = Math.max(2, Math.min(poolCount, n));
     this.state.limit = n;
 
-    document.querySelectorAll('.size-btn').forEach(btn => {
-      const active = parseInt(btn.dataset.size, 10) === n;
-      btn.classList.toggle('border-rose-500', active);
-      btn.classList.toggle('border-2', active);
-      btn.classList.toggle('border-line', !active);
+    const slider = document.getElementById('limitSlider');
+    if (slider && !fromSlider) slider.value = n;
+
+    const valDisplay = document.getElementById('limitValueDisplay');
+    if (valDisplay) valDisplay.textContent = n;
+
+    // Quick buttons active styling
+    document.querySelectorAll('.size-quick-btn').forEach(btn => {
+      const isMax = val === 'MAX' && btn.textContent.includes('Todas');
+      const isNum = parseInt(btn.textContent, 10) === n;
+      const active = isMax || isNum;
+      btn.className = active
+        ? 'size-quick-btn py-1.5 px-2 rounded-lg text-[11px] font-pixel border-2 border-rose-500 bg-rose-500/10 text-rose-500 text-center transition font-bold'
+        : 'size-quick-btn py-1.5 px-2 rounded-lg text-[11px] font-pixel border border-line bg-surface text-ink text-center transition';
     });
 
     const estDecisions = Math.max(1, Math.round(n * Math.log2(n) * 0.82));
+    const mins = Math.max(0.5, (estDecisions * 2.2) / 60);
+    const timeStr = mins < 1 ? 'Menos de 1 min' : `~${Math.round(mins)} min`;
+
     const clicksEl = document.getElementById('effortClicksBigNumber');
     if (clicksEl) clicksEl.textContent = estDecisions;
+
+    const timeBadge = document.getElementById('effortTimeBadge');
+    if (timeBadge) timeBadge.textContent = timeStr;
+
+    const intensityBadge = document.getElementById('effortIntensityBadge');
+    if (intensityBadge) {
+      if (estDecisions <= 20) {
+        intensityBadge.textContent = 'Partida Rápida';
+        intensityBadge.className = 'text-[10px] font-pixel font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-600 text-white';
+      } else if (estDecisions <= 60) {
+        intensityBadge.textContent = 'Duración Ideal';
+        intensityBadge.className = 'text-[10px] font-pixel font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-rose-600 text-white';
+      } else {
+        intensityBadge.textContent = 'Torneo Épico';
+        intensityBadge.className = 'text-[10px] font-pixel font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-600 text-white';
+      }
+    }
+
+    const hintEl = document.getElementById('durationHintText');
+    if (hintEl) {
+      hintEl.textContent = `Harás unas ${estDecisions} elecciones rápidas 1 vs 1 (${timeStr.toLowerCase()}).`;
+    }
   },
 
   setSamplingMode(mode) {
@@ -498,12 +584,12 @@ const app = {
     const imgL = document.getElementById('imgLeft');
     if (imgL) {
       imgL.alt = leftPokemon.name;
-      imgL.src = leftPokemon.sprite;
+      imgL.src = leftPokemon.animated_sprite || leftPokemon.sprite;
     }
     const nameL = document.getElementById('nameLeft');
     if (nameL) nameL.textContent = leftPokemon.name;
     const dexL = document.getElementById('dexLeft');
-    if (dexL) dexL.textContent = `#${String(leftPokemon.id).padStart(3, '0')}`;
+    if (dexL) dexL.textContent = `No. ${String(leftPokemon.id).padStart(3, '0')}`;
     const regL = document.getElementById('regLeft');
     if (regL) regL.textContent = `${leftPokemon.region} · Gen ${leftPokemon.gen}`;
     const typesL = document.getElementById('typesLeft');
@@ -513,12 +599,12 @@ const app = {
     const imgR = document.getElementById('imgRight');
     if (imgR) {
       imgR.alt = rightPokemon.name;
-      imgR.src = rightPokemon.sprite;
+      imgR.src = rightPokemon.animated_sprite || rightPokemon.sprite;
     }
     const nameR = document.getElementById('nameRight');
     if (nameR) nameR.textContent = rightPokemon.name;
     const dexR = document.getElementById('dexRight');
-    if (dexR) dexR.textContent = `#${String(rightPokemon.id).padStart(3, '0')}`;
+    if (dexR) dexR.textContent = `No. ${String(rightPokemon.id).padStart(3, '0')}`;
     const regR = document.getElementById('regRight');
     if (regR) regR.textContent = `${rightPokemon.region} · Gen ${rightPokemon.gen}`;
     const typesR = document.getElementById('typesRight');
@@ -536,6 +622,16 @@ const app = {
   onBattleImgLoad(side) {
     const loader = document.getElementById(side === 'left' ? 'loaderLeft' : 'loaderRight');
     if (loader) loader.classList.add('hidden');
+  },
+
+  handleImgError(side) {
+    const pokemon = side === 'left' ? this.state.currentLeft : this.state.currentRight;
+    const img = document.getElementById(side === 'left' ? 'imgLeft' : 'imgRight');
+    if (pokemon && img && pokemon.pixel_sprite && img.src !== pokemon.pixel_sprite) {
+      img.src = pokemon.pixel_sprite;
+    } else {
+      this.onBattleImgLoad(side);
+    }
   },
 
   unlockWinnerAudioOnGesture() {
@@ -617,7 +713,7 @@ const app = {
             <img src="${runnerUp.sprite}" alt="${runnerUp.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${runnerUp.name}</h4>
-          <span class="font-pixel text-[11px] text-muted">#${String(runnerUp.id).padStart(3, '0')}</span>
+          <span class="font-mono text-xs font-bold text-muted">No. ${String(runnerUp.id).padStart(3, '0')}</span>
           <div class="flex gap-1 mt-2">${runnerUp.types.map(t => getTypeBadge(t)).join('')}</div>
         </div>
 
@@ -631,7 +727,7 @@ const app = {
             <img src="${winner.sprite}" alt="${winner.name}" class="pixel-sprite max-h-32 sm:max-h-40 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-base sm:text-lg text-ink mt-3">${winner.name}</h4>
-          <span class="font-pixel text-[11px] text-muted">#${String(winner.id).padStart(3, '0')} · ${winner.region}</span>
+          <span class="font-mono text-xs font-bold text-muted">No. ${String(winner.id).padStart(3, '0')} · ${winner.region}</span>
           <div class="flex gap-1.5 mt-2">${winner.types.map(t => getTypeBadge(t)).join('')}</div>
           
           <button type="button" onclick="app.replayWinnerCry()" class="mt-4 px-3 py-1.5 rounded-lg border border-line bg-surface hover:border-amber-400 text-[11px] font-pixel text-muted hover:text-ink transition flex items-center gap-1.5">
@@ -647,7 +743,7 @@ const app = {
             <img src="${third.sprite}" alt="${third.name}" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${third.name}</h4>
-          <span class="font-pixel text-[11px] text-muted">#${String(third.id).padStart(3, '0')}</span>
+          <span class="font-mono text-xs font-bold text-muted">No. ${String(third.id).padStart(3, '0')}</span>
           <div class="flex gap-1 mt-2">${third.types.map(t => getTypeBadge(t)).join('')}</div>
         </div>
       `;
@@ -667,7 +763,7 @@ const app = {
               <img src="${p.sprite}" alt="${p.name}" class="pixel-sprite w-10 h-10 object-contain" />
               <div>
                 <span class="font-pixel-title text-xs text-ink block">${p.name}</span>
-                <span class="font-pixel text-[10px] text-muted">#${String(p.id).padStart(3, '0')} · ${p.region}</span>
+                <span class="font-mono text-[11px] font-semibold text-muted">No. ${String(p.id).padStart(3, '0')} · ${p.region}</span>
               </div>
             </div>
             <div class="flex gap-1">${p.types.map(t => getTypeBadge(t)).join('')}</div>
