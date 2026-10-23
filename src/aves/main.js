@@ -551,6 +551,16 @@ const I18N = {
         };
       },
 
+      escapeHtml(str) {
+        if (!str) return "";
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      },
+
       t(key) {
         const dict = I18N[this.state.lang] || I18N.es;
         return dict[key] || I18N.es[key] || key;
@@ -634,6 +644,7 @@ const I18N = {
         const isEn = this.state.lang === "en";
         const card = document.getElementById("incomingChallengeCard");
         const author = this.state.incomingChallengeAuthor;
+        const authorSafe = this.escapeHtml(author);
 
         document.getElementById("challengeHeadline").textContent = author
           ? (isEn ? `Check out ${author}'s ranking. Play with the same birds and compare!` : `Mirá el ranking que armó ${author}. ¿Hacés el tuyo con las mismas aves?`)
@@ -650,16 +661,18 @@ const I18N = {
         birds.slice(0, 3).forEach((b, i) => {
           const medal = this.getPodiumMedalMeta(i + 1);
           const item = document.createElement("div");
+          const safeName = this.escapeHtml(b.nombre);
+          const safeSci = this.escapeHtml(b.nombreCientifico);
           item.className = `bg-canvas ${medal.cardBorderClass} rounded-xl overflow-hidden flex flex-col`;
           item.innerHTML = `
             <div class="relative h-20 sm:h-24 w-full bg-stone-800 overflow-hidden">
               <img src="${b.imagen}" alt="" class="absolute inset-0 w-full h-full object-cover blur-md opacity-60 scale-110" />
-              <img src="${b.imagen}" alt="${b.nombre}" class="relative z-10 w-full h-full object-contain object-center" />
+              <img src="${b.imagen}" alt="${safeName}" class="relative z-10 w-full h-full object-contain object-center" />
               <span class="absolute top-1.5 left-1.5 z-20 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] ${medal.badgeClass}">${medal.svgIcon}<span>${medal.label}</span></span>
             </div>
             <div class="p-2">
-              <div class="text-xs font-semibold text-ink truncate">${b.nombre}</div>
-              <div class="text-[10px] italic text-muted truncate mt-0.5">${b.nombreCientifico}</div>
+              <div class="text-xs font-semibold text-ink truncate">${safeName}</div>
+              <div class="text-[10px] italic text-muted truncate mt-0.5">${safeSci}</div>
             </div>
           `;
           top3Box.appendChild(item);
@@ -669,11 +682,12 @@ const I18N = {
         fullWrap.innerHTML = "";
         birds.forEach((b, i) => {
           const row = document.createElement("div");
+          const safeName = this.escapeHtml(b.nombre);
           row.className = "flex items-center gap-2 p-1.5 rounded-lg bg-canvas border border-line";
           row.innerHTML = `
             <span class="font-serif text-sm text-muted w-5 text-center shrink-0">#${i + 1}</span>
-            <img src="${b.imagen}" alt="${b.nombre}" class="w-7 h-7 rounded object-cover shrink-0 bg-stone-200" />
-            <span class="text-[11px] font-medium text-ink truncate">${b.nombre}</span>
+            <img src="${b.imagen}" alt="${safeName}" class="w-7 h-7 rounded object-cover shrink-0 bg-stone-200" />
+            <span class="text-[11px] font-medium text-ink truncate">${safeName}</span>
           `;
           fullWrap.appendChild(row);
         });
@@ -2577,17 +2591,17 @@ const I18N = {
 
         const grid = document.getElementById("compPodiumCompareGrid");
         const friendLabel = this.state.incomingChallengeAuthor
-          ? (isEn ? `${this.state.incomingChallengeAuthor}'s Top 3` : `Top 3 de ${this.state.incomingChallengeAuthor}`)
+          ? (isEn ? `${this.escapeHtml(this.state.incomingChallengeAuthor)}'s Top 3` : `Top 3 de ${this.escapeHtml(this.state.incomingChallengeAuthor)}`)
           : (isEn ? "Their Top 3" : "El Top 3 que te enviaron");
 
         grid.innerHTML = `
           <div class="bg-surface border border-line rounded-xl p-3 space-y-1.5">
             <div class="text-[10px] uppercase tracking-wider font-semibold text-forest">${isEn ? "Your Top 3" : "Tu Top 3"}</div>
-            ${mine.slice(0, 3).map((b, i) => `<div class="text-xs text-ink truncate"><span class="font-semibold">#${i + 1}</span> ${b.nombre}</div>`).join("")}
+            ${mine.slice(0, 3).map((b, i) => `<div class="text-xs text-ink truncate"><span class="font-semibold">#${i + 1}</span> ${this.escapeHtml(b.nombre)}</div>`).join("")}
           </div>
           <div class="bg-surface border border-line rounded-xl p-3 space-y-1.5">
             <div class="text-[10px] uppercase tracking-wider font-semibold text-muted">${friendLabel}</div>
-            ${theirs.slice(0, 3).map((b, i) => `<div class="text-xs text-ink truncate"><span class="font-semibold">#${i + 1}</span> ${b.nombre}</div>`).join("")}
+            ${theirs.slice(0, 3).map((b, i) => `<div class="text-xs text-ink truncate"><span class="font-semibold">#${i + 1}</span> ${this.escapeHtml(b.nombre)}</div>`).join("")}
           </div>
         `;
 
