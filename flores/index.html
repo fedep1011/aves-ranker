@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Rankea2 · Flores y Plantas</title>
+  <title>Rankea2 · Flores y Botánica del Mundo</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/tailwind.css" />
   <script>
     (function () {
@@ -18,12 +18,12 @@
     })();
   </script>
 </head>
-<body class="arena-flores min-h-[100dvh] font-sans flex flex-col bg-canvas text-ink selection:bg-emerald-800 selection:text-white" data-arena="flores">
+<body class="arena-flores min-h-[100dvh] font-sans flex flex-col bg-canvas text-ink selection:bg-emerald-700 selection:text-white" data-arena="flores">
 
   <!-- HEADER -->
   <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
     <div class="max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2.5 shrink-0">
         <a href="/" class="flex items-center gap-2.5 font-poke font-extrabold text-xl text-ink tracking-tight hover:opacity-80 transition shrink-0" title="Ir a las Arenas" aria-label="Rankea2 - Inicio">
           <svg class="w-7 h-7 shrink-0" viewBox="0 0 256 256" aria-hidden="true">
             <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
@@ -36,14 +36,17 @@
           Flores
         </button>
         <span class="hidden md:inline text-[11px] text-muted tracking-wide ml-1">
-          Botánica y flora del mundo
+          Herbario y botánica global
         </span>
       </div>
 
-      <div class="flex items-center gap-2">
-        <button id="btnHeaderHome" onclick="app.goToView('viewHome')" class="hidden text-xs font-medium text-ink hover:text-emerald-800 px-3 py-1 rounded-full border border-line bg-surface/80 transition">
-          Inicio
-        </button>
+      <div class="flex items-center gap-2 min-w-0">
+        <div id="headerControls" class="hidden flex items-center gap-2 min-w-0">
+          <span id="headerStepLabel" class="hidden md:inline text-xs text-muted truncate max-w-xs"></span>
+          <button id="btnHeaderHome" onclick="app.goToView('viewHome')" class="shrink-0 text-[11px] sm:text-xs font-medium text-ink hover:text-emerald-700 px-2.5 py-1 rounded-full border border-line bg-surface/80 transition">
+            Inicio
+          </button>
+        </div>
 
         <button id="themeToggle" type="button" aria-label="Cambiar tema"
           class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5">
@@ -69,8 +72,8 @@
       <div id="challengeBanner" class="hidden bg-surface border-2 border-emerald-700 rounded-2xl p-4 sm:p-5 text-left shadow-sm space-y-3">
         <div class="flex items-start justify-between gap-3">
           <div>
-            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-emerald-700/10 text-emerald-800 font-bold mb-1">Desafío recibido</span>
-            <h2 class="font-flora italic text-2xl text-ink">¿Hacés tu ranking con las mismas flores?</h2>
+            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-emerald-700/10 text-emerald-700 font-bold mb-1">Desafío recibido</span>
+            <h2 class="font-flora italic font-semibold text-2xl text-ink">¿Hacés tu ranking con las mismas flores?</h2>
           </div>
           <button onclick="app.dismissChallengeBanner()" class="text-muted hover:text-ink text-lg leading-none w-7 h-7 rounded-full border border-line">×</button>
         </div>
@@ -81,115 +84,34 @@
 
       <div class="space-y-3">
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium border border-line bg-surface text-muted">
-          <svg class="w-3.5 h-3.5 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Herbario ilustrado · Colección botánica
+          <svg class="w-3.5 h-3.5 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Z"/></svg>
+          Herbario botánico · Biodiversidad floral global
         </span>
-        <h1 class="font-flora italic font-semibold text-3xl sm:text-5xl text-ink tracking-tight">
-          El Jardín Botánico de Favoritos.
+        <h1 class="font-flora italic font-semibold text-4xl sm:text-6xl text-ink tracking-tight">
+          Tus Flores Favoritas del Planeta.
         </h1>
         <p class="text-sm sm:text-base text-muted max-w-xl mx-auto">
-          De las orquídeas más exóticas a las flores silvestres de campo. Armá tu podio botánico en duelos 1 vs 1.
+          De las orquídeas de la selva tropical a las flores silvestres de pradera. Enfrentalas 1 vs 1 hasta armar tu podio definitivo.
         </p>
       </div>
 
-      <!-- Hero CTAs (3 Disparadores Directos) -->
+      <!-- Hero CTAs (3 Disparadores Directos idénticos a Aves) -->
       <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 pt-2">
-        <button onclick="app.startBattleGame()" class="px-8 py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-sm sm:text-base transition shadow-sm">
-          Partida Rápida (16 Flores) →
+        <button id="btnHomeQuick16" onclick="app.quickStartWorldTop()" class="px-8 py-4 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-sm sm:text-base font-medium tracking-wide transition shadow-sm">
+          Jugar con las 16 más famosas del mundo →
         </button>
         <div class="grid grid-cols-2 sm:flex gap-2.5">
-          <button onclick="app.launchRandomGame()" class="px-6 py-3 rounded-full border border-line bg-surface text-ink hover:border-emerald-700 text-xs sm:text-sm font-medium transition">
-            Jardín Silvestre
+          <button id="btnHomeSurprise" onclick="app.launchSurpriseMe()" class="px-6 py-3.5 rounded-full border border-line bg-surface text-ink hover:border-emerald-700 text-xs sm:text-sm font-medium transition">
+            Sorpréndeme (16 al azar)
           </button>
-          <button onclick="app.toggleCustomizer()" class="px-6 py-3 rounded-full border border-line bg-surface text-ink hover:border-emerald-700 text-xs sm:text-sm font-medium transition">
-            Personalizar Herbario
+          <button id="btnHomeCustom" onclick="app.startGuidedSetup()" class="px-6 py-3.5 rounded-full border border-line bg-surface hover:border-emerald-700 text-ink text-xs sm:text-sm font-medium transition">
+            Armar mi búsqueda
           </button>
         </div>
       </div>
 
-      <!-- Customizer / Wizard de Filtros Botánicos -->
-      <div id="customizerPanel" class="hidden bg-surface border border-line rounded-2xl p-4 sm:p-6 text-left shadow-xs space-y-4 transition-all">
-        <div class="flex items-center justify-between border-b border-line pb-3">
-          <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-700 font-bold block">Configuración botánica</span>
-            <h3 class="font-flora italic font-semibold text-xl text-ink">Personalizar Herbario</h3>
-          </div>
-          <span id="customizerAvailableCount" class="text-xs font-mono text-muted bg-canvas px-2.5 py-1 rounded-md border border-line">1730 flores disponibles</span>
-        </div>
-
-        <!-- Buscador por texto -->
-        <div class="space-y-1">
-          <label for="florSearchInput" class="text-xs font-medium text-ink block">Buscar por nombre o taxón floral</label>
-          <div class="relative">
-            <input id="florSearchInput" type="text" placeholder="Ej: Orquídea, Rosa, Lavanda, Loto, Margarita..." oninput="app.onSearchInput(this.value)" class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-canvas border border-line text-ink placeholder:text-muted focus:outline-hidden focus:border-emerald-700 transition" />
-            <button id="clearFlorSearchBtn" onclick="app.clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-muted hover:text-ink p-1 rounded-sm" aria-label="Limpiar búsqueda"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-          </div>
-        </div>
-
-        <!-- Dimensión 1: Color de la Flor -->
-        <div class="space-y-2">
-          <label class="text-xs font-medium text-ink block">Color predominante de la flor</label>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <button id="filterColor_todas" onclick="app.setColorFilter('todas')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs">Todos</button>
-            <button id="filterColor_blanco" onclick="app.setColorFilter('blanco')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Blanco</button>
-            <button id="filterColor_amarillo" onclick="app.setColorFilter('amarillo')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Amarillo / Naranja</button>
-            <button id="filterColor_rojo" onclick="app.setColorFilter('rojo')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Rojo / Rosa</button>
-            <button id="filterColor_azul" onclick="app.setColorFilter('azul')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Azul / Violeta</button>
-            <button id="filterColor_multicolor" onclick="app.setColorFilter('multicolor')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Multicolor / Exótica</button>
-          </div>
-        </div>
-
-        <!-- Dimensión 2: Entorno y Uso -->
-        <div class="space-y-2">
-          <label class="text-xs font-medium text-ink block">Entorno y uso botánico</label>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <button id="filterUsage_todas" onclick="app.setUsageFilter('todas')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs">Todas</button>
-            <button id="filterUsage_silvestre" onclick="app.setUsageFilter('silvestre')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Silvestres de campo</button>
-            <button id="filterUsage_jardin" onclick="app.setUsageFilter('jardín')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Jardín ornamental</button>
-            <button id="filterUsage_aromatica" onclick="app.setUsageFilter('aromática')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Aromáticas y medicinales</button>
-            <button id="filterUsage_selva" onclick="app.setUsageFilter('selva')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Selva tropical</button>
-            <button id="filterUsage_acuatica" onclick="app.setUsageFilter('acuática')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Acuáticas y lotos</button>
-          </div>
-        </div>
-
-        <!-- Dimensión 3: Clima / Bioma -->
-        <div class="space-y-2">
-          <label class="text-xs font-medium text-ink block">Clima y bioma natural</label>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <button id="filterClim_todos" onclick="app.setClimateFilter('todos')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs">Todos</button>
-            <button id="filterClim_templado" onclick="app.setClimateFilter('templado')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Templado</button>
-            <button id="filterClim_tropical" onclick="app.setClimateFilter('tropical')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Tropical</button>
-            <button id="filterClim_mediterraneo" onclick="app.setClimateFilter('mediterráneo')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Mediterráneo</button>
-            <button id="filterClim_arido" onclick="app.setClimateFilter('árido')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Árido / Desértico</button>
-          </div>
-        </div>
-
-        <!-- Dimensión: Cantidad con Slider -->
-        <div class="space-y-2 pt-1 border-t border-line">
-          <div class="flex items-center justify-between">
-            <label for="limitSlider" class="text-xs font-medium text-ink">Cantidad de flores en torneo</label>
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-mono font-bold text-ink"><span id="sliderCountDisplay">16</span> flores</span>
-              <span id="sliderDuelEst" class="text-xs font-mono text-muted">(~42 duelos)</span>
-            </div>
-          </div>
-          <input id="limitSlider" type="range" min="8" max="64" value="16" step="8" oninput="app.onLimitChange(this.value)" class="w-full" />
-          <div class="flex items-center justify-between pt-1">
-            <div class="flex items-center gap-1.5 sm:gap-2">
-              <button id="btnLimit8" onclick="app.setLimitQuick(8)" class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">8</button>
-              <button id="btnLimit16" onclick="app.setLimitQuick(16)" class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-white shadow-xs transition">16</button>
-              <button id="btnLimit32" onclick="app.setLimitQuick(32)" class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">32</button>
-              <button id="btnLimit64" onclick="app.setLimitQuick(64)" class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">64</button>
-            </div>
-            <button id="btnLaunchCustomized" onclick="app.launchCustomizedGame()" class="px-5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs sm:text-sm transition shadow-xs">
-              Iniciar torneo con esta selección →
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grilla de Presets Curados -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left pt-2">
+      <!-- Pastillas abajo / Presets (Siempre visibles en Portada) -->
+      <div id="homePresetGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left pt-2">
         <button onclick="app.launchPreset('orquideas')" class="p-4 rounded-xl border border-line bg-surface hover:border-emerald-700 hover:bg-emerald-800/5 transition flex flex-col justify-between group">
           <div>
             <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-700 font-bold">Herbario tropical</span>
@@ -240,210 +162,437 @@
       </div>
     </section>
 
-    <!-- VIEW BATTLE -->
+    <!-- ====================================================
+         VISTA 1: PASO 1 - LUGAR
+         ==================================================== -->
+    <section id="viewStepPlace" class="hidden max-w-3xl mx-auto w-full space-y-4 sm:space-y-6">
+      <div class="space-y-1 text-left">
+        <div id="step1Kicker" class="text-[11px] uppercase tracking-[0.18em] text-muted">Paso 1 de 3 · Lugar</div>
+        <h2 id="step1Title" class="font-flora italic font-semibold text-3xl sm:text-4xl text-ink leading-tight">
+          ¿De qué parte del mundo quieres ver flores y plantas?
+        </h2>
+        <p id="step1Sub" class="text-xs sm:text-sm text-muted">
+          Deja marcado todo el mundo o combina los países y regiones que quieras.
+        </p>
+      </div>
+
+      <div class="space-y-4 sm:space-y-5 bg-surface border border-line rounded-2xl p-4 sm:p-6 shadow-sm text-left">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pb-4 border-b border-line">
+          <button id="btnWorldAll" onclick="app.clearPlaces()"
+            class="px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-emerald-700 text-white">
+            Todo el mundo
+          </button>
+
+          <div class="relative flex-1 sm:max-w-xs">
+            <input id="placeSearchInput" type="text" placeholder="Buscar país o región (ej. Argentina, Japón)..."
+              oninput="app.onPlaceSearch(this.value)"
+              class="w-full rounded-full bg-canvas border border-line px-3.5 py-2 text-xs sm:text-sm text-ink placeholder:text-muted focus:outline-hidden focus:border-emerald-700 transition" />
+            <div id="placeDropdown" class="hidden absolute left-0 right-0 top-full mt-1 z-40 rounded-xl bg-surface border border-line shadow-xl max-h-52 overflow-y-auto divide-y divide-line"></div>
+          </div>
+        </div>
+
+        <div id="selectedPlacesWrap" class="hidden space-y-1.5">
+          <div id="step1SelectedLabel" class="text-[11px] text-muted">Lugares elegidos:</div>
+          <div id="selectedPlacesChips" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <div class="space-y-2.5">
+          <div id="step1RegionsLabel" class="text-[11px] uppercase tracking-wider text-muted">Países y regiones principales</div>
+          <div id="placesGrid" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-1">
+        <button id="btnStep1Back" onclick="app.goToView('viewHome')" class="text-xs sm:text-sm text-muted hover:text-ink transition">
+          ← Portada
+        </button>
+        <button id="btnStep1Next" onclick="app.goToStep2()"
+          class="px-6 py-3 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-medium transition">
+          Siguiente: Tipo y color →
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         VISTA 2: PASO 2 - TIPO Y COLOR
+         ==================================================== -->
+    <section id="viewStepTraits" class="hidden max-w-3xl mx-auto w-full space-y-4 sm:space-y-6">
+      <div class="space-y-1 text-left">
+        <div id="step2Kicker" class="text-[11px] uppercase tracking-[0.18em] text-muted">Paso 2 de 3 · Tipo y Color</div>
+        <h2 id="step2Title" class="font-flora italic font-semibold text-3xl sm:text-4xl text-ink leading-tight">
+          ¿Qué tipo de flores o colores quieres incluir?
+        </h2>
+        <p id="step2Sub" class="text-xs sm:text-sm text-muted">
+          Opcional. Elige entornos botánicos, colores de flor o busca una especie en particular.
+        </p>
+      </div>
+
+      <div class="space-y-5 bg-surface border border-line rounded-2xl p-4 sm:p-6 shadow-sm text-left">
+        <div class="pb-4 border-b border-line flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="btnTraitsAll" onclick="app.clearTraits()"
+              class="px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-emerald-700 text-white">
+              Cualquier tipo y color
+            </button>
+            <button id="btnTraitsRandom" type="button" onclick="app.randomizeTraitsStep()"
+              class="px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium border border-emerald-700/40 bg-emerald-700/10 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-700 hover:text-white transition">
+              Categoría al azar
+            </button>
+          </div>
+          <span id="traitsSummaryHint" class="text-[11px] text-muted">Todas las familias incluidas</span>
+        </div>
+
+        <div class="space-y-2">
+          <label id="step2UsagesLabel" class="block text-[11px] uppercase tracking-wider text-muted">Entorno y uso botánico</label>
+          <div id="usagesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+        </div>
+
+        <div class="space-y-2 pt-3 border-t border-line">
+          <label id="step2ColorsLabel" class="block text-[11px] uppercase tracking-wider text-muted">Color predominante de la flor</label>
+          <div id="colorsGrid" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
+        </div>
+
+        <div class="space-y-2 pt-3 border-t border-line">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <label id="step2KeywordLabel" class="block text-[11px] uppercase tracking-wider text-muted">Especie o flor en particular (Opcional)</label>
+            <button id="activeKeywordChip" type="button" onclick="app.clearKeywordOnly()"
+              class="hidden inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700 text-white shadow-xs">
+              <span id="activeKeywordChipText"></span>
+              <span class="opacity-80">×</span>
+            </button>
+          </div>
+          <input id="keywordInput" type="text" placeholder="Ej. Orquídea, Rosa, Lavanda, Loto..."
+            oninput="app.onKeywordChange(this.value)"
+            class="w-full sm:w-80 rounded-full bg-canvas border border-line px-3.5 py-2 text-xs sm:text-sm text-ink placeholder:text-muted focus:outline-hidden focus:border-emerald-700 transition" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-1">
+        <button id="btnStep2Back" onclick="app.goToView('viewStepPlace')" class="text-xs sm:text-sm text-muted hover:text-ink transition">
+          ← Cambiar lugar
+        </button>
+        <button id="btnStep2Next" onclick="app.goToStep3()"
+          class="px-6 py-3 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-medium transition">
+          Siguiente: Confirmar →
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         VISTA 3: PASO 3 - CONFIRMAR PARTIDA (DEFAULT 16)
+         ==================================================== -->
+    <section id="viewStepSize" class="hidden max-w-2xl mx-auto w-full space-y-4 sm:space-y-6">
+      <div class="space-y-1 text-left">
+        <div id="step3Kicker" class="text-[11px] uppercase tracking-[0.18em] text-muted">Paso 3 de 3 · Confirmar partida</div>
+        <h2 id="step3Title" class="font-flora italic font-semibold text-3xl sm:text-4xl text-ink leading-tight">
+          Tu selección está lista.
+        </h2>
+        <p id="step3FilterSummary" class="text-xs sm:text-sm font-medium text-emerald-700"></p>
+      </div>
+
+      <div class="bg-surface border border-line rounded-2xl p-4 sm:p-6 shadow-xs space-y-5 relative overflow-hidden text-left">
+        <div class="flex items-center justify-between border-b border-line pb-4">
+          <div>
+            <div id="step3CatalogLabel" class="text-[11px] uppercase tracking-wider text-muted">Catálogo disponible</div>
+            <div class="flex items-baseline gap-1.5 mt-0.5">
+              <span id="step3TotalFound" class="font-serif text-3xl sm:text-4xl text-ink">...</span>
+              <span id="step3PhotosUnit" class="text-xs text-muted">especies con foto</span>
+            </div>
+          </div>
+          <div id="step3MiniPhotos" class="flex -space-x-2.5 overflow-hidden py-1"></div>
+        </div>
+
+        <div class="space-y-2">
+          <label id="step3ModeLabel" class="block text-[11px] uppercase tracking-wider text-muted">1. ¿Cuáles entran al juego?</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button id="btnSamplePopular" onclick="app.setSamplingMode('popular')"
+              class="p-3 rounded-xl border-2 border-emerald-700 bg-emerald-700/10 text-left transition">
+              <div id="samplePopTitle" class="text-xs sm:text-sm font-semibold text-ink">Las más famosas</div>
+              <div id="samplePopDesc" class="text-[11px] text-muted mt-0.5">Las más emblemáticas de la categoría.</div>
+            </button>
+            <button id="btnSampleRandom" onclick="app.setSamplingMode('random')"
+              class="p-3 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 text-left transition">
+              <div id="sampleRndTitle" class="text-xs sm:text-sm font-semibold text-ink">Al azar (Sorpresa)</div>
+              <div id="sampleRndDesc" class="text-[11px] text-muted mt-0.5">Sorteo para descubrir especies.</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="space-y-3.5 pt-3 border-t border-line">
+          <div class="flex items-center justify-between">
+            <label id="step3CountLabel" for="limitSlider" class="text-[11px] uppercase tracking-wider text-muted">2. Cantidad de flores (16 por defecto)</label>
+            <span class="font-serif text-2xl sm:text-3xl text-ink"><span id="limitValueDisplay">16</span> <span id="step3FlowersUnit">flores</span></span>
+          </div>
+
+          <input id="limitSlider" type="range" min="4" max="64" value="16" oninput="app.onLimitChange(this.value)" class="w-full" />
+
+          <div class="grid grid-cols-4 gap-1.5">
+            <button onclick="app.onLimitChange(8)" class="py-1.5 px-2 rounded-lg text-[11px] font-medium border border-line hover:border-emerald-700 bg-canvas/60 text-ink transition">
+              8 · Corto
+            </button>
+            <button onclick="app.onLimitChange(16)" class="py-1.5 px-2 rounded-lg text-[11px] font-semibold border border-emerald-700/50 bg-emerald-700/10 text-emerald-700 transition">
+              16 · Ideal
+            </button>
+            <button onclick="app.onLimitChange(32)" class="py-1.5 px-2 rounded-lg text-[11px] font-medium border border-line hover:border-emerald-700 bg-canvas/60 text-ink transition">
+              32 · Largo
+            </button>
+            <button onclick="app.onLimitChange('MAX')" class="py-1.5 px-2 rounded-lg text-[11px] font-medium border border-line hover:border-emerald-700 bg-canvas/60 text-ink transition">
+              Todas
+            </button>
+          </div>
+
+          <div id="effortCalloutBox" class="rounded-xl bg-emerald-700/10 border border-emerald-700/25 p-3.5 flex items-center justify-between gap-3">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <span id="effortIntensityBadge" class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-700 text-white">
+                  Duración Ideal
+                </span>
+                <span id="effortTimeBadge" class="text-xs font-medium text-emerald-700">
+                  ~1.5 min
+                </span>
+              </div>
+              <p id="durationHintText" class="text-[11px] text-muted pt-0.5">
+                Harás unas 42 elecciones rápidas entre pares de fotos.
+              </p>
+            </div>
+
+            <div class="text-right shrink-0 border-l border-emerald-700/15 pl-3.5">
+              <div class="font-serif text-2xl sm:text-3xl text-ink leading-none">
+                ~<span id="effortClicksBigNumber">42</span> <span id="step3ClicksUnit">clics</span>
+              </div>
+              <div id="step3DuelsUnit" class="text-[10px] font-medium text-muted mt-0.5">
+                duelos 1 vs 1
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="noFlowersWarning" class="hidden p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200">
+          Esa combinación casi no tiene flores registradas. Vuelve un paso atrás o prueba con otro filtro.
+        </div>
+
+        <button id="btnLaunchGame" onclick="app.startBattleGame()"
+          class="w-full py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-sm sm:text-base tracking-wide transition shadow-sm">
+          Comenzar partida →
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button id="btnStep3Back" onclick="app.goToView('viewStepTraits')" class="text-xs sm:text-sm text-muted hover:text-ink transition">
+          ← Ajustar filtros
+        </button>
+        <button id="btnStep3Surprise" onclick="app.launchSurpriseMe()" class="text-xs sm:text-sm font-medium text-emerald-700 hover:underline">
+          Sortear otra categoría al azar
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         VISTA 4: BATALLA (RIGID DUEL CARD CONTAINER CON AMBIENT BLUR)
+         ==================================================== -->
     <section id="viewBattle" class="hidden space-y-4 max-w-4xl mx-auto w-full py-1">
       <div class="flex items-center justify-between gap-3 text-xs">
         <div class="flex items-center gap-2">
-          <span class="text-muted">
+          <span id="battleCategoryBadge" class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-700/10 text-emerald-700 border border-emerald-700/20 truncate max-w-[215px] sm:max-w-md">
+            Las 16 más famosas del mundo
+          </span>
+          <span class="font-mono text-muted">
             Duelo <span id="battleStepNum">1</span><span id="battleTotalEstWrap" class="text-muted/75">/~32</span> · <span id="battlePctText">0%</span>
           </span>
         </div>
-        <div class="flex-1 max-w-xs bg-line rounded-full h-1.5 overflow-hidden">
-          <div id="battleProgressBar" class="bg-emerald-700 h-full w-0 transition-all duration-300"></div>
-        </div>
-        <button id="btnUndoBattleChoice" type="button" onclick="app.undoLastBattleChoice()"
-          class="hidden items-center gap-1 px-3 py-1 rounded-full border border-line bg-surface font-medium text-xs text-ink hover:text-emerald-800 transition">
-          <span>↶</span>
-          <span>Deshacer</span>
-        </button>
-      </div>
-
-      <div class="text-center">
-        <h2 class="font-flora italic font-semibold text-2xl sm:text-3xl text-ink">
-          ¿Cuál de las dos te gusta más?
-        </h2>
-      </div>
-
-      <!-- Duel cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-1 items-stretch">
-        
-        <!-- Left -->
-        <button id="cardLeftBtn" type="button" onclick="app.chooseCandidate('left')"
-          class="photo-card group text-left bg-surface border border-line hover:border-emerald-700 rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm transition h-full">
-          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-900 overflow-hidden shrink-0">
-            <div id="loaderLeft" class="absolute inset-0 z-20 bg-stone-200/90 dark:bg-stone-800/90 flex flex-col items-center justify-center gap-1">
-              <span class="text-xs font-medium text-muted">Cargando foto...</span>
-            </div>
-            <img id="imgLeftBg" src="" alt="" aria-hidden="true" onerror="this.style.display='none'"
-              class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
-            <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.onBattleImgError('left')"
-              class="absolute inset-0 z-10 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500" />
-          </div>
-          <div class="p-4 flex items-center justify-between gap-2 flex-1">
-            <div class="space-y-0.5 min-w-0">
-              <span id="tagLeft" class="text-[10px] font-mono uppercase text-muted block truncate"></span>
-              <h3 id="nameLeft" class="font-flora italic font-semibold text-2xl text-ink truncate"></h3>
-              <p id="sciLeft" class="text-xs italic text-muted truncate"></p>
-            </div>
-            <span class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-canvas group-hover:bg-emerald-700 group-hover:text-white transition shrink-0">
-              Elegir
-            </span>
-          </div>
-        </button>
-
-        <!-- Right -->
-        <button id="cardRightBtn" type="button" onclick="app.chooseCandidate('right')"
-          class="photo-card group text-left bg-surface border border-line hover:border-emerald-700 rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm transition h-full">
-          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-900 overflow-hidden shrink-0">
-            <div id="loaderRight" class="absolute inset-0 z-20 bg-stone-200/90 dark:bg-stone-800/90 flex flex-col items-center justify-center gap-1">
-              <span class="text-xs font-medium text-muted">Cargando foto...</span>
-            </div>
-            <img id="imgRightBg" src="" alt="" aria-hidden="true" onerror="this.style.display='none'"
-              class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
-            <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.onBattleImgError('right')"
-              class="absolute inset-0 z-10 w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500" />
-          </div>
-          <div class="p-4 flex items-center justify-between gap-2 flex-1">
-            <div class="space-y-0.5 min-w-0">
-              <span id="tagRight" class="text-[10px] font-mono uppercase text-muted block truncate"></span>
-              <h3 id="nameRight" class="font-flora italic font-semibold text-2xl text-ink truncate"></h3>
-              <p id="sciRight" class="text-xs italic text-muted truncate"></p>
-            </div>
-            <span class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-canvas group-hover:bg-emerald-700 group-hover:text-white transition shrink-0">
-              Elegir
-            </span>
-          </div>
-        </button>
-
-      </div>
-    </section>
-
-    <!-- VIEW RESULTS -->
-    <section id="viewResults" class="hidden space-y-8 max-w-3xl mx-auto w-full py-4 text-center">
-      <div class="space-y-2">
-        <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-emerald-700/10 text-emerald-800 dark:text-emerald-400">
-          Torneo Finalizado
-        </span>
-        <h2 class="font-flora italic font-semibold text-3xl sm:text-4xl text-ink">
-          Tu Ranking Botánico
-        </h2>
-      </div>
-
-      <div id="podiumContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left items-end"></div>
-
-      <div class="space-y-3 text-left">
-        <h3 class="font-flora italic font-semibold text-xl text-ink">Resto de tus posiciones</h3>
-        <div id="restRankingContainer" class="divide-y divide-line border border-line rounded-2xl bg-surface overflow-hidden"></div>
-      <!-- Winner Audio Prompt Banner -->
-      <div id="winnerAudioPromptBanner" class="hidden p-3.5 rounded-2xl bg-surface border border-line flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-emerald-700/10 text-emerald-800 dark:text-emerald-400 flex items-center justify-center shrink-0">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
-          </div>
-          <div>
-            <span class="text-xs font-semibold text-ink block">Jingle botánico del campeón</span>
-            <span class="text-[11px] text-muted block">Campanada acústica armónica sintetizada</span>
-          </div>
-        </div>
-        <button type="button" onclick="app.playBotanicalChimeFallback()" class="px-4 py-1.5 rounded-full text-xs font-medium bg-emerald-700 text-white hover:bg-emerald-800 transition shrink-0">
-          <span id="winnerAudioBtnText">Reproducir campanada</span>
-        </button>
-      </div>
-
-      <div class="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-line">
-        <button id="btnOpenExportModal" onclick="app.openExportModal()" class="px-5 py-2.5 rounded-full border border-emerald-700/40 bg-emerald-700/10 hover:bg-emerald-700 hover:text-white text-emerald-900 dark:text-emerald-300 font-medium text-xs sm:text-sm transition flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          <span>Descargar tarjeta visual</span>
-        </button>
-        <button onclick="app.shareChallenge()" class="px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs sm:text-sm transition flex items-center gap-2">
-          <span id="shareBtnLabel">Copiar link de desafío</span>
-        </button>
-        <button onclick="app.startBattleGame()" class="px-5 py-2.5 rounded-full border border-line bg-surface hover:border-ink text-ink font-medium text-xs sm:text-sm transition">
-          Jugar de nuevo
-        </button>
-        <button onclick="app.goToView('viewHome')" class="px-5 py-2.5 rounded-full border border-line bg-surface text-muted hover:text-ink font-medium text-xs sm:text-sm transition">
-          Portada
-        </button>
-      </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- MODAL DE EXPORTACIÓN VISUAL (CANVAS 2.0)   -->
-    <!-- ========================================== -->
-    <div id="exportModal" onclick="if(event.target === this) app.closeExportModal()" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
-      <div class="bg-surface border-t sm:border border-line rounded-t-3xl sm:rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl max-h-[88dvh] flex flex-col">
-        <!-- Modal Header -->
-        <div class="px-4 sm:px-6 py-3.5 border-b border-line flex items-center justify-between bg-canvas shrink-0">
-          <div>
-            <h3 class="font-flora italic font-semibold text-2xl text-ink leading-tight">Tarjeta de Ranking</h3>
-            <p class="text-[11px] text-muted mt-0.5">Exportá tu podio para compartir en redes sociales</p>
-          </div>
-          <button type="button" onclick="app.closeExportModal()" class="text-xs font-medium text-muted hover:text-ink px-3 py-1 rounded-full border border-line bg-surface">
-            Cerrar
+        <div class="flex items-center gap-2">
+          <button id="btnUndoBattleChoice" type="button" onclick="app.undoLastBattleChoice()"
+            class="text-muted hover:text-ink disabled:opacity-30 disabled:cursor-not-allowed transition flex items-center gap-1.5 px-3 py-1 rounded-full border border-line bg-surface text-xs font-medium"
+            disabled>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
+            <span>Deshacer</span>
           </button>
         </div>
-
-        <!-- Modal Body (Scrollable) -->
-        <div class="p-4 sm:p-5 overflow-y-auto space-y-4">
-          <!-- Format switcher (Historia 9:16 vs Poster 4:5) -->
-          <div class="space-y-1.5">
-            <label class="text-[10px] font-mono uppercase tracking-wider text-muted">Formato</label>
-            <div class="grid grid-cols-2 gap-2">
-              <button type="button" id="formatBtnStory" onclick="app.setExportFormat('story')"
-                class="py-2 px-3 rounded-xl border-2 border-emerald-700 bg-emerald-700/10 text-xs font-semibold text-ink text-center transition">
-                Historia 9:16
-              </button>
-              <button type="button" id="formatBtnPoster" onclick="app.setExportFormat('poster')"
-                class="py-2 px-3 rounded-xl border border-line bg-canvas text-xs font-medium text-muted hover:text-ink text-center transition">
-                Póster 4:5
-              </button>
-            </div>
-          </div>
-
-          <!-- Canvas preview container -->
-          <div class="flex flex-col items-center justify-center bg-canvas rounded-2xl p-3 border border-line min-h-[240px]">
-            <div id="exportCanvasLoader" class="hidden flex-col items-center justify-center py-8 gap-2">
-              <div class="w-6 h-6 rounded-full border-2 border-emerald-700 border-t-transparent animate-spin"></div>
-              <span class="text-xs font-medium text-muted">Generando tarjeta visual...</span>
-            </div>
-            <canvas id="exportCardCanvas" width="1080" height="1920" class="w-full max-w-[200px] sm:max-w-[220px] h-auto rounded-xl shadow-md bg-stone-900"></canvas>
-          </div>
-
-          <!-- Actions -->
-          <div class="space-y-2 pt-1">
-            <button type="button" id="btnShareCard" onclick="app.shareExportCard()"
-              class="w-full py-2.5 px-4 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs sm:text-sm transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
-              <span>Compartir tarjeta</span>
-            </button>
-
-            <div class="grid grid-cols-2 gap-2">
-              <button type="button" id="btnCopyCardImage" onclick="app.copyExportCardImage()"
-                class="py-2 px-3 rounded-full bg-surface border border-line hover:border-emerald-700 text-ink text-xs font-medium transition flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                <span>Copiar imagen</span>
-              </button>
-              <button type="button" id="btnDownloadCardPng" onclick="app.downloadExportCardPng()"
-                class="py-2 px-3 rounded-full bg-surface border border-line hover:border-emerald-700 text-ink text-xs font-medium transition flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                <span>Descargar PNG</span>
-              </button>
-            </div>
-
-            <div id="exportActionStatus" class="hidden text-xs font-medium text-center py-2 px-3 rounded-xl bg-emerald-700/10 border border-emerald-700/20 text-emerald-800 dark:text-emerald-300"></div>
-            <div id="exportFeedbackToast" class="hidden"></div>
-          </div>
-        </div>
       </div>
-    </div>
+
+      <!-- Barra de progreso -->
+      <div class="w-full h-1.5 bg-line rounded-full overflow-hidden">
+        <div id="battleProgressBar" class="h-full bg-emerald-700 transition-all duration-300" style="width: 0%"></div>
+      </div>
+
+      <!-- Cards Grid (2 Columnas con contenedor rígido garantizado) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1">
+        
+        <!-- CARD LEFT -->
+        <button id="cardLeftBtn" type="button" onclick="app.chooseCandidate('left')"
+          class="relative w-full rounded-2xl border-2 border-line hover:border-emerald-700 bg-surface text-left transition group overflow-hidden focus:outline-hidden focus:ring-2 focus:ring-emerald-700 flex flex-col justify-between">
+          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-900 overflow-hidden shrink-0">
+            <div id="loaderLeft" class="hidden absolute inset-0 z-20 bg-stone-900/60 backdrop-blur-xs flex flex-col items-center justify-center gap-1.5 transition-opacity pointer-events-none">
+              <div class="w-6 h-6 rounded-full border-stone-500 border-t-emerald-500 animate-spin" style="border-width: 2.5px;"></div>
+              <span class="text-[10px] font-medium text-stone-300">Cargando foto...</span>
+            </div>
+            <img id="imgLeftBg" src="" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-60 pointer-events-none" aria-hidden="true" />
+            <img id="imgLeft" src="" alt="Candidato 1" onload="app.onBattleImgLoad('left')" class="absolute inset-0 w-full h-full object-contain object-center z-10 transition duration-300 group-hover:scale-105" />
+            <span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/75 text-white backdrop-blur-xs">A</span>
+          </div>
+          <div class="p-3 sm:p-4 space-y-1 flex-1 flex flex-col justify-center">
+            <h3 id="nameLeft" class="font-flora italic text-lg sm:text-xl text-ink group-hover:text-emerald-700 transition-colors line-clamp-1 leading-snug">...</h3>
+            <p id="sciLeft" class="font-mono text-xs text-muted italic line-clamp-1">...</p>
+            <div class="flex items-center gap-1.5 pt-1">
+              <span id="familyLeft" class="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-canvas border border-line text-muted">...</span>
+              <span id="regionLeft" class="text-[10px] font-mono text-muted/70">...</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- CARD RIGHT -->
+        <button id="cardRightBtn" type="button" onclick="app.chooseCandidate('right')"
+          class="relative w-full rounded-2xl border-2 border-line hover:border-emerald-700 bg-surface text-left transition group overflow-hidden focus:outline-hidden focus:ring-2 focus:ring-emerald-700 flex flex-col justify-between">
+          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-900 overflow-hidden shrink-0">
+            <div id="loaderRight" class="hidden absolute inset-0 z-20 bg-stone-900/60 backdrop-blur-xs flex flex-col items-center justify-center gap-1.5 transition-opacity pointer-events-none">
+              <div class="w-6 h-6 rounded-full border-stone-500 border-t-emerald-500 animate-spin" style="border-width: 2.5px;"></div>
+              <span class="text-[10px] font-medium text-stone-300">Cargando foto...</span>
+            </div>
+            <img id="imgRightBg" src="" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-60 pointer-events-none" aria-hidden="true" />
+            <img id="imgRight" src="" alt="Candidato 2" onload="app.onBattleImgLoad('right')" class="absolute inset-0 w-full h-full object-contain object-center z-10 transition duration-300 group-hover:scale-105" />
+            <span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/75 text-white backdrop-blur-xs">B</span>
+          </div>
+          <div class="p-3 sm:p-4 space-y-1 flex-1 flex flex-col justify-center">
+            <h3 id="nameRight" class="font-flora italic text-lg sm:text-xl text-ink group-hover:text-emerald-700 transition-colors line-clamp-1 leading-snug">...</h3>
+            <p id="sciRight" class="font-mono text-xs text-muted italic line-clamp-1">...</p>
+            <div class="flex items-center gap-1.5 pt-1">
+              <span id="familyRight" class="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-canvas border border-line text-muted">...</span>
+              <span id="regionRight" class="text-[10px] font-mono text-muted/70">...</span>
+            </div>
+          </div>
+        </button>
+
+      </div>
+
+      <div class="text-center text-xs text-muted pt-2">
+        <span class="hidden sm:inline">Usa las flechas <kbd class="px-1.5 py-0.5 bg-surface border border-line rounded font-mono">←</kbd> y <kbd class="px-1.5 py-0.5 bg-surface border border-line rounded font-mono">→</kbd> del teclado o toca para elegir.</span>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         VISTA 5: RESULTADOS (PODIO Y RANKING COMPLETO)
+         ==================================================== -->
+    <section id="viewResults" class="hidden space-y-6 max-w-3xl mx-auto w-full py-4 text-center">
+      <div class="space-y-2">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-700/10 text-emerald-700 border border-emerald-700/20">
+          Herbario Completado
+        </span>
+        <h2 class="font-flora italic font-semibold text-3xl sm:text-4xl text-ink tracking-tight">Tu Podio Floral</h2>
+        <p class="text-xs sm:text-sm text-muted">Basado en tus elecciones directas en cada enfrentamiento.</p>
+      </div>
+
+      <!-- Podio Top 3 -->
+      <div id="podiumContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 items-end pt-2"></div>
+
+      <!-- Banner Audio / Campanilla floral sintetizada -->
+      <div id="winnerAudioPromptBanner" class="p-4 rounded-2xl border border-line bg-surface flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-700 font-bold block">Acústica Botánica</span>
+          <p id="winnerLoreText" class="text-xs text-muted mt-0.5">Escucha el repique armónico de la especie campeona de tu torneo.</p>
+        </div>
+        <button id="winnerAudioPromptBtn" onclick="app.playWinnerChime()" class="px-4 py-2 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs transition shrink-0 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          <span id="winnerAudioBtnText">Reproducir campana floral</span>
+        </button>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+        <button id="btnOpenExportModal" onclick="app.openExportModal()" class="px-5 py-2.5 rounded-full border border-emerald-700/40 bg-emerald-700/10 hover:bg-emerald-700 hover:text-white text-emerald-900 dark:text-emerald-300 font-medium text-xs sm:text-sm transition flex items-center gap-2">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          <span>Compartir tarjeta de podio</span>
+        </button>
+        <button id="btnShareChallenge" onclick="app.shareChallengeLink()" class="px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs sm:text-sm transition flex items-center gap-2">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <span id="shareBtnLabel">Copiar link de desafío</span>
+        </button>
+        <button onclick="app.goToView('viewHome')" class="px-5 py-2.5 rounded-full border border-line bg-surface text-ink hover:border-emerald-700 font-medium text-xs sm:text-sm transition">
+          Nuevo Torneo
+        </button>
+      </div>
+
+      <!-- Resto del ranking -->
+      <div class="space-y-2 pt-4 text-left">
+        <h3 class="font-flora italic font-semibold text-lg text-ink">Ranking Completo</h3>
+        <div id="restRankingContainer" class="bg-surface border border-line rounded-2xl divide-y divide-line overflow-hidden"></div>
+      </div>
+    </section>
 
   </main>
 
-  <footer class="border-t border-line bg-canvas py-4 sm:py-6 mt-auto">
-    <div class="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-between text-xs text-muted">
-      <div>Rankea2 · Flores y Plantas</div>
-      <div>
-        Creado por <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="text-ink hover:text-emerald-800 underline underline-offset-4 transition">fedep1011</a>
+  <!-- MODAL DE EXPORTACIÓN (CANVAS 2.0 CONTRACT) -->
+  <div id="exportModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="relative bg-surface border border-line rounded-2xl max-w-lg w-full max-h-[92dvh] overflow-y-auto p-4 sm:p-6 space-y-4 shadow-2xl text-left">
+      <div class="flex items-center justify-between border-b border-line pb-3">
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-700 font-bold">Canvas 2.0</span>
+          <h3 class="font-flora italic font-semibold text-xl text-ink">Tarjeta de Podio</h3>
+        </div>
+        <button onclick="app.closeExportModal()" class="text-muted hover:text-ink text-xl leading-none w-7 h-7 rounded-full border border-line flex items-center justify-center">×</button>
+      </div>
+
+      <!-- Formato selector -->
+      <div class="space-y-1.5">
+        <label class="text-xs font-medium text-ink block">Formato de exportación</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" id="formatBtnStory" onclick="app.setExportFormat('story')"
+            class="p-2.5 rounded-xl border-2 border-emerald-700 bg-emerald-700/10 text-ink text-xs font-medium transition flex items-center justify-between">
+            <span>Story (9:16)</span>
+            <span class="text-[10px] text-muted">Instagram / TikTok</span>
+          </button>
+          <button type="button" id="formatBtnPoster" onclick="app.setExportFormat('poster')"
+            class="p-2.5 rounded-xl border border-line bg-surface text-muted text-xs font-medium transition flex items-center justify-between">
+            <span>Póster (4:5)</span>
+            <span class="text-[10px] text-muted">Feed / Twitter</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Canvas Preview Container -->
+      <div class="relative w-full rounded-xl bg-stone-900 border border-line overflow-hidden flex items-center justify-center p-2 min-h-[220px]">
+        <canvas id="exportCanvas" class="max-w-full max-h-[50dvh] object-contain rounded shadow-lg"></canvas>
+        <div id="exportCanvasLoader" class="hidden absolute inset-0 bg-stone-900/80 backdrop-blur-xs flex items-center justify-center gap-2 text-white text-xs font-mono">
+          <div class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin"></div>
+          <span>Generando tarjeta en alta resolución...</span>
+        </div>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="space-y-2 pt-1">
+        <button type="button" id="btnShareCard" onclick="app.shareExportCard()"
+          class="w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-xs">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <span id="btnShareCardText">Compartir tarjeta</span>
+        </button>
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" id="btnCopyCardImage" onclick="app.copyExportCardImage()"
+            class="py-2 rounded-xl border border-line bg-surface hover:border-emerald-700 text-ink font-medium text-xs transition flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span id="btnCopyCardText">Copiar imagen</span>
+          </button>
+          <button type="button" id="btnDownloadCardPng" onclick="app.downloadExportCardPng()"
+            class="py-2 rounded-xl border border-line bg-surface hover:border-emerald-700 text-ink font-medium text-xs transition flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Descargar PNG</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line py-6 text-center text-xs text-muted mt-auto">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="font-flora italic font-bold text-sm text-ink">Rankea2</span>
+        <span class="text-muted/60">·</span>
+        <span>Herbario y Botánica del Planeta</span>
+      </div>
+      <div class="flex items-center gap-4 text-muted/80">
+        <a href="/" class="hover:text-ink transition">Arenas</a>
+        <a href="/aves/" class="hover:text-ink transition">Aves</a>
+        <a href="/pokemon/" class="hover:text-ink transition">Pokémon</a>
+        <a href="/mamiferos/" class="hover:text-ink transition">Mamíferos</a>
       </div>
     </div>
   </footer>
