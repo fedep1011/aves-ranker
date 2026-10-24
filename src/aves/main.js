@@ -1216,6 +1216,37 @@ const I18N = {
           btn.textContent = lbl;
           grid.appendChild(btn);
         });
+
+        this.updateStep1LiveCount();
+      },
+
+      updateStep1LiveCount() {
+        const numEl = document.getElementById("step1CountNumber");
+        const lblEl = document.getElementById("step1CountLabel");
+        const btnCountEl = document.getElementById("btnStep1NextCount");
+        const isEn = this.state.lang === "en";
+
+        const placeCount = this.state.places.size;
+        let estimateText = "~11.000";
+        let labelText = isEn ? "Birds available with photo worldwide:" : "Aves disponibles con foto en todo el mundo:";
+
+        if (placeCount === 1) {
+          const firstPlace = Array.from(this.state.places.values())[0];
+          labelText = isEn ? `Birds registered in ${firstPlace}:` : `Aves registradas con foto en ${firstPlace}:`;
+          if (firstPlace.includes("Uruguay")) estimateText = "~480";
+          else if (firstPlace.includes("Argentina")) estimateText = "~1.050";
+          else if (firstPlace.includes("Brasil") || firstPlace.includes("Brazil")) estimateText = "~1.900";
+          else if (firstPlace.includes("Chile")) estimateText = "~530";
+          else if (firstPlace.includes("Perú") || firstPlace.includes("Peru")) estimateText = "~1.880";
+          else estimateText = "~600+";
+        } else if (placeCount > 1) {
+          labelText = isEn ? "Birds registered in selected locations:" : "Aves registradas en las regiones elegidas:";
+          estimateText = "~2.500+";
+        }
+
+        if (numEl) numEl.textContent = `${estimateText} ${isEn ? "species" : "especies"}`;
+        if (lblEl) lblEl.textContent = labelText;
+        if (btnCountEl) btnCountEl.textContent = `(${estimateText})`;
       },
 
       togglePlace(id, label) {
@@ -1349,6 +1380,35 @@ const I18N = {
           `;
           cGrid.appendChild(btn);
         });
+
+        this.updateStep2LiveFeedback();
+      },
+
+      updateStep2LiveFeedback() {
+        const banner = document.getElementById("step2FeedbackBanner");
+        const titleEl = document.getElementById("step2FeedbackTitle");
+        const detailEl = document.getElementById("step2FeedbackDetail");
+        const btnNext = document.getElementById("btnStep2Next");
+        const btnText = document.getElementById("btnStep2NextText");
+        const btnCount = document.getElementById("btnStep2NextCount");
+        const isEn = this.state.lang === "en";
+
+        if (!banner) return;
+
+        const hasTraits = this.state.guilds.size > 0 || this.state.colors.size > 0 || this.state.keyword.trim().length > 0;
+
+        if (titleEl) titleEl.textContent = isEn ? "Species with photos ready for duels" : "Especies con foto listas para el duelo";
+        if (detailEl) {
+          detailEl.textContent = hasTraits
+            ? (isEn ? "Your filtered combination has dozens of verified species for 8, 16, or more." : "Tu combinación filtrada tiene decenas de especies verificadas para torneos de 8, 16 o más.")
+            : (isEn ? "Hundreds of world species ready for your custom tournament." : "Cientos de especies de todo el mundo listas para armar tu torneo.");
+        }
+        if (btnNext) {
+          btnNext.disabled = false;
+          btnNext.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+        if (btnText) btnText.textContent = isEn ? "Next: Confirm" : "Siguiente: Confirmar";
+        if (btnCount) btnCount.textContent = hasTraits ? "(OK)" : "(~11.000)";
       },
 
       clearTraitsAndColors() {

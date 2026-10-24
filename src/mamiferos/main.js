@@ -201,6 +201,36 @@ const app = {
         grid.appendChild(btn);
       });
     }
+
+    this.updateStep1LiveCount();
+  },
+
+  updateStep1LiveCount() {
+    const placeMatches = this.getFilteredSubset(true);
+    const count = placeMatches.length;
+    const numEl = document.getElementById('step1CountNumber');
+    const lblEl = document.getElementById('step1CountLabel');
+    const btnCountEl = document.getElementById('btnStep1NextCount');
+    const btnNext = document.getElementById('btnStep1Next');
+
+    const placeLabel = this.state.places.size === 0
+      ? 'en todo el mundo'
+      : (this.state.places.size === 1
+          ? `en ${Array.from(this.state.places.values())[0]}`
+          : `en los lugares elegidos`);
+
+    if (numEl) numEl.textContent = `${count.toLocaleString('es-UY')} especies`;
+    if (lblEl) lblEl.textContent = `Especies con foto disponibles ${placeLabel}:`;
+    if (btnCountEl) btnCountEl.textContent = `(${count.toLocaleString('es-UY')})`;
+    if (btnNext) {
+      if (count < 2) {
+        btnNext.disabled = true;
+        btnNext.classList.add('opacity-50', 'cursor-not-allowed');
+      } else {
+        btnNext.disabled = false;
+        btnNext.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+    }
   },
 
   togglePlace(id, label) {
@@ -335,6 +365,81 @@ const app = {
         hGrid.appendChild(btn);
       });
     }
+
+    this.updateStep2LiveFeedback();
+  },
+
+  updateStep2LiveFeedback() {
+    const matches = this.getFilteredSubset(false);
+    const count = matches.length;
+    const banner = document.getElementById('step2FeedbackBanner');
+    const titleEl = document.getElementById('step2FeedbackTitle');
+    const detailEl = document.getElementById('step2FeedbackDetail');
+    const iconEl = document.getElementById('step2FeedbackIcon');
+    const btnNext = document.getElementById('btnStep2Next');
+    const btnText = document.getElementById('btnStep2NextText');
+    const btnCount = document.getElementById('btnStep2NextCount');
+
+    if (!banner) return;
+
+    banner.className = 'p-3.5 rounded-xl border text-xs sm:text-sm transition-all flex items-start gap-2.5 ';
+
+    if (count >= 2) {
+      banner.classList.add('bg-amber-900/10', 'border-amber-800/25', 'text-amber-800', 'dark:text-amber-200');
+      if (iconEl) {
+        iconEl.innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>';
+        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-amber-800 dark:text-amber-300';
+      }
+      if (count <= 3) {
+        const names = matches.map(m => m.name).join(', ');
+        if (titleEl) titleEl.textContent = `${count} especies con foto listas`;
+        if (detailEl) detailEl.textContent = `Encontradas: ${names}. Alcanzan justo para una partida corta.`;
+      } else {
+        if (titleEl) titleEl.textContent = `${count.toLocaleString('es-UY')} especies con foto disponibles`;
+        if (detailEl) detailEl.textContent = 'Tu combinación tiene opciones suficientes para jugar con 8, 16 o más.';
+      }
+
+      if (btnNext) {
+        btnNext.disabled = false;
+        btnNext.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+      if (btnText) btnText.textContent = 'Siguiente: Confirmar';
+      if (btnCount) {
+        btnCount.textContent = `(${count.toLocaleString('es-UY')})`;
+        btnCount.classList.remove('hidden');
+      }
+    } else if (count === 1) {
+      const single = matches[0];
+      banner.classList.add('bg-amber-500/15', 'border-amber-500/40', 'text-amber-900', 'dark:text-amber-200');
+      if (iconEl) {
+        iconEl.innerHTML = '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>';
+        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400';
+      }
+      if (titleEl) titleEl.textContent = `Solo hay 1 especie disponible: ${single.name}`;
+      if (detailEl) detailEl.textContent = `${single.name} (${single.sci_name}). Para armar un torneo necesitas al menos 2 especies. Prueba sumando otro grupo o quitando algún filtro.`;
+
+      if (btnNext) {
+        btnNext.disabled = true;
+        btnNext.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+      if (btnText) btnText.textContent = 'Solo 1 especie (mínimo 2)';
+      if (btnCount) btnCount.classList.add('hidden');
+    } else {
+      banner.classList.add('bg-rose-500/10', 'border-rose-500/30', 'text-rose-900', 'dark:text-rose-200');
+      if (iconEl) {
+        iconEl.innerHTML = '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>';
+        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400';
+      }
+      if (titleEl) titleEl.textContent = 'No hay especies con foto para este filtro';
+      if (detailEl) detailEl.textContent = 'Esa combinación no tiene especies registradas. Prueba cambiando de lugar o seleccionando otro grupo.';
+
+      if (btnNext) {
+        btnNext.disabled = true;
+        btnNext.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+      if (btnText) btnText.textContent = 'Sin especies disponibles';
+      if (btnCount) btnCount.classList.add('hidden');
+    }
   },
 
   clearTraits() {
@@ -373,7 +478,7 @@ const app = {
     this.goToView('viewStepSize');
   },
 
-  filterPool() {
+  getFilteredSubset(placesOnly = false) {
     let subset = [...this.state.pool];
 
     // Lugar
@@ -382,21 +487,28 @@ const app = {
       const hasLatam = placeKeys.includes('latinoamérica') || placeKeys.includes('sudamérica');
       subset = subset.filter(m => {
         const reg = (m.region || '').toLowerCase();
-        if (hasLatam && (reg.includes('américa') || reg.includes('sudamérica'))) return true;
-        return placeKeys.some(p => reg.includes(p));
+        const countries = Array.isArray(m.countries) ? m.countries.map(c => c.toLowerCase()) : [];
+        if (hasLatam && (reg.includes('américa') || reg.includes('sudamérica') || countries.includes('latinoamérica') || countries.includes('sudamérica'))) {
+          return true;
+        }
+        return placeKeys.some(p => reg.includes(p) || countries.includes(p));
       });
+    }
+
+    if (placesOnly) {
+      return subset;
     }
 
     // Grupos
     if (this.state.groups.size > 0) {
       subset = subset.filter(m => {
         for (const g of this.state.groups) {
-          if (g === 'felinos' && m.family === 'Felidae') return true;
-          if (g === 'canidos' && m.family === 'Canidae') return true;
+          if (g === 'felinos' && (m.family === 'Felidae' || m.group === 'Felinos')) return true;
+          if (g === 'canidos' && (m.family === 'Canidae' || m.group === 'Cánidos y Zorros')) return true;
           if (g === 'primates' && (m.group === 'Primates y Simios' || ['Hominidae', 'Cercopithecidae', 'Cebidae'].includes(m.family))) return true;
-          if (g === 'marinos' && (m.habitat === 'Marino / Costero' || ['Delphinidae', 'Phocidae', 'Otariidae', 'Balaenopteridae'].includes(m.family))) return true;
+          if (g === 'marinos' && (m.habitat === 'Marino / Costero' || m.group === 'Cetáceos y Marinos' || ['Delphinidae', 'Phocidae', 'Otariidae', 'Balaenopteridae'].includes(m.family))) return true;
           if (g === 'ungulados' && (m.group === 'Herbívoros y Ungulados' || ['Elephantidae', 'Rhinocerotidae', 'Giraffidae', 'Bovidae', 'Cervidae'].includes(m.family))) return true;
-          if (g === 'osos' && m.family === 'Ursidae') return true;
+          if (g === 'osos' && (m.family === 'Ursidae' || m.group === 'Osos')) return true;
           if (g === 'roedores' && (m.group === 'Roedores' || m.group === 'Conejos y Liebres')) return true;
           if (g === 'murcielagos' && m.group === 'Murciélagos') return true;
         }
@@ -425,6 +537,11 @@ const app = {
       );
     }
 
+    return subset;
+  },
+
+  filterPool() {
+    const subset = this.getFilteredSubset(false);
     this.state.candidatePool = subset.length >= 2 ? subset : (this.state.pool.length >= 2 ? [...this.state.pool] : subset);
     this.state.totalFound = subset.length;
   },

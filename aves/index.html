@@ -200,6 +200,15 @@
           <div id="step1RegionsLabel" class="text-[11px] uppercase tracking-wider text-muted">Países y regiones principales</div>
           <div id="placesGrid" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
         </div>
+
+        <!-- Barra reactiva de conteo en vivo Paso 1 -->
+        <div id="step1LiveCountBar" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-canvas border border-line text-xs">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="step1CountLabel" class="text-muted">Aves disponibles con foto en este lugar:</span>
+          </div>
+          <span id="step1CountNumber" class="font-bold text-forest font-mono text-xs sm:text-sm">~11.000 especies</span>
+        </div>
       </div>
 
       <div class="flex items-center justify-between pt-1">
@@ -207,8 +216,10 @@
           ← Portada
         </button>
         <button id="btnStep1Next" onclick="app.goToStep2()"
-          class="px-6 py-3 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition">
-          Siguiente: Tipo y color →
+          class="px-6 py-3 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition flex items-center gap-2">
+          <span>Siguiente: Tipo y color</span>
+          <span id="btnStep1NextCount" class="opacity-90 font-mono text-[11px] bg-white/20 px-2 py-0.5 rounded-full">(~11.000)</span>
+          <span>→</span>
         </button>
       </div>
     </section>
@@ -267,6 +278,15 @@
             oninput="app.onKeywordChange(this.value)"
             class="w-full sm:w-80 rounded-full bg-canvas border border-line px-3.5 py-2 text-xs sm:text-sm text-ink placeholder-muted focus:outline-none focus:border-forest transition" />
         </div>
+
+        <!-- Feedback reactivo en vivo Paso 2 -->
+        <div id="step2FeedbackBanner" class="p-3.5 rounded-xl border text-xs sm:text-sm transition-all flex items-start gap-2.5 bg-forest-soft border-forest/20 text-forest">
+          <svg id="step2FeedbackIcon" class="w-4 h-4 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="space-y-0.5 flex-1">
+            <div id="step2FeedbackTitle" class="font-semibold text-ink">Especies con foto listas para el duelo</div>
+            <p id="step2FeedbackDetail" class="text-xs text-muted">Tu combinación tiene cientos de especies para armar torneos de 8, 16 o más.</p>
+          </div>
+        </div>
       </div>
 
       <div class="flex items-center justify-between pt-1">
@@ -274,8 +294,10 @@
           ← Cambiar lugar
         </button>
         <button id="btnStep2Next" onclick="app.goToStep3()"
-          class="px-6 py-3 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition">
-          Siguiente: Confirmar →
+          class="px-6 py-3 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium transition flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+          <span id="btnStep2NextText">Siguiente: Confirmar</span>
+          <span id="btnStep2NextCount" class="opacity-90 font-mono text-[11px] bg-white/20 px-2 py-0.5 rounded-full">(...)</span>
+          <span>→</span>
         </button>
       </div>
     </section>
