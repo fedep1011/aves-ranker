@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-  content: ["./index.html", "./aves/index.html", "./pokemon/index.html", "./src/**/*.{js,ts}"],
+  content: ["./index.html", "./aves/index.html", "./pokemon/index.html", "./mamiferos/index.html", "./flores/index.html", "./src/**/*.{js,ts}"],
   theme: {
     extend: {
       fontFamily: {

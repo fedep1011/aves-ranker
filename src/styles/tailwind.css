@@ -36,6 +36,59 @@ html.dark {
   --hub-line: #2C2C29;
 }
 
+/* ARENA FLORES PALETTE */
+body.arena-flores, [data-arena="flores"] {
+  --color-canvas: #F4F8F5;
+  --color-surface: #FFFFFF;
+  --color-ink: #132219;
+  --color-muted: #5C7365;
+  --color-line: #D1E0D7;
+  --color-primary: #047857;
+  --color-primary-hover: #065F46;
+  --color-primary-soft: #EAF2EC;
+}
+
+html.dark body.arena-flores, html.dark [data-arena="flores"] {
+  --color-canvas: #0E1712;
+  --color-surface: #16241D;
+  --color-ink: #F0FDF4;
+  --color-muted: #86A393;
+  --color-line: #273D32;
+  --color-primary: #10B981;
+  --color-primary-hover: #059669;
+  --color-primary-soft: #121D17;
+}
+
+/* ARENA MAMIFEROS PALETTE */
+body.arena-mamiferos, [data-arena="mamiferos"] {
+  --color-canvas: #FAF7F2;
+  --color-surface: #FFFFFF;
+  --color-ink: #1F1D1A;
+  --color-muted: #736B63;
+  --color-line: #E5DED5;
+  --color-primary: #92400E;
+  --color-primary-hover: #78350F;
+  --color-primary-soft: #F5EFE6;
+}
+
+html.dark body.arena-mamiferos, html.dark [data-arena="mamiferos"] {
+  --color-canvas: #141210;
+  --color-surface: #1F1C18;
+  --color-ink: #F7F5F0;
+  --color-muted: #A39B91;
+  --color-line: #3B352E;
+  --color-primary: #D97706;
+  --color-primary-hover: #B45309;
+  --color-primary-soft: #181512;
+}
+
+/* ARENA AVES PALETTE */
+body.arena-aves, [data-arena="aves"] {
+  --color-primary: var(--color-forest);
+  --color-primary-hover: var(--color-forest-hover);
+  --color-primary-soft: var(--color-forest-soft);
+}
+
 body {
   background-color: var(--color-canvas);
   color: var(--color-ink);
@@ -80,7 +133,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--color-forest);
+  background: var(--color-primary, var(--color-forest));
   border: 3px solid var(--color-canvas);
   margin-top: -8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);

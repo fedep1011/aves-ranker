@@ -168,7 +168,7 @@ export async function runTier4() {
 
     // Scenario 7: Mamíferos 16-Animal Tournament Simulation
     harness.it('4.7: Mamíferos 16-animal tournament full simulation -> podium and rest ranking', async ({ assert }) => {
-      assert.strictEqual(mamiferosRaw.length, 16);
+      assert.ok(mamiferosRaw.length >= 16);
 
       // Simulates preference favoring Jaguar (or apex predator)
       const askPref = async (left, right) => {
@@ -177,7 +177,8 @@ export async function runTier4() {
         return left.id < right.id ? 'left' : 'right';
       };
 
-      const sorted = await interleavedBisectSortAsync([...mamiferosRaw], askPref, 707);
+      const pool = mamiferosRaw.slice(0, 16);
+      const sorted = await interleavedBisectSortAsync(pool, askPref, 707);
       assert.strictEqual(sorted.length, 16);
       assert.strictEqual(sorted[0].name, 'Jaguar');
 
@@ -189,13 +190,14 @@ export async function runTier4() {
 
     // Scenario 8: Flores 16-Plant Tournament Simulation
     harness.it('4.8: Flores 16-plant tournament full simulation -> podium and rest ranking', async ({ assert }) => {
-      assert.strictEqual(floresRaw.length, 16);
+      assert.ok(floresRaw.length >= 16);
 
       const askPref = async (left, right) => {
         return left.id > right.id ? 'left' : 'right';
       };
 
-      const sorted = await interleavedBisectSortAsync([...floresRaw], askPref, 808);
+      const pool = floresRaw.slice(0, 16);
+      const sorted = await interleavedBisectSortAsync(pool, askPref, 808);
       assert.strictEqual(sorted.length, 16);
 
       const top3 = sorted.slice(0, 3);

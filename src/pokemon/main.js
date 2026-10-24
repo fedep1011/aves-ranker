@@ -13,6 +13,8 @@ import { POKEMON_TYPES, GENERATIONS, getTypeBadge } from './types.js';
 const PRESET_KANTO_IDS = [1, 4, 7, 25, 94, 150, 143, 133, 130, 149, 65, 131, 68, 59, 123, 39];
 const PRESET_STARTERS_IDS = [3, 6, 9, 154, 157, 160, 254, 257, 260, 389, 392, 658, 724, 815, 908, 911];
 const PRESET_LEGENDARIES_IDS = [150, 151, 249, 250, 384, 382, 383, 483, 484, 487, 493, 643, 644, 716, 888, 1007];
+const PRESET_EEVEELUTIONS_IDS = [133, 134, 135, 136, 196, 197, 470, 471, 700];
+const PRESET_DRAGONS_GHOSTS_IDS = [149, 94, 445, 487, 373, 778, 609, 887, 384, 681, 330, 442, 612, 724, 635, 230];
 
 const app = {
   state: {
@@ -35,6 +37,7 @@ const app = {
     selectedRarity: 'all',
     limit: 16,
     samplingMode: 'popular',
+    spriteMode: (typeof localStorage !== 'undefined' && localStorage.getItem('rankea2_pokemon_sprite_mode')) || 'animated',
     playingChallengeMode: false,
     incomingChallenge: null,
     winnerAudioEl: null,
@@ -52,10 +55,125 @@ const app = {
 
     this.state.winnerAudioEl = document.getElementById('winnerCryAudio');
     this.bindKeyboard();
+    this.syncPixelUi();
+    this.syncSpriteModeUI();
     await this.loadDataset();
     this.renderWizardFilters();
     this.setSamplingMode(this.state.samplingMode);
     this.checkIncomingChallenge();
+  },
+
+  syncPixelUi() {
+    const isPixel = typeof localStorage !== 'undefined'
+      ? localStorage.getItem('rankea2_pokemon_pixel_ui') !== 'false'
+      : true;
+    if (typeof document !== 'undefined' && document.body) {
+      document.body.classList.toggle('pixel-ui', isPixel);
+      const label = document.getElementById('pixelUiLabel');
+      if (label) label.textContent = isPixel ? 'Pixel UI' : 'Moderno';
+    }
+  },
+
+  togglePixelUi() {
+    if (typeof document === 'undefined' || !document.body) return;
+    const isPixel = !document.body.classList.contains('pixel-ui');
+    document.body.classList.toggle('pixel-ui', isPixel);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('rankea2_pokemon_pixel_ui', isPixel ? 'true' : 'false');
+    }
+    const label = document.getElementById('pixelUiLabel');
+    if (label) label.textContent = isPixel ? 'Pixel UI' : 'Moderno';
+  },
+
+  getPokemonSprite(pokemon, mode = this.state.spriteMode) {
+    if (!pokemon) return '';
+    if (mode === 'artwork') {
+      return pokemon.artwork || pokemon.sprite || '';
+    }
+    if (mode === 'classic') {
+      return pokemon.pixel_sprite || pokemon.sprite || '';
+    }
+    return pokemon.animated_sprite || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${pokemon.id}.gif`;
+  },
+
+  setSpriteMode(mode) {
+    if (!['animated', 'artwork', 'classic'].includes(mode)) return;
+    this.state.spriteMode = mode;
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('rankea2_pokemon_sprite_mode', mode);
+    }
+    this.syncSpriteModeUI();
+
+    // Actualiza imágenes en vivo si el combate está en pantalla
+    if (this.state.currentLeft) {
+      const imgL = document.getElementById('imgLeft');
+      if (imgL) {
+        imgL.src = this.getPokemonSprite(this.state.currentLeft, mode);
+        imgL.classList.toggle('pixel-sprite', mode !== 'artwork');
+      }
+    }
+    if (this.state.currentRight) {
+      const imgR = document.getElementById('imgRight');
+      if (imgR) {
+        imgR.src = this.getPokemonSprite(this.state.currentRight, mode);
+        imgR.classList.toggle('pixel-sprite', mode !== 'artwork');
+      }
+    }
+
+    // Si los resultados están visibles, regenera el podio con el nuevo sprite
+    const resView = document.getElementById('viewResults');
+    if (resView && !resView.classList.contains('hidden') && this.state.finalRanking && this.state.finalRanking.length > 0) {
+      this.renderResultsView();
+    }
+  },
+
+  syncSpriteModeUI() {
+    const current = this.state.spriteMode || 'animated';
+    const modeLabels = {
+      animated: 'GIF Animado',
+      artwork: 'Oficial HD',
+      classic: 'Pixel 2D',
+    };
+
+    // 1. Botones de modo (Header y Duelo)
+    document.querySelectorAll('[data-sprite-mode]').forEach(btn => {
+      const isActive = btn.dataset.spriteMode === current;
+      btn.classList.toggle('bg-rose-600', isActive);
+      btn.classList.toggle('text-white', isActive);
+      btn.classList.toggle('border-rose-600', isActive);
+      btn.classList.toggle('font-bold', isActive);
+      if (isActive) {
+        btn.classList.remove('text-muted');
+      } else {
+        btn.classList.add('text-muted');
+      }
+    });
+
+    // 2. Tarjetas del Wizard de configuración
+    document.querySelectorAll('[data-sprite-card]').forEach(card => {
+      const isActive = card.dataset.spriteCard === current;
+      card.classList.toggle('border-rose-500', isActive);
+      card.classList.toggle('bg-rose-500/10', isActive);
+      card.classList.toggle('border-line', !isActive);
+      card.classList.toggle('bg-surface', !isActive);
+
+      const status = card.querySelector('.sprite-card-status');
+      if (status) {
+        status.textContent = isActive ? 'Activo' : 'Elegir';
+        if (isActive) {
+          status.className = 'sprite-card-status text-[10px] font-pixel font-bold uppercase px-2 py-0.5 rounded bg-rose-600 text-white';
+        } else {
+          status.className = 'sprite-card-status text-[10px] font-pixel font-bold uppercase px-2 py-0.5 rounded bg-canvas text-muted border border-line';
+        }
+      }
+    });
+
+    // 3. Badges en plataformas de combate en vivo
+    const label = modeLabels[current] || 'Sprite';
+    const badgeL = document.getElementById('spriteBadgeLeft');
+    const badgeR = document.getElementById('spriteBadgeRight');
+    if (badgeL) badgeL.textContent = label;
+    if (badgeR) badgeR.textContent = label;
   },
 
   async loadDataset() {
@@ -375,6 +493,8 @@ const app = {
     let ids = PRESET_KANTO_IDS;
     if (presetName === 'starters') ids = PRESET_STARTERS_IDS;
     else if (presetName === 'legendaries') ids = PRESET_LEGENDARIES_IDS;
+    else if (presetName === 'eeveelutions') ids = PRESET_EEVEELUTIONS_IDS;
+    else if (presetName === 'dragons') ids = PRESET_DRAGONS_GHOSTS_IDS;
 
     const candidates = ids.map(id => this.state.pokemonMap.get(id)).filter(Boolean);
     this.state.candidatePool = candidates;
@@ -450,10 +570,11 @@ const app = {
   preloadPoolImagesInBackground(pool) {
     if (typeof Image === 'undefined') return;
     for (const p of pool) {
-      if (p && p.sprite && !this.state.imageCache.has(p.sprite)) {
+      const src = this.getPokemonSprite(p, this.state.spriteMode);
+      if (src && !this.state.imageCache.has(src)) {
         const img = new Image();
-        img.src = p.sprite;
-        this.state.imageCache.add(p.sprite);
+        img.src = src;
+        this.state.imageCache.add(src);
       }
     }
   },
@@ -513,6 +634,8 @@ const app = {
     document.getElementById('loaderLeft')?.classList.remove('hidden');
     document.getElementById('loaderRight')?.classList.remove('hidden');
 
+    const isArtwork = this.state.spriteMode === 'artwork';
+
     // Update Left
     const imgL = document.getElementById('imgLeft');
     if (imgL) {
@@ -520,7 +643,8 @@ const app = {
       imgL.dataset.fallbackStage = '0';
       imgL.onerror = () => this.handleImgError('left');
       imgL.alt = leftPokemon.name;
-      imgL.src = leftPokemon.animated_sprite || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${leftPokemon.id}.gif`;
+      imgL.src = this.getPokemonSprite(leftPokemon, this.state.spriteMode);
+      imgL.classList.toggle('pixel-sprite', !isArtwork);
     }
     const nameL = document.getElementById('nameLeft');
     if (nameL) nameL.textContent = leftPokemon.name;
@@ -538,7 +662,8 @@ const app = {
       imgR.dataset.fallbackStage = '0';
       imgR.onerror = () => this.handleImgError('right');
       imgR.alt = rightPokemon.name;
-      imgR.src = rightPokemon.animated_sprite || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${rightPokemon.id}.gif`;
+      imgR.src = this.getPokemonSprite(rightPokemon, this.state.spriteMode);
+      imgR.classList.toggle('pixel-sprite', !isArtwork);
     }
     const nameR = document.getElementById('nameRight');
     if (nameR) nameR.textContent = rightPokemon.name;
@@ -672,6 +797,9 @@ const app = {
       this.state.winnerAudioEl.play().catch(e => console.log('Audio autoplay prevented:', e));
     }
 
+    const isArtwork = this.state.spriteMode === 'artwork';
+    const spriteClass = isArtwork ? '' : 'pixel-sprite';
+
     const podBox = document.getElementById('podiumContainer');
     if (podBox && winner) {
       podBox.innerHTML = `
@@ -679,7 +807,7 @@ const app = {
         <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-2 sm:order-1">
           <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-2">2° Puesto</span>
           <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
-            <img src="${runnerUp.animated_sprite || runnerUp.sprite}" alt="${runnerUp.name}" onerror="app.handleImgCascade(this, ${runnerUp.id})" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
+            <img src="${this.getPokemonSprite(runnerUp, this.state.spriteMode)}" alt="${runnerUp.name}" onerror="app.handleImgCascade(this, ${runnerUp.id})" class="${spriteClass} max-h-24 sm:max-h-28 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${runnerUp.name}</h4>
           <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs inline-block my-1">No. ${String(runnerUp.id).padStart(3, '0')}</span>
@@ -693,7 +821,7 @@ const app = {
             Campeón
           </div>
           <div class="h-36 sm:h-44 w-full flex items-center justify-center battle-platform rounded-xl mt-2">
-            <img src="${winner.animated_sprite || winner.sprite}" alt="${winner.name}" onerror="app.handleImgCascade(this, ${winner.id})" class="pixel-sprite max-h-32 sm:max-h-40 w-auto object-contain" />
+            <img src="${this.getPokemonSprite(winner, this.state.spriteMode)}" alt="${winner.name}" onerror="app.handleImgCascade(this, ${winner.id})" class="${spriteClass} max-h-32 sm:max-h-40 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-base sm:text-lg text-ink mt-3">${winner.name}</h4>
           <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs inline-block my-1">No. ${String(winner.id).padStart(3, '0')} · ${winner.region}</span>
@@ -709,7 +837,7 @@ const app = {
         <div class="p-4 sm:p-5 rounded-2xl retro-box bg-surface flex flex-col items-center text-center order-3">
           <span class="inline-block px-2 py-0.5 rounded text-[10px] font-pixel font-bold uppercase tracking-wider bg-amber-700/10 text-amber-700 dark:text-amber-400 mb-2">3° Puesto</span>
           <div class="h-28 sm:h-32 w-full flex items-center justify-center battle-platform rounded-xl">
-            <img src="${third.animated_sprite || third.sprite}" alt="${third.name}" onerror="app.handleImgCascade(this, ${third.id})" class="pixel-sprite max-h-24 sm:max-h-28 w-auto object-contain" />
+            <img src="${this.getPokemonSprite(third, this.state.spriteMode)}" alt="${third.name}" onerror="app.handleImgCascade(this, ${third.id})" class="${spriteClass} max-h-24 sm:max-h-28 w-auto object-contain" />
           </div>
           <h4 class="font-pixel-title text-sm sm:text-base text-ink mt-3">${third.name}</h4>
           <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs inline-block my-1">No. ${String(third.id).padStart(3, '0')}</span>
@@ -729,7 +857,7 @@ const app = {
           <div class="flex items-center justify-between p-3 sm:px-4 hover:bg-canvas/50 transition">
             <div class="flex items-center gap-3">
               <span class="font-pixel text-xs font-bold text-muted w-6">#${idx + 4}</span>
-              <img src="${p.animated_sprite || p.sprite}" alt="${p.name}" onerror="app.handleImgCascade(this, ${p.id})" class="pixel-sprite w-10 h-10 object-contain" />
+              <img src="${this.getPokemonSprite(p, this.state.spriteMode)}" alt="${p.name}" onerror="app.handleImgCascade(this, ${p.id})" class="${spriteClass} w-10 h-10 object-contain" />
               <div>
                 <span class="font-pixel-title text-xs text-ink block">${p.name}</span>
                 <span class="font-mono text-[11px] font-bold px-1.5 py-0.5 rounded bg-canvas/90 text-ink border border-line tracking-wider inline-block mt-0.5">No. ${String(p.id).padStart(3, '0')}</span>

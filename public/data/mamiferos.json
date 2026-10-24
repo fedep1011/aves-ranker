@@ -5,7 +5,7 @@
     "sci_name": "Panthera onca",
     "family": "Felidae",
     "region": "América",
-    "photo": "https://static.inaturalist.org/photos/51015966/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "sci_name": "Panthera tigris",
     "family": "Felidae",
     "region": "Asia",
-    "photo": "https://static.inaturalist.org/photos/47940173/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "sci_name": "Panthera leo",
     "family": "Felidae",
     "region": "África",
-    "photo": "https://static.inaturalist.org/photos/22194686/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9225318/medium.jpg"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "sci_name": "Panthera uncia",
     "family": "Felidae",
     "region": "Asia Central",
-    "photo": "https://static.inaturalist.org/photos/4014138/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/16308659/medium.jpg"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "sci_name": "Acinonyx jubatus",
     "family": "Felidae",
     "region": "África",
-    "photo": "https://static.inaturalist.org/photos/54366613/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/57582224/medium.jpg"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "sci_name": "Puma concolor",
     "family": "Felidae",
     "region": "América",
-    "photo": "https://static.inaturalist.org/photos/6398934/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9834553/medium.jpg"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "sci_name": "Canis lupus",
     "family": "Canidae",
     "region": "Holarctis",
-    "photo": "https://static.inaturalist.org/photos/3472019/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/43410580/medium.jpg"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "sci_name": "Ursus maritimus",
     "family": "Ursidae",
     "region": "Ártico",
-    "photo": "https://static.inaturalist.org/photos/65171780/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/102785980/medium.jpg"
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@
     "sci_name": "Ursus arctos",
     "family": "Ursidae",
     "region": "Eurasia y Norteamérica",
-    "photo": "https://static.inaturalist.org/photos/25925345/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1491897/medium.jpg"
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@
     "sci_name": "Ailuropoda melanoleuca",
     "family": "Ursidae",
     "region": "Asia",
-    "photo": "https://static.inaturalist.org/photos/3055415/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/150277588/medium.jpg"
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@
     "sci_name": "Loxodonta africana",
     "family": "Elephantidae",
     "region": "África",
-    "photo": "https://static.inaturalist.org/photos/56084560/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/93674728/medium.jpg"
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@
     "sci_name": "Ceratotherium simum",
     "family": "Rhinocerotidae",
     "region": "África",
-    "photo": "https://static.inaturalist.org/photos/10328905/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/57287523/medium.jpg"
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@
     "sci_name": "Giraffa camelopardalis",
     "family": "Giraffidae",
     "region": "África",
-    "photo": "https://static.inaturalist.org/photos/16886478/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/753693022/medium.jpg"
   },
   {
     "id": 14,
@@ -109,15 +109,15 @@
     "sci_name": "Gorilla beringei",
     "family": "Hominidae",
     "region": "África",
-    "photo": "https://static.inaturalist.org/photos/3983758/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/109860139/medium.jpg"
   },
   {
     "id": 15,
     "name": "Zorro Rojo",
     "sci_name": "Vulpes vulpes",
     "family": "Canidae",
-    "region": "Holarctis",
-    "photo": "https://static.inaturalist.org/photos/16605797/medium.jpg"
+    "region": "Hemisferio Norte",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754793247/medium.jpg"
   },
   {
     "id": 16,
@@ -125,6 +125,390 @@
     "sci_name": "Pteronura brasiliensis",
     "family": "Mustelidae",
     "region": "Sudamérica",
-    "photo": "https://static.inaturalist.org/photos/5536412/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/227172098/medium.jpeg"
+  },
+  {
+    "id": 17,
+    "name": "Leopardo Africano",
+    "sci_name": "Panthera pardus",
+    "family": "Felidae",
+    "region": "África y Asia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8666580/medium.jpeg"
+  },
+  {
+    "id": 18,
+    "name": "Lince Ibérico",
+    "sci_name": "Lynx pardinus",
+    "family": "Felidae",
+    "region": "Península Ibérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/176881049/medium.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Caracal",
+    "sci_name": "Caracal caracal",
+    "family": "Felidae",
+    "region": "África y Asia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/61116593/medium.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Ocelote",
+    "sci_name": "Leopardus pardalis",
+    "family": "Felidae",
+    "region": "América Tropical",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/552302712/medium.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Serval",
+    "sci_name": "Leptailurus serval",
+    "family": "Felidae",
+    "region": "África Subsahariana",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/127018903/medium.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Lince Boreal",
+    "sci_name": "Lynx lynx",
+    "family": "Felidae",
+    "region": "Bosques Euroasiáticos",
+    "photo": "https://static.inaturalist.org/photos/241776412/medium.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Yaguarundí",
+    "sci_name": "Herpailurus yagouaroundi",
+    "family": "Felidae",
+    "region": "América",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/310267736/medium.jpeg"
+  },
+  {
+    "id": 24,
+    "name": "Gato Montés Euroasiático",
+    "sci_name": "Felis silvestris",
+    "family": "Felidae",
+    "region": "Europa",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/129658776/medium.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Hiena Manchada",
+    "sci_name": "Crocuta crocuta",
+    "family": "Hyaenidae",
+    "region": "África",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/29273851/medium.jpeg"
+  },
+  {
+    "id": 26,
+    "name": "Licaón (Perro Salvaje)",
+    "sci_name": "Lycaon pictus",
+    "family": "Canidae",
+    "region": "Sabana Africana",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/50305267/medium.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Coyote",
+    "sci_name": "Canis latrans",
+    "family": "Canidae",
+    "region": "Norteamérica",
+    "photo": "https://static.inaturalist.org/photos/10963085/medium.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Dingo",
+    "sci_name": "Canis dingo",
+    "family": "Canidae",
+    "region": "Australia",
+    "photo": "https://static.inaturalist.org/photos/108372070/medium.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Zorro Gris",
+    "sci_name": "Urocyon cinereoargenteus",
+    "family": "Canidae",
+    "region": "América",
+    "photo": "https://static.inaturalist.org/photos/32504964/medium.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Oso Negro Americano",
+    "sci_name": "Ursus americanus",
+    "family": "Ursidae",
+    "region": "Norteamérica",
+    "photo": "https://static.inaturalist.org/photos/307636014/medium.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Oso de Anteojos",
+    "sci_name": "Tremarctos ornatus",
+    "family": "Ursidae",
+    "region": "Cordillera de los Andes",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/187383867/medium.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Panda Rojo",
+    "sci_name": "Ailurus fulgens",
+    "family": "Ailuridae",
+    "region": "Himalaya",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/26989188/medium.jpeg"
+  },
+  {
+    "id": 33,
+    "name": "Hipopótamo",
+    "sci_name": "Hippopotamus amphibius",
+    "family": "Hippopotamidae",
+    "region": "Ríos Africanos",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13896177/medium.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Cebra de Llanura",
+    "sci_name": "Equus quagga",
+    "family": "Equidae",
+    "region": "África Oriental",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/335469754/medium.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Bisonte Americano",
+    "sci_name": "Bison bison",
+    "family": "Bovidae",
+    "region": "Grandes Llanuras",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/20660087/medium.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Búfalo Cafre",
+    "sci_name": "Syncerus caffer",
+    "family": "Bovidae",
+    "region": "África",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/97834194/medium.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Alce Euroasiático",
+    "sci_name": "Alces alces",
+    "family": "Cervidae",
+    "region": "Bosques Boreales",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/207574401/medium.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Ciervo Rojo",
+    "sci_name": "Cervus elaphus",
+    "family": "Cervidae",
+    "region": "Europa y Asia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25186445/medium.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Venado Cola Blanca",
+    "sci_name": "Odocoileus virginianus",
+    "family": "Cervidae",
+    "region": "América",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/110157765/medium.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Capibara (Carpincho)",
+    "sci_name": "Hydrochoerus hydrochaeris",
+    "family": "Caviidae",
+    "region": "Humedales de Sudamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/91546944/medium.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Castor Americano",
+    "sci_name": "Castor canadensis",
+    "family": "Castoridae",
+    "region": "Norteamérica",
+    "photo": "https://static.inaturalist.org/photos/139683466/medium.jpeg"
+  },
+  {
+    "id": 42,
+    "name": "Tapir Amazónico",
+    "sci_name": "Tapirus terrestris",
+    "family": "Tapiridae",
+    "region": "Selva Amazónica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/217394473/medium.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Chimpancé",
+    "sci_name": "Pan troglodytes",
+    "family": "Hominidae",
+    "region": "Selvas Africanas",
+    "photo": "https://static.inaturalist.org/photos/184174969/medium.jpeg"
+  },
+  {
+    "id": 44,
+    "name": "Orangután de Borneo",
+    "sci_name": "Pongo pygmaeus",
+    "family": "Hominidae",
+    "region": "Sudeste Asiático",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/251457903/medium.jpeg"
+  },
+  {
+    "id": 45,
+    "name": "Lémur de Cola Anillada",
+    "sci_name": "Lemur catta",
+    "family": "Lemuridae",
+    "region": "Madagascar",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/50237086/medium.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Suricata",
+    "sci_name": "Suricata suricatta",
+    "family": "Herpestidae",
+    "region": "Desierto de Kalahari",
+    "photo": "https://static.inaturalist.org/photos/288911228/medium.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Perezoso de Tres Dedos",
+    "sci_name": "Bradypus tridactylus",
+    "family": "Bradypodidae",
+    "region": "Sudamérica Tropical",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/158274793/medium.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Armadillo de Nueve Bandas",
+    "sci_name": "Dasypus novemcinctus",
+    "family": "Dasypodidae",
+    "region": "América",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/528221418/medium.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Canguro Rojo",
+    "sci_name": "Osphranter rufus",
+    "family": "Macropodidae",
+    "region": "Australia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/164668615/medium.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Koala",
+    "sci_name": "Phascolarctos cinereus",
+    "family": "Phascolarctidae",
+    "region": "Bosques de Eucalipto",
+    "photo": "https://static.inaturalist.org/photos/425371537/medium.jpeg"
+  },
+  {
+    "id": 51,
+    "name": "Wombat Común",
+    "sci_name": "Vombatus ursinus",
+    "family": "Vombatidae",
+    "region": "Sureste Australiano",
+    "photo": "https://static.inaturalist.org/photos/5982997/medium.jpeg"
+  },
+  {
+    "id": 52,
+    "name": "Diablo de Tasmania",
+    "sci_name": "Sarcophilus harrisii",
+    "family": "Dasyuridae",
+    "region": "Tasmania",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/61994115/medium.jpg"
+  },
+  {
+    "id": 53,
+    "name": "Ornitorrinco",
+    "sci_name": "Ornithorhynchus anatinus",
+    "family": "Ornithorhynchidae",
+    "region": "Ríos de Australia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/430934363/medium.jpeg"
+  },
+  {
+    "id": 54,
+    "name": "Orca",
+    "sci_name": "Orcinus orca",
+    "family": "Delphinidae",
+    "region": "Océanos Globales",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/223550594/medium.jpg"
+  },
+  {
+    "id": 55,
+    "name": "Beluga",
+    "sci_name": "Delphinapterus leucas",
+    "family": "Monodontidae",
+    "region": "Aguas Árticas",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/212179651/medium.jpg"
+  },
+  {
+    "id": 56,
+    "name": "Ballena Jorobada",
+    "sci_name": "Megaptera novaeangliae",
+    "family": "Balaenopteridae",
+    "region": "Océanos del Mundo",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/255461843/medium.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Delfín Mular",
+    "sci_name": "Tursiops truncatus",
+    "family": "Delphinidae",
+    "region": "Aguas Costeras y Pelágicas",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/611231392/medium.jpg"
+  },
+  {
+    "id": 58,
+    "name": "Foca Común",
+    "sci_name": "Phoca vitulina",
+    "family": "Phocidae",
+    "region": "Costas del Hemisferio Norte",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/190781322/medium.jpg"
+  },
+  {
+    "id": 59,
+    "name": "León Marino de California",
+    "sci_name": "Zalophus californianus",
+    "family": "Otariidae",
+    "region": "Costa Pacífica",
+    "photo": "https://static.inaturalist.org/photos/11888923/medium.png"
+  },
+  {
+    "id": 60,
+    "name": "Morsa",
+    "sci_name": "Odobenus rosmarus",
+    "family": "Odobenidae",
+    "region": "Hielo Ártico",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/65857/medium.jpg"
+  },
+  {
+    "id": 61,
+    "name": "Manatí del Caribe",
+    "sci_name": "Trichechus manatus",
+    "family": "Trichechidae",
+    "region": "Ríos y Costas del Caribe",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/17174106/medium.jpg"
+  },
+  {
+    "id": 62,
+    "name": "Lobo Marino Sudamericano",
+    "sci_name": "Otaria flavescens",
+    "family": "Otariidae",
+    "region": "Costas Sudamericanas",
+    "photo": "https://static.inaturalist.org/photos/165726258/medium.jpeg"
+  },
+  {
+    "id": 63,
+    "name": "Nutria de Río",
+    "sci_name": "Lontra canadensis",
+    "family": "Mustelidae",
+    "region": "Norteamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/172440134/medium.jpg"
+  },
+  {
+    "id": 64,
+    "name": "Tejón Europeo",
+    "sci_name": "Meles meles",
+    "family": "Mustelidae",
+    "region": "Bosques Europeos",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/11635348/medium.jpg"
   }
 ]

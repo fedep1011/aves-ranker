@@ -5,7 +5,7 @@
     "sci_name": "Cattleya trianae",
     "family": "Orchidaceae",
     "region": "América Tropical",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/256523606/medium.jpeg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "sci_name": "Passiflora caerulea",
     "family": "Passifloraceae",
     "region": "Sudamérica",
-    "photo": "https://static.inaturalist.org/photos/25501784/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "sci_name": "Nelumbo nucifera",
     "family": "Nelumbonaceae",
     "region": "Asia",
-    "photo": "https://static.inaturalist.org/photos/21175654/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/116385724/medium.jpeg"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "sci_name": "Prunus serrulata",
     "family": "Rosaceae",
     "region": "Asia",
-    "photo": "https://static.inaturalist.org/photos/36676831/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/90432717/medium.jpeg"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "sci_name": "Rosa canina",
     "family": "Rosaceae",
     "region": "Europa y Asia",
-    "photo": "https://static.inaturalist.org/photos/20340795/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/43901474/medium.jpeg"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "sci_name": "Strelitzia reginae",
     "family": "Strelitziaceae",
     "region": "Sudáfrica",
-    "photo": "https://static.inaturalist.org/photos/37748446/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375256909/medium.jpg"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "sci_name": "Helianthus annuus",
     "family": "Asteraceae",
     "region": "Norteamérica",
-    "photo": "https://static.inaturalist.org/photos/23602284/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/323768714/medium.jpg"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "sci_name": "Lavandula angustifolia",
     "family": "Lamiaceae",
     "region": "Mediterráneo",
-    "photo": "https://static.inaturalist.org/photos/22530132/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/157057/medium.jpg"
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@
     "sci_name": "Hibiscus rosa-sinensis",
     "family": "Malvaceae",
     "region": "Asia Tropical",
-    "photo": "https://static.inaturalist.org/photos/15509748/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/729214308/medium.jpg"
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@
     "sci_name": "Nymphaea alba",
     "family": "Nymphaeaceae",
     "region": "Europa y Norte de África",
-    "photo": "https://static.inaturalist.org/photos/21650346/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/169681028/medium.jpeg"
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@
     "sci_name": "Dahlia pinnata",
     "family": "Asteraceae",
     "region": "México y Centroamérica",
-    "photo": "https://static.inaturalist.org/photos/45028448/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/571049090/medium.jpg"
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@
     "sci_name": "Magnolia grandiflora",
     "family": "Magnoliaceae",
     "region": "Norteamérica",
-    "photo": "https://static.inaturalist.org/photos/19612349/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/82254330/medium.jpg"
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@
     "sci_name": "Papaver rhoeas",
     "family": "Papaveraceae",
     "region": "Eurasia",
-    "photo": "https://static.inaturalist.org/photos/20658498/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/682825136/medium.jpg"
   },
   {
     "id": 14,
@@ -109,7 +109,7 @@
     "sci_name": "Hydrangea macrophylla",
     "family": "Hydrangeaceae",
     "region": "Japón",
-    "photo": "https://static.inaturalist.org/photos/21568940/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/45518546/medium.jpg"
   },
   {
     "id": 15,
@@ -117,7 +117,7 @@
     "sci_name": "Paeonia lactiflora",
     "family": "Paeoniaceae",
     "region": "Asia Central y Oriental",
-    "photo": "https://static.inaturalist.org/photos/18524410/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/113190686/medium.jpg"
   },
   {
     "id": 16,
@@ -125,6 +125,390 @@
     "sci_name": "Gardenia jasminoides",
     "family": "Rubiaceae",
     "region": "Asia",
-    "photo": "https://static.inaturalist.org/photos/33580459/medium.jpg"
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/72076739/medium.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Tulipán Silvestre",
+    "sci_name": "Tulipa gesneriana",
+    "family": "Liliaceae",
+    "region": "Eurasia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/20539855/medium.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Narciso Trompeta",
+    "sci_name": "Narcissus pseudonarcissus",
+    "family": "Amaryllidaceae",
+    "region": "Europa",
+    "photo": "https://static.inaturalist.org/photos/119190821/medium.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Lirio Blanco",
+    "sci_name": "Lilium candidum",
+    "family": "Liliaceae",
+    "region": "Mediterráneo",
+    "photo": "https://static.inaturalist.org/photos/166792719/medium.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Clavel Silvestre",
+    "sci_name": "Dianthus caryophyllus",
+    "family": "Caryophyllaceae",
+    "region": "Mediterráneo",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/73534073/medium.jpeg"
+  },
+  {
+    "id": 21,
+    "name": "Camelia Japonesa",
+    "sci_name": "Camellia japonica",
+    "family": "Theaceae",
+    "region": "Asia Oriental",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/114800079/medium.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Crisantemo de Otoño",
+    "sci_name": "Chrysanthemum morifolium",
+    "family": "Asteraceae",
+    "region": "Asia Oriental",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/236151541/medium.jpeg"
+  },
+  {
+    "id": 23,
+    "name": "Margarita Común",
+    "sci_name": "Bellis perennis",
+    "family": "Asteraceae",
+    "region": "Europa",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/515847774/medium.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Diente de León",
+    "sci_name": "Taraxacum officinale",
+    "family": "Asteraceae",
+    "region": "Eurasia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/35280454/medium.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Equinácea Púrpura",
+    "sci_name": "Echinacea purpurea",
+    "family": "Asteraceae",
+    "region": "Norteamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/433818/medium.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Caléndula",
+    "sci_name": "Calendula officinalis",
+    "family": "Asteraceae",
+    "region": "Mediterráneo",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/633270916/medium.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Zinnia Elegante",
+    "sci_name": "Zinnia elegans",
+    "family": "Asteraceae",
+    "region": "México",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/24339002/medium.jpeg"
+  },
+  {
+    "id": 28,
+    "name": "Cosmos Silvestre",
+    "sci_name": "Cosmos bipinnatus",
+    "family": "Asteraceae",
+    "region": "América Tropical",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/456061565/medium.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Campanilla Silvestre",
+    "sci_name": "Campanula persicifolia",
+    "family": "Campanulaceae",
+    "region": "Europa",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/136715790/medium.jpeg"
+  },
+  {
+    "id": 30,
+    "name": "Pensamiento Silvestre",
+    "sci_name": "Viola tricolor",
+    "family": "Violaceae",
+    "region": "Europa",
+    "photo": "https://static.inaturalist.org/photos/374479105/medium.jpeg"
+  },
+  {
+    "id": 31,
+    "name": "Violeta Común",
+    "sci_name": "Viola odorata",
+    "family": "Violaceae",
+    "region": "Europa",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/622851735/medium.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Amapola de California",
+    "sci_name": "Eschscholzia californica",
+    "family": "Papaveraceae",
+    "region": "Norteamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/67227218/medium.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Orquídea Mariposa",
+    "sci_name": "Phalaenopsis aphrodite",
+    "family": "Orchidaceae",
+    "region": "Asia Tropical",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/483770714/medium.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Orquídea Vanda Azul",
+    "sci_name": "Vanda coerulea",
+    "family": "Orchidaceae",
+    "region": "Asia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/424835081/medium.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Orquídea Zapatito de Venus",
+    "sci_name": "Paphiopedilum insigne",
+    "family": "Orchidaceae",
+    "region": "Himalaya y Asia",
+    "photo": "https://static.inaturalist.org/photos/2811312/medium.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Anturio Rojo",
+    "sci_name": "Anthurium andraeanum",
+    "family": "Araceae",
+    "region": "Selvas Tropicales",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/336703418/medium.jpeg"
+  },
+  {
+    "id": 37,
+    "name": "Cala (Lirio de Agua)",
+    "sci_name": "Zantedeschia aethiopica",
+    "family": "Araceae",
+    "region": "Sudáfrica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/10183/medium.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Flor de la Pasión Roja",
+    "sci_name": "Passiflora incarnata",
+    "family": "Passifloraceae",
+    "region": "Norteamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/91738617/medium.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Nenúfar Gigante de Victoria",
+    "sci_name": "Victoria amazonica",
+    "family": "Nymphaeaceae",
+    "region": "Cuenca Amazónica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1036591/medium.JPG"
+  },
+  {
+    "id": 40,
+    "name": "Loto Amarillo",
+    "sci_name": "Nelumbo lutea",
+    "family": "Nelumbonaceae",
+    "region": "Norteamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/7944542/medium.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Iris Amarillo",
+    "sci_name": "Iris pseudacorus",
+    "family": "Iridaceae",
+    "region": "Humedales Europeos",
+    "photo": "https://static.inaturalist.org/photos/132791736/medium.jpeg"
+  },
+  {
+    "id": 42,
+    "name": "Ceibo (Flor Nacional)",
+    "sci_name": "Erythrina crista-galli",
+    "family": "Fabaceae",
+    "region": "Sudamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/175796134/medium.jpeg"
+  },
+  {
+    "id": 43,
+    "name": "Jacarandá en Flor",
+    "sci_name": "Jacaranda mimosifolia",
+    "family": "Bignoniaceae",
+    "region": "Sudamérica",
+    "photo": "https://static.inaturalist.org/photos/251075969/medium.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Lapacho Rosado",
+    "sci_name": "Handroanthus heptaphyllus",
+    "family": "Bignoniaceae",
+    "region": "Sudamérica",
+    "photo": "https://static.inaturalist.org/photos/319348979/medium.jpeg"
+  },
+  {
+    "id": 45,
+    "name": "Flamboyán (Árbol de Fuego)",
+    "sci_name": "Delonix regia",
+    "family": "Fabaceae",
+    "region": "Madagascar",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/633179546/medium.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Glicinia Japonesa",
+    "sci_name": "Wisteria floribunda",
+    "family": "Fabaceae",
+    "region": "Japón",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/357944/medium.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Santa Rita (Bougainvillea)",
+    "sci_name": "Bougainvillea spectabilis",
+    "family": "Nyctaginaceae",
+    "region": "Sudamérica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/279592/medium.jpeg"
+  },
+  {
+    "id": 48,
+    "name": "Frangipani Aromático",
+    "sci_name": "Plumeria rubra",
+    "family": "Apocynaceae",
+    "region": "Mesoamérica",
+    "photo": "https://static.inaturalist.org/photos/70240531/medium.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Rododendro Silvestre",
+    "sci_name": "Rhododendron ferrugineum",
+    "family": "Ericaceae",
+    "region": "Alpes Europeos",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/455311231/medium.jpeg"
+  },
+  {
+    "id": 50,
+    "name": "Azalea de Jardín",
+    "sci_name": "Rhododendron simsii",
+    "family": "Ericaceae",
+    "region": "Asia Oriental",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/118753670/medium.jpeg"
+  },
+  {
+    "id": 51,
+    "name": "Madreselva Silvestre",
+    "sci_name": "Lonicera periclymenum",
+    "family": "Caprifoliaceae",
+    "region": "Europa",
+    "photo": "https://static.inaturalist.org/photos/78836578/medium.jpg"
+  },
+  {
+    "id": 52,
+    "name": "Jazmín Blanco",
+    "sci_name": "Jasminum officinale",
+    "family": "Oleaceae",
+    "region": "Asia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/185690403/medium.jpg"
+  },
+  {
+    "id": 53,
+    "name": "Jacinto Oriental",
+    "sci_name": "Hyacinthus orientalis",
+    "family": "Asparagaceae",
+    "region": "Mediterráneo",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/42029432/medium.jpg"
+  },
+  {
+    "id": 54,
+    "name": "Fresia Aromática",
+    "sci_name": "Freesia refracta",
+    "family": "Iridaceae",
+    "region": "Sudáfrica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/15474410/medium.jpg"
+  },
+  {
+    "id": 55,
+    "name": "Gladiolo Silvestre",
+    "sci_name": "Gladiolus italicus",
+    "family": "Iridaceae",
+    "region": "Mediterráneo",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/264237548/medium.jpeg"
+  },
+  {
+    "id": 56,
+    "name": "Crocus (Azafrán Silvestre)",
+    "sci_name": "Crocus vernus",
+    "family": "Iridaceae",
+    "region": "Montañas Europeas",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/116400542/medium.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Lirio de los Valles",
+    "sci_name": "Convallaria majalis",
+    "family": "Asparagaceae",
+    "region": "Eurasia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/129833718/medium.jpeg"
+  },
+  {
+    "id": 58,
+    "name": "Ciclamen Silvestre",
+    "sci_name": "Cyclamen persicum",
+    "family": "Primulaceae",
+    "region": "Mediterráneo",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/173634733/medium.jpeg"
+  },
+  {
+    "id": 59,
+    "name": "Aguileña Silvestre",
+    "sci_name": "Aquilegia vulgaris",
+    "family": "Ranunculaceae",
+    "region": "Europa",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/82182940/medium.jpg"
+  },
+  {
+    "id": 60,
+    "name": "Anémona de Campo",
+    "sci_name": "Anemone coronaria",
+    "family": "Ranunculaceae",
+    "region": "Mediterráneo",
+    "photo": "https://static.inaturalist.org/photos/112107848/medium.jpg"
+  },
+  {
+    "id": 61,
+    "name": "Protea Real",
+    "sci_name": "Protea cynaroides",
+    "family": "Proteaceae",
+    "region": "Sudáfrica",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/180107528/medium.jpg"
+  },
+  {
+    "id": 62,
+    "name": "Flor de Nácar",
+    "sci_name": "Hoya carnosa",
+    "family": "Apocynaceae",
+    "region": "Asia Tropical",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/165589748/medium.jpeg"
+  },
+  {
+    "id": 63,
+    "name": "Estrella Federal",
+    "sci_name": "Euphorbia pulcherrima",
+    "family": "Euphorbiaceae",
+    "region": "México",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/467993798/medium.jpeg"
+  },
+  {
+    "id": 64,
+    "name": "Begonia Tuberosa",
+    "sci_name": "Begonia tuberhybrida",
+    "family": "Begoniaceae",
+    "region": "América Tropical",
+    "photo": "https://static.inaturalist.org/photos/1509917/medium.JPG"
   }
 ]

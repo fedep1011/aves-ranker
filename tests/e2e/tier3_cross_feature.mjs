@@ -141,7 +141,7 @@ export async function runTier3() {
       );
       assert.strictEqual(sorted[0].name, 'Jaguar', 'Jaguar must win');
       const rest = sorted.slice(3);
-      assert.strictEqual(rest.length, 13, 'Remaining 13 mammals must be in rest ranking');
+      assert.strictEqual(rest.length, mamiferosRaw.length - 3, 'Remaining mammals must be in rest ranking');
     });
 
     // 8. Duel Tournament Sort + Victory Podium generation for Flores
@@ -152,7 +152,7 @@ export async function runTier3() {
         333
       );
       assert.ok(sorted[0].name.includes('Orquídea'), 'Orquídea must win');
-      assert.strictEqual(sorted.length, 16);
+      assert.strictEqual(sorted.length, floresRaw.length);
     });
 
     // 9. Undo choice during active duel + History stack rewind + Deterministic resume

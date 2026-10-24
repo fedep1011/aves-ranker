@@ -1,9 +1,12 @@
 const I18N = {
       es: {
         brandSub: "El ranking ornitológico",
-        homeBtn: "Inicio",        homeTitle: "El Ranking Ornitológico Definitivo.", homeDesc: "Desde el colibrí más diminuto hasta los grandes cóndores. 10.000 aves del mundo enfrentadas para encontrar tu preferida.",        btnHomeQuick16: "Jugar con las 16 más famosas del mundo →",
+        homeBtn: "Inicio",
+        homeTitle: "Tus Aves Favoritas del Planeta.", homeDesc: "De los colibríes del bosque a las grandes rapaces del mundo. Enfrentalas 1 vs 1 hasta armar tu podio definitivo.",
+        btnHomeQuick16: "Jugar con las 16 más famosas del mundo →",
         btnHomeSurprise: "Sorpréndeme (16 al azar)",
-        btnHomeCustom: "Armar mi búsqueda",        extinctSummary: "Pájaros extintos legendarios",
+        btnHomeCustom: "Armar mi búsqueda",
+        extinctSummary: "Pájaros extintos legendarios",
         undoBtn: "Deshacer",
         step1Kicker: "Paso 1 de 3 · Lugar",
         step1Title: "¿De qué parte del mundo quieres ver aves?",
@@ -74,14 +77,17 @@ const I18N = {
         modalCustomAuthorLabel: "Firma (Opcional)",
         defaultPosterTitle: "Mis Aves Favoritas",
         world16Summary: "Las 16 más famosas del mundo",
-        footerBrandText: "Aves — Ranking ornitológico",
+        footerBrandText: "Aves · Ranking ornitológico",
         footerCreatedBy: "Creado por"
       },
       en: {
         brandSub: "The Ornithological Ranking",
-        homeBtn: "Home",        homeTitle: "The Definitive Bird Ranking.", homeDesc: "From the tiniest hummingbird to giant condors. 10,000 birds facing off to crown your favorite.",        btnHomeQuick16: "Play with the Top 16 Iconic Birds →",
+        homeBtn: "Home",
+        homeTitle: "Your Favorite Birds on Earth.", homeDesc: "From forest hummingbirds to mighty raptors. Face them 1 vs 1 to crown your podium.",
+        btnHomeQuick16: "Play with the Top 16 Iconic Birds →",
         btnHomeSurprise: "Surprise Me (16 random)",
-        btnHomeCustom: "Build custom search",        extinctSummary: "Legendary Extinct Birds",
+        btnHomeCustom: "Build custom search",
+        extinctSummary: "Legendary Extinct Birds",
         undoBtn: "Undo",
         step1Kicker: "Step 1 of 3 · Location",
         step1Title: "From which part of the world?",
@@ -152,7 +158,7 @@ const I18N = {
         modalCustomAuthorLabel: "Signature (Optional)",
         defaultPosterTitle: "My Favorite Birds",
         world16Summary: "Top 16 Most Iconic Birds in the World",
-        footerBrandText: "Aves — Ornithological Ranking",
+        footerBrandText: "Aves · Ornithological Ranking",
         footerCreatedBy: "Created by"
       }
     };
@@ -355,6 +361,10 @@ const I18N = {
     const HOME_PRESETS = {
       famosas_mundo: { es: "Las 16 más icónicas del planeta", en: "The 16 most iconic birds on Earth" },
       extintas: { es: "Dinosaurios y aves extintas", en: "Dinosaurs & extinct birds" },
+      aves_selva: { es: "Aves de la Selva", en: "Jungle & Rainforest Birds" },
+      rapaces_nocturnas: { es: "Aves Rapaces y Nocturnas", en: "Raptors & Owls" },
+      acuaticas_costeras: { es: "Aves Acuáticas y Costeras", en: "Water & Coastal Birds" },
+      jardin_patio: { es: "Aves del Jardín y Patio", en: "Garden & Backyard Birds" },
       uruguay: { es: "Aves de Uruguay", en: "Birds of Uruguay" },
       argentina: { es: "Aves de Argentina", en: "Birds of Argentina" },
       carrona_uy: { es: "Carroñeras y rapaces del Sur", en: "Southern raptors & scavengers" },
@@ -365,7 +375,24 @@ const I18N = {
     };
     const HOME_PRESET_FIXED = ["extintas", "famosas_mundo"];
     const HOME_PRESET_LOCAL = ["uruguay", "argentina"];
-    const HOME_PRESET_POOL = ["carrona_uy", "rojas_latam", "azules_mundo", "rosas_mundo", "rapaces_mundo", "uruguay", "argentina"];
+    const CURATED_WORLD_ICONS_FALLBACK = [
+      { id: "18793", nombre: "Tucán Toco", nombreEs: "Tucán Toco", nombreIngles: "Toco Toucan", nombreCientifico: "Ramphastos toco", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/107775986/medium.jpg", popularidad: 4500 },
+      { id: "19022", nombre: "Guacamayo Rojo", nombreEs: "Guacamayo Rojo", nombreIngles: "Scarlet Macaw", nombreCientifico: "Ara macao", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/20348705/medium.jpg", popularidad: 3800 },
+      { id: "19018", nombre: "Guacamayo Azul y Amarillo", nombreEs: "Guacamayo Azul y Amarillo", nombreIngles: "Blue-and-yellow Macaw", nombreCientifico: "Ara ararauna", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/33890374/medium.jpg", popularidad: 3600 },
+      { id: "20856", nombre: "Quetzal Resplandeciente", nombreEs: "Quetzal Resplandeciente", nombreIngles: "Resplendent Quetzal", nombreCientifico: "Pharomachrus mocinno", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/14878275/medium.jpg", popularidad: 2900 },
+      { id: "1204", nombre: "Pavo Real", nombreEs: "Pavo Real", nombreIngles: "Indian Peafowl", nombreCientifico: "Pavo cristatus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/24185203/medium.jpg", popularidad: 5200 },
+      { id: "5305", nombre: "Águila Calva", nombreEs: "Águila Calva", nombreIngles: "Bald Eagle", nombreCientifico: "Haliaeetus leucocephalus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/54316135/medium.jpg", popularidad: 8900 },
+      { id: "5321", nombre: "Águila Harpía", nombreEs: "Águila Harpía", nombreIngles: "Harpy Eagle", nombreCientifico: "Harpia harpyja", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/4014138/medium.jpg", popularidad: 1200 },
+      { id: "4747", nombre: "Cóndor Andino", nombreEs: "Cóndor Andino", nombreIngles: "Andean Condor", nombreCientifico: "Vultur gryphus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/16886478/medium.jpg", popularidad: 3100 },
+      { id: "73222", nombre: "Flamenco", nombreEs: "Flamenco", nombreIngles: "Greater Flamingo", nombreCientifico: "Phoenicopterus roseus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/37748446/medium.jpg", popularidad: 4700 },
+      { id: "3820", nombre: "Pingüino Emperador", nombreEs: "Pingüino Emperador", nombreIngles: "Emperor Penguin", nombreCientifico: "Aptenodytes forsteri", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/65171780/medium.jpg", popularidad: 2100 },
+      { id: "144594", nombre: "Búho Nival", nombreEs: "Búho Nival", nombreIngles: "Snowy Owl", nombreCientifico: "Bubo scandiacus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/25925345/medium.jpg", popularidad: 3400 },
+      { id: "4504", nombre: "Frailecillo Atlántico", nombreEs: "Frailecillo Atlántico", nombreIngles: "Atlantic Puffin", nombreCientifico: "Fratercula arctica", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/3055415/medium.jpg", popularidad: 4100 },
+      { id: "2599", nombre: "Martín Pescador", nombreEs: "Martín Pescador", nombreIngles: "Common Kingfisher", nombreCientifico: "Alcedo atthis", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/56084560/medium.jpg", popularidad: 6800 },
+      { id: "7106", nombre: "Pato Mandarín", nombreEs: "Pato Mandarín", nombreIngles: "Mandarin Duck", nombreCientifico: "Aix galericulata", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/10328905/medium.jpg", popularidad: 5400 },
+      { id: "10254", nombre: "Cardenal Copete Rojo", nombreEs: "Cardenal Copete Rojo", nombreIngles: "Red-crested Cardinal", nombreCientifico: "Paroaria coronata", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/3983758/medium.jpg", popularidad: 2800 },
+      { id: "1230", nombre: "Faisán Dorado", nombreEs: "Faisán Dorado", nombreIngles: "Golden Pheasant", nombreCientifico: "Chrysolophus pictus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/16605797/medium.jpg", popularidad: 3300 }
+    ];
 
     const CATALOG_DATA = {
       baseUrl: "https://api.inaturalist.org/v1",
@@ -859,9 +886,12 @@ const I18N = {
       applyLanguageToStaticDOM() {
         const map = {
           headerBrandSub: "brandSub",
-          btnHeaderHome: "homeBtn",          homeTitle: "homeTitle", homeDesc: "homeDesc",          btnHomeQuick16: "btnHomeQuick16",
+          btnHeaderHome: "homeBtn",
+          homeTitle: "homeTitle", homeDesc: "homeDesc",
+          btnHomeQuick16: "btnHomeQuick16",
           btnHomeSurprise: "btnHomeSurprise",
-          btnHomeCustom: "btnHomeCustom",          btnUndoBattleText: "undoBtn",
+          btnHomeCustom: "btnHomeCustom",
+          btnUndoBattleText: "undoBtn",
           step1Kicker: "step1Kicker",
           step1Title: "step1Title",
           step1Sub: "step1Sub",
@@ -1112,6 +1142,15 @@ const I18N = {
         } else if (presetName === "extintas") {
           this.state.useCuratedExtinctBirds = true;
           this.state.guilds.add("extintas");
+        } else if (presetName === "aves_selva") {
+          this.state.places.set("97389", isEn ? "South America" : "Sudamérica");
+          this.state.guilds.add("frugivoras");
+        } else if (presetName === "rapaces_nocturnas") {
+          this.state.guilds.add("rapaces");
+        } else if (presetName === "acuaticas_costeras") {
+          this.state.guilds.add("acuaticas");
+        } else if (presetName === "jardin_patio") {
+          this.state.guilds.add("cantoras");
         } else if (presetName === "argentina") {
           this.state.places.set("7190", "Argentina");
         } else if (presetName === "azules_mundo") {
@@ -1489,7 +1528,12 @@ const I18N = {
           this.state.candidatePool = list;
           this.updateStep3UI();
         } catch (err) {
-          console.error(err);
+          console.warn('Error cargando especies desde iNaturalist, usando respaldo curado:', err);
+          if (this.state.candidatePool.length === 0) {
+            this.state.candidatePool = [...CURATED_WORLD_ICONS_FALLBACK];
+            this.state.totalFound = CURATED_WORLD_ICONS_FALLBACK.length;
+            this.updateStep3UI();
+          }
         }
       },
 
@@ -2021,12 +2065,31 @@ const I18N = {
       handleImgFallback(imgEl, side) {
         if (side) this.onBattleImgLoad(side);
         imgEl.onerror = null;
+        if (imgEl.src && imgEl.src.includes('static.inaturalist.org')) {
+          const s3Url = imgEl.src.replace('https://static.inaturalist.org/', 'https://inaturalist-open-data.s3.amazonaws.com/');
+          imgEl.onerror = () => this.handleImgFallback(imgEl, side);
+          imgEl.src = s3Url;
+          if (side) {
+            const bg = document.getElementById(side === 'left' ? 'imgLeftBg' : 'imgRightBg');
+            if (bg) bg.src = s3Url;
+            const b = side === 'left' ? this.state.currentLeftBird : this.state.currentRightBird;
+            if (b) b.imagen = s3Url;
+          }
+          return;
+        }
         const title = imgEl.alt || "Ave";
         const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
           <rect width="800" height="600" fill="#E9E5DC"/>
           <text x="400" y="310" text-anchor="middle" fill="#161816" font-family="Georgia, serif" font-size="32">${title.replace(/[<>&"']/g, "")}</text>
         </svg>`;
-        imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        const fallbackSvgUrl = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        imgEl.src = fallbackSvgUrl;
+        if (side) {
+          const bg = document.getElementById(side === 'left' ? 'imgLeftBg' : 'imgRightBg');
+          if (bg) bg.src = fallbackSvgUrl;
+          const b = side === 'left' ? this.state.currentLeftBird : this.state.currentRightBird;
+          if (b) b.imagen = fallbackSvgUrl;
+        }
       },
 
       // ============================================================
@@ -2535,7 +2598,7 @@ const I18N = {
 
         const sameTop1 = mine[0] && theirs[0] && mine[0].id === theirs[0].id;
         const headline = sameTop1
-          ? (isEn ? `${matchPct}% match — You both chose ${mine[0].nombre} as #1!` : `${matchPct}% de coincidencia — ¡Los dos eligieron a ${mine[0].nombre} en el #1!`)
+          ? (isEn ? `${matchPct}% match · You both chose ${mine[0].nombre} as #1!` : `${matchPct}% de coincidencia · ¡Los dos eligieron a ${mine[0].nombre} en el #1!`)
           : (isEn ? `${matchPct}% taste match with the ranking sent to you` : `${matchPct}% de coincidencia con el ranking que te enviaron`);
 
         document.getElementById("compBadgeLabel").textContent = isEn ? "Ranking Comparison" : "Comparación de rankings";

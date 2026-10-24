@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rankea2 · Torneos y rankings 1 vs 1</title>
   <meta name="description" content="Torneos 1 vs 1 para armar tu ranking de favoritos: Aves, Pokémon, Flores y Mamíferos." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
@@ -19,32 +20,53 @@
   </script>
   <style>
     :root {
-      --hub-bg: #F3F2EE;
-      --hub-surface: #FAF9F6;
-      --hub-ink: #161615;
-      --hub-muted: #6E6D68;
-      --hub-line: #E2DFD7;
+      --hub-bg: #F8F9FC;
+      --hub-surface: #FFFFFF; /* ds-allow */
+      --hub-surface-subtle: #F1F3F9;
+      --hub-ink: #0F172A;
+      --hub-muted: #64748B;
+      --hub-line: #E2E8F0;
+      --hub-accent-indigo: #4F46E5;
+      --hub-accent-pink: #EC4899;
     }
     html.dark {
-      --hub-bg: #141413;
-      --hub-surface: #1E1E1C;
-      --hub-ink: #F3F2EE;
-      --hub-muted: #9A9890;
-      --hub-line: #2C2C29;
+      --hub-bg: #090A0F;
+      --hub-surface: #12131A;
+      --hub-surface-subtle: #191B24;
+      --hub-ink: #F8FAFC;
+      --hub-muted: #94A3B8;
+      --hub-line: #1F222E;
+      --hub-accent-indigo: #6366F1;
+      --hub-accent-pink: #F472B6;
     }
     body {
       background-color: var(--hub-bg) !important;
       color: var(--hub-ink) !important;
       font-family: 'Inter', system-ui, sans-serif;
-      transition: background-color 0.18s ease, color 0.18s ease;
+      transition: background-color 0.2s ease, color 0.2s ease;
       -webkit-font-smoothing: antialiased;
+      background-image:
+        radial-gradient(at 15% 12%, rgba(79, 70, 229, 0.08) 0px, transparent 45%),
+        radial-gradient(at 85% 18%, rgba(236, 72, 153, 0.07) 0px, transparent 40%),
+        radial-gradient(at 50% 85%, rgba(79, 70, 229, 0.04) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+    html.dark body {
+      background-image:
+        radial-gradient(at 15% 12%, rgba(79, 70, 229, 0.18) 0px, transparent 45%),
+        radial-gradient(at 85% 18%, rgba(236, 72, 153, 0.16) 0px, transparent 40%),
+        radial-gradient(at 50% 85%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
     }
     .hub-header {
-      background-color: color-mix(in srgb, var(--hub-bg) 92%, transparent);
+      background-color: color-mix(in srgb, var(--hub-bg) 88%, transparent);
       border-bottom: 1px solid var(--hub-line);
     }
     .hub-surface {
       background-color: var(--hub-surface);
+      border-color: var(--hub-line);
+    }
+    .hub-surface-subtle {
+      background-color: var(--hub-surface-subtle);
       border-color: var(--hub-line);
     }
     .hub-muted {
@@ -62,55 +84,51 @@
 
     .half-split-left {
       position: absolute;
-      inset-block: 0;
-      left: 0;
-      width: 55%;
-      clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+      inset: 0;
+      clip-path: polygon(0 0, 53% 0, 44% 42%, 49% 42%, 40% 100%, 0 100%);
       overflow: hidden;
     }
     .half-split-right {
       position: absolute;
-      inset-block: 0;
-      right: 0;
-      width: 55%;
-      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+      inset: 0;
+      clip-path: polygon(59% 0, 100% 0, 100% 100%, 46% 100%, 52% 58%, 47% 58%);
       overflow: hidden;
     }
 
     .arena-aves {
-      background-color: #F6F4EF;
+      background-color: #F7F9F6;
       color: #161816;
       border: 2px solid #1D3B2A;
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
     }
     html.dark .arena-aves {
-      background-color: #151C17;
+      background-color: #0E1511;
       border-color: #2D5A3F;
       color: #EDF3EE;
     }
     .arena-aves:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 28px -10px rgba(29, 59, 42, 0.28);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -10px rgba(29, 59, 42, 0.3);
     }
     html.dark .arena-aves:hover {
-      box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 16px 32px -10px rgba(45, 90, 63, 0.35);
     }
 
     .arena-poke {
       background-color: #FFDE59;
       color: #111111;
       border: 3px solid #111111;
-      box-shadow: 5px 5px 0px #111111;
+      box-shadow: 4px 4px 0px #111111;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
     html.dark .arena-poke {
       background-color: #1F1D16;
       color: #F8F7F3;
       border-color: #FFDE59;
-      box-shadow: 5px 5px 0px #FFDE59;
+      box-shadow: 4px 4px 0px #FFDE59;
     }
     .arena-poke:hover {
-      transform: translate(-2px, -2px);
+      transform: translate(-3px, -3px);
       box-shadow: 7px 7px 0px #111111;
     }
     html.dark .arena-poke:hover {
@@ -118,52 +136,136 @@
     }
 
     .arena-flora {
-      background-color: #EFECE6;
+      background-color: #F4F6F4;
       color: #2B332C;
-      border: 1.5px solid #B7C4B8;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1.5px solid #A8B8AA;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
     }
     html.dark .arena-flora {
-      background-color: #151A16;
+      background-color: #111713;
       color: #E2ECE3;
       border-color: #38473A;
     }
     .arena-flora:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -10px rgba(16, 185, 129, 0.25);
+    }
+    html.dark .arena-flora:hover {
+      box-shadow: 0 16px 32px -10px rgba(56, 71, 58, 0.4);
     }
 
     .arena-fauna {
       background-color: #1E1B18;
       color: #F5EFE6;
       border: 2px solid #8C6239;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
     }
     html.dark .arena-fauna {
-      background-color: #1A1714;
+      background-color: #171412;
       border-color: #A67848;
       color: #F5EFE6;
     }
     .arena-fauna:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -10px rgba(140, 98, 57, 0.35);
+    }
+    html.dark .arena-fauna:hover {
+      box-shadow: 0 16px 32px -10px rgba(166, 120, 72, 0.4);
+    }
+
+    .arena-dino {
+      background-color: #231E18;
+      color: #F4EFE6;
+      border: 2px solid #8B6E47;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+    }
+    html.dark .arena-dino {
+      background-color: #191612;
+      border-color: #A38257;
+      color: #F4EFE6;
+    }
+    .arena-dino:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -10px rgba(139, 110, 71, 0.35);
+    }
+    html.dark .arena-dino:hover {
+      box-shadow: 0 16px 32px -10px rgba(163, 130, 87, 0.4);
+    }
+
+    .arena-maravillas {
+      background-color: #212936;
+      color: #F8FAFC;
+      border: 2px solid #C49A58;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+    }
+    html.dark .arena-maravillas {
+      background-color: #151B24;
+      border-color: #D4AB68;
+      color: #F8FAFC;
+    }
+    .arena-maravillas:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -10px rgba(196, 154, 88, 0.35);
+    }
+    html.dark .arena-maravillas:hover {
+      box-shadow: 0 16px 32px -10px rgba(212, 171, 104, 0.4);
+    }
+
+    .arena-caninos {
+      background-color: #241E1A;
+      color: #FAF5EE;
+      border: 2px solid #A87148;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+    }
+    html.dark .arena-caninos {
+      background-color: #1A1512;
+      border-color: #BA8358;
+      color: #FAF5EE;
+    }
+    .arena-caninos:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -10px rgba(168, 113, 72, 0.35);
+    }
+    html.dark .arena-caninos:hover {
+      box-shadow: 0 16px 32px -10px rgba(186, 131, 88, 0.4);
+    }
+
+    .arena-insectos {
+      background-color: #0F2628;
+      color: #ECFDF5;
+      border: 2px solid #0D9488;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+    }
+    html.dark .arena-insectos {
+      background-color: #091A1C;
+      border-color: #14B8A6;
+      color: #ECFDF5;
+    }
+    .arena-insectos:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -10px rgba(13, 148, 136, 0.35);
+    }
+    html.dark .arena-insectos:hover {
+      box-shadow: 0 16px 32px -10px rgba(20, 184, 166, 0.4);
     }
   </style>
 </head>
 <body class="min-h-[100dvh] flex flex-col">
 
-  <header class="hub-header sticky top-0 z-30 backdrop-blur-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5 focus:outline-none">
-        <svg class="w-7 h-7" viewBox="0 0 256 256" aria-hidden="true">
-          <path fill="currentColor" opacity="0.45" d="M32 48 A16 16 0 0 1 48 32 H128 A16 16 0 0 1 144 48 V64 H104 A32 32 0 0 0 72 96 V192 H48 A16 16 0 0 1 32 176 V48 Z"/>
-          <path fill="currentColor" fill-rule="evenodd" d="M104 80 H208 A16 16 0 0 1 224 96 V208 A16 16 0 0 1 208 224 H104 A16 16 0 0 1 88 208 V96 A16 16 0 0 1 104 80 Z M120 176 H192 V136 L172 152 L156 124 L140 152 L120 136 V176 Z"/>
+  <header class="hub-header sticky top-0 z-30 backdrop-blur-md">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 focus:outline-none group" aria-label="Rankea2 - Inicio">
+        <svg class="w-7 h-7 shrink-0 transition-transform duration-200 group-hover:scale-105" viewBox="0 0 256 256" aria-hidden="true">
+          <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+          <path fill="#EC4899" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
         </svg>
         <span class="font-poke font-extrabold text-xl tracking-tight">Rankea2</span>
       </a>
 
       <button id="themeToggle" type="button" aria-label="Cambiar tema"
-        class="hub-surface border px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 transition hover:opacity-80">
+        class="hub-surface border px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 transition hover:opacity-80 shadow-xs">
         <svg id="themeIconDark" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
         </svg>
         <svg id="themeIconLight" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="4"/>
@@ -174,165 +276,458 @@
     </div>
   </header>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-6 sm:py-10 space-y-8 sm:space-y-10">
 
     <!-- Hero Principal de Marca -->
-    <section class="text-center space-y-3.5 pt-2 pb-2 sm:pt-4 sm:pb-4 max-w-3xl mx-auto">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium hub-surface border border-line hub-muted">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>4 categorías activas · +11.000 especies y criaturas registradas</span>
+    <section class="text-center space-y-4 pt-3 pb-3 sm:pt-6 sm:pb-6 max-w-3xl mx-auto relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-pink-500/10 to-indigo-500/10 rounded-3xl blur-3xl -z-10 pointer-events-none"></div>
+
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold hub-surface border border-line hub-muted shadow-xs">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+        </span>
+        <span class="font-medium tracking-wide">Batallas entre tus Favoritos.</span>
       </div>
-      <h1 class="font-poke font-extrabold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.08]">
-        El Coliseo de tus Favoritos.
+
+      <h1 class="font-poke font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-tight leading-[1.08] text-ink">
+        ¿Te cuesta <span class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">elegir?</span>
       </h1>
-      <p class="text-sm sm:text-base md:text-lg hub-muted max-w-2xl mx-auto">
-        Duelos cara a cara sin empates. Elegí entre dos opciones hasta coronar tu podio definitivo.
+
+      <p class="text-sm sm:text-base md:text-lg hub-muted max-w-2xl mx-auto leading-relaxed">
+        Duelos cara a cara sin empates ni promedios. Enfrentá dos opciones en cada cruce hasta coronar tu podio definitivo.
       </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
+        <span class="px-3 py-1 rounded-full hub-surface border border-line hub-muted flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Elegí tu categoría
+        </span>
+        <span class="px-3 py-1 rounded-full hub-surface border border-line hub-muted flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Rankeá cuantos quieras
+        </span>
+        <span class="px-3 py-1 rounded-full hub-surface border border-line hub-muted flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-pink-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Compartí tu ranking con tus amigos
+        </span>
+      </div>
     </section>
 
     <!-- Transición inmediata: Cruce rápido -->
-    <section class="hub-surface border rounded-2xl p-4 sm:p-5">
-      <div class="flex items-center justify-between gap-2 mb-3">
-        <h2 class="text-base sm:text-lg font-semibold tracking-tight">
-          ¿Qué ranking preferís hoy?
-        </h2>
+    <section class="hub-surface border rounded-2xl p-4 sm:p-6 shadow-sm relative overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-48 h-48 bg-gradient-to-br from-indigo-500/10 to-pink-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="flex items-center justify-between gap-3 mb-4 relative z-10">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 animate-pulse"></span>
+          <h2 class="text-base sm:text-lg font-bold tracking-tight">
+            ¿Qué ranking preferís hoy?
+          </h2>
+        </div>
         <button id="shuffleMatchupBtn" type="button"
-          class="text-xs hub-muted hover:opacity-80 px-2.5 py-1 rounded-full border border-current/20 transition flex items-center gap-1.5">
+          class="text-xs hub-muted hover:text-ink px-3 py-1.5 rounded-full border border-current/20 transition flex items-center gap-1.5 hub-surface-subtle">
           <span>Otro cruce</span>
-          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
           </svg>
         </button>
       </div>
 
-      <div id="quickDuelContainer" class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-stretch gap-2.5 sm:gap-3">
+      <div id="quickDuelContainer" class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-stretch gap-3 sm:gap-4 relative z-10">
       </div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+    <!-- Las 4 Arenas de Combate -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-      <a href="/aves/" class="arena-aves rounded-2xl overflow-hidden flex flex-col group">
-        <div class="relative h-44 sm:h-52 w-full bg-[#1C241E] overflow-hidden">
-          <div class="half-split-left">
-            <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg"
-                 alt="Tucán Toco"
-                 class="w-full h-full object-cover object-[30%_center] group-hover:scale-105 transition duration-500"
-                 style="object-position: 30% center;" />
+        <!-- 1. AVES DEL MUNDO -->
+        <a href="/aves/" class="arena-aves rounded-[26px] overflow-hidden flex flex-col justify-between group">
+          <div class="relative h-32 sm:h-36 w-full bg-[#1C241E] overflow-hidden">
+            <div id="avesHeroSplitLeft" class="half-split-left">
+              <img id="avesHeroImgLeft"
+                   src="https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg"
+                   alt="Tucán Toco"
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 30% center;" />
+            </div>
+            <div id="avesHeroSplitRight" class="half-split-right">
+              <img id="avesHeroImgRight"
+                   src="https://static.inaturalist.org/photos/67503679/medium.jpg"
+                   alt="Guacamayo Rojo"
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 70% center;" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="2" />
+            </svg>
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#1D3B2A]/90 text-white backdrop-blur-xs">
+              Ornitología
+            </span>
           </div>
-          <div class="half-split-right">
-            <img src="https://static.inaturalist.org/photos/67503679/medium.jpg"
-                 alt="Guacamayo Rojo"
-                 class="w-full h-full object-cover object-[70%_center] group-hover:scale-105 transition duration-500"
-                 style="object-position: 70% center;" />
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-aves text-2xl leading-none">
+                Aves
+              </h3>
+              <span class="text-[11px] text-muted block mt-1">11.000 especies del mundo</span>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-[#1D3B2A] text-white flex items-center justify-center text-xs font-medium group-hover:translate-x-1 transition shrink-0">
+              →
+            </span>
           </div>
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.8" />
+        </a>
+
+        <!-- 2. POKÉMON -->
+        <a href="/pokemon/" class="arena-poke rounded-[26px] overflow-hidden flex flex-col justify-between group">
+          <div class="relative h-32 sm:h-36 w-full overflow-hidden bg-[#18181B]">
+            <div id="pokeHeroSplitLeft" class="half-split-left bg-[#EF4444] flex items-center justify-center p-2">
+              <img id="pokeHeroImgLeft" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+                   alt="Charizard"
+                   class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-md group-hover:scale-105 transition duration-300" />
+            </div>
+            <div id="pokeHeroSplitRight" class="half-split-right bg-[#3B82F6] flex items-center justify-center p-2">
+              <img id="pokeHeroImgRight" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
+                   alt="Blastoise"
+                   class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-md group-hover:scale-105 transition duration-300" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#111111" stroke-width="2.5" />
+            </svg>
+            <span id="pokeHeroBadge" class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[9px] font-mono uppercase tracking-wider font-extrabold bg-black text-[#FFDE59]">
+              1025 PKMN
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2 border-t-[3px] border-current">
+            <div>
+              <h3 class="font-poke font-extrabold text-lg sm:text-xl uppercase tracking-tight leading-none">
+                Pokémon
+              </h3>
+              <span class="text-[11px] font-mono opacity-80 block mt-1">Generaciones 1 a 9</span>
+            </div>
+            <span class="w-8 h-8 rounded bg-[#111111] text-[#FFDE59] dark:bg-[#FFDE59] dark:text-[#111111] flex items-center justify-center font-poke text-xs font-bold group-hover:translate-x-1 transition shrink-0">
+              →
+            </span>
+          </div>
+        </a>
+
+        <!-- 3. FLORES Y PLANTAS -->
+        <a href="/flores/" class="arena-flora rounded-[26px] overflow-hidden flex flex-col justify-between group">
+          <div class="relative h-32 sm:h-36 w-full bg-[#DDE5DD] overflow-hidden">
+            <div id="floraHeroSplitLeft" class="half-split-left">
+              <img id="floraHeroImgLeft"
+                   src="https://inaturalist-open-data.s3.amazonaws.com/photos/236476292/medium.jpg"
+                   alt="Rosa"
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 30% center;" />
+            </div>
+            <div id="floraHeroSplitRight" class="half-split-right">
+              <img id="floraHeroImgRight"
+                   src="https://inaturalist-open-data.s3.amazonaws.com/photos/256523606/medium.jpeg"
+                   alt="Orquídea"
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 70% center;" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="2" />
+            </svg>
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#2B332C]/90 text-white backdrop-blur-xs">
+              Herbario
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-flora italic font-semibold text-2xl leading-none">
+                Flores
+              </h3>
+              <span class="text-[11px] text-muted block mt-1">Flora y botánica mundial</span>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-[#2B332C] text-[#EFECE6] flex items-center justify-center text-xs font-medium group-hover:translate-x-1 transition shrink-0">
+              →
+            </span>
+          </div>
+        </a>
+
+        <!-- 4. MAMÍFEROS Y FELINOS -->
+        <a href="/mamiferos/" class="arena-fauna rounded-[26px] overflow-hidden flex flex-col justify-between group">
+          <div class="relative h-32 sm:h-36 w-full bg-[#141210] overflow-hidden">
+            <div id="faunaHeroSplitLeft" class="half-split-left">
+              <img id="faunaHeroImgLeft"
+                   src="https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg"
+                   alt="Jaguar"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <div id="faunaHeroSplitRight" class="half-split-right">
+              <img id="faunaHeroImgRight"
+                   src="https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg"
+                   alt="Tigre de Bengala"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="2" />
+            </svg>
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#8C6239]/90 text-white backdrop-blur-xs">
+              Depredadores
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-aves text-2xl leading-none text-[#F5EFE6]">
+                Mamíferos
+              </h3>
+              <span class="text-[11px] text-[#A39B91] block mt-1">Fauna salvaje y felinos</span>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-[#8C6239] text-[#F5EFE6] flex items-center justify-center text-xs font-medium group-hover:translate-x-1 transition shrink-0">
+              →
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Próximas Arenas Planificadas -->
+    <section class="space-y-4 pt-2">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-lg sm:text-xl font-bold tracking-tight">Próximas Arenas</h2>
+          <p class="text-xs hub-muted mt-0.5">En desarrollo · Nuevos catálogos y torneos 1 vs 1 planificados.</p>
+        </div>
+        <span class="text-xs font-mono font-semibold hub-muted px-2.5 py-1 rounded-md hub-surface border">En camino</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- 5. DINOSAURIOS -->
+        <div class="arena-dino rounded-[26px] overflow-hidden flex flex-col justify-between group transition-all duration-200">
+          <div class="relative h-32 sm:h-36 w-full bg-[#181512] overflow-hidden">
+            <div class="half-split-left">
+              <img src="https://images.unsplash.com/photo-1606856110002-d0991ce78250?auto=format&fit=crop&w=600&q=80"
+                   alt="Tiranosaurio Rex"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="half-split-right">
+              <img src="https://images.unsplash.com/photo-1569074187119-c87815b476da?auto=format&fit=crop&w=600&q=80"
+                   alt="Triceratops"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#8B6E47" stroke-width="2" />
+            </svg>
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#8B6E47]/90 text-white backdrop-blur-xs">
+              Prehistoria
+            </span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-black/75 text-white/90 backdrop-blur-xs border border-white/20">
+              Próximamente
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-aves text-2xl leading-none text-[#F4EFE6]">
+                Dinosaurios
+              </h3>
+              <span class="text-[11px] text-[#C4B39C] block mt-1">Paleontología y fósiles</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-medium border border-[#8B6E47]/40 bg-[#8B6E47]/20 text-[#F4EFE6] shrink-0">
+              Pronto
+            </span>
+          </div>
+        </div>
+
+        <!-- 6. MARAVILLAS Y LUGARES -->
+        <div class="arena-maravillas rounded-[26px] overflow-hidden flex flex-col justify-between group transition-all duration-200">
+          <div class="relative h-32 sm:h-36 w-full bg-[#151B24] overflow-hidden">
+            <div class="half-split-left">
+              <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80"
+                   alt="Pirámides de Guiza"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="half-split-right">
+              <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=600&q=80"
+                   alt="Machu Picchu"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#C49A58" stroke-width="2" />
+            </svg>
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#C49A58]/90 text-white backdrop-blur-xs">
+              Patrimonio
+            </span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-black/75 text-white/90 backdrop-blur-xs border border-white/20">
+              Próximamente
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-flora italic font-semibold text-2xl leading-none text-[#F8FAFC]">
+                Maravillas
+              </h3>
+              <span class="text-[11px] text-[#A5B4FC]/80 block mt-1">Monumentos del mundo</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-medium border border-[#C49A58]/40 bg-[#C49A58]/20 text-[#F8FAFC] shrink-0">
+              Pronto
+            </span>
+          </div>
+        </div>
+
+        <!-- 7. RAZAS DE PERROS -->
+        <div class="arena-caninos rounded-[26px] overflow-hidden flex flex-col justify-between group transition-all duration-200">
+          <div class="relative h-32 sm:h-36 w-full bg-[#181411] overflow-hidden">
+            <div class="half-split-left">
+              <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80"
+                   alt="Golden Retriever"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="half-split-right">
+              <img src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=600&q=80"
+                   alt="Pastor Alemán"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#A87148" stroke-width="2" />
+            </svg>
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#A87148]/90 text-white backdrop-blur-xs">
+              Caninos
+            </span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-black/75 text-white/90 backdrop-blur-xs border border-white/20">
+              Próximamente
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-aves text-2xl leading-none text-[#FAF5EE]">
+                Perros
+              </h3>
+              <span class="text-[11px] text-[#D4C3B3] block mt-1">Razas y compañeros</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-medium border border-[#A87148]/40 bg-[#A87148]/20 text-[#FAF5EE] shrink-0">
+              Pronto
+            </span>
+          </div>
+        </div>
+
+        <!-- 8. INSECTOS DEL MUNDO -->
+        <div class="arena-insectos rounded-[26px] overflow-hidden flex flex-col justify-between group transition-all duration-200">
+          <div class="relative h-32 sm:h-36 w-full bg-[#0A1A1C] overflow-hidden">
+            <div class="half-split-left">
+              <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=600&q=80"
+                   alt="Mariposa Morpho"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="half-split-right">
+              <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80"
+                   alt="Escarabajo"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#0D9488" stroke-width="2" />
+            </svg>
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#0D9488]/90 text-white backdrop-blur-xs">
+              Entomología
+            </span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-black/75 text-white/90 backdrop-blur-xs border border-white/20">
+              Próximamente
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 class="font-aves text-2xl leading-none text-[#ECFDF5]">
+                Insectos
+              </h3>
+              <span class="text-[11px] text-[#A7F3D0]/80 block mt-1">Macro y artrópodos</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-medium border border-[#0D9488]/40 bg-[#0D9488]/20 text-[#ECFDF5] shrink-0">
+              Pronto
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Características y Filosofía Anti-Empates -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+      <div class="hub-surface border rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="m10 15 5-3-5-3v6Z"/>
           </svg>
         </div>
-
-        <div class="px-5 py-4 flex items-center justify-between">
-          <h2 class="font-aves text-3xl sm:text-4xl leading-none">
-            Aves del Mundo
-          </h2>
-          <span class="w-9 h-9 rounded-full bg-[#1D3B2A] text-white flex items-center justify-center text-sm font-medium group-hover:translate-x-0.5 transition shrink-0">
-            →
-          </span>
+        <div>
+          <h3 class="text-sm font-semibold tracking-tight mb-1">Duelos 1 vs 1 Directos</h3>
+          <p class="text-xs hub-muted leading-relaxed">Sin listas infinitas ni empates. Elegís entre dos opciones con mouse o teclado hasta el veredicto final.</p>
         </div>
-      </a>
+      </div>
 
-      <a href="/pokemon/" class="arena-poke rounded-xl overflow-hidden flex flex-col group">
-        <div class="relative h-44 sm:h-52 w-full overflow-hidden bg-[#18181B]">
-          <div class="half-split-left bg-[#EF4444] flex items-center justify-center p-3">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
-                 alt="Charizard"
-                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300" />
-          </div>
-          <div class="half-split-right bg-[#3B82F6] flex items-center justify-center p-3">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
-                 alt="Blastoise"
-                 class="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300" />
-          </div>
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="55" y1="0" x2="44" y2="100" stroke="#111111" stroke-width="2.5" />
+      <div class="hub-surface border rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
           </svg>
         </div>
-
-        <div class="px-5 py-4 flex items-center justify-between border-t-[3px] border-current">
-          <h2 class="font-poke font-extrabold text-2xl sm:text-3xl tracking-tight uppercase leading-none">
-            Pokémon
-          </h2>
-          <span class="w-9 h-9 rounded bg-[#111111] text-[#FFDE59] dark:bg-[#FFDE59] dark:text-[#111111] flex items-center justify-center font-poke text-base font-bold group-hover:translate-x-0.5 transition shrink-0">
-            →
-          </span>
+        <div>
+          <h3 class="text-sm font-semibold tracking-tight mb-1">Bisección Determinista</h3>
+          <p class="text-xs hub-muted leading-relaxed">Algoritmo matemático que minimiza las decisiones requeridas. Con solo 16 a 40 duelos ordenás decenas de opciones.</p>
         </div>
-      </a>
+      </div>
 
-      <a href="/flores/" class="arena-flora rounded-2xl overflow-hidden flex flex-col group">
-        <div class="relative h-44 sm:h-52 w-full bg-[#DDE5DD] overflow-hidden">
-          <div class="half-split-left">
-            <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg"
-                 alt="Mburucuyá"
-                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
-          </div>
-          <div class="half-split-right">
-            <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/127799924/medium.jpg"
-                 alt="Orquídea"
-                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
-          </div>
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="55" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="1.8" />
+      <div class="hub-surface border rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
           </svg>
         </div>
-
-        <div class="px-5 py-4 flex items-center justify-between">
-          <h2 class="font-flora italic font-semibold text-3xl sm:text-4xl leading-none">
-            Flores y Plantas
-          </h2>
-          <span class="w-9 h-9 rounded-full bg-[#2B332C] text-[#EFECE6] flex items-center justify-center text-sm font-medium group-hover:translate-x-0.5 transition shrink-0">
-            →
-          </span>
+        <div>
+          <h3 class="text-sm font-semibold tracking-tight mb-1">Podio y Exportación</h3>
+          <p class="text-xs hub-muted leading-relaxed">Generá tarjetas visuales del podio ganador en formato Story (9:16) o Póster (4:5) para descargar o compartir en redes.</p>
         </div>
-      </a>
-
-      <a href="/mamiferos/" class="arena-fauna rounded-2xl overflow-hidden flex flex-col group">
-        <div class="relative h-44 sm:h-52 w-full bg-[#141210] overflow-hidden">
-          <div class="half-split-left">
-            <img src="https://static.inaturalist.org/photos/51015966/medium.jpg"
-                 alt="Yaguareté"
-                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
-          </div>
-          <div class="half-split-right">
-            <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/43633891/medium.jpg"
-                 alt="Tigre"
-                 class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
-          </div>
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <line x1="55" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="1.8" />
-          </svg>
-        </div>
-
-        <div class="px-5 py-4 flex items-center justify-between">
-          <h2 class="font-aves text-3xl sm:text-4xl leading-none tracking-wide">
-            Mamíferos y Felinos
-          </h2>
-          <span class="w-9 h-9 rounded-full bg-[#8C6239] text-[#F5EFE6] flex items-center justify-center text-sm font-medium group-hover:translate-x-0.5 transition shrink-0">
-            →
-          </span>
-        </div>
-      </a>
-
+      </div>
     </section>
 
   </main>
 
   <footer class="border-t border-line/50 py-6 px-4 sm:px-8 mt-auto">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs hub-muted">
-      <span>Rankea2 · Torneos 1 vs 1 deterministas sin sesgos ni empates.</span>
-      <div class="flex items-center gap-4">
-        <a href="/aves/" class="hover:text-ink transition">Aves</a>
-        <a href="/pokemon/" class="hover:text-ink transition">Pokémon</a>
-        <a href="/flores/" class="hover:text-ink transition">Flores</a>
-        <a href="/mamiferos/" class="hover:text-ink transition">Mamíferos</a>
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs hub-muted">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 256 256" aria-hidden="true">
+          <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+          <path fill="#EC4899" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+        </svg>
+        <span>Rankea2 · Torneos 1 vs 1 deterministas.</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 text-xs">
+        <div class="flex items-center gap-3">
+          <a href="/aves/" class="hover:text-ink transition">Aves</a>
+          <a href="/pokemon/" class="hover:text-ink transition">Pokémon</a>
+          <a href="/flores/" class="hover:text-ink transition">Flores</a>
+          <a href="/mamiferos/" class="hover:text-ink transition">Mamíferos</a>
+        </div>
+        <span class="opacity-40">·</span>
+        <div>
+          <span>Creado por</span> <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="font-medium text-ink hover:text-[#EC4899] underline underline-offset-4 transition">fedep1011</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -359,41 +754,385 @@
       syncThemeUI();
     });
 
+    // Versus emblemáticos para la pastilla de Aves en portada (fotos oficiales default iNaturalist calibradas a mano)
+    const AVES_CARD_PAIRS = [
+      {
+        left: { name: 'Águila Real', url: 'https://static.inaturalist.org/photos/168362446/medium.jpg', pos: '35% 25%' },
+        right: { name: 'Halcón Peregrino', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/212499566/medium.jpg', pos: '60% 25%' }
+      },
+      {
+        left: { name: 'Pavo Real', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/165318600/medium.jpg', pos: '35% 20%' },
+        right: { name: 'Ave del Paraíso', url: 'https://static.inaturalist.org/photos/51251186/medium.jpeg', pos: '65% 25%' }
+      },
+      {
+        left: { name: 'Búho Real', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/1840610/medium.jpg', pos: '35% 20%' },
+        right: { name: 'Cuervo Común', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/54389687/medium.jpg', pos: '60% 30%' }
+      },
+      {
+        left: { name: 'Colibrí Topacio', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/112388258/medium.jpeg', pos: '35% 35%' },
+        right: { name: 'Martín Pescador', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/61266631/medium.jpg', pos: '60% 35%' }
+      },
+      {
+        left: { name: 'Cacatúa Ninfa', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/260517157/medium.jpg', pos: '35% 20%' },
+        right: { name: 'Agapornis', url: 'https://static.inaturalist.org/photos/397224666/medium.jpeg', pos: '60% 30%' }
+      },
+      {
+        left: { name: 'Cisne Vulgar', url: 'https://static.inaturalist.org/photos/264781420/medium.jpg', pos: '35% 30%' },
+        right: { name: 'Flamenco del Caribe', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/108374016/medium.jpg', pos: '65% 20%' }
+      },
+      {
+        left: { name: 'Tucán Toco', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg', pos: '30% center' },
+        right: { name: 'Guacamayo Azul y Amarillo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/414331079/medium.jpeg', pos: '70% center' }
+      },
+      {
+        left: { name: 'Pelícano Pardo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/74013719/medium.jpg', pos: '35% 25%' },
+        right: { name: 'Alcatraz Patas Azules', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/184079683/medium.jpg', pos: '60% 25%' }
+      },
+      {
+        left: { name: 'Cardenal Rojo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/189434971/medium.jpg', pos: '35% 30%' },
+        right: { name: 'Azulejo Índigo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/168808461/medium.jpeg', pos: '60% 30%' }
+      },
+      {
+        left: { name: 'Avestruz', url: 'https://static.inaturalist.org/photos/2568822/medium.jpg', pos: '35% 15%' },
+        right: { name: 'Casuario del Sur', url: 'https://static.inaturalist.org/photos/292195634/medium.jpg', pos: '60% 20%' }
+      },
+      {
+        left: { name: 'Cóndor de los Andes', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/74741181/medium.jpg', pos: '35% 30%' },
+        right: { name: 'Quebrantahuesos', url: 'https://static.inaturalist.org/photos/65759335/medium.jpg', pos: '60% 30%' }
+      },
+      {
+        left: { name: 'Pingüino Emperador', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/7229/medium.jpg', pos: '35% 20%' },
+        right: { name: 'Puffin Atlántico', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63139388/medium.jpg', pos: '60% 25%' }
+      },
+      {
+        left: { name: 'Grulla Coronada', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/261339008/medium.jpg', pos: '35% 20%' },
+        right: { name: 'Cigüeña Blanca', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/269104502/medium.jpg', pos: '60% 25%' }
+      },
+      {
+        left: { name: 'Faisán Dorado', url: 'https://static.inaturalist.org/photos/437939340/medium.jpg', pos: '35% 30%' },
+        right: { name: 'Gallo de la Peña', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/17912813/medium.jpeg', pos: '65% 30%' }
+      },
+      {
+        left: { name: 'Correcaminos', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/128132945/medium.jpg', pos: '35% 35%' },
+        right: { name: 'Secretario', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/116433622/medium.jpeg', pos: '60% 20%' }
+      }
+    ];
+
+    function setupAvesHeroCard() {
+      const pair = AVES_CARD_PAIRS[Math.floor(Math.random() * AVES_CARD_PAIRS.length)];
+      const imgL = document.getElementById('avesHeroImgLeft');
+      const imgR = document.getElementById('avesHeroImgRight');
+      if (imgL && imgR) {
+        imgL.src = pair.left.url;
+        imgL.alt = pair.left.name;
+        imgL.style.objectPosition = pair.left.pos || '40% center';
+        imgR.src = pair.right.url;
+        imgR.alt = pair.right.name;
+        imgR.style.objectPosition = pair.right.pos || '60% center';
+      }
+      return pair;
+    }
+
+    const currentAvesHero = setupAvesHeroCard();
+
+    // Versus emblemáticos para la pastilla de Pokémon en portada
+    const POKEMON_CARD_PAIRS = [
+      { left: { id: 6, name: 'Charizard', bg: '#EF4444' }, right: { id: 9, name: 'Blastoise', bg: '#3B82F6' } },
+      { left: { id: 3, name: 'Venusaur', bg: '#10B981' }, right: { id: 154, name: 'Meganium', bg: '#84CC16' } },
+      { left: { id: 6, name: 'Charizard', bg: '#EF4444' }, right: { id: 149, name: 'Dragonite', bg: '#F59E0B' } },
+      { left: { id: 94, name: 'Gengar', bg: '#7C3AED' }, right: { id: 36, name: 'Clefable', bg: '#EC4899' } },
+      { left: { id: 123, name: 'Scyther', bg: '#65A30D' }, right: { id: 127, name: 'Pinsir', bg: '#B45309' } },
+      { left: { id: 151, name: 'Mew', bg: '#F472B6' }, right: { id: 150, name: 'Mewtwo', bg: '#8B5CF6' } },
+      { left: { id: 25, name: 'Pikachu', bg: '#EAB308' }, right: { id: 133, name: 'Eevee', bg: '#A16207' } },
+      { left: { id: 130, name: 'Gyarados', bg: '#2563EB' }, right: { id: 350, name: 'Milotic', bg: '#06B6D4' } },
+      { left: { id: 150, name: 'Mewtwo', bg: '#8B5CF6' }, right: { id: 386, name: 'Deoxys', bg: '#EA580C' } },
+      { left: { id: 249, name: 'Lugia', bg: '#64748B' }, right: { id: 250, name: 'Ho-Oh', bg: '#DC2626' } },
+      { left: { id: 382, name: 'Kyogre', bg: '#1D4ED8' }, right: { id: 383, name: 'Groudon', bg: '#B91C1C' } },
+      { left: { id: 483, name: 'Dialga', bg: '#0284C7' }, right: { id: 484, name: 'Palkia', bg: '#D946EF' } },
+      { left: { id: 643, name: 'Reshiram', bg: '#CBD5E1' }, right: { id: 644, name: 'Zekrom', bg: '#1E293B' } },
+      { left: { id: 716, name: 'Xerneas', bg: '#3B82F6' }, right: { id: 717, name: 'Yveltal', bg: '#991B1B' } },
+      { left: { id: 791, name: 'Solgaleo', bg: '#D97706' }, right: { id: 792, name: 'Lunala', bg: '#4F46E5' } },
+      { left: { id: 888, name: 'Zacian', bg: '#0284C7' }, right: { id: 889, name: 'Zamazenta', bg: '#DC2626' } },
+      { left: { id: 381, name: 'Latios', bg: '#1D4ED8' }, right: { id: 380, name: 'Latias', bg: '#DC2626' } },
+      { left: { id: 243, name: 'Raikou', bg: '#EAB308' }, right: { id: 244, name: 'Entei', bg: '#B91C1C' } },
+      { left: { id: 144, name: 'Articuno', bg: '#38BDF8' }, right: { id: 146, name: 'Moltres', bg: '#EA580C' } },
+      { left: { id: 638, name: 'Cobalion', bg: '#0284C7' }, right: { id: 640, name: 'Virizion', bg: '#16A34A' } },
+      { left: { id: 641, name: 'Tornadus', bg: '#059669' }, right: { id: 642, name: 'Thundurus', bg: '#2563EB' } },
+      { left: { id: 1007, name: 'Koraidon', bg: '#DC2626' }, right: { id: 1008, name: 'Miraidon', bg: '#7C3AED' } },
+      { left: { id: 718, name: 'Zygarde', bg: '#65A30D' }, right: { id: 890, name: 'Eternatus', bg: '#7E22CE' } }
+    ];
+
+    const POKEMON_SPRITE_MODES = [
+      { key: 'animated', badge: '1025 PKMN · GIF', isPixel: true },
+      { key: 'artwork', badge: '1025 PKMN · HD', isPixel: false },
+      { key: 'classic', badge: '1025 PKMN · 2D', isPixel: true }
+    ];
+
+    let pokeSpriteModeIdx = Math.floor(Math.random() * POKEMON_SPRITE_MODES.length);
+
+    function getPokemonSpriteUrl(id, mode) {
+      if (mode === 'animated') {
+        if (id === 1008) return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+        return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${id}.gif`;
+      }
+      if (mode === 'classic') {
+        return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+      }
+      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+    }
+
+    function setupPokemonHeroCard() {
+      const pair = POKEMON_CARD_PAIRS[Math.floor(Math.random() * POKEMON_CARD_PAIRS.length)];
+      const modeObj = POKEMON_SPRITE_MODES[pokeSpriteModeIdx % POKEMON_SPRITE_MODES.length];
+      pokeSpriteModeIdx++;
+
+      const splitL = document.getElementById('pokeHeroSplitLeft');
+      const splitR = document.getElementById('pokeHeroSplitRight');
+      const imgL = document.getElementById('pokeHeroImgLeft');
+      const imgR = document.getElementById('pokeHeroImgRight');
+      const badge = document.getElementById('pokeHeroBadge');
+
+      if (splitL && splitR && imgL && imgR) {
+        splitL.style.backgroundColor = pair.left.bg;
+        splitR.style.backgroundColor = pair.right.bg;
+
+        imgL.classList.toggle('pixel-sprite', modeObj.isPixel);
+        imgR.classList.toggle('pixel-sprite', modeObj.isPixel);
+
+        imgL.onerror = () => {
+          imgL.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pair.left.id}.png`;
+        };
+        imgR.onerror = () => {
+          imgR.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pair.right.id}.png`;
+        };
+
+        imgL.src = getPokemonSpriteUrl(pair.left.id, modeObj.key);
+        imgL.alt = pair.left.name;
+        imgR.src = getPokemonSpriteUrl(pair.right.id, modeObj.key);
+        imgR.alt = pair.right.name;
+
+        if (badge) {
+          badge.textContent = modeObj.badge;
+        }
+      }
+      return { pair, mode: modeObj };
+    }
+
+    const currentPokeHero = setupPokemonHeroCard();
+
+    // Versus emblemáticos para la pastilla de Flores en portada (fotos oficiales default iNaturalist calibradas a mano)
+    const FLORA_CARD_PAIRS = [
+      {
+        left: { name: 'Rosa', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/236476292/medium.jpg', pos: '35% center' },
+        right: { name: 'Orquídea', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/256523606/medium.jpeg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Girasol', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/323768714/medium.jpg', pos: '35% center' },
+        right: { name: 'Flor de Loto', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/116385724/medium.jpeg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Lavanda', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/157057/medium.jpg', pos: '35% center' },
+        right: { name: 'Jacinto', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/42029432/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Tulipán', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/20539855/medium.jpg', pos: '35% center' },
+        right: { name: 'Ave del Paraíso', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/375256909/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Lirio', url: 'https://static.inaturalist.org/photos/166792719/medium.jpg', pos: '35% center' },
+        right: { name: 'Calla (Cartucho)', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/10183/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Hortensia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/45518546/medium.jpg', pos: '35% center' },
+        right: { name: 'Clavel', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/73534073/medium.jpeg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Cerezo en Flor (Sakura)', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/90432717/medium.jpeg', pos: '35% center' },
+        right: { name: 'Magnolia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/82254330/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Dalia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/571049090/medium.jpg', pos: '35% center' },
+        right: { name: 'Crisantemo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/236151541/medium.jpeg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Amapola', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/682825136/medium.jpg', pos: '35% center' },
+        right: { name: 'Violeta', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/622851735/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Anturio', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/336703418/medium.jpeg', pos: '35% center' },
+        right: { name: 'Hibisco', url: 'https://static.inaturalist.org/photos/115046668/medium.jpeg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Flor de Lis', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/8096074/medium.jpg', pos: '35% center' },
+        right: { name: 'Peonía', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/113190686/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Orquídea Fantasma', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/146926803/medium.jpg', pos: '35% center' },
+        right: { name: 'Flor de Cadáver (Rafflesia)', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/3035040/medium.JPG', pos: '65% center' }
+      },
+      {
+        left: { name: 'Narciso', url: 'https://static.inaturalist.org/photos/119190821/medium.jpg', pos: '35% center' },
+        right: { name: 'Azucena', url: 'https://static.inaturalist.org/photos/71246658/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Margarita', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/515847774/medium.jpg', pos: '35% center' },
+        right: { name: 'Diente de León', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/35280454/medium.jpg', pos: '65% center' }
+      },
+      {
+        left: { name: 'Camelia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/114800079/medium.jpg', pos: '35% center' },
+        right: { name: 'Jazmín', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/185690403/medium.jpg', pos: '65% center' }
+      }
+    ];
+
+    function setupFloraHeroCard() {
+      const pair = FLORA_CARD_PAIRS[Math.floor(Math.random() * FLORA_CARD_PAIRS.length)];
+      const imgL = document.getElementById('floraHeroImgLeft');
+      const imgR = document.getElementById('floraHeroImgRight');
+      if (imgL && imgR) {
+        imgL.src = pair.left.url;
+        imgL.alt = pair.left.name;
+        imgL.style.objectPosition = pair.left.pos || '45% center';
+        imgR.src = pair.right.url;
+        imgR.alt = pair.right.name;
+        imgR.style.objectPosition = pair.right.pos || '55% center';
+      }
+      return pair;
+    }
+
+    const currentFloraHero = setupFloraHeroCard();
+
+    // Versus emblemáticos para la pastilla de Mamíferos en portada (fauna salvaje y felinos de mamiferos.json)
+    const FAUNA_CARD_PAIRS = [
+      {
+        left: { name: 'Jaguar', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg', pos: '40% center' },
+        right: { name: 'Tigre de Bengala', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg', pos: '60% center' }
+      },
+      {
+        left: { name: 'León Africano', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/9225318/medium.jpg', pos: '40% center' },
+        right: { name: 'Leopardo de las Nieves', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/16308659/medium.jpg', pos: '60% center' }
+      },
+      {
+        left: { name: 'Guepardo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/57582224/medium.jpg', pos: '40% center' },
+        right: { name: 'Puma', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/9834553/medium.jpg', pos: '60% center' }
+      },
+      {
+        left: { name: 'Lobo Gris', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/43410580/medium.jpg', pos: '40% center' },
+        right: { name: 'Zorro Rojo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/754793247/medium.jpg', pos: '60% center' }
+      },
+      {
+        left: { name: 'Oso Polar', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/102785980/medium.jpg', pos: '40% center' },
+        right: { name: 'Oso Pardo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/1491897/medium.jpg', pos: '60% center' }
+      },
+      {
+        left: { name: 'Elefante Africano', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/93674728/medium.jpg', pos: '40% center' },
+        right: { name: 'Rinoceronte Blanco', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/57287523/medium.jpg', pos: '60% center' }
+      },
+      {
+        left: { name: 'Panda Gigante', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/150277588/medium.jpg', pos: '40% center' },
+        right: { name: 'Gorila de Montaña', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/109860139/medium.jpg', pos: '60% center' }
+      },
+      {
+        left: { name: 'Jirafa', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/753693022/medium.jpg', pos: '40% center' },
+        right: { name: 'Nutria Gigante', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/227172098/medium.jpeg', pos: '60% center' }
+      }
+    ];
+
+    function setupFaunaHeroCard() {
+      const pair = FAUNA_CARD_PAIRS[Math.floor(Math.random() * FAUNA_CARD_PAIRS.length)];
+      const imgL = document.getElementById('faunaHeroImgLeft');
+      const imgR = document.getElementById('faunaHeroImgRight');
+      if (imgL && imgR) {
+        imgL.src = pair.left.url;
+        imgL.alt = pair.left.name;
+        imgL.style.objectPosition = pair.left.pos || '40% center';
+        imgR.src = pair.right.url;
+        imgR.alt = pair.right.name;
+        imgR.style.objectPosition = pair.right.pos || '60% center';
+      }
+      return pair;
+    }
+
+    const currentFaunaHero = setupFaunaHeroCard();
+
     const ARENAS = [
       {
         id: 'aves',
         title: 'Aves del Mundo',
+        count: '11.000 especies',
         href: '/aves/',
         active: true,
-        thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg',
-        pillClass: 'bg-[#F6F4EF] text-[#161816] border-[#1D3B2A] dark:bg-[#151C17] dark:text-[#EDF3EE] dark:border-[#2D5A3F]',
+        thumb: currentAvesHero ? currentAvesHero.left.url : 'https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg',
+        pillClass: 'bg-[#F7F9F6] text-[#161816] border-[#1D3B2A] dark:bg-[#0E1511] dark:text-[#EDF3EE] dark:border-[#2D5A3F]',
         fontClass: 'font-aves text-2xl'
       },
       {
         id: 'pokemon',
         title: 'Pokémon',
+        count: '1025 criaturas',
         href: '/pokemon/',
         active: true,
-        thumb: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png',
+        thumb: currentPokeHero ? getPokemonSpriteUrl(currentPokeHero.pair.left.id, 'artwork') : 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png',
         pillClass: 'bg-[#FFDE59] text-[#111111] border-[#111111] dark:bg-[#1F1D16] dark:text-[#FFDE59] dark:border-[#FFDE59]',
         fontClass: 'font-poke font-extrabold text-lg uppercase'
       },
       {
         id: 'flores',
         title: 'Flores y Plantas',
+        count: 'Herbario global',
         href: '/flores/',
         active: true,
-        thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg',
-        pillClass: 'bg-[#EFECE6] text-[#2B332C] border-[#B7C4B8] dark:bg-[#151A16] dark:text-[#E2ECE3] dark:border-[#38473A]',
+        thumb: currentFloraHero ? currentFloraHero.left.url : 'https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg',
+        pillClass: 'bg-[#F4F6F4] text-[#2B332C] border-[#A8B8AA] dark:bg-[#111713] dark:text-[#E2ECE3] dark:border-[#38473A]',
         fontClass: 'font-flora italic font-semibold text-2xl'
       },
       {
         id: 'mamiferos',
         title: 'Mamíferos y Felinos',
+        count: 'Fauna salvaje',
         href: '/mamiferos/',
         active: true,
-        thumb: 'https://static.inaturalist.org/photos/51015966/medium.jpg',
-        pillClass: 'bg-[#1E1B18] text-[#F5EFE6] border-[#8C6239] dark:bg-[#1A1714] dark:text-[#F5EFE6] dark:border-[#A67848]',
+        thumb: currentFaunaHero ? currentFaunaHero.left.url : 'https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg',
+        pillClass: 'bg-[#1E1B18] text-[#F5EFE6] border-[#8C6239] dark:bg-[#171412] dark:text-[#F5EFE6] dark:border-[#A67848]',
+        fontClass: 'font-aves text-2xl'
+      },
+      {
+        id: 'dinosaurios',
+        title: 'Dinosaurios',
+        count: 'Paleontología',
+        href: '#',
+        active: false,
+        thumb: 'https://images.unsplash.com/photo-1606856110002-d0991ce78250?auto=format&fit=crop&w=600&q=80',
+        pillClass: 'bg-[#231E18] text-[#F4EFE6] border-[#8B6E47] dark:bg-[#191612] dark:text-[#F4EFE6] dark:border-[#A38257]',
+        fontClass: 'font-aves text-2xl'
+      },
+      {
+        id: 'maravillas',
+        title: 'Maravillas',
+        count: 'Monumentos',
+        href: '#',
+        active: false,
+        thumb: 'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80',
+        pillClass: 'bg-[#212936] text-[#F8FAFC] border-[#C49A58] dark:bg-[#151B24] dark:text-[#F8FAFC] dark:border-[#D4AB68]',
+        fontClass: 'font-flora italic font-semibold text-2xl'
+      },
+      {
+        id: 'caninos',
+        title: 'Perros',
+        count: 'Razas caninas',
+        href: '#',
+        active: false,
+        thumb: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80',
+        pillClass: 'bg-[#241E1A] text-[#FAF5EE] border-[#A87148] dark:bg-[#1A1512] dark:text-[#FAF5EE] dark:border-[#BA8358]',
+        fontClass: 'font-aves text-2xl'
+      },
+      {
+        id: 'insectos',
+        title: 'Insectos',
+        count: 'Entomología',
+        href: '#',
+        active: false,
+        thumb: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=600&q=80',
+        pillClass: 'bg-[#0F2628] text-[#ECFDF5] border-[#0D9488] dark:bg-[#091A1C] dark:text-[#ECFDF5] dark:border-[#14B8A6]',
         fontClass: 'font-aves text-2xl'
       }
     ];
@@ -403,7 +1142,11 @@
       [0, 1],
       [0, 3],
       [0, 2],
-      [1, 3]
+      [1, 3],
+      [0, 4],
+      [2, 5],
+      [3, 6],
+      [1, 7]
     ];
 
     function renderQuickDuel() {
@@ -414,18 +1157,24 @@
 
       const renderChoice = (item) => `
         <a href="${item.href}"
-           class="flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl border-2 ${item.pillClass} transition hover:scale-[1.01]">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="${item.thumb}" alt="${item.title}" class="w-10 h-10 rounded-lg object-cover bg-black/10 shrink-0" />
-            <span class="${item.fontClass} truncate leading-none">${item.title}</span>
+           ${!item.active ? 'onclick="event.preventDefault();"' : ''}
+           class="flex items-center justify-between gap-3 px-4 py-3 rounded-xl border-2 ${item.pillClass} transition duration-200 hover:scale-[1.015] hover:shadow-md ${!item.active ? 'opacity-90' : ''}">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <img src="${item.thumb}" alt="${item.title}" class="w-12 h-12 rounded-xl object-cover bg-black/10 shrink-0 shadow-xs" />
+            <div class="min-w-0">
+              <span class="${item.fontClass} truncate leading-none block">${item.title}</span>
+              <span class="text-[11px] opacity-75 font-mono block mt-1">${item.count}</span>
+            </div>
           </div>
-          <span class="text-xs font-medium shrink-0 opacity-75">${item.active ? 'Jugar →' : 'Pronto'}</span>
+          <span class="text-xs font-semibold shrink-0 px-2.5 py-1 rounded-full bg-black/10 dark:bg-white/10 transition">${item.active ? 'Jugar cruce →' : 'Próximamente'}</span>
         </a>
       `;
 
       box.innerHTML = `
         ${renderChoice(a)}
-        <div class="flex items-center justify-center text-xs font-bold hub-muted px-1">VS</div>
+        <div class="flex items-center justify-center">
+          <span class="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-600 to-pink-500 text-white font-poke font-black text-xs flex items-center justify-center shadow-md shadow-pink-500/20">VS</span>
+        </div>
         ${renderChoice(b)}
       `;
     }
@@ -436,6 +1185,14 @@
     });
 
     renderQuickDuel();
+
+    // Actualización periódica sutil de las pastillas para rotar duelos
+    setInterval(() => {
+      setupAvesHeroCard();
+      setupPokemonHeroCard();
+      setupFloraHeroCard();
+      setupFaunaHeroCard();
+    }, 12000);
   </script>
 
 </body>

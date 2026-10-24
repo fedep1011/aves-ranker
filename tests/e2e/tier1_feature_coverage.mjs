@@ -338,8 +338,8 @@ export async function runTier1() {
       assert.ok(document.getElementById('themeToggle'), 'themeToggle must exist in mamiferos');
     });
 
-    harness.it('6.2: mamiferos.json dataset contains 16 curated mammal species', ({ assert }) => {
-      assert.strictEqual(mamiferosRaw.length, 16, 'mamiferos.json must have exactly 16 species');
+    harness.it('6.2: mamiferos.json dataset contains curated mammal species', ({ assert }) => {
+      assert.ok(mamiferosRaw.length >= 16, 'mamiferos.json must have at least 16 species');
       mamiferosRaw.forEach(m => {
         assert.ok(m.id, 'Each mammal must have id');
         assert.ok(m.name, 'Each mammal must have name');
@@ -390,8 +390,8 @@ export async function runTier1() {
       assert.ok(document.getElementById('themeToggle'), 'themeToggle must exist in flores');
     });
 
-    harness.it('7.2: flores.json dataset contains 16 curated floral species', ({ assert }) => {
-      assert.strictEqual(floresRaw.length, 16, 'flores.json must have exactly 16 species');
+    harness.it('7.2: flores.json dataset contains curated floral species', ({ assert }) => {
+      assert.ok(floresRaw.length >= 16, 'flores.json must have at least 16 species');
       floresRaw.forEach(f => {
         assert.ok(f.id, 'Each flower must have id');
         assert.ok(f.name, 'Each flower must have name');

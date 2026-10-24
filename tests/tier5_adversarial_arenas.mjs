@@ -678,8 +678,8 @@ console.log('\n▶ [Suite 2: Mamíferos Arena White-Box & Zero Photo Cropping]')
 const mamiferosJsonPath = path.resolve(ROOT_DIR, 'public/data/mamiferos.json');
 const mamiferosData = JSON.parse(fs.readFileSync(mamiferosJsonPath, 'utf8'));
 
-await test('2.1: Mamíferos catalog loads exactly 16 species with complete schema validation', () => {
-  assert.strictEqual(mamiferosData.length, 16, 'Mamíferos dataset must contain exactly 16 species');
+await test('2.1: Mamíferos catalog loads curated species with complete schema validation', () => {
+  assert.ok(mamiferosData.length >= 16, 'Mamíferos dataset must contain at least 16 species');
   mamiferosData.forEach((m, idx) => {
     assert.strictEqual(typeof m.id, 'number', `Species at [${idx}] must have numeric id`);
     assert.ok(m.name && m.name.length > 0, `Species at [${idx}] must have name`);
@@ -782,8 +782,8 @@ console.log('\n▶ [Suite 3: Flores Arena White-Box & Zero Photo Cropping]');
 const floresJsonPath = path.resolve(ROOT_DIR, 'public/data/flores.json');
 const floresData = JSON.parse(fs.readFileSync(floresJsonPath, 'utf8'));
 
-await test('3.1: Flores catalog loads exactly 16 species with complete botanical schema', () => {
-  assert.strictEqual(floresData.length, 16, 'Flores dataset must contain exactly 16 botanical species');
+await test('3.1: Flores catalog loads curated species with complete botanical schema', () => {
+  assert.ok(floresData.length >= 16, 'Flores dataset must contain at least 16 botanical species');
   floresData.forEach((f, idx) => {
     assert.strictEqual(typeof f.id, 'number', `Plant at [${idx}] must have numeric id`);
     assert.ok(f.name && f.name.length > 0, `Plant at [${idx}] must have name`);

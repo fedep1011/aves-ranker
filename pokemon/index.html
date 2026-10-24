@@ -4,16 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Rankea2 · Pokémon</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&family=Pixelify+Sans:wght@400;600&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&family=Pixelify+Sans:wght@400;600&family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/tailwind.css" />
   <style>
     .font-pixel-title {
-      font-family: 'Press Start 2P', monospace;
+      font-family: 'Pixelify Sans', 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.02em;
     }
     .font-pixel {
-      font-family: 'Silkscreen', monospace;
+      font-family: 'Pixelify Sans', 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.015em;
+    }
+    .font-pixel-chunky {
+      font-family: 'Press Start 2P', monospace;
     }
     .pixel-sprite {
       image-rendering: pixelated;
@@ -25,7 +33,7 @@
       box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.9);
     }
     html.dark .retro-box {
-      box-shadow: 4px 4px 0px 0px rgba(255, 222, 89, 0.3);
+      box-shadow: 4px 4px 0px 0px rgba(255, 222, 89, 0.35);
     }
     .retro-btn {
       border: 2px solid currentColor;
@@ -33,7 +41,7 @@
       transition: all 0.1s ease-in-out;
     }
     html.dark .retro-btn {
-      box-shadow: 3px 3px 0px 0px rgba(255, 222, 89, 0.3);
+      box-shadow: 3px 3px 0px 0px rgba(255, 222, 89, 0.35);
     }
     .retro-btn:hover {
       transform: translate(-1px, -1px);
@@ -50,29 +58,33 @@
       background: radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
     }
 
-    /* Pixel Art UI 8-bit / 16-bit: bloques cuadrados, marcos escalonados, sombras duras, colores planos */
+    /* Pixel Art UI 8-bit / 16-bit legible: estética retro con tipografía nítida y proporciones claras */
     body.pixel-ui {
-      font-family: 'Pixelify Sans', 'VT323', monospace;
+      font-family: 'Pixelify Sans', 'Space Grotesk', system-ui, sans-serif;
       font-size: 15px;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: none;
+      line-height: 1.5;
+      letter-spacing: 0.015em;
       background-image:
-        linear-gradient(rgba(0,0,0,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.045) 1px, transparent 1px);
-      background-size: 8px 8px;
+        linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
+      background-size: 10px 10px;
     }
     html.dark body.pixel-ui {
       background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
     }
     body.pixel-ui h1, body.pixel-ui h2, body.pixel-ui h3 {
-      font-family: 'Press Start 2P', monospace;
-      line-height: 1.4;
-      text-transform: uppercase;
+      font-family: 'Pixelify Sans', 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: 0.02em;
     }
     body.pixel-ui [class*="rounded"]:not(.animate-spin) {
-      border-radius: 0 !important;
+      border-radius: 6px;
+    }
+    body.pixel-ui .retro-box, body.pixel-ui .retro-btn {
+      border-radius: 4px;
     }
     body.pixel-ui * {
       backdrop-filter: none !important;
@@ -85,8 +97,8 @@
         0 3px 0 0 currentColor,
         -3px 0 0 0 currentColor,
         3px 0 0 0 currentColor,
-        6px 9px 0 0 rgba(0, 0, 0, 0.9),
-        9px 6px 0 0 rgba(0, 0, 0, 0.9);
+        4px 6px 0 0 rgba(0, 0, 0, 0.9),
+        6px 4px 0 0 rgba(0, 0, 0, 0.9);
     }
     html.dark body.pixel-ui section [class*="bg-surface"][class*="border"] {
       box-shadow:
@@ -94,23 +106,23 @@
         0 3px 0 0 currentColor,
         -3px 0 0 0 currentColor,
         3px 0 0 0 currentColor,
-        6px 9px 0 0 rgba(255, 222, 89, 0.35),
-        9px 6px 0 0 rgba(255, 222, 89, 0.35);
+        4px 6px 0 0 rgba(255, 222, 89, 0.35),
+        6px 4px 0 0 rgba(255, 222, 89, 0.35);
     }
     body.pixel-ui section button[class*="border"] {
-      border-width: 3px;
-      box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.9);
+      border-width: 2px;
+      box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.9);
     }
     html.dark body.pixel-ui section button[class*="border"] {
-      box-shadow: 4px 4px 0 0 rgba(255, 222, 89, 0.35);
+      box-shadow: 3px 3px 0 0 rgba(255, 222, 89, 0.35);
     }
     body.pixel-ui section button:not(:disabled):active {
-      transform: translate(3px, 3px);
+      transform: translate(2px, 2px);
       box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.9);
     }
     body.pixel-ui .battle-platform { background: none; }
     body.pixel-ui [class*="shadow-"], body.pixel-ui [class*="drop-shadow"] { filter: none; }
-    body.pixel-ui img, body.pixel-ui canvas {
+    body.pixel-ui img.pixel-sprite, body.pixel-ui canvas {
       image-rendering: pixelated;
     }
     body.pixel-ui input[type="range"] {
@@ -142,6 +154,12 @@
       if (saved === 'dark') {
         document.documentElement.classList.add('dark');
       }
+      const savedPixel = localStorage.getItem('rankea2_pokemon_pixel_ui');
+      if (savedPixel === 'false') {
+        document.addEventListener('DOMContentLoaded', () => {
+          document.body?.classList.remove('pixel-ui');
+        });
+      }
     })();
   </script>
 </head>
@@ -150,22 +168,62 @@
   <!-- STICKY COMPACT HEADER -->
   <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
     <div class="max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <a href="/" class="font-poke font-extrabold text-base sm:text-lg text-ink tracking-tight hover:opacity-80 transition" title="Ir al Hub">
-          Rankea2
+      <div class="flex items-center gap-2.5">
+        <a href="/" class="flex items-center gap-2.5 font-poke font-extrabold text-xl text-ink tracking-tight hover:opacity-80 transition shrink-0" title="Ir a las Arenas" aria-label="Rankea2 - Inicio">
+          <svg class="w-7 h-7 shrink-0" viewBox="0 0 256 256" aria-hidden="true">
+            <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+            <path fill="#EC4899" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+          </svg>
+          <span>Rankea2</span>
         </a>
         <span class="text-muted/50 text-sm">/</span>
         <button onclick="app.goToView('viewHome')" class="font-poke font-bold text-lg sm:text-xl tracking-tight text-ink hover:opacity-80 transition">
           Pokémon
         </button>
-        <span class="hidden md:inline text-[11px] text-muted tracking-wide ml-1">
-          El ranking de criaturas
+        <span class="hidden md:inline text-[11px] text-muted tracking-wider uppercase font-mono ml-1">
+          Duelos 1v1 y Podio de Entrenador
         </span>
       </div>
 
       <div class="flex items-center gap-2">
+        <!-- Selector de Modo de Sprites en Header -->
+        <div id="headerSpriteSelector" class="inline-flex items-center rounded-lg border-2 border-line bg-surface p-1 text-xs font-pixel shrink-0 shadow-2xs">
+          <span class="text-[10px] text-muted px-1.5 hidden md:inline font-bold uppercase tracking-wider">Modo:</span>
+          <button data-sprite-mode="animated" onclick="app.setSpriteMode('animated')"
+            class="px-2.5 py-1 rounded text-xs transition font-pixel flex items-center gap-1.5 bg-rose-600 text-white font-bold"
+            title="Showdown: Sprites animados en movimiento continuo">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+            <span>Animado</span>
+            <span class="text-[9px] font-mono opacity-80 hidden lg:inline">(GIF)</span>
+          </button>
+          <button data-sprite-mode="artwork" onclick="app.setSpriteMode('artwork')"
+            class="px-2.5 py-1 rounded text-xs transition font-pixel flex items-center gap-1.5 text-muted hover:text-ink"
+            title="Arte Oficial: Ilustraciones oficiales de Ken Sugimori en HD">
+            <svg class="w-2.5 h-2.5 text-amber-500 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Oficial</span>
+            <span class="text-[9px] font-mono opacity-80 hidden lg:inline">(HD)</span>
+          </button>
+          <button data-sprite-mode="classic" onclick="app.setSpriteMode('classic')"
+            class="px-2.5 py-1 rounded text-xs transition font-pixel flex items-center gap-1.5 text-muted hover:text-ink"
+            title="Pixel Clásico: Sprites frontales retro 2D originales">
+            <svg class="w-2.5 h-2.5 text-current shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Pixel 2D</span>
+            <span class="text-[9px] font-mono opacity-80 hidden lg:inline">(Retro)</span>
+          </button>
+        </div>
+
         <button id="btnHeaderHome" onclick="app.goToView('viewHome')" class="hidden text-xs font-pixel text-ink hover:text-rose-500 px-3 py-1 rounded-full border border-line bg-surface/80 transition">
           Inicio
+        </button>
+
+        <!-- Selector de Modo Gráfico (Pixel UI / Moderno) -->
+        <button id="pixelUiToggle" type="button" onclick="app.togglePixelUi()" aria-label="Cambiar modo gráfico"
+          class="retro-btn p-1.5 sm:px-2.5 sm:py-1 rounded-md bg-surface text-ink text-xs font-pixel flex items-center gap-1.5 shrink-0"
+          title="Alternar entre modo Pixel 8/16-bit y modo Moderno contemporáneo">
+          <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span id="pixelUiLabel" class="hidden sm:inline">Pixel UI</span>
         </button>
 
         <button id="themeToggle" type="button" aria-label="Cambiar tema"
@@ -211,41 +269,41 @@
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-pixel border border-line bg-surface text-muted">
           1025 criaturas · Generaciones 1 a 9
         </span>
-        <h1 class="font-poke font-bold text-3xl sm:text-5xl text-ink tracking-tight">
-          El Torneo de Campeones Pokémon.
+        <h1 class="font-poke font-extrabold text-3xl sm:text-5xl text-ink tracking-tight uppercase">
+          Elige a tu Pokémon Supremo.
         </h1>
         <p class="text-sm sm:text-base text-muted max-w-xl mx-auto font-pixel">
-          1025 criaturas a lo largo de 9 generaciones. Sin tablas de tipos ni cálculos de daño: tu gusto personal decide quién es el #1.
+          Duelos directos sin empates. Enfrentá criaturas de todas las generaciones hasta coronar a tu campeón.
         </p>
       </div>
 
       <!-- Quick presets -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left">
-        <button onclick="app.launchPreset('kanto')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 text-left">
+        <button onclick="app.launchPreset('kanto')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-[#FFDE59] text-[#111111] border-ink text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-pixel font-bold text-rose-500 uppercase tracking-wider">Kanto · Gen 1</span>
-              <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
+              <span class="text-[10px] font-pixel font-bold uppercase tracking-wider text-[#111111]/80">Kanto · Gen 1</span>
+              <span class="text-[10px] font-pixel text-[#111111]/75 font-semibold">16 PKMN</span>
             </div>
-            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-rose-500 transition-colors">Los 16 Clásicos</h3>
-            <p class="text-xs text-muted mt-2">Pikachu, Charizard, Gengar, Mewtwo y los pilares originales.</p>
+            <h3 class="font-pixel-title text-sm sm:text-base text-[#111111] font-bold">Los 16 Clásicos</h3>
+            <p class="text-xs text-[#111111]/80 mt-2">Pikachu, Charizard, Gengar, Mewtwo y los pilares originales.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-pixel text-rose-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel font-bold text-[#111111] mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
 
-        <button onclick="app.launchPreset('starters')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
+        <button onclick="app.launchPreset('starters')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-[#EF4444] text-white border-ink text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-pixel font-bold text-amber-500 uppercase tracking-wider">Iniciales</span>
-              <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
+              <span class="text-[10px] font-pixel font-bold uppercase tracking-wider text-rose-100">Iniciales</span>
+              <span class="text-[10px] font-pixel text-rose-100 font-semibold">16 PKMN</span>
             </div>
-            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-amber-500 transition-colors">Iniciales Icónicos</h3>
-            <p class="text-xs text-muted mt-2">Planta, Fuego y Agua de todas las regiones enfrentados.</p>
+            <h3 class="font-pixel-title text-sm sm:text-base text-white font-bold">Iniciales Icónicos</h3>
+            <p class="text-xs text-rose-100 mt-2">Planta, Fuego y Agua de todas las regiones enfrentados.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-pixel text-amber-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel font-bold text-white mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
 
-        <button onclick="app.launchPreset('legendaries')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-ink text-left flex flex-col justify-between">
+        <button onclick="app.launchPreset('legendaries')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-purple-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
           <div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-[10px] font-pixel font-bold text-purple-500 uppercase tracking-wider">Mitos y Leyendas</span>
@@ -255,6 +313,30 @@
             <p class="text-xs text-muted mt-2">Rayquaza, Lugia, Arceus, Giratina y el poder absoluto.</p>
           </div>
           <span class="inline-flex items-center text-xs font-pixel text-purple-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+        </button>
+
+        <button onclick="app.launchPreset('eeveelutions')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-amber-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-pixel font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Evolución</span>
+              <span class="text-[10px] font-pixel text-muted">9 PKMN</span>
+            </div>
+            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-amber-600 transition-colors">Eeveeluciones</h3>
+            <p class="text-xs text-muted mt-2">Eevee y sus 8 evoluciones elementales en batalla directa.</p>
+          </div>
+          <span class="inline-flex items-center text-xs font-pixel text-amber-600 dark:text-amber-400 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+        </button>
+
+        <button onclick="app.launchPreset('dragons')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-indigo-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] sm:col-span-2 lg:col-span-2">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-pixel font-bold text-indigo-500 uppercase tracking-wider">Dragón y Espectro</span>
+              <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
+            </div>
+            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-indigo-500 transition-colors">Dragones y Fantasmas</h3>
+            <p class="text-xs text-muted mt-2">Garchomp, Dragapult, Mimikyu, Aegislash y las fuerzas sombrías más letales.</p>
+          </div>
+          <span class="inline-flex items-center text-xs font-pixel text-indigo-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
         </button>
       </div>
 
@@ -313,7 +395,56 @@
         </div>
       </div>
 
-      <!-- 4. Resumen en vivo, Selección y Cantidad -->
+      <!-- 4. Selector de Estilo de Sprites -->
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">4. Estilo visual de sprites</label>
+          <span class="text-[11px] text-muted font-pixel">Cambiá en cualquier momento</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <button type="button" data-sprite-card="animated" onclick="app.setSpriteMode('animated')"
+            class="p-3.5 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-left transition hover:border-rose-500 flex flex-col justify-between">
+            <div>
+              <div class="font-pixel font-bold text-xs sm:text-sm text-ink flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span>Animado Showdown</span>
+                </span>
+                <span class="sprite-card-status text-[10px] font-pixel font-bold uppercase px-2 py-0.5 rounded bg-rose-600 text-white">Activo</span>
+              </div>
+              <p class="text-[11px] text-muted mt-1.5 leading-relaxed">Sprites pixelados animados con movimiento de combate continuo.</p>
+            </div>
+          </button>
+          <button type="button" data-sprite-card="artwork" onclick="app.setSpriteMode('artwork')"
+            class="p-3.5 rounded-xl border border-line bg-surface text-left transition hover:border-rose-500 flex flex-col justify-between">
+            <div>
+              <div class="font-pixel font-bold text-xs sm:text-sm text-ink flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3 h-3 text-amber-500 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span>Arte Oficial HD</span>
+                </span>
+                <span class="sprite-card-status text-[10px] font-pixel font-bold uppercase px-2 py-0.5 rounded bg-canvas text-muted border border-line">Elegir</span>
+              </div>
+              <p class="text-[11px] text-muted mt-1.5 leading-relaxed">Ilustraciones oficiales de Ken Sugimori en gran detalle y fidelidad.</p>
+            </div>
+          </button>
+          <button type="button" data-sprite-card="classic" onclick="app.setSpriteMode('classic')"
+            class="p-3.5 rounded-xl border border-line bg-surface text-left transition hover:border-rose-500 flex flex-col justify-between">
+            <div>
+              <div class="font-pixel font-bold text-xs sm:text-sm text-ink flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3 h-3 text-current shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                  <span>Pixel Clásico 2D</span>
+                </span>
+                <span class="sprite-card-status text-[10px] font-pixel font-bold uppercase px-2 py-0.5 rounded bg-canvas text-muted border border-line">Elegir</span>
+              </div>
+              <p class="text-[11px] text-muted mt-1.5 leading-relaxed">Sprites estáticos frontales nostálgicos de consola clásica.</p>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- 5. Resumen en vivo, Selección y Cantidad -->
       <div class="space-y-4 pt-2 border-t border-line">
         <div class="p-4 rounded-xl retro-box bg-surface border-ink space-y-1">
           <div class="flex items-center justify-between">
@@ -327,7 +458,7 @@
 
         <!-- Criterio de selección (Más famosos vs Al azar) -->
         <div class="space-y-2">
-          <label class="block text-xs font-pixel font-bold uppercase tracking-wider text-muted">4. Criterio de selección</label>
+          <label class="block text-xs font-pixel font-bold uppercase tracking-wider text-muted">5. Criterio de selección</label>
           <div class="grid grid-cols-2 gap-2.5">
             <button type="button" id="btnSamplePopular" onclick="app.setSamplingMode('popular')"
               class="p-3 rounded-xl border-2 border-rose-500 bg-rose-500/10 text-left transition">
@@ -345,7 +476,7 @@
         <!-- Slider deslizador de cantidad -->
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">5. Cantidad de Pokémon a rankear</label>
+            <label class="text-xs font-pixel font-bold uppercase tracking-wider text-muted">6. Cantidad de Pokémon a rankear</label>
             <span class="font-pixel-title text-sm text-rose-500"><span id="limitValueDisplay">16</span> PKMN</span>
           </div>
           
@@ -430,34 +561,53 @@
         </button>
       </div>
 
-      <!-- Question -->
-      <div class="text-center">
+      <!-- Question & Sprite Mode Selector -->
+      <div class="text-center space-y-2">
         <h2 class="font-poke font-bold text-xl sm:text-2xl text-ink">
           ¿Cuál de los dos te gusta más?
         </h2>
+        <div class="inline-flex items-center gap-1 px-3 py-1 rounded-lg border-2 border-line bg-surface text-xs font-pixel shadow-2xs">
+          <span class="text-[10px] text-muted font-bold mr-1 uppercase">Sprite activo:</span>
+          <button type="button" data-sprite-mode="animated" onclick="app.setSpriteMode('animated')"
+            class="px-2.5 py-1 rounded text-xs transition font-pixel flex items-center gap-1 bg-rose-600 text-white font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Animado</span>
+          </button>
+          <button type="button" data-sprite-mode="artwork" onclick="app.setSpriteMode('artwork')"
+            class="px-2.5 py-1 rounded text-xs transition font-pixel flex items-center gap-1 text-muted hover:text-ink">
+            <svg class="w-2.5 h-2.5 text-amber-500 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Oficial HD</span>
+          </button>
+          <button type="button" data-sprite-mode="classic" onclick="app.setSpriteMode('classic')"
+            class="px-2.5 py-1 rounded text-xs transition font-pixel flex items-center gap-1 text-muted hover:text-ink">
+            <svg class="w-2.5 h-2.5 text-current shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Pixel 2D</span>
+          </button>
+        </div>
       </div>
 
       <!-- Duel matchup grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-1">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-1 items-stretch">
         
         <!-- Left card -->
         <button id="cardLeftBtn" type="button" onclick="app.chooseCandidate('left')"
-          class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
+          class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px] h-full">
           <div class="flex items-center justify-between mb-2">
             <span id="dexLeft" class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs">No. 000</span>
             <span id="regLeft" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
-          <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] battle-platform rounded-xl overflow-hidden">
+          <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] max-h-[220px] battle-platform rounded-xl overflow-hidden shrink-0">
             <!-- Loading indicator -->
             <div id="loaderLeft" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-surface/85 backdrop-blur-xs transition-opacity">
               <span class="font-pixel text-[10px] text-muted animate-pulse">Cargando sprite...</span>
             </div>
             <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.handleImgError('left')"
               class="pixel-sprite relative z-10 max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
+            <span id="spriteBadgeLeft" class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-canvas/90 text-muted border border-line uppercase">GIF Animado</span>
           </div>
 
-          <div class="space-y-2 mt-3">
+          <div class="space-y-2 mt-3 flex-1">
             <h3 id="nameLeft" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
             <div id="typesLeft" class="flex flex-wrap gap-1.5"></div>
           </div>
@@ -470,22 +620,23 @@
 
         <!-- Right card -->
         <button id="cardRightBtn" type="button" onclick="app.chooseCandidate('right')"
-          class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px]">
+          class="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl retro-box bg-surface text-left cursor-pointer focus:outline-none transition active:translate-x-[2px] active:translate-y-[2px] h-full">
           <div class="flex items-center justify-between mb-2">
             <span id="dexRight" class="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-canvas/90 text-ink border border-line tracking-wider shadow-2xs">No. 000</span>
             <span id="regRight" class="text-[10px] font-pixel uppercase text-muted tracking-wider"></span>
           </div>
 
-          <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] battle-platform rounded-xl overflow-hidden">
+          <div class="relative flex-1 flex items-center justify-center py-4 min-h-[220px] max-h-[220px] battle-platform rounded-xl overflow-hidden shrink-0">
             <!-- Loading indicator -->
             <div id="loaderRight" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-surface/85 backdrop-blur-xs transition-opacity">
               <span class="font-pixel text-[10px] text-muted animate-pulse">Cargando sprite...</span>
             </div>
             <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.handleImgError('right')"
               class="pixel-sprite relative z-10 max-h-40 sm:max-h-48 w-auto object-contain transition-transform duration-150 group-hover:scale-110" />
+            <span id="spriteBadgeRight" class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-canvas/90 text-muted border border-line uppercase">GIF Animado</span>
           </div>
 
-          <div class="space-y-2 mt-3">
+          <div class="space-y-2 mt-3 flex-1">
             <h3 id="nameRight" class="font-pixel-title text-base sm:text-lg text-ink tracking-tight group-hover:text-rose-500 transition-colors"></h3>
             <div id="typesRight" class="flex flex-wrap gap-1.5"></div>
           </div>

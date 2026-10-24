@@ -133,6 +133,23 @@ await runTest('Pokémon: Presets DOM - Carga de Kanto, Starters y Legendarios', 
   pokemonApp.launchPreset('legendaries');
   assert.strictEqual(pokemonApp.state.initialBattlePool.length, 16);
   pokemonApp.goToView('viewWizard');
+
+  // Eeveeluciones
+  pokemonApp.launchPreset('eeveelutions');
+  assert.strictEqual(pokemonApp.state.initialBattlePool.length, 9);
+  pokemonApp.goToView('viewWizard');
+
+  // Dragones y Fantasmas
+  pokemonApp.launchPreset('dragons');
+  assert.strictEqual(pokemonApp.state.initialBattlePool.length, 16);
+  pokemonApp.goToView('viewWizard');
+
+  // Graphic Mode Toggle (Pixel UI / Moderno)
+  const initialPixel = document.body.classList.contains('pixel-ui');
+  pokemonApp.togglePixelUi();
+  assert.strictEqual(document.body.classList.contains('pixel-ui'), !initialPixel);
+  pokemonApp.togglePixelUi();
+  assert.strictEqual(document.body.classList.contains('pixel-ui'), initialPixel);
 });
 
 await runTest('Pokémon: Duelos interactivos, atajos de teclado y progreso DOM', async () => {
@@ -234,7 +251,7 @@ await runTest('Mamíferos: Inicialización, duelos y podio', async () => {
   global.fetch = env.window.fetch;
 
   await mamiferosApp.init();
-  assert.strictEqual(mamiferosApp.state.pool.length, 16, 'Debe haber 16 especies de mamíferos');
+  assert.ok(mamiferosApp.state.pool.length >= 16, 'Debe haber al menos 16 especies de mamíferos');
 
   // Iniciar torneo con 4
   mamiferosApp.state.limit = 4;
@@ -264,7 +281,7 @@ await runTest('Flores: Inicialización, duelos y podio', async () => {
   global.fetch = env.window.fetch;
 
   await floresApp.init();
-  assert.strictEqual(floresApp.state.pool.length, 16, 'Debe haber 16 especies de flores');
+  assert.ok(floresApp.state.pool.length >= 16, 'Debe haber al menos 16 especies de flores');
 
   // Iniciar torneo con 4
   floresApp.state.limit = 4;

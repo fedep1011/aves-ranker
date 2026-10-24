@@ -303,7 +303,8 @@ export async function runTier2() {
         steps++;
         return steps % 2 === 0 ? 'left' : 'right';
       };
-      const sorted = await interleavedBisectSortAsync([...mamiferosRaw], askPref, 999);
+      const subset = mamiferosRaw.slice(0, 16);
+      const sorted = await interleavedBisectSortAsync(subset, askPref, 999);
       assert.strictEqual(sorted.length, 16);
       assert.ok(steps >= 20 && steps <= 60, `Steps should be ~32, got ${steps}`);
     });
@@ -348,7 +349,8 @@ export async function runTier2() {
         steps++;
         return 'left';
       };
-      const sorted = await interleavedBisectSortAsync([...floresRaw], askPref, 888);
+      const subset = floresRaw.slice(0, 16);
+      const sorted = await interleavedBisectSortAsync(subset, askPref, 888);
       assert.strictEqual(sorted.length, 16);
       assert.ok(steps >= 20 && steps <= 60);
     });

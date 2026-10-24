@@ -15,10 +15,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Aves · Elige tus favoritas del mundo</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/tailwind.css" />
   <script>
     (function () {
@@ -29,14 +30,18 @@
     })();
   </script>
 </head>
-<body class="min-h-[100dvh] font-sans flex flex-col selection:bg-forest selection:text-white bg-canvas text-ink">
+<body class="arena-aves min-h-[100dvh] font-sans flex flex-col selection:bg-forest selection:text-white bg-canvas text-ink" data-arena="aves">
 
   <!-- COMPACT STICKY HEADER -->
   <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
-    <div class="max-w-5xl mx-auto px-3.5 sm:px-8 h-12 sm:h-14 flex items-center justify-between gap-2">
-      <div class="flex items-center gap-2 shrink-0">
-        <a href="/" class="font-poke font-extrabold text-base sm:text-lg text-ink tracking-tight hover:opacity-80 transition" title="Ir al Hub">
-          Rankea2
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="/" class="flex items-center gap-2.5 font-poke font-extrabold text-xl text-ink tracking-tight hover:opacity-80 transition shrink-0" title="Ir a las Arenas" aria-label="Rankea2 - Inicio">
+          <svg class="w-7 h-7 shrink-0" viewBox="0 0 256 256" aria-hidden="true">
+            <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+            <path fill="#EC4899" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+          </svg>
+          <span>Rankea2</span>
         </a>
         <span class="text-muted/50 text-sm">/</span>
         <button onclick="app.goToView('viewHome')" class="font-serif text-2xl sm:text-3xl tracking-tight text-ink hover:opacity-80 transition">
@@ -126,26 +131,26 @@
           Fauna alada global · Catálogo ornitológico
         </span>
         <h1 id="homeTitle" class="font-serif text-4xl sm:text-6xl text-ink leading-[1.06] tracking-tight">
-          El Ranking Ornitológico Definitivo.
+          Tus Aves Favoritas del Planeta.
         </h1>
         <p id="homeDesc" class="text-sm sm:text-base text-muted max-w-xl mx-auto font-serif">
-          Desde el colibrí más diminuto hasta los grandes cóndores. 10.000 aves del mundo enfrentadas para encontrar tu preferida.
+          De los colibríes del bosque a las grandes rapaces del mundo. Enfrentalas 1 vs 1 hasta armar tu podio definitivo.
         </p>
       </div>
 
       <!-- Primary Actions -->
       <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-3">
         <button id="btnHomeQuick16" onclick="app.quickStartWorldTop()"
-          class="px-6 py-3.5 rounded-full bg-forest hover:bg-forest-hover text-white text-xs sm:text-sm font-medium tracking-wide transition shadow-sm">
+          class="px-8 py-4 rounded-full bg-forest hover:bg-forest-hover text-white text-sm sm:text-base font-medium tracking-wide transition shadow-sm">
           Jugar con las 16 más famosas del mundo →
         </button>
         <div class="grid grid-cols-2 sm:flex gap-2.5">
           <button id="btnHomeSurprise" onclick="app.launchSurpriseMe()"
-            class="px-4 sm:px-6 py-3 sm:py-3.5 rounded-full border-2 border-forest bg-forest-soft hover:bg-forest hover:text-white text-forest text-xs sm:text-sm font-medium transition">
+            class="px-6 py-3.5 rounded-full border border-line bg-surface text-ink hover:border-forest text-xs sm:text-sm font-medium transition">
             Sorpréndeme (16 al azar)
           </button>
           <button id="btnHomeCustom" onclick="app.startGuidedSetup()"
-            class="px-4 sm:px-6 py-3 sm:py-3.5 rounded-full border border-line bg-surface hover:border-ink/40 text-ink text-xs sm:text-sm font-medium transition">
+            class="px-6 py-3.5 rounded-full border border-line bg-surface hover:border-forest text-ink text-xs sm:text-sm font-medium transition">
             Armar mi búsqueda
           </button>
         </div>
@@ -425,12 +430,12 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-6 items-stretch">
         
         <!-- LEFT / TOP BIRD -->
         <button id="cardLeftBtn" onclick="app.chooseBird('left')"
-          class="photo-card group text-left bg-surface border border-line hover:border-forest rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm">
-          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-800 overflow-hidden">
+          class="photo-card group text-left bg-surface border border-line hover:border-forest rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm h-full">
+          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-800 overflow-hidden shrink-0">
             <div id="loaderLeft" class="absolute inset-0 z-20 bg-stone-200/95 flex flex-col items-center justify-center gap-1.5 transition-opacity">
               <div class="w-6 h-6 rounded-full border-stone-400 border-t-forest animate-spin" style="border-width: 2.5px;"></div>
               <span class="text-[10px] font-medium text-muted">Cargando foto...</span>
@@ -438,9 +443,9 @@
             <img id="imgLeftBg" src="" alt="" aria-hidden="true"
               class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
             <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.handleImgFallback(this, 'left')"
-              class="relative z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
+              class="absolute inset-0 z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
           </div>
-          <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface">
+          <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface flex-1">
             <div class="min-w-0 flex-1 space-y-0.5">
               <div id="filterTagLeft" class="hidden">
                 <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-forest-soft text-forest border border-forest/20 truncate max-w-full"></span>
@@ -456,8 +461,8 @@
 
         <!-- RIGHT / BOTTOM BIRD -->
         <button id="cardRightBtn" onclick="app.chooseBird('right')"
-          class="photo-card group text-left bg-surface border border-line hover:border-forest rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm">
-          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-800 overflow-hidden">
+          class="photo-card group text-left bg-surface border border-line hover:border-forest rounded-2xl overflow-hidden flex flex-col focus:outline-none shadow-sm h-full">
+          <div class="relative w-full h-[27.5dvh] min-h-[175px] max-h-[250px] sm:h-auto sm:max-h-none sm:aspect-[4/3] bg-stone-800 overflow-hidden shrink-0">
             <div id="loaderRight" class="absolute inset-0 z-20 bg-stone-200/95 flex flex-col items-center justify-center gap-1.5 transition-opacity">
               <div class="w-6 h-6 rounded-full border-stone-400 border-t-forest animate-spin" style="border-width: 2.5px;"></div>
               <span class="text-[10px] font-medium text-muted">Cargando foto...</span>
@@ -465,9 +470,9 @@
             <img id="imgRightBg" src="" alt="" aria-hidden="true"
               class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
             <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.handleImgFallback(this, 'right')"
-              class="relative z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
+              class="absolute inset-0 z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
           </div>
-          <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface">
+          <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface flex-1">
             <div class="min-w-0 flex-1 space-y-0.5">
               <div id="filterTagRight" class="hidden">
                 <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-forest-soft text-forest border border-forest/20 truncate max-w-full"></span>

@@ -150,12 +150,12 @@ console.log('\n--- Test 4: End-to-End Tournament Simulation with Undo ---');
   const mamiferosRaw = JSON.parse(fs.readFileSync(path.resolve(ROOT_DIR, 'public/data/mamiferos.json'), 'utf8'));
   const floresRaw = JSON.parse(fs.readFileSync(path.resolve(ROOT_DIR, 'public/data/flores.json'), 'utf8'));
 
-  assert.strictEqual(mamiferosRaw.length, 16);
-  assert.strictEqual(floresRaw.length, 16);
+  assert.ok(mamiferosRaw.length >= 16);
+  assert.ok(floresRaw.length >= 16);
 
   // Simulate Mamíferos
   let stepsM = 0;
-  const sortedM = await interleavedBisectSortAsync([...mamiferosRaw], async (l, r) => {
+  const sortedM = await interleavedBisectSortAsync([...mamiferosRaw.slice(0, 16)], async (l, r) => {
     stepsM++;
     return l.name.startsWith('J') || l.name.startsWith('T') ? 'left' : 'right';
   }, 42);
@@ -164,7 +164,7 @@ console.log('\n--- Test 4: End-to-End Tournament Simulation with Undo ---');
 
   // Simulate Flores
   let stepsF = 0;
-  const sortedF = await interleavedBisectSortAsync([...floresRaw], async (l, r) => {
+  const sortedF = await interleavedBisectSortAsync([...floresRaw.slice(0, 16)], async (l, r) => {
     stepsF++;
     return l.id < r.id ? 'left' : 'right';
   }, 99);

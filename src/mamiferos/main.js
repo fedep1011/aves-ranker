@@ -7,6 +7,46 @@ import {
 import { bindThemeButton } from '../core/theme.js';
 import { renderRankingCard, exportRankingCard } from '../core/canvas.js';
 
+const FALLBACK_MAMIFERO_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%2392400E" stroke-width="2"><circle cx="50" cy="58" r="18" fill="%23F5EFE6"/><ellipse cx="32" cy="36" rx="8" ry="12" fill="%2392400E"/><ellipse cx="68" cy="36" rx="8" ry="12" fill="%2392400E"/><ellipse cx="42" cy="24" rx="7" ry="10" fill="%2392400E"/><ellipse cx="58" cy="24" rx="7" ry="10" fill="%2392400E"/></svg>`;
+
+const MAMIFEROS_CATALOG_FALLBACK = [
+  { id: 1, name: "Jaguar", sci_name: "Panthera onca", family: "Felidae", region: "América", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg" },
+  { id: 2, name: "Tigre de Bengala", sci_name: "Panthera tigris", family: "Felidae", region: "Asia", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg" },
+  { id: 3, name: "León Africano", sci_name: "Panthera leo", family: "Felidae", region: "África", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/9225318/medium.jpg" },
+  { id: 4, name: "Leopardo de las Nieves", sci_name: "Panthera uncia", family: "Felidae", region: "Asia Central", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/16308659/medium.jpg" },
+  { id: 5, name: "Guepardo", sci_name: "Acinonyx jubatus", family: "Felidae", region: "África", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/57582224/medium.jpg" },
+  { id: 6, name: "Puma", sci_name: "Puma concolor", family: "Felidae", region: "América", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/9834553/medium.jpg" },
+  { id: 7, name: "Lobo Gris", sci_name: "Canis lupus", family: "Canidae", region: "Holarctis", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/43410580/medium.jpg" },
+  { id: 8, name: "Oso Polar", sci_name: "Ursus maritimus", family: "Ursidae", region: "Ártico", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/102785980/medium.jpg" },
+  { id: 9, name: "Oso Pardo", sci_name: "Ursus arctos", family: "Ursidae", region: "Eurasia y Norteamérica", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/1491897/medium.jpg" },
+  { id: 10, name: "Panda Gigante", sci_name: "Ailuropoda melanoleuca", family: "Ursidae", region: "Asia", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/150277588/medium.jpg" },
+  { id: 11, name: "Elefante Africano", sci_name: "Loxodonta africana", family: "Elephantidae", region: "África", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/93674728/medium.jpg" },
+  { id: 12, name: "Rinoceronte Blanco", sci_name: "Ceratotherium simum", family: "Rhinocerotidae", region: "África", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/57287523/medium.jpg" },
+  { id: 13, name: "Jirafa", sci_name: "Giraffa camelopardalis", family: "Giraffidae", region: "África", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/753693022/medium.jpg" },
+  { id: 14, name: "Gorila de Montaña", sci_name: "Gorilla beringei", family: "Hominidae", region: "África", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/109860139/medium.jpg" },
+  { id: 15, name: "Zorro Rojo", sci_name: "Vulpes vulpes", family: "Canidae", region: "Hemisferio Norte", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/754793247/medium.jpg" },
+  { id: 16, name: "Nutria Gigante", sci_name: "Pteronura brasiliensis", family: "Mustelidae", region: "Sudamérica", photo: "https://inaturalist-open-data.s3.amazonaws.com/photos/227172098/medium.jpeg" }
+];
+
+const CURATED_FAUNA_FACTS = {
+  "Panthera onca": "Mayor félido de América. Posee una mordida devastadora capaz de quebrar caparazones blindados de tortugas y cráneos directamente.",
+  "Panthera tigris": "El félido más grande del mundo. Excelente nadador en ríos selváticos, con rayas pelaje únicas e irrepetibles por individuo.",
+  "Panthera leo": "Único felino con estructura de manada social cooperativa. Su rugido territorial puede oírse a más de 8 kilómetros de distancia.",
+  "Panthera uncia": "El fantasma de las cumbres nevadas. Su gruesa cola sirve de abrigo contra vientos árticos y timón en saltos verticales.",
+  "Acinonyx jubatus": "El cazador terrestre más veloz. Alcanza 100 km/h en 3 segundos gracias a sus garras semi-retráctiles que actúan como clavos.",
+  "Puma concolor": "Rey del sigilo con la mayor distribución en América. Capaz de realizar saltos horizontales de hasta 12 metros entre barrancos.",
+  "Canis lupus": "Depredador de manada con una resistencia inagotable. Su olfato es unas 100 veces más agudo que el humano para rastrear presas.",
+  "Ursus maritimus": "El carnívoro terrestre más grande. Su pelaje traslúcido y piel negra absorben la radiación en temperaturas polares extremas.",
+  "Ursus arctos": "Mamífero de fuerza imponente capaz de superar los 50 km/h y almacenar hasta un tercio de su masa corporal antes de hibernar.",
+  "Ailuropoda melanoleuca": "Especialista biológico con un 'falso pulgar' óseo adaptado para sostener y deshojar cañas de bambú hasta 14 horas diarias.",
+  "Loxodonta africana": "El gigante terrestre supremo. Su trompa contiene más de 40.000 músculos y emite infrasonidos que viajan por el suelo.",
+  "Ceratotherium simum": "Megafauna acorazada con cuerno de queratina maciza. A pesar de sus 2 toneladas, puede esprintar a 50 km/h en distancias cortas.",
+  "Giraffa camelopardalis": "El mamífero más alto del planeta. Su corazón de 11 kg genera una presión circulatoria potente para irrigar el cerebro a 5 metros.",
+  "Gorilla beringei": "El primate más poderoso. Los machos espalda plateada protegen a su grupo familiar con una fuerza unas 6 veces la humana.",
+  "Vulpes vulpes": "Cánido ágil con oído ultrasónico capaz de detectar roedores bajo un metro de nieve antes de lanzarse en un salto en arco.",
+  "Pteronura brasiliensis": "El carnívoro de agua dulce más largo del Amazonas. Caza en patrullas familiares organizadas capaces de hacer retroceder caimanes."
+};
+
 const app = {
   state: {
     pool: [],
@@ -21,8 +61,10 @@ const app = {
     replayDecisions: [],
     pendingResolver: null,
     finalRanking: [],
+    top1FunFact: "",
     imageCache: new Set(),
     limit: 16,
+    selectedCategory: 'todos',
     exportFormat: 'story'
   },
 
@@ -47,7 +89,57 @@ const app = {
       this.state.pool = data;
       this.state.candidatePool = [...data];
     } catch (err) {
-      console.error('Error cargando catálogo Mamíferos:', err);
+      console.warn('Usando catálogo fauna integrado como fallback:', err);
+      this.state.pool = [...MAMIFEROS_CATALOG_FALLBACK];
+      this.state.candidatePool = [...MAMIFEROS_CATALOG_FALLBACK];
+    }
+  },
+
+  async resolveTop1FunFact(animal) {
+    if (!animal) return "";
+    if (CURATED_FAUNA_FACTS[animal.sci_name]) {
+      return CURATED_FAUNA_FACTS[animal.sci_name];
+    }
+    try {
+      const slug = encodeURIComponent(animal.sci_name.replace(/\s+/g, '_'));
+      const res = await fetch(`https://es.wikipedia.org/api/rest_v1/page/summary/${slug}`);
+      if (!res.ok) return "";
+      const data = await res.json();
+      return data.extract ? data.extract.split('.')[0] + '.' : "";
+    } catch {
+      return "";
+    }
+  },
+
+  playFaunaCallFallback() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+
+      osc.type = "sawtooth";
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(320, ctx.currentTime);
+      filter.frequency.exponentialRampToValueAtTime(130, ctx.currentTime + 0.6);
+
+      osc.frequency.setValueAtTime(110, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(65, ctx.currentTime + 0.7);
+
+      gain.gain.setValueAtTime(0.001, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.24, ctx.currentTime + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(ctx.currentTime + 0.02);
+      osc.stop(ctx.currentTime + 0.85);
+    } catch (e) {
+      console.warn('Llamada de fauna no disponible:', e);
     }
   },
 
@@ -75,6 +167,121 @@ const app = {
       this.state.limit = candidates.length;
       this.startBattleGame(true);
     }
+  },
+
+  launchPreset(presetKey) {
+    let subset = [...this.state.pool];
+    if (presetKey === 'felinos') {
+      subset = this.state.pool.filter(m => m.family === 'Felidae');
+    } else if (presetKey === 'megafauna') {
+      subset = this.state.pool.filter(m => ['Elephantidae', 'Rhinocerotidae', 'Giraffidae', 'Ursidae'].includes(m.family));
+    } else if (presetKey === 'canidos') {
+      subset = this.state.pool.filter(m => ['Canidae', 'Mustelidae', 'Hominidae'].includes(m.family));
+    } else if (presetKey === 'acuaticos') {
+      subset = this.state.pool.filter(m => ['Mustelidae', 'Ursidae'].includes(m.family));
+    }
+    if (subset.length < 2) subset = [...this.state.pool];
+    this.state.candidatePool = subset;
+    this.state.limit = subset.length;
+    this.startBattleGame();
+  },
+
+  launchRandomGame() {
+    this.state.candidatePool = [...this.state.pool];
+    this.shuffle(this.state.candidatePool);
+    this.state.limit = Math.min(16, this.state.candidatePool.length);
+    this.startBattleGame();
+  },
+
+  // ============================================================
+  // CUSTOMIZER & LIMIT SLIDER
+  // ============================================================
+  toggleCustomizer() {
+    const panel = document.getElementById('customizerPanel');
+    if (!panel) return;
+    const isHidden = panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !isHidden);
+    if (isHidden) {
+      this.updateCustomizerUI();
+    }
+  },
+
+  onLimitChange(val) {
+    const num = Math.max(2, Math.min(64, parseInt(val, 10) || 16));
+    this.state.limit = num;
+    const slider = document.getElementById('limitSlider');
+    if (slider) slider.value = num;
+    const countDisplay = document.getElementById('sliderCountDisplay');
+    if (countDisplay) countDisplay.textContent = num;
+    const estDisplay = document.getElementById('sliderDuelEst');
+    if (estDisplay) {
+      const est = Math.max(1, Math.round(num * Math.log2(num) * 0.82));
+      estDisplay.textContent = `(~${est} duelos)`;
+    }
+    this.updateCustomizerButtons(num);
+  },
+
+  setLimitQuick(num) {
+    this.onLimitChange(num);
+  },
+
+  updateCustomizerButtons(activeLimit) {
+    [8, 16, 32, 64].forEach(n => {
+      const btn = document.getElementById(`btnLimit${n}`);
+      if (!btn) return;
+      if (n === activeLimit) {
+        btn.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-amber-800 text-white shadow-xs transition';
+      } else {
+        btn.className = 'px-3 py-1 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+  },
+
+  setCategoryFilter(cat) {
+    this.state.selectedCategory = cat;
+    ['todos', 'felinos', 'megafauna', 'canidos', 'acuaticos'].forEach(c => {
+      const btn = document.getElementById(`filterCat_${c}`);
+      if (!btn) return;
+      if (c === cat) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+
+    let subset = [...this.state.pool];
+    if (cat === 'felinos') {
+      subset = this.state.pool.filter(m => m.family === 'Felidae' || m.family === 'Hyaenidae');
+    } else if (cat === 'megafauna') {
+      subset = this.state.pool.filter(m => ['Elephantidae', 'Rhinocerotidae', 'Giraffidae', 'Ursidae', 'Bovidae', 'Hippopotamidae', 'Equidae', 'Cervidae', 'Tapiridae'].includes(m.family));
+    } else if (cat === 'canidos') {
+      subset = this.state.pool.filter(m => ['Canidae', 'Mustelidae', 'Hominidae', 'Ailuridae', 'Herpestidae'].includes(m.family));
+    } else if (cat === 'acuaticos') {
+      subset = this.state.pool.filter(m => ['Mustelidae', 'Ursidae', 'Delphinidae', 'Phocidae', 'Otariidae', 'Monodontidae', 'Balaenopteridae', 'Odobenidae', 'Trichechidae', 'Castoridae', 'Caviidae'].includes(m.family));
+    }
+    this.state.candidatePool = subset.length >= 2 ? subset : [...this.state.pool];
+    const maxVal = Math.min(64, this.state.candidatePool.length);
+    if (this.state.limit > maxVal) {
+      this.state.limit = maxVal;
+    }
+    const slider = document.getElementById('limitSlider');
+    if (slider) {
+      slider.max = maxVal;
+      if (parseInt(slider.value, 10) > maxVal) {
+        this.onLimitChange(maxVal);
+      }
+    }
+    const avail = document.getElementById('customizerAvailableCount');
+    if (avail) avail.textContent = `${this.state.candidatePool.length} animales disponibles`;
+  },
+
+  updateCustomizerUI() {
+    this.setCategoryFilter(this.state.selectedCategory || 'todos');
+    this.onLimitChange(this.state.limit || 16);
+  },
+
+  launchCustomizedGame() {
+    this.startBattleGame();
   },
 
   goToView(viewId) {
@@ -106,29 +313,22 @@ const app = {
     }
   },
 
-  createSeededRng(seed) {
-    let s = (seed >>> 0) || 1;
-    return () => {
-      s = (s + 0x6D2B79F5) >>> 0;
-      let t = Math.imul(s ^ (s >>> 15), 1 | s);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-  },
-
-  async startBattleGame(fromChallenge = false) {
-    if (this.state.candidatePool.length < 2) return;
+  async startBattleGame(isChallenge = false) {
     let pool = [...this.state.candidatePool];
-    const n = Math.min(pool.length, this.state.limit);
-    this.shuffle(pool);
-    pool = pool.slice(0, n);
+    if (pool.length < 2) pool = [...this.state.pool];
+    if (pool.length < 2) return;
 
-    this.state.candidatePool = [...pool];
+    if (!isChallenge) {
+      this.shuffle(pool);
+      const chosenLimit = Math.min(this.state.limit || 16, pool.length);
+      pool = pool.slice(0, chosenLimit);
+    }
+
     this.state.initialBattlePool = [...pool];
-    this.state.battleSeed = Math.floor(Math.random() * 2147483646) + 1;
+    this.state.battleStep = 0;
     this.state.choiceHistory = [];
     this.state.replayDecisions = [];
-    this.state.battleStep = 0;
+    this.state.pendingResolver = null;
     this.state.estimatedTotalSteps = Math.max(1, Math.round(pool.length * Math.log2(pool.length) * 0.82));
 
     const estWrap = document.getElementById('battleTotalEstWrap');
@@ -136,29 +336,37 @@ const app = {
 
     this.preloadPoolImages(pool);
     this.goToView('viewBattle');
-    await this.runTournamentSortFromHistory();
+
+    try {
+      const sorted = await this.interleavedBisectSortAsync(pool, this.state.battleSeed);
+      this.state.finalRanking = sorted;
+      await this.renderResultsView();
+    } catch (err) {
+      if (err && err.message === 'UNDO_REQUESTED') return;
+      console.error('Error durante el torneo de mamíferos:', err);
+    }
   },
 
   async runTournamentSortFromHistory() {
     this.state.battleStep = 0;
-    const seed = this.state.battleSeed || 1337;
+    const pool = [...this.state.initialBattlePool];
     try {
-      const sorted = await interleavedBisectSortAsync(
-        this.state.candidatePool,
-        (left, right) => this.askUserPreference(left, right),
-        seed
-      );
+      const sorted = await this.interleavedBisectSortAsync(pool, this.state.battleSeed);
       this.state.finalRanking = sorted;
       await this.renderResultsView();
-    } catch (_) {}
+    } catch (err) {
+      if (err && err.message === 'UNDO_REQUESTED') return;
+      console.error('Error durante replay:', err);
+    }
   },
 
   undoLastBattleChoice() {
-    if (!this.state.choiceHistory || this.state.choiceHistory.length === 0 || !this.state.pendingResolver) return;
-    const prev = this.state.pendingResolver;
-    this.state.pendingResolver = null;
-    prev.reject(new Error('UndoStep'));
-
+    if (!this.state.choiceHistory || this.state.choiceHistory.length === 0) return;
+    if (this.state.pendingResolver) {
+      const reject = this.state.pendingResolver.reject;
+      this.state.pendingResolver = null;
+      reject(new Error('UNDO_REQUESTED'));
+    }
     this.state.choiceHistory.pop();
     this.state.replayDecisions = [...this.state.choiceHistory];
     this.runTournamentSortFromHistory();
@@ -228,6 +436,45 @@ const app = {
     if (loader) loader.classList.add('hidden');
   },
 
+  onBattleImgError(side) {
+    const img = document.getElementById(side === 'left' ? 'imgLeft' : 'imgRight');
+    const bg = document.getElementById(side === 'left' ? 'imgLeftBg' : 'imgRightBg');
+    const loader = document.getElementById(side === 'left' ? 'loaderLeft' : 'loaderRight');
+    if (loader) loader.classList.add('hidden');
+
+    const item = side === 'left' ? this.state.currentLeft : this.state.currentRight;
+
+    if (img && img.src && img.src.includes('static.inaturalist.org')) {
+      const s3Url = img.src.replace('https://static.inaturalist.org/', 'https://inaturalist-open-data.s3.amazonaws.com/');
+      img.src = s3Url;
+      if (bg) bg.src = s3Url;
+      if (item) item.photo = s3Url;
+      return;
+    }
+    if (img && img.src !== FALLBACK_MAMIFERO_SVG) {
+      img.src = FALLBACK_MAMIFERO_SVG;
+      if (bg) bg.src = FALLBACK_MAMIFERO_SVG;
+      if (item) item.photo = FALLBACK_MAMIFERO_SVG;
+    }
+  },
+
+  onPodiumImgError(imgEl, item) {
+    if (!imgEl) return;
+    imgEl.onerror = null;
+    if (imgEl.src && imgEl.src.includes('static.inaturalist.org')) {
+      const s3Url = imgEl.src.replace('https://static.inaturalist.org/', 'https://inaturalist-open-data.s3.amazonaws.com/');
+      imgEl.onerror = () => {
+        imgEl.src = FALLBACK_MAMIFERO_SVG;
+        if (item) item.photo = FALLBACK_MAMIFERO_SVG;
+      };
+      imgEl.src = s3Url;
+      if (item) item.photo = s3Url;
+      return;
+    }
+    imgEl.src = FALLBACK_MAMIFERO_SVG;
+    if (item) item.photo = FALLBACK_MAMIFERO_SVG;
+  },
+
   chooseCandidate(side) {
     if (!this.state.pendingResolver) return;
     if (!this.state.choiceHistory) this.state.choiceHistory = [];
@@ -261,42 +508,60 @@ const app = {
     const runnerUp = ranking[1];
     const third = ranking[2];
 
+    this.state.top1FunFact = await this.resolveTop1FunFact(winner);
+
     const podBox = document.getElementById('podiumContainer');
     if (podBox && winner) {
       podBox.innerHTML = `
         <!-- 2ND PLACE -->
-        <div class="p-4 sm:p-5 rounded-2xl border border-line bg-surface flex flex-col items-center text-center order-2 sm:order-1">
-          <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-2">2° Puesto</span>
+        <div class="p-4 sm:p-5 rounded-2xl border border-line bg-surface flex flex-col items-center text-center order-2 sm:order-1 relative">
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-2">
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg>
+            2° Puesto
+          </span>
           <div class="relative h-28 sm:h-32 w-full rounded-xl overflow-hidden bg-stone-800 shadow-xs flex items-center justify-center">
-            <img src="${runnerUp.photo}" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
-            <img src="${runnerUp.photo}" alt="${runnerUp.name}" class="relative z-10 w-full h-full object-contain object-center" />
+            <img src="${runnerUp.photo}" alt="" aria-hidden="true" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
+            <img src="${runnerUp.photo}" alt="${runnerUp.name}" onerror="app.onPodiumImgError(this)" class="relative z-10 w-full h-full object-contain object-center" />
           </div>
-          <h4 class="font-serif text-xl text-ink mt-2">${runnerUp.name}</h4>
+          <h4 class="font-serif text-2xl text-ink mt-2">${runnerUp.name}</h4>
           <span class="text-xs italic text-muted">${runnerUp.sci_name}</span>
+          <span class="text-[10px] font-mono text-muted/75 mt-0.5">${runnerUp.family}</span>
         </div>
 
         <!-- 1ST PLACE -->
-        <div class="p-5 sm:p-6 rounded-3xl border-2 border-amber-600 bg-surface flex flex-col items-center text-center order-1 sm:order-2 relative shadow-md">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-amber-600 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-            Campeón
+        <div class="p-5 sm:p-6 rounded-3xl border-2 border-amber-800 bg-surface flex flex-col items-center text-center order-1 sm:order-2 relative shadow-md">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-amber-800 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 5.3 5.9.8-4.3 4.2 1 5.9L12 15.4l-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 2z"/></svg>
+            Líder de la Manada
           </div>
           <div class="relative h-36 sm:h-44 w-full rounded-2xl overflow-hidden bg-stone-800 shadow-md mt-2 flex items-center justify-center">
-            <img src="${winner.photo}" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
-            <img src="${winner.photo}" alt="${winner.name}" class="relative z-10 w-full h-full object-contain object-center" />
+            <img src="${winner.photo}" alt="" aria-hidden="true" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
+            <img src="${winner.photo}" alt="${winner.name}" onerror="app.onPodiumImgError(this)" class="relative z-10 w-full h-full object-contain object-center" />
           </div>
-          <h4 class="font-serif text-2xl sm:text-3xl text-ink mt-2">${winner.name}</h4>
+          <h4 class="font-serif text-3xl text-ink mt-2">${winner.name}</h4>
           <span class="text-xs italic text-muted">${winner.sci_name} · ${winner.region}</span>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-800/10 text-amber-800 dark:text-amber-400 font-semibold">${winner.family}</span>
+          ${this.state.top1FunFact ? `
+            <div class="mt-3 pt-2.5 border-t border-line/80 text-left text-xs text-ink/90 leading-relaxed bg-canvas/60 rounded-xl p-2.5 w-full">
+              <span class="font-semibold text-amber-800 dark:text-amber-400 uppercase tracking-wider text-[10px] block mb-0.5">Ficha salvaje:</span>
+              <span>${this.state.top1FunFact}</span>
+            </div>
+          ` : ""}
         </div>
 
         <!-- 3RD PLACE -->
-        <div class="p-4 sm:p-5 rounded-2xl border border-line bg-surface flex flex-col items-center text-center order-3">
-          <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-amber-700/10 text-amber-800 dark:text-amber-400 mb-2">3° Puesto</span>
+        <div class="p-4 sm:p-5 rounded-2xl border border-line bg-surface flex flex-col items-center text-center order-3 relative">
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-amber-800/10 text-amber-800 dark:text-amber-400 mb-2">
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12,3 20,19 4,19"/></svg>
+            3° Puesto
+          </span>
           <div class="relative h-28 sm:h-32 w-full rounded-xl overflow-hidden bg-stone-800 shadow-xs flex items-center justify-center">
-            <img src="${third.photo}" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
-            <img src="${third.photo}" alt="${third.name}" class="relative z-10 w-full h-full object-contain object-center" />
+            <img src="${third.photo}" alt="" aria-hidden="true" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
+            <img src="${third.photo}" alt="${third.name}" onerror="app.onPodiumImgError(this)" class="relative z-10 w-full h-full object-contain object-center" />
           </div>
-          <h4 class="font-serif text-xl text-ink mt-2">${third.name}</h4>
+          <h4 class="font-serif text-2xl text-ink mt-2">${third.name}</h4>
           <span class="text-xs italic text-muted">${third.sci_name}</span>
+          <span class="text-[10px] font-mono text-muted/75 mt-0.5">${third.family}</span>
         </div>
       `;
     }
@@ -304,29 +569,38 @@ const app = {
     const restBox = document.getElementById('restRankingContainer');
     if (restBox) {
       const rest = ranking.slice(3);
-      restBox.innerHTML = rest.map((p, idx) => `
+      restBox.innerHTML = rest.map((m, idx) => `
         <div class="flex items-center justify-between p-3 sm:px-4 hover:bg-canvas/50 transition">
           <div class="flex items-center gap-3">
             <span class="font-mono text-xs font-bold text-muted w-6">#${idx + 4}</span>
             <div class="relative w-10 h-10 rounded-lg overflow-hidden bg-stone-800 shrink-0 flex items-center justify-center">
-              <img src="${p.photo}" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-sm opacity-60 brightness-75 pointer-events-none" />
-              <img src="${p.photo}" alt="${p.name}" class="relative z-10 w-full h-full object-contain object-center" />
+              <img src="${m.photo}" alt="" aria-hidden="true" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-sm opacity-60 brightness-75 pointer-events-none" />
+              <img src="${m.photo}" alt="${m.name}" onerror="app.onPodiumImgError(this)" class="relative z-10 w-full h-full object-contain object-center" />
             </div>
             <div>
-              <span class="font-medium text-sm text-ink block">${p.name}</span>
-              <span class="text-[11px] italic text-muted">${p.sci_name}</span>
+              <span class="font-serif text-base text-ink block">${m.name}</span>
+              <span class="text-[11px] italic text-muted">${m.sci_name} · ${m.family}</span>
             </div>
           </div>
-          <span class="text-xs text-muted font-mono">${p.region}</span>
+          <span class="text-xs text-muted font-mono">${m.region}</span>
         </div>
       `).join('');
     }
+
+    const soundBanner = document.getElementById('winnerAudioPromptBanner');
+    if (soundBanner && winner) {
+      soundBanner.classList.remove('hidden');
+      const soundBtnText = document.getElementById('winnerAudioBtnText');
+      if (soundBtnText) soundBtnText.textContent = `Escuchar rugido de ${winner.name}`;
+    }
+
+    this.playFaunaCallFallback();
   },
 
   async shareChallenge() {
     const pool = this.state.initialBattlePool;
     if (!pool || pool.length === 0) return;
-    const ids = pool.map(p => p.id);
+    const ids = pool.map(m => m.id);
     const challengeUrl = buildChallengeUrl({
       baseUrl: window.location.origin + window.location.pathname,
       ids,
@@ -393,75 +667,80 @@ const app = {
         arena: 'mamiferos',
         winner,
         top3,
-        format: this.state.exportFormat || 'story',
-        options: {
-          canvas,
-          ranking: this.state.finalRanking
-        }
+        format: this.state.exportFormat,
+        canvas
       });
     } catch (err) {
-      console.error('Error renderizando tarjeta visual:', err);
+      console.error('Error renderizando tarjeta Canvas Mamíferos:', err);
     } finally {
       if (loader) loader.classList.add('hidden');
       canvas.classList.remove('opacity-40');
     }
   },
 
-  async shareExportCard() {
+  async downloadExportCardPng() {
     const canvas = document.getElementById('exportCardCanvas');
     if (!canvas) return;
-    const suffix = this.state.exportFormat === 'poster' ? 'poster' : 'historia';
-    const result = await exportRankingCard({
+    exportRankingCard({
       canvas,
-      filename: `rankea2-mamiferos-${suffix}.png`,
-      title: 'Rankea2 · Mi Ranking de Mamíferos',
-      text: '¡Mirá el podio de mamíferos que armé en Rankea2!'
+      filename: `rankea2-mamiferos-${Date.now()}.png`
     });
+  },
 
-    if (result.copied) {
-      this.showExportToast('¡Tarjeta copiada al portapapeles!');
-    } else if (result.downloaded) {
-      this.showExportToast('¡Tarjeta descargada como PNG!');
-    }
+  async downloadExportCard() {
+    return this.downloadExportCardPng();
   },
 
   async copyExportCardImage() {
     const canvas = document.getElementById('exportCardCanvas');
+    const status = document.getElementById('exportActionStatus');
     if (!canvas) return;
-    const suffix = this.state.exportFormat === 'poster' ? 'poster' : 'historia';
-    const result = await exportRankingCard({
-      canvas,
-      filename: `rankea2-mamiferos-${suffix}.png`,
-      action: 'copy'
-    });
-    if (result.copied) {
-      this.showExportToast('¡Tarjeta copiada al portapapeles!');
-    } else {
-      this.showExportToast('No se pudo copiar directo. Guardando PNG...');
+
+    try {
+      canvas.toBlob(async (blob) => {
+        if (!blob) throw new Error('No se pudo generar imagen');
+        await navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]);
+        if (status) {
+          status.textContent = '¡Imagen copiada al portapapeles!';
+          status.classList.remove('hidden');
+          setTimeout(() => status.classList.add('hidden'), 2500);
+        }
+      });
+    } catch {
+      this.downloadExportCardPng();
     }
   },
 
-  async downloadExportCardPng() {
-    const canvas = document.getElementById('exportCardCanvas');
-    if (!canvas) return;
-    const suffix = this.state.exportFormat === 'poster' ? 'poster' : 'historia';
-    await exportRankingCard({
-      canvas,
-      filename: `rankea2-mamiferos-${suffix}.png`,
-      action: 'download'
-    });
-    this.showExportToast('¡Tarjeta descargada como PNG!');
+  async copyExportCardToClipboard() {
+    return this.copyExportCardImage();
   },
 
-  showExportToast(msg) {
-    const toast = document.getElementById('exportFeedbackToast');
-    if (!toast) return;
-    toast.textContent = msg;
-    toast.classList.remove('hidden');
-    clearTimeout(this._toastTimer);
-    this._toastTimer = setTimeout(() => {
-      toast.classList.add('hidden');
-    }, 2500);
+  async shareExportCard() {
+    const canvas = document.getElementById('exportCardCanvas');
+    if (!canvas) return;
+    try {
+      if (typeof navigator !== 'undefined' && navigator.share && canvas.toBlob) {
+        canvas.toBlob(async (blob) => {
+          if (!blob) return;
+          const file = new File([blob], 'ranking-mamiferos.png', { type: 'image/png' });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              files: [file],
+              title: 'Mi ranking de fauna en Rankea2',
+              text: '¡Mirá mi manada campeona en Rankea2!'
+            });
+            return;
+          }
+          this.downloadExportCardPng();
+        });
+      } else {
+        this.downloadExportCardPng();
+      }
+    } catch {
+      this.downloadExportCardPng();
+    }
   }
 };
 

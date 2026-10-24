@@ -309,13 +309,13 @@ check('Dataset counts and specifications align with documentation claims', () =>
   assert.strictEqual(pokeData[0].id, 1, 'First Pokémon must be #1 (Bulbasaur)');
   assert.strictEqual(pokeData[pokeData.length - 1].id, 1025, 'Last Pokémon must be #1025 (Pecharunt)');
 
-  // 2. Mamiferos: 16 curated species
+  // 2. Mamiferos: curated species
   const mamifData = JSON.parse(fs.readFileSync(path.resolve(ROOT_DIR, 'public/data/mamiferos.json'), 'utf8'));
-  assert.strictEqual(mamifData.length, 16, 'mamiferos.json must contain exactly 16 species');
+  assert.ok(mamifData.length >= 16, 'mamiferos.json must contain at least 16 species');
 
-  // 3. Flores: 16 curated species
+  // 3. Flores: curated species
   const floresData = JSON.parse(fs.readFileSync(path.resolve(ROOT_DIR, 'public/data/flores.json'), 'utf8'));
-  assert.strictEqual(floresData.length, 16, 'flores.json must contain exactly 16 species');
+  assert.ok(floresData.length >= 16, 'flores.json must contain at least 16 species');
 });
 
 check('Core Engine API contracts match specifications', () => {
