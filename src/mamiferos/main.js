@@ -65,6 +65,10 @@ const app = {
     imageCache: new Set(),
     limit: 16,
     selectedCategory: 'todos',
+    selectedGroup: 'todos',
+    selectedHabitat: 'todos',
+    selectedRegion: 'todos',
+    searchQuery: '',
     exportFormat: 'story'
   },
 
@@ -172,17 +176,19 @@ const app = {
   launchPreset(presetKey) {
     let subset = [...this.state.pool];
     if (presetKey === 'felinos') {
-      subset = this.state.pool.filter(m => m.family === 'Felidae');
+      subset = this.state.pool.filter(m => m.family === 'Felidae' || m.family === 'Hyaenidae');
     } else if (presetKey === 'megafauna') {
-      subset = this.state.pool.filter(m => ['Elephantidae', 'Rhinocerotidae', 'Giraffidae', 'Ursidae'].includes(m.family));
+      subset = this.state.pool.filter(m => ['Elephantidae', 'Rhinocerotidae', 'Giraffidae', 'Ursidae', 'Bovidae', 'Hippopotamidae', 'Equidae', 'Cervidae', 'Tapiridae'].includes(m.family));
     } else if (presetKey === 'canidos') {
       subset = this.state.pool.filter(m => ['Canidae', 'Mustelidae', 'Hominidae'].includes(m.family));
     } else if (presetKey === 'acuaticos') {
-      subset = this.state.pool.filter(m => ['Mustelidae', 'Ursidae'].includes(m.family));
+      subset = this.state.pool.filter(m => m.habitat === 'Marino / Costero' || ['Delphinidae', 'Phocidae', 'Otariidae', 'Balaenopteridae', 'Trichechidae', 'Odobenidae', 'Monodontidae'].includes(m.family));
+    } else if (presetKey === 'primates') {
+      subset = this.state.pool.filter(m => m.group === 'Primates y Simios' || ['Hominidae', 'Cercopithecidae', 'Cebidae', 'Atelidae', 'Lemuridae'].includes(m.family));
     }
     if (subset.length < 2) subset = [...this.state.pool];
     this.state.candidatePool = subset;
-    this.state.limit = subset.length;
+    this.state.limit = Math.min(16, subset.length);
     this.startBattleGame();
   },
 
@@ -194,7 +200,7 @@ const app = {
   },
 
   // ============================================================
-  // CUSTOMIZER & LIMIT SLIDER
+  // CUSTOMIZER & FILTERS (GRUPOS, HÁBITAT, REGIÓN, BUSCADOR)
   // ============================================================
   toggleCustomizer() {
     const panel = document.getElementById('customizerPanel');
@@ -206,11 +212,163 @@ const app = {
     }
   },
 
+  onSearchInput(val) {
+    this.state.searchQuery = val || '';
+    const clearBtn = document.getElementById('clearSearchBtn');
+    if (clearBtn) {
+      clearBtn.classList.toggle('hidden', !this.state.searchQuery);
+    }
+    this.applyFilters();
+  },
+
+  clearSearch() {
+    const input = document.getElementById('mamiferoSearchInput');
+    if (input) input.value = '';
+    this.onSearchInput('');
+  },
+
+  setGroupFilter(group) {
+    this.state.selectedGroup = group;
+    const groups = ['todos', 'felinos', 'canidos', 'primates', 'marinos', 'ungulados', 'osos', 'roedores', 'murcielagos'];
+    groups.forEach(g => {
+      const btn = document.getElementById(`filterGroup_${g}`);
+      if (!btn) return;
+      if (g === group) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+    this.applyFilters();
+  },
+
+  setHabitatFilter(habitat) {
+    this.state.selectedHabitat = habitat;
+    const habs = ['todos', 'terrestre', 'marino', 'arbóreo', 'aéreo', 'polar'];
+    habs.forEach(h => {
+      const idKey = h === 'arbóreo' ? 'arboreo' : (h === 'aéreo' ? 'aereo' : h);
+      const btn = document.getElementById(`filterHab_${idKey}`);
+      if (!btn) return;
+      if (h === habitat) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+    this.applyFilters();
+  },
+
+  setRegionFilter(region) {
+    this.state.selectedRegion = region;
+    const regs = ['todos', 'américa', 'áfrica', 'asia', 'europa', 'oceanía', 'polar'];
+    regs.forEach(r => {
+      const idKey = r === 'américa' ? 'america' : (r === 'áfrica' ? 'africa' : (r === 'oceanía' ? 'oceania' : r));
+      const btn = document.getElementById(`filterReg_${idKey}`);
+      if (!btn) return;
+      if (r === region) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+    this.applyFilters();
+  },
+
+  setCategoryFilter(cat) {
+    this.state.selectedCategory = cat;
+    ['todos', 'felinos', 'megafauna', 'canidos', 'acuaticos'].forEach(c => {
+      const btn = document.getElementById(`filterCat_${c}`);
+      if (!btn) return;
+      if (c === cat) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+
+    if (cat === 'felinos') this.state.selectedGroup = 'felinos';
+    else if (cat === 'canidos') this.state.selectedGroup = 'canidos';
+    else if (cat === 'acuaticos') this.state.selectedHabitat = 'marino';
+    else if (cat === 'megafauna') this.state.selectedGroup = 'ungulados';
+    else {
+      this.state.selectedGroup = 'todos';
+      this.state.selectedHabitat = 'todos';
+    }
+    this.applyFilters();
+  },
+
+  applyFilters() {
+    let subset = [...this.state.pool];
+
+    // 1. Grupo
+    if (this.state.selectedGroup && this.state.selectedGroup !== 'todos') {
+      const g = this.state.selectedGroup;
+      if (g === 'felinos') subset = subset.filter(m => m.family === 'Felidae' || m.family === 'Hyaenidae');
+      else if (g === 'canidos') subset = subset.filter(m => m.family === 'Canidae' || m.family === 'Mustelidae');
+      else if (g === 'primates') subset = subset.filter(m => m.group === 'Primates y Simios' || ['Hominidae', 'Cercopithecidae', 'Cebidae', 'Atelidae', 'Lemuridae'].includes(m.family));
+      else if (g === 'marinos') subset = subset.filter(m => m.habitat === 'Marino / Costero');
+      else if (g === 'ungulados') subset = subset.filter(m => m.group === 'Herbívoros y Ungulados' || ['Elephantidae', 'Rhinocerotidae', 'Giraffidae', 'Bovidae', 'Cervidae', 'Equidae'].includes(m.family));
+      else if (g === 'osos') subset = subset.filter(m => m.family === 'Ursidae');
+      else if (g === 'roedores') subset = subset.filter(m => m.group === 'Roedores' || m.group === 'Conejos y Liebres');
+      else if (g === 'murcielagos') subset = subset.filter(m => m.group === 'Murciélagos');
+    }
+
+    // 2. Hábitat
+    if (this.state.selectedHabitat && this.state.selectedHabitat !== 'todos') {
+      const targetHab = this.state.selectedHabitat.toLowerCase();
+      subset = subset.filter(m => (m.habitat || '').toLowerCase().includes(targetHab));
+    }
+
+    // 3. Región
+    if (this.state.selectedRegion && this.state.selectedRegion !== 'todos') {
+      const targetReg = this.state.selectedRegion.toLowerCase();
+      subset = subset.filter(m => (m.region || '').toLowerCase().includes(targetReg));
+    }
+
+    // 4. Búsqueda por texto
+    if (this.state.searchQuery && this.state.searchQuery.trim()) {
+      const q = this.state.searchQuery.toLowerCase().trim();
+      subset = subset.filter(m =>
+        (m.name || '').toLowerCase().includes(q) ||
+        (m.sci_name || '').toLowerCase().includes(q) ||
+        (m.family || '').toLowerCase().includes(q)
+      );
+    }
+
+    this.state.candidatePool = subset.length >= 2 ? subset : (this.state.pool.length >= 2 ? [...this.state.pool] : subset);
+    const maxVal = Math.min(64, Math.max(2, this.state.candidatePool.length));
+    if (this.state.limit > maxVal) {
+      this.state.limit = maxVal;
+    }
+    const slider = document.getElementById('limitSlider');
+    if (slider) {
+      slider.max = maxVal;
+      if (parseInt(slider.value, 10) > maxVal) {
+        this.onLimitChange(maxVal);
+      }
+    }
+    const avail = document.getElementById('customizerAvailableCount');
+    if (avail) {
+      avail.textContent = `${subset.length} animales disponibles`;
+    }
+
+    const launchBtn = document.getElementById('btnLaunchCustomized');
+    if (launchBtn) {
+      launchBtn.disabled = subset.length < 2;
+      launchBtn.classList.toggle('opacity-50', subset.length < 2);
+      launchBtn.classList.toggle('cursor-not-allowed', subset.length < 2);
+    }
+  },
+
   onLimitChange(val) {
-    const num = Math.max(2, Math.min(64, parseInt(val, 10) || 16));
+    const maxAllowed = Math.min(64, Math.max(2, this.state.candidatePool.length || 16));
+    const num = Math.max(2, Math.min(maxAllowed, parseInt(val, 10) || 16));
     this.state.limit = num;
     const slider = document.getElementById('limitSlider');
-    if (slider) slider.value = num;
+    if (slider) {
+      slider.max = maxAllowed;
+      slider.value = num;
+    }
     const countDisplay = document.getElementById('sliderCountDisplay');
     if (countDisplay) countDisplay.textContent = num;
     const estDisplay = document.getElementById('sliderDuelEst');
@@ -237,46 +395,8 @@ const app = {
     });
   },
 
-  setCategoryFilter(cat) {
-    this.state.selectedCategory = cat;
-    ['todos', 'felinos', 'megafauna', 'canidos', 'acuaticos'].forEach(c => {
-      const btn = document.getElementById(`filterCat_${c}`);
-      if (!btn) return;
-      if (c === cat) {
-        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs';
-      } else {
-        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
-      }
-    });
-
-    let subset = [...this.state.pool];
-    if (cat === 'felinos') {
-      subset = this.state.pool.filter(m => m.family === 'Felidae' || m.family === 'Hyaenidae');
-    } else if (cat === 'megafauna') {
-      subset = this.state.pool.filter(m => ['Elephantidae', 'Rhinocerotidae', 'Giraffidae', 'Ursidae', 'Bovidae', 'Hippopotamidae', 'Equidae', 'Cervidae', 'Tapiridae'].includes(m.family));
-    } else if (cat === 'canidos') {
-      subset = this.state.pool.filter(m => ['Canidae', 'Mustelidae', 'Hominidae', 'Ailuridae', 'Herpestidae'].includes(m.family));
-    } else if (cat === 'acuaticos') {
-      subset = this.state.pool.filter(m => ['Mustelidae', 'Ursidae', 'Delphinidae', 'Phocidae', 'Otariidae', 'Monodontidae', 'Balaenopteridae', 'Odobenidae', 'Trichechidae', 'Castoridae', 'Caviidae'].includes(m.family));
-    }
-    this.state.candidatePool = subset.length >= 2 ? subset : [...this.state.pool];
-    const maxVal = Math.min(64, this.state.candidatePool.length);
-    if (this.state.limit > maxVal) {
-      this.state.limit = maxVal;
-    }
-    const slider = document.getElementById('limitSlider');
-    if (slider) {
-      slider.max = maxVal;
-      if (parseInt(slider.value, 10) > maxVal) {
-        this.onLimitChange(maxVal);
-      }
-    }
-    const avail = document.getElementById('customizerAvailableCount');
-    if (avail) avail.textContent = `${this.state.candidatePool.length} animales disponibles`;
-  },
-
   updateCustomizerUI() {
-    this.setCategoryFilter(this.state.selectedCategory || 'todos');
+    this.applyFilters();
     this.onLimitChange(this.state.limit || 16);
   },
 

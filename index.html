@@ -84,14 +84,18 @@
 
     .half-split-left {
       position: absolute;
-      inset: 0;
-      clip-path: polygon(0 0, 53% 0, 44% 42%, 49% 42%, 40% 100%, 0 100%);
+      inset-block: 0;
+      left: 0;
+      width: 55%;
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
       overflow: hidden;
     }
     .half-split-right {
       position: absolute;
-      inset: 0;
-      clip-path: polygon(59% 0, 100% 0, 100% 100%, 46% 100%, 52% 58%, 47% 58%);
+      inset-block: 0;
+      right: 0;
+      width: 55%;
+      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
       overflow: hidden;
     }
 
@@ -364,8 +368,8 @@
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                    style="object-position: 70% center;" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="2" />
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.8" />
             </svg>
             <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#1D3B2A]/90 text-white backdrop-blur-xs">
               Ornitología
@@ -388,17 +392,17 @@
         <!-- 2. POKÉMON -->
         <a href="/pokemon/" class="arena-poke rounded-[26px] overflow-hidden flex flex-col justify-between group">
           <div class="relative h-32 sm:h-36 w-full overflow-hidden bg-[#18181B]">
-            <div id="pokeHeroSplitLeft" class="half-split-left bg-[#EF4444] flex items-center justify-center p-2">
+            <div id="pokeHeroSplitLeft" class="half-split-left bg-[#EF4444] flex items-center justify-center p-3">
               <img id="pokeHeroImgLeft" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
                    alt="Charizard"
-                   class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-md group-hover:scale-105 transition duration-300" />
+                   class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300" />
             </div>
-            <div id="pokeHeroSplitRight" class="half-split-right bg-[#3B82F6] flex items-center justify-center p-2">
+            <div id="pokeHeroSplitRight" class="half-split-right bg-[#3B82F6] flex items-center justify-center p-3">
               <img id="pokeHeroImgRight" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
                    alt="Blastoise"
-                   class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-md group-hover:scale-105 transition duration-300" />
+                   class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
               <line x1="55" y1="0" x2="44" y2="100" stroke="#111111" stroke-width="2.5" />
             </svg>
             <span id="pokeHeroBadge" class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[9px] font-mono uppercase tracking-wider font-extrabold bg-black text-[#FFDE59]">
@@ -436,8 +440,8 @@
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                    style="object-position: 70% center;" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="2" />
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#EFECE6" stroke-width="1.8" />
             </svg>
             <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#2B332C]/90 text-white backdrop-blur-xs">
               Herbario
@@ -464,16 +468,18 @@
               <img id="faunaHeroImgLeft"
                    src="https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg"
                    alt="Jaguar"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 30% center;" />
             </div>
             <div id="faunaHeroSplitRight" class="half-split-right">
               <img id="faunaHeroImgRight"
                    src="https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg"
                    alt="Tigre de Bengala"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 70% center;" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="2" />
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#8C6239" stroke-width="1.8" />
             </svg>
             <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#8C6239]/90 text-white backdrop-blur-xs">
               Depredadores
@@ -512,17 +518,19 @@
         <div class="arena-dino rounded-[26px] overflow-hidden flex flex-col justify-between group transition-all duration-200">
           <div class="relative h-32 sm:h-36 w-full bg-[#181512] overflow-hidden">
             <div class="half-split-left">
-              <img src="https://images.unsplash.com/photo-1606856110002-d0991ce78250?auto=format&fit=crop&w=600&q=80"
+              <img src="https://images.unsplash.com/photo-1525877442103-5ddb2089b2bb?auto=format&fit=crop&w=600&q=80"
                    alt="Tiranosaurio Rex"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 65% 20%;" />
             </div>
             <div class="half-split-right">
-              <img src="https://images.unsplash.com/photo-1569074187119-c87815b476da?auto=format&fit=crop&w=600&q=80"
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Triceratops%2C_Expo_Dinosaurios_2023_-_A740992.jpg"
                    alt="Triceratops"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: center 30%;" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#8B6E47" stroke-width="2" />
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#8B6E47" stroke-width="1.8" />
             </svg>
             <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#8B6E47]/90 text-white backdrop-blur-xs">
               Prehistoria
@@ -551,15 +559,17 @@
             <div class="half-split-left">
               <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80"
                    alt="Pirámides de Guiza"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 25% center;" />
             </div>
             <div class="half-split-right">
               <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=600&q=80"
                    alt="Machu Picchu"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 70% center;" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#C49A58" stroke-width="2" />
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#C49A58" stroke-width="1.8" />
             </svg>
             <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#C49A58]/90 text-white backdrop-blur-xs">
               Patrimonio
@@ -588,15 +598,17 @@
             <div class="half-split-left">
               <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80"
                    alt="Golden Retriever"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 30% center;" />
             </div>
             <div class="half-split-right">
               <img src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=600&q=80"
                    alt="Pastor Alemán"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 70% center;" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#A87148" stroke-width="2" />
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#A87148" stroke-width="1.8" />
             </svg>
             <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#A87148]/90 text-white backdrop-blur-xs">
               Caninos
@@ -623,17 +635,19 @@
         <div class="arena-insectos rounded-[26px] overflow-hidden flex flex-col justify-between group transition-all duration-200">
           <div class="relative h-32 sm:h-36 w-full bg-[#0A1A1C] overflow-hidden">
             <div class="half-split-left">
-              <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=600&q=80"
-                   alt="Mariposa Morpho"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+              <img src="https://images.unsplash.com/photo-1630942592547-d7d223e15dc6?auto=format&fit=crop&w=600&q=80"
+                   alt="Mantis Religiosa"
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 60% 30%;" />
             </div>
             <div class="half-split-right">
-              <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80"
-                   alt="Escarabajo"
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+              <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/18333696/medium.jpeg"
+                   alt="Escarabajo Hércules"
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                   style="object-position: 20% center;" />
             </div>
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#0D9488" stroke-width="2" />
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#0D9488" stroke-width="1.8" />
             </svg>
             <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#0D9488]/90 text-white backdrop-blur-xs">
               Entomología
@@ -1101,7 +1115,7 @@
         count: 'Paleontología',
         href: '#',
         active: false,
-        thumb: 'https://images.unsplash.com/photo-1606856110002-d0991ce78250?auto=format&fit=crop&w=600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1525877442103-5ddb2089b2bb?auto=format&fit=crop&w=600&q=80',
         pillClass: 'bg-[#231E18] text-[#F4EFE6] border-[#8B6E47] dark:bg-[#191612] dark:text-[#F4EFE6] dark:border-[#A38257]',
         fontClass: 'font-aves text-2xl'
       },
@@ -1131,7 +1145,7 @@
         count: 'Entomología',
         href: '#',
         active: false,
-        thumb: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1630942592547-d7d223e15dc6?auto=format&fit=crop&w=600&q=80',
         pillClass: 'bg-[#0F2628] text-[#ECFDF5] border-[#0D9488] dark:bg-[#091A1C] dark:text-[#ECFDF5] dark:border-[#14B8A6]',
         fontClass: 'font-aves text-2xl'
       }

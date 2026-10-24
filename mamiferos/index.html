@@ -114,23 +114,63 @@
             <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold block">Configuración de safari y fauna</span>
             <h3 class="font-serif text-xl text-ink">Personalizar Expedición</h3>
           </div>
-          <span id="customizerAvailableCount" class="text-xs font-mono text-muted bg-canvas px-2.5 py-1 rounded-md border border-line">16 animales disponibles</span>
+          <span id="customizerAvailableCount" class="text-xs font-mono text-muted bg-canvas px-2.5 py-1 rounded-md border border-line">2817 animales disponibles</span>
         </div>
 
-        <!-- Dimensión: Gremios y Familias -->
+        <!-- Buscador por texto -->
+        <div class="space-y-1">
+          <label for="mamiferoSearchInput" class="text-xs font-medium text-ink block">Buscar por nombre o taxón</label>
+          <div class="relative">
+            <input id="mamiferoSearchInput" type="text" placeholder="Ej: Jaguar, Lobo, Ballena, Koala..." oninput="app.onSearchInput(this.value)" class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-canvas border border-line text-ink placeholder:text-muted focus:outline-hidden focus:border-amber-800 transition" />
+            <button id="clearSearchBtn" onclick="app.clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-muted hover:text-ink p-1 rounded-sm" aria-label="Limpiar búsqueda"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+          </div>
+        </div>
+
+        <!-- Dimensión 1: Grupos Canónicos -->
         <div class="space-y-2">
-          <label class="text-xs font-medium text-ink block">Familia y gremio salvaje</label>
-          <div class="flex flex-wrap gap-2">
-            <button id="filterCat_todos" onclick="app.setCategoryFilter('todos')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs">Todos</button>
-            <button id="filterCat_felinos" onclick="app.setCategoryFilter('felinos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Grandes Felinos</button>
-            <button id="filterCat_megafauna" onclick="app.setCategoryFilter('megafauna')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Megafauna terrestre</button>
-            <button id="filterCat_canidos" onclick="app.setCategoryFilter('canidos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Cánidos y Cazadores</button>
-            <button id="filterCat_acuaticos" onclick="app.setCategoryFilter('acuaticos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Depredadores y Agua</button>
+          <label class="text-xs font-medium text-ink block">Familia o grupo zoológico</label>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <button id="filterGroup_todos" onclick="app.setGroupFilter('todos')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs">Todos</button>
+            <button id="filterGroup_felinos" onclick="app.setGroupFilter('felinos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Grandes Felinos</button>
+            <button id="filterGroup_canidos" onclick="app.setGroupFilter('canidos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Cánidos y Zorros</button>
+            <button id="filterGroup_primates" onclick="app.setGroupFilter('primates')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Primates y Simios</button>
+            <button id="filterGroup_marinos" onclick="app.setGroupFilter('marinos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Cetáceos y Marinos</button>
+            <button id="filterGroup_ungulados" onclick="app.setGroupFilter('ungulados')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Herbívoros y Ungulados</button>
+            <button id="filterGroup_osos" onclick="app.setGroupFilter('osos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Osos</button>
+            <button id="filterGroup_roedores" onclick="app.setGroupFilter('roedores')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Roedores y Conejos</button>
+            <button id="filterGroup_murcielagos" onclick="app.setGroupFilter('murcielagos')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Murciélagos</button>
+          </div>
+        </div>
+
+        <!-- Dimensión 2: Hábitats -->
+        <div class="space-y-2">
+          <label class="text-xs font-medium text-ink block">Hábitat ecológico</label>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <button id="filterHab_todos" onclick="app.setHabitatFilter('todos')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs">Todos</button>
+            <button id="filterHab_terrestre" onclick="app.setHabitatFilter('terrestre')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Terrestres</button>
+            <button id="filterHab_marino" onclick="app.setHabitatFilter('marino')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Acuáticos y Marinos</button>
+            <button id="filterHab_arboreo" onclick="app.setHabitatFilter('arbóreo')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Arbóreos y Selva</button>
+            <button id="filterHab_aereo" onclick="app.setHabitatFilter('aéreo')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Aéreos</button>
+            <button id="filterHab_polar" onclick="app.setHabitatFilter('polar')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Polares y Glaciares</button>
+          </div>
+        </div>
+
+        <!-- Dimensión 3: Región / Continente -->
+        <div class="space-y-2">
+          <label class="text-xs font-medium text-ink block">Continente y región</label>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <button id="filterReg_todos" onclick="app.setRegionFilter('todos')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-800 text-white transition shadow-xs">Todos</button>
+            <button id="filterReg_america" onclick="app.setRegionFilter('américa')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">América</button>
+            <button id="filterReg_africa" onclick="app.setRegionFilter('áfrica')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">África</button>
+            <button id="filterReg_asia" onclick="app.setRegionFilter('asia')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Asia</button>
+            <button id="filterReg_europa" onclick="app.setRegionFilter('europa')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Europa</button>
+            <button id="filterReg_oceania" onclick="app.setRegionFilter('oceanía')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Oceanía</button>
+            <button id="filterReg_polar" onclick="app.setRegionFilter('polar')" class="px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">Polar</button>
           </div>
         </div>
 
         <!-- Dimensión: Cantidad con Slider -->
-        <div class="space-y-2 pt-1">
+        <div class="space-y-2 pt-1 border-t border-line">
           <div class="flex items-center justify-between">
             <label for="limitSlider" class="text-xs font-medium text-ink">Cantidad de animales en torneo</label>
             <div class="flex items-center gap-2">
@@ -146,7 +186,7 @@
               <button id="btnLimit32" onclick="app.setLimitQuick(32)" class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">32</button>
               <button id="btnLimit64" onclick="app.setLimitQuick(64)" class="px-3 py-1 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition">64</button>
             </div>
-            <button onclick="app.launchCustomizedGame()" class="px-5 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs sm:text-sm transition shadow-xs">
+            <button id="btnLaunchCustomized" onclick="app.launchCustomizedGame()" class="px-5 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs sm:text-sm transition shadow-xs">
               Iniciar torneo con esta selección →
             </button>
           </div>
@@ -157,9 +197,9 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left pt-2">
         <button onclick="app.launchPreset('felinos')" class="p-4 rounded-xl border border-line bg-surface hover:border-amber-800 hover:bg-amber-900/5 transition flex flex-col justify-between group">
           <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold">Felidae</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold">48 especies</span>
             <h3 class="font-serif text-lg text-ink group-hover:text-amber-900 transition-colors mt-1">Grandes Felinos</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Jaguares, leones, tigres, guepardos y pumas.</p>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Jaguares, leones, tigres, guepardos, pumas y linces del mundo.</p>
           </div>
           <span class="text-xs font-medium text-amber-800 mt-3 flex items-center justify-between">
             <span>Elegir</span>
@@ -171,19 +211,7 @@
           <div>
             <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold">Gigantes terrestres</span>
             <h3 class="font-serif text-lg text-ink group-hover:text-amber-900 transition-colors mt-1">Megafauna</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Elefantes africanos, rinocerontes, jirafas y osos pardos.</p>
-          </div>
-          <span class="text-xs font-medium text-amber-800 mt-3 flex items-center justify-between">
-            <span>Elegir</span>
-            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-          </span>
-        </button>
-
-        <button onclick="app.launchPreset('canidos')" class="p-4 rounded-xl border border-line bg-surface hover:border-amber-800 hover:bg-amber-900/5 transition flex flex-col justify-between group">
-          <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold">Cazadores en manada</span>
-            <h3 class="font-serif text-lg text-ink group-hover:text-amber-900 transition-colors mt-1">Cánidos Salvajes</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Lobos grises, zorros rojos y primates de montaña.</p>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Elefantes, rinocerontes, jirafas, bisontes y osos pardos.</p>
           </div>
           <span class="text-xs font-medium text-amber-800 mt-3 flex items-center justify-between">
             <span>Elegir</span>
@@ -193,9 +221,21 @@
 
         <button onclick="app.launchPreset('acuaticos')" class="p-4 rounded-xl border border-line bg-surface hover:border-amber-800 hover:bg-amber-900/5 transition flex flex-col justify-between group">
           <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold">Fauna anfibia</span>
-            <h3 class="font-serif text-lg text-ink group-hover:text-amber-900 transition-colors mt-1">Depredadores y Agua</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Nutrias gigantes, osos polares y cazadores acuáticos.</p>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold">Océanos y ríos</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-amber-900 transition-colors mt-1">Cetáceos y Marinos</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Ballenas azules, orcas, delfines, focas y nutrias marinas.</p>
+          </div>
+          <span class="text-xs font-medium text-amber-800 mt-3 flex items-center justify-between">
+            <span>Elegir</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+          </span>
+        </button>
+
+        <button onclick="app.launchPreset('primates')" class="p-4 rounded-xl border border-line bg-surface hover:border-amber-800 hover:bg-amber-900/5 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold">Selva y dosel</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-amber-900 transition-colors mt-1">Primates y Simios</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Gorilas, chimpancés, orangutanes, lémures y monos aulladores.</p>
           </div>
           <span class="text-xs font-medium text-amber-800 mt-3 flex items-center justify-between">
             <span>Elegir</span>

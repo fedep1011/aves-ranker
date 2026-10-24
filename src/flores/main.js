@@ -65,6 +65,10 @@ const app = {
     imageCache: new Set(),
     limit: 16,
     selectedCategory: 'todas',
+    selectedColor: 'todas',
+    selectedUsage: 'todas',
+    selectedClimate: 'todos',
+    searchQuery: '',
     exportFormat: 'story'
   },
 
@@ -171,17 +175,21 @@ const app = {
   launchPreset(presetKey) {
     let subset = [...this.state.pool];
     if (presetKey === 'orquideas') {
-      subset = this.state.pool.filter(p => ['Orchidaceae', 'Passifloraceae', 'Strelitziaceae', 'Malvaceae'].includes(p.family));
+      subset = this.state.pool.filter(p => p.family === 'Orchidaceae' || p.usage === 'Selva Tropical' || ['Passifloraceae', 'Heliconiaceae', 'Bromeliaceae'].includes(p.family));
     } else if (presetKey === 'silvestres') {
-      subset = this.state.pool.filter(p => ['Asteraceae', 'Lamiaceae', 'Papaveraceae', 'Rosaceae'].includes(p.family));
-    } else if (presetKey === 'acuaticas') {
-      subset = this.state.pool.filter(p => ['Nymphaeaceae', 'Nelumbonaceae', 'Hydrangeaceae', 'Rubiaceae'].includes(p.family));
-    } else if (presetKey === 'arboles') {
-      subset = this.state.pool.filter(p => ['Magnoliaceae', 'Rosaceae', 'Paeoniaceae', 'Rubiaceae'].includes(p.family));
+      subset = this.state.pool.filter(p => p.usage === 'Silvestre de campo' || ['Asteraceae', 'Campanulaceae', 'Papaveraceae', 'Ranunculaceae'].includes(p.family));
+    } else if (presetKey === 'jardin' || presetKey === 'arboles') {
+      subset = this.state.pool.filter(p => p.usage === 'Jardín Ornamental' || ['Rosaceae', 'Paeoniaceae', 'Hydrangeaceae', 'Liliaceae', 'Iridaceae'].includes(p.family));
+    } else if (presetKey === 'aromaticas' || presetKey === 'acuaticas') {
+      if (presetKey === 'acuaticas') {
+        subset = this.state.pool.filter(p => p.usage === 'Acuática / Loto' || ['Nymphaeaceae', 'Nelumbonaceae', 'Pontederiaceae'].includes(p.family));
+      } else {
+        subset = this.state.pool.filter(p => p.usage === 'Aromática y Medicinal' || ['Lamiaceae', 'Apiaceae'].includes(p.family));
+      }
     }
     if (subset.length < 2) subset = [...this.state.pool];
     this.state.candidatePool = subset;
-    this.state.limit = subset.length;
+    this.state.limit = Math.min(16, subset.length);
     this.startBattleGame();
   },
 
@@ -193,7 +201,7 @@ const app = {
   },
 
   // ============================================================
-  // CUSTOMIZER & LIMIT SLIDER
+  // CUSTOMIZER & FILTERS (COLOR, ENTORNO/USO, CLIMA, BUSCADOR)
   // ============================================================
   toggleCustomizer() {
     const panel = document.getElementById('customizerPanel');
@@ -205,11 +213,154 @@ const app = {
     }
   },
 
+  onSearchInput(val) {
+    this.state.searchQuery = val || '';
+    const clearBtn = document.getElementById('clearFlorSearchBtn');
+    if (clearBtn) {
+      clearBtn.classList.toggle('hidden', !this.state.searchQuery);
+    }
+    this.applyFilters();
+  },
+
+  clearSearch() {
+    const input = document.getElementById('florSearchInput');
+    if (input) input.value = '';
+    this.onSearchInput('');
+  },
+
+  setColorFilter(color) {
+    this.state.selectedColor = color;
+    const colors = ['todas', 'blanco', 'amarillo', 'rojo', 'azul', 'multicolor'];
+    colors.forEach(c => {
+      const btn = document.getElementById(`filterColor_${c}`);
+      if (!btn) return;
+      if (c === color) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+    this.applyFilters();
+  },
+
+  setUsageFilter(usage) {
+    this.state.selectedUsage = usage;
+    const usages = ['todas', 'silvestre', 'jardín', 'aromática', 'selva', 'acuática'];
+    usages.forEach(u => {
+      const idKey = u === 'jardín' ? 'jardin' : (u === 'aromática' ? 'aromatica' : (u === 'acuática' ? 'acuatica' : u));
+      const btn = document.getElementById(`filterUsage_${idKey}`);
+      if (!btn) return;
+      if (u === usage) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+    this.applyFilters();
+  },
+
+  setClimateFilter(climate) {
+    this.state.selectedClimate = climate;
+    const climas = ['todos', 'templado', 'tropical', 'mediterráneo', 'árido'];
+    climas.forEach(c => {
+      const idKey = c === 'mediterráneo' ? 'mediterraneo' : (c === 'árido' ? 'arido' : c);
+      const btn = document.getElementById(`filterClim_${idKey}`);
+      if (!btn) return;
+      if (c === climate) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+    this.applyFilters();
+  },
+
+  setCategoryFilter(cat) {
+    this.state.selectedCategory = cat;
+    ['todas', 'orquideas', 'silvestres', 'acuaticas', 'arboles'].forEach(c => {
+      const btn = document.getElementById(`filterCat_${c}`);
+      if (!btn) return;
+      if (c === cat) {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
+      }
+    });
+
+    if (cat === 'orquideas') this.state.selectedUsage = 'selva';
+    else if (cat === 'silvestres') this.state.selectedUsage = 'silvestre';
+    else if (cat === 'acuaticas') this.state.selectedUsage = 'acuática';
+    else if (cat === 'arboles') this.state.selectedUsage = 'jardín';
+    else this.state.selectedUsage = 'todas';
+
+    this.applyFilters();
+  },
+
+  applyFilters() {
+    let subset = [...this.state.pool];
+
+    // 1. Color
+    if (this.state.selectedColor && this.state.selectedColor !== 'todas') {
+      const targetCol = this.state.selectedColor.toLowerCase();
+      subset = subset.filter(f => (f.color || '').toLowerCase().includes(targetCol));
+    }
+
+    // 2. Uso / Entorno
+    if (this.state.selectedUsage && this.state.selectedUsage !== 'todas') {
+      const targetUse = this.state.selectedUsage.toLowerCase();
+      subset = subset.filter(f => (f.usage || '').toLowerCase().includes(targetUse));
+    }
+
+    // 3. Clima
+    if (this.state.selectedClimate && this.state.selectedClimate !== 'todos') {
+      const targetClim = this.state.selectedClimate.toLowerCase();
+      subset = subset.filter(f => (f.climate || '').toLowerCase().includes(targetClim));
+    }
+
+    // 4. Búsqueda por texto
+    if (this.state.searchQuery && this.state.searchQuery.trim()) {
+      const q = this.state.searchQuery.toLowerCase().trim();
+      subset = subset.filter(f =>
+        (f.name || '').toLowerCase().includes(q) ||
+        (f.sci_name || '').toLowerCase().includes(q) ||
+        (f.family || '').toLowerCase().includes(q)
+      );
+    }
+
+    this.state.candidatePool = subset.length >= 2 ? subset : (this.state.pool.length >= 2 ? [...this.state.pool] : subset);
+    const maxVal = Math.min(64, Math.max(2, this.state.candidatePool.length));
+    if (this.state.limit > maxVal) {
+      this.state.limit = maxVal;
+    }
+    const slider = document.getElementById('limitSlider');
+    if (slider) {
+      slider.max = maxVal;
+      if (parseInt(slider.value, 10) > maxVal) {
+        this.onLimitChange(maxVal);
+      }
+    }
+    const avail = document.getElementById('customizerAvailableCount');
+    if (avail) {
+      avail.textContent = `${subset.length} flores disponibles`;
+    }
+
+    const launchBtn = document.getElementById('btnLaunchCustomized');
+    if (launchBtn) {
+      launchBtn.disabled = subset.length < 2;
+      launchBtn.classList.toggle('opacity-50', subset.length < 2);
+      launchBtn.classList.toggle('cursor-not-allowed', subset.length < 2);
+    }
+  },
+
   onLimitChange(val) {
-    const num = Math.max(2, Math.min(64, parseInt(val, 10) || 16));
+    const maxAllowed = Math.min(64, Math.max(2, this.state.candidatePool.length || 16));
+    const num = Math.max(2, Math.min(maxAllowed, parseInt(val, 10) || 16));
     this.state.limit = num;
     const slider = document.getElementById('limitSlider');
-    if (slider) slider.value = num;
+    if (slider) {
+      slider.max = maxAllowed;
+      slider.value = num;
+    }
     const countDisplay = document.getElementById('sliderCountDisplay');
     if (countDisplay) countDisplay.textContent = num;
     const estDisplay = document.getElementById('sliderDuelEst');
@@ -236,46 +387,8 @@ const app = {
     });
   },
 
-  setCategoryFilter(cat) {
-    this.state.selectedCategory = cat;
-    ['todas', 'orquideas', 'silvestres', 'acuaticas', 'arboles'].forEach(c => {
-      const btn = document.getElementById(`filterCat_${c}`);
-      if (!btn) return;
-      if (c === cat) {
-        btn.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-700 text-white transition shadow-xs';
-      } else {
-        btn.className = 'px-3 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-muted hover:text-ink transition';
-      }
-    });
-
-    let subset = [...this.state.pool];
-    if (cat === 'orquideas') {
-      subset = this.state.pool.filter(p => ['Orchidaceae', 'Passifloraceae', 'Strelitziaceae', 'Malvaceae', 'Araceae', 'Apocynaceae', 'Proteaceae'].includes(p.family));
-    } else if (cat === 'silvestres') {
-      subset = this.state.pool.filter(p => ['Asteraceae', 'Lamiaceae', 'Papaveraceae', 'Rosaceae', 'Caryophyllaceae', 'Campanulaceae', 'Violaceae', 'Ranunculaceae'].includes(p.family));
-    } else if (cat === 'acuaticas') {
-      subset = this.state.pool.filter(p => ['Nymphaeaceae', 'Nelumbonaceae', 'Hydrangeaceae', 'Rubiaceae', 'Iridaceae', 'Araceae'].includes(p.family));
-    } else if (cat === 'arboles') {
-      subset = this.state.pool.filter(p => ['Magnoliaceae', 'Rosaceae', 'Paeoniaceae', 'Rubiaceae', 'Theaceae', 'Fabaceae', 'Bignoniaceae', 'Ericaceae', 'Oleaceae'].includes(p.family));
-    }
-    this.state.candidatePool = subset.length >= 2 ? subset : [...this.state.pool];
-    const maxVal = Math.min(64, this.state.candidatePool.length);
-    if (this.state.limit > maxVal) {
-      this.state.limit = maxVal;
-    }
-    const slider = document.getElementById('limitSlider');
-    if (slider) {
-      slider.max = maxVal;
-      if (parseInt(slider.value, 10) > maxVal) {
-        this.onLimitChange(maxVal);
-      }
-    }
-    const avail = document.getElementById('customizerAvailableCount');
-    if (avail) avail.textContent = `${this.state.candidatePool.length} flores disponibles`;
-  },
-
   updateCustomizerUI() {
-    this.setCategoryFilter(this.state.selectedCategory || 'todas');
+    this.applyFilters();
     this.onLimitChange(this.state.limit || 16);
   },
 
