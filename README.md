@@ -7,6 +7,7 @@ Plataforma web interactiva para descubrir, rankear y compartir tus favoritos en 
 - **Arena Pokémon:** [https://rankea2.pages.dev/pokemon/](https://rankea2.pages.dev/pokemon/)
 - **Arena Mamíferos:** [https://rankea2.pages.dev/mamiferos/](https://rankea2.pages.dev/mamiferos/)
 - **Arena Flores:** [https://rankea2.pages.dev/flores/](https://rankea2.pages.dev/flores/)
+- **Edición Especial — ¿Qué Prefieres?:** [https://rankea2.pages.dev/que-prefieres/](https://rankea2.pages.dev/que-prefieres/)
 
 ---
 

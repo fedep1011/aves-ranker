@@ -89,6 +89,29 @@ body.arena-aves, [data-arena="aves"] {
   --color-primary-soft: var(--color-forest-soft);
 }
 
+/* ARENA QUE PREFIERES PALETTE */
+body.arena-prefieres, [data-arena="prefieres"] {
+  --color-canvas: #FAF5FF;
+  --color-surface: #FFFFFF;
+  --color-ink: #0F172A;
+  --color-muted: #64748B;
+  --color-line: #E2E8F0;
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-primary-soft: #F3E8FF;
+}
+
+html.dark body.arena-prefieres, html.dark [data-arena="prefieres"] {
+  --color-canvas: #090812;
+  --color-surface: #131124;
+  --color-ink: #F8FAFC;
+  --color-muted: #94A3B8;
+  --color-line: #221E38;
+  --color-primary: #A855F7;
+  --color-primary-hover: #9333EA;
+  --color-primary-soft: #1B1633;
+}
+
 body {
   background-color: var(--color-canvas);
   color: var(--color-ink);

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "2t4id",
+    "opcionA": "tener muchos amigos virtuales",
+    "porcentajeA": "14%",
+    "opcionB": "tener solo un amigo real",
+    "porcentajeB": "86%",
+    "votosTotales": 23668
+  },
+  {
+    "id": "6awbs",
+    "opcionA": "que todas las plantas lloren cuando las cortas",
+    "porcentajeA": "32%",
+    "opcionB": "que los animales supliquen por sus vidas antes de matarlos",
+    "porcentajeB": "68%",
+    "votosTotales": 15991
+  },
+  {
+    "id": "5qzyb",
+    "opcionA": "revivir el mismo día por el resto de tu vida",
+    "porcentajeA": "15%",
+    "opcionB": "despertar todos los días sin recordar lo que hiciste el día anterior",
+    "porcentajeB": "85%",
+    "votosTotales": 16103
+  },
+  {
+    "id": "3e3e6",
+    "opcionA": "vivir en un mundo donde no haya matrimonio",
+    "porcentajeA": "30%",
+    "opcionB": "en un mundo donde no haya divorcios",
+    "porcentajeB": "70%",
+    "votosTotales": 19238
+  },
+  {
+    "id": "bdvdo",
+    "opcionA": "reencarnar como un hisopo",
+    "porcentajeA": "16%",
+    "opcionB": "como una toallita",
+    "porcentajeB": "84%",
+    "votosTotales": 12001
+  },
+  {
+    "id": "289l7",
+    "opcionA": "no ver más colores",
+    "porcentajeA": "47%",
+    "opcionB": "tener tinnitus (pitido en el oído) para siempre",
+    "porcentajeB": "53%",
+    "votosTotales": 27964
+  },
+  {
+    "id": "0rekz",
+    "opcionA": "nunca más tener que volver a trabajar",
+    "porcentajeA": "48%",
+    "opcionB": "nunca más tener que volver a dormir, sin sentirte cansado o sufrir consecuencias",
+    "porcentajeB": "52%",
+    "votosTotales": 84593
+  },
+  {
+    "id": "2ge6k",
+    "opcionA": "dormir 3 horas",
+    "porcentajeA": "30%",
+    "opcionB": "dormir 14 horas",
+    "porcentajeB": "70%",
+    "votosTotales": 78581
+  },
+  {
+    "id": "6orm0",
+    "opcionA": "solo leer cuentos cortos por el resto de tu vida",
+    "porcentajeA": "26%",
+    "opcionB": "nunca volver a leer un cuento corto",
+    "porcentajeB": "74%",
+    "votosTotales": 120297
+  },
+  {
+    "id": "bf2us",
+    "opcionA": "vivir en un mundo sin música",
+    "porcentajeA": "6%",
+    "opcionB": "vivir en un mundo sin TV",
+    "porcentajeB": "94%",
+    "votosTotales": 11635
+  }
+]

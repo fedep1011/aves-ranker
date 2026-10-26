@@ -281,7 +281,76 @@ Al ingresar con un link de desafío, la app abre `viewChallenge`, precarga esos 
 
 ---
 
-## 10. Checklist Paso a Paso para Nuevas Categorías
+## 10. Footer Canónico y Créditos de Autor
+
+Cada arena **debe incluir obligatoriamente** el footer estándar con navegación cruzada a las demás arenas y el crédito al creador con enlace a su GitHub:
+
+```html
+<footer class="border-t border-line py-6 text-center text-xs text-muted mt-auto">
+  <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div class="flex items-center gap-2">
+      <span class="font-serif font-bold text-sm text-ink">Rankea2</span>
+      <span class="text-muted/60">·</span>
+      <span>[Nombre y descripción corta de la arena]</span>
+    </div>
+    <div class="flex flex-wrap items-center gap-4 text-muted/80">
+      <div class="flex items-center gap-3">
+        <a href="/" class="hover:text-ink transition">Arenas</a>
+        <a href="/aves/" class="hover:text-ink transition">Aves</a>
+        <a href="/pokemon/" class="hover:text-ink transition">Pokémon</a>
+        <a href="/flores/" class="hover:text-ink transition">Flores</a>
+        <a href="/mamiferos/" class="hover:text-ink transition">Mamíferos</a>
+        <a href="/que-prefieres/" class="text-purple-600 dark:text-purple-400 font-semibold hover:underline transition">¿Qué Prefieres?</a>
+      </div>
+      <span class="opacity-40">·</span>
+      <div>
+        <span>Creado por</span> <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="font-medium text-ink hover:text-primary underline underline-offset-4 transition">fedep1011</a>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+### Reglas del Footer:
+1. **Atribución visible**: El texto `Creado por fedep1011` debe estar presente en todas las páginas con enlace externo seguro (`target="_blank" rel="noopener"`).
+2. **Navegación cruzada**: Enlaces directos a `/` (Hub de Arenas) y a las categorías activas.
+3. **Sticky footer**: La clase `mt-auto` en el `<footer>` garantiza que permanezca siempre al pie de página incluso con contenido corto en pantallas altas.
+
+---
+
+## 11. Marco Legal, Privacidad, Atribuciones y Deslindes (A Implementar)
+
+Para asegurar el cumplimiento normativo internacional, proteger la autoría de terceros y deslindar responsabilidades comerciales, toda arena y la plataforma general deben contemplar las siguientes directivas legales y de atribución:
+
+### 11.1 Términos y Condiciones, Privacidad y Cookies
+- **Política de Privacidad**:
+  - Principio *Offline-First* y respeto estricto a los datos del usuario: sin tracking invasivo ni venta de datos.
+  - Almacenamiento local transparente: explicitar el uso de `localStorage` para guardar preferencias de tema (`rankea2_theme`), historial de elecciones, rachas y estados de torneos en el dispositivo.
+  - Futuro login (Supabase): consentimiento previo e informado para sincronizar partidas en la nube.
+- **Términos de Servicio**:
+  - Uso recreativo, educativo y de entretenimiento sin fines de lucro.
+  - Responsabilidad del usuario respecto a enlaces compartidos generados.
+- **Política de Cookies / LocalStorage**:
+  - Banner o aviso informativo minimalista y no invasivo para cumplimiento normativo (GDPR / ePrivacy / CCPA), informando el uso técnico de almacenamiento local.
+- **Herramienta Legal de Claude**:
+  - Emplear el asistente/herramienta legal de Claude para la redacción, estandarización y auditoría periódica de los textos de términos, privacidad y cookies, garantizando claridad en español rioplatense neutro sin oscuridad jurídica.
+
+### 11.2 Reconocimiento y Atribución a Creadores y Fuentes
+- **Licencias Abiertas de Fotografía y Datos**:
+  - Los datos y contenidos multimedia provienen de repositorios abiertos (**iNaturalist Open Data**, **GBIF**, **Wikimedia Commons**, **PokéAPI / Showdown**).
+  - Reconocimiento explícito a los fotógrafos, naturalistas y creadores que licencian su trabajo bajo Creative Commons (CC BY, CC BY-SA, etc.).
+  - Enlace o modal de atribuciones (`viewAttributions` o modal de licencias) accesible desde el footer para dar crédito a las fuentes y permitir solicitudes de rectificación o retiro.
+
+### 11.3 Deslinde de Responsabilidad y Marcas Registradas (IP Disclaimers)
+- **Deslinde Específico de Nintendo y Franquicias**:
+  - En la arena de **Pokémon** y en cualquier futura arena vinculada a propiedades intelectuales comerciales, debe incluirse una cláusula visible y explícita de deslinde:
+    > *Rankea2 es un proyecto independiente desarrollado por fans con fines educativos y de entretenimiento. Pokémon y los nombres de las criaturas son marcas registradas y propiedad intelectual de Nintendo, Creatures Inc. y Game Freak. Este proyecto no está afiliado, respaldado, asociado ni patrocinado por Nintendo ni The Pokémon Company.*
+- **Deslinde General para Marcas Registradas de Terceros**:
+  - Aplicable a cualquier marca, monumento protegido o entidad con derechos reservados que se incluya en el futuro: uso legítimo (*fair use / nominative use*) únicamente con propósitos lúdicos, culturales y de comparación pública.
+
+---
+
+## 12. Checklist Paso a Paso para Nuevas Categorías
 
 Al implementar **Insectos**, **Razas de Perros**, **Dinosaurios**, **Maravillas del Mundo** o cualquier nueva arena:
 
@@ -293,6 +362,7 @@ Al implementar **Insectos**, **Razas de Perros**, **Dinosaurios**, **Maravillas 
   - Replicar el asistente de 3 pasos: `viewHome` (con 4 pastillas abajo fijas), `viewStepPlace`, `viewStepTraits`, `viewStepSize`, `viewBattle`, `viewResults`.
   - Asegurar que los contenedores de duelo tengan `#loaderLeft` y `#loaderRight`.
   - Comprobar proporción rígida con fondo `blur-xl` y frente `object-contain`.
+  - Incluir el `<footer>` canónico con navegación cruzada y crédito a `fedep1011`.
 - [ ] **3. Implementar controlador (`src/<arena>/main.js`)**:
   - Cargar `public/data/<arena>.json` de forma asíncrona.
   - Conectar filtros de lugar (Paso 1) y familias/atributos (Paso 2).
@@ -309,3 +379,5 @@ Al implementar **Insectos**, **Razas de Perros**, **Dinosaurios**, **Maravillas 
   - `python .agents/ux-ui-agent-skills/scripts/check_no_emoji.py` (cero emojis en UI).
   - `python .agents/ux-ui-agent-skills/scripts/validate_contrast.py` (WCAG 2.2 contrastes válidos).
   - `npm run build` (compilación sin advertencias).
+- [ ] **7. Verificación Legal y Atribuciones**:
+  - Incluir disclaimers de marcas (ej. Nintendo en Pokémon) y atribuciones a repositorios o autores correspondientes en el pie de página o modal.

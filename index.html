@@ -502,6 +502,57 @@
       </div>
     </section>
 
+    <!-- Banner Edición Especial: ¿Qué Prefieres? -->
+    <section class="relative rounded-3xl overflow-hidden border-2 border-purple-500/30 dark:border-purple-500/40 bg-gradient-to-r from-purple-900/10 via-indigo-900/10 to-pink-900/10 p-6 sm:p-8 shadow-sm">
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-gradient-to-tr from-indigo-500/20 via-purple-500/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="space-y-3 max-w-xl text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xs">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span>Edición Especial</span>
+          </div>
+
+          <h2 class="font-poke font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-ink">
+            ¿Qué Prefieres? Dilemas 1 vs 1
+          </h2>
+
+          <p class="text-sm sm:text-base hub-muted leading-relaxed">
+            685 dilemas y decisiones cara a cara. Votá tu opción y descubrí al instante si coincidís con la mayoría o pensás distinto.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <a href="/que-prefieres/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 hover:opacity-95 text-white font-poke font-bold text-sm tracking-wide shadow-md shadow-purple-500/25 transition">
+              <span>Jugar dilemas ahora</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <span class="text-xs hub-muted font-mono">
+              685 dilemas · Racha comunitaria
+            </span>
+          </div>
+        </div>
+
+        <!-- Teaser Card Preview -->
+        <a href="/que-prefieres/" class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row items-center gap-3 bg-surface/80 backdrop-blur-xs border border-line p-4 rounded-2xl shadow-xs hover:border-purple-500/50 transition duration-200 group">
+          <div class="px-4 py-3 rounded-xl bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-xs sm:text-sm font-semibold max-w-[200px] text-center">
+            Tener muchos amigos virtuales
+          </div>
+          <span class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 text-white font-poke font-black text-[10px] flex items-center justify-center shrink-0 shadow-xs">
+            VS
+          </span>
+          <div class="px-4 py-3 rounded-xl bg-pink-500/10 text-pink-700 dark:text-pink-300 border border-pink-500/20 text-xs sm:text-sm font-semibold max-w-[200px] text-center">
+            Tener solo un amigo real
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- Próximas Arenas Planificadas -->
     <section class="space-y-4 pt-2">
       <div class="flex items-center justify-between">
@@ -737,6 +788,7 @@
           <a href="/pokemon/" class="hover:text-ink transition">Pokémon</a>
           <a href="/flores/" class="hover:text-ink transition">Flores</a>
           <a href="/mamiferos/" class="hover:text-ink transition">Mamíferos</a>
+          <a href="/que-prefieres/" class="text-purple-600 dark:text-purple-400 font-semibold hover:underline transition">¿Qué Prefieres?</a>
         </div>
         <span class="opacity-40">·</span>
         <div>

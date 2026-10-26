@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Rankea2 · ¿Qué Prefieres? (Edición Especial)</title>
+  <meta name="description" content="685 dilemas 1 vs 1. Votá tu opción favorita y descubrí al instante si pensás como la mayoría." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/tailwind.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('rankea2_theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="arena-prefieres min-h-[100dvh] font-sans flex flex-col bg-canvas text-ink selection:bg-purple-600 selection:text-white" data-arena="prefieres">
+
+  <!-- HEADER -->
+  <header class="border-b border-line bg-canvas/95 backdrop-blur-sm sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="/" class="flex items-center gap-2.5 font-poke font-extrabold text-xl text-ink tracking-tight hover:opacity-80 transition shrink-0" title="Ir a las Arenas" aria-label="Rankea2 - Inicio">
+          <svg class="w-7 h-7 shrink-0" viewBox="0 0 256 256" aria-hidden="true">
+            <path fill="#4F46E5" d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+            <path fill="#EC4899" d="M192 224 H72 L152 144 H120 L216 48 V200 A24 24 0 0 1 192 224 Z"/>
+          </svg>
+          <span>Rankea2</span>
+        </a>
+        <span class="text-muted/50 text-sm">/</span>
+        <span class="font-poke font-bold text-lg sm:text-xl tracking-tight text-ink flex items-center gap-2">
+          ¿Qué Prefieres?
+        </span>
+        <span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wider bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-xs">
+          Edición Especial
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2 min-w-0">
+        <button id="themeToggle" type="button" aria-label="Cambiar tema"
+          class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5 shadow-xs">
+          <svg id="themeIconDark" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <svg id="themeIconLight" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span id="themeLabel" class="hidden sm:inline">Oscuro</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 flex flex-col justify-center space-y-6">
+
+    <!-- Top Stats & Indicator Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface border border-line shadow-xs font-mono font-medium">
+          <svg class="w-3.5 h-3.5 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          <span>Racha:</span>
+          <strong id="statCurrentStreak" class="text-ink font-bold">0</strong>
+        </span>
+
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface border border-line shadow-xs font-mono font-medium">
+          <svg class="w-3.5 h-3.5 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+          </svg>
+          <span>Récord:</span>
+          <strong id="statBestStreak" class="text-ink font-bold">0</strong>
+        </span>
+
+        <span class="hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface border border-line shadow-xs font-mono font-medium">
+          <span>Afinidad:</span>
+          <strong id="statAffinity" class="text-ink font-bold">0%</strong>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span id="dilemmaCounter" class="px-2.5 py-0.5 rounded text-[11px] font-mono text-muted bg-surface border border-line">
+          #...
+        </span>
+        <button id="btnResetStreak" type="button" title="Reiniciar racha" class="text-[11px] text-muted hover:text-ink transition underline underline-offset-2">
+          Reiniciar racha
+        </button>
+      </div>
+    </div>
+
+    <!-- Dilemma Title -->
+    <div class="text-center space-y-1.5 pt-1">
+      <h1 class="font-poke font-extrabold text-2xl sm:text-4xl tracking-tight text-ink">
+        ¿Qué preferís?
+      </h1>
+      <p class="text-xs sm:text-sm text-muted">
+        Elegí una opción para ver la opinión de la comunidad.
+      </p>
+    </div>
+
+    <!-- The 2 Cards Matchup Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 relative items-stretch">
+
+      <!-- Choice A Card -->
+      <button id="cardOptionA" type="button"
+        class="w-full text-left bg-surface border-2 border-indigo-500/30 dark:border-indigo-500/40 hover:border-indigo-500 dark:hover:border-indigo-400 rounded-3xl p-6 sm:p-8 flex flex-col justify-between gap-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 focus:outline-none relative overflow-hidden group">
+        
+        <!-- Ambient background glow -->
+        <div class="absolute -top-16 -left-16 w-36 h-36 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition duration-500"></div>
+
+        <div class="space-y-3 relative z-10">
+          <div class="flex items-center justify-between gap-2">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 font-poke font-bold text-sm">
+              A
+            </span>
+            <span id="badgeOptionA" class="hidden px-2.5 py-1 rounded-full text-[11px] font-semibold bg-indigo-600 text-white shadow-xs">
+              Tu elección
+            </span>
+            <span class="hidden md:inline text-[11px] font-mono text-muted/60 opacity-0 group-hover:opacity-100 transition">
+              Tecla [1] o [←]
+            </span>
+          </div>
+
+          <h2 id="textOptionA" class="font-poke font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-snug text-ink pt-1">
+            Cargando dilema...
+          </h2>
+        </div>
+
+        <!-- Result Container (Initially hidden) -->
+        <div id="resultOptionA" class="hidden space-y-2.5 pt-4 border-t border-line relative z-10">
+          <div class="flex items-end justify-between">
+            <span id="percentOptionA" class="font-poke font-extrabold text-3xl sm:text-4xl text-indigo-600 dark:text-indigo-400 leading-none">
+              0%
+            </span>
+            <span id="votesOptionA" class="text-xs text-muted font-mono">
+              0 votos
+            </span>
+          </div>
+          <!-- Progress bar -->
+          <div class="w-full h-3 rounded-full bg-surface border border-line overflow-hidden p-0.5">
+            <div id="barOptionA" class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 transition-all duration-700 ease-out" style="width: 0%;"></div>
+          </div>
+        </div>
+      </button>
+
+      <!-- Center VS Badge (Absolute center on desktop, hidden on tiny mobile or styled as divider) -->
+      <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+        <span class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white font-poke font-black text-sm flex items-center justify-center shadow-lg shadow-purple-500/25 border-4 border-canvas">
+          VS
+        </span>
+      </div>
+
+      <!-- Choice B Card -->
+      <button id="cardOptionB" type="button"
+        class="w-full text-left bg-surface border-2 border-pink-500/30 dark:border-pink-500/40 hover:border-pink-500 dark:hover:border-pink-400 rounded-3xl p-6 sm:p-8 flex flex-col justify-between gap-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10 focus:outline-none relative overflow-hidden group">
+        
+        <!-- Ambient background glow -->
+        <div class="absolute -top-16 -right-16 w-36 h-36 bg-pink-500/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition duration-500"></div>
+
+        <div class="space-y-3 relative z-10">
+          <div class="flex items-center justify-between gap-2">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-pink-500/15 text-pink-600 dark:text-pink-400 font-poke font-bold text-sm">
+              B
+            </span>
+            <span id="badgeOptionB" class="hidden px-2.5 py-1 rounded-full text-[11px] font-semibold bg-pink-600 text-white shadow-xs">
+              Tu elección
+            </span>
+            <span class="hidden md:inline text-[11px] font-mono text-muted/60 opacity-0 group-hover:opacity-100 transition">
+              Tecla [2] o [→]
+            </span>
+          </div>
+
+          <h2 id="textOptionB" class="font-poke font-bold text-xl sm:text-2xl md:text-3xl tracking-tight leading-snug text-ink pt-1">
+            Cargando dilema...
+          </h2>
+        </div>
+
+        <!-- Result Container (Initially hidden) -->
+        <div id="resultOptionB" class="hidden space-y-2.5 pt-4 border-t border-line relative z-10">
+          <div class="flex items-end justify-between">
+            <span id="percentOptionB" class="font-poke font-extrabold text-3xl sm:text-4xl text-pink-600 dark:text-pink-400 leading-none">
+              0%
+            </span>
+            <span id="votesOptionB" class="text-xs text-muted font-mono">
+              0 votos
+            </span>
+          </div>
+          <!-- Progress bar -->
+          <div class="w-full h-3 rounded-full bg-surface border border-line overflow-hidden p-0.5">
+            <div id="barOptionB" class="h-full rounded-full bg-gradient-to-r from-pink-500 to-rose-500 transition-all duration-700 ease-out" style="width: 0%;"></div>
+          </div>
+        </div>
+      </button>
+
+    </div>
+
+    <!-- Post-Vote Feedback Banner (Initially hidden) -->
+    <div id="resultFeedback" class="hidden">
+      <div class="flex items-center gap-3">
+        <div id="feedbackIcon" class="shrink-0"></div>
+        <div>
+          <h3 id="feedbackTitle" class="text-base sm:text-lg font-bold"></h3>
+          <p id="feedbackSubtitle" class="text-xs text-muted mt-0.5"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Bar Controls -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+      <button id="btnShare" type="button"
+        class="w-full sm:w-auto px-4 py-2.5 rounded-full border border-line bg-surface hover:border-purple-500 text-xs font-semibold text-ink transition flex items-center justify-center gap-2 shadow-xs">
+        <svg class="w-4 h-4 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        <span>Compartir dilema</span>
+      </button>
+
+      <button id="btnNext" type="button"
+        class="w-full sm:w-auto px-7 py-3 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 hover:opacity-95 text-white font-poke font-bold text-sm tracking-wide transition shadow-md shadow-purple-500/20 flex items-center justify-center gap-2">
+        <span>Siguiente dilema →</span>
+      </button>
+    </div>
+
+    <!-- Keyboard Navigation Helper (Desktop) -->
+    <div class="hidden md:flex items-center justify-center gap-4 text-[11px] text-muted/70 pt-2 font-mono">
+      <span>Presioná [1] o [←] para Opción A</span>
+      <span>·</span>
+      <span>Presioná [2] o [→] para Opción B</span>
+      <span>·</span>
+      <span>Presioná [Espacio] para el siguiente</span>
+    </div>
+
+  </main>
+
+  <!-- Share Toast Notification -->
+  <div id="shareToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-300">
+    <div class="px-4 py-2.5 rounded-full bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 shadow-xl text-xs font-semibold flex items-center gap-2">
+      <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <span id="toastText">Enlace copiado al portapapeles</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line py-6 text-center text-xs text-muted mt-auto">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <a href="/" class="font-poke font-bold text-sm text-ink hover:opacity-80 transition">Rankea2</a>
+        <span class="text-muted/60">·</span>
+        <span>¿Qué Prefieres? · 685 dilemas de la comunidad</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 text-muted/80">
+        <div class="flex items-center gap-3">
+          <a href="/" class="hover:text-ink transition">Arenas</a>
+          <a href="/aves/" class="hover:text-ink transition">Aves</a>
+          <a href="/pokemon/" class="hover:text-ink transition">Pokémon</a>
+          <a href="/flores/" class="hover:text-ink transition">Flores</a>
+          <a href="/mamiferos/" class="hover:text-ink transition">Mamíferos</a>
+        </div>
+        <span class="opacity-40">·</span>
+        <div>
+          <span>Creado por</span> <a href="https://github.com/fedep1011" target="_blank" rel="noopener" class="font-medium text-ink hover:text-purple-600 dark:hover:text-purple-400 underline underline-offset-4 transition">fedep1011</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/que-prefieres/main.js"></script>
+</body>
+</html>

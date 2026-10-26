@@ -1,0 +1,3602 @@
+[
+  {
+    "id": "41969",
+    "opcionA": "tener serias marcas de sudor debajo de los brazos",
+    "porcentajeA": "40%",
+    "opcionB": "no tener las manchas, pero oler como si las tuvieras",
+    "porcentajeB": "60%",
+    "votosTotales": 16804
+  },
+  {
+    "id": "5xijr",
+    "opcionA": "olvidarte de desearle un feliz cumpleaños a tu madre",
+    "porcentajeA": "9%",
+    "opcionB": "olvidar del nombre de tu suegra",
+    "porcentajeB": "91%",
+    "votosTotales": 15912
+  },
+  {
+    "id": "ctdoy",
+    "opcionA": "darte cuenta a mitad de una cita de que hay algo en tu nariz",
+    "porcentajeA": "6%",
+    "opcionB": "que tu cremallera estuvo abierta todo el tiempo",
+    "porcentajeB": "94%",
+    "votosTotales": 11252
+  },
+  {
+    "id": "ctziw",
+    "opcionA": "saber como morirás",
+    "porcentajeA": "45%",
+    "opcionB": "cuándo morirás",
+    "porcentajeB": "55%",
+    "votosTotales": 380310
+  },
+  {
+    "id": "cuics",
+    "opcionA": "vivir con la persona a tu izquierda",
+    "porcentajeA": "11%",
+    "opcionB": "vivir con la persona a tu derecha",
+    "porcentajeB": "89%",
+    "votosTotales": 10808
+  },
+  {
+    "id": "cvdmf",
+    "opcionA": "ser extremadamente alto/a",
+    "porcentajeA": "18%",
+    "opcionB": "extremadamente bajo/a",
+    "porcentajeB": "82%",
+    "votosTotales": 10785
+  },
+  {
+    "id": "cwva4",
+    "opcionA": "hacer el amor para enamorarte",
+    "porcentajeA": "6%",
+    "opcionB": "enamorarte para poder hacer el amor",
+    "porcentajeB": "94%",
+    "votosTotales": 11284
+  },
+  {
+    "id": "cyb8f",
+    "opcionA": "columpiarte por la jungla con monos pero nunca hablar de nuevo",
+    "porcentajeA": "52%",
+    "opcionB": "vivir en la civilización pero solo comunicarte con sonidos de mono",
+    "porcentajeB": "48%",
+    "votosTotales": 141434
+  },
+  {
+    "id": "d1tpr",
+    "opcionA": "bañarme en Nutella una vez a la semana pero nunca volver a comerla",
+    "porcentajeA": "74%",
+    "opcionB": "come Nutella todos los días pero nunca pruebo nada más",
+    "porcentajeB": "26%",
+    "votosTotales": 72117
+  },
+  {
+    "id": "d252o",
+    "opcionA": "que te pillen comiéndote un moco",
+    "porcentajeA": "3%",
+    "opcionB": "rascándote el trasero",
+    "porcentajeB": "97%",
+    "votosTotales": 10661
+  },
+  {
+    "id": "d3bmc",
+    "opcionA": "no recibir nada de dinero de una fuente anónima",
+    "porcentajeA": "9%",
+    "opcionB": "recibir una cantidad de crack equivalente a $10 millones en tu puerta",
+    "porcentajeB": "91%",
+    "votosTotales": 10560
+  },
+  {
+    "id": "d3y79",
+    "opcionA": "comer un gusano",
+    "porcentajeA": "8%",
+    "opcionB": "comer un saltamontes",
+    "porcentajeB": "92%",
+    "votosTotales": 10628
+  },
+  {
+    "id": "d4lc0",
+    "opcionA": "no poder sentir emociones nunca",
+    "porcentajeA": "5%",
+    "opcionB": "no poder demostrar emociones nunca",
+    "porcentajeB": "95%",
+    "votosTotales": 10711
+  },
+  {
+    "id": "d50td",
+    "opcionA": "ser un/a campeón/a de bolos",
+    "porcentajeA": "18%",
+    "opcionB": "un/a campeón/a de curling",
+    "porcentajeB": "82%",
+    "votosTotales": 10464
+  },
+  {
+    "id": "d8sw9",
+    "opcionA": "ganar $1 millón en la lotería",
+    "porcentajeA": "17%",
+    "opcionB": "duplicar tu esperanza de vida",
+    "porcentajeB": "83%",
+    "votosTotales": 10669
+  },
+  {
+    "id": "d9pq7",
+    "opcionA": "tener que publicar una foto de cada caca que haces en Instagram",
+    "porcentajeA": "6%",
+    "opcionB": "ver gente muerta como en la película El sexto sentido",
+    "porcentajeB": "94%",
+    "votosTotales": 10447
+  },
+  {
+    "id": "da6io",
+    "opcionA": "tener la vida de George Clooney",
+    "porcentajeA": "10%",
+    "opcionB": "la vida de un astronauta",
+    "porcentajeB": "90%",
+    "votosTotales": 10362
+  },
+  {
+    "id": "dbyo5",
+    "opcionA": "trabajar un trabajo de salario mínimo por el resto de su vida",
+    "porcentajeA": "12%",
+    "opcionB": "vivir en la naturaleza salvaje por el resto de tu vida",
+    "porcentajeB": "88%",
+    "votosTotales": 10517
+  },
+  {
+    "id": "dddtj",
+    "opcionA": "tener narcolepsia (dificultad para mantenerse despierto)",
+    "porcentajeA": "10%",
+    "opcionB": "tener insomnio (dificultad para conciliar el sueño)",
+    "porcentajeB": "90%",
+    "votosTotales": 11070
+  },
+  {
+    "id": "dgbbw",
+    "opcionA": "estar perdido/a en la cima de una montaña sin teléfono",
+    "porcentajeA": "15%",
+    "opcionB": "perdido/a en el mar con una sola bengala de socorro",
+    "porcentajeB": "85%",
+    "votosTotales": 10481
+  },
+  {
+    "id": "dhc67",
+    "opcionA": "que te priven de beber agua el resto de tu vida",
+    "porcentajeA": "8%",
+    "opcionB": "tener que hacer pipí cada 5 minutos",
+    "porcentajeB": "92%",
+    "votosTotales": 10422
+  },
+  {
+    "id": "dhfjh",
+    "opcionA": "tener que renunciar permanentemente a los alimentos salados",
+    "porcentajeA": "5%",
+    "opcionB": "tener que renunciar permanentemente a los dulces",
+    "porcentajeB": "95%",
+    "votosTotales": 10524
+  },
+  {
+    "id": "dktkk",
+    "opcionA": "tirarte pedos de colores",
+    "porcentajeA": "37%",
+    "opcionB": "tirarte pedos que suenen mucho",
+    "porcentajeB": "63%",
+    "votosTotales": 16991
+  },
+  {
+    "id": "dl4x3",
+    "opcionA": "ser una persona promedio en el presente",
+    "porcentajeA": "14%",
+    "opcionB": "el rey de un gran país hace 2500 años",
+    "porcentajeB": "86%",
+    "votosTotales": 10966
+  },
+  {
+    "id": "dmhbz",
+    "opcionA": "dejar de comer postres para siempre",
+    "porcentajeA": "81%",
+    "opcionB": "solo comer postres por el resto de tu vida",
+    "porcentajeB": "19%",
+    "votosTotales": 714
+  },
+  {
+    "id": "dp453",
+    "opcionA": "dejar que mueran 10 extraños",
+    "porcentajeA": "22%",
+    "opcionB": "un amigo tuyo",
+    "porcentajeB": "78%",
+    "votosTotales": 11038
+  },
+  {
+    "id": "dqfhy",
+    "opcionA": "perder un ojo y una mano",
+    "porcentajeA": "8%",
+    "opcionB": "perder una pierna y una oreja",
+    "porcentajeB": "92%",
+    "votosTotales": 11040
+  },
+  {
+    "id": "dtz9h",
+    "opcionA": "parecer estúpido/a sin ser estúpido en realidad",
+    "porcentajeA": "16%",
+    "opcionB": "ser realmente estúpido/a sin parecerlo",
+    "porcentajeB": "84%",
+    "votosTotales": 10399
+  },
+  {
+    "id": "dyalw",
+    "opcionA": "ser fluido en todos los idiomas pero perder tu lengua materna",
+    "porcentajeA": "67%",
+    "opcionB": "solo habla tu lengua materna y nunca entiendas otra",
+    "porcentajeB": "33%",
+    "votosTotales": 87391
+  },
+  {
+    "id": "dyj3i",
+    "opcionA": "revivir a Elvis",
+    "porcentajeA": "10%",
+    "opcionB": "revivir a Tupac",
+    "porcentajeB": "90%",
+    "votosTotales": 10644
+  },
+  {
+    "id": "dyj4c",
+    "opcionA": "tener familia pero no tener dinero",
+    "porcentajeA": "13%",
+    "opcionB": "no tener familia, pero con tres millones de dólares",
+    "porcentajeB": "87%",
+    "votosTotales": 10845
+  },
+  {
+    "id": "dz09o",
+    "opcionA": "salvar el mundo, vivir y permanecer desconocido/a",
+    "porcentajeA": "12%",
+    "opcionB": "salvar el mundo, pero morir como un héroe y aparecer en todos los libros de historia",
+    "porcentajeB": "88%",
+    "votosTotales": 10297
+  },
+  {
+    "id": "e1ffz",
+    "opcionA": "perder tu conexión a Internet durante 6 meses",
+    "porcentajeA": "10%",
+    "opcionB": "perder un dedo del pie",
+    "porcentajeB": "90%",
+    "votosTotales": 10416
+  },
+  {
+    "id": "e1jhy",
+    "opcionA": "vivir como un árbol en un gran bosque",
+    "porcentajeA": "15%",
+    "opcionB": "como un gusano",
+    "porcentajeB": "85%",
+    "votosTotales": 10490
+  },
+  {
+    "id": "e4avk",
+    "opcionA": "ir a un concierto más de Bob Marley",
+    "porcentajeA": "10%",
+    "opcionB": "ir a un concierto más de Michael Jackson",
+    "porcentajeB": "90%",
+    "votosTotales": 16026
+  },
+  {
+    "id": "e4ucb",
+    "opcionA": "descubrir un nuevo elemento de la tabla periódica",
+    "porcentajeA": "8%",
+    "opcionB": "ganar oro en los Juegos Olímpicos",
+    "porcentajeB": "92%",
+    "votosTotales": 10314
+  },
+  {
+    "id": "e5hau",
+    "opcionA": "tener una cocina permanentemente impecable y un dormitorio repugnante",
+    "porcentajeA": "9%",
+    "opcionB": "tener una cocina permanentemente repugnante y un dormitorio impecable",
+    "porcentajeB": "91%",
+    "votosTotales": 10166
+  },
+  {
+    "id": "e74l6",
+    "opcionA": "ser el hijo de un/a presidente/a",
+    "porcentajeA": "16%",
+    "opcionB": "ser el hijo de una celebridad",
+    "porcentajeB": "84%",
+    "votosTotales": 27468
+  },
+  {
+    "id": "e8k8s",
+    "opcionA": "lamer la suela de tu zapato",
+    "porcentajeA": "16%",
+    "opcionB": "lamer el pulgar del pie de un extraño",
+    "porcentajeB": "84%",
+    "votosTotales": 10773
+  },
+  {
+    "id": "e9f35",
+    "opcionA": "estar desnudo/a en la Antártida durante 4 horas",
+    "porcentajeA": "4%",
+    "opcionB": "vestido/a con traje de esquí en el desierto durante 4 horas",
+    "porcentajeB": "96%",
+    "votosTotales": 10118
+  },
+  {
+    "id": "e9jsr",
+    "opcionA": "tener como pelo césped",
+    "porcentajeA": "14%",
+    "opcionB": "una zanahoria de nariz",
+    "porcentajeB": "86%",
+    "votosTotales": 10221
+  },
+  {
+    "id": "eannp",
+    "opcionA": "perder un brazo salvando a un niño de un león",
+    "porcentajeA": "9%",
+    "opcionB": "dejar que el niño lo solucione",
+    "porcentajeB": "91%",
+    "votosTotales": 10942
+  },
+  {
+    "id": "easzt",
+    "opcionA": "tener que aprender a caminar de nuevo",
+    "porcentajeA": "10%",
+    "opcionB": "tener que aprender sobre cada fecha de la historia y por qué fueron importantes",
+    "porcentajeB": "90%",
+    "votosTotales": 10065
+  },
+  {
+    "id": "eeyay",
+    "opcionA": "creer que todo el mundo te quiere de verdad",
+    "porcentajeA": "9%",
+    "opcionB": "saber que todo el mundo te odia",
+    "porcentajeB": "91%",
+    "votosTotales": 10097
+  },
+  {
+    "id": "ejctr",
+    "opcionA": "poseer un barco pirata antiguo y su tripulación",
+    "porcentajeA": "4%",
+    "opcionB": "un jet privado con piloto y combustible infinito",
+    "porcentajeB": "96%",
+    "votosTotales": 10765
+  },
+  {
+    "id": "ekcs4",
+    "opcionA": "tirarte pedos ruidosos en todas las reuniones importantes",
+    "porcentajeA": "43%",
+    "opcionB": "nunca poder tirarte un pedo de nuevo, sin importar lo incómodo que sea",
+    "porcentajeB": "57%",
+    "votosTotales": 53585
+  },
+  {
+    "id": "elk03",
+    "opcionA": "ser un/a cantante famoso/a",
+    "porcentajeA": "43%",
+    "opcionB": "un/a doctor/a famoso/a",
+    "porcentajeB": "57%",
+    "votosTotales": 25841
+  },
+  {
+    "id": "ertos",
+    "opcionA": "tener 50 buenos amigos",
+    "porcentajeA": "2%",
+    "opcionB": "tener 3 mejores amigos súper cercanos",
+    "porcentajeB": "98%",
+    "votosTotales": 9988
+  },
+  {
+    "id": "eyepp",
+    "opcionA": "ser analfabeto, pero capaz de entender perfectamente lo que la gente te dice",
+    "porcentajeA": "15%",
+    "opcionB": "ser capaz de leer y escribir, pero incapaz de entender lo que la gente te dice",
+    "porcentajeB": "85%",
+    "votosTotales": 10266
+  },
+  {
+    "id": "ez5ye",
+    "opcionA": "trabajar 10 horas al día cuatro días a la semana",
+    "porcentajeA": "11%",
+    "opcionB": "trabajar 8 horas al día cinco días a la semana",
+    "porcentajeB": "89%",
+    "votosTotales": 10071
+  },
+  {
+    "id": "f1ws0",
+    "opcionA": "no poder limpiarte el trasero durante una semana",
+    "porcentajeA": "52%",
+    "opcionB": "tener dos mocos saliendo de cada fosa nasal durante un mes",
+    "porcentajeB": "48%",
+    "votosTotales": 36574
+  },
+  {
+    "id": "f27s9",
+    "opcionA": "tener 6 dedos",
+    "porcentajeA": "19%",
+    "opcionB": "tener 4 dedos",
+    "porcentajeB": "81%",
+    "votosTotales": 10940
+  },
+  {
+    "id": "f4aze",
+    "opcionA": "salvar a un bebé en unas vías de tren",
+    "porcentajeA": "14%",
+    "opcionB": "salvar a dos adultos en unas vías de tren",
+    "porcentajeB": "86%",
+    "votosTotales": 10563
+  },
+  {
+    "id": "f8n7z",
+    "opcionA": "tener ambos brazos en el mismo lado del cuerpo",
+    "porcentajeA": "10%",
+    "opcionB": "hacer caca cada vez que estornudas",
+    "porcentajeB": "90%",
+    "votosTotales": 10443
+  },
+  {
+    "id": "f9gig",
+    "opcionA": "tener un salario alto en un trabajo que odias",
+    "porcentajeA": "57%",
+    "opcionB": "tener un salario bajo en un trabajo que amas",
+    "porcentajeB": "43%",
+    "votosTotales": 274511
+  },
+  {
+    "id": "favc0",
+    "opcionA": "olvidar quién eres",
+    "porcentajeA": "12%",
+    "opcionB": "olvidar quiénes son los demás",
+    "porcentajeB": "88%",
+    "votosTotales": 10661
+  },
+  {
+    "id": "fbgim",
+    "opcionA": "no poder lavarte el cabello durante un mes",
+    "porcentajeA": "14%",
+    "opcionB": "afeitarte las piernas durante un mes",
+    "porcentajeB": "86%",
+    "votosTotales": 54284
+  },
+  {
+    "id": "ref33",
+    "opcionA": "acostarte con la celebridad que te gusta",
+    "porcentajeA": "20%",
+    "opcionB": "conseguir tu trabajo soñado",
+    "porcentajeB": "80%",
+    "votosTotales": 245147
+  },
+  {
+    "id": "ref34",
+    "opcionA": "pasar el resto de tu vida encerrado/a en casa",
+    "porcentajeA": "46%",
+    "opcionB": "atrapado/a al aire libre",
+    "porcentajeB": "54%",
+    "votosTotales": 246730
+  },
+  {
+    "id": "ref35",
+    "opcionA": "vivir en una sociedad distópica con control estricto",
+    "porcentajeA": "44%",
+    "opcionB": "una sociedad anárquica sin control",
+    "porcentajeB": "56%",
+    "votosTotales": 224157
+  },
+  {
+    "id": "tvbzn",
+    "opcionA": "no poder sentarte",
+    "porcentajeA": "62%",
+    "opcionB": "no poder estar de pie",
+    "porcentajeB": "38%",
+    "votosTotales": 233865
+  },
+  {
+    "id": "ref36",
+    "opcionA": "ver fantasmas por todas partes",
+    "porcentajeA": "72%",
+    "opcionB": "ser perseguido por un solo espíritu persistente",
+    "porcentajeB": "28%",
+    "votosTotales": 229559
+  },
+  {
+    "id": "zs59l",
+    "opcionA": "ser poco atractivo/a y tener una pareja atractiva",
+    "porcentajeA": "37%",
+    "opcionB": "ser atractivo/a y tener una pareja poco atractiva",
+    "porcentajeB": "63%",
+    "votosTotales": 357349
+  },
+  {
+    "id": "ref37",
+    "opcionA": "participar en un show de citas",
+    "porcentajeA": "23%",
+    "opcionB": "en un show de supervivencia",
+    "porcentajeB": "77%",
+    "votosTotales": 356107
+  },
+  {
+    "id": "ref38",
+    "opcionA": "encontrar el amor verdadero",
+    "porcentajeA": "28%",
+    "opcionB": "ganar la lotería",
+    "porcentajeB": "72%",
+    "votosTotales": 357475
+  },
+  {
+    "id": "ref39",
+    "opcionA": "votar por Kamala Harris",
+    "porcentajeA": "57%",
+    "opcionB": "Donald Trump",
+    "porcentajeB": "43%",
+    "votosTotales": 203077
+  },
+  {
+    "id": "ref40",
+    "opcionA": "encubrir el crimen de un amigo",
+    "porcentajeA": "62%",
+    "opcionB": "entregarlo a la policía",
+    "porcentajeB": "38%",
+    "votosTotales": 218388
+  },
+  {
+    "id": "ref41",
+    "opcionA": "que tu familia y amigos lean todo tu historial de búsqueda",
+    "porcentajeA": "66%",
+    "opcionB": "ser grabado/a en secreto mientras estás solo/a en casa y que todos lo vean",
+    "porcentajeB": "34%",
+    "votosTotales": 209704
+  },
+  {
+    "id": "ref42",
+    "opcionA": "ser una persona de gatos",
+    "porcentajeA": "44%",
+    "opcionB": "ser una persona de perros",
+    "porcentajeB": "56%",
+    "votosTotales": 201140
+  },
+  {
+    "id": "ref43",
+    "opcionA": "ganar $1 por cada paso que das",
+    "porcentajeA": "75%",
+    "opcionB": "ganar $100 cada 2 horas",
+    "porcentajeB": "25%",
+    "votosTotales": 207811
+  },
+  {
+    "id": "ref44",
+    "opcionA": "estar siempre borracho/a",
+    "porcentajeA": "40%",
+    "opcionB": "estar siempre drogado/a",
+    "porcentajeB": "60%",
+    "votosTotales": 205579
+  },
+  {
+    "id": "ref45",
+    "opcionA": "pasar un año sin redes sociales",
+    "porcentajeA": "38%",
+    "opcionB": "un año sin servicios de streaming",
+    "porcentajeB": "62%",
+    "votosTotales": 198954
+  },
+  {
+    "id": "ref46",
+    "opcionA": "tener un compañero de cuarto que siempre hace ruido",
+    "porcentajeA": "64%",
+    "opcionB": "uno que nunca limpia",
+    "porcentajeB": "36%",
+    "votosTotales": 202129
+  },
+  {
+    "id": "ref47",
+    "opcionA": "vivir sin tu teléfono por una semana",
+    "porcentajeA": "16%",
+    "opcionB": "sin café o té por una semana",
+    "porcentajeB": "84%",
+    "votosTotales": 207557
+  },
+  {
+    "id": "ref48",
+    "opcionA": "lograr tu mayor meta profesional pero perder a todos tus amigos",
+    "porcentajeA": "53%",
+    "opcionB": "conservar a tus amigos pero nunca alcanzar esa meta",
+    "porcentajeB": "47%",
+    "votosTotales": 200848
+  },
+  {
+    "id": "ref49",
+    "opcionA": "salir con alguien aventurero pero impredecible",
+    "porcentajeA": "24%",
+    "opcionB": "alguien confiable pero rutinario",
+    "porcentajeB": "76%",
+    "votosTotales": 326352
+  },
+  {
+    "id": "ref50",
+    "opcionA": "usar calcetines mojados todos los días",
+    "porcentajeA": "65%",
+    "opcionB": "usar ropa interior húmeda todos los días",
+    "porcentajeB": "35%",
+    "votosTotales": 192497
+  },
+  {
+    "id": "ref51",
+    "opcionA": "sentir siempre un poco de frío",
+    "porcentajeA": "62%",
+    "opcionB": "sentir siempre un poco de hambre",
+    "porcentajeB": "38%",
+    "votosTotales": 196471
+  },
+  {
+    "id": "ref52",
+    "opcionA": "vivir sin ningún tipo de entretenimiento (películas, juegos, libros)",
+    "porcentajeA": "56%",
+    "opcionB": "vivir sin interacciones sociales",
+    "porcentajeB": "44%",
+    "votosTotales": 191254
+  },
+  {
+    "id": "ref53",
+    "opcionA": "tener la habilidad de borrar los recuerdos de otras personas",
+    "porcentajeA": "41%",
+    "opcionB": "controlarlas temporalmente",
+    "porcentajeB": "59%",
+    "votosTotales": 188632
+  },
+  {
+    "id": "ref54",
+    "opcionA": "despertar siempre cansado/a",
+    "porcentajeA": "41%",
+    "opcionB": "nunca poder dormirte fácilmente",
+    "porcentajeB": "59%",
+    "votosTotales": 186325
+  },
+  {
+    "id": "ref55",
+    "opcionA": "vivir en un mundo sin arte",
+    "porcentajeA": "58%",
+    "opcionB": "vivir en un mundo sin internet",
+    "porcentajeB": "42%",
+    "votosTotales": 182321
+  },
+  {
+    "id": "ref56",
+    "opcionA": "renunciar a tu comida de comfort favorita",
+    "porcentajeA": "15%",
+    "opcionB": "a tu serie de televisión favorita por un año",
+    "porcentajeB": "85%",
+    "votosTotales": 169804
+  },
+  {
+    "id": "ref57",
+    "opcionA": "tener un mejor amigo brutalmente honesto",
+    "porcentajeA": "85%",
+    "opcionB": "uno que siempre te dice lo que quieres escuchar",
+    "porcentajeB": "15%",
+    "votosTotales": 181318
+  },
+  {
+    "id": "ref58",
+    "opcionA": "Ver doble todo el tiempo",
+    "porcentajeA": "37%",
+    "opcionB": "que todo lo que escuches tenga eco",
+    "porcentajeB": "63%",
+    "votosTotales": 174310
+  },
+  {
+    "id": "ref59",
+    "opcionA": "pelear con multitudes por las mejores ofertas",
+    "porcentajeA": "42%",
+    "opcionB": "perderte las rebajas pero evitar el caos",
+    "porcentajeB": "58%",
+    "votosTotales": 157731
+  },
+  {
+    "id": "ref60",
+    "opcionA": "nunca poder usar tu mano dominante",
+    "porcentajeA": "69%",
+    "opcionB": "solo poder caminar hacia atrás",
+    "porcentajeB": "31%",
+    "votosTotales": 167825
+  },
+  {
+    "id": "ref61",
+    "opcionA": "hablar con tu yo del pasado",
+    "porcentajeA": "34%",
+    "opcionB": "con tu yo del futuro",
+    "porcentajeB": "66%",
+    "votosTotales": 154292
+  },
+  {
+    "id": "ref62",
+    "opcionA": "tener un pavo como mascota por un año",
+    "porcentajeA": "46%",
+    "opcionB": "matar al pavo que comerás en Acción de Gracias",
+    "porcentajeB": "54%",
+    "votosTotales": 165352
+  },
+  {
+    "id": "ref63",
+    "opcionA": "tener hipo durante una semana",
+    "porcentajeA": "48%",
+    "opcionB": "escuchar un bebé llorar sin parar durante 24 horas",
+    "porcentajeB": "52%",
+    "votosTotales": 173431
+  },
+  {
+    "id": "ref64",
+    "opcionA": "dejar que alguien a quien amas cometa un error que le cambie la vida",
+    "porcentajeA": "28%",
+    "opcionB": "intervenir y arriesgarte a perder su confianza para siempre",
+    "porcentajeB": "72%",
+    "votosTotales": 160992
+  },
+  {
+    "id": "ref65",
+    "opcionA": "ver solo películas navideñas durante todo diciembre",
+    "porcentajeA": "66%",
+    "opcionB": "escuchar solo música navideña durante todo diciembre",
+    "porcentajeB": "34%",
+    "votosTotales": 162033
+  },
+  {
+    "id": "ref66",
+    "opcionA": "vivir en un mundo sin películas de Disney",
+    "porcentajeA": "22%",
+    "opcionB": "un mundo sin parques temáticos de Disney",
+    "porcentajeB": "78%",
+    "votosTotales": 142396
+  },
+  {
+    "id": "82vo7",
+    "opcionA": "recibir un regalo hecho a mano que no te gusta",
+    "porcentajeA": "14%",
+    "opcionB": "un regalo comprado en tienda que te encanta",
+    "porcentajeB": "86%",
+    "votosTotales": 144316
+  },
+  {
+    "id": "ref68",
+    "opcionA": "comer solamente galletas por el resto de tu vida",
+    "porcentajeA": "14%",
+    "opcionB": "nunca volver a comer una galleta jamás",
+    "porcentajeB": "86%",
+    "votosTotales": 164820
+  },
+  {
+    "id": "9axjo",
+    "opcionA": "dominar cualquier arte marcial pero nunca usarlas",
+    "porcentajeA": "44%",
+    "opcionB": "saber un movimiento que solo funciona una vez",
+    "porcentajeB": "56%",
+    "votosTotales": 138940
+  },
+  {
+    "id": "a8ldk",
+    "opcionA": "recibir un regalo que odias cada año",
+    "porcentajeA": "24%",
+    "opcionB": "nunca recibir un regalo, pero siempre dar uno perfecto",
+    "porcentajeB": "76%",
+    "votosTotales": 138143
+  },
+  {
+    "id": "15tpm",
+    "opcionA": "tener libertad absoluta sin seguridad",
+    "porcentajeA": "77%",
+    "opcionB": "seguridad plena pero sin libertad",
+    "porcentajeB": "23%",
+    "votosTotales": 195495
+  },
+  {
+    "id": "ref74",
+    "opcionA": "escalar la montaña más alta sin equipamiento",
+    "porcentajeA": "19%",
+    "opcionB": "vivir en la base de una montaña pero nunca poder escalarla",
+    "porcentajeB": "81%",
+    "votosTotales": 149714
+  },
+  {
+    "id": "ref75",
+    "opcionA": "vivir en una casa de jengibre que siempre atrae bichos",
+    "porcentajeA": "10%",
+    "opcionB": "nunca poder comer jengibre otra vez",
+    "porcentajeB": "90%",
+    "votosTotales": 139701
+  },
+  {
+    "id": "dlm6j",
+    "opcionA": "tener libertad de expresión absoluta pero cero privacidad",
+    "porcentajeA": "36%",
+    "opcionB": "privacidad completa pero con libertad restringida",
+    "porcentajeB": "64%",
+    "votosTotales": 134021
+  },
+  {
+    "id": "00g7c",
+    "opcionA": "comer brócoli cubierto de chocolate en cada comida",
+    "porcentajeA": "31%",
+    "opcionB": "nunca volver a probar el chocolate",
+    "porcentajeB": "69%",
+    "votosTotales": 199281
+  },
+  {
+    "id": "0nh5e",
+    "opcionA": "inventar una tecnología revolucionaria pero nunca recibir crédito",
+    "porcentajeA": "17%",
+    "opcionB": "ser famoso/a por una invención pequeña",
+    "porcentajeB": "83%",
+    "votosTotales": 316334
+  },
+  {
+    "id": "15a6a",
+    "opcionA": "hornear galletas que saben increíble pero se ven horribles",
+    "porcentajeA": "95%",
+    "opcionB": "galletas que se ven perfectas pero saben horrible",
+    "porcentajeB": "5%",
+    "votosTotales": 122938
+  },
+  {
+    "id": "4bxl5",
+    "opcionA": "cantar villancicos de puerta en puerta en una tormenta de nieve",
+    "porcentajeA": "38%",
+    "opcionB": "escuchar a villancicos desafinados afuera de tu ventana toda la noche",
+    "porcentajeB": "62%",
+    "votosTotales": 116987
+  },
+  {
+    "id": "1abot",
+    "opcionA": "comer solo pan de dátiles por el resto de tu vida",
+    "porcentajeA": "28%",
+    "opcionB": "nunca volver a probar ningún pan",
+    "porcentajeB": "72%",
+    "votosTotales": 147098
+  },
+  {
+    "id": "ref86",
+    "opcionA": "expresar tus quejas más profundas públicamente",
+    "porcentajeA": "35%",
+    "opcionB": "participar en un desafío físico contra tu rival más fuerte, cada año",
+    "porcentajeB": "65%",
+    "votosTotales": 111006
+  },
+  {
+    "id": "ref87",
+    "opcionA": "recibir un regalo que odias de un ser querido",
+    "porcentajeA": "70%",
+    "opcionB": "dar un regalo que sabes que odiarán pero fingirán amar",
+    "porcentajeB": "30%",
+    "votosTotales": 115211
+  },
+  {
+    "id": "ref88",
+    "opcionA": "abrir todos tus regalos y que ninguno te guste",
+    "porcentajeA": "66%",
+    "opcionB": "dar regalos que a nadie le gusten",
+    "porcentajeB": "34%",
+    "votosTotales": 121736
+  },
+  {
+    "id": "hgkru",
+    "opcionA": "comer un pastel de frutas hecho de ingredientes misteriosos",
+    "porcentajeA": "73%",
+    "opcionB": "nunca volver a celebrar ninguna festividad",
+    "porcentajeB": "27%",
+    "votosTotales": 101767
+  },
+  {
+    "id": "ref91",
+    "opcionA": "siempre ganar en los juegos de cartas pero perder a todos tus amigos",
+    "porcentajeA": "21%",
+    "opcionB": "siempre perder pero ser el alma de la fiesta",
+    "porcentajeB": "79%",
+    "votosTotales": 120640
+  },
+  {
+    "id": "vzakf",
+    "opcionA": "tener el poder de detener el tiempo, pero envejecer el doble de rápido",
+    "porcentajeA": "70%",
+    "opcionB": "nunca envejecer pero estar atrapado en un solo momento para siempre",
+    "porcentajeB": "30%",
+    "votosTotales": 110922
+  },
+  {
+    "id": "x52xt",
+    "opcionA": "dejar el tocino para siempre por la paz mundial",
+    "porcentajeA": "79%",
+    "opcionB": "comer tocino ilimitado pero causar caos global",
+    "porcentajeB": "21%",
+    "votosTotales": 102918
+  },
+  {
+    "id": "ref94",
+    "opcionA": "pasar la víspera de Año Nuevo solo/a en casa con tus snacks y series favoritas",
+    "porcentajeA": "68%",
+    "opcionB": "ir a una fiesta llena de gente que apenas conoces",
+    "porcentajeB": "32%",
+    "votosTotales": 113373
+  },
+  {
+    "id": "b1941",
+    "opcionA": "ser la persona más atractiva del mundo, PERO todos piensan que eres tonto/a",
+    "porcentajeA": "41%",
+    "opcionB": "ser un genio brillante, PERO todos creen que eres grosero/a",
+    "porcentajeB": "59%",
+    "votosTotales": 1548
+  },
+  {
+    "id": "uj3eo",
+    "opcionA": "tener 10 hermanos y hermanas",
+    "porcentajeA": "36%",
+    "opcionB": "ser hijo único",
+    "porcentajeB": "64%",
+    "votosTotales": 39020
+  },
+  {
+    "id": "0f49a",
+    "opcionA": "poder crear instantáneamente cualquier obra de arte con fines de lucro",
+    "porcentajeA": "40%",
+    "opcionB": "poder reparar instantáneamente cualquier artículo roto con fines de lucro",
+    "porcentajeB": "60%",
+    "votosTotales": 54015
+  },
+  {
+    "id": "39m6s",
+    "opcionA": "hacer que las plantas crezcan muy rápido",
+    "porcentajeA": "40%",
+    "opcionB": "poder hacer que llueva cuando quieras",
+    "porcentajeB": "60%",
+    "votosTotales": 74772
+  },
+  {
+    "id": "0fki5",
+    "opcionA": "actuar para una audiencia de 100.000 personas",
+    "porcentajeA": "42%",
+    "opcionB": "dar un concierto privado para tu ídolo",
+    "porcentajeB": "58%",
+    "votosTotales": 84410
+  },
+  {
+    "id": "06wqh",
+    "opcionA": "tener un empleo fácil trabajando para otra persona",
+    "porcentajeA": "48%",
+    "opcionB": "trabajar por ti mismo, pero trabajar increíblemente duro",
+    "porcentajeB": "52%",
+    "votosTotales": 136374
+  },
+  {
+    "id": "7prlf",
+    "opcionA": "hablar como Yoda",
+    "porcentajeA": "52%",
+    "opcionB": "respirar como Darth Vader",
+    "porcentajeB": "48%",
+    "votosTotales": 352800
+  },
+  {
+    "id": "x6gxe",
+    "opcionA": "no cambiarte los calcetines",
+    "porcentajeA": "79%",
+    "opcionB": "tu ropa interior por un mes",
+    "porcentajeB": "21%",
+    "votosTotales": 88593
+  },
+  {
+    "id": "tlju9",
+    "opcionA": "dormir en la cama de tus padres de por vida",
+    "porcentajeA": "62%",
+    "opcionB": "llorar cada vez que cruces la mirada con alguien",
+    "porcentajeB": "38%",
+    "votosTotales": 98550
+  },
+  {
+    "id": "0aw8u",
+    "opcionA": "vivir solo en una mansión enorme",
+    "porcentajeA": "38%",
+    "opcionB": "vivir en un apartamento modesto con tus seres queridos",
+    "porcentajeB": "62%",
+    "votosTotales": 103937
+  },
+  {
+    "id": "zdpby",
+    "opcionA": "comer un insecto vivo todos los días",
+    "porcentajeA": "53%",
+    "opcionB": "beber un vaso de agua de estanque todos los días",
+    "porcentajeB": "47%",
+    "votosTotales": 103341
+  },
+  {
+    "id": "05tfw",
+    "opcionA": "deber siempre a alguien una pequeña cantidad de dinero",
+    "porcentajeA": "17%",
+    "opcionB": "que siempre te deban una pequeña cantidad de dinero",
+    "porcentajeB": "83%",
+    "votosTotales": 124286
+  },
+  {
+    "id": "g4kvf",
+    "opcionA": "comer una hamburguesa",
+    "porcentajeA": "74%",
+    "opcionB": "un filete de queso Philly",
+    "porcentajeB": "26%",
+    "votosTotales": 153817
+  },
+  {
+    "id": "1khmr",
+    "opcionA": "tener una relación abierta",
+    "porcentajeA": "26%",
+    "opcionB": "una relación monógama",
+    "porcentajeB": "74%",
+    "votosTotales": 127923
+  },
+  {
+    "id": "vggn3",
+    "opcionA": "explorar el espacio",
+    "porcentajeA": "62%",
+    "opcionB": "el océano",
+    "porcentajeB": "38%",
+    "votosTotales": 126602
+  },
+  {
+    "id": "r7mvz",
+    "opcionA": "comer tacos",
+    "porcentajeA": "53%",
+    "opcionB": "comer sushi",
+    "porcentajeB": "47%",
+    "votosTotales": 191159
+  },
+  {
+    "id": "oxpva",
+    "opcionA": "ser la persona más fuerte en tu deporte",
+    "porcentajeA": "69%",
+    "opcionB": "ser la persona más flexible en tu deporte",
+    "porcentajeB": "31%",
+    "votosTotales": 138075
+  },
+  {
+    "id": "6yye5",
+    "opcionA": "competir en todos los deportes olímpicos de verano",
+    "porcentajeA": "59%",
+    "opcionB": "competir en todos los deportes olímpicos de invierno",
+    "porcentajeB": "41%",
+    "votosTotales": 132829
+  },
+  {
+    "id": "147mo",
+    "opcionA": "ser forzado a expresarte en rimas por el resto de tu vida",
+    "porcentajeA": "41%",
+    "opcionB": "obligado a repetir la última palabra de cada frase que se te dice",
+    "porcentajeB": "59%",
+    "votosTotales": 153150
+  },
+  {
+    "id": "2nm3k",
+    "opcionA": "ser atacado/a por zombis",
+    "porcentajeA": "57%",
+    "opcionB": "por marcianos",
+    "porcentajeB": "43%",
+    "votosTotales": 154003
+  },
+  {
+    "id": "6062x",
+    "opcionA": "ser el único humano que queda en la Tierra",
+    "porcentajeA": "35%",
+    "opcionB": "estar rodeado de humanos pero no poder comunicarte con ellos",
+    "porcentajeB": "65%",
+    "votosTotales": 147748
+  },
+  {
+    "id": "4jh0g",
+    "opcionA": "ir al espacio exterior",
+    "porcentajeA": "84%",
+    "opcionB": "ir al centro de la tierra",
+    "porcentajeB": "16%",
+    "votosTotales": 157110
+  },
+  {
+    "id": "03d3q",
+    "opcionA": "ser mejor amigo/a de Zendaya, PERO que Tom Holland te odie",
+    "porcentajeA": "40%",
+    "opcionB": "ser mejor amigo/a de Tom Holland, PERO que Zendaya te odie",
+    "porcentajeB": "60%",
+    "votosTotales": 229790
+  },
+  {
+    "id": "18csu",
+    "opcionA": "tener el último smartphone cada año, PERO te bombardean con anuncios todo el día",
+    "porcentajeA": "44%",
+    "opcionB": "tener todas las apps completamente sin anuncios, PERO el volumen está siempre al máximo",
+    "porcentajeB": "56%",
+    "votosTotales": 193255
+  },
+  {
+    "id": "jaxk8",
+    "opcionA": "tener que lamerte como un gato para limpiarte",
+    "porcentajeA": "33%",
+    "opcionB": "ducharte solamente una vez al mes",
+    "porcentajeB": "67%",
+    "votosTotales": 224256
+  },
+  {
+    "id": "60stb",
+    "opcionA": "quedarte en cama todo el dia",
+    "porcentajeA": "38%",
+    "opcionB": "estar despierto/a toda la noche",
+    "porcentajeB": "62%",
+    "votosTotales": 184840
+  },
+  {
+    "id": "12ghq",
+    "opcionA": "pasar un día como una mega estrella del pop",
+    "porcentajeA": "64%",
+    "opcionB": "pasar un día como un director estimado y galardonado",
+    "porcentajeB": "36%",
+    "votosTotales": 174222
+  },
+  {
+    "id": "63k6x",
+    "opcionA": "cortar tu mano derecha",
+    "porcentajeA": "16%",
+    "opcionB": "cortar tu mano izquierda",
+    "porcentajeB": "84%",
+    "votosTotales": 183663
+  },
+  {
+    "id": "78fwq",
+    "opcionA": "ser un informante que expone la corrupción del gobierno",
+    "porcentajeA": "51%",
+    "opcionB": "un alto funcionario en una administración corrupta",
+    "porcentajeB": "49%",
+    "votosTotales": 561939
+  },
+  {
+    "id": "8fqoz",
+    "opcionA": "poder controlar las emociones de las personas a tu alrededor",
+    "porcentajeA": "46%",
+    "opcionB": "controlar tus propias emociones perfectamente",
+    "porcentajeB": "54%",
+    "votosTotales": 546572
+  },
+  {
+    "id": "zp313",
+    "opcionA": "ser condenado/a por un crimen que no cometiste",
+    "porcentajeA": "20%",
+    "opcionB": "matar y salir impune",
+    "porcentajeB": "80%",
+    "votosTotales": 532916
+  },
+  {
+    "id": "o7fas",
+    "opcionA": "tener un botón de pausa para tu vida",
+    "porcentajeA": "32%",
+    "opcionB": "un botón de rebobinar",
+    "porcentajeB": "68%",
+    "votosTotales": 520201
+  },
+  {
+    "id": "hau62",
+    "opcionA": "no tener emociones",
+    "porcentajeA": "36%",
+    "opcionB": "sentir demasiado",
+    "porcentajeB": "64%",
+    "votosTotales": 651735
+  },
+  {
+    "id": "ref01",
+    "opcionA": "enviar por accidente un mensaje picante a un miembro de tu familia",
+    "porcentajeA": "44%",
+    "opcionB": "enviárselo a tu jefe",
+    "porcentajeB": "56%",
+    "votosTotales": 446321
+  },
+  {
+    "id": "7sxgj",
+    "opcionA": "estar enfermo/a por el resto de tu vida",
+    "porcentajeA": "30%",
+    "opcionB": "matar a un gatito",
+    "porcentajeB": "70%",
+    "votosTotales": 454115
+  },
+  {
+    "id": "k8tjv",
+    "opcionA": "estar atrapado/a en una isla con un asesino",
+    "porcentajeA": "86%",
+    "opcionB": "estar atrapado/a en el océano con tiburones hambrientos",
+    "porcentajeB": "14%",
+    "votosTotales": 444489
+  },
+  {
+    "id": "nqw5b",
+    "opcionA": "construir algo bueno",
+    "porcentajeA": "58%",
+    "opcionB": "destruir algo malo",
+    "porcentajeB": "42%",
+    "votosTotales": 424618
+  },
+  {
+    "id": "yre03",
+    "opcionA": "saber cuando morirás",
+    "porcentajeA": "59%",
+    "opcionB": "cuando morirá la persona que amas",
+    "porcentajeB": "41%",
+    "votosTotales": 441912
+  },
+  {
+    "id": "sktlu",
+    "opcionA": "Despiezar tú mismo/a la carne que comes por el resto de tu vida",
+    "porcentajeA": "51%",
+    "opcionB": "nunca volver a comer carne",
+    "porcentajeB": "49%",
+    "votosTotales": 420574
+  },
+  {
+    "id": "zpufl",
+    "opcionA": "cambiar tu religión",
+    "porcentajeA": "34%",
+    "opcionB": "cambia tu partido político",
+    "porcentajeB": "66%",
+    "votosTotales": 415016
+  },
+  {
+    "id": "176pd",
+    "opcionA": "ir siempre muy arreglado/a",
+    "porcentajeA": "76%",
+    "opcionB": "ir siempre muy desarreglado/a",
+    "porcentajeB": "24%",
+    "votosTotales": 411475
+  },
+  {
+    "id": "ref02",
+    "opcionA": "que todos conozcan tu secreto más oscuro",
+    "porcentajeA": "31%",
+    "opcionB": "que todos crean un rumor falso pero vergonzoso sobre ti",
+    "porcentajeB": "69%",
+    "votosTotales": 415446
+  },
+  {
+    "id": "to78h",
+    "opcionA": "luchar contra un oso con un cuchillo de mantequilla",
+    "porcentajeA": "34%",
+    "opcionB": "luchar contra un lobo con tus propias manos",
+    "porcentajeB": "66%",
+    "votosTotales": 405524
+  },
+  {
+    "id": "s1oym",
+    "opcionA": "morir de frio",
+    "porcentajeA": "78%",
+    "opcionB": "arder hasta la muerte",
+    "porcentajeB": "22%",
+    "votosTotales": 405250
+  },
+  {
+    "id": "kzhzb",
+    "opcionA": "que te paguen por leer libros",
+    "porcentajeA": "31%",
+    "opcionB": "por ver la televisión",
+    "porcentajeB": "69%",
+    "votosTotales": 385174
+  },
+  {
+    "id": "ref03",
+    "opcionA": "sentir que siempre estás a punto de estornudar pero no puedes",
+    "porcentajeA": "67%",
+    "opcionB": "tener una picazón permanente que no puedes rascarte",
+    "porcentajeB": "33%",
+    "votosTotales": 400935
+  },
+  {
+    "id": "ref04",
+    "opcionA": "dejar de bañarte por un mes",
+    "porcentajeA": "39%",
+    "opcionB": "dejar el internet por un mes",
+    "porcentajeB": "61%",
+    "votosTotales": 374031
+  },
+  {
+    "id": "qtdsl",
+    "opcionA": "saber la incómoda verdad del mundo",
+    "porcentajeA": "60%",
+    "opcionB": "vivir una mentira cómoda",
+    "porcentajeB": "40%",
+    "votosTotales": 366252
+  },
+  {
+    "id": "ref05",
+    "opcionA": "tener memoria fotográfica",
+    "porcentajeA": "71%",
+    "opcionB": "poder olvidar lo que quieras",
+    "porcentajeB": "29%",
+    "votosTotales": 392157
+  },
+  {
+    "id": "ref06",
+    "opcionA": "estar constantemente cansado/a sin importar cuánto duermas",
+    "porcentajeA": "50%",
+    "opcionB": "constantemente hambriento/a sin importar cuánto comas",
+    "porcentajeB": "50%",
+    "votosTotales": 381206
+  },
+  {
+    "id": "y8004",
+    "opcionA": "vivir sin YouTube",
+    "porcentajeA": "24%",
+    "opcionB": "sin TikTok",
+    "porcentajeB": "76%",
+    "votosTotales": 353538
+  },
+  {
+    "id": "ref07",
+    "opcionA": "tener que compartir públicamente tu historial de búsqueda",
+    "porcentajeA": "56%",
+    "opcionB": "tu galería de fotos",
+    "porcentajeB": "44%",
+    "votosTotales": 374880
+  },
+  {
+    "id": "ref08",
+    "opcionA": "salvar a una persona que amas de un edificio en llamas",
+    "porcentajeA": "80%",
+    "opcionB": "salvar a 100 desconocidos",
+    "porcentajeB": "20%",
+    "votosTotales": 366409
+  },
+  {
+    "id": "ref09",
+    "opcionA": "tener un IQ extremadamente alto pero ser socialmente torpe",
+    "porcentajeA": "63%",
+    "opcionB": "ser extremadamente carismático/a pero con un IQ bajo",
+    "porcentajeB": "37%",
+    "votosTotales": 365212
+  },
+  {
+    "id": "ref10",
+    "opcionA": "tener un cuerpo perfecto pero una cara poco atractiva",
+    "porcentajeA": "30%",
+    "opcionB": "tener una cara atractiva pero un cuerpo imperfecto",
+    "porcentajeB": "70%",
+    "votosTotales": 350388
+  },
+  {
+    "id": "ref11",
+    "opcionA": "cambiar aspectos de tu personalidad",
+    "porcentajeA": "30%",
+    "opcionB": "cambiar aspectos de tu apariencia",
+    "porcentajeB": "70%",
+    "votosTotales": 334584
+  },
+  {
+    "id": "0xeez",
+    "opcionA": "vivir sin música",
+    "porcentajeA": "16%",
+    "opcionB": "vivir sin libros",
+    "porcentajeB": "84%",
+    "votosTotales": 340943
+  },
+  {
+    "id": "ref12",
+    "opcionA": "tener un millón de seguidores en redes sociales",
+    "porcentajeA": "16%",
+    "opcionB": "tener un millón de dólares",
+    "porcentajeB": "84%",
+    "votosTotales": 332641
+  },
+  {
+    "id": "ref13",
+    "opcionA": "tener más tiempo",
+    "porcentajeA": "36%",
+    "opcionB": "tener más dinero",
+    "porcentajeB": "64%",
+    "votosTotales": 356711
+  },
+  {
+    "id": "ref14",
+    "opcionA": "vivir una vida sin miedo",
+    "porcentajeA": "47%",
+    "opcionB": "una vida sin dolor",
+    "porcentajeB": "53%",
+    "votosTotales": 362572
+  },
+  {
+    "id": "ref15",
+    "opcionA": "tener la habilidad de ver a todos desnudos",
+    "porcentajeA": "18%",
+    "opcionB": "tener la habilidad de leer la mente de todos",
+    "porcentajeB": "82%",
+    "votosTotales": 355471
+  },
+  {
+    "id": "recob",
+    "opcionA": "estar solo/a por el resto de tu vida",
+    "porcentajeA": "58%",
+    "opcionB": "estar siempre rodeado/a de gente molesta",
+    "porcentajeB": "42%",
+    "votosTotales": 355273
+  },
+  {
+    "id": "es796",
+    "opcionA": "ser atacado/a por un león",
+    "porcentajeA": "40%",
+    "opcionB": "por 100 gatos totalmente agresivos",
+    "porcentajeB": "60%",
+    "votosTotales": 346529
+  },
+  {
+    "id": "ref16",
+    "opcionA": "enviar accidentalmente una selfie desnudo/a a tus padres",
+    "porcentajeA": "62%",
+    "opcionB": "a los padres de tu pareja",
+    "porcentajeB": "38%",
+    "votosTotales": 317600
+  },
+  {
+    "id": "ref17",
+    "opcionA": "hacerte viral por algo vergonzoso",
+    "porcentajeA": "24%",
+    "opcionB": "nunca hacerte viral",
+    "porcentajeB": "76%",
+    "votosTotales": 309074
+  },
+  {
+    "id": "ref18",
+    "opcionA": "dejar de tomar café por un mes",
+    "porcentajeA": "76%",
+    "opcionB": "dejar las redes sociales por un mes",
+    "porcentajeB": "24%",
+    "votosTotales": 326397
+  },
+  {
+    "id": "ref19",
+    "opcionA": "ser alérgico al chocolate",
+    "porcentajeA": "78%",
+    "opcionB": "ser alérgico a los smartphones",
+    "porcentajeB": "22%",
+    "votosTotales": 334347
+  },
+  {
+    "id": "ref20",
+    "opcionA": "enfrentarte a un líder político poderoso y enfrentar las consecuencias",
+    "porcentajeA": "28%",
+    "opcionB": "quedarte callado/a y protegerte a ti mismo/a",
+    "porcentajeB": "72%",
+    "votosTotales": 313953
+  },
+  {
+    "id": "ref21",
+    "opcionA": "salvar a una especie en peligro de extinción",
+    "porcentajeA": "20%",
+    "opcionB": "poder hablar con los animales",
+    "porcentajeB": "80%",
+    "votosTotales": 312903
+  },
+  {
+    "id": "ref22",
+    "opcionA": "tener acceso a documentos gubernamentales clasificados",
+    "porcentajeA": "27%",
+    "opcionB": "la habilidad de influir en la bolsa de valores global",
+    "porcentajeB": "73%",
+    "votosTotales": 302657
+  },
+  {
+    "id": "ref23",
+    "opcionA": "siempre salirte con la tuya al mentir",
+    "porcentajeA": "28%",
+    "opcionB": "siempre saber cuándo alguien está mintiendo",
+    "porcentajeB": "72%",
+    "votosTotales": 308386
+  },
+  {
+    "id": "ref24",
+    "opcionA": "tener el poder de ser invisible",
+    "porcentajeA": "48%",
+    "opcionB": "el poder de leer mentes",
+    "porcentajeB": "52%",
+    "votosTotales": 289091
+  },
+  {
+    "id": "ref25",
+    "opcionA": "ser monitoreado/a siempre en línea",
+    "porcentajeA": "78%",
+    "opcionB": "en la vida real",
+    "porcentajeB": "22%",
+    "votosTotales": 299557
+  },
+  {
+    "id": "qyawu",
+    "opcionA": "ser capaz de hablar todas las lenguas humanas",
+    "porcentajeA": "64%",
+    "opcionB": "hablar con los animales",
+    "porcentajeB": "36%",
+    "votosTotales": 300488
+  },
+  {
+    "id": "ref26",
+    "opcionA": "tener que vivir con el ex de tu pareja",
+    "porcentajeA": "26%",
+    "opcionB": "con tu ex",
+    "porcentajeB": "74%",
+    "votosTotales": 419245
+  },
+  {
+    "id": "ref27",
+    "opcionA": "apoyar una política polémica que te beneficie económicamente",
+    "porcentajeA": "47%",
+    "opcionB": "oponerte por el bien común",
+    "porcentajeB": "53%",
+    "votosTotales": 272266
+  },
+  {
+    "id": "ref28",
+    "opcionA": "salir con alguien guapo pero tonto",
+    "porcentajeA": "33%",
+    "opcionB": "alguien inteligente pero poco atractivo",
+    "porcentajeB": "67%",
+    "votosTotales": 414095
+  },
+  {
+    "id": "jicls",
+    "opcionA": "ser capaz de vivir 100 años en el pasado",
+    "porcentajeA": "28%",
+    "opcionB": "100 años en el futuro",
+    "porcentajeB": "72%",
+    "votosTotales": 268129
+  },
+  {
+    "id": "ref29",
+    "opcionA": "quitar una vida para salvar otra",
+    "porcentajeA": "72%",
+    "opcionB": "dejar que ambas vidas se pierdan",
+    "porcentajeB": "28%",
+    "votosTotales": 270016
+  },
+  {
+    "id": "ref30",
+    "opcionA": "que tu futuro sea decidido por tus padres",
+    "porcentajeA": "79%",
+    "opcionB": "por un extraño al azar",
+    "porcentajeB": "21%",
+    "votosTotales": 267713
+  },
+  {
+    "id": "ula9j",
+    "opcionA": "recibir una descarga eléctrica cada vez que toques a alguien",
+    "porcentajeA": "69%",
+    "opcionB": "tener picazón apenas te hablen",
+    "porcentajeB": "31%",
+    "votosTotales": 270289
+  },
+  {
+    "id": "rf9uo",
+    "opcionA": "ser capaz de volar",
+    "porcentajeA": "77%",
+    "opcionB": "poder respirar bajo el agua",
+    "porcentajeB": "23%",
+    "votosTotales": 262191
+  },
+  {
+    "id": "ref31",
+    "opcionA": "solo poder escuchar música que odias",
+    "porcentajeA": "28%",
+    "opcionB": "solo poder ver películas que odias",
+    "porcentajeB": "72%",
+    "votosTotales": 262108
+  },
+  {
+    "id": "ynu3y",
+    "opcionA": "perder tu sentido del gusto",
+    "porcentajeA": "51%",
+    "opcionB": "perder tu sentido del tacto",
+    "porcentajeB": "49%",
+    "votosTotales": 262988
+  },
+  {
+    "id": "58iae",
+    "opcionA": "comer algo que se vea hermoso, pero que sepa a mierda",
+    "porcentajeA": "2%",
+    "opcionB": "comer algo que parezca basura, pero que sea delicioso",
+    "porcentajeB": "98%",
+    "votosTotales": 16958
+  },
+  {
+    "id": "hryx9",
+    "opcionA": "ser forzado/a a comer McDonald's y nada más durante toda tu vida",
+    "porcentajeA": "3%",
+    "opcionB": "sólo ser capaz de comer cada dos días, pero cualquier cosa que quieras",
+    "porcentajeB": "97%",
+    "votosTotales": 10041
+  },
+  {
+    "id": "79vzl",
+    "opcionA": "parecer un vago sucio en televisión frente a millones de personas",
+    "porcentajeA": "20%",
+    "opcionB": "parecer un completo idiota",
+    "porcentajeB": "80%",
+    "votosTotales": 16091
+  },
+  {
+    "id": "lxg88",
+    "opcionA": "conducir en sentido contrario en una autopista a 16 km/h",
+    "porcentajeA": "2%",
+    "opcionB": "conducir en el camino correcto a 300km/h",
+    "porcentajeB": "98%",
+    "votosTotales": 9159
+  },
+  {
+    "id": "hfop9",
+    "opcionA": "hacerte un corte de papel entre los dedos cada vez que pases una página",
+    "porcentajeA": "12%",
+    "opcionB": "morderte la lengua cada vez que comas",
+    "porcentajeB": "88%",
+    "votosTotales": 9939
+  },
+  {
+    "id": "jbzf5",
+    "opcionA": "tener un boomerang que encuentre y mate a cualquier persona que quieras, pero solo se puede usar una vez",
+    "porcentajeA": "1%",
+    "opcionB": "un boomerang que siempre regrese a ti con un dólar",
+    "porcentajeB": "99%",
+    "votosTotales": 9681
+  },
+  {
+    "id": "bx7za",
+    "opcionA": "estar sordo/a de un oído",
+    "porcentajeA": "22%",
+    "opcionB": "tener acceso a internet solo una hora por semana",
+    "porcentajeB": "78%",
+    "votosTotales": 12467
+  },
+  {
+    "id": "a9frx",
+    "opcionA": "no poder lavarte las manos durante un mes",
+    "porcentajeA": "17%",
+    "opcionB": "no poder lavarte el pelo durante un mes",
+    "porcentajeB": "83%",
+    "votosTotales": 13488
+  },
+  {
+    "id": "3jory",
+    "opcionA": "ser una estrella del rock",
+    "porcentajeA": "17%",
+    "opcionB": "una estrella del cine",
+    "porcentajeB": "83%",
+    "votosTotales": 19395
+  },
+  {
+    "id": "kzble",
+    "opcionA": "tener una barriga cervecera",
+    "porcentajeA": "9%",
+    "opcionB": "tener tres barbillas",
+    "porcentajeB": "91%",
+    "votosTotales": 9482
+  },
+  {
+    "id": "nksb6",
+    "opcionA": "tener 20 hijos a lo largo de tu vida",
+    "porcentajeA": "8%",
+    "opcionB": "nunca poder tener o adoptar hijos",
+    "porcentajeB": "92%",
+    "votosTotales": 10297
+  },
+  {
+    "id": "afwrp",
+    "opcionA": "despertarte cada vez que empiezas a quedarte dormido",
+    "porcentajeA": "15%",
+    "opcionB": "dormirte cada vez que te despiertas",
+    "porcentajeB": "85%",
+    "votosTotales": 13302
+  },
+  {
+    "id": "2sa4v",
+    "opcionA": "tener una alfombra voladora",
+    "porcentajeA": "30%",
+    "opcionB": "un refrigerador auto-rellenable",
+    "porcentajeB": "70%",
+    "votosTotales": 76200
+  },
+  {
+    "id": "i7b07",
+    "opcionA": "conocer la fecha y hora de tu muerte",
+    "porcentajeA": "8%",
+    "opcionB": "conocer la causa de tu muerte",
+    "porcentajeB": "92%",
+    "votosTotales": 9688
+  },
+  {
+    "id": "gbodf",
+    "opcionA": "tener una voz aguda molesta",
+    "porcentajeA": "3%",
+    "opcionB": "una voz increíblemente profunda",
+    "porcentajeB": "97%",
+    "votosTotales": 10145
+  },
+  {
+    "id": "255yy",
+    "opcionA": "ser el/la primero/a en morir de tus amigos",
+    "porcentajeA": "33%",
+    "opcionB": "el/la último/a en morir de tus amigos",
+    "porcentajeB": "67%",
+    "votosTotales": 29993
+  },
+  {
+    "id": "3bwim",
+    "opcionA": "tener que caminar por todo un cable de 7m de largo suspendido a 50m por encima de tu cabeza",
+    "porcentajeA": "8%",
+    "opcionB": "tener que hablar en televisión sobre temas aleatorios durante 2 horas",
+    "porcentajeB": "92%",
+    "votosTotales": 19289
+  },
+  {
+    "id": "hu5u5",
+    "opcionA": "caminar sobre brasas ardientes durante 5 minutos",
+    "porcentajeA": "4%",
+    "opcionB": "tomar un baño de una hora en una bañera llena de cubos de hielo",
+    "porcentajeB": "96%",
+    "votosTotales": 9589
+  },
+  {
+    "id": "pogq2",
+    "opcionA": "comer la misma comida durante un año",
+    "porcentajeA": "2%",
+    "opcionB": "usar una peluca morada durante 6 meses",
+    "porcentajeB": "98%",
+    "votosTotales": 8646
+  },
+  {
+    "id": "k7y36",
+    "opcionA": "estar completamente loco/a y saberlo",
+    "porcentajeA": "9%",
+    "opcionB": "estar loco/a y creer que estás sano/a",
+    "porcentajeB": "91%",
+    "votosTotales": 9547
+  },
+  {
+    "id": "9wedf",
+    "opcionA": "estar calvo",
+    "porcentajeA": "35%",
+    "opcionB": "tener rastas de 2 metros de largo",
+    "porcentajeB": "65%",
+    "votosTotales": 19691
+  },
+  {
+    "id": "35mx8",
+    "opcionA": "visitar un bar donde solo sirven tequila",
+    "porcentajeA": "28%",
+    "opcionB": "visitar un club en el que solo suena Black Eyed Peas",
+    "porcentajeB": "72%",
+    "votosTotales": 20504
+  },
+  {
+    "id": "l82ky",
+    "opcionA": "ser rociado/a por un zorrillo",
+    "porcentajeA": "6%",
+    "opcionB": "ser picado/a por un nido de entero avispas",
+    "porcentajeB": "94%",
+    "votosTotales": 8735
+  },
+  {
+    "id": "gjv3y",
+    "opcionA": "poder hablar con animales terrestres",
+    "porcentajeA": "10%",
+    "opcionB": "poder hablar con animales aéreos",
+    "porcentajeB": "90%",
+    "votosTotales": 9524
+  },
+  {
+    "id": "gjwpp",
+    "opcionA": "recordar todo lo que has visto",
+    "porcentajeA": "9%",
+    "opcionB": "recordar todo lo que has escuchado",
+    "porcentajeB": "91%",
+    "votosTotales": 9423
+  },
+  {
+    "id": "gtqdi",
+    "opcionA": "donar tu cuerpo a la ciencia",
+    "porcentajeA": "17%",
+    "opcionB": "donar tus órganos a las personas que lo necesiten",
+    "porcentajeB": "83%",
+    "votosTotales": 243051
+  },
+  {
+    "id": "502i6",
+    "opcionA": "comer pudín de ciruela en cada comida durante un año",
+    "porcentajeA": "54%",
+    "opcionB": "nunca celebres ninguna fiesta más",
+    "porcentajeB": "46%",
+    "votosTotales": 79822
+  },
+  {
+    "id": "5b25y",
+    "opcionA": "oler a perro mojado",
+    "porcentajeA": "22%",
+    "opcionB": "oler como una cabra",
+    "porcentajeB": "78%",
+    "votosTotales": 16450
+  },
+  {
+    "id": "6bgi4",
+    "opcionA": "decepcionar a todos tus amigos",
+    "porcentajeA": "34%",
+    "opcionB": "a tu familia",
+    "porcentajeB": "66%",
+    "votosTotales": 15720
+  },
+  {
+    "id": "h3vao",
+    "opcionA": "usar una camiseta de Bob Esponja por el resto de tu vida",
+    "porcentajeA": "9%",
+    "opcionB": "usar un sombrero de Spider-Man por el resto de tu vida",
+    "porcentajeB": "91%",
+    "votosTotales": 9813
+  },
+  {
+    "id": "jv6al",
+    "opcionA": "disfrazarte de payaso todos los días",
+    "porcentajeA": "3%",
+    "opcionB": "vestirte como una princesa todos los días durante un año",
+    "porcentajeB": "97%",
+    "votosTotales": 8939
+  },
+  {
+    "id": "85thu",
+    "opcionA": "encontrarte con tu ex en un club",
+    "porcentajeA": "28%",
+    "opcionB": "encontrarte con tus padres en un club",
+    "porcentajeB": "72%",
+    "votosTotales": 15670
+  },
+  {
+    "id": "q77dt",
+    "opcionA": "vivir toda tu vida en una realidad virtual donde se concedan todos tus deseos",
+    "porcentajeA": "4%",
+    "opcionB": "vivir toda tu vida en el mundo real",
+    "porcentajeB": "96%",
+    "votosTotales": 9012
+  },
+  {
+    "id": "6friz",
+    "opcionA": "pasar tu vida frente a tu computadora",
+    "porcentajeA": "15%",
+    "opcionB": "pasar tu vida sin una computadora",
+    "porcentajeB": "85%",
+    "votosTotales": 15287
+  },
+  {
+    "id": "7qru8",
+    "opcionA": "acabar con el hambre en el mundo",
+    "porcentajeA": "36%",
+    "opcionB": "darle atención médica gratuita a todos los seres humanos de la Tierra",
+    "porcentajeB": "64%",
+    "votosTotales": 56185
+  },
+  {
+    "id": "2rtq6",
+    "opcionA": "no poder nadar",
+    "porcentajeA": "21%",
+    "opcionB": "no poder montar en bicicleta",
+    "porcentajeB": "79%",
+    "votosTotales": 25082
+  },
+  {
+    "id": "ivakr",
+    "opcionA": "poder comprar cualquier artículo por debajo de $300 gratis, pero tener que pagar un 50% más en artículos por encima de $300",
+    "porcentajeA": "8%",
+    "opcionB": "tener que pagar el doble en artículos por debajo de $1000, pero obtener un 50% de descuento en artículos de más de $1000",
+    "porcentajeB": "92%",
+    "votosTotales": 9444
+  },
+  {
+    "id": "2stu9",
+    "opcionA": "que tu apartamento este infestado de cucarachas",
+    "porcentajeA": "14%",
+    "opcionB": "que tu vecino alcohólico vomite todas las noches en la puerta de tu casa",
+    "porcentajeB": "86%",
+    "votosTotales": 23499
+  },
+  {
+    "id": "9u2dk",
+    "opcionA": "luchar contra Sylvester Stallone",
+    "porcentajeA": "20%",
+    "opcionB": "Chuck Norris",
+    "porcentajeB": "80%",
+    "votosTotales": 13404
+  },
+  {
+    "id": "hdull",
+    "opcionA": "ser pobre en un país rico",
+    "porcentajeA": "14%",
+    "opcionB": "rico/a en un país pobre",
+    "porcentajeB": "86%",
+    "votosTotales": 516956
+  },
+  {
+    "id": "fxf5d",
+    "opcionA": "ganar un millón de dólares ahora mismo",
+    "porcentajeA": "8%",
+    "opcionB": "diez millones de dólares en 10 años",
+    "porcentajeB": "92%",
+    "votosTotales": 10350
+  },
+  {
+    "id": "jnduy",
+    "opcionA": "ser inteligente y no tener dinero",
+    "porcentajeA": "3%",
+    "opcionB": "rico y estupido",
+    "porcentajeB": "97%",
+    "votosTotales": 8974
+  },
+  {
+    "id": "2sns1",
+    "opcionA": "que te pique en una zona donde no puedes rascarte",
+    "porcentajeA": "35%",
+    "opcionB": "siempre sentir que vas a estornudar",
+    "porcentajeB": "65%",
+    "votosTotales": 23058
+  },
+  {
+    "id": "4984t",
+    "opcionA": "tener la fuerza de Dwayne \"La Roca\" Johnson",
+    "porcentajeA": "9%",
+    "opcionB": "la inteligencia de Albert Einstein",
+    "porcentajeB": "91%",
+    "votosTotales": 16671
+  },
+  {
+    "id": "6ff5r",
+    "opcionA": "tener mejillas que cambian constantemente de tamaño, cada una por su lado",
+    "porcentajeA": "14%",
+    "opcionB": "que te suceda eso mismo pero en el culo",
+    "porcentajeB": "86%",
+    "votosTotales": 15159
+  },
+  {
+    "id": "alr13",
+    "opcionA": "tirarte un pedo cada vez que te sientes",
+    "porcentajeA": "7%",
+    "opcionB": "eructar cada vez que te levantes",
+    "porcentajeB": "93%",
+    "votosTotales": 13035
+  },
+  {
+    "id": "ni7cd",
+    "opcionA": "tener manos gigantes como Hulk",
+    "porcentajeA": "7%",
+    "opcionB": "pies diminutos como un enano",
+    "porcentajeB": "93%",
+    "votosTotales": 9631
+  },
+  {
+    "id": "gmfnc",
+    "opcionA": "maldecir a la gente gritando a todo pulmón cuando te saludan",
+    "porcentajeA": "9%",
+    "opcionB": "producir 160 dB (igual que un avión despegando) de sonido cuando vas al baño",
+    "porcentajeB": "91%",
+    "votosTotales": 10145
+  },
+  {
+    "id": "1s0lm",
+    "opcionA": "tener paz mundial",
+    "porcentajeA": "35%",
+    "opcionB": "ganar $150,000,000",
+    "porcentajeB": "65%",
+    "votosTotales": 84560
+  },
+  {
+    "id": "ouesu",
+    "opcionA": "comer la misma comida todos los días (para siempre)",
+    "porcentajeA": "1%",
+    "opcionB": "no poder comer fuera nunca",
+    "porcentajeB": "99%",
+    "votosTotales": 8663
+  },
+  {
+    "id": "3o347",
+    "opcionA": "tener que estrechar la mano de todos los que pasan por la calle",
+    "porcentajeA": "31%",
+    "opcionB": "inclinarte ante todos los que te pasan por delante",
+    "porcentajeB": "69%",
+    "votosTotales": 18007
+  },
+  {
+    "id": "nyp71",
+    "opcionA": "que te pillen en casa llorando mientras ves Pasión de Gavilanes",
+    "porcentajeA": "3%",
+    "opcionB": "solo/a en un bar con una pinta de cerveza",
+    "porcentajeB": "97%",
+    "votosTotales": 8954
+  },
+  {
+    "id": "6724n",
+    "opcionA": "tener constantemente los ojos secos",
+    "porcentajeA": "28%",
+    "opcionB": "moquear de la nariz constantemente",
+    "porcentajeB": "72%",
+    "votosTotales": 16122
+  },
+  {
+    "id": "lr4q6",
+    "opcionA": "hacer que los pandas desaparezcan",
+    "porcentajeA": "7%",
+    "opcionB": "los caballos desaparezcan",
+    "porcentajeB": "93%",
+    "votosTotales": 9111
+  },
+  {
+    "id": "pxyal",
+    "opcionA": "estar pegado/a a un avión",
+    "porcentajeA": "3%",
+    "opcionB": "a un crucero",
+    "porcentajeB": "97%",
+    "votosTotales": 8994
+  },
+  {
+    "id": "jbsgk",
+    "opcionA": "tener que caminar a cuatro patas por el resto de tu vida",
+    "porcentajeA": "3%",
+    "opcionB": "nunca volver a hablar",
+    "porcentajeB": "97%",
+    "votosTotales": 8939
+  },
+  {
+    "id": "psgwv",
+    "opcionA": "no poder olvidar nada",
+    "porcentajeA": "4%",
+    "opcionB": "tener amnesia",
+    "porcentajeB": "96%",
+    "votosTotales": 8482
+  },
+  {
+    "id": "jizgq",
+    "opcionA": "ser un pez que no puede nadar",
+    "porcentajeA": "2%",
+    "opcionB": "un pájaro que no puede volar",
+    "porcentajeB": "98%",
+    "votosTotales": 9724
+  },
+  {
+    "id": "9ibwu",
+    "opcionA": "nunca poder salir de tu país de origen",
+    "porcentajeA": "37%",
+    "opcionB": "nunca poder conducir",
+    "porcentajeB": "63%",
+    "votosTotales": 55400
+  },
+  {
+    "id": "hv7ij",
+    "opcionA": "encontrar el verdadero amor eterno",
+    "porcentajeA": "4%",
+    "opcionB": "curar el cáncer",
+    "porcentajeB": "96%",
+    "votosTotales": 9229
+  },
+  {
+    "id": "031xs",
+    "opcionA": "leer la mente de cualquiera, PERO solo escuchar pensamientos negativos sobre ti",
+    "porcentajeA": "49%",
+    "opcionB": "poder volar, PERO tener un mareo extremo por 6 horas después de aterrizar",
+    "porcentajeB": "51%",
+    "votosTotales": 78834
+  },
+  {
+    "id": "avhcx",
+    "opcionA": "apegarte a una decisión que odias por un año",
+    "porcentajeA": "48%",
+    "opcionB": "fracasar en cada decisión pero sin sentirte culpable",
+    "porcentajeB": "52%",
+    "votosTotales": 57929
+  },
+  {
+    "id": "ci6tk",
+    "opcionA": "caminar hacia atrás todo el día",
+    "porcentajeA": "21%",
+    "opcionB": "caminar hacia adelante con una venda en los ojos",
+    "porcentajeB": "79%",
+    "votosTotales": 11636
+  },
+  {
+    "id": "2slrc",
+    "opcionA": "hacer que los paparazzis te sigan",
+    "porcentajeA": "36%",
+    "opcionB": "revelar diferentes secretos sobre ti mismo/a en una columna de periódico semanal",
+    "porcentajeB": "64%",
+    "votosTotales": 23069
+  },
+  {
+    "id": "2rxna",
+    "opcionA": "ir a la cárcel por 4 años por algo que no hiciste",
+    "porcentajeA": "30%",
+    "opcionB": "salirte con la tuya en algo horrible que hiciste, pero vivir siempre con el temor de que te pillen",
+    "porcentajeB": "70%",
+    "votosTotales": 24918
+  },
+  {
+    "id": "jw3m9",
+    "opcionA": "ser famoso/a en vida, pero olvidado/a cuando mueras",
+    "porcentajeA": "4%",
+    "opcionB": "desconocido/a en vida, pero famoso/a después de morir",
+    "porcentajeB": "96%",
+    "votosTotales": 8956
+  },
+  {
+    "id": "3f5wk",
+    "opcionA": "emborracharte con tu mejor amigo",
+    "porcentajeA": "32%",
+    "opcionB": "emborracharte con tu crush",
+    "porcentajeB": "68%",
+    "votosTotales": 19462
+  },
+  {
+    "id": "mpcqc",
+    "opcionA": "ser un león súper lento",
+    "porcentajeA": "3%",
+    "opcionB": "ser un perezoso súper rápido",
+    "porcentajeB": "97%",
+    "votosTotales": 9253
+  },
+  {
+    "id": "p9xv3",
+    "opcionA": "nunca más poder escuchar tu canción favorita",
+    "porcentajeA": "1%",
+    "opcionB": "nunca más poder volver a ver tu película favorita",
+    "porcentajeB": "99%",
+    "votosTotales": 8713
+  },
+  {
+    "id": "md9hq",
+    "opcionA": "estar alejado/a de tus padres, pero encontrar a tu alma gemela",
+    "porcentajeA": "6%",
+    "opcionB": "nunca encontrar el amor, pero estar cerca de tus padres",
+    "porcentajeB": "94%",
+    "votosTotales": 8919
+  },
+  {
+    "id": "3119x",
+    "opcionA": "nunca volver a tener internet",
+    "porcentajeA": "30%",
+    "opcionB": "estar solo en una isla desierta con internet",
+    "porcentajeB": "70%",
+    "votosTotales": 22099
+  },
+  {
+    "id": "609f8",
+    "opcionA": "perder todo tu dinero y objetos de valor",
+    "porcentajeA": "11%",
+    "opcionB": "todas las fotos que hayas tomado",
+    "porcentajeB": "89%",
+    "votosTotales": 15253
+  },
+  {
+    "id": "onad0",
+    "opcionA": "renunciar al queso",
+    "porcentajeA": "6%",
+    "opcionB": "renunciar al sexo oral",
+    "porcentajeB": "94%",
+    "votosTotales": 9207
+  },
+  {
+    "id": "mgeby",
+    "opcionA": "tener una piedra en cada zapato todos los días",
+    "porcentajeA": "7%",
+    "opcionB": "nunca más tener un teléfono",
+    "porcentajeB": "93%",
+    "votosTotales": 9007
+  },
+  {
+    "id": "k5obu",
+    "opcionA": "tener dolor de estómago",
+    "porcentajeA": "42%",
+    "opcionB": "tener dolor de cabeza",
+    "porcentajeB": "58%",
+    "votosTotales": 58457
+  },
+  {
+    "id": "5gg3q",
+    "opcionA": "inhalar una cucharada de canela",
+    "porcentajeA": "16%",
+    "opcionB": "contraer una gripe leve por una semana",
+    "porcentajeB": "84%",
+    "votosTotales": 15509
+  },
+  {
+    "id": "9kxoz",
+    "opcionA": "llevar un gnomo de jardín en tu hombro que te maldice, pellizca y muerde todo el día",
+    "porcentajeA": "33%",
+    "opcionB": "estar constantemente rodeado de 100 moscas",
+    "porcentajeB": "67%",
+    "votosTotales": 14444
+  },
+  {
+    "id": "380s2",
+    "opcionA": "tener un trabajo horrible pero poder jubilarte cómodamente en 10 años",
+    "porcentajeA": "34%",
+    "opcionB": "tener el trabajo de tus sueños pero tienes que trabajar hasta el día de tu muerte",
+    "porcentajeB": "66%",
+    "votosTotales": 21409
+  },
+  {
+    "id": "h3okd",
+    "opcionA": "intentar hacer una voltereta en una viga metálica de 10m de alto",
+    "porcentajeA": "11%",
+    "opcionB": "trabajar 10 horas los 7 días de la semana durante toda tu vida",
+    "porcentajeB": "89%",
+    "votosTotales": 9746
+  },
+  {
+    "id": "gbebg",
+    "opcionA": "poder caminar a cuatro patas",
+    "porcentajeA": "6%",
+    "opcionB": "solo de lado como un cangrejo",
+    "porcentajeB": "94%",
+    "votosTotales": 9677
+  },
+  {
+    "id": "jn3ld",
+    "opcionA": "jugar al fútbol americano en un equipo ganador de la Super Bowl",
+    "porcentajeA": "4%",
+    "opcionB": "ser uno de los mejores agentes de bolsa de Wall Street",
+    "porcentajeB": "96%",
+    "votosTotales": 9438
+  },
+  {
+    "id": "g3zkb",
+    "opcionA": "no volver a enfadarte",
+    "porcentajeA": "5%",
+    "opcionB": "no volver a tener envidia",
+    "porcentajeB": "95%",
+    "votosTotales": 9764
+  },
+  {
+    "id": "2wowv",
+    "opcionA": "ser un músico famoso",
+    "porcentajeA": "32%",
+    "opcionB": "un empresario famoso",
+    "porcentajeB": "68%",
+    "votosTotales": 74331
+  },
+  {
+    "id": "3rw2e",
+    "opcionA": "que todos los insectos que mataste volvieran a la vida para vengarse",
+    "porcentajeA": "34%",
+    "opcionB": "que haya un informe público detallado sobre todas en lo que has pensado para masturbarte",
+    "porcentajeB": "66%",
+    "votosTotales": 17566
+  },
+  {
+    "id": "2cy4y",
+    "opcionA": "casarte solo una vez a los 20",
+    "porcentajeA": "48%",
+    "opcionB": "no casarte nunca",
+    "porcentajeB": "52%",
+    "votosTotales": 27987
+  },
+  {
+    "id": "pw97x",
+    "opcionA": "tener tanto miedo a las alturas que no puedas subir a un segundo piso",
+    "porcentajeA": "7%",
+    "opcionB": "tanto miedo al sol que solo puedas salir de casa los días de lluvia",
+    "porcentajeB": "93%",
+    "votosTotales": 9074
+  },
+  {
+    "id": "6awbs",
+    "opcionA": "que todas las plantas lloren cuando las cortas",
+    "porcentajeA": "32%",
+    "opcionB": "que los animales supliquen por sus vidas antes de matarlos",
+    "porcentajeB": "68%",
+    "votosTotales": 15991
+  },
+  {
+    "id": "15kf4",
+    "opcionA": "dormir en medio de la jungla",
+    "porcentajeA": "36%",
+    "opcionB": "dormir en medio de la sabana",
+    "porcentajeB": "64%",
+    "votosTotales": 36476
+  },
+  {
+    "id": "o9fx4",
+    "opcionA": "poder escuchar con perfecta precisión",
+    "porcentajeA": "8%",
+    "opcionB": "poder tener visión de rayos X usando un colirio muy doloroso, que se aplicará cada hora",
+    "porcentajeB": "92%",
+    "votosTotales": 9190
+  },
+  {
+    "id": "6whmj",
+    "opcionA": "tener pesadillas todas las noches",
+    "porcentajeA": "15%",
+    "opcionB": "ver fantasmas",
+    "porcentajeB": "85%",
+    "votosTotales": 17633
+  },
+  {
+    "id": "0agiw",
+    "opcionA": "comer pasta cruda",
+    "porcentajeA": "50%",
+    "opcionB": "beber Coca-Cola salada",
+    "porcentajeB": "50%",
+    "votosTotales": 54758
+  },
+  {
+    "id": "3avhu",
+    "opcionA": "solo poder caminar a cuatro patas",
+    "porcentajeA": "16%",
+    "opcionB": "solo poder saltar en lugar de caminar",
+    "porcentajeB": "84%",
+    "votosTotales": 19909
+  },
+  {
+    "id": "3vmoh",
+    "opcionA": "ser pobre pero ayudar a la gente",
+    "porcentajeA": "56%",
+    "opcionB": "hacerte increíblemente rico/a lastimando personas",
+    "porcentajeB": "44%",
+    "votosTotales": 272288
+  },
+  {
+    "id": "m8sbg",
+    "opcionA": "ganar $1,000,000 en el casino sabiendo que hay un 50% de posibilidades de tener un accidente fatal al regresar",
+    "porcentajeA": "5%",
+    "opcionB": "quedarte en casa",
+    "porcentajeB": "95%",
+    "votosTotales": 9421
+  },
+  {
+    "id": "64hw4",
+    "opcionA": "tener cejas cuadradas",
+    "porcentajeA": "39%",
+    "opcionB": "tener la cabeza en forma de triángulo",
+    "porcentajeB": "61%",
+    "votosTotales": 15381
+  },
+  {
+    "id": "plfnh",
+    "opcionA": "celebrar tu cumpleaños",
+    "porcentajeA": "11%",
+    "opcionB": "celebrar navidad",
+    "porcentajeB": "89%",
+    "votosTotales": 10372
+  },
+  {
+    "id": "hlp4x",
+    "opcionA": "medir 1 metro de alto",
+    "porcentajeA": "35%",
+    "opcionB": "medir 3 metros de alto",
+    "porcentajeB": "65%",
+    "votosTotales": 28592
+  },
+  {
+    "id": "aaisa",
+    "opcionA": "ganar un Oscar",
+    "porcentajeA": "13%",
+    "opcionB": "un premio Nobel",
+    "porcentajeB": "87%",
+    "votosTotales": 13179
+  },
+  {
+    "id": "20bj4",
+    "opcionA": "tener la cara de Brad Pitt",
+    "porcentajeA": "15%",
+    "opcionB": "tener el cerebro de Einstein",
+    "porcentajeB": "85%",
+    "votosTotales": 29798
+  },
+  {
+    "id": "p48zz",
+    "opcionA": "tener un hijo no deseado",
+    "porcentajeA": "4%",
+    "opcionB": "tener cinco hijos planeados",
+    "porcentajeB": "96%",
+    "votosTotales": 9302
+  },
+  {
+    "id": "pf2rh",
+    "opcionA": "tener que usar un baño público sucio y maloliente",
+    "porcentajeA": "2%",
+    "opcionB": "uno que tenga arañas",
+    "porcentajeB": "98%",
+    "votosTotales": 8562
+  },
+  {
+    "id": "855rp",
+    "opcionA": "morir joven después de 30 años de una vida loca y aventurera",
+    "porcentajeA": "23%",
+    "opcionB": "vivir hasta los 80 después de una vida larga y pacífica, sin haber hecho nada extraordinario",
+    "porcentajeB": "77%",
+    "votosTotales": 15128
+  },
+  {
+    "id": "oub0z",
+    "opcionA": "vivir en una caja en la calle",
+    "porcentajeA": "2%",
+    "opcionB": "solo/a en una isla",
+    "porcentajeB": "98%",
+    "votosTotales": 9000
+  },
+  {
+    "id": "lkix6",
+    "opcionA": "publicar un video sexual en una plataforma donde se muestre tu cara",
+    "porcentajeA": "2%",
+    "opcionB": "reproducir un video sexual privado en una fiesta en la que no se muestre tu cara",
+    "porcentajeB": "98%",
+    "votosTotales": 9249
+  },
+  {
+    "id": "bclub",
+    "opcionA": "reencarnar como una mosca",
+    "porcentajeA": "10%",
+    "opcionB": "simplemente dejar de existir después de la muerte",
+    "porcentajeB": "90%",
+    "votosTotales": 11915
+  },
+  {
+    "id": "9ll32",
+    "opcionA": "preguntarle a alguien de aquí si quiere tener un cita",
+    "porcentajeA": "15%",
+    "opcionB": "irte a casa",
+    "porcentajeB": "85%",
+    "votosTotales": 13732
+  },
+  {
+    "id": "0hly0",
+    "opcionA": "sostener un gran excremento de perro en tu mano",
+    "porcentajeA": "32%",
+    "opcionB": "sostener un cactus en tu mano",
+    "porcentajeB": "68%",
+    "votosTotales": 45705
+  },
+  {
+    "id": "2a0kd",
+    "opcionA": "ser un/a inventor/a famoso/a",
+    "porcentajeA": "58%",
+    "opcionB": "un/a escritor/a famoso/a",
+    "porcentajeB": "42%",
+    "votosTotales": 44658
+  },
+  {
+    "id": "k4ufb",
+    "opcionA": "ser forzado/a a bailar cada vez que escuches música",
+    "porcentajeA": "4%",
+    "opcionB": "forzado/a a cantar cualquier canción que escuches",
+    "porcentajeB": "96%",
+    "votosTotales": 9345
+  },
+  {
+    "id": "0hwup",
+    "opcionA": "deja de ducharte por un mes",
+    "porcentajeA": "31%",
+    "opcionB": "dejar el internet por un mes",
+    "porcentajeB": "69%",
+    "votosTotales": 45351
+  },
+  {
+    "id": "2dstq",
+    "opcionA": "tener los dientes pegados para siempre por un caramelo duro",
+    "porcentajeA": "17%",
+    "opcionB": "nunca volver a probar algo dulce",
+    "porcentajeB": "83%",
+    "votosTotales": 150427
+  },
+  {
+    "id": "nhczd",
+    "opcionA": "no tener pulgares",
+    "porcentajeA": "3%",
+    "opcionB": "solo tener pulgares",
+    "porcentajeB": "97%",
+    "votosTotales": 8718
+  },
+  {
+    "id": "hduqw",
+    "opcionA": "compartir tu ubicación con todo el mundo, todo el tiempo",
+    "porcentajeA": "45%",
+    "opcionB": "nunca poder usar un GPS de nuevo",
+    "porcentajeB": "55%",
+    "votosTotales": 649495
+  },
+  {
+    "id": "0nrwn",
+    "opcionA": "ser inmune de la resaca para siempre",
+    "porcentajeA": "28%",
+    "opcionB": "no tener que ir al dentista nunca más",
+    "porcentajeB": "72%",
+    "votosTotales": 47867
+  },
+  {
+    "id": "lee31",
+    "opcionA": "tener un 5% de probabilidad de sufrir una lesión en la columna si alguna vez montas en bicicleta",
+    "porcentajeA": "2%",
+    "opcionB": "no volver a manejar bicicleta",
+    "porcentajeB": "98%",
+    "votosTotales": 8778
+  },
+  {
+    "id": "083z9",
+    "opcionA": "ser malo/a en el juego previo pero bueno/a en el sexo",
+    "porcentajeA": "76%",
+    "opcionB": "ser bueno/a en el juego previo pero malo/a en el sexo",
+    "porcentajeB": "24%",
+    "votosTotales": 48313
+  },
+  {
+    "id": "5pfhy",
+    "opcionA": "solo poder ver un programa repetidamente por el resto de tu vida",
+    "porcentajeA": "28%",
+    "opcionB": "ver el primer episodio de cada programa en existencia por el resto de tu vida",
+    "porcentajeB": "72%",
+    "votosTotales": 15316
+  },
+  {
+    "id": "7onx5",
+    "opcionA": "comerte una cucharada grande de wasabi",
+    "porcentajeA": "25%",
+    "opcionB": "comer cinco paquetes de salsa de tomate de McDonald's",
+    "porcentajeB": "75%",
+    "votosTotales": 2732
+  },
+  {
+    "id": "q4bw2",
+    "opcionA": "ser un/a campeón/a de break dance",
+    "porcentajeA": "23%",
+    "opcionB": "de capoeira",
+    "porcentajeB": "77%",
+    "votosTotales": 13873
+  },
+  {
+    "id": "cbbrq",
+    "opcionA": "ser la única persona normal en un grupo de gente rara",
+    "porcentajeA": "52%",
+    "opcionB": "ser la única persona rara en un grupo de normales",
+    "porcentajeB": "48%",
+    "votosTotales": 1087
+  },
+  {
+    "id": "itlrm",
+    "opcionA": "no usar internet durante un mes",
+    "porcentajeA": "1%",
+    "opcionB": "no comer comida basura durante un mes",
+    "porcentajeB": "99%",
+    "votosTotales": 9192
+  },
+  {
+    "id": "aof8d",
+    "opcionA": "tener una piel que cambia de color en base a tus emociones",
+    "porcentajeA": "27%",
+    "opcionB": "que te aparezcan tatuajes por todo el cuerpo, mostrando lo que hiciste ayer",
+    "porcentajeB": "73%",
+    "votosTotales": 13429
+  },
+  {
+    "id": "avbcb",
+    "opcionA": "viajar al pasado y arriesgarse a alterar la historia",
+    "porcentajeA": "39%",
+    "opcionB": "visitar el futuro y conocer tu destino",
+    "porcentajeB": "61%",
+    "votosTotales": 160352
+  },
+  {
+    "id": "lvsr6",
+    "opcionA": "siempre conoce lo que piensa tu pareja",
+    "porcentajeA": "56%",
+    "opcionB": "que nunca sepan nada de lo tuyo",
+    "porcentajeB": "44%",
+    "votosTotales": 67690
+  },
+  {
+    "id": "gfd2v",
+    "opcionA": "no tener amigos",
+    "porcentajeA": "7%",
+    "opcionB": "ya no poder utilizar aparatos electrónicos",
+    "porcentajeB": "93%",
+    "votosTotales": 9544
+  },
+  {
+    "id": "1ljbu",
+    "opcionA": "estar 100% seguro/a de quién eres",
+    "porcentajeA": "45%",
+    "opcionB": "estar 100% seguro/a de que estás con la persona adecuada",
+    "porcentajeB": "55%",
+    "votosTotales": 33318
+  },
+  {
+    "id": "bz0k8",
+    "opcionA": "comprarle una ronda de tragos a todos en tu bar favorito en su día más ocupado",
+    "porcentajeA": "14%",
+    "opcionB": "ser expulsado/a del lugar con entrada prohíbida para siempre",
+    "porcentajeB": "86%",
+    "votosTotales": 11828
+  },
+  {
+    "id": "ggrrd",
+    "opcionA": "ganar el doble de dinero de lo que ya ganas durante los próximos diez años",
+    "porcentajeA": "6%",
+    "opcionB": "recuperar todo el dinero que ya gastaste en tu vida",
+    "porcentajeB": "94%",
+    "votosTotales": 9466
+  },
+  {
+    "id": "kq7qx",
+    "opcionA": "nadar con un caimán",
+    "porcentajeA": "5%",
+    "opcionB": "estar encerrado/a con un león",
+    "porcentajeB": "95%",
+    "votosTotales": 9562
+  },
+  {
+    "id": "ptmhf",
+    "opcionA": "poder retractarte de cualquier cosa que digas y no se recuerde",
+    "porcentajeA": "5%",
+    "opcionB": "escuchar cualquier conversación sobre ti",
+    "porcentajeB": "95%",
+    "votosTotales": 9270
+  },
+  {
+    "id": "mc22k",
+    "opcionA": "que el mundo esté tomado por extraterrestres",
+    "porcentajeA": "3%",
+    "opcionB": "por robots",
+    "porcentajeB": "97%",
+    "votosTotales": 8748
+  },
+  {
+    "id": "7dt8l",
+    "opcionA": "tener que usar el mismo atuendo todos los días por el resto de tu existencia",
+    "porcentajeA": "58%",
+    "opcionB": "que cada prenda que tienes tenga una granh mancha marrón en ella",
+    "porcentajeB": "42%",
+    "votosTotales": 54896
+  },
+  {
+    "id": "bfow9",
+    "opcionA": "tener los dientes donde va tu pelo",
+    "porcentajeA": "19%",
+    "opcionB": "tener pelo donde deberían estar tus dientes",
+    "porcentajeB": "81%",
+    "votosTotales": 11969
+  },
+  {
+    "id": "437ew",
+    "opcionA": "tener el poder de detener el tiempo, pero envejecer el doble de rápido",
+    "porcentajeA": "81%",
+    "opcionB": "nunca envejecer pero estar atrapado en un solo momento para siempre",
+    "porcentajeB": "19%",
+    "votosTotales": 2953
+  },
+  {
+    "id": "3u4xz",
+    "opcionA": "reemplazar \"hola\" por \"cállate\"",
+    "porcentajeA": "27%",
+    "opcionB": "gracias por \"perra\"",
+    "porcentajeB": "73%",
+    "votosTotales": 18189
+  },
+  {
+    "id": "mk0q4",
+    "opcionA": "ser alérgico/a a la mantequilla de maní",
+    "porcentajeA": "76%",
+    "opcionB": "al chocolate",
+    "porcentajeB": "24%",
+    "votosTotales": 59789
+  },
+  {
+    "id": "l71ov",
+    "opcionA": "que los humanos vayan a la Luna de nuevo",
+    "porcentajeA": "19%",
+    "opcionB": "que los humanos vayan a Marte",
+    "porcentajeB": "81%",
+    "votosTotales": 49029
+  },
+  {
+    "id": "c1z7c",
+    "opcionA": "vivir en un mundo donde no hay electricidad de ningún tipo",
+    "porcentajeA": "17%",
+    "opcionB": "vivir en un mundo donde la tecnología nos haga la vida más fácil,pero todos los animales están extintos",
+    "porcentajeB": "83%",
+    "votosTotales": 12108
+  },
+  {
+    "id": "74tfc",
+    "opcionA": "renunciar a todas las bebidas excepto al agua",
+    "porcentajeA": "38%",
+    "opcionB": "dejar de comer cualquier cosa que haya sido cocinada en un horno",
+    "porcentajeB": "62%",
+    "votosTotales": 19159
+  },
+  {
+    "id": "nkxfw",
+    "opcionA": "ganar un billón de dólares",
+    "porcentajeA": "9%",
+    "opcionB": "poder atravesar paredes",
+    "porcentajeB": "91%",
+    "votosTotales": 9227
+  },
+  {
+    "id": "41ncx",
+    "opcionA": "que la persona que te gusta te vea cantar karaoke borracho",
+    "porcentajeA": "26%",
+    "opcionB": "te vea bailando borracho/a",
+    "porcentajeB": "74%",
+    "votosTotales": 16354
+  },
+  {
+    "id": "agr51",
+    "opcionA": "que el algodón de azúcar sea tu única fuente de azúcar",
+    "porcentajeA": "19%",
+    "opcionB": "nunca volver a probarlo otra vez",
+    "porcentajeB": "81%",
+    "votosTotales": 161445
+  },
+  {
+    "id": "506aw",
+    "opcionA": "solo poder enviar textear en emojis por el resto de tu vida",
+    "porcentajeA": "24%",
+    "opcionB": "que aparezca la notificación de poco espacio de almacenamiento en tu teléfono todos los días",
+    "porcentajeB": "76%",
+    "votosTotales": 165269
+  },
+  {
+    "id": "2ic0x",
+    "opcionA": "lavar todos tus platos con tu lengua",
+    "porcentajeA": "53%",
+    "opcionB": "bañar a tus mascotas con tu lengua",
+    "porcentajeB": "47%",
+    "votosTotales": 26538
+  },
+  {
+    "id": "0uv1o",
+    "opcionA": "morir por tus ideas",
+    "porcentajeA": "23%",
+    "opcionB": "vivir y seguir reflexionando",
+    "porcentajeB": "77%",
+    "votosTotales": 41873
+  },
+  {
+    "id": "ng74h",
+    "opcionA": "realiza un acto random de bondad por alguien que odias",
+    "porcentajeA": "35%",
+    "opcionB": "recibir un acto random de bondad de alguien que odias",
+    "porcentajeB": "65%",
+    "votosTotales": 78274
+  },
+  {
+    "id": "o9y6v",
+    "opcionA": "usar una camiseta al revés mientras das un discurso",
+    "porcentajeA": "3%",
+    "opcionB": "tener papel higiénico pegado en la suela de tu zapato mientras das un discurso",
+    "porcentajeB": "97%",
+    "votosTotales": 8670
+  },
+  {
+    "id": "25acc",
+    "opcionA": "nunca más poder ver la televisión",
+    "porcentajeA": "29%",
+    "opcionB": "que te rompa el culo un fortachón (pasas 2 días en el hospital y te recuperas)",
+    "porcentajeB": "71%",
+    "votosTotales": 28316
+  },
+  {
+    "id": "olb1m",
+    "opcionA": "no tener dedos",
+    "porcentajeA": "9%",
+    "opcionB": "no tener ojos",
+    "porcentajeB": "91%",
+    "votosTotales": 9229
+  },
+  {
+    "id": "02xht",
+    "opcionA": "ser un mago",
+    "porcentajeA": "53%",
+    "opcionB": "un súper héroe",
+    "porcentajeB": "47%",
+    "votosTotales": 48071
+  },
+  {
+    "id": "bdvdo",
+    "opcionA": "reencarnar como un hisopo",
+    "porcentajeA": "16%",
+    "opcionB": "como una toallita",
+    "porcentajeB": "84%",
+    "votosTotales": 12001
+  },
+  {
+    "id": "5fvee",
+    "opcionA": "ganar un coche nuevo",
+    "porcentajeA": "27%",
+    "opcionB": "ganar unas vacaciones recorriendo Europa",
+    "porcentajeB": "73%",
+    "votosTotales": 16635
+  },
+  {
+    "id": "0ql3u",
+    "opcionA": "casarte con tu pareja ahora mismo",
+    "porcentajeA": "55%",
+    "opcionB": "romper con tu pareja ahora mismo",
+    "porcentajeB": "45%",
+    "votosTotales": 43414
+  },
+  {
+    "id": "hmp8r",
+    "opcionA": "ser capaz de matar bichos y arañas con solo mirarlos",
+    "porcentajeA": "4%",
+    "opcionB": "limpiar tu cocina solo con mirarla",
+    "porcentajeB": "96%",
+    "votosTotales": 9924
+  },
+  {
+    "id": "mdy34",
+    "opcionA": "perder tu pulgar preferido",
+    "porcentajeA": "7%",
+    "opcionB": "perder el dedo índice y medio de la mano que escojas",
+    "porcentajeB": "93%",
+    "votosTotales": 9178
+  },
+  {
+    "id": "macpe",
+    "opcionA": "hacer caca rosada y que huela a rosas",
+    "porcentajeA": "9%",
+    "opcionB": "vomitar corazones pequeños",
+    "porcentajeB": "91%",
+    "votosTotales": 9316
+  },
+  {
+    "id": "cm5ce",
+    "opcionA": "sentir la necesidad de orinar cada vez que te pones de pie",
+    "porcentajeA": "20%",
+    "opcionB": "senit la necesidad de defecar cada vez que te sientas",
+    "porcentajeB": "80%",
+    "votosTotales": 10795
+  },
+  {
+    "id": "mggob",
+    "opcionA": "sentarte con un león descansando",
+    "porcentajeA": "4%",
+    "opcionB": "con un cocodrilo durante diez minutos",
+    "porcentajeB": "96%",
+    "votosTotales": 8857
+  },
+  {
+    "id": "kgzbc",
+    "opcionA": "desayunar y llegar tarde al trabajo",
+    "porcentajeA": "26%",
+    "opcionB": "no comer y llegar a tiempo",
+    "porcentajeB": "74%",
+    "votosTotales": 50326
+  },
+  {
+    "id": "b0a9v",
+    "opcionA": "comer solo carne",
+    "porcentajeA": "51%",
+    "opcionB": "comer solo verduras",
+    "porcentajeB": "49%",
+    "votosTotales": 61873
+  },
+  {
+    "id": "3vda5",
+    "opcionA": "parecer como si estuvieras embarazada de 8 meses",
+    "porcentajeA": "8%",
+    "opcionB": "tener siempre un ojo morado",
+    "porcentajeB": "92%",
+    "votosTotales": 20164
+  },
+  {
+    "id": "j9jaj",
+    "opcionA": "tener padres de 70 años",
+    "porcentajeA": "5%",
+    "opcionB": "tener padres de 15 años",
+    "porcentajeB": "95%",
+    "votosTotales": 9037
+  },
+  {
+    "id": "8vn0e",
+    "opcionA": "dirigir un restaurante con Gordon Ramsay respirándote en el cuello y gritándote todo el día",
+    "porcentajeA": "20%",
+    "opcionB": "pararte fuera de ese restaurante disfrazado de pollo, con la cara descubierta, para atraer clientes",
+    "porcentajeB": "80%",
+    "votosTotales": 14903
+  },
+  {
+    "id": "joae8",
+    "opcionA": "nunca más volver a tener relaciones sexuales",
+    "porcentajeA": "7%",
+    "opcionB": "nunca más aprender nada nuevo",
+    "porcentajeB": "93%",
+    "votosTotales": 9523
+  },
+  {
+    "id": "pjpv6",
+    "opcionA": "columpiarte por la jungla con monos pero nunca hablar de nuevo",
+    "porcentajeA": "48%",
+    "opcionB": "vivir en la civilización pero solo comunicarte con sonidos de mono",
+    "porcentajeB": "52%",
+    "votosTotales": 160
+  },
+  {
+    "id": "9izql",
+    "opcionA": "escuchar a un bebé llorar por 1 hora",
+    "porcentajeA": "25%",
+    "opcionB": "escuchar Gangnam Style durante 10 horas",
+    "porcentajeB": "75%",
+    "votosTotales": 14375
+  },
+  {
+    "id": "5d1zf",
+    "opcionA": "probar el mismo sabor en la comida por el resto de tú vida",
+    "porcentajeA": "37%",
+    "opcionB": "no saborear nada nunca más",
+    "porcentajeB": "63%",
+    "votosTotales": 16671
+  },
+  {
+    "id": "6m25p",
+    "opcionA": "ser capturado por alienígenas",
+    "porcentajeA": "41%",
+    "opcionB": "por terroristas",
+    "porcentajeB": "59%",
+    "votosTotales": 16133
+  },
+  {
+    "id": "1fdgd",
+    "opcionA": "descubrir algo genial y difundirlo",
+    "porcentajeA": "39%",
+    "opcionB": "descubrir algo malvado y prevenirlo",
+    "porcentajeB": "61%",
+    "votosTotales": 33740
+  },
+  {
+    "id": "fjsq6",
+    "opcionA": "vivir en un mundo libre de problemas",
+    "porcentajeA": "13%",
+    "opcionB": "vivir en un mundo que tu gobiernes",
+    "porcentajeB": "87%",
+    "votosTotales": 10343
+  },
+  {
+    "id": "m5c76",
+    "opcionA": "transpirar aroma de queso apestoso",
+    "porcentajeA": "4%",
+    "opcionB": "tener que llevar siempre una armadura de plomo",
+    "porcentajeB": "96%",
+    "votosTotales": 9253
+  },
+  {
+    "id": "fhror",
+    "opcionA": "tener 10 hijos",
+    "porcentajeA": "10%",
+    "opcionB": "no tener hijos en absoluto",
+    "porcentajeB": "90%",
+    "votosTotales": 11415
+  },
+  {
+    "id": "hwskp",
+    "opcionA": "tener 30 perros en tu casa todo el tiempo",
+    "porcentajeA": "7%",
+    "opcionB": "solo caminar hacia atrás toda tu vida",
+    "porcentajeB": "93%",
+    "votosTotales": 9161
+  },
+  {
+    "id": "81h4b",
+    "opcionA": "que suenen campanas dentro de tu cabeza cada vez que parpadees",
+    "porcentajeA": "16%",
+    "opcionB": "empezar cada frase con \"estoy soltero/a\"",
+    "porcentajeB": "84%",
+    "votosTotales": 15754
+  },
+  {
+    "id": "69apz",
+    "opcionA": "tener un dedo extra en la mano",
+    "porcentajeA": "23%",
+    "opcionB": "un dedo extra en el pie",
+    "porcentajeB": "77%",
+    "votosTotales": 15537
+  },
+  {
+    "id": "azv43",
+    "opcionA": "ser como eres ahora",
+    "porcentajeA": "23%",
+    "opcionB": "tener 100 millones de dólares, pero tener un 5% de probabilidad de muerte instantánea cada día",
+    "porcentajeB": "77%",
+    "votosTotales": 12994
+  },
+  {
+    "id": "c99l4",
+    "opcionA": "tener que comer el mismo plato en cada comida por el resto de tu vida",
+    "porcentajeA": "51%",
+    "opcionB": "comer lo que quieras, excepto que una vez al año tienes que comer un bocadillo con mierda",
+    "porcentajeB": "49%",
+    "votosTotales": 50170
+  },
+  {
+    "id": "bczv9",
+    "opcionA": "engañar a 1 persona 1000 veces",
+    "porcentajeA": "12%",
+    "opcionB": "1000 personas 1 vez",
+    "porcentajeB": "88%",
+    "votosTotales": 13779
+  },
+  {
+    "id": "badf1",
+    "opcionA": "ser un/a rapero/a bien reconocido/a en tu país",
+    "porcentajeA": "19%",
+    "opcionB": "un/a mafioso/a reconocido/a en todo el mundo",
+    "porcentajeB": "81%",
+    "votosTotales": 11895
+  },
+  {
+    "id": "3fian",
+    "opcionA": "tengamos un mundo donde solo los chicos puedan inventar nueva tecnología",
+    "porcentajeA": "57%",
+    "opcionB": "un mundo donde los adultos solo pueden usar la tecnología que inventaron los chicos",
+    "porcentajeB": "43%",
+    "votosTotales": 60972
+  },
+  {
+    "id": "c7opv",
+    "opcionA": "nunca más poder volver a hablar con nadie",
+    "porcentajeA": "14%",
+    "opcionB": "nunca más poder tocar a nadie",
+    "porcentajeB": "86%",
+    "votosTotales": 11754
+  },
+  {
+    "id": "b67ge",
+    "opcionA": "pasar un día en la playa usando una tanga de leopardo",
+    "porcentajeA": "10%",
+    "opcionB": "vistiendo bañadores de Hello Kitty",
+    "porcentajeB": "90%",
+    "votosTotales": 12170
+  },
+  {
+    "id": "jyef9",
+    "opcionA": "cantar desnudo/a en un concierto, pero ser aclamado/a universalmente",
+    "porcentajeA": "4%",
+    "opcionB": "cantar completamente vestido/a, pero nunca dejar de ser abucheado/a",
+    "porcentajeB": "96%",
+    "votosTotales": 8752
+  },
+  {
+    "id": "pnmma",
+    "opcionA": "enfermar cada vez que comas tu comida favorita",
+    "porcentajeA": "2%",
+    "opcionB": "nunca volver a comer tu comida favorita",
+    "porcentajeB": "98%",
+    "votosTotales": 8968
+  },
+  {
+    "id": "5hknh",
+    "opcionA": "ser el mejor en algo que nadie se toma en serio",
+    "porcentajeA": "30%",
+    "opcionB": "estar muy por encima del promedio, pero ni cerca de ser el mejor en algo muy respetado",
+    "porcentajeB": "70%",
+    "votosTotales": 56547
+  },
+  {
+    "id": "ipvel",
+    "opcionA": "no volver a lavar tus sábanas",
+    "porcentajeA": "6%",
+    "opcionB": "solo poder ducharte una vez cada dos semanas",
+    "porcentajeB": "94%",
+    "votosTotales": 9099
+  },
+  {
+    "id": "0uq23",
+    "opcionA": "ser el/la único/a superviviente de un grupo de 40 rehénes",
+    "porcentajeA": "45%",
+    "opcionB": "estar atrapado/a en un ascensor durante 56 horas",
+    "porcentajeB": "55%",
+    "votosTotales": 42841
+  },
+  {
+    "id": "m79y0",
+    "opcionA": "tener sesiones de terapia gratuitas ilimitadas para siempre",
+    "porcentajeA": "9%",
+    "opcionB": "tener una charla única de tres horas con Michelle Obama",
+    "porcentajeB": "91%",
+    "votosTotales": 9280
+  },
+  {
+    "id": "cby5s",
+    "opcionA": "escuchar todo menos a tu músico/artista favorito",
+    "porcentajeA": "14%",
+    "opcionB": "escuchar solo a tu músico/artista favorito",
+    "porcentajeB": "86%",
+    "votosTotales": 11146
+  },
+  {
+    "id": "hpjdl",
+    "opcionA": "vivir en un mundo donde no hay ETS y todos se acuesten con todos",
+    "porcentajeA": "5%",
+    "opcionB": "salvar al planeta de un apocalipsis por ti mismo",
+    "porcentajeB": "95%",
+    "votosTotales": 9801
+  },
+  {
+    "id": "1n69c",
+    "opcionA": "pasar 48 horas encerrado con un actor porno",
+    "porcentajeA": "30%",
+    "opcionB": "con un Game Boy",
+    "porcentajeB": "70%",
+    "votosTotales": 31140
+  },
+  {
+    "id": "fpz54",
+    "opcionA": "beber cada comida como un batido",
+    "porcentajeA": "3%",
+    "opcionB": "nunca más poder comer chocolate",
+    "porcentajeB": "97%",
+    "votosTotales": 9810
+  },
+  {
+    "id": "39c3l",
+    "opcionA": "nunca más jugar un juego en tu computadora",
+    "porcentajeA": "31%",
+    "opcionB": "nunca más jugar en consola o teléfono",
+    "porcentajeB": "69%",
+    "votosTotales": 19545
+  },
+  {
+    "id": "6pzl5",
+    "opcionA": "golpea tu dedo pequeño contra el borde de un mueble todos los días",
+    "porcentajeA": "25%",
+    "opcionB": "ducharse solo dos veces por semana",
+    "porcentajeB": "75%",
+    "votosTotales": 18802
+  },
+  {
+    "id": "fqbnf",
+    "opcionA": "saber el lugar y hora exactos de tu propia muerte",
+    "porcentajeA": "9%",
+    "opcionB": "saber el lugar y hora exactos de la muerte de todos a tu alrededor",
+    "porcentajeB": "91%",
+    "votosTotales": 10497
+  },
+  {
+    "id": "lb344",
+    "opcionA": "vivir el resto de tu vida en patines",
+    "porcentajeA": "5%",
+    "opcionB": "vivir sin lengua 2 de cada 7 días",
+    "porcentajeB": "95%",
+    "votosTotales": 9366
+  },
+  {
+    "id": "3qhpr",
+    "opcionA": "tener una intensa sesión de besos con tu osito de peluche",
+    "porcentajeA": "33%",
+    "opcionB": "tener una intensa sesión de besos con un poster",
+    "porcentajeB": "67%",
+    "votosTotales": 17634
+  },
+  {
+    "id": "ghysk",
+    "opcionA": "reciclar caca humana como profesión para el resto de tu vida",
+    "porcentajeA": "5%",
+    "opcionB": "trabajar con productos químicos peligrosos y explosivos por el resto de su vida",
+    "porcentajeB": "95%",
+    "votosTotales": 9346
+  },
+  {
+    "id": "fuvj6",
+    "opcionA": "vivir en una mansión en la ciudad",
+    "porcentajeA": "9%",
+    "opcionB": "vivir en una choza en la playa",
+    "porcentajeB": "91%",
+    "votosTotales": 9834
+  },
+  {
+    "id": "h843w",
+    "opcionA": "estar completamente solo/a por cinco años",
+    "porcentajeA": "30%",
+    "opcionB": "Nunca estar solo/a durante cinco años",
+    "porcentajeB": "70%",
+    "votosTotales": 512799
+  },
+  {
+    "id": "1b84u",
+    "opcionA": "acostarte con cada uno de tus jefes hasta que seas CEO",
+    "porcentajeA": "39%",
+    "opcionB": "trabajar en McDonald's",
+    "porcentajeB": "61%",
+    "votosTotales": 35599
+  },
+  {
+    "id": "it56t",
+    "opcionA": "tener una uña encarnada infectada en el dedo gordo del pie",
+    "porcentajeA": "10%",
+    "opcionB": "tener un ataque grave de clamidia",
+    "porcentajeB": "90%",
+    "votosTotales": 9430
+  },
+  {
+    "id": "8948h",
+    "opcionA": "trabajar en tu primer trabajo por el resto de tu vida",
+    "porcentajeA": "32%",
+    "opcionB": "tener 10 bebés",
+    "porcentajeB": "68%",
+    "votosTotales": 15947
+  },
+  {
+    "id": "3t1jl",
+    "opcionA": "dormir en el suelo en pijama pero sin almohada",
+    "porcentajeA": "34%",
+    "opcionB": "dormir en el suelo completamente desnudo/a pero con una almohada",
+    "porcentajeB": "66%",
+    "votosTotales": 18229
+  },
+  {
+    "id": "cn7w2",
+    "opcionA": "vivir mucho tiempo sin realmente aprovecharlo",
+    "porcentajeA": "15%",
+    "opcionB": "vivir una vida corta pero al máximo",
+    "porcentajeB": "85%",
+    "votosTotales": 58224
+  },
+  {
+    "id": "cn6n2",
+    "opcionA": "tener acceso ilimitado al mejor cacao del mundo, pero nunca volver a probar el chocolate",
+    "porcentajeA": "33%",
+    "opcionB": "disfrutar del chocolate a diario, pero nunca poder experimentar el cacao de otra forma",
+    "porcentajeB": "67%",
+    "votosTotales": 142483
+  },
+  {
+    "id": "jdpcy",
+    "opcionA": "tener siempre internet lento",
+    "porcentajeA": "12%",
+    "opcionB": "tener siempre muy mala señal en el teléfono",
+    "porcentajeB": "88%",
+    "votosTotales": 15582
+  },
+  {
+    "id": "124q8",
+    "opcionA": "ser buscado por asesinato y estar a la fuga",
+    "porcentajeA": "47%",
+    "opcionB": "ser un vagabundo que solo usa boxers",
+    "porcentajeB": "53%",
+    "votosTotales": 38139
+  },
+  {
+    "id": "4v44w",
+    "opcionA": "tener que lamerle la cara a las personas cada vez que van a darte la mano",
+    "porcentajeA": "16%",
+    "opcionB": "gritar \"¡No me lavé las manos!\" cada vez que vuelves del baño",
+    "porcentajeB": "84%",
+    "votosTotales": 54497
+  },
+  {
+    "id": "bf2us",
+    "opcionA": "vivir en un mundo sin música",
+    "porcentajeA": "6%",
+    "opcionB": "vivir en un mundo sin TV",
+    "porcentajeB": "94%",
+    "votosTotales": 11635
+  },
+  {
+    "id": "hk7bf",
+    "opcionA": "solo comer y cocinar diferentes tipos de verduras durante un mes",
+    "porcentajeA": "8%",
+    "opcionB": "darte un puñetazo en tus partes íntimas tan fuerte como puedas",
+    "porcentajeB": "92%",
+    "votosTotales": 9113
+  },
+  {
+    "id": "gsr73",
+    "opcionA": "tener una papa caliente en la boca",
+    "porcentajeA": "41%",
+    "opcionB": "tener todo tu cuerpo cubierto de miel",
+    "porcentajeB": "59%",
+    "votosTotales": 48983
+  },
+  {
+    "id": "mn8vj",
+    "opcionA": "encontrar tu alma gemela",
+    "porcentajeA": "3%",
+    "opcionB": "tener el trabajo de tus sueños",
+    "porcentajeB": "97%",
+    "votosTotales": 8729
+  },
+  {
+    "id": "hh9sl",
+    "opcionA": "obtener una licencia de piloto",
+    "porcentajeA": "12%",
+    "opcionB": "ser capaz de silbar por el culo",
+    "porcentajeB": "88%",
+    "votosTotales": 9812
+  },
+  {
+    "id": "2m6bn",
+    "opcionA": "que en cada película que veas Nicolas Cage sea el personaje principal",
+    "porcentajeA": "46%",
+    "opcionB": "que cada canción que escuches sea interpretada por Nickelback",
+    "porcentajeB": "54%",
+    "votosTotales": 24407
+  },
+  {
+    "id": "3vw3a",
+    "opcionA": "tener un coche de ensueño en tu garaje, pero nunca poder conducirlo",
+    "porcentajeA": "16%",
+    "opcionB": "tener un coche aburrido, pero poder conducirlo cuando lo desees",
+    "porcentajeB": "84%",
+    "votosTotales": 58238
+  },
+  {
+    "id": "nety2",
+    "opcionA": "luchar contra Muhammad Ali en su mejor momento",
+    "porcentajeA": "53%",
+    "opcionB": "Mike Tyson en su mejor momento",
+    "porcentajeB": "47%",
+    "votosTotales": 184
+  },
+  {
+    "id": "g9b35",
+    "opcionA": "detener el cambio climático",
+    "porcentajeA": "31%",
+    "opcionB": "acabar con todas las guerras en la tierra",
+    "porcentajeB": "69%",
+    "votosTotales": 133528
+  },
+  {
+    "id": "amsb9",
+    "opcionA": "ser transportado/a permanentemente 500 años hacia el futuro",
+    "porcentajeA": "30%",
+    "opcionB": "transportado/a permanentemente 500 años en el pasado",
+    "porcentajeB": "70%",
+    "votosTotales": 13552
+  },
+  {
+    "id": "8run3",
+    "opcionA": "nunca más poder ver Netflix",
+    "porcentajeA": "36%",
+    "opcionB": "nunca más poder ver YouTube",
+    "porcentajeB": "64%",
+    "votosTotales": 14892
+  },
+  {
+    "id": "3e3e6",
+    "opcionA": "vivir en un mundo donde no haya matrimonio",
+    "porcentajeA": "30%",
+    "opcionB": "en un mundo donde no haya divorcios",
+    "porcentajeB": "70%",
+    "votosTotales": 19239
+  },
+  {
+    "id": "fignw",
+    "opcionA": "poder teletransportarte tantas veces como quieras, pero solo a lugares aleatorios",
+    "porcentajeA": "13%",
+    "opcionB": "teletransportarte sólo una vez en tu vida, pero a un lugar de tu elección",
+    "porcentajeB": "87%",
+    "votosTotales": 10514
+  },
+  {
+    "id": "6k8zy",
+    "opcionA": "publicar una foto muy poco favorecedora que obtenga cientos de likes",
+    "porcentajeA": "16%",
+    "opcionB": "publica una foto muy halagadora que solo obtenga un like en total",
+    "porcentajeB": "84%",
+    "votosTotales": 14986
+  },
+  {
+    "id": "a6sbg",
+    "opcionA": "tener un jet privado",
+    "porcentajeA": "24%",
+    "opcionB": "tener un McLaren F1",
+    "porcentajeB": "76%",
+    "votosTotales": 13462
+  },
+  {
+    "id": "00i5s",
+    "opcionA": "llevar un teléfono inteligente moderno al antiguo Egipto",
+    "porcentajeA": "34%",
+    "opcionB": "llevar un artefacto histórico a tu hogar moderno",
+    "porcentajeB": "66%",
+    "votosTotales": 9221
+  },
+  {
+    "id": "1td57",
+    "opcionA": "estar perdido/a en el desierto",
+    "porcentajeA": "19%",
+    "opcionB": "en la jungla",
+    "porcentajeB": "81%",
+    "votosTotales": 30355
+  },
+  {
+    "id": "3muap",
+    "opcionA": "pasar tú vida sin hogar",
+    "porcentajeA": "32%",
+    "opcionB": "pasar tú vida en prisión",
+    "porcentajeB": "68%",
+    "votosTotales": 19098
+  },
+  {
+    "id": "1tezz",
+    "opcionA": "ser el/la borracho/a que llora toda la noche",
+    "porcentajeA": "39%",
+    "opcionB": "el/la borracho/a que comienza discusiones estúpidas con extraños",
+    "porcentajeB": "61%",
+    "votosTotales": 30066
+  },
+  {
+    "id": "c5nea",
+    "opcionA": "poder pasar un día con un ser querido que ha fallecido",
+    "porcentajeA": "25%",
+    "opcionB": "poder explorar un día en el año 3001",
+    "porcentajeB": "75%",
+    "votosTotales": 17398
+  },
+  {
+    "id": "mauu7",
+    "opcionA": "tener una extremidad extra",
+    "porcentajeA": "7%",
+    "opcionB": "tener un ojo extra",
+    "porcentajeB": "93%",
+    "votosTotales": 9276
+  },
+  {
+    "id": "n8xsx",
+    "opcionA": "tener la sensación constante de que insectos se arrastran por tu piel",
+    "porcentajeA": "1%",
+    "opcionB": "que alguien te llame por tu nombre cada dos minutos",
+    "porcentajeB": "99%",
+    "votosTotales": 8714
+  },
+  {
+    "id": "b7h74",
+    "opcionA": "luchar contra Muhammad Ali en su mejor momento",
+    "porcentajeA": "19%",
+    "opcionB": "Mike Tyson en su mejor momento",
+    "porcentajeB": "81%",
+    "votosTotales": 11630
+  },
+  {
+    "id": "h54tj",
+    "opcionA": "comer un sándwich de pavo con helado de vainilla adentro",
+    "porcentajeA": "6%",
+    "opcionB": "comer helado de vainilla con trozos de pavo adentro",
+    "porcentajeB": "94%",
+    "votosTotales": 9286
+  },
+  {
+    "id": "koflk",
+    "opcionA": "ser el conductor designado y permanecer sobrio toda la noche",
+    "porcentajeA": "5%",
+    "opcionB": "caminar 16km a casa con todo tu grupo de amigos",
+    "porcentajeB": "95%",
+    "votosTotales": 9482
+  },
+  {
+    "id": "2r9on",
+    "opcionA": "ser incapaz de controlar tu velocidad al hablar",
+    "porcentajeA": "53%",
+    "opcionB": "ser incapaz de controlar lo fuerte que hablas",
+    "porcentajeB": "47%",
+    "votosTotales": 25244
+  },
+  {
+    "id": "7t8je",
+    "opcionA": "creerle a un ciego lo que vio",
+    "porcentajeA": "26%",
+    "opcionB": "creerle a un sordo lo que escuchó",
+    "porcentajeB": "74%",
+    "votosTotales": 16348
+  },
+  {
+    "id": "0yk6z",
+    "opcionA": "ser odiado por todos, menos por tus padres",
+    "porcentajeA": "36%",
+    "opcionB": "que todos te quieran, pero ser odiado por tus padres",
+    "porcentajeB": "64%",
+    "votosTotales": 41434
+  },
+  {
+    "id": "nvtac",
+    "opcionA": "empezar tu vida de nuevo desde los 14 años con tu mente como está ahora",
+    "porcentajeA": "5%",
+    "opcionB": "ser tan fuerte como Superman",
+    "porcentajeB": "95%",
+    "votosTotales": 9264
+  },
+  {
+    "id": "hqbjz",
+    "opcionA": "ser atractivo/a y pobre",
+    "porcentajeA": "4%",
+    "opcionB": "feo/a y rico/a",
+    "porcentajeB": "96%",
+    "votosTotales": 9232
+  },
+  {
+    "id": "105dj",
+    "opcionA": "tener visión borrosa todo el tiempo",
+    "porcentajeA": "29%",
+    "opcionB": "ver todo en blanco y negro",
+    "porcentajeB": "71%",
+    "votosTotales": 40988
+  },
+  {
+    "id": "gmylu",
+    "opcionA": "tener todo lo que siempre has querido, pero morir en un año",
+    "porcentajeA": "3%",
+    "opcionB": "vivir tu vida como es ahora",
+    "porcentajeB": "97%",
+    "votosTotales": 9520
+  },
+  {
+    "id": "htgjk",
+    "opcionA": "ser un niño/a de 6 años para siempre",
+    "porcentajeA": "8%",
+    "opcionB": "ser un adulto de 70 años para siempre",
+    "porcentajeB": "92%",
+    "votosTotales": 9124
+  },
+  {
+    "id": "lke3e",
+    "opcionA": "delatar a tu mejor amigo por un crimen que cometió",
+    "porcentajeA": "9%",
+    "opcionB": "ir a la cárcel por el crimen que cometió un extraño",
+    "porcentajeB": "91%",
+    "votosTotales": 9301
+  },
+  {
+    "id": "25biy",
+    "opcionA": "tener colmillos de elefante",
+    "porcentajeA": "48%",
+    "opcionB": "el cuello de una jirafa",
+    "porcentajeB": "52%",
+    "votosTotales": 27593
+  },
+  {
+    "id": "3hc1q",
+    "opcionA": "no tener sentimientos ni dilemas morales",
+    "porcentajeA": "31%",
+    "opcionB": "ser muy sensible y frágil",
+    "porcentajeB": "69%",
+    "votosTotales": 19096
+  },
+  {
+    "id": "30u0d",
+    "opcionA": "mojarte cada vez que te caiga una gota de lluvia",
+    "porcentajeA": "49%",
+    "opcionB": "mojarte cada vez que mires una nube",
+    "porcentajeB": "51%",
+    "votosTotales": 22637
+  },
+  {
+    "id": "j2wpf",
+    "opcionA": "tener diarrea explosiva cada vez que te reúnes con tu jefe",
+    "porcentajeA": "7%",
+    "opcionB": "tener diarrea explosiva cada vez que te reúnes con tus suegros",
+    "porcentajeB": "93%",
+    "votosTotales": 9498
+  },
+  {
+    "id": "8hfzy",
+    "opcionA": "participar en un programa de televisión",
+    "porcentajeA": "32%",
+    "opcionB": "estar desempleado 2 años",
+    "porcentajeB": "68%",
+    "votosTotales": 14944
+  },
+  {
+    "id": "qtg2h",
+    "opcionA": "vivir en un refugio para personas sin hogar con wifi gratis",
+    "porcentajeA": "2%",
+    "opcionB": "vivir en una mansión hermosa aislada de cualquier contacto externo",
+    "porcentajeB": "98%",
+    "votosTotales": 9209
+  },
+  {
+    "id": "p4o4h",
+    "opcionA": "pasare el rato con Eminem",
+    "porcentajeA": "8%",
+    "opcionB": "pasar el rato con Jay-Z",
+    "porcentajeB": "92%",
+    "votosTotales": 9304
+  },
+  {
+    "id": "isuua",
+    "opcionA": "saber cómo vas a morir",
+    "porcentajeA": "8%",
+    "opcionB": "saber cómo va a morir tu pareja",
+    "porcentajeB": "92%",
+    "votosTotales": 9615
+  },
+  {
+    "id": "4svo4",
+    "opcionA": "ser capaz de que cualquier licor que quieras salga de tus dedos",
+    "porcentajeA": "33%",
+    "opcionB": "salir una noche en las Vegas con Alan de Resacón en las Vegas",
+    "porcentajeB": "67%",
+    "votosTotales": 16136
+  }
+]

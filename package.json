@@ -9,8 +9,8 @@
     "test": "node tests/e2e/test_suite.mjs",
     "test:e2e": "node tests/e2e/test_suite.mjs",
     "test:dom": "node scripts/audit_dom_deep.mjs && node tests/e2e/dom_interactive_stress.mjs",
-    "lint:emoji": "python .agents/ux-ui-agent-skills/scripts/check_no_emoji.py index.html aves/index.html pokemon/index.html mamiferos/index.html flores/index.html src/",
-    "lint:taste": "python .agents/ux-ui-agent-skills/scripts/lint_taste.py index.html aves/index.html pokemon/index.html mamiferos/index.html flores/index.html",
+    "lint:emoji": "python .agents/ux-ui-agent-skills/scripts/check_no_emoji.py index.html aves/index.html pokemon/index.html mamiferos/index.html flores/index.html que-prefieres/index.html src/",
+    "lint:taste": "python .agents/ux-ui-agent-skills/scripts/lint_taste.py index.html aves/index.html pokemon/index.html mamiferos/index.html flores/index.html que-prefieres/index.html",
     "lint:contrast": "python .agents/ux-ui-agent-skills/scripts/validate_contrast.py",
     "lint": "npm run lint:emoji && npm run lint:taste && npm run lint:contrast"
   },
