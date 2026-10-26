@@ -547,10 +547,15 @@
 
       async autoFetchWikipediaTop50() {
         const visible = this.getVisibleItems().slice(0, 50);
-        for (const it of visible) {
+        const statsEl = document.getElementById('statsLabel');
+        for (let i = 0; i < visible.length; i++) {
+          const it = visible[i];
           const query = it.sci_name || it.nombreCientifico || it.name || it.nombre;
+          if (statsEl) statsEl.textContent = `Consultando Wikipedia (${i + 1}/${visible.length}): ${it.name || it.nombre}...`;
           await this.fetchWikipediaSingle(it.id, query);
+          await new Promise(r => setTimeout(r, 220)); // Rate limit pause to avoid HTTP 429
         }
+        if (statsEl) statsEl.textContent = `Consulta de Wikipedia completada para ${visible.length} especies.`;
       },
 
       downloadJson() {

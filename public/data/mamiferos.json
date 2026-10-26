@@ -7,7 +7,7 @@
     "group": "Felinos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754771503/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG/3840px-Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 5583,
     "countries": [
       "argentina",
@@ -56,7 +56,7 @@
     "group": "Cánidos y Zorros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/43410580/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Canis_lupus_265b.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 12369,
     "countries": [
       "latinoamérica",
@@ -71,7 +71,7 @@
     "group": "Osos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/150277588/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Brown_bear_%28Ursus_arctos%29%2C_Viiksimo%2C_Kainuu_region%2C_Finland%2C_16_June_2018_%2843094873292%29.jpg/3840px-Brown_bear_%28Ursus_arctos%29%2C_Viiksimo%2C_Kainuu_region%2C_Finland%2C_16_June_2018_%2843094873292%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 17706,
     "countries": [
       "latinoamérica",
@@ -86,7 +86,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "África",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/93674728/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Elefante_africano_de_sabana_%28Loxodonta_africana%29%2C_parque_nacional_Kruger%2C_Sud%C3%A1frica%2C_2018-07-25%2C_DD_12.jpg/3840px-Elefante_africano_de_sabana_%28Loxodonta_africana%29%2C_parque_nacional_Kruger%2C_Sud%C3%A1frica%2C_2018-07-25%2C_DD_12.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 28984,
     "countries": [
       "áfrica"
@@ -100,7 +100,7 @@
     "group": "Cánidos y Zorros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754793247/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Vulpes_vulpes_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 135642,
     "countries": [
       "latinoamérica",
@@ -174,7 +174,7 @@
     "group": "Felinos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9225318/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/3840px-002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 20026,
     "countries": [
       "latinoamérica",
@@ -276,7 +276,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/110157765/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b7/White-tailed_deer.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 401697,
     "countries": [
       "latinoamérica",
@@ -291,7 +291,7 @@
     "group": "Conejos y Liebres",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/93582532/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Cottontail_Rabbit_in_West_Hartford%2C_Connecticut_5.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 184459,
     "countries": [
       "latinoamérica",
@@ -306,7 +306,7 @@
     "group": "Osos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/102785980/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Canadian_Rockies_-_the_bear_at_Lake_Louise.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 76758,
     "countries": [
       "latinoamérica",
@@ -352,7 +352,7 @@
     "group": "Felinos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/129658776/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/64/Collage_of_Six_Cats-02.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 95459,
     "countries": [
       "latinoamérica",
@@ -367,7 +367,7 @@
     "group": "Mustélidos y Carnívoros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/290431922/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Raccoon_in_Central_Park_%2835264%29.jpg/3840px-Raccoon_in_Central_Park_%2835264%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 180797,
     "countries": [
       "estados unidos",
@@ -458,7 +458,7 @@
     "group": "Roedores",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/113299756/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Tamiasciurus_hudsonicus_CT.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 96588,
     "countries": [
       "latinoamérica",
@@ -518,7 +518,7 @@
     "group": "Conejos y Liebres",
     "habitat": "Terrestre",
     "region": "Europa",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/520690657/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/37/Oryctolagus_cuniculus_Tasmania_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 49808,
     "countries": [
       "españa",
@@ -548,7 +548,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754986666/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Capreolus_capreolus_2_Jojo.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 78991,
     "countries": [
       "latinoamérica",
@@ -563,7 +563,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754954122/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Alaska_moose.jpg/3840px-Alaska_moose.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 59641,
     "countries": [
       "latinoamérica",
@@ -578,7 +578,7 @@
     "group": "Cánidos y Zorros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754973861/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9c/2009-Coyote-Yosemite.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 127236,
     "countries": [
       "latinoamérica",
@@ -593,7 +593,7 @@
     "group": "Roedores",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754858357/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6b/American_Beaver.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 77574,
     "countries": [
       "latinoamérica",
@@ -668,7 +668,7 @@
     "group": "Desdentados y Perezosos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/654723/medium.JPG",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Armadillo_en_Montemorelos.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 37264,
     "countries": [
       "latinoamérica",
@@ -699,7 +699,7 @@
     "group": "Cánidos y Zorros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/307568930/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Coat_types_3.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 27318,
     "countries": [
       "latinoamérica",
@@ -714,7 +714,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/297923496/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8d/American_bison_k5680-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 27544,
     "countries": [
       "estados unidos",
@@ -730,7 +730,7 @@
     "group": "Mustélidos y Carnívoros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/172440134/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/82/LutraCanadensis_fullres.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 32860,
     "countries": [
       "latinoamérica",
