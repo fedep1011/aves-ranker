@@ -220,6 +220,67 @@
           </div>
         </div>
 
+        <!-- CONTROLES FINOS CON SLIDERS (X, Y, ZOOM) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 shadow-sm text-xs">
+          <!-- Controles Mitad Izquierda -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between font-bold text-stone-700 dark:text-stone-300">
+              <span>Especie Izquierda</span>
+              <span id="labelZoomLeft" class="font-mono text-emerald-600">1.00x</span>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] text-stone-500 mb-0.5">
+                <span>Posición X (Horizontal)</span>
+                <span id="labelPosXLeft" class="font-mono">50%</span>
+              </div>
+              <input id="sliderPosXLeft" type="range" min="0" max="100" value="50" oninput="app.onSliderChange('left', 'x', this.value)" class="w-full accent-emerald-600 h-1.5 bg-stone-200 dark:bg-stone-700 rounded-lg cursor-pointer" />
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] text-stone-500 mb-0.5">
+                <span>Posición Y (Vertical)</span>
+                <span id="labelPosYLeft" class="font-mono">30%</span>
+              </div>
+              <input id="sliderPosYLeft" type="range" min="0" max="100" value="30" oninput="app.onSliderChange('left', 'y', this.value)" class="w-full accent-emerald-600 h-1.5 bg-stone-200 dark:bg-stone-700 rounded-lg cursor-pointer" />
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] text-stone-500 mb-0.5">
+                <span>Zoom (Escala)</span>
+                <span id="labelScaleLeft" class="font-mono">1.00x</span>
+              </div>
+              <input id="sliderScaleLeft" type="range" min="1" max="3.5" step="0.05" value="1" oninput="app.onSliderChange('left', 'scale', this.value)" class="w-full accent-emerald-600 h-1.5 bg-stone-200 dark:bg-stone-700 rounded-lg cursor-pointer" />
+            </div>
+          </div>
+
+          <!-- Controles Mitad Derecha -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between font-bold text-stone-700 dark:text-stone-300">
+              <span>Especie Derecha</span>
+              <span id="labelZoomRight" class="font-mono text-emerald-600">1.00x</span>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] text-stone-500 mb-0.5">
+                <span>Posición X (Horizontal)</span>
+                <span id="labelPosXRight" class="font-mono">50%</span>
+              </div>
+              <input id="sliderPosXRight" type="range" min="0" max="100" value="50" oninput="app.onSliderChange('right', 'x', this.value)" class="w-full accent-emerald-600 h-1.5 bg-stone-200 dark:bg-stone-700 rounded-lg cursor-pointer" />
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] text-stone-500 mb-0.5">
+                <span>Posición Y (Vertical)</span>
+                <span id="labelPosYRight" class="font-mono">25%</span>
+              </div>
+              <input id="sliderPosYRight" type="range" min="0" max="100" value="25" oninput="app.onSliderChange('right', 'y', this.value)" class="w-full accent-emerald-600 h-1.5 bg-stone-200 dark:bg-stone-700 rounded-lg cursor-pointer" />
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] text-stone-500 mb-0.5">
+                <span>Zoom (Escala)</span>
+                <span id="labelScaleRight" class="font-mono">1.00x</span>
+              </div>
+              <input id="sliderScaleRight" type="range" min="1" max="3.5" step="0.05" value="1" oninput="app.onSliderChange('right', 'scale', this.value)" class="w-full accent-emerald-600 h-1.5 bg-stone-200 dark:bg-stone-700 rounded-lg cursor-pointer" />
+            </div>
+          </div>
+        </div>
+
         <!-- READOUT DE CSS DE ENFOQUE -->
         <div class="p-3 rounded-lg border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 text-xs font-mono space-y-1.5">
           <div class="flex items-center justify-between text-stone-500">
@@ -360,17 +421,6 @@
           this.initSimulatorSelectors();
         }
       },
-          ['mamiferos', 'aves', 'flores'].forEach(cat => {
-            localStorage.removeItem(`rankea2_curator_${cat}`);
-            localStorage.removeItem(`rankea2_approved_${cat}`);
-          });
-          localStorage.setItem('rankea2_curator_ver', CURATOR_DATA_VERSION);
-          this.modifiedItems.clear();
-          this.curatedApprovedSet = new Set(PRE_CURATED_IDS[this.arena] || []);
-          this.updateModifiedBadge();
-          this.render();
-        }
-      },
 
       setTab(tab) {
         this.currentTab = tab;
@@ -387,6 +437,10 @@
           btnSim.className = 'px-3 py-1.5 rounded-md bg-white dark:bg-stone-900 shadow-xs text-stone-900 dark:text-white';
           btnCat.className = 'px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 dark:hover:text-white';
           this.updateSimulator();
+          this.syncSliders();
+          this.applyTransforms();
+        }
+      },
         }
       },
 
@@ -811,6 +865,41 @@
         this.simState.left = { x: 50, y: 30, scale: 1.0 };
         this.simState.right = { x: 50, y: 25, scale: 1.0 };
         this.simState.battle = { x: 50, y: 50, scale: 1.0 };
+        this.syncSliders();
+        this.applyTransforms();
+      },
+
+      syncSliders() {
+        const setVal = (id, val) => {
+          const el = document.getElementById(id);
+          if (el) el.value = val;
+        };
+        const setText = (id, text) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = text;
+        };
+
+        setVal('sliderPosXLeft', this.simState.left.x);
+        setText('labelPosXLeft', `${Math.round(this.simState.left.x)}%`);
+        setVal('sliderPosYLeft', this.simState.left.y);
+        setText('labelPosYLeft', `${Math.round(this.simState.left.y)}%`);
+        setVal('sliderScaleLeft', this.simState.left.scale);
+        setText('labelScaleLeft', `${this.simState.left.scale.toFixed(2)}x`);
+        setText('labelZoomLeft', `${this.simState.left.scale.toFixed(2)}x`);
+
+        setVal('sliderPosXRight', this.simState.right.x);
+        setText('labelPosXRight', `${Math.round(this.simState.right.x)}%`);
+        setVal('sliderPosYRight', this.simState.right.y);
+        setText('labelPosYRight', `${Math.round(this.simState.right.y)}%`);
+        setVal('sliderScaleRight', this.simState.right.scale);
+        setText('labelScaleRight', `${this.simState.right.scale.toFixed(2)}x`);
+        setText('labelZoomRight', `${this.simState.right.scale.toFixed(2)}x`);
+      },
+
+      onSliderChange(side, prop, val) {
+        const num = parseFloat(val);
+        this.simState[side][prop] = num;
+        this.syncSliders();
         this.applyTransforms();
       },
 
@@ -828,6 +917,7 @@
           imgR.style.transform = `scale(${this.simState.right.scale.toFixed(2)})`;
         }
         if (imgB) {
+          imgB.style.objectPosition = `${this.simState.battle.x.toFixed(1)}% ${this.simState.battle.y.toFixed(1)}%`;
           imgB.style.transform = `scale(${this.simState.battle.scale.toFixed(2)})`;
         }
 
@@ -863,7 +953,7 @@
             startY = e.clientY;
             origX = this.simState[stateKey].x;
             origY = this.simState[stateKey].y;
-            el.setPointerCapture(e.pointerId);
+            try { el.setPointerCapture(e.pointerId); } catch (_) {}
           });
 
           el.addEventListener('pointermove', (e) => {
@@ -871,17 +961,23 @@
             const dx = e.clientX - startX;
             const dy = e.clientY - startY;
 
-            // Sensitivity scaling
             const rect = el.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
             const sensX = (dx / rect.width) * 100;
             const sensY = (dy / rect.height) * 100;
 
             this.simState[stateKey].x = Math.max(0, Math.min(100, origX - sensX));
             this.simState[stateKey].y = Math.max(0, Math.min(100, origY - sensY));
+            this.syncSliders();
             this.applyTransforms();
           });
 
-          const stopDrag = () => { isDragging = false; };
+          const stopDrag = (e) => {
+            if (isDragging) {
+              isDragging = false;
+              try { el.releasePointerCapture(e.pointerId); } catch (_) {}
+            }
+          };
           el.addEventListener('pointerup', stopDrag);
           el.addEventListener('pointercancel', stopDrag);
 
@@ -890,15 +986,15 @@
             e.preventDefault();
             const delta = e.deltaY > 0 ? -0.05 : 0.05;
             this.simState[stateKey].scale = Math.max(1.0, Math.min(3.5, this.simState[stateKey].scale + delta));
+            this.syncSliders();
             this.applyTransforms();
           }, { passive: false });
         };
 
-        window.addEventListener('DOMContentLoaded', () => {
-          setupDrag('wrapSplitLeft', 'left');
-          setupDrag('wrapSplitRight', 'right');
-          setupDrag('wrapBattlePhoto', 'battle');
-        });
+        // Attach listeners directly to elements
+        setupDrag('wrapSplitLeft', 'left');
+        setupDrag('wrapSplitRight', 'right');
+        setupDrag('wrapBattlePhoto', 'battle');
       },
 
       updateSimulator() {
