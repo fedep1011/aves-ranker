@@ -81,8 +81,8 @@
         </div>
 
         <select id="arenaSelect" onchange="app.changeArena(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white font-semibold">
+          <option value="mamiferos" selected>Mamíferos (/data/mamiferos.json)</option>
           <option value="aves">Aves (/data/aves.json)</option>
-          <option value="mamiferos">Mamíferos (/data/mamiferos.json)</option>
           <option value="flores">Flores (/data/flores.json)</option>
         </select>
 
@@ -288,7 +288,7 @@
       }
     };
 
-    const CURATOR_DATA_VERSION = '2026-10-26-v4';
+    const CURATOR_DATA_VERSION = '2026-10-26-v5';
 
     // Pre-curated IDs (the 106 mammals curated across batches and Tigre)
     const PRE_CURATED_IDS = {
@@ -298,7 +298,7 @@
     };
 
     const app = {
-      arena: 'aves',
+      arena: 'mamiferos',
       currentTab: 'catalog',
       limit: 50,
       search: '',
@@ -308,8 +308,8 @@
       curatedApprovedSet: new Set(),
 
       // Simulator interactive state
-      simLeftIdx: 0,
-      simRightIdx: 1,
+      simLeftId: null,
+      simRightId: null,
       simState: {
         left: { x: 50, y: 30, scale: 1.0 },
         right: { x: 50, y: 25, scale: 1.0 },
@@ -318,6 +318,16 @@
 
       async init() {
         this.checkVersionAndCleanCache();
+        const savedArena = localStorage.getItem('rankea2_curator_active_arena');
+        const urlArena = new URLSearchParams(window.location.search).get('arena');
+        if (urlArena && ['mamiferos', 'aves', 'flores'].includes(urlArena)) {
+          this.arena = urlArena;
+        } else if (savedArena && ['mamiferos', 'aves', 'flores'].includes(savedArena)) {
+          this.arena = savedArena;
+        }
+        const arenaSel = document.getElementById('arenaSelect');
+        if (arenaSel) arenaSel.value = this.arena;
+
         this.initInteractiveDragZoom();
         await this.loadDataset();
       },
@@ -338,6 +348,18 @@
 
       clearLocalCache() {
         if (confirm('¿Restablecer el caché local del curador? Se vaciarán los cambios locales temporales para sincronizar con los datos oficiales.')) {
+          ['mamiferos', 'aves', 'flores'].forEach(cat => {
+            localStorage.removeItem(`rankea2_curator_${cat}`);
+            localStorage.removeItem(`rankea2_approved_${cat}`);
+          });
+          localStorage.setItem('rankea2_curator_ver', CURATOR_DATA_VERSION);
+          this.modifiedItems.clear();
+          this.curatedApprovedSet = new Set(PRE_CURATED_IDS[this.arena] || []);
+          this.updateModifiedBadge();
+          this.render();
+          this.initSimulatorSelectors();
+        }
+      },
           ['mamiferos', 'aves', 'flores'].forEach(cat => {
             localStorage.removeItem(`rankea2_curator_${cat}`);
             localStorage.removeItem(`rankea2_approved_${cat}`);
@@ -384,6 +406,7 @@
 
       async changeArena(arena) {
         this.arena = arena;
+        try { localStorage.setItem('rankea2_curator_active_arena', arena); } catch (_) {}
         this.loadFromLocalStorage();
         this.updateModifiedBadge();
         await this.loadDataset();
@@ -436,13 +459,17 @@
       },
 
       isCurated(id) {
-        return this.modifiedItems.has(id) || this.curatedApprovedSet.has(id);
+        if (this.modifiedItems.has(id) || this.curatedApprovedSet.has(id)) return true;
+        const it = this.fullDataset.find(x => x.id === id);
+        if (it && it.photo && (it.photo.includes('wikimedia.org') || it.photo.includes('wikipedia.org'))) return true;
+        return false;
       },
 
       markApproved(id) {
         this.curatedApprovedSet.add(id);
         this.saveToLocalStorage();
         this.render();
+        this.initSimulatorSelectors();
       },
 
       unmarkApproved(id) {
@@ -450,6 +477,7 @@
         this.modifiedItems.delete(id);
         this.saveToLocalStorage();
         this.render();
+        this.initSimulatorSelectors();
       },
 
       copyPatchToClipboard() {
@@ -745,33 +773,37 @@
         selLeft.innerHTML = '';
         selRight.innerHTML = '';
 
-        this.fullDataset.slice(0, 60).forEach((it, idx) => {
+        // Excluir estrictamente las especies que ya están curadas
+        const pendingItems = this.fullDataset.filter(it => !this.isCurated(it.id));
+        const itemsToSelect = pendingItems.length > 0 ? pendingItems : this.fullDataset;
+
+        itemsToSelect.slice(0, 100).forEach((it, idx) => {
           const name = it.name || it.nombre;
           const optL = document.createElement('option');
-          optL.value = idx;
-          optL.textContent = `${idx + 1}. ${name}`;
+          optL.value = it.id;
+          optL.textContent = `${idx + 1}. ${name} (#${it.id})`;
           if (idx === 0) optL.selected = true;
           selLeft.appendChild(optL);
 
           const optR = document.createElement('option');
-          optR.value = idx;
-          optR.textContent = `${idx + 1}. ${name}`;
-          if (idx === 1) optR.selected = true;
+          optR.value = it.id;
+          optR.textContent = `${idx + 1}. ${name} (#${it.id})`;
+          if (idx === 1 || (idx === 0 && itemsToSelect.length === 1)) optR.selected = true;
           selRight.appendChild(optR);
         });
 
-        this.simLeftIdx = 0;
-        this.simRightIdx = 1;
+        this.simLeftId = itemsToSelect[0]?.id;
+        this.simRightId = itemsToSelect[1]?.id || itemsToSelect[0]?.id;
         this.updateSimulator();
       },
 
       onSimLeftChange(val) {
-        this.simLeftIdx = parseInt(val, 10);
+        this.simLeftId = parseInt(val, 10);
         this.updateSimulator();
       },
 
       onSimRightChange(val) {
-        this.simRightIdx = parseInt(val, 10);
+        this.simRightId = parseInt(val, 10);
         this.updateSimulator();
       },
 
@@ -870,9 +902,9 @@
       },
 
       updateSimulator() {
-        const cfg = ARENA_CONFIG[this.arena] || ARENA_CONFIG.aves;
-        const leftItem = this.fullDataset[this.simLeftIdx];
-        const rightItem = this.fullDataset[this.simRightIdx];
+        const cfg = ARENA_CONFIG[this.arena] || ARENA_CONFIG.mamiferos;
+        const leftItem = this.fullDataset.find(x => x.id === this.simLeftId) || this.fullDataset[0];
+        const rightItem = this.fullDataset.find(x => x.id === this.simRightId) || this.fullDataset[1];
         if (!leftItem || !rightItem) return;
 
         const leftPhoto = this.getItemPhoto(leftItem);
