@@ -23,12 +23,14 @@
     "family": "Felidae",
     "group": "Felinos",
     "habitat": "Terrestre",
-    "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9225318/medium.jpg",
+    "region": "Asia",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg",
     "observations_count": 3151,
     "countries": [
-      "latinoamérica",
-      "sudamérica"
+      "asia",
+      "asia oriental",
+      "india",
+      "rusia"
     ]
   },
   {

@@ -6,6 +6,7 @@ import {
 } from '../core/tournament.js';
 import { bindThemeButton } from '../core/theme.js';
 import { renderRankingCard, exportRankingCard } from '../core/canvas.js';
+import { filterCandidatesByTerritory } from '../core/territory.js';
 
 const FALLBACK_MAMIFERO_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%2392400E" stroke-width="2"><circle cx="50" cy="58" r="18" fill="%23F5EFE6"/><ellipse cx="32" cy="36" rx="8" ry="12" fill="%2392400E"/><ellipse cx="68" cy="36" rx="8" ry="12" fill="%2392400E"/><ellipse cx="42" cy="24" rx="7" ry="10" fill="%2392400E"/><ellipse cx="58" cy="24" rx="7" ry="10" fill="%2392400E"/></svg>`;
 
@@ -481,18 +482,10 @@ const app = {
   getFilteredSubset(placesOnly = false) {
     let subset = [...this.state.pool];
 
-    // Lugar
+    // Lugar con herencia territorial
     if (this.state.places.size > 0) {
       const placeKeys = Array.from(this.state.places.keys());
-      const hasLatam = placeKeys.includes('latinoamérica') || placeKeys.includes('sudamérica');
-      subset = subset.filter(m => {
-        const reg = (m.region || '').toLowerCase();
-        const countries = Array.isArray(m.countries) ? m.countries.map(c => c.toLowerCase()) : [];
-        if (hasLatam && (reg.includes('américa') || reg.includes('sudamérica') || countries.includes('latinoamérica') || countries.includes('sudamérica'))) {
-          return true;
-        }
-        return placeKeys.some(p => reg.includes(p) || countries.includes(p));
-      });
+      subset = filterCandidatesByTerritory(subset, placeKeys, 16);
     }
 
     if (placesOnly) {
@@ -889,13 +882,16 @@ const app = {
     if (candidates.length >= 2) {
       this.state.candidatePool = candidates;
       this.state.limit = candidates.length;
+      if (challenge.seed) {
+        this.state.battleSeed = Number(challenge.seed) || this.state.battleSeed;
+      }
       this.startBattleGame(true);
     }
   },
 
   shareChallengeLink() {
     const ids = this.state.finalRanking.slice(0, 16).map(m => m.id);
-    const url = buildChallengeUrl(ids, 'Mamíferos Salvajes', 'Rankea2');
+    const url = buildChallengeUrl(ids, 'Mamíferos Salvajes', 'Rankea2', this.state.battleSeed);
     navigator.clipboard.writeText(url).then(() => {
       const lbl = document.getElementById('shareBtnLabel');
       if (lbl) {
@@ -948,6 +944,7 @@ const app = {
         top3,
         totalItems: this.state.initialBattlePool.length,
         totalDuels: this.state.battleStep,
+        seed: this.state.battleSeed,
         theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light'
       });
     } finally {

@@ -951,7 +951,8 @@ const app = {
         format: this.state.exportFormat || 'story',
         options: {
           canvas,
-          ranking: this.state.finalRanking
+          ranking: this.state.finalRanking,
+          seed: this.state.battleSeed
         }
       });
     } catch (err) {

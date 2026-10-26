@@ -148,14 +148,14 @@ export async function loadImageSafe(url) {
     img.src = src;
   });
 
-  // 1. In browser, attempt direct fetch blob -> object URL
+  // 1. In browser, attempt direct fetch blob -> object URL with CORS
   if (typeof fetch === 'function' && typeof URL !== 'undefined' && URL.createObjectURL) {
     try {
       const res = await fetch(url, { mode: 'cors' });
       if (res.ok) {
         const blob = await res.blob();
         const objUrl = URL.createObjectURL(blob);
-        const img = await loadElement(objUrl, false);
+        const img = await loadElement(objUrl, true);
         if (img) {
           imageCache.set(url, img);
           return img;
@@ -163,14 +163,14 @@ export async function loadImageSafe(url) {
       }
     } catch (_) {}
 
-    // 2. Try wsrv.nl proxy for remote CDN images
+    // 2. Try wsrv.nl proxy via CORS fetch
     try {
-      const proxyUrl = `https://wsrv.nl/?url=${encodeURIComponent(url)}&output=webp`;
+      const proxyUrl = `https://wsrv.nl/?url=${encodeURIComponent(url)}&output=png`;
       const resProxy = await fetch(proxyUrl, { mode: 'cors' });
       if (resProxy.ok) {
         const blob = await resProxy.blob();
         const objUrl = URL.createObjectURL(blob);
-        const img = await loadElement(objUrl, false);
+        const img = await loadElement(objUrl, true);
         if (img) {
           imageCache.set(url, img);
           return img;
@@ -179,20 +179,26 @@ export async function loadImageSafe(url) {
     } catch (_) {}
   }
 
-  // 3. Fallback to Image element with crossOrigin
+  // 3. Fallback to direct Image element with crossOrigin = 'anonymous'
   let img = await loadElement(url, true);
   if (img) {
     imageCache.set(url, img);
     return img;
   }
 
-  // 4. Non-CORS fallback
-  img = await loadElement(url, false);
-  if (img) {
-    imageCache.set(url, img);
-    return img;
-  }
+  // 4. Try proxy directly via Image element with crossOrigin = 'anonymous'
+  try {
+    const proxyUrl = `https://wsrv.nl/?url=${encodeURIComponent(url)}&output=png`;
+    img = await loadElement(proxyUrl, true);
+    if (img) {
+      imageCache.set(url, img);
+      return img;
+    }
+  } catch (_) {}
 
+  // 5. Anti-tainted canvas guarantee: NEVER load with withCors=false.
+  // Returning null allows drawUncroppedPhoto to draw a clean vector/gradient fallback,
+  // guaranteeing the canvas remains exportable via toBlob() without SecurityError.
   return null;
 }
 
@@ -359,7 +365,37 @@ function normalizeCandidate(c, arena) {
  * @param {Object} [params.options={}] - Custom options (theme, title, author, canvas, dpr)
  * @returns {Promise<HTMLCanvasElement|Object>}
  */
-export async function renderRankingCard({ arena = 'pokemon', winner, top3, format = 'story', options = {} }) {
+export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
+  let arena = 'pokemon';
+  let winner = null;
+  let top3 = [];
+  let format = 'story';
+  let options = {};
+  let canvas = null;
+
+  const isCanvasElement = paramsOrCanvas && (
+    (typeof HTMLCanvasElement !== 'undefined' && paramsOrCanvas instanceof HTMLCanvasElement) ||
+    typeof paramsOrCanvas.getContext === 'function' ||
+    (paramsOrCanvas.tagName && paramsOrCanvas.tagName.toLowerCase() === 'canvas')
+  );
+
+  if (isCanvasElement) {
+    canvas = paramsOrCanvas;
+    const opts = maybeOptions || {};
+    arena = opts.arena || opts.arenaKey || 'pokemon';
+    top3 = Array.isArray(opts.top3) ? opts.top3 : [];
+    winner = opts.winner || (top3.length > 0 ? top3[0] : null);
+    format = opts.format || 'story';
+    options = { ...opts, canvas };
+  } else if (typeof paramsOrCanvas === 'object' && paramsOrCanvas !== null) {
+    arena = paramsOrCanvas.arena || paramsOrCanvas.arenaKey || 'pokemon';
+    top3 = Array.isArray(paramsOrCanvas.top3) ? paramsOrCanvas.top3 : [];
+    winner = paramsOrCanvas.winner || (top3.length > 0 ? top3[0] : null);
+    format = paramsOrCanvas.format || 'story';
+    options = paramsOrCanvas.options || {};
+    canvas = options.canvas || null;
+  }
+
   if (!winner) {
     throw new Error('Winner is required for ranking card');
   }
@@ -370,7 +406,7 @@ export async function renderRankingCard({ arena = 'pokemon', winner, top3, forma
   const H = isPoster ? 1350 : 1920;
 
   // Resolve Canvas element
-  let canvas = options.canvas;
+  if (!canvas) canvas = options.canvas;
   if (!canvas) {
     if (typeof document !== 'undefined' && document.createElement) {
       canvas = document.createElement('canvas');
@@ -618,7 +654,8 @@ export async function renderRankingCard({ arena = 'pokemon', winner, top3, forma
     ctx.fillStyle = pal.muted;
     ctx.font = `500 16px ${config.bodyFont}`;
     ctx.textAlign = 'center';
-    ctx.fillText('rankea2.com · Creado por fedep1011', W / 2, 1864);
+    const storySeedStr = options.seed || options.battleSeed ? ` · #${options.seed || options.battleSeed}` : '';
+    ctx.fillText(`rankea2.com · Creado por fedep1011${storySeedStr}`, W / 2, 1864);
     ctx.textAlign = 'left';
 
   } else {
@@ -748,7 +785,8 @@ export async function renderRankingCard({ arena = 'pokemon', winner, top3, forma
     ctx.fillStyle = pal.muted;
     ctx.font = `500 15px ${config.bodyFont}`;
     ctx.textAlign = 'center';
-    ctx.fillText('rankea2.com · Creado por fedep1011', W / 2, 1312);
+    const posterSeedStr = options.seed || options.battleSeed ? ` · #${options.seed || options.battleSeed}` : '';
+    ctx.fillText(`rankea2.com · Creado por fedep1011${posterSeedStr}`, W / 2, 1312);
     ctx.textAlign = 'left';
   }
 
@@ -766,13 +804,37 @@ export async function renderRankingCard({ arena = 'pokemon', winner, top3, forma
  * @param {string} [params.action='auto'] - 'auto' | 'share' | 'copy' | 'download'
  * @returns {Promise<{ shared: boolean, downloaded: boolean, copied?: boolean, cancelled?: boolean, filename: string }>}
  */
-export async function exportRankingCard({
-  canvas,
-  filename = 'rankea2-ranking.png',
-  title = 'Rankea2',
-  text = '',
-  action = 'auto'
-}) {
+export async function exportRankingCard(paramsOrCanvas, maybeActionOrOptions = 'auto') {
+  let canvas = null;
+  let filename = 'rankea2-ranking.png';
+  let title = 'Rankea2';
+  let text = '';
+  let action = 'auto';
+
+  const isCanvasElement = paramsOrCanvas && (
+    (typeof HTMLCanvasElement !== 'undefined' && paramsOrCanvas instanceof HTMLCanvasElement) ||
+    typeof paramsOrCanvas.getContext === 'function' ||
+    (paramsOrCanvas.tagName && paramsOrCanvas.tagName.toLowerCase() === 'canvas')
+  );
+
+  if (isCanvasElement) {
+    canvas = paramsOrCanvas;
+    if (typeof maybeActionOrOptions === 'string') {
+      action = maybeActionOrOptions;
+    } else if (typeof maybeActionOrOptions === 'object' && maybeActionOrOptions !== null) {
+      filename = maybeActionOrOptions.filename || filename;
+      title = maybeActionOrOptions.title || title;
+      text = maybeActionOrOptions.text || text;
+      action = maybeActionOrOptions.action || action;
+    }
+  } else if (typeof paramsOrCanvas === 'object' && paramsOrCanvas !== null) {
+    canvas = paramsOrCanvas.canvas;
+    filename = paramsOrCanvas.filename || filename;
+    title = paramsOrCanvas.title || title;
+    text = paramsOrCanvas.text || text;
+    action = paramsOrCanvas.action || action;
+  }
+
   if (!canvas) {
     throw new Error('Canvas element is required for export');
   }
@@ -808,7 +870,7 @@ export async function exportRankingCard({
     if (blob && typeof navigator !== 'undefined' && navigator.clipboard && typeof ClipboardItem !== 'undefined') {
       try {
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-        return { shared: false, copied: true, downloaded: false, filename };
+        return { ok: true, shared: false, copied: true, downloaded: false, filename };
       } catch (_) {}
     }
   }
@@ -828,13 +890,13 @@ export async function exportRankingCard({
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
-          return { shared: false, downloaded: true, filename };
+          return { ok: true, shared: false, downloaded: true, filename };
         }
       } catch (err) {
         console.warn('Fallback download trigger warning:', err);
       }
     }
-    return { shared: false, downloaded: true, filename };
+    return { ok: true, shared: false, downloaded: true, filename };
   }
 
   // Auto / Share Action: 1. Try native Web Share API with files
@@ -846,11 +908,11 @@ export async function exportRankingCard({
           text: text || title,
           files: [file]
         });
-        return { shared: true, downloaded: false, filename };
+        return { ok: true, shared: true, downloaded: false, filename };
       }
     } catch (err) {
       if (err && err.name === 'AbortError') {
-        return { shared: false, downloaded: false, cancelled: true, filename };
+        return { ok: false, shared: false, downloaded: false, cancelled: true, filename };
       }
     }
   }
@@ -859,7 +921,7 @@ export async function exportRankingCard({
   if (action === 'auto' && blob && typeof navigator !== 'undefined' && navigator.clipboard && typeof ClipboardItem !== 'undefined') {
     try {
       await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-      return { shared: false, copied: true, downloaded: false, filename };
+      return { ok: true, shared: false, copied: true, downloaded: false, filename };
     } catch (_) {}
   }
 
@@ -877,12 +939,12 @@ export async function exportRankingCard({
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        return { shared: false, downloaded: true, filename };
+        return { ok: true, shared: false, downloaded: true, filename };
       }
     } catch (err) {
       console.warn('Fallback download trigger warning:', err);
     }
   }
 
-  return { shared: false, downloaded: true, filename };
+  return { ok: true, shared: false, downloaded: true, filename };
 }

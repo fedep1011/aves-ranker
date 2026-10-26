@@ -79,9 +79,18 @@ Cada ítem se normaliza en `public/data/<arena>.json` a un objeto con la siguien
   "region": "Sudamérica",
   "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12345/medium.jpg",
   "observations_count": 52800,
-  "trivia": "Posee la mordida más poderosa entre todos los felinos en relación a su tamaño."
+  "trivia": "Posee la mordida más poderosa entre todos los felinos en relación a su tamaño.",
+  "countries": ["uruguay", "argentina", "brasil", "paraguay", "bolivia", "sudamérica", "latinoamérica"]
 }
 ```
+
+### 3.1 Jerarquía Territorial con Herencia Geográfica
+Para evitar que la selección de un país específico arroje cero resultados (ej. Nueva Zelanda, Japón o Uruguay), el filtrado territorial debe aplicar una **jerarquía descendente con herencia**:
+
+1. **Nivel 1 — Coincidencia Puntual**: Coincidencia en el array `countries` normalizado en minúsculas y sin tildes (ej. `m.countries.includes("uruguay")`).
+2. **Nivel 2 — Herencia Regional/Subcontinental**: Si el usuario selecciona un país perteneciente a una región mayor (ej. Uruguay en Sudamérica, Japón en Asia Oriental, Nueva Zelanda en Oceanía), el filtro debe incluir automáticamente especies con rango regional amplio (`region = "Sudamérica"` o `"Latinoamérica"`).
+3. **Nivel 3 — Especies Cosmopolitas o Globales**: Especies marinas, migratorias o de distribución mundial (`region = "Global"` o `"Cosmopolita"`) se consideran presentes si su hábitat coincide.
+4. **Regla de Cobertura Mínima**: Ningún país listado en el selector rápido o autocompletado debe arrojar menos de 16 candidatos. Si la fauna o flora nativa local es reducida, el dataset debe incluir especies regionales o migratorias que frecuentan dicho territorio.
 
 Estado global estándar de la arena (`app.state`):
 ```js
@@ -262,11 +271,17 @@ Para evitar desfases entre tarjetas y que las fotos deformen el layout, el conte
    - Tarjetas Plata (#2) y Bronce (#3): Con sus respectivas medallas e identificadores taxonómicos.
 2. **Resto del Ranking (#4 en adelante)**:
    - Grilla ordenada con número de puesto, miniatura cuadrada, nombre común y científico.
-3. **Exportación a Canvas 2.0**:
+3. **Exportación a Canvas 2.0 y Prevención de Tainted Canvas**:
    - Modal compacto con opciones de formato:
-     - **Historia / Story (9:16)**: Ideal para Instagram Stories, WhatsApp Status y TikTok.
-     - **Tarjeta / Poster (4:5)**: Ideal para feeds de redes sociales.
-   - Renderizado con `crossOrigin = 'anonymous'` y dibujo vectorial de medallas, degradados del tema y tipografías nítidas sin artefactos.
+     - **Historia / Story (9:16)**: 1080x1920 px, ideal para Instagram Stories, WhatsApp Status y TikTok.
+     - **Tarjeta / Poster (4:5)**: 1080x1350 px, ideal para feeds de redes sociales.
+   - **Protocolo Anti-Tainted Canvas (Seguridad CORS)**:
+     - Las imágenes de AWS S3 Open Data o CDNs de terceros a menudo carecen de cabeceras `Access-Control-Allow-Origin: *`.
+     - Si se dibuja una imagen remota directamente en el canvas sin CORS válido, el navegador marca el canvas como *tainted* (contaminado) y bloquea `toDataURL()` o `toBlob()` con un error `SecurityError`.
+     - **Regla de oro**: `src/core/canvas.js` debe usar un proxy seguro (ej. `https://wsrv.nl/?url=...` o proxy propio) o un fallback vectorial/gradiente para que el canvas siempre pueda exportarse, copiarse y descargarse limpiamente.
+4. **Semillas Deterministas (`battleSeed`) y Desafíos**:
+   - Persistir `state.battleSeed` numérico al inicio de cada partida.
+   - Sincronizar la semilla en la query string de desafíos compartidos (`?r=id1.id2...&s=123456`) para que el desafiado juegue exactamente los mismos emparejamientos que el creador.
 
 ---
 
@@ -274,6 +289,7 @@ Para evitar desfases entre tarjetas y que las fotos deformen el layout, el conte
 
 El estado viaja comprimido en la query string de la URL:
 - `?r=4183.1205.992...`: Lista de IDs en el orden del ranking.
+- `?s=74921`: Semilla determinista del torneo para cruces idénticos.
 - `?c=Nombre+de+la+Categoria`: Título de la partida.
 - `?a=Nombre+del+Autor`: Nombre de quien creó el desafío.
 
@@ -350,34 +366,42 @@ Para asegurar el cumplimiento normativo internacional, proteger la autoría de t
 
 ---
 
-## 12. Checklist Paso a Paso para Nuevas Categorías
+## 12. Checklist Exhaustiva para Clonar o Crear una Nueva Arena
 
-Al implementar **Insectos**, **Razas de Perros**, **Dinosaurios**, **Maravillas del Mundo** o cualquier nueva arena:
+Al implementar **Insectos**, **Razas de Perros**, **Dinosaurios**, **Maravillas del Mundo** o auditar las existentes (Aves, Mamíferos, Flores, Pokémon):
 
-- [ ] **1. Crear dataset curado (`public/data/<arena>.json`)**:
-  - Extraer entre 1.000 y 3.000 registros con foto.
-  - Ejecutar script de verificación HTTP `200 OK` en cada foto (cero fotos privadas o rotas).
-  - Colocar las 16 superestrellas canónicas del tema en las posiciones `0 a 15`.
-- [ ] **2. Crear estructura de vistas (`<arena>/index.html`)**:
-  - Replicar el asistente de 3 pasos: `viewHome` (con 4 pastillas abajo fijas), `viewStepPlace`, `viewStepTraits`, `viewStepSize`, `viewBattle`, `viewResults`.
-  - Asegurar que los contenedores de duelo tengan `#loaderLeft` y `#loaderRight`.
-  - Comprobar proporción rígida con fondo `blur-xl` y frente `object-contain`.
-  - Incluir el `<footer>` canónico con navegación cruzada y crédito a `fedep1011`.
-- [ ] **3. Implementar controlador (`src/<arena>/main.js`)**:
-  - Cargar `public/data/<arena>.json` de forma asíncrona.
-  - Conectar filtros de lugar (Paso 1) y familias/atributos (Paso 2).
-  - Implementar contador en vivo (`step3TotalFound`) y cálculo de duelos estimados.
-  - Conectar `interleavedBisectSortAsync` de `src/core/tournament.js`.
-  - Conectar `bindThemeButton` e `initTheme` de `src/core/theme.js`.
-  - Implementar modal de Canvas 2.0 adaptado a los colores del tema.
-- [ ] **4. Registrar en el Hub General (`index.html`)**:
-  - Añadir la tarjeta en la lista `ARENAS` del Hub con ruta `/<arena>/` y etiqueta de estado.
-- [ ] **5. Registrar en `vite.config.js`**:
-  - Agregar `<arena>: resolve(__dirname, '<arena>/index.html')` en `rollupOptions.input`.
+- [ ] **1. Curación y Modelo de Datos (`public/data/<arena>.json`)**:
+  - [ ] Volumen representativo: entre 1.000 y 3.000 registros con foto.
+  - [ ] Protocolo S3 200 OK: Verificación por script de respuesta `200` en cada foto (cero links privados o rotos).
+  - [ ] Anti-Slop fotográfico: Eliminar fotos de cámaras trampa nocturnas, fotos borrosas de celulares o flores marchitas. Usar Wikipedia API si la especie principal tiene foto deficiente.
+  - [ ] Las 16 superestrellas canónicas mundiales en los índices `0..15`.
+  - [ ] Jerarquía territorial con herencia: Array `countries` con países y regiones asociadas, garantizando que países como Uruguay, Japón o Nueva Zelanda no queden en cero.
+- [ ] **2. Estructura de Vistas y Plantilla (`<arena>/index.html`)**:
+  - [ ] `viewHome`: Título display conciso, los 3 botones hero ("16 más famosas...", "Sorpréndeme", "Armar mi búsqueda") y las **4 pastillas de partida rápida siempre visibles abajo**.
+  - [ ] `viewStepPlace`: Paso 1 Lugar con selector rápido, buscador autocompletado y conteo reactivo de especies.
+  - [ ] `viewStepTraits`: Paso 2 Rasgos/Familias/Alimentación con buscador libre y chip de filtro activo.
+  - [ ] `viewStepSize`: Paso 3 Confirmación con selector 8/16/32/Todas, modo populares vs azar, estimación de duelos y arranque.
+  - [ ] `viewBattle`: Contenedor rígido `aspect-[4/3]`, foto frontal completa `object-contain`, fondo ambiental `blur-xl`, loaders `#loaderLeft` / `#loaderRight`, atajos de teclado y botón Deshacer.
+  - [ ] `viewResults`: Podio Top 3, grilla ordenada restante, curiosidad (`trivia`) del #1 y botón exportador.
+  - [ ] `viewChallenge`: Pantalla de desafío compartido.
+  - [ ] `footer`: Footer canónico con créditos de autoría (`fedep1011`), navegación cruzada y clase `mt-auto`.
+- [ ] **3. Controlador y Lógica (`src/<arena>/main.js`)**:
+  - [ ] Carga asíncrona de `public/data/<arena>.json` con fallback seguro.
+  - [ ] Conexión del algoritmo determinista `interleavedBisectSortAsync` de `src/core/tournament.js`.
+  - [ ] Generación y persistencia de `state.battleSeed` numérico determinista.
+  - [ ] Generación y decodificación de URLs de desafío con semillas (`?r=...&s=...`).
+  - [ ] Motor de jerarquía territorial con herencia (`País -> Subregión -> Continente -> Global`).
+  - [ ] Conexión de Dark Mode e iconos reactivos con `bindThemeButton` e `initTheme` de `src/core/theme.js`.
+  - [ ] Modal y exportación Canvas 2.0 (Story 9:16 y Tarjeta 4:5) conectado a `src/core/canvas.js` con protocolo anti-tainted canvas.
+  - [ ] Auditoría de interactivos: Cero botones mudos o listeners desconectados (probar cada botón del DOM).
+- [ ] **4. Registro en el Ecosistema Multi-Página**:
+  - [ ] Registrar en el Hub General ([`index.html`](file:///c:/Users/fedep/Documents/antigravity/lucid-curie/index.html)) dentro del array `ARENAS` y en las pastillas de cruces.
+  - [ ] Registrar en [`vite.config.js`](file:///c:/Users/fedep/Documents/antigravity/lucid-curie/vite.config.js) en `rollupOptions.input`.
+  - [ ] Registrar en [`tailwind.config.js`](file:///c:/Users/fedep/Documents/antigravity/lucid-curie/tailwind.config.js) en la lista `content`.
+  - [ ] Definir tokens de paleta en [`src/styles/tailwind.css`](file:///c:/Users/fedep/Documents/antigravity/lucid-curie/src/styles/tailwind.css) (`body.arena-<arena>`).
+- [ ] **5. Cumplimiento Legal y Atribuciones**:
+  - [ ] Atribución visible a fotógrafos y fuentes de datos (iNaturalist Open Data, GBIF, Wikimedia).
+  - [ ] Cláusula de deslinde de responsabilidad (IP disclaimer) si incluye marcas o personajes de terceros (ej. Nintendo en Pokémon).
 - [ ] **6. Verificación de Calidad**:
-  - `npm run test` (todos los tests E2E pasando al 100%).
-  - `python .agents/ux-ui-agent-skills/scripts/check_no_emoji.py` (cero emojis en UI).
-  - `python .agents/ux-ui-agent-skills/scripts/validate_contrast.py` (WCAG 2.2 contrastes válidos).
-  - `npm run build` (compilación sin advertencias).
-- [ ] **7. Verificación Legal y Atribuciones**:
-  - Incluir disclaimers de marcas (ej. Nintendo en Pokémon) y atribuciones a repositorios o autores correspondientes en el pie de página o modal.
+  - [ ] `npm run lint` (0 emojis en UI, 0 errores de taste, ratios WCAG 2.2 superados).
+  - [ ] `npm run build` (compilación exitosa sin errores de bundle).

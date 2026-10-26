@@ -6,6 +6,7 @@ import {
 } from '../core/tournament.js';
 import { bindThemeButton } from '../core/theme.js';
 import { renderRankingCard, exportRankingCard } from '../core/canvas.js';
+import { filterCandidatesByTerritory } from '../core/territory.js';
 
 const FALLBACK_FLOWER_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%23047857" stroke-width="2"><circle cx="50" cy="50" r="14" fill="%23EAF2EC"/><circle cx="50" cy="26" r="10" fill="%23D1E0D7"/><circle cx="50" cy="74" r="10" fill="%23D1E0D7"/><circle cx="26" cy="50" r="10" fill="%23D1E0D7"/><circle cx="74" cy="50" r="10" fill="%23D1E0D7"/><circle cx="33" cy="33" r="10" fill="%23D1E0D7"/><circle cx="67" cy="33" r="10" fill="%23D1E0D7"/><circle cx="33" cy="67" r="10" fill="%23D1E0D7"/><circle cx="67" cy="67" r="10" fill="%23D1E0D7"/><circle cx="50" cy="50" r="8" fill="%23047857"/></svg>`;
 
@@ -477,18 +478,10 @@ const app = {
   getFilteredSubset(placesOnly = false) {
     let subset = [...this.state.pool];
 
-    // Lugar
+    // Lugar con herencia territorial
     if (this.state.places.size > 0) {
       const placeKeys = Array.from(this.state.places.keys());
-      const hasLatam = placeKeys.includes('latinoamérica') || placeKeys.includes('sudamérica');
-      subset = subset.filter(f => {
-        const reg = (f.region || '').toLowerCase();
-        const countries = Array.isArray(f.countries) ? f.countries.map(c => c.toLowerCase()) : [];
-        if (hasLatam && (reg.includes('américa') || reg.includes('sudamérica') || countries.includes('latinoamérica') || countries.includes('sudamérica'))) {
-          return true;
-        }
-        return placeKeys.some(p => reg.includes(p) || countries.includes(p));
-      });
+      subset = filterCandidatesByTerritory(subset, placeKeys, 16);
     }
 
     if (placesOnly) {
@@ -899,13 +892,16 @@ const app = {
     if (candidates.length >= 2) {
       this.state.candidatePool = candidates;
       this.state.limit = candidates.length;
+      if (challenge.seed) {
+        this.state.battleSeed = Number(challenge.seed) || this.state.battleSeed;
+      }
       this.startBattleGame(true);
     }
   },
 
   shareChallengeLink() {
     const ids = this.state.finalRanking.slice(0, 16).map(f => f.id);
-    const url = buildChallengeUrl(ids, 'Herbario Floral', 'Rankea2');
+    const url = buildChallengeUrl(ids, 'Herbario Floral', 'Rankea2', this.state.battleSeed);
     navigator.clipboard.writeText(url).then(() => {
       const lbl = document.getElementById('shareBtnLabel');
       if (lbl) {
@@ -958,6 +954,7 @@ const app = {
         top3,
         totalItems: this.state.initialBattlePool.length,
         totalDuels: this.state.battleStep,
+        seed: this.state.battleSeed,
         theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light'
       });
     } finally {

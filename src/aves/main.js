@@ -1,3 +1,5 @@
+import { bindThemeButton } from '../core/theme.js';
+
 const I18N = {
       es: {
         brandSub: "El ranking ornitológico",
@@ -594,6 +596,13 @@ const I18N = {
       },
 
       async init() {
+        bindThemeButton({
+          buttonId: 'themeToggleAves',
+          labelId: 'themeLabelAves',
+          darkIconId: 'themeIconDarkAves',
+          lightIconId: 'themeIconLightAves'
+        });
+
         this.applyLanguageToStaticDOM();
         this.renderStep1Places();
         this.renderStep2Traits();
@@ -1103,7 +1112,7 @@ const I18N = {
 
       renderHomePresets() {
         const grid = document.getElementById("homePresetGrid");
-        if (!grid) return;
+        if (!grid || grid.children.length > 0) return;
         const isEn = this.state.lang === "en";
         if (!this.state.homePresetKeys) {
           const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -1161,9 +1170,15 @@ const I18N = {
           this.state.guilds.add("rapaces");
         } else if (presetName === "uruguay") {
           this.state.places.set("7259", "Uruguay");
+        } else if (presetName === "rapaces_uruguay") {
+          this.state.places.set("7259", "Uruguay");
+          this.state.guilds.add("rapaces");
         } else if (presetName === "carrona_uy") {
           this.state.places.set("97389", isEn ? "South America" : "Sudamérica");
           this.state.guilds.add("carrona");
+        } else if (presetName === "coloridas_latam") {
+          this.state.places.set("7259,7190,6878,7182,7513,7512,7196,7254,6783,1303,6924,6793,7003,6940", isEn ? "All Latin America" : "Toda Latinoamérica");
+          this.state.guilds.add("frugivoras");
         } else if (presetName === "rojas_latam") {
           this.state.places.set("7259,7190,6878,7182,7513,7512,7196,7254,6783,1303,6924,6793,7003,6940", isEn ? "All Latin America" : "Toda Latinoamérica");
           this.state.colors.add("rojo");

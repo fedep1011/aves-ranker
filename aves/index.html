@@ -156,8 +156,56 @@
         </div>
       </div>
 
-      <!-- Ideas: 2 fixed + 4 rotating collections (rendered by app.renderHomePresets) -->
-      <div id="homePresetGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left"></div>
+      <!-- Pastillas abajo / Presets (Siempre visibles en Portada) -->
+      <div id="homePresetGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left pt-2">
+        <button onclick="app.launchPreset('rapaces_uruguay')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Falconidae y Rapaces</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Rapaces del Sur</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Caranchos, chimangos, halcones peregrinos y gavilanes de pastizal.</p>
+          </div>
+          <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
+            <span>Elegir</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+          </span>
+        </button>
+
+        <button onclick="app.launchPreset('carrona_uy')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Cathartidae</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Carroñeras y Cóndores</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Cóndor andino, jote cabeza negra, carancho y jote cabeza colorada.</p>
+          </div>
+          <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
+            <span>Elegir</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+          </span>
+        </button>
+
+        <button onclick="app.launchPreset('coloridas_latam')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Neotrópico</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Coloridas de Latinoamérica</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Tucanes toco, guacamayos rojos, colibríes esmeralda y cardenales.</p>
+          </div>
+          <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
+            <span>Elegir</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+          </span>
+        </button>
+
+        <button onclick="app.launchPreset('acuaticas_costeras')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Costas y Océanos</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Aves Costeras y Marinas</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Pingüinos de Magallanes, albatros de ceja negra, gaviotines y petreles.</p>
+          </div>
+          <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
+            <span>Elegir</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+          </span>
+        </button>
+      </div>
     </section>
 
 

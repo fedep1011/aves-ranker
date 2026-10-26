@@ -190,18 +190,34 @@ export async function interleavedBisectSortAsync(arr, askUserPreference, seed = 
   return runs[0] || [];
 }
 
-export function buildChallengeUrl({
-  baseUrl = (typeof window !== 'undefined' ? window.location.href : 'http://localhost/'),
-  ids = [],
-  category = '',
-  author = '',
-  lang = 'es'
-} = {}) {
+export function buildChallengeUrl(optionsOrIds = {}, maybeCategory = '', maybeAuthor = '', maybeSeed = null) {
+  let baseUrl = (typeof window !== 'undefined' ? window.location.href : 'http://localhost/');
+  let ids = [];
+  let category = '';
+  let author = '';
+  let lang = 'es';
+  let seed = null;
+
+  if (Array.isArray(optionsOrIds)) {
+    ids = optionsOrIds;
+    category = maybeCategory || '';
+    author = maybeAuthor || '';
+    seed = maybeSeed;
+  } else if (typeof optionsOrIds === 'object' && optionsOrIds !== null) {
+    baseUrl = optionsOrIds.baseUrl || baseUrl;
+    ids = optionsOrIds.ids || [];
+    category = optionsOrIds.category || '';
+    author = optionsOrIds.author || '';
+    lang = optionsOrIds.lang || 'es';
+    seed = optionsOrIds.seed !== undefined ? optionsOrIds.seed : null;
+  }
+
   const url = new URL(baseUrl);
   url.searchParams.set('r', ids.join('.'));
   if (category) url.searchParams.set('c', category);
   if (author) url.searchParams.set('a', author);
   if (lang) url.searchParams.set('l', lang);
+  if (seed !== null && seed !== undefined && seed !== '') url.searchParams.set('s', String(seed));
   return url.toString();
 }
 
@@ -215,6 +231,7 @@ export function parseChallengeUrl(search = (typeof window !== 'undefined' ? wind
     ids,
     category: params.get('c') || '',
     author: params.get('a') || '',
-    lang: params.get('l') || 'es'
+    lang: params.get('l') || 'es',
+    seed: params.get('s') || null
   };
 }

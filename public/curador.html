@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curador Visual de Especies · Rankea2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Instrument Serif', 'serif'],
+            mono: ['Space Grotesk', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 min-h-full flex flex-col font-sans transition-colors duration-200">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-stone-900/90 backdrop-blur border-b border-stone-200 dark:border-stone-800 px-4 py-3 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2 text-stone-900 dark:text-white font-bold">
+          <svg class="w-6 h-6 text-rose-600" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+            <path d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+          </svg>
+          <span class="font-mono text-base tracking-tight">Rankea2</span>
+        </a>
+        <span class="text-stone-300 dark:text-stone-700">/</span>
+        <h1 class="font-serif text-xl sm:text-2xl text-stone-900 dark:text-white">Curador Visual de Catálogo</h1>
+        <span id="modifiedBadge" class="hidden px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30">
+          0 cambios
+        </span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <select id="arenaSelect" onchange="app.changeArena(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white">
+          <option value="mamiferos">Mamíferos (/data/mamiferos.json)</option>
+          <option value="flores">Flores (/data/flores.json)</option>
+          <option value="pokemon">Pokémon (/data/pokemon.json)</option>
+        </select>
+
+        <select id="limitSelect" onchange="app.changeLimit(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white">
+          <option value="50">Top 50 más populares</option>
+          <option value="100">Top 100</option>
+          <option value="200">Top 200</option>
+          <option value="all">Todas las especies</option>
+        </select>
+
+        <button onclick="app.autoFetchWikipediaTop50()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 transition">
+          Consultar Wikipedia Top 50
+        </button>
+
+        <button onclick="app.downloadJson()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Descargar JSON
+        </button>
+
+        <button onclick="document.documentElement.classList.toggle('dark')" class="p-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FILTER & SEARCH BAR -->
+  <div class="bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 px-4 py-2.5 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex-1 min-w-[240px] max-w-md">
+        <input id="searchInput" type="text" oninput="app.onSearch(this.value)" placeholder="Buscar por nombre, nombre científico, familia o región..." class="w-full text-xs px-3 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-emerald-500">
+      </div>
+      <div class="text-xs text-stone-500 font-mono" id="statsLabel">
+        Cargando dataset...
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN LIST CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-4">
+    <div id="itemsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </main>
+
+  <script>
+    const app = {
+      arena: 'mamiferos',
+      limit: 50,
+      search: '',
+      fullDataset: [],
+      modifiedItems: new Map(),
+      wikiCache: new Map(),
+
+      async init() {
+        await this.loadDataset();
+      },
+
+      async changeArena(arena) {
+        this.arena = arena;
+        this.modifiedItems.clear();
+        this.updateModifiedBadge();
+        await this.loadDataset();
+      },
+
+      changeLimit(val) {
+        this.limit = val === 'all' ? 999999 : parseInt(val, 10);
+        this.render();
+      },
+
+      onSearch(val) {
+        this.search = val.trim().toLowerCase();
+        this.render();
+      },
+
+      async loadDataset() {
+        const statsEl = document.getElementById('statsLabel');
+        statsEl.textContent = 'Cargando ' + this.arena + '...';
+        try {
+          const res = await fetch(`/data/${this.arena}.json`);
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          this.fullDataset = await res.json();
+          statsEl.textContent = `Total en catálogo: ${this.fullDataset.length} especies`;
+          this.render();
+        } catch (err) {
+          statsEl.textContent = 'Error al cargar: ' + err.message;
+        }
+      },
+
+      getVisibleItems() {
+        let items = this.fullDataset;
+        if (this.search) {
+          items = items.filter(it => {
+            const name = (it.name || it.nombre || '').toLowerCase();
+            const sci = (it.sci_name || it.nombreCientifico || '').toLowerCase();
+            const fam = (it.family || it.familia || '').toLowerCase();
+            const reg = (it.region || '').toLowerCase();
+            return name.includes(this.search) || sci.includes(this.search) || fam.includes(this.search) || reg.includes(this.search);
+          });
+        }
+        return items.slice(0, this.limit);
+      },
+
+      render() {
+        const container = document.getElementById('itemsContainer');
+        const visible = this.getVisibleItems();
+        container.innerHTML = '';
+
+        visible.forEach((it, idx) => {
+          const currentPhoto = this.modifiedItems.has(it.id)
+            ? this.modifiedItems.get(it.id).photo
+            : (it.photo || it.artwork || it.sprite || '');
+
+          const name = it.name || it.nombre || 'Sin nombre';
+          const sciName = it.sci_name || it.nombreCientifico || it.en_name || '';
+          const subtitle = [it.family || it.types?.join(' · '), it.region].filter(Boolean).join(' · ');
+          const isModified = this.modifiedItems.has(it.id);
+
+          const card = document.createElement('div');
+          card.id = `card-${it.id}`;
+          card.className = `p-4 rounded-xl border bg-white dark:bg-stone-900 transition shadow-sm space-y-3 ${
+            isModified ? 'border-amber-500 ring-1 ring-amber-500' : 'border-stone-200 dark:border-stone-800'
+          }`;
+
+          card.innerHTML = `
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-xs font-bold text-stone-400">#${idx + 1} (ID: ${it.id})</span>
+                  ${isModified ? '<span class="text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-400 px-1.5 py-0.5 rounded">MODIFICADO</span>' : ''}
+                </div>
+                <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-white leading-tight mt-0.5">${name}</h3>
+                <p class="font-mono text-xs text-stone-500 italic">${sciName}</p>
+                <p class="text-[11px] text-stone-400 mt-0.5">${subtitle} ${it.observations_count ? `· ${it.observations_count.toLocaleString()} obs.` : ''}</p>
+              </div>
+              <button onclick="app.fetchWikipediaSingle(${it.id}, '${sciName || name}')" class="px-2.5 py-1 text-[11px] font-medium rounded border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 shrink-0 transition">
+                Consultar Wikipedia
+              </button>
+            </div>
+
+            <!-- COMPARATOR SIDE-BY-SIDE -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <!-- Actual -->
+              <div class="space-y-1.5 text-center">
+                <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider">Foto Actual</span>
+                <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-stone-950 flex items-center justify-center border border-stone-200 dark:border-stone-800">
+                  <img id="img-current-${it.id}" src="${currentPhoto}" alt="${name}" class="w-full h-full object-contain relative z-10" onerror="this.classList.add('hidden'); document.getElementById('err-${it.id}').classList.remove('hidden');" />
+                  <div id="err-${it.id}" class="hidden absolute inset-0 flex flex-col items-center justify-center p-2 text-rose-500 text-xs text-center font-mono">
+                    <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+                    Foto caída / 403
+                  </div>
+                </div>
+                <a href="${currentPhoto}" target="_blank" class="block text-[10px] font-mono text-stone-400 hover:underline truncate">${currentPhoto}</a>
+              </div>
+
+              <!-- Wikipedia -->
+              <div class="space-y-1.5 text-center">
+                <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider">Foto Wikipedia</span>
+                <div id="wiki-box-${it.id}" class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-stone-100 dark:bg-stone-950 flex flex-col items-center justify-center border border-dashed border-stone-300 dark:border-stone-700 text-stone-400 text-xs p-2">
+                  <span class="text-[11px]">Toca 'Consultar Wikipedia'</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- MANUAL INPUT -->
+            <div class="flex items-center gap-2 pt-2 border-t border-stone-100 dark:border-stone-800/60">
+              <input id="input-url-${it.id}" type="text" placeholder="Pegar URL de foto personalizada..." value="${currentPhoto}" class="flex-1 text-xs px-2.5 py-1.5 rounded border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-white font-mono" />
+              <button onclick="app.applyCustomUrl(${it.id})" class="px-2.5 py-1.5 text-xs font-medium rounded bg-stone-900 text-white dark:bg-white dark:text-stone-900 hover:opacity-90 transition">
+                Aplicar
+              </button>
+              ${isModified ? `<button onclick="app.revertItem(${it.id})" class="px-2 py-1.5 text-xs font-mono text-rose-600 hover:underline">Revertir</button>` : ''}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      },
+
+      async fetchWikipediaSingle(id, query) {
+        const box = document.getElementById(`wiki-box-${id}`);
+        if (box) box.innerHTML = '<span class="text-xs text-stone-400 font-mono animate-pulse">Buscando...</span>';
+
+        const cleanQuery = query.replace(/[()]/g, '').trim();
+        const urls = [
+          `https://es.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(cleanQuery.replace(/ /g, '_'))}`,
+          `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(cleanQuery.replace(/ /g, '_'))}`
+        ];
+
+        let found = null;
+        for (const url of urls) {
+          try {
+            const res = await fetch(url);
+            if (res.ok) {
+              const data = await res.json();
+              if (data.originalimage || data.thumbnail) {
+                found = data;
+                break;
+              }
+            }
+          } catch (_) {}
+        }
+
+        if (found && box) {
+          const wikiImg = found.originalimage?.source || found.thumbnail?.source;
+          box.innerHTML = `
+            <img src="${wikiImg}" alt="" class="w-full h-full object-contain relative z-10" />
+            <button onclick="app.useWikipediaPhoto(${id}, '${wikiImg}')" class="absolute bottom-2 z-20 px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold shadow-md">
+              Usar esta foto
+            </button>
+          `;
+        } else if (box) {
+          box.innerHTML = '<span class="text-xs text-stone-400">Sin foto en Wikipedia</span>';
+        }
+      },
+
+      useWikipediaPhoto(id, url) {
+        this.setItemPhoto(id, url);
+      },
+
+      applyCustomUrl(id) {
+        const inp = document.getElementById(`input-url-${id}`);
+        if (inp && inp.value.trim()) {
+          this.setItemPhoto(id, inp.value.trim());
+        }
+      },
+
+      setItemPhoto(id, newPhoto) {
+        const orig = this.fullDataset.find(it => it.id === id);
+        if (!orig) return;
+        this.modifiedItems.set(id, { ...orig, photo: newPhoto });
+        this.updateModifiedBadge();
+        this.render();
+      },
+
+      revertItem(id) {
+        this.modifiedItems.delete(id);
+        this.updateModifiedBadge();
+        this.render();
+      },
+
+      updateModifiedBadge() {
+        const badge = document.getElementById('modifiedBadge');
+        if (!badge) return;
+        const count = this.modifiedItems.size;
+        badge.textContent = `${count} ${count === 1 ? 'cambio' : 'cambios'}`;
+        badge.classList.toggle('hidden', count === 0);
+      },
+
+      async autoFetchWikipediaTop50() {
+        const visible = this.getVisibleItems().slice(0, 50);
+        for (const it of visible) {
+          const query = it.sci_name || it.nombreCientifico || it.name || it.nombre;
+          await this.fetchWikipediaSingle(it.id, query);
+        }
+      },
+
+      downloadJson() {
+        const merged = this.fullDataset.map(it => {
+          if (this.modifiedItems.has(it.id)) {
+            return this.modifiedItems.get(it.id);
+          }
+          return it;
+        });
+
+        const blob = new Blob([JSON.stringify(merged, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${this.arena}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    };
+
+    window.app = app;
+    window.addEventListener('DOMContentLoaded', () => app.init());
+  </script>
+</body>
+</html>
