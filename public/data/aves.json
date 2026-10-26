@@ -1,0 +1,578 @@
+[
+  {
+    "id": 18793,
+    "name": "Tucán Toco",
+    "sci_name": "Ramphastos toco",
+    "family": "Ramphastidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "brasil",
+      "argentina",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg",
+    "observations_count": 4500
+  },
+  {
+    "id": 19022,
+    "name": "Guacamayo Rojo",
+    "sci_name": "Ara macao",
+    "family": "Psittacidae",
+    "region": "América",
+    "countries": [
+      "latinoamérica",
+      "sudamérica",
+      "méxico"
+    ],
+    "photo": "https://static.inaturalist.org/photos/67503679/medium.jpg",
+    "observations_count": 3800
+  },
+  {
+    "id": 19018,
+    "name": "Guacamayo Azul y Amarillo",
+    "sci_name": "Ara ararauna",
+    "family": "Psittacidae",
+    "region": "América",
+    "countries": [
+      "latinoamérica",
+      "sudamérica",
+      "brasil"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/414331079/medium.jpeg",
+    "observations_count": 3600
+  },
+  {
+    "id": 20856,
+    "name": "Quetzal Resplandeciente",
+    "sci_name": "Pharomachrus mocinno",
+    "family": "Trogonidae",
+    "region": "América",
+    "countries": [
+      "latinoamérica",
+      "méxico"
+    ],
+    "photo": "https://static.inaturalist.org/photos/208398042/medium.jpg",
+    "observations_count": 1200
+  },
+  {
+    "id": 1204,
+    "name": "Pavo Real",
+    "sci_name": "Pavo cristatus",
+    "family": "Phasianidae",
+    "region": "Asia",
+    "countries": [
+      "india",
+      "asia"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/165318600/medium.jpg",
+    "observations_count": 5100
+  },
+  {
+    "id": 5305,
+    "name": "Águila Calva",
+    "sci_name": "Haliaeetus leucocephalus",
+    "family": "Accipitridae",
+    "region": "América",
+    "countries": [
+      "estados unidos",
+      "canadá",
+      "américa"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/28935620/medium.jpg",
+    "observations_count": 9800
+  },
+  {
+    "id": 5321,
+    "name": "Águila Harpía",
+    "sci_name": "Harpia harpyja",
+    "family": "Accipitridae",
+    "region": "América",
+    "countries": [
+      "brasil",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/447085421/medium.jpeg",
+    "observations_count": 850
+  },
+  {
+    "id": 4758,
+    "name": "Cóndor Andino",
+    "sci_name": "Vultur gryphus",
+    "family": "Cathartidae",
+    "region": "América",
+    "countries": [
+      "argentina",
+      "chile",
+      "perú",
+      "sudamérica",
+      "latinoamérica"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/AndeanCondorMale.jpg/330px-AndeanCondorMale.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 2400
+  },
+  {
+    "id": 4255,
+    "name": "Flamenco Común",
+    "sci_name": "Phoenicopterus roseus",
+    "family": "Phoenicopteridae",
+    "region": "África",
+    "countries": [
+      "áfrica",
+      "europa",
+      "españa"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6067103/medium.jpg",
+    "observations_count": 7300
+  },
+  {
+    "id": 3808,
+    "name": "Pingüino Emperador",
+    "sci_name": "Aptenodytes forsteri",
+    "family": "Spheniscidae",
+    "region": "Polar",
+    "countries": [
+      "antártida",
+      "polar"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/44210941/medium.jpg",
+    "observations_count": 950
+  },
+  {
+    "id": 20054,
+    "name": "Búho Nival",
+    "sci_name": "Bubo scandiacus",
+    "family": "Strigidae",
+    "region": "Polar",
+    "countries": [
+      "canadá",
+      "estados unidos",
+      "polar"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Cross-eyed_owl.jpg/330px-Cross-eyed_owl.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 3200
+  },
+  {
+    "id": 4514,
+    "name": "Frailecillo Atlántico",
+    "sci_name": "Fratercula arctica",
+    "family": "Alcidae",
+    "region": "Europa",
+    "countries": [
+      "reino unido",
+      "europa",
+      "polar"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/112901711/medium.jpg",
+    "observations_count": 4400
+  },
+  {
+    "id": 2314,
+    "name": "Martín Pescador",
+    "sci_name": "Alcedo atthis",
+    "family": "Alcedinidae",
+    "region": "Europa",
+    "countries": [
+      "españa",
+      "europa",
+      "reino unido"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/55929885/medium.jpeg",
+    "observations_count": 6700
+  },
+  {
+    "id": 7085,
+    "name": "Pato Mandarín",
+    "sci_name": "Aix galericulata",
+    "family": "Anatidae",
+    "region": "Asia",
+    "countries": [
+      "japón",
+      "china",
+      "asia"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/252423655/medium.jpeg",
+    "observations_count": 4900
+  },
+  {
+    "id": 10291,
+    "name": "Cardenal Copete Rojo",
+    "sci_name": "Paroaria coronata",
+    "family": "Thraupidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/348834750/medium.jpeg",
+    "observations_count": 3100
+  },
+  {
+    "id": 1177,
+    "name": "Faisán Dorado",
+    "sci_name": "Chrysolophus pictus",
+    "family": "Phasianidae",
+    "region": "Asia",
+    "countries": [
+      "china",
+      "asia"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/522334907/medium.jpg",
+    "observations_count": 2100
+  },
+  {
+    "id": 4697,
+    "name": "Carancho",
+    "sci_name": "Caracara plancus",
+    "family": "Falconidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "chile",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/181177345/medium.jpg",
+    "observations_count": 5600
+  },
+  {
+    "id": 4704,
+    "name": "Chimango",
+    "sci_name": "Milvago chimango",
+    "family": "Falconidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "chile",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Chimango_caracara_%28Daptrius_chimango_temucoensis%29_female_Puerto_Varas.jpg/330px-Chimango_caracara_%28Daptrius_chimango_temucoensis%29_female_Puerto_Varas.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 4200
+  },
+  {
+    "id": 4656,
+    "name": "Halcón Peregrino",
+    "sci_name": "Falco peregrinus",
+    "family": "Falconidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "estados unidos",
+      "españa",
+      "europa"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Falco_peregrinus_-_01.jpg/330px-Falco_peregrinus_-_01.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 8900
+  },
+  {
+    "id": 5258,
+    "name": "Gavilán Mixto",
+    "sci_name": "Parabuteo unicinctus",
+    "family": "Accipitridae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "méxico",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/TF_Wildpark_Johannismuehle_03-14_img11.jpg/330px-TF_Wildpark_Johannismuehle_03-14_img11.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 4800
+  },
+  {
+    "id": 4757,
+    "name": "Jote Cabeza Negra",
+    "sci_name": "Coragyps atratus",
+    "family": "Cathartidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "latinoamérica",
+      "sudamérica",
+      "estados unidos"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Black_vulture_%28Coragyps_atratus_brasiliensis%29_Peten.jpg/330px-Black_vulture_%28Coragyps_atratus_brasiliensis%29_Peten.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 6700
+  },
+  {
+    "id": 4755,
+    "name": "Jote Cabeza Colorada",
+    "sci_name": "Cathartes aura",
+    "family": "Cathartidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "chile",
+      "latinoamérica",
+      "sudamérica",
+      "estados unidos"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/396242406/medium.jpg",
+    "observations_count": 7100
+  },
+  {
+    "id": 11136,
+    "name": "Hornero Común",
+    "sci_name": "Furnarius rufus",
+    "family": "Furnariidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%283%29.jpg/330px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%283%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 6200
+  },
+  {
+    "id": 16049,
+    "name": "Benteveo Común",
+    "sci_name": "Pitangus sulphuratus",
+    "family": "Tyrannidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "latinoamérica",
+      "sudamérica",
+      "méxico"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14395694/medium.jpg",
+    "observations_count": 8300
+  },
+  {
+    "id": 4836,
+    "name": "Tero Común",
+    "sci_name": "Vanellus chilensis",
+    "family": "Charadriidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "chile",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://static.inaturalist.org/photos/114045609/medium.jpeg",
+    "observations_count": 7400
+  },
+  {
+    "id": 3816,
+    "name": "Pingüino de Magallanes",
+    "sci_name": "Spheniscus magellanicus",
+    "family": "Spheniscidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "chile",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/85114705/medium.jpg",
+    "observations_count": 3600
+  },
+  {
+    "id": 4141,
+    "name": "Albatros de Ceja Negra",
+    "sci_name": "Thalassarche melanophris",
+    "family": "Diomedeidae",
+    "region": "Oceanía",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "chile",
+      "nueva zelanda",
+      "australia"
+    ],
+    "photo": "https://static.inaturalist.org/photos/122299068/medium.jpg",
+    "observations_count": 2200
+  },
+  {
+    "id": 144501,
+    "name": "Gaviotín Real",
+    "sci_name": "Thalasseus maximus",
+    "family": "Laridae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "estados unidos"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/118507839/medium.jpg",
+    "observations_count": 3900
+  },
+  {
+    "id": 4172,
+    "name": "Petrel Gigante del Sur",
+    "sci_name": "Macronectes giganteus",
+    "family": "Procellariidae",
+    "region": "Polar",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "antártida",
+      "polar"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/164114425/medium.jpg",
+    "observations_count": 1800
+  },
+  {
+    "id": 20516,
+    "name": "Ñandú Común",
+    "sci_name": "Rhea americana",
+    "family": "Rheidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/24512398/medium.jpg",
+    "observations_count": 2900
+  },
+  {
+    "id": 6917,
+    "name": "Cisne de Cuello Negro",
+    "sci_name": "Cygnus melancoryphus",
+    "family": "Anatidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "chile",
+      "brasil",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/183205026/medium.jpeg",
+    "observations_count": 3400
+  },
+  {
+    "id": 3726,
+    "name": "Espátula Rosada",
+    "sci_name": "Platalea ajaja",
+    "family": "Threskiornithidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/440627032/medium.jpg",
+    "observations_count": 4800
+  },
+  {
+    "id": 16183,
+    "name": "Churrinche",
+    "sci_name": "Pyrocephalus rubinus",
+    "family": "Tyrannidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "latinoamérica",
+      "sudamérica"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Pyrocephalus_rubinus_-Piraju%2C_Sao_Paulo%2C_Brasil_-male-8.jpg/330px-Pyrocephalus_rubinus_-Piraju%2C_Sao_Paulo%2C_Brasil_-male-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 5100
+  },
+  {
+    "id": 12724,
+    "name": "Zorzal Colorado",
+    "sci_name": "Turdus rufiventris",
+    "family": "Turdidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "sudamérica"
+    ],
+    "photo": "https://static.inaturalist.org/photos/30673904/medium.jpeg",
+    "observations_count": 4300
+  },
+  {
+    "id": 19001,
+    "name": "Cotorra Argentina",
+    "sci_name": "Myiopsitta monachus",
+    "family": "Psittacidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "sudamérica",
+      "españa"
+    ],
+    "photo": "https://static.inaturalist.org/photos/66180650/medium.jpg",
+    "observations_count": 6100
+  },
+  {
+    "id": 10390,
+    "name": "Federal",
+    "sci_name": "Amblyramphus holosericeus",
+    "family": "Icteridae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "sudamérica"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Cardeal-do-banhado_%28Amblyramphus_holosericeus%29.jpg/330px-Cardeal-do-banhado_%28Amblyramphus_holosericeus%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 1400
+  },
+  {
+    "id": 4665,
+    "name": "Halconcito Colorado",
+    "sci_name": "Falco sparverius",
+    "family": "Falconidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "estados unidos",
+      "méxico",
+      "latinoamérica"
+    ],
+    "photo": "https://static.inaturalist.org/photos/174574440/medium.jpg",
+    "observations_count": 8700
+  },
+  {
+    "id": 5885,
+    "name": "Picaflor Bronceado",
+    "sci_name": "Chlorostilbon lucidus",
+    "family": "Trochilidae",
+    "region": "América",
+    "countries": [
+      "uruguay",
+      "argentina",
+      "brasil",
+      "sudamérica"
+    ],
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Chlorostilbon_lucidus_lucidus%2C_Calle_Avaroa%2C_Santa_Cruz%2C_Bolivia_2.jpg/330px-Chlorostilbon_lucidus_lucidus%2C_Calle_Avaroa%2C_Santa_Cruz%2C_Bolivia_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 3800
+  }
+]
