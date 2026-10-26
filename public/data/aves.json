@@ -76,7 +76,7 @@
       "india",
       "asia"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/165318/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Pfau_imponierend.jpg/330px-Pfau_imponierend.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 5100
   },
   {
@@ -142,7 +142,7 @@
       "europa",
       "españa"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/606710/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Phoenicopterus_roseus_%28Walvis_bay%29.jpg/330px-Phoenicopterus_roseus_%28Walvis_bay%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 7300
   },
   {
@@ -239,7 +239,7 @@
       "latinoamérica",
       "sudamérica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/348834/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Paroaria_coronata_-Koke%27e_State_Park%2C_Hawaii%2C_USA-8.jpg/330px-Paroaria_coronata_-Koke%27e_State_Park%2C_Hawaii%2C_USA-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 3100
   },
   {
@@ -254,7 +254,7 @@
       "china",
       "asia"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/522334/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Hfjj02.jpg/330px-Hfjj02.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 2100
   },
   {
@@ -297,7 +297,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/181719420/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Canada_goose_flight_cropped_and_NR.jpg/330px-Canada_goose_flight_cropped_and_NR.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 462639,
     "countries": [
       "estados unidos",
@@ -409,7 +409,7 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/178968933/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/07May06-HouseFinches.jpg/330px-07May06-HouseFinches.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 319359,
     "countries": [
       "méxico",
@@ -457,7 +457,7 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/368048127/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Red_winged_blackbird_-_natures_pics.jpg/330px-Red_winged_blackbird_-_natures_pics.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 289493,
     "countries": [
       "latinoamérica",
@@ -649,7 +649,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25544008/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Picoides_pubescens_f_CTB.jpg/330px-Picoides_pubescens_f_CTB.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 193157,
     "countries": [
       "latinoamérica",
@@ -745,7 +745,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/264781420/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/20090512_Trezzo_7667_1024x768.jpg/330px-20090512_Trezzo_7667_1024x768.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 180016,
     "countries": [
       "latinoamérica",
@@ -777,7 +777,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/107527504/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Garcinha_3.JPG/330px-Garcinha_3.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 177400,
     "countries": [
       "latinoamérica",
@@ -873,7 +873,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "Europa",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/331946615/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Erithacus_rubecula_with_cocked_head.jpg/330px-Erithacus_rubecula_with_cocked_head.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 167739,
     "countries": [
       "españa",
@@ -984,7 +984,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/61919353/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Eurasian_Collared_Dove%2C_England_RWD2.jpg/330px-Eurasian_Collared_Dove%2C_England_RWD2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 157945,
     "countries": [
       "latinoamérica",
@@ -1000,7 +1000,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/113612953/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Fulica-americana-003.jpg/330px-Fulica-americana-003.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 154560,
     "countries": [
       "latinoamérica",
@@ -2392,7 +2392,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/19393073/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Aythya-collaris-001.jpg/330px-Aythya-collaris-001.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 72584,
     "countries": [
       "latinoamérica",
@@ -2408,7 +2408,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/72113855/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Arenaria_interpres_%28habitus%29.jpg/330px-Arenaria_interpres_%28habitus%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 72262,
     "countries": [
       "latinoamérica",
@@ -2487,7 +2487,7 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/518522154/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Eastern_Kingbird_%2834190350870%29.jpg/330px-Eastern_Kingbird_%2834190350870%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 70022,
     "countries": [
       "latinoamérica",
@@ -2599,7 +2599,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/312548110/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Greater_Yellowlegs2.jpg/330px-Greater_Yellowlegs2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 67351,
     "countries": [
       "latinoamérica",
@@ -2631,7 +2631,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/354943417/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Common_Myna_%28Acridotheres_tristis%29_on_Kapok_%28Ceiba_pentandra%29_in_Kolkata_W_IMG_4297.jpg/330px-Common_Myna_%28Acridotheres_tristis%29_on_Kapok_%28Ceiba_pentandra%29_in_Kolkata_W_IMG_4297.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 66550,
     "countries": [
       "latinoamérica",
@@ -2663,7 +2663,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/48364706/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Neotropic_cormorant_%28Nannopterum_brasilianum_mexicanum%29_Peten.jpg/330px-Neotropic_cormorant_%28Nannopterum_brasilianum_mexicanum%29_Peten.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 66125,
     "countries": [
       "latinoamérica",
@@ -2695,7 +2695,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/50123912/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Cracticus_tibicen.jpg/330px-Cracticus_tibicen.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 65663,
     "countries": [
       "latinoamérica",
@@ -2743,7 +2743,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/304321551/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Gavia_immer_-Minocqua%2C_Wisconsin%2C_USA_-swimming-8.jpg/330px-Gavia_immer_-Minocqua%2C_Wisconsin%2C_USA_-swimming-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 65070,
     "countries": [
       "latinoamérica",
@@ -2965,7 +2965,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/269328954/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Blue-Gray_Gnatcatcher_%2827541488515%29.jpg/330px-Blue-Gray_Gnatcatcher_%2827541488515%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 58704,
     "countries": [
       "latinoamérica",
@@ -5873,7 +5873,7 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25928382/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Ovenbird_%2890497%29.jpg/330px-Ovenbird_%2890497%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 28478,
     "countries": [
       "latinoamérica",
@@ -5921,7 +5921,7 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/327070746/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Hummingbird_%28Broad-billed%3F%29_%2833175799974%29.jpg/330px-Hummingbird_%28Broad-billed%3F%29_%2833175799974%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 28194,
     "countries": [
       "latinoamérica",
@@ -5988,7 +5988,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/199674966/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Piranga_olivacea1.jpg/330px-Piranga_olivacea1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 27499,
     "countries": [
       "latinoamérica",
@@ -6020,7 +6020,7 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/671056/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Social_Flycatcher.png/330px-Social_Flycatcher.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 27324,
     "countries": [
       "latinoamérica",
@@ -6084,7 +6084,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/29333045/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Certhia_familiaris_-climbing_tree-8_%28cropped_version%29.jpg/330px-Certhia_familiaris_-climbing_tree-8_%28cropped_version%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 26782,
     "countries": [
       "latinoamérica",
@@ -6116,7 +6116,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/92749000/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Charadrius_hiaticula_He.jpg/330px-Charadrius_hiaticula_He.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 26430,
     "countries": [
       "latinoamérica",
@@ -6132,7 +6132,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/169122861/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Numenius_americanus.jpg/330px-Numenius_americanus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 26366,
     "countries": [
       "latinoamérica",
@@ -6311,7 +6311,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/478385/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Larus_heermanni13.JPG/330px-Larus_heermanni13.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 26082,
     "countries": [
       "latinoamérica",
@@ -6391,7 +6391,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/440496544/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Bonasa-umbellus-001edit1.jpg/330px-Bonasa-umbellus-001edit1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 25667,
     "countries": [
       "latinoamérica",
@@ -6407,7 +6407,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6696482/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Rhipidura_fuliginosa_3.jpg/330px-Rhipidura_fuliginosa_3.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 25527,
     "countries": [
       "latinoamérica",
@@ -6423,7 +6423,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/294107276/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Halcyon_smyrnensis_-Kerala%2C_India-8_%281%29.jpg/330px-Halcyon_smyrnensis_-Kerala%2C_India-8_%281%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 25488,
     "countries": [
       "latinoamérica",
@@ -9258,7 +9258,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4717210/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Javan_Myna_%28Acridotheres_javanicus%29.jpg/330px-Javan_Myna_%28Acridotheres_javanicus%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 15662,
     "countries": [
       "latinoamérica",
@@ -9306,7 +9306,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/441785258/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Larous_glaucescens_-_glaucous-winged_gull_on_Fraser_River.jpg/330px-Larous_glaucescens_-_glaucous-winged_gull_on_Fraser_River.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 15603,
     "countries": [
       "latinoamérica",
@@ -9338,7 +9338,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/626831344/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/African_Sacred_Ibis%2C_Threskiornis_aethiopicus%2C_at_Pilanesberg_National_Park%2C_South_Africa_%2845081681391%29.jpg/330px-African_Sacred_Ibis%2C_Threskiornis_aethiopicus%2C_at_Pilanesberg_National_Park%2C_South_Africa_%2845081681391%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 15500,
     "countries": [
       "latinoamérica",
@@ -9386,7 +9386,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/73848759/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Hadeda_Ibis_Portrait.jpg/330px-Hadeda_Ibis_Portrait.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 15277,
     "countries": [
       "latinoamérica",
@@ -9545,7 +9545,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/127904173/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Charadrius-melodus-004.jpg/330px-Charadrius-melodus-004.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 15002,
     "countries": [
       "latinoamérica",
@@ -9561,7 +9561,7 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/282387150/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Spilornis_cheela_%28Bandipur%2C_2008%29.jpg/330px-Spilornis_cheela_%28Bandipur%2C_2008%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 14945,
     "countries": [
       "latinoamérica",
@@ -9577,7 +9577,7 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4438193/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Junge_maenliche_Schneckenweih.jpg/330px-Junge_maenliche_Schneckenweih.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 14942,
     "countries": [
       "latinoamérica",
@@ -9593,7 +9593,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/520666/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Sora_%28Porzana_carolina%29.jpg/330px-Sora_%28Porzana_carolina%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 14920,
     "countries": [
       "latinoamérica",
@@ -9657,7 +9657,7 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/378461220/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Franklin%27s_Gull_Brisbane98.jpg/330px-Franklin%27s_Gull_Brisbane98.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 14799,
     "countries": [
       "latinoamérica",
@@ -9689,7 +9689,7 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6629898/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Grey_shrike_thrush.jpg/330px-Grey_shrike_thrush.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 14725,
     "countries": [
       "latinoamérica",
