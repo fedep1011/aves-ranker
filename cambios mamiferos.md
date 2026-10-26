@@ -6,293 +6,6 @@
     "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG/3840px-Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
-    "id": 42048,
-    "name": "Lobo gris",
-    "sci_name": "Canis lupus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Canis_lupus_265b.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41641,
-    "name": "Oso Pardo",
-    "sci_name": "Ursus arctos",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Brown_bear_%28Ursus_arctos%29%2C_Viiksimo%2C_Kainuu_region%2C_Finland%2C_16_June_2018_%2843094873292%29.jpg/3840px-Brown_bear_%28Ursus_arctos%29%2C_Viiksimo%2C_Kainuu_region%2C_Finland%2C_16_June_2018_%2843094873292%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 43694,
-    "name": "Elefante africano de sabana",
-    "sci_name": "Loxodonta africana",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Elefante_africano_de_sabana_%28Loxodonta_africana%29%2C_parque_nacional_Kruger%2C_Sud%C3%A1frica%2C_2018-07-25%2C_DD_12.jpg/3840px-Elefante_africano_de_sabana_%28Loxodonta_africana%29%2C_parque_nacional_Kruger%2C_Sud%C3%A1frica%2C_2018-07-25%2C_DD_12.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 42069,
-    "name": "Zorro Rojo",
-    "sci_name": "Vulpes vulpes",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Vulpes_vulpes_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41964,
-    "name": "León",
-    "sci_name": "Panthera leo",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/3840px-002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 42223,
-    "name": "Venado de cola blanca",
-    "sci_name": "Odocoileus virginianus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b7/White-tailed_deer.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 43111,
-    "name": "Conejo serrano",
-    "sci_name": "Sylvilagus floridanus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Cottontail_Rabbit_in_West_Hartford%2C_Connecticut_5.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41638,
-    "name": "Oso negro americano",
-    "sci_name": "Ursus americanus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Canadian_Rockies_-_the_bear_at_Lake_Louise.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 118552,
-    "name": "Gato doméstico",
-    "sci_name": "Felis catus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/64/Collage_of_Six_Cats-02.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41663,
-    "name": "Mapache",
-    "sci_name": "Procyon lotor",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Raccoon_in_Central_Park_%2835264%29.jpg/3840px-Raccoon_in_Central_Park_%2835264%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 46260,
-    "name": "Ardilla roja americana",
-    "sci_name": "Tamiasciurus hudsonicus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Tamiasciurus_hudsonicus_CT.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 43151,
-    "name": "Conejo europeo",
-    "sci_name": "Oryctolagus cuniculus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/37/Oryctolagus_cuniculus_Tasmania_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 42184,
-    "name": "Corzo",
-    "sci_name": "Capreolus capreolus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Capreolus_capreolus_2_Jojo.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 522193,
-    "name": "Alce",
-    "sci_name": "Alces alces",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Alaska_moose.jpg/3840px-Alaska_moose.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 42051,
-    "name": "Coyote",
-    "sci_name": "Canis latrans",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9c/2009-Coyote-Yosemite.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 43794,
-    "name": "Castor americano",
-    "sci_name": "Castor canadensis",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6b/American_Beaver.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 1647419,
-    "name": "Armadillo Mexicano",
-    "sci_name": "Dasypus mexicanus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Armadillo_en_Montemorelos.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 47144,
-    "name": "Perro Doméstico",
-    "sci_name": "Canis familiaris",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Coat_types_3.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 208700,
-    "name": "Bisonte americano",
-    "sci_name": "Bos bison",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8d/American_bison_k5680-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41777,
-    "name": "Nutria de río norteamericana",
-    "sci_name": "Lontra canadensis",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/82/LutraCanadensis_fullres.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41880,
-    "name": "Zorrillo listado norteño",
-    "sci_name": "Mephitis mephitis",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Skunk_about_to_spray.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 43997,
-    "name": "Nutria",
-    "sci_name": "Myocastor coypus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/da/Myocastor_coypus_-_ragondin.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 42983,
-    "name": "Koala",
-    "sci_name": "Phascolarctos cinereus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41740,
-    "name": "Lobo marino californiano",
-    "sci_name": "Zalophus californianus",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/California_sea_lion_in_La_Jolla_%2870568%29.jpg/3840px-California_sea_lion_in_La_Jolla_%2870568%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 42076,
-    "name": "Zorra gris",
-    "sci_name": "Urocyon cinereoargenteus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Urocyon_cinereoargenteus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41673,
-    "name": "Coatí",
-    "sci_name": "Nasua narica",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Nasua_narica_-Costa_Rica-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 43128,
-    "name": "Liebre europea",
-    "sci_name": "Lepus europaeus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/46/Feldhase_Schiermonnikoog.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 180008,
-    "name": "Ardillón de Rocas",
-    "sci_name": "Otospermophilus variegatus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/56/Spermophilus_variegatus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 204113,
-    "name": "Ciervo común",
-    "sci_name": "Cervus elaphus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/75/Cervus_elaphus_Luc_Viatour_3.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 43239,
-    "name": "Equidna",
-    "sci_name": "Tachyglossus aculeatus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Wild_shortbeak_echidna.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 42429,
-    "name": "Berrendo",
-    "sci_name": "Antilocapra americana",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Antilocapra_americana.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 1264432,
-    "name": "Visón americano",
-    "sci_name": "Neogale vison",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/04/MinkforWiki.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 46086,
-    "name": "Marmota de vientre amarillo",
-    "sci_name": "Marmota flaviventris",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Marmota_flaviventris_%28Yellow_Bellied_Marmot%29%2C_Yosemite_NP_-_Diliff.jpg/3840px-Marmota_flaviventris_%28Yellow_Bellied_Marmot%29%2C_Yosemite_NP_-_Diliff.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 855297,
-    "name": "Tejón europeo",
-    "sci_name": "Meles meles",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/10/Badger-badger.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 42278,
-    "name": "Impala",
-    "sci_name": "Aepyceros melampus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Trotting_impala_ram%2C_crop.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 43459,
-    "name": "Macaca Cangrejera",
-    "sci_name": "Macaca fascicularis",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ubud_Monkey_Family.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 46259,
-    "name": "Ardilla de Douglas",
-    "sci_name": "Tamiasciurus douglasii",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Tamiasciurus_douglasii_4435.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41860,
-    "name": "Nutria marina",
-    "sci_name": "Enhydra lutris",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/17/Enhydra_lutris_face.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 209233,
-    "name": "Caballo",
-    "sci_name": "Equus caballus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 42405,
-    "name": "Búfalo Africano",
-    "sci_name": "Syncerus caffer",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/B%C3%BAfalo_cafre_%28Syncerus_caffer%29%2C_parque_nacional_del_lago_Nakuru%2C_Kenia%2C_2024-05-18%2C_DD_85.jpg/3840px-B%C3%BAfalo_cafre_%28Syncerus_caffer%29%2C_parque_nacional_del_lago_Nakuru%2C_Kenia%2C_2024-05-18%2C_DD_85.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 46009,
-    "name": "Ardilla vientre rojo",
-    "sci_name": "Sciurus aureogaster",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/24/Sciurus_aureogaster.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 42122,
-    "name": "Facoquero",
-    "sci_name": "Phacochoerus africanus",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Facocero_com%C3%BAn_%28Phacochoerus_africanus%29%2C_parque_nacional_de_Zambeze%2C_Zimbabue%2C_2018-07-28%2C_DD_01.jpg/3840px-Facocero_com%C3%BAn_%28Phacochoerus_africanus%29%2C_parque_nacional_de_Zambeze%2C_Zimbabue%2C_2018-07-28%2C_DD_01.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
-    "id": 43188,
-    "name": "Pica Americana",
-    "sci_name": "Ochotona princeps",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Ochotona_princeps_rockies.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 41733,
-    "name": "Foca gris",
-    "sci_name": "Halichoerus grypus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Halichoerus_grypus_He3.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 47067,
-    "name": "Perezoso de tres dedos",
-    "sci_name": "Bradypus variegatus",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/18/Bradypus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
-  },
-  {
-    "id": 57556,
-    "name": "Papión chacma",
-    "sci_name": "Papio ursinus",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Papi%C3%B3n_chacma_%28Papio_ursinus%29%2C_parque_nacional_de_Chobe%2C_Botsuana%2C_2018-07-28%2C_DD_92.jpg/3840px-Papi%C3%B3n_chacma_%28Papio_ursinus%29%2C_parque_nacional_de_Chobe%2C_Botsuana%2C_2018-07-28%2C_DD_92.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  }
-]
-
-
-
-[
-  {
-    "id": 41970,
-    "name": "Jaguar",
-    "sci_name": "Panthera onca",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG/3840px-Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
-  },
-  {
     "id": 180008,
     "name": "Ardillón de Rocas",
     "sci_name": "Otospermophilus variegatus",
@@ -513,5 +226,227 @@
     "name": "Perezoso de dos dedos",
     "sci_name": "Choloepus hoffmanni",
     "photo": "https://upload.wikimedia.org/wikipedia/commons/7/71/Choloepus_hoffmanni_%28Puerto_Viejo%2C_CR%29_crop.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 41886,
+    "name": "Hiena manchada",
+    "sci_name": "Crocuta crocuta",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Hiena_manchada_%28Crocuta_crocuta%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-19%2C_DD_52.jpg/3840px-Hiena_manchada_%28Crocuta_crocuta%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-19%2C_DD_52.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 42357,
+    "name": "Íbice de los Alpes",
+    "sci_name": "Capra ibex",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Stambecchi_nel_Parco_Nazionale_del_Gran_Paradiso.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 43086,
+    "name": "Damán de el Cabo",
+    "sci_name": "Procavia capensis",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Rock_Hyrax_%28Procavia_capensis%29_%287042223567%29.jpg/3840px-Rock_Hyrax_%28Procavia_capensis%29_%287042223567%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 41761,
+    "name": "Lobo marino de un pelo",
+    "sci_name": "Otaria flavescens",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Male_southern_sea_lion.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 148030,
+    "name": "Asno",
+    "sci_name": "Equus asinus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Donkey_in_Clovelly%2C_North_Devon%2C_England.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 41850,
+    "name": "Nutria paleártica",
+    "sci_name": "Lutra lutra",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Fischotter%2C_Lutra_Lutra.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 1431867,
+    "name": "Antílope del Cabo",
+    "sci_name": "Tragelaphus sylvaticus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Flickr_-_Rainbirder_-_Imbabala_Bushbuck_%28Tragelaphus_sylvaticus%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 1511713,
+    "name": "Ardilla Terrestre de Douglas",
+    "sci_name": "Otospermophilus douglasii",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/17/Otospermophilus_douglasii_Eisen_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 1510574,
+    "name": "Jirafa Masái",
+    "sci_name": "Giraffa tippelskirchi",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Masai_giraffes_%28Giraffa_tippelskirchi%29_Arusha.jpg/3840px-Masai_giraffes_%28Giraffa_tippelskirchi%29_Arusha.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 43145,
+    "name": "Liebre de cola blanca",
+    "sci_name": "Lepus townsendii",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/45/White-tailed_Jackrabbit.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 1210966,
+    "name": "Chacal de lomo negro",
+    "sci_name": "Lupulella mesomelas",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Chacal_de_lomo_negro_%28Lupulella_mesomelas%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-20%2C_DD_07.jpg/3840px-Chacal_de_lomo_negro_%28Lupulella_mesomelas%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-20%2C_DD_07.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 43450,
+    "name": "Macaca De Formosa",
+    "sci_name": "Macaca cyclopis",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Formosan_macaque.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 40905,
+    "name": "Zorro Volador De Cabeza Gris",
+    "sci_name": "Pteropus poliocephalus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Grey-headed_Flying-foxes.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 41670,
+    "name": "Coatí",
+    "sci_name": "Nasua nasua",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Nasua_nasua_qtl1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 74832,
+    "name": "Papión de Anubis",
+    "sci_name": "Papio anubis",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Olive_baboon_%28Papio_anubis%29_with_juvenile.jpg/3840px-Olive_baboon_%28Papio_anubis%29_with_juvenile.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 46255,
+    "name": "Juancito",
+    "sci_name": "Ammospermophilus leucurus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ed/White_Tailed_Squirrel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 41789,
+    "name": "Tlalcoyote",
+    "sci_name": "Taxidea taxus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/57/AmericanBadger.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 1264431,
+    "name": "Comadreja cola larga",
+    "sci_name": "Neogale frenata",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Long_tailed_weasel_on_Seedskadee_National_Wildlife_Refuge_%2835240138322%29.jpg/3840px-Long_tailed_weasel_on_Seedskadee_National_Wildlife_Refuge_%2835240138322%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 1453432,
+    "name": "Ualabí Ágil",
+    "sci_name": "Notamacropus agilis",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Agile_Wallaby_pair_-_East_Point_Reserve.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 43109,
+    "name": "Conejo de montaña",
+    "sci_name": "Sylvilagus nuttallii",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Nuttall%27s_Cottontail_%28Sylvilagus_nuttallii%29.jpg/3840px-Nuttall%27s_Cottontail_%28Sylvilagus_nuttallii%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 74113,
+    "name": "Ganado vacuno",
+    "sci_name": "Bos taurus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/20100516_Vacas_Vilarromar%C3%ADs%2C_Oroso-8-1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 42375,
+    "name": "Antilope Rojo",
+    "sci_name": "Raphicerus campestris",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/75/Raphicerus_campestris.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 225756,
+    "name": "Ardilla listada de Townsend",
+    "sci_name": "Neotamias townsendii",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Tamias_townsendii_4516.JPG/3840px-Tamias_townsendii_4516.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 42240,
+    "name": "Guanaco",
+    "sci_name": "Lama guanicoe",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Guanaco_Patagonico.jpg/3840px-Guanaco_Patagonico.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 41301,
+    "name": "Murciélago mexicano cola suelta",
+    "sci_name": "Tadarida brasiliensis",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Mexican_free-tailed_bat_%288006856842%29.jpg/3840px-Mexican_free-tailed_bat_%288006856842%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 453109,
+    "name": "Marta pescadora",
+    "sci_name": "Pekania pennanti",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Fisher_%28animal%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 40522,
+    "name": "Murciélago cola peluda rojizo",
+    "sci_name": "Lasiurus borealis",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0f/C-red-bat.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 42350,
+    "name": "Cabra Montesa",
+    "sci_name": "Capra pyrenaica",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Capra_pyrenaica_in_Sierra_de_Guadarrama.jpg/3840px-Capra_pyrenaica_in_Sierra_de_Guadarrama.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 43494,
+    "name": "Langur Obscuro",
+    "sci_name": "Trachypithecus obscurus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Duskyleafmonkey1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 1641421,
+    "name": "Zorro Volador De La India",
+    "sci_name": "Pteropus medius",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Pteropus_giganteus_fg01.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 46018,
+    "name": "Ardilla de Abert",
+    "sci_name": "Sciurus aberti",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/92/Aberts6.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 410834,
+    "name": "Capuchino negro",
+    "sci_name": "Sapajus nigritus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Cebus_nigritus_cucullatus_%28Black_capuchin_-_southern_form%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 47014,
+    "name": "Topo oriental",
+    "sci_name": "Scalopus aquaticus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ScalopusAquaticus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 42308,
+    "name": "Órix del Cabo",
+    "sci_name": "Oryx gazella",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Gemsbok_%28Oryx_gazella%29_male.jpg/3840px-Gemsbok_%28Oryx_gazella%29_male.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 45938,
+    "name": "Ardilla de palma india",
+    "sci_name": "Funambulus palmarum",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/19/Indian_Palm_Squirrel_Bangalore_2009.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "id": 179994,
+    "name": "Ardilla Terrestre Uinta",
+    "sci_name": "Urocitellus armatus",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Uinta_ground_squirrel_%2878708%29.jpg/3840px-Uinta_ground_squirrel_%2878708%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "id": 45562,
+    "name": "Ratón de campo",
+    "sci_name": "Apodemus sylvaticus",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Apodemus_sylvaticus_03_by-dpc.jpg/3840px-Apodemus_sylvaticus_03_by-dpc.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   }
 ]

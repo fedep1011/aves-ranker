@@ -2037,7 +2037,7 @@
     "group": "Otros Mamíferos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754845706/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Rock_Hyrax_%28Procavia_capensis%29_%287042223567%29.jpg/3840px-Rock_Hyrax_%28Procavia_capensis%29_%287042223567%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 9416,
     "countries": [
       "latinoamérica",
@@ -2052,7 +2052,7 @@
     "group": "Otros Mamíferos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754918650/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Hiena_manchada_%28Crocuta_crocuta%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-19%2C_DD_52.jpg/3840px-Hiena_manchada_%28Crocuta_crocuta%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-19%2C_DD_52.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 9485,
     "countries": [
       "latinoamérica",
@@ -2067,7 +2067,7 @@
     "group": "Cetáceos y Marinos",
     "habitat": "Marino / Costero",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754705468/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Male_southern_sea_lion.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 8009,
     "countries": [
       "latinoamérica",
@@ -2083,7 +2083,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "Europa",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754448284/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Stambecchi_nel_Parco_Nazionale_del_Gran_Paradiso.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 8571,
     "countries": [
       "españa",
@@ -2142,7 +2142,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/140505310/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Donkey_in_Clovelly%2C_North_Devon%2C_England.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 6672,
     "countries": [
       "latinoamérica",
@@ -2157,7 +2157,7 @@
     "group": "Mustélidos y Carnívoros",
     "habitat": "Polar / Glaciar",
     "region": "Polar",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/100389336/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Fischotter%2C_Lutra_Lutra.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 7546,
     "countries": []
   },
@@ -2169,7 +2169,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59899521/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Flickr_-_Rainbirder_-_Imbabala_Bushbuck_%28Tragelaphus_sylvaticus%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 7561,
     "countries": [
       "latinoamérica",
@@ -2184,7 +2184,7 @@
     "group": "Roedores",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/183803744/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/17/Otospermophilus_douglasii_Eisen_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 7240,
     "countries": [
       "latinoamérica",
@@ -2199,7 +2199,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "África",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/102235423/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Masai_giraffes_%28Giraffa_tippelskirchi%29_Arusha.jpg/3840px-Masai_giraffes_%28Giraffa_tippelskirchi%29_Arusha.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 7167,
     "countries": [
       "áfrica"
@@ -2213,7 +2213,7 @@
     "group": "Conejos y Liebres",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/32697869/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/45/White-tailed_Jackrabbit.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 7460,
     "countries": [
       "latinoamérica",
@@ -2258,7 +2258,7 @@
     "group": "Cánidos y Zorros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/477185480/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Chacal_de_lomo_negro_%28Lupulella_mesomelas%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-20%2C_DD_07.jpg/3840px-Chacal_de_lomo_negro_%28Lupulella_mesomelas%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-20%2C_DD_07.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 7511,
     "countries": [
       "latinoamérica",
@@ -2273,7 +2273,7 @@
     "group": "Primates y Simios",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/61260558/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Formosan_macaque.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 6602,
     "countries": [
       "latinoamérica",
@@ -2333,7 +2333,7 @@
     "group": "Murciélagos",
     "habitat": "Aéreo",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754895929/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Grey-headed_Flying-foxes.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 7415,
     "countries": [
       "latinoamérica",
@@ -2348,7 +2348,7 @@
     "group": "Mustélidos y Carnívoros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754647229/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Nasua_nasua_qtl1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 6526,
     "countries": [
       "latinoamérica",
@@ -2363,7 +2363,7 @@
     "group": "Primates y Simios",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754932338/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Olive_baboon_%28Papio_anubis%29_with_juvenile.jpg/3840px-Olive_baboon_%28Papio_anubis%29_with_juvenile.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 6714,
     "countries": [
       "latinoamérica",
@@ -2378,7 +2378,7 @@
     "group": "Roedores",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754753238/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ed/White_Tailed_Squirrel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 7785,
     "countries": [
       "latinoamérica",
@@ -2393,7 +2393,7 @@
     "group": "Mustélidos y Carnívoros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/24707764/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/57/AmericanBadger.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 6042,
     "countries": [
       "latinoamérica",
@@ -2423,7 +2423,7 @@
     "group": "Mustélidos y Carnívoros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/382487619/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Long_tailed_weasel_on_Seedskadee_National_Wildlife_Refuge_%2835240138322%29.jpg/3840px-Long_tailed_weasel_on_Seedskadee_National_Wildlife_Refuge_%2835240138322%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 6146,
     "countries": [
       "latinoamérica",
@@ -2468,7 +2468,7 @@
     "group": "Marsupiales y Monotremas",
     "habitat": "Terrestre",
     "region": "Oceanía",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12505914/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Agile_Wallaby_pair_-_East_Point_Reserve.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 5245,
     "countries": [
       "australia",
@@ -2483,7 +2483,7 @@
     "group": "Conejos y Liebres",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4484631/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Nuttall%27s_Cottontail_%28Sylvilagus_nuttallii%29.jpg/3840px-Nuttall%27s_Cottontail_%28Sylvilagus_nuttallii%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 5563,
     "countries": [
       "latinoamérica",
@@ -2572,7 +2572,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/156967259/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/20100516_Vacas_Vilarromar%C3%ADs%2C_Oroso-8-1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 5713,
     "countries": [
       "latinoamérica",
@@ -2617,7 +2617,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12602689/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/75/Raphicerus_campestris.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 5161,
     "countries": [
       "latinoamérica",
@@ -2647,7 +2647,7 @@
     "group": "Roedores",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/19907/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Tamias_townsendii_4516.JPG/3840px-Tamias_townsendii_4516.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 4993,
     "countries": [
       "latinoamérica",
@@ -2662,7 +2662,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754509594/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Guanaco_Patagonico.jpg/3840px-Guanaco_Patagonico.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 5502,
     "countries": [
       "argentina",
@@ -2678,7 +2678,7 @@
     "group": "Murciélagos",
     "habitat": "Aéreo",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754370858/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Mexican_free-tailed_bat_%288006856842%29.jpg/3840px-Mexican_free-tailed_bat_%288006856842%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 5441,
     "countries": [
       "brasil",
@@ -2695,7 +2695,7 @@
     "group": "Mustélidos y Carnívoros",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/194542859/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Fisher_%28animal%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4693,
     "countries": [
       "latinoamérica",
@@ -2786,7 +2786,7 @@
     "group": "Murciélagos",
     "habitat": "Aéreo",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/63227827/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0f/C-red-bat.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4554,
     "countries": [
       "latinoamérica",
@@ -2817,7 +2817,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/176370768/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Capra_pyrenaica_in_Sierra_de_Guadarrama.jpg/3840px-Capra_pyrenaica_in_Sierra_de_Guadarrama.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 4579,
     "countries": [
       "latinoamérica",
@@ -2877,7 +2877,7 @@
     "group": "Primates y Simios",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/84483464/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Duskyleafmonkey1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4704,
     "countries": [
       "latinoamérica",
@@ -2921,7 +2921,7 @@
     "group": "Murciélagos",
     "habitat": "Aéreo",
     "region": "Asia",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754919091/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Pteropus_giganteus_fg01.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4551,
     "countries": [
       "asia"
@@ -2935,7 +2935,7 @@
     "group": "Roedores",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754754540/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/92/Aberts6.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4833,
     "countries": [
       "latinoamérica",
@@ -2950,7 +2950,7 @@
     "group": "Primates y Simios",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754607967/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Cebus_nigritus_cucullatus_%28Black_capuchin_-_southern_form%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4764,
     "countries": [
       "latinoamérica",
@@ -2965,7 +2965,7 @@
     "group": "Otros Mamíferos",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754310870/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ScalopusAquaticus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4517,
     "countries": [
       "latinoamérica",
@@ -2980,7 +2980,7 @@
     "group": "Herbívoros y Ungulados",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754515155/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Gemsbok_%28Oryx_gazella%29_male.jpg/3840px-Gemsbok_%28Oryx_gazella%29_male.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 4662,
     "countries": [
       "latinoamérica",
@@ -2995,7 +2995,7 @@
     "group": "Roedores",
     "habitat": "Arbóreo / Selva",
     "region": "Asia",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/45724654/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/19/Indian_Palm_Squirrel_Bangalore_2009.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4481,
     "countries": [
       "asia"
@@ -3009,7 +3009,7 @@
     "group": "Roedores",
     "habitat": "Arbóreo / Selva",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/264824325/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Uinta_ground_squirrel_%2878708%29.jpg/3840px-Uinta_ground_squirrel_%2878708%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 4498,
     "countries": [
       "latinoamérica",
@@ -3024,7 +3024,7 @@
     "group": "Roedores",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12424244/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Apodemus_sylvaticus_03_by-dpc.jpg/3840px-Apodemus_sylvaticus_03_by-dpc.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 4493,
     "countries": [
       "latinoamérica",
