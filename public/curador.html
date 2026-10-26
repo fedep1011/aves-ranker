@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curador Visual de Especies · Rankea2</title>
+  <title>Curador Visual & Simulador de Portadas · Rankea2</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,24 @@
       }
     };
   </script>
+  <style>
+    .half-split-left {
+      position: absolute;
+      inset-block: 0;
+      left: 0;
+      width: 55%;
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+      overflow: hidden;
+    }
+    .half-split-right {
+      position: absolute;
+      inset-block: 0;
+      right: 0;
+      width: 55%;
+      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 min-h-full flex flex-col font-sans transition-colors duration-200">
 
@@ -36,29 +54,35 @@
           <span class="font-mono text-base tracking-tight">Rankea2</span>
         </a>
         <span class="text-stone-300 dark:text-stone-700">/</span>
-        <h1 class="font-serif text-xl sm:text-2xl text-stone-900 dark:text-white">Curador Visual de Catálogo</h1>
+        <h1 class="font-serif text-xl sm:text-2xl text-stone-900 dark:text-white">Curador & Simulador Visual</h1>
         <span id="modifiedBadge" class="hidden px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30">
-          0 cambios
+          0 cambios guardados
         </span>
       </div>
 
+      <!-- TABS & ACTIONS -->
       <div class="flex flex-wrap items-center gap-2">
+        <!-- View Mode Tabs -->
+        <div class="flex items-center bg-stone-100 dark:bg-stone-800 p-0.5 rounded-lg border border-stone-300 dark:border-stone-700 text-xs font-medium">
+          <button id="btnTabCatalog" onclick="app.setTab('catalog')" class="px-3 py-1.5 rounded-md bg-white dark:bg-stone-900 shadow-xs text-stone-900 dark:text-white">
+            Catálogo & Fotos
+          </button>
+          <button id="btnTabSimulator" onclick="app.setTab('simulator')" class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 dark:hover:text-white">
+            Simulador de Portada & Duelos
+          </button>
+        </div>
+
         <select id="arenaSelect" onchange="app.changeArena(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white">
+          <option value="aves">Aves (/data/aves.json)</option>
           <option value="mamiferos">Mamíferos (/data/mamiferos.json)</option>
           <option value="flores">Flores (/data/flores.json)</option>
-          <option value="pokemon">Pokémon (/data/pokemon.json)</option>
         </select>
 
         <select id="limitSelect" onchange="app.changeLimit(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white">
-          <option value="50">Top 50 más populares</option>
+          <option value="50">Top 50</option>
           <option value="100">Top 100</option>
-          <option value="200">Top 200</option>
-          <option value="all">Todas las especies</option>
+          <option value="all">Todas</option>
         </select>
-
-        <button onclick="app.autoFetchWikipediaTop50()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 transition">
-          Consultar Wikipedia Top 50
-        </button>
 
         <button onclick="app.downloadJson()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -77,34 +101,200 @@
     </div>
   </header>
 
-  <!-- FILTER & SEARCH BAR -->
-  <div class="bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 px-4 py-2.5 sm:px-6">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex-1 min-w-[240px] max-w-md">
-        <input id="searchInput" type="text" oninput="app.onSearch(this.value)" placeholder="Buscar por nombre, nombre científico, familia o región..." class="w-full text-xs px-3 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-emerald-500">
+  <!-- ========================================== -->
+  <!-- TAB 1: VISTA DE CATÁLOGO & CURACIÓN -->
+  <!-- ========================================== -->
+  <div id="viewCatalog" class="flex-1 flex flex-col">
+    <!-- FILTER & SEARCH BAR -->
+    <div class="bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 px-4 py-2.5 sm:px-6">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex-1 min-w-[240px] max-w-md">
+          <input id="searchInput" type="text" oninput="app.onSearch(this.value)" placeholder="Buscar por nombre, nombre científico, familia o región..." class="w-full text-xs px-3 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-emerald-500">
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="app.autoFetchWikipediaTop50()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 transition">
+            Consultar Wikipedia para visibles
+          </button>
+          <div class="text-xs text-stone-500 font-mono" id="statsLabel">
+            Cargando dataset...
+          </div>
+        </div>
       </div>
-      <div class="text-xs text-stone-500 font-mono" id="statsLabel">
-        Cargando dataset...
+    </div>
+
+    <!-- MAIN LIST CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-4">
+      <div id="itemsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 2: SIMULADOR DE PASTILLAS & PORTADA -->
+  <!-- ========================================== -->
+  <div id="viewSimulator" class="hidden flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+    <!-- INTRO -->
+    <div class="space-y-1">
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold">Simulador de Portada & Enfoque</h2>
+      <p class="text-xs sm:text-sm text-stone-500">
+        Verifica en tiempo real cómo lucen las fotos en la pastilla diagonal de portada (Hub principal), en las pastillas rápidas y en el contenedor de batalla 4:3.
+      </p>
+    </div>
+
+    <!-- SELECTORES DEL SIMULADOR -->
+    <div class="p-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 space-y-4 shadow-sm">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-stone-400">Controles de la Pastilla</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <label class="block text-xs font-medium mb-1">Candidato Izquierdo (Left)</label>
+          <select id="simSelectLeft" onchange="app.onSimLeftChange(this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium"></select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium mb-1">Enfoque Vertical Izquierdo</label>
+          <select id="simPosLeft" onchange="app.onSimPosChange('left', this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium">
+            <option value="center 20%">Arriba (20%)</option>
+            <option value="center 30%" selected>Superior medio (30%)</option>
+            <option value="center 50%">Centro (50%)</option>
+            <option value="center 70%">Inferior medio (70%)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium mb-1">Candidato Derecho (Right)</label>
+          <select id="simSelectRight" onchange="app.onSimRightChange(this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium"></select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium mb-1">Enfoque Vertical Derecho</label>
+          <select id="simPosRight" onchange="app.onSimPosChange('right', this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium">
+            <option value="center 20%">Arriba (20%)</option>
+            <option value="center 25%" selected>Superior medio (25%)</option>
+            <option value="center 50%">Centro (50%)</option>
+            <option value="center 70%">Inferior medio (70%)</option>
+          </select>
+        </div>
       </div>
+    </div>
+
+    <!-- PREVIEWS GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+      <!-- SIMULADOR 1: TARJETA DIAGONAL DEL HUB (INDEX.HTML) -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-stone-400">1. Pastilla Diagonal de Portada (Hub)</span>
+          <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Exacto como index.html</span>
+        </div>
+
+        <div id="simHubCard" class="max-w-sm mx-auto rounded-[26px] overflow-hidden flex flex-col justify-between border-2 border-stone-800 bg-[#161816] text-[#EDF3EE] shadow-lg">
+          <div class="relative h-36 w-full bg-[#1C241E] overflow-hidden">
+            <div class="half-split-left">
+              <img id="simHubImgLeft" src="" alt="" class="w-full h-full object-cover transition-all duration-300" />
+            </div>
+            <div class="half-split-right">
+              <img id="simHubImgRight" src="" alt="" class="w-full h-full object-cover transition-all duration-300" />
+            </div>
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.8" />
+            </svg>
+            <span id="simHubBadge" class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-black/70 text-white backdrop-blur-xs">
+              Categoría
+            </span>
+          </div>
+
+          <div class="p-4 flex items-center justify-between gap-2">
+            <div>
+              <h3 id="simHubTitle" class="font-serif text-2xl leading-none font-bold">Aves</h3>
+              <span id="simHubSubtitle" class="text-[11px] text-stone-400 block mt-1">Especies destacadas</span>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-medium">→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULADOR 2: CONTENEDOR RÍGIDO DE BATALLA 4:3 -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-stone-400">2. Contenedor de Duelo 1v1 (Aspect 4:3)</span>
+          <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Zero-Crop Contain + Ambient Blur</span>
+        </div>
+
+        <div class="max-w-sm mx-auto rounded-2xl border-2 border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-2 shadow-lg space-y-2">
+          <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-stone-950 flex items-center justify-center">
+            <!-- Ambient blurred backdrop -->
+            <img id="simBattleImgBg" src="" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-60 pointer-events-none" />
+            <!-- Foreground Contain uncropped -->
+            <img id="simBattleImgFg" src="" alt="" class="absolute inset-0 w-full h-full object-contain object-center z-10" />
+            <span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/75 text-white">A</span>
+          </div>
+          <div class="p-2 text-center">
+            <h4 id="simBattleName" class="font-serif text-lg font-bold line-clamp-1 leading-snug">...</h4>
+            <p id="simBattleSci" class="font-mono text-xs text-stone-500 italic">...</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- MAIN LIST CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-4">
-    <div id="itemsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-  </main>
-
   <script>
+    const ARENA_CONFIG = {
+      aves: {
+        title: 'Aves',
+        badge: 'Ornitología',
+        subtitle: '11.000 especies del mundo',
+        bg: '#0E1511',
+        border: '#2D5A3F',
+        textColor: '#EDF3EE'
+      },
+      mamiferos: {
+        title: 'Mamíferos',
+        badge: 'Fauna Salvaje',
+        subtitle: 'Grandes depredadores y megafauna',
+        bg: '#17120C',
+        border: '#8C6239',
+        textColor: '#F5EFE6'
+      },
+      flores: {
+        title: 'Flores',
+        badge: 'Herbario Botánico',
+        subtitle: 'Especies botánicas y ornamentales',
+        bg: '#111713',
+        border: '#38473A',
+        textColor: '#E2ECE3'
+      }
+    };
+
     const app = {
-      arena: 'mamiferos',
+      arena: 'aves',
+      currentTab: 'catalog',
       limit: 50,
       search: '',
       fullDataset: [],
       modifiedItems: new Map(),
-      wikiCache: new Map(),
+      simLeftIdx: 0,
+      simRightIdx: 1,
+      simPosLeftVal: 'center 30%',
+      simPosRightVal: 'center 25%',
 
       async init() {
         await this.loadDataset();
+      },
+
+      setTab(tab) {
+        this.currentTab = tab;
+        const isCat = tab === 'catalog';
+        document.getElementById('viewCatalog').classList.toggle('hidden', !isCat);
+        document.getElementById('viewSimulator').classList.toggle('hidden', isCat);
+
+        const btnCat = document.getElementById('btnTabCatalog');
+        const btnSim = document.getElementById('btnTabSimulator');
+        if (isCat) {
+          btnCat.className = 'px-3 py-1.5 rounded-md bg-white dark:bg-stone-900 shadow-xs text-stone-900 dark:text-white';
+          btnSim.className = 'px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 dark:hover:text-white';
+        } else {
+          btnSim.className = 'px-3 py-1.5 rounded-md bg-white dark:bg-stone-900 shadow-xs text-stone-900 dark:text-white';
+          btnCat.className = 'px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 dark:hover:text-white';
+          this.updateSimulator();
+        }
       },
 
       async changeArena(arena) {
@@ -112,6 +302,9 @@
         this.loadFromLocalStorage();
         this.updateModifiedBadge();
         await this.loadDataset();
+        if (this.currentTab === 'simulator') {
+          this.updateSimulator();
+        }
       },
 
       changeLimit(val) {
@@ -122,6 +315,58 @@
       onSearch(val) {
         this.search = val.trim().toLowerCase();
         this.render();
+      },
+
+      saveToLocalStorage() {
+        try {
+          const list = Array.from(this.modifiedItems.entries());
+          localStorage.setItem(`rankea2_curator_${this.arena}`, JSON.stringify(list));
+        } catch (_) {}
+      },
+
+      loadFromLocalStorage() {
+        try {
+          const raw = localStorage.getItem(`rankea2_curator_${this.arena}`);
+          if (raw) {
+            const list = JSON.parse(raw);
+            this.modifiedItems = new Map(list);
+          } else {
+            this.modifiedItems.clear();
+          }
+        } catch (_) {
+          this.modifiedItems.clear();
+        }
+      },
+
+      copyPatchToClipboard() {
+        if (this.modifiedItems.size === 0) {
+          alert('No hay cambios para copiar todavía. Selecciona una foto o pega una URL para empezar.');
+          return;
+        }
+
+        const patch = Array.from(this.modifiedItems.values()).map(it => ({
+          id: it.id,
+          name: it.name || it.nombre,
+          sci_name: it.sci_name || it.nombreCientifico || '',
+          photo: it.photo
+        }));
+
+        navigator.clipboard.writeText(JSON.stringify(patch, null, 2)).then(() => {
+          const btn = document.getElementById('copyPatchBtnText');
+          if (btn) {
+            const orig = btn.textContent;
+            btn.textContent = '¡Copiado!';
+            setTimeout(() => { btn.textContent = orig; }, 2000);
+          }
+        });
+      },
+
+      updateModifiedBadge() {
+        const badge = document.getElementById('modifiedBadge');
+        if (!badge) return;
+        const count = this.modifiedItems.size;
+        badge.textContent = `${count} ${count === 1 ? 'cambio guardado' : 'cambios guardados'}`;
+        badge.classList.toggle('hidden', count === 0);
       },
 
       async loadDataset() {
@@ -135,6 +380,7 @@
           statsEl.textContent = `Total en catálogo: ${this.fullDataset.length} especies`;
           this.updateModifiedBadge();
           this.render();
+          this.initSimulatorSelectors();
         } catch (err) {
           statsEl.textContent = 'Error al cargar: ' + err.message;
         }
@@ -154,19 +400,24 @@
         return items.slice(0, this.limit);
       },
 
+      getItemPhoto(it) {
+        if (!it) return '';
+        if (this.modifiedItems.has(it.id)) {
+          return this.modifiedItems.get(it.id).photo;
+        }
+        return it.photo || it.artwork || it.sprite || '';
+      },
+
       render() {
         const container = document.getElementById('itemsContainer');
         const visible = this.getVisibleItems();
         container.innerHTML = '';
 
         visible.forEach((it, idx) => {
-          const currentPhoto = this.modifiedItems.has(it.id)
-            ? this.modifiedItems.get(it.id).photo
-            : (it.photo || it.artwork || it.sprite || '');
-
+          const currentPhoto = this.getItemPhoto(it);
           const name = it.name || it.nombre || 'Sin nombre';
-          const sciName = it.sci_name || it.nombreCientifico || it.en_name || '';
-          const subtitle = [it.family || it.types?.join(' · '), it.region].filter(Boolean).join(' · ');
+          const sciName = it.sci_name || it.nombreCientifico || '';
+          const subtitle = [it.family || it.familia, it.region].filter(Boolean).join(' · ');
           const isModified = this.modifiedItems.has(it.id);
 
           const card = document.createElement('div');
@@ -283,6 +534,7 @@
         this.saveToLocalStorage();
         this.updateModifiedBadge();
         this.render();
+        if (this.currentTab === 'simulator') this.updateSimulator();
       },
 
       revertItem(id) {
@@ -290,58 +542,7 @@
         this.saveToLocalStorage();
         this.updateModifiedBadge();
         this.render();
-      },
-
-      saveToLocalStorage() {
-        try {
-          const list = Array.from(this.modifiedItems.entries());
-          localStorage.setItem(`rankea2_curator_${this.arena}`, JSON.stringify(list));
-        } catch (_) {}
-      },
-
-      loadFromLocalStorage() {
-        try {
-          const raw = localStorage.getItem(`rankea2_curator_${this.arena}`);
-          if (raw) {
-            const list = JSON.parse(raw);
-            this.modifiedItems = new Map(list);
-          } else {
-            this.modifiedItems.clear();
-          }
-        } catch (_) {
-          this.modifiedItems.clear();
-        }
-      },
-
-      copyPatchToClipboard() {
-        if (this.modifiedItems.size === 0) {
-          alert('No hay cambios para copiar todavía. Selecciona una foto o pega una URL para empezar.');
-          return;
-        }
-
-        const patch = Array.from(this.modifiedItems.values()).map(it => ({
-          id: it.id,
-          name: it.name || it.nombre,
-          sci_name: it.sci_name || it.nombreCientifico || '',
-          photo: it.photo
-        }));
-
-        navigator.clipboard.writeText(JSON.stringify(patch, null, 2)).then(() => {
-          const btn = document.getElementById('copyPatchBtnText');
-          if (btn) {
-            const orig = btn.textContent;
-            btn.textContent = '¡Copiado!';
-            setTimeout(() => { btn.textContent = orig; }, 2000);
-          }
-        });
-      },
-
-      updateModifiedBadge() {
-        const badge = document.getElementById('modifiedBadge');
-        if (!badge) return;
-        const count = this.modifiedItems.size;
-        badge.textContent = `${count} ${count === 1 ? 'cambio guardado' : 'cambios guardados'}`;
-        badge.classList.toggle('hidden', count === 0);
+        if (this.currentTab === 'simulator') this.updateSimulator();
       },
 
       async autoFetchWikipediaTop50() {
@@ -367,6 +568,102 @@
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+      },
+
+      // ======================================================
+      // SIMULATOR CONTROLS
+      // ======================================================
+      initSimulatorSelectors() {
+        const selLeft = document.getElementById('simSelectLeft');
+        const selRight = document.getElementById('simSelectRight');
+        if (!selLeft || !selRight || this.fullDataset.length === 0) return;
+
+        selLeft.innerHTML = '';
+        selRight.innerHTML = '';
+
+        this.fullDataset.slice(0, 30).forEach((it, idx) => {
+          const name = it.name || it.nombre;
+          const optL = document.createElement('option');
+          optL.value = idx;
+          optL.textContent = `${idx + 1}. ${name}`;
+          if (idx === 0) optL.selected = true;
+          selLeft.appendChild(optL);
+
+          const optR = document.createElement('option');
+          optR.value = idx;
+          optR.textContent = `${idx + 1}. ${name}`;
+          if (idx === 1) optR.selected = true;
+          selRight.appendChild(optR);
+        });
+
+        this.simLeftIdx = 0;
+        this.simRightIdx = 1;
+        this.updateSimulator();
+      },
+
+      onSimLeftChange(val) {
+        this.simLeftIdx = parseInt(val, 10);
+        this.updateSimulator();
+      },
+
+      onSimRightChange(val) {
+        this.simRightIdx = parseInt(val, 10);
+        this.updateSimulator();
+      },
+
+      onSimPosChange(side, val) {
+        if (side === 'left') this.simPosLeftVal = val;
+        else this.simPosRightVal = val;
+        this.updateSimulator();
+      },
+
+      updateSimulator() {
+        const cfg = ARENA_CONFIG[this.arena] || ARENA_CONFIG.aves;
+        const leftItem = this.fullDataset[this.simLeftIdx];
+        const rightItem = this.fullDataset[this.simRightIdx];
+        if (!leftItem || !rightItem) return;
+
+        const leftPhoto = this.getItemPhoto(leftItem);
+        const rightPhoto = this.getItemPhoto(rightItem);
+
+        // 1. Hub Card
+        const hubCard = document.getElementById('simHubCard');
+        if (hubCard) {
+          hubCard.style.backgroundColor = cfg.bg;
+          hubCard.style.borderColor = cfg.border;
+          hubCard.style.color = cfg.textColor;
+        }
+
+        const hubImgL = document.getElementById('simHubImgLeft');
+        const hubImgR = document.getElementById('simHubImgRight');
+        if (hubImgL) {
+          hubImgL.src = leftPhoto;
+          hubImgL.style.objectPosition = this.simPosLeftVal;
+        }
+        if (hubImgR) {
+          hubImgR.src = rightPhoto;
+          hubImgR.style.objectPosition = this.simPosRightVal;
+        }
+
+        const hubBadge = document.getElementById('simHubBadge');
+        if (hubBadge) hubBadge.textContent = cfg.badge;
+
+        const hubTitle = document.getElementById('simHubTitle');
+        if (hubTitle) hubTitle.textContent = cfg.title;
+
+        const hubSub = document.getElementById('simHubSubtitle');
+        if (hubSub) hubSub.textContent = cfg.subtitle;
+
+        // 2. Battle Container
+        const bImgBg = document.getElementById('simBattleImgBg');
+        const bImgFg = document.getElementById('simBattleImgFg');
+        const bName = document.getElementById('simBattleName');
+        const bSci = document.getElementById('simBattleSci');
+
+        if (bImgBg) bImgBg.src = leftPhoto;
+        if (bImgFg) bImgFg.src = leftPhoto;
+        if (bName) bName.textContent = leftItem.name || leftItem.nombre;
+        if (bSci) bSci.textContent = leftItem.sci_name || leftItem.nombreCientifico || '';
       }
     };
 
