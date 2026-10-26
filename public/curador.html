@@ -39,6 +39,14 @@
       clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
       overflow: hidden;
     }
+    .interactive-photo {
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+    .interactive-photo:active {
+      cursor: grabbing;
+    }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 min-h-full flex flex-col font-sans transition-colors duration-200">
@@ -72,7 +80,7 @@
           </button>
         </div>
 
-        <select id="arenaSelect" onchange="app.changeArena(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white">
+        <select id="arenaSelect" onchange="app.changeArena(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white font-semibold">
           <option value="aves">Aves (/data/aves.json)</option>
           <option value="mamiferos">Mamíferos (/data/mamiferos.json)</option>
           <option value="flores">Flores (/data/flores.json)</option>
@@ -81,6 +89,7 @@
         <select id="limitSelect" onchange="app.changeLimit(this.value)" class="text-xs font-medium px-3 py-1.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-white">
           <option value="50">Top 50</option>
           <option value="100">Top 100</option>
+          <option value="200">Top 200</option>
           <option value="all">Todas</option>
         </select>
 
@@ -111,10 +120,18 @@
         <div class="flex-1 min-w-[240px] max-w-md">
           <input id="searchInput" type="text" oninput="app.onSearch(this.value)" placeholder="Buscar por nombre, nombre científico, familia o región..." class="w-full text-xs px-3 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-emerald-500">
         </div>
-        <div class="flex items-center gap-3">
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <!-- TOGGLE OCULTAR CURADAS -->
+          <button id="btnToggleHideCurated" onclick="app.toggleHideCurated()" class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span id="labelHideCurated">Ocultando ya curadas</span>
+          </button>
+
           <button onclick="app.autoFetchWikipediaTop50()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 transition">
             Consultar Wikipedia para visibles
           </button>
+
           <div class="text-xs text-stone-500 font-mono" id="statsLabel">
             Cargando dataset...
           </div>
@@ -131,45 +148,32 @@
   <!-- ========================================== -->
   <!-- TAB 2: SIMULADOR DE PASTILLAS & PORTADA -->
   <!-- ========================================== -->
-  <div id="viewSimulator" class="hidden flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6 space-y-8">
+  <div id="viewSimulator" class="hidden flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6 space-y-6">
 
-    <!-- INTRO -->
-    <div class="space-y-1">
-      <h2 class="font-serif text-2xl sm:text-3xl font-bold">Simulador de Portada & Enfoque</h2>
-      <p class="text-xs sm:text-sm text-stone-500">
-        Verifica en tiempo real cómo lucen las fotos en la pastilla diagonal de portada (Hub principal), en las pastillas rápidas y en el contenedor de batalla 4:3.
-      </p>
+    <!-- INTRO & INTERACTION INSTRUCTIONS -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60">
+      <div class="space-y-1">
+        <h2 class="font-serif text-2xl font-bold text-emerald-950 dark:text-emerald-200">Enfoque Interactivo con Cursor & Zoom</h2>
+        <p class="text-xs sm:text-sm text-emerald-800 dark:text-emerald-300">
+          <strong>Haz clic y arrastra con el cursor</strong> sobre cualquier foto para centrarla en tiempo real. <strong>Gira la rueda del mouse</strong> sobre la imagen para hacer zoom.
+        </p>
+      </div>
+      <button onclick="app.resetSimulatorPositions()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-white dark:bg-stone-900 border border-emerald-300 dark:border-emerald-700 text-stone-800 dark:text-stone-200 hover:opacity-90 transition shrink-0">
+        Resetear posiciones
+      </button>
     </div>
 
     <!-- SELECTORES DEL SIMULADOR -->
-    <div class="p-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 space-y-4 shadow-sm">
-      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-stone-400">Controles de la Pastilla</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="p-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 space-y-3 shadow-sm">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-stone-400">Especies en la Pastilla</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label class="block text-xs font-medium mb-1">Candidato Izquierdo (Left)</label>
+          <label class="block text-xs font-medium mb-1">Especie Izquierda (Left)</label>
           <select id="simSelectLeft" onchange="app.onSimLeftChange(this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium"></select>
         </div>
         <div>
-          <label class="block text-xs font-medium mb-1">Enfoque Vertical Izquierdo</label>
-          <select id="simPosLeft" onchange="app.onSimPosChange('left', this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium">
-            <option value="center 20%">Arriba (20%)</option>
-            <option value="center 30%" selected>Superior medio (30%)</option>
-            <option value="center 50%">Centro (50%)</option>
-            <option value="center 70%">Inferior medio (70%)</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-medium mb-1">Candidato Derecho (Right)</label>
+          <label class="block text-xs font-medium mb-1">Especie Derecha (Right)</label>
           <select id="simSelectRight" onchange="app.onSimRightChange(this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium"></select>
-        </div>
-        <div>
-          <label class="block text-xs font-medium mb-1">Enfoque Vertical Derecho</label>
-          <select id="simPosRight" onchange="app.onSimPosChange('right', this.value)" class="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 font-medium">
-            <option value="center 20%">Arriba (20%)</option>
-            <option value="center 25%" selected>Superior medio (25%)</option>
-            <option value="center 50%">Centro (50%)</option>
-            <option value="center 70%">Inferior medio (70%)</option>
-          </select>
         </div>
       </div>
     </div>
@@ -181,31 +185,47 @@
       <div class="space-y-3">
         <div class="flex items-center justify-between">
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-stone-400">1. Pastilla Diagonal de Portada (Hub)</span>
-          <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Exacto como index.html</span>
+          <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">Arrastra o haz rueda aquí ↓</span>
         </div>
 
-        <div id="simHubCard" class="max-w-sm mx-auto rounded-[26px] overflow-hidden flex flex-col justify-between border-2 border-stone-800 bg-[#161816] text-[#EDF3EE] shadow-lg">
-          <div class="relative h-36 w-full bg-[#1C241E] overflow-hidden">
-            <div class="half-split-left">
-              <img id="simHubImgLeft" src="" alt="" class="w-full h-full object-cover transition-all duration-300" />
+        <div id="simHubCard" class="max-w-sm mx-auto rounded-[26px] overflow-hidden flex flex-col justify-between border-2 border-stone-800 bg-[#161816] text-[#EDF3EE] shadow-lg select-none">
+          <div class="relative h-40 w-full bg-[#1C241E] overflow-hidden">
+            <!-- Left split half -->
+            <div id="wrapSplitLeft" class="half-split-left interactive-photo">
+              <img id="simHubImgLeft" src="" alt="" class="w-full h-full object-cover pointer-events-none select-none" />
             </div>
-            <div class="half-split-right">
-              <img id="simHubImgRight" src="" alt="" class="w-full h-full object-cover transition-all duration-300" />
+            <!-- Right split half -->
+            <div id="wrapSplitRight" class="half-split-right interactive-photo">
+              <img id="simHubImgRight" src="" alt="" class="w-full h-full object-cover pointer-events-none select-none" />
             </div>
             <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
               <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.8" />
             </svg>
-            <span id="simHubBadge" class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-black/70 text-white backdrop-blur-xs">
+            <span id="simHubBadge" class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-black/70 text-white backdrop-blur-xs pointer-events-none">
               Categoría
             </span>
           </div>
 
-          <div class="p-4 flex items-center justify-between gap-2">
+          <div class="p-4 flex items-center justify-between gap-2 pointer-events-none">
             <div>
               <h3 id="simHubTitle" class="font-serif text-2xl leading-none font-bold">Aves</h3>
               <span id="simHubSubtitle" class="text-[11px] text-stone-400 block mt-1">Especies destacadas</span>
             </div>
             <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-medium">→</span>
+          </div>
+        </div>
+
+        <!-- READOUT DE CSS DE ENFOQUE -->
+        <div class="p-3 rounded-lg border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 text-xs font-mono space-y-1.5">
+          <div class="flex items-center justify-between text-stone-500">
+            <span>Valores CSS calculados:</span>
+            <button onclick="app.copyCssProps()" class="text-[11px] text-emerald-600 dark:text-emerald-400 hover:underline">Copiar CSS</button>
+          </div>
+          <div class="text-[11px] text-stone-700 dark:text-stone-300 truncate" id="simCssReadoutLeft">
+            Izquierda: object-position: 50% 30%; transform: scale(1);
+          </div>
+          <div class="text-[11px] text-stone-700 dark:text-stone-300 truncate" id="simCssReadoutRight">
+            Derecha: object-position: 50% 25%; transform: scale(1);
           </div>
         </div>
       </div>
@@ -217,13 +237,13 @@
           <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400">Zero-Crop Contain + Ambient Blur</span>
         </div>
 
-        <div class="max-w-sm mx-auto rounded-2xl border-2 border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-2 shadow-lg space-y-2">
-          <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-stone-950 flex items-center justify-center">
+        <div class="max-w-sm mx-auto rounded-2xl border-2 border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900 p-2 shadow-lg space-y-2 select-none">
+          <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-stone-950 flex items-center justify-center interactive-photo" id="wrapBattlePhoto">
             <!-- Ambient blurred backdrop -->
             <img id="simBattleImgBg" src="" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-60 pointer-events-none" />
-            <!-- Foreground Contain uncropped -->
-            <img id="simBattleImgFg" src="" alt="" class="absolute inset-0 w-full h-full object-contain object-center z-10" />
-            <span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/75 text-white">A</span>
+            <!-- Foreground Contain uncropped with interactive zoom -->
+            <img id="simBattleImgFg" src="" alt="" class="absolute inset-0 w-full h-full object-contain object-center z-10 pointer-events-none transition-transform duration-75" />
+            <span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/75 text-white pointer-events-none">A</span>
           </div>
           <div class="p-2 text-center">
             <h4 id="simBattleName" class="font-serif text-lg font-bold line-clamp-1 leading-snug">...</h4>
@@ -263,19 +283,34 @@
       }
     };
 
+    // Pre-curated IDs (the 22 mammals already curated in cambios mamiferos.md and Tigre)
+    const PRE_CURATED_IDS = {
+      mamiferos: new Set([41970, 42048, 41641, 43694, 42069, 41964, 42223, 43111, 41638, 118552, 41663, 46260, 43151, 42184, 522193, 42051, 43794, 1647419, 47144, 208700, 41777, 41967]),
+      aves: new Set(),
+      flores: new Set()
+    };
+
     const app = {
       arena: 'aves',
       currentTab: 'catalog',
       limit: 50,
       search: '',
+      hideCurated: true,
       fullDataset: [],
       modifiedItems: new Map(),
+      curatedApprovedSet: new Set(),
+
+      // Simulator interactive state
       simLeftIdx: 0,
       simRightIdx: 1,
-      simPosLeftVal: 'center 30%',
-      simPosRightVal: 'center 25%',
+      simState: {
+        left: { x: 50, y: 30, scale: 1.0 },
+        right: { x: 50, y: 25, scale: 1.0 },
+        battle: { x: 50, y: 50, scale: 1.0 }
+      },
 
       async init() {
+        this.initInteractiveDragZoom();
         await this.loadDataset();
       },
 
@@ -295,6 +330,20 @@
           btnCat.className = 'px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 dark:hover:text-white';
           this.updateSimulator();
         }
+      },
+
+      toggleHideCurated() {
+        this.hideCurated = !this.hideCurated;
+        const btn = document.getElementById('btnToggleHideCurated');
+        const lbl = document.getElementById('labelHideCurated');
+        if (this.hideCurated) {
+          btn.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg border border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 transition flex items-center gap-1.5';
+          lbl.textContent = 'Ocultando ya curadas';
+        } else {
+          btn.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 transition flex items-center gap-1.5';
+          lbl.textContent = 'Mostrando todas';
+        }
+        this.render();
       },
 
       async changeArena(arena) {
@@ -321,6 +370,8 @@
         try {
           const list = Array.from(this.modifiedItems.entries());
           localStorage.setItem(`rankea2_curator_${this.arena}`, JSON.stringify(list));
+          const approved = Array.from(this.curatedApprovedSet);
+          localStorage.setItem(`rankea2_approved_${this.arena}`, JSON.stringify(approved));
         } catch (_) {}
       },
 
@@ -333,14 +384,41 @@
           } else {
             this.modifiedItems.clear();
           }
+
+          const rawAppr = localStorage.getItem(`rankea2_approved_${this.arena}`);
+          const baseApproved = PRE_CURATED_IDS[this.arena] || new Set();
+          this.curatedApprovedSet = new Set(baseApproved);
+
+          if (rawAppr) {
+            const arr = JSON.parse(rawAppr);
+            arr.forEach(id => this.curatedApprovedSet.add(id));
+          }
         } catch (_) {
           this.modifiedItems.clear();
+          this.curatedApprovedSet = new Set(PRE_CURATED_IDS[this.arena] || []);
         }
+      },
+
+      isCurated(id) {
+        return this.modifiedItems.has(id) || this.curatedApprovedSet.has(id);
+      },
+
+      markApproved(id) {
+        this.curatedApprovedSet.add(id);
+        this.saveToLocalStorage();
+        this.render();
+      },
+
+      unmarkApproved(id) {
+        this.curatedApprovedSet.delete(id);
+        this.modifiedItems.delete(id);
+        this.saveToLocalStorage();
+        this.render();
       },
 
       copyPatchToClipboard() {
         if (this.modifiedItems.size === 0) {
-          alert('No hay cambios para copiar todavía. Selecciona una foto o pega una URL para empezar.');
+          alert('No hay cambios manuales nuevos para copiar todavía. Puedes cambiar fotos o usar las sugerencias de Wikipedia.');
           return;
         }
 
@@ -377,7 +455,6 @@
           const res = await fetch(`/data/${this.arena}.json`);
           if (!res.ok) throw new Error('HTTP ' + res.status);
           this.fullDataset = await res.json();
-          statsEl.textContent = `Total en catálogo: ${this.fullDataset.length} especies`;
           this.updateModifiedBadge();
           this.render();
           this.initSimulatorSelectors();
@@ -388,6 +465,11 @@
 
       getVisibleItems() {
         let items = this.fullDataset;
+
+        if (this.hideCurated) {
+          items = items.filter(it => !this.isCurated(it.id));
+        }
+
         if (this.search) {
           items = items.filter(it => {
             const name = (it.name || it.nombre || '').toLowerCase();
@@ -411,7 +493,28 @@
       render() {
         const container = document.getElementById('itemsContainer');
         const visible = this.getVisibleItems();
+        const totalCurated = this.fullDataset.filter(it => this.isCurated(it.id)).length;
+        const totalPending = this.fullDataset.length - totalCurated;
+
+        const statsEl = document.getElementById('statsLabel');
+        if (statsEl) {
+          statsEl.textContent = `${totalPending} pendientes · ${totalCurated} curadas (Total: ${this.fullDataset.length})`;
+        }
+
         container.innerHTML = '';
+
+        if (visible.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full py-16 text-center space-y-3 bg-white dark:bg-stone-900 rounded-2xl border border-dashed border-stone-300 dark:border-stone-800">
+              <svg class="w-10 h-10 mx-auto text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h3 class="font-serif text-xl font-bold">¡Todas las especies de este filtro están curadas!</h3>
+              <p class="text-xs text-stone-500 max-w-sm mx-auto">
+                No hay especies pendientes en esta vista. Puedes tocar "Ocultando ya curadas" arriba para ver o revisar todo el catálogo.
+              </p>
+            </div>
+          `;
+          return;
+        }
 
         visible.forEach((it, idx) => {
           const currentPhoto = this.getItemPhoto(it);
@@ -419,11 +522,12 @@
           const sciName = it.sci_name || it.nombreCientifico || '';
           const subtitle = [it.family || it.familia, it.region].filter(Boolean).join(' · ');
           const isModified = this.modifiedItems.has(it.id);
+          const isApproved = this.curatedApprovedSet.has(it.id);
 
           const card = document.createElement('div');
           card.id = `card-${it.id}`;
           card.className = `p-4 rounded-xl border bg-white dark:bg-stone-900 transition shadow-sm space-y-3 ${
-            isModified ? 'border-amber-500 ring-1 ring-amber-500' : 'border-stone-200 dark:border-stone-800'
+            isModified ? 'border-amber-500 ring-1 ring-amber-500' : (isApproved ? 'border-emerald-500/80 bg-emerald-50/10 dark:bg-emerald-950/10' : 'border-stone-200 dark:border-stone-800')
           }`;
 
           card.innerHTML = `
@@ -431,15 +535,23 @@
               <div>
                 <div class="flex items-center gap-2">
                   <span class="font-mono text-xs font-bold text-stone-400">#${idx + 1} (ID: ${it.id})</span>
-                  ${isModified ? '<span class="text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-400 px-1.5 py-0.5 rounded">MODIFICADO</span>' : ''}
+                  ${isModified ? '<span class="text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-400 px-1.5 py-0.5 rounded">FOTO MODIFICADA</span>' : ''}
+                  ${isApproved && !isModified ? '<span class="text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 px-1.5 py-0.5 rounded">CURADA / APROBADA</span>' : ''}
                 </div>
                 <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-white leading-tight mt-0.5">${name}</h3>
                 <p class="font-mono text-xs text-stone-500 italic">${sciName}</p>
                 <p class="text-[11px] text-stone-400 mt-0.5">${subtitle} ${it.observations_count ? `· ${it.observations_count.toLocaleString()} obs.` : ''}</p>
               </div>
-              <button onclick="app.fetchWikipediaSingle(${it.id}, '${sciName || name}')" class="px-2.5 py-1 text-[11px] font-medium rounded border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 shrink-0 transition">
-                Consultar Wikipedia
-              </button>
+
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button onclick="app.markApproved(${it.id})" title="Aprobar foto actual y dar por curada" class="px-2.5 py-1 text-[11px] font-semibold rounded bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center gap-1">
+                  <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Aprobar
+                </button>
+                <button onclick="app.fetchWikipediaSingle(${it.id}, '${sciName || name}')" class="px-2.5 py-1 text-[11px] font-medium rounded border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 transition">
+                  Wikipedia
+                </button>
+              </div>
             </div>
 
             <!-- COMPARATOR SIDE-BY-SIDE -->
@@ -461,7 +573,7 @@
               <div class="space-y-1.5 text-center">
                 <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider">Foto Wikipedia</span>
                 <div id="wiki-box-${it.id}" class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-stone-100 dark:bg-stone-950 flex flex-col items-center justify-center border border-dashed border-stone-300 dark:border-stone-700 text-stone-400 text-xs p-2">
-                  <span class="text-[11px]">Toca 'Consultar Wikipedia'</span>
+                  <span class="text-[11px]">Toca 'Wikipedia'</span>
                 </div>
               </div>
             </div>
@@ -472,7 +584,7 @@
               <button onclick="app.applyCustomUrl(${it.id})" class="px-2.5 py-1.5 text-xs font-medium rounded bg-stone-900 text-white dark:bg-white dark:text-stone-900 hover:opacity-90 transition">
                 Aplicar
               </button>
-              ${isModified ? `<button onclick="app.revertItem(${it.id})" class="px-2 py-1.5 text-xs font-mono text-rose-600 hover:underline">Revertir</button>` : ''}
+              ${isApproved || isModified ? `<button onclick="app.unmarkApproved(${it.id})" class="px-2 py-1.5 text-xs font-mono text-stone-400 hover:text-rose-600 hover:underline">Revertir</button>` : ''}
             </div>
           `;
           container.appendChild(card);
@@ -518,12 +630,16 @@
 
       useWikipediaPhoto(id, url) {
         this.setItemPhoto(id, url);
+        this.curatedApprovedSet.add(id);
+        this.saveToLocalStorage();
       },
 
       applyCustomUrl(id) {
         const inp = document.getElementById(`input-url-${id}`);
         if (inp && inp.value.trim()) {
           this.setItemPhoto(id, inp.value.trim());
+          this.curatedApprovedSet.add(id);
+          this.saveToLocalStorage();
         }
       },
 
@@ -531,14 +647,7 @@
         const orig = this.fullDataset.find(it => it.id === id);
         if (!orig) return;
         this.modifiedItems.set(id, { ...orig, photo: newPhoto });
-        this.saveToLocalStorage();
-        this.updateModifiedBadge();
-        this.render();
-        if (this.currentTab === 'simulator') this.updateSimulator();
-      },
-
-      revertItem(id) {
-        this.modifiedItems.delete(id);
+        this.curatedApprovedSet.add(id);
         this.saveToLocalStorage();
         this.updateModifiedBadge();
         this.render();
@@ -576,7 +685,7 @@
       },
 
       // ======================================================
-      // SIMULATOR CONTROLS
+      // SIMULATOR CONTROLS & INTERACTIVE DRAG / ZOOM
       // ======================================================
       initSimulatorSelectors() {
         const selLeft = document.getElementById('simSelectLeft');
@@ -586,7 +695,7 @@
         selLeft.innerHTML = '';
         selRight.innerHTML = '';
 
-        this.fullDataset.slice(0, 30).forEach((it, idx) => {
+        this.fullDataset.slice(0, 60).forEach((it, idx) => {
           const name = it.name || it.nombre;
           const optL = document.createElement('option');
           optL.value = idx;
@@ -616,10 +725,98 @@
         this.updateSimulator();
       },
 
-      onSimPosChange(side, val) {
-        if (side === 'left') this.simPosLeftVal = val;
-        else this.simPosRightVal = val;
-        this.updateSimulator();
+      resetSimulatorPositions() {
+        this.simState.left = { x: 50, y: 30, scale: 1.0 };
+        this.simState.right = { x: 50, y: 25, scale: 1.0 };
+        this.simState.battle = { x: 50, y: 50, scale: 1.0 };
+        this.applyTransforms();
+      },
+
+      applyTransforms() {
+        const imgL = document.getElementById('simHubImgLeft');
+        const imgR = document.getElementById('simHubImgRight');
+        const imgB = document.getElementById('simBattleImgFg');
+
+        if (imgL) {
+          imgL.style.objectPosition = `${this.simState.left.x.toFixed(1)}% ${this.simState.left.y.toFixed(1)}%`;
+          imgL.style.transform = `scale(${this.simState.left.scale.toFixed(2)})`;
+        }
+        if (imgR) {
+          imgR.style.objectPosition = `${this.simState.right.x.toFixed(1)}% ${this.simState.right.y.toFixed(1)}%`;
+          imgR.style.transform = `scale(${this.simState.right.scale.toFixed(2)})`;
+        }
+        if (imgB) {
+          imgB.style.transform = `scale(${this.simState.battle.scale.toFixed(2)})`;
+        }
+
+        const outL = document.getElementById('simCssReadoutLeft');
+        const outR = document.getElementById('simCssReadoutRight');
+        if (outL) {
+          outL.textContent = `Izquierda: object-position: ${this.simState.left.x.toFixed(1)}% ${this.simState.left.y.toFixed(1)}%; transform: scale(${this.simState.left.scale.toFixed(2)});`;
+        }
+        if (outR) {
+          outR.textContent = `Derecha: object-position: ${this.simState.right.x.toFixed(1)}% ${this.simState.right.y.toFixed(1)}%; transform: scale(${this.simState.right.scale.toFixed(2)});`;
+        }
+      },
+
+      copyCssProps() {
+        const text = `/* Izquierda */\nobject-position: ${this.simState.left.x.toFixed(1)}% ${this.simState.left.y.toFixed(1)}%; transform: scale(${this.simState.left.scale.toFixed(2)});\n\n/* Derecha */\nobject-position: ${this.simState.right.x.toFixed(1)}% ${this.simState.right.y.toFixed(1)}%; transform: scale(${this.simState.right.scale.toFixed(2)});`;
+        navigator.clipboard.writeText(text).then(() => alert('¡Estilos CSS copiados al portapapeles!'));
+      },
+
+      initInteractiveDragZoom() {
+        const setupDrag = (elemId, stateKey) => {
+          const el = document.getElementById(elemId);
+          if (!el) return;
+
+          let isDragging = false;
+          let startX = 0;
+          let startY = 0;
+          let origX = 0;
+          let origY = 0;
+
+          el.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            origX = this.simState[stateKey].x;
+            origY = this.simState[stateKey].y;
+            el.setPointerCapture(e.pointerId);
+          });
+
+          el.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+
+            // Sensitivity scaling
+            const rect = el.getBoundingClientRect();
+            const sensX = (dx / rect.width) * 100;
+            const sensY = (dy / rect.height) * 100;
+
+            this.simState[stateKey].x = Math.max(0, Math.min(100, origX - sensX));
+            this.simState[stateKey].y = Math.max(0, Math.min(100, origY - sensY));
+            this.applyTransforms();
+          });
+
+          const stopDrag = () => { isDragging = false; };
+          el.addEventListener('pointerup', stopDrag);
+          el.addEventListener('pointercancel', stopDrag);
+
+          // Mouse Wheel Zoom
+          el.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.05 : 0.05;
+            this.simState[stateKey].scale = Math.max(1.0, Math.min(3.5, this.simState[stateKey].scale + delta));
+            this.applyTransforms();
+          }, { passive: false });
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+          setupDrag('wrapSplitLeft', 'left');
+          setupDrag('wrapSplitRight', 'right');
+          setupDrag('wrapBattlePhoto', 'battle');
+        });
       },
 
       updateSimulator() {
@@ -641,14 +838,8 @@
 
         const hubImgL = document.getElementById('simHubImgLeft');
         const hubImgR = document.getElementById('simHubImgRight');
-        if (hubImgL) {
-          hubImgL.src = leftPhoto;
-          hubImgL.style.objectPosition = this.simPosLeftVal;
-        }
-        if (hubImgR) {
-          hubImgR.src = rightPhoto;
-          hubImgR.style.objectPosition = this.simPosRightVal;
-        }
+        if (hubImgL) hubImgL.src = leftPhoto;
+        if (hubImgR) hubImgR.src = rightPhoto;
 
         const hubBadge = document.getElementById('simHubBadge');
         if (hubBadge) hubBadge.textContent = cfg.badge;
@@ -669,6 +860,8 @@
         if (bImgFg) bImgFg.src = leftPhoto;
         if (bName) bName.textContent = leftItem.name || leftItem.nombre;
         if (bSci) bSci.textContent = leftItem.sci_name || leftItem.nombreCientifico || '';
+
+        this.applyTransforms();
       }
     };
 
