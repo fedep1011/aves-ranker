@@ -367,6 +367,7 @@
       fullDataset: [],
       modifiedItems: new Map(),
       curatedApprovedSet: new Set(),
+      wikiSuggestions: new Map(),
 
       // Simulator interactive state
       simLeftId: null,
@@ -458,6 +459,7 @@
 
       async changeArena(arena) {
         this.arena = arena;
+        this.wikiSuggestions.clear();
         try { localStorage.setItem('rankea2_curator_active_arena', arena); } catch (_) {}
         this.loadFromLocalStorage();
         this.updateModifiedBadge();
@@ -520,7 +522,7 @@
       markApproved(id) {
         this.curatedApprovedSet.add(id);
         this.saveToLocalStorage();
-        this.render();
+        this.removeCardFromView(id);
         this.initSimulatorSelectors();
       },
 
@@ -703,7 +705,12 @@
               <div class="space-y-1.5 text-center">
                 <span class="text-[10px] font-mono text-stone-400 uppercase tracking-wider">Foto Wikipedia</span>
                 <div id="wiki-box-${it.id}" class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-stone-100 dark:bg-stone-950 flex flex-col items-center justify-center border border-dashed border-stone-300 dark:border-stone-700 text-stone-400 text-xs p-2">
-                  <span class="text-[11px]">Toca 'Wikipedia'</span>
+                  ${this.wikiSuggestions.has(it.id) ? `
+                    <img src="${this.wikiSuggestions.get(it.id)}" alt="" class="w-full h-full object-contain relative z-10" />
+                    <button onclick="app.useWikipediaPhoto(${it.id}, '${this.wikiSuggestions.get(it.id)}')" class="absolute bottom-2 z-20 px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold shadow-md">
+                      Usar esta foto
+                    </button>
+                  ` : `<span class="text-[11px]">Toca 'Wikipedia'</span>`}
                 </div>
               </div>
             </div>
@@ -745,14 +752,19 @@
           } catch (_) {}
         }
 
-        if (found && box) {
+        if (found) {
           const wikiImg = found.originalimage?.source || found.thumbnail?.source;
-          box.innerHTML = `
-            <img src="${wikiImg}" alt="" class="w-full h-full object-contain relative z-10" />
-            <button onclick="app.useWikipediaPhoto(${id}, '${wikiImg}')" class="absolute bottom-2 z-20 px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold shadow-md">
-              Usar esta foto
-            </button>
-          `;
+          if (wikiImg) {
+            this.wikiSuggestions.set(id, wikiImg);
+            if (box) {
+              box.innerHTML = `
+                <img src="${wikiImg}" alt="" class="w-full h-full object-contain relative z-10" />
+                <button onclick="app.useWikipediaPhoto(${id}, '${wikiImg}')" class="absolute bottom-2 z-20 px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold shadow-md">
+                  Usar esta foto
+                </button>
+              `;
+            }
+          }
         } else if (box) {
           box.innerHTML = '<span class="text-xs text-stone-400">Sin foto en Wikipedia</span>';
         }
@@ -760,16 +772,44 @@
 
       useWikipediaPhoto(id, url) {
         this.setItemPhoto(id, url);
-        this.curatedApprovedSet.add(id);
-        this.saveToLocalStorage();
       },
 
       applyCustomUrl(id) {
         const inp = document.getElementById(`input-url-${id}`);
         if (inp && inp.value.trim()) {
           this.setItemPhoto(id, inp.value.trim());
-          this.curatedApprovedSet.add(id);
-          this.saveToLocalStorage();
+        }
+      },
+
+      removeCardFromView(id) {
+        if (!this.hideCurated) {
+          this.render();
+          return;
+        }
+        const card = document.getElementById(`card-${id}`);
+        if (card) {
+          card.style.transition = 'all 0.2s ease-out';
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            card.remove();
+            this.updateStatsLabel();
+            const container = document.getElementById('itemsContainer');
+            if (container && container.children.length === 0) {
+              this.render();
+            }
+          }, 200);
+        } else {
+          this.render();
+        }
+      },
+
+      updateStatsLabel() {
+        const statsEl = document.getElementById('statsLabel');
+        if (statsEl) {
+          const totalCurated = this.fullDataset.filter(it => this.isCurated(it.id)).length;
+          const totalPending = this.fullDataset.length - totalCurated;
+          statsEl.textContent = `${totalPending} pendientes · ${totalCurated} curadas (Total: ${this.fullDataset.length})`;
         }
       },
 
@@ -780,8 +820,8 @@
         this.curatedApprovedSet.add(id);
         this.saveToLocalStorage();
         this.updateModifiedBadge();
-        this.render();
-        if (this.currentTab === 'simulator') this.updateSimulator();
+        this.removeCardFromView(id);
+        this.initSimulatorSelectors();
       },
 
       async autoFetchWikipediaTop50() {
