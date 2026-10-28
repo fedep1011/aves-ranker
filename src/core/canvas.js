@@ -106,26 +106,26 @@ export const ARENA_CONFIG = {
     displayFont: "'Instrument Serif', Georgia, serif",
     bodyFont: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
     light: {
-      bg: '#F0F6FA',
+      bg: '#F1F6F9',
       card: '#FFFFFF',
       border: '#BAE6FD',
-      ink: '#0F1E29',
-      muted: '#5C7280',
+      ink: '#0F172A',
+      muted: '#536B7E',
       heroBorder: '#0284C7',
       badgeBg: '#0284C7',
       badgeText: '#FFFFFF',
       platformBg: '#E0F2FE'
     },
     dark: {
-      bg: '#0A1118',
-      card: '#101C26',
-      border: '#1F3140',
-      ink: '#F0F8FF',
+      bg: '#0B0F17',
+      card: '#111827',
+      border: '#1E293B',
+      ink: '#F1F5F9',
       muted: '#829AA8',
       heroBorder: '#38BDF8',
       badgeBg: '#38BDF8',
-      badgeText: '#0A1118',
-      platformBg: '#142938'
+      badgeText: '#0B0F17',
+      platformBg: '#0F2538'
     }
   }
 };
@@ -761,6 +761,14 @@ export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
     ctx.fillStyle = '#1C1917';
     ctx.font = `700 14px ${config.bodyFont}`;
     ctx.fillText('1° · CAMPEÓN', medalX + 18, medalY + 23);
+    if (arena === 'aves') {
+      ctx.strokeStyle = '#92400E';
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(medalX + 130, medalY + 23);
+      ctx.quadraticCurveTo(medalX + 136, medalY + 15, medalX + 140, medalY + 13);
+      ctx.stroke();
+    }
 
     // Hero details
     ctx.fillStyle = pal.ink;
