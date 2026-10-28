@@ -37,7 +37,10 @@ Secuencia estructurada de duelos interactivos gobernada por el algoritmo determi
 Número entero generado al inicio de cada torneo que alimenta el PRNG (`mulberry32`). Garantiza que la misma semilla con las mismas elecciones del usuario produzca la secuencia idéntica de duelos, haciendo posible la función **Deshacer (Undo)** y la comparación de partidas compartidas.
 
 ### Enlace de Desafío (Challenge URL)
-URL compartible que contiene en sus parámetros (`?r=id1.id2.id3&c=...&a=...`) el orden exacto del podio o del ranking de un jugador, permitiendo a otro usuario jugar con el mismo pool y comparar resultados.
+URL corta y limpia de ~42 caracteres (`https://rankea2.pages.dev/<arena>/?s=<short_code>`), donde `short_code` es una clave alfanumérica de 8 caracteres que referencia la partida guardada en Supabase (`public.rankings`). Al ser abierta por otro usuario, recupera en destino en <100ms el podio idéntico (#1 ORO, #2 PLATA, #3 BRONCE) y la selección de 16 candidatos para disputar el torneo con las mismas opciones. Dispone de degradación transparente offline a listas directas de IDs (`?r=id1.id2...`).
+
+### Código Corto (Short Code)
+Cadena alfanumérica de exactamente 8 caracteres generada de forma determinista que actúa como clave única (`short_code`) en la tabla `public.rankings` de Supabase, resolviendo la imposibilidad física de almacenar 16 candidatos y sus permutaciones dentro de los 41 bits de entropía que proveen 8 caracteres en cliente puro.
 
 ### Adaptador de Datos (Data Adapter)
 Módulo específico de una arena (`src/<arena>/adapter.js`) encargado de consultar la API externa (iNaturalist, PokéAPI) o catálogo local curado, normalizando la respuesta al contrato canónico del Candidato.

@@ -11,7 +11,8 @@ export default defineConfig({
         pokemon: resolve(__dirname, "pokemon/index.html"),
         mamiferos: resolve(__dirname, "mamiferos/index.html"),
         flores: resolve(__dirname, "flores/index.html"),
-        prefieres: resolve(__dirname, "que-prefieres/index.html")
+        prefieres: resolve(__dirname, "que-prefieres/index.html"),
+        kurador: resolve(__dirname, "kurador/index.html")
       }
     }
   }

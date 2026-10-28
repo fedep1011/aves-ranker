@@ -290,17 +290,70 @@ Para evitar desfases entre tarjetas y que las fotos deformen el layout, el conte
 
 ---
 
-## 9. Desafío Compartido por URL (Sin Base de Datos)
+## 9. Desafío Compartido y Almacenamiento Cloud-First (Supabase)
 
-El estado viaja en la query string de la URL:
-- **Compartir Resultado / Podio Final**: `?r=id1.id2.id3...` (secuencia ordenada de las especies del ranking final, ej. `?r=5020.4981.144455...`). Esto permite que el receptor vea de inmediato en el banner el podio idéntico del creador (#1 ORO, #2 PLATA, #3 BRONCE) y juegue con esas mismas especies para comparar decisiones.
-- **Desafío por Semilla (Partida Virgen / Chaos Pool)**: `?s=r7x9b2kf` (URL ultra-corta de ~43 caracteres para sortear 16 especies al azar idénticas).
-- **Formatos y Parámetros Soportados**:
-  - `?r=...`: IDs ordenados del ranking.
-  - `?s=...`: Semilla de 8 caracteres o lista de IDs dot-separated.
-  - `?cid=...`: Formato comprimido base64.
+El ecosistema Rankea2 opera con una arquitectura **Cloud-First con degradación Offline-First**:
 
-Al ingresar con un link de desafío, la app abre el banner de desafío, precarga los candidatos exactos y permite al invitado jugar con el mismo pool para comparar su Top 3 contra el del retador al finalizar.
+### 9.1 Justificación Teórica y Arquitectura
+- **Restricción de Teoría de la Información**:
+  - Un código alfanumérico de 8 caracteres ($36^8 \approx 2.8 \times 10^{12}$) provee únicamente **41 bits de entropía**.
+  - Seleccionar 16 candidatos arbitrarios de un universo de miles de especies y almacenar el árbol de decisiones del torneo requiere entre **150 y 200 bits**.
+  - Por ende, **es matemáticamente imposible codificar una partida completa en 8 caracteres de forma pura en cliente**. La solución canónica es utilizar el código de 8 caracteres como **clave de búsqueda (`short_code`)** contra un almacén cloud ultra-ligero (Supabase PostgREST), exactamente igual a los IDs de YouTube o Bitly.
+
+### 9.2 Infraestructura Supabase (`src/core/supabase.js`)
+- **Configuración de Producción**:
+  - Endpoint REST: `https://xomkdblwsmuphbkppvpu.supabase.co`
+  - Anon Key: Almacenada en `src/core/supabase.js` para consumo público.
+  - Implementación con `fetch` nativo: Cero dependencias npm (sin `@supabase/supabase-js`), bundle size 0 kB extra, latencia <100ms.
+- **Esquema de Base de Datos (`public.rankings`)**:
+  ```sql
+  create table public.rankings (
+    id uuid default gen_random_uuid() primary key,
+    short_code text unique not null,      -- Código de 8 caracteres (ej. 'xjkwns5m')
+    pack_id text not null,                -- 'aves', 'mamiferos', 'flores', 'pokemon'
+    ranking_ids text[] not null,          -- IDs en orden final del podio (#1, #2, #3, ...)
+    author text default '',               -- Nombre o alias del jugador
+    created_at timestamptz default timezone('utc'::text, now()) not null
+  );
+
+  -- Políticas de seguridad (Row Level Security - RLS)
+  alter table public.rankings enable row level security;
+
+  -- Permitir lectura anónima por código corto
+  create policy "Public anon read" on public.rankings
+    for select using (true);
+
+  -- Permitir guardado anónimo de partidas
+  create policy "Public anon insert" on public.rankings
+    for insert with check (true);
+  ```
+
+### 9.3 Flujo de Guardado y Compartido
+1. **Guardado Automático al Finalizar**:
+   - Al terminar el torneo y entrar a `viewResults`, se invoca:
+     ```js
+     const shortCode = await saveRankingToCloud({
+       packId: 'aves',
+       rankingIds: orderedSpeciesIds, // IDs ordenados del #1 al #16
+       author: playerName || ''
+     });
+     ```
+   - La barra de direcciones se actualiza con `history.replaceState` a: `https://rankea2.pages.dev/<arena>/?s=${shortCode}`.
+2. **Generación de Enlaces de Compartir**:
+   - WhatsApp, portapapeles y redes generan un enlace ultra-limpio de ~42 caracteres:
+     `https://rankea2.pages.dev/aves/?s=xjkwns5m` (sin parámetros residuales como `&c=` o `&a=`).
+3. **Recepción del Desafío por el Invitado**:
+   - Al abrir la URL, el controlador detecta `?s=xjkwns5m` y llama a:
+     ```js
+     const cloudData = await fetchRankingFromCloud(shortCode);
+     ```
+   - Con los datos recuperados:
+     - Muestra el banner superior del desafío con el **podio idéntico del anfitrión** (#1 ORO, #2 PLATA, #3 BRONCE).
+     - Inicializa el pool de batalla con los mismos 16 candidatos para que el invitado juegue con las mismas opciones.
+4. **Degradación Elegante Offline-First**:
+   - Si la red falla o Supabase no responde, el sistema degrada de forma transparente a URLs locales compactas: `?r=id1.id2.id3...`.
+5. **Semillas Vírgenes (Partidas sin jugar)**:
+   - Si se comparte una partida no jugada ("Sorpréndeme"), se genera una semilla PRNG de 8 caracteres (`?s=r7x9b2kf`) para muestreo determinista idéntico mediante `createSeededRng`.
 
 ---
 

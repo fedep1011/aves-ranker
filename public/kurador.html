@@ -254,6 +254,9 @@
             <span>Saltar / Siguiente →</span>
             <kbd class="px-1 text-[10px] bg-stone-900 rounded font-mono">Espacio</kbd>
           </button>
+          <button onclick="kurador.nextPendingItem()" class="px-3 py-1.5 rounded-lg border border-sky-800 bg-sky-950/70 hover:bg-sky-900 text-sky-300 transition flex items-center gap-1.5 font-medium text-xs shadow-xs" title="Saltar a la próxima especie sin curar">
+            <span>⚡ Próxima sin curar</span>
+          </button>
         </div>
 
         <!-- Custom URL Input fallback -->
@@ -315,7 +318,8 @@
   </main>
 
   <script type="module">
-    import { SUPABASE_URL, SUPABASE_ANON_KEY } from '/src/core/supabase.js';
+        const SUPABASE_URL = 'https://xomkdblwsmuphbkppvpu.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhvbWtkYmx3c211cGhia3BwdnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2OTkwOTMsImV4cCI6MjEwODI3NTA5M30.yqzCo9EJ8BrHereirVUdVDWqWfXbBDS5uItEr76-pwI';
 
     class KuradorApp {
       constructor() {
@@ -350,9 +354,34 @@
         this.loadStorage();
         await this.loadArenaData();
         this.bindKeyboard();
+        this.jumpToFirstPending();
         this.render();
         // Cloud-first: sync with Supabase in background
         await this.loadFromSupabase();
+      }
+
+      jumpToFirstPending() {
+        if (!this.items.length) return;
+        const pendingIdx = this.items.findIndex(it => !this.choices.has(it.id));
+        if (pendingIdx !== -1) {
+          this.currentIndex = pendingIdx;
+        }
+      }
+
+      nextPendingItem() {
+        const nextPending = this.items.findIndex((it, idx) => idx > this.currentIndex && !this.choices.has(it.id));
+        if (nextPending !== -1) {
+          this.currentIndex = nextPending;
+          this.render();
+        } else {
+          const anyPending = this.items.findIndex(it => !this.choices.has(it.id));
+          if (anyPending !== -1) {
+            this.currentIndex = anyPending;
+            this.render();
+          } else {
+            alert('¡Todas las especies de esta categoría ya fueron curadas!');
+          }
+        }
       }
 
       loadStorage() {
@@ -406,6 +435,9 @@
             this.saveStorage();
             if (syncBadge) {
               syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Supabase en la nube (${this.choices.size} curadas)`;
+            }
+            if (this.choices.has(this.items[this.currentIndex]?.id)) {
+              this.jumpToFirstPending();
             }
             this.render();
           }
@@ -514,8 +546,9 @@
               const res = await fetch(ep);
               if (res.ok) {
                 const data = await res.json();
-                const src = data.originalimage?.source || data.thumbnail?.source;
+                let src = data.originalimage?.source || data.thumbnail?.source;
                 if (src && !src.endsWith('.svg')) {
+                  src = src.replace(/^http:\/\//, 'https://');
                   this.wikiCache.set(item.id, src);
                   return src;
                 }
@@ -598,6 +631,15 @@
 
         loaderB.classList.add('hidden');
         if (wikiUrl) {
+          imgMainB.onload = () => {
+            loaderB.classList.add('hidden');
+            errorB.classList.add('hidden');
+          };
+          imgMainB.onerror = () => {
+            loaderB.classList.add('hidden');
+            errorB.classList.remove('hidden');
+            urlPreviewB.textContent = 'Error al cargar imagen de Wikipedia';
+          };
           imgMainB.src = wikiUrl;
           imgAmbientB.src = wikiUrl;
           urlPreviewB.textContent = wikiUrl;
