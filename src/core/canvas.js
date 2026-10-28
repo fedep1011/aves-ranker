@@ -641,6 +641,14 @@ export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
       ctx.fillStyle = '#0F172A';
       ctx.font = `700 14px ${config.bodyFont}`;
       ctx.fillText('2° · PLATA', p2X + 38, podY + 44);
+      if (arena === 'aves') {
+        ctx.strokeStyle = '#64748B';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(p2X + 118, podY + 44);
+        ctx.quadraticCurveTo(p2X + 124, podY + 38, p2X + 128, podY + 36);
+        ctx.stroke();
+      }
 
       ctx.fillStyle = pal.ink;
       ctx.font = `700 30px ${config.displayFont}`;
@@ -677,6 +685,14 @@ export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
       ctx.fillStyle = '#7C2D12';
       ctx.font = `700 14px ${config.bodyFont}`;
       ctx.fillText('3° · BRONCE', p3X + 38, podY + 44);
+      if (arena === 'aves') {
+        ctx.strokeStyle = '#C2410C';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(p3X + 118, podY + 44);
+        ctx.quadraticCurveTo(p3X + 124, podY + 38, p3X + 128, podY + 36);
+        ctx.stroke();
+      }
 
       ctx.fillStyle = pal.ink;
       ctx.font = `700 30px ${config.displayFont}`;
@@ -811,6 +827,14 @@ export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
       ctx.fillStyle = '#0F172A';
       ctx.font = `700 13px ${config.bodyFont}`;
       ctx.fillText('2° · PLATA', p2X + 36, podY + 41);
+      if (arena === 'aves') {
+        ctx.strokeStyle = '#64748B';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(p2X + 116, podY + 41);
+        ctx.quadraticCurveTo(p2X + 122, podY + 35, p2X + 126, podY + 33);
+        ctx.stroke();
+      }
 
       ctx.fillStyle = pal.ink;
       ctx.font = `700 28px ${config.displayFont}`;
@@ -846,6 +870,14 @@ export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
       ctx.fillStyle = '#7C2D12';
       ctx.font = `700 13px ${config.bodyFont}`;
       ctx.fillText('3° · BRONCE', p3X + 36, podY + 41);
+      if (arena === 'aves') {
+        ctx.strokeStyle = '#C2410C';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(p3X + 116, podY + 41);
+        ctx.quadraticCurveTo(p3X + 122, podY + 35, p3X + 126, podY + 33);
+        ctx.stroke();
+      }
 
       ctx.fillStyle = pal.ink;
       ctx.font = `700 28px ${config.displayFont}`;

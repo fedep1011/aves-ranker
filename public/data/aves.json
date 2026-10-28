@@ -27,7 +27,9 @@
       "asia"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/233914195/medium.jpeg",
-    "observations_count": 2100
+    "observations_count": 2100,
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 2599,
@@ -42,8 +44,10 @@
       "europa",
       "reino unido"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12584278/medium.jpg",
-    "observations_count": 6700
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Common_Kingfisher_Alcedo_atthis.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "observations_count": 6700,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 3820,
@@ -57,8 +61,10 @@
       "antártida",
       "polar"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6000054/medium.jpg",
-    "observations_count": 950
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "observations_count": 950,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4504,
@@ -73,8 +79,10 @@
       "europa",
       "polar"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/63139388/medium.jpg",
-    "observations_count": 4400
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Papageitaucher_Fratercula_arctica.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "observations_count": 4400,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4747,
@@ -92,7 +100,9 @@
       "latinoamérica"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/28100377/medium.jpg",
-    "observations_count": 2400
+    "observations_count": 2400,
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 5305,
@@ -107,8 +117,10 @@
       "canadá",
       "norteamérica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/107638203/medium.jpg",
-    "observations_count": 9800
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_%28Haliaeetus_leucocephalus%29_Kachemak_Bay%2C_Alaska.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "observations_count": 9800,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 5321,
@@ -124,7 +136,9 @@
       "sudamérica"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/154445790/medium.jpeg",
-    "observations_count": 850
+    "observations_count": 850,
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7106,
@@ -139,8 +153,10 @@
       "china",
       "asia"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/170995013/medium.jpg",
-    "observations_count": 4900
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Aix_galericulata_%28Male%29%2C_Richmond_Park%2C_UK_-_May_2013.jpg/3840px-Aix_galericulata_%28Male%29%2C_Richmond_Park%2C_UK_-_May_2013.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 4900,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 10254,
@@ -158,7 +174,9 @@
       "sudamérica"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/239810/medium.jpg",
-    "observations_count": 3100
+    "observations_count": 3100,
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 18793,
@@ -175,8 +193,10 @@
       "latinoamérica",
       "sudamérica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/243841806/medium.jpg",
-    "observations_count": 4500
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/006_Toco_toucan_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent_%28cropped%29.jpg/3840px-006_Toco_toucan_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent_%28cropped%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 4500,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 19018,
@@ -191,8 +211,10 @@
       "sudamérica",
       "brasil"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/104183129/medium.jpeg",
-    "observations_count": 3600
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/46/Ara_ararauna_-South_America-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "observations_count": 3600,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 19022,
@@ -208,7 +230,9 @@
       "méxico"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/96975665/medium.jpg",
-    "observations_count": 3800
+    "observations_count": 3800,
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 20856,
@@ -223,7 +247,9 @@
       "méxico"
     ],
     "photo": "https://static.inaturalist.org/photos/10967112/medium.jpg",
-    "observations_count": 1200
+    "observations_count": 1200,
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 73222,
@@ -239,7 +265,9 @@
       "españa"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/187242272/medium.jpg",
-    "observations_count": 7300
+    "observations_count": 7300,
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144594,
@@ -254,8 +282,10 @@
       "estados unidos",
       "polar"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/620604941/medium.jpg",
-    "observations_count": 3200
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Cross-eyed_owl.jpg/3840px-Cross-eyed_owl.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "observations_count": 3200,
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 6930,
@@ -271,7 +301,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 13858,
@@ -281,13 +313,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4608133/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/df/Huismus%2C_man.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 513209,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7089,
@@ -297,13 +331,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3239787/medium.png",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Canada_goose_flight_cropped_and_NR.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 462639,
     "countries": [
       "estados unidos",
       "canadá",
       "norteamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4956,
@@ -319,7 +355,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12727,
@@ -329,13 +367,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/34859026/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Turdus-migratorius-002.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 438796,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 3017,
@@ -351,7 +391,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144455,
@@ -367,7 +409,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9083,
@@ -383,7 +427,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 5212,
@@ -393,13 +439,15 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Red-tailed_Hawk_Buteo_jamaicensis_Full_Body_1880px.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 342475,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 199840,
@@ -409,13 +457,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/21525364/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/06/07May06-HouseFinches.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 319359,
     "countries": [
       "méxico",
       "latinoamérica",
       "centroamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 14850,
@@ -431,7 +481,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 3454,
@@ -447,7 +499,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9744,
@@ -457,13 +511,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/219226/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/12/Red_winged_blackbird_-_natures_pics.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 289493,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4756,
@@ -479,7 +535,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9100,
@@ -489,13 +547,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/104749271/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Song_Sparrow-27527-2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 254839,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4954,
@@ -511,7 +571,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 10094,
@@ -527,7 +589,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 14886,
@@ -543,7 +607,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 145245,
@@ -559,7 +625,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 203153,
@@ -575,7 +643,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12716,
@@ -591,7 +661,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 116999,
@@ -607,7 +679,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 11901,
@@ -617,13 +691,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/122469139/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/24/Landsvale.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 215005,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 1454382,
@@ -639,7 +715,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 792988,
@@ -649,13 +727,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/116350378/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/98/Picoides_pubescens_f_CTB.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 193157,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 13695,
@@ -671,7 +751,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 906,
@@ -687,7 +769,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 8229,
@@ -703,7 +787,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 10070,
@@ -719,7 +805,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 145310,
@@ -735,7 +823,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 6921,
@@ -751,7 +841,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4981,
@@ -767,7 +859,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4940,
@@ -783,7 +877,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 482,
@@ -799,7 +895,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144510,
@@ -815,7 +913,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 5206,
@@ -831,7 +931,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 8021,
@@ -847,7 +949,9 @@
       "estados unidos",
       "canadá",
       "norteamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 891696,
@@ -857,13 +961,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/103446096/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Eurasian_magpie_2024_03_03_02.jpg/3840px-Eurasian_magpie_2024_03_03_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 167896,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 13094,
@@ -873,12 +979,14 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "Europa",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/245963000/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Erithacus_rubecula_with_cocked_head.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 167739,
     "countries": [
       "españa",
       "europa"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 9607,
@@ -894,7 +1002,9 @@
       "méxico",
       "latinoamérica",
       "centroamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 8010,
@@ -910,7 +1020,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 3048,
@@ -926,7 +1038,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4270,
@@ -942,7 +1056,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 18236,
@@ -958,7 +1074,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4364,
@@ -974,7 +1092,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 2969,
@@ -990,7 +1110,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 473,
@@ -1000,13 +1122,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/170033147/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Fulica-americana-003.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 154560,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 9176,
@@ -1022,7 +1146,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 1579017,
@@ -1038,7 +1164,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 204472,
@@ -1048,13 +1176,15 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/457121231/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/09/Buizerd-rh_20091021_002_%28cropped%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 150661,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 144815,
@@ -1070,7 +1200,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12942,
@@ -1080,13 +1212,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/181193021/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Eastern_Bluebird-27527-2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 149896,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 144849,
@@ -1102,7 +1236,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4793,
@@ -1118,7 +1254,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 13851,
@@ -1134,7 +1272,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4328,
@@ -1150,7 +1290,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144757,
@@ -1166,7 +1308,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 17871,
@@ -1176,13 +1320,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/259132621/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Great_spotted_woodpecker_%28Dendrocopos_major%29_male_Drenthe.jpg/3840px-Great_spotted_woodpecker_%28Dendrocopos_major%29_male_Drenthe.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 140570,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 18205,
@@ -1192,13 +1338,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/187697132/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/12/Red-bellied_Woodpecker-27527.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 137456,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 5020,
@@ -1214,7 +1362,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 558438,
@@ -1230,7 +1380,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4765,
@@ -1246,7 +1398,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 472766,
@@ -1262,7 +1416,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7004,
@@ -1278,7 +1434,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 201282,
@@ -1294,7 +1452,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4943,
@@ -1310,7 +1470,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4665,
@@ -1320,13 +1482,15 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/27291377/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/67/American_Kestrel_%28Falco_sparverius%29_%2814547482002%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 124351,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7107,
@@ -1342,7 +1506,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9135,
@@ -1358,7 +1524,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 5268,
@@ -1368,13 +1536,15 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/158802479/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Milvus_migrans_front%28ThKraft%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 119511,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 9184,
@@ -1390,7 +1560,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 6937,
@@ -1406,7 +1578,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 17008,
@@ -1416,13 +1590,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/11332440/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Eastern_Phoebe_%2815342146618%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 117683,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 6317,
@@ -1432,13 +1608,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4856611/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/81/Calypte_anna_-San_Luis_Obispo%2C_California%2C_USA_-male_-flying-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 116871,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 558439,
@@ -1454,7 +1632,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7428,
@@ -1470,7 +1650,9 @@
       "asia",
       "japón",
       "china"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9398,
@@ -1480,13 +1662,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58184530/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Carduelis_carduelis_1_%28Marek_Szczepanek%29_%28cropped%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 115186,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 14801,
@@ -1502,7 +1686,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4208,
@@ -1518,7 +1704,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 145308,
@@ -1534,7 +1722,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9602,
@@ -1544,13 +1734,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/265296529/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Quiscalus-quiscula-001.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 102476,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 14995,
@@ -1560,13 +1752,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://static.inaturalist.org/photos/301615765/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/16/Grey_Catbird.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 102266,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 3460,
@@ -1576,13 +1770,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "Asia",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/719272012/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Zenaida_asiatica_-Tuscon_-Arizona_-USA_-8a.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 100938,
     "countries": [
       "asia",
       "japón",
       "china"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7513,
@@ -1598,7 +1794,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12707,
@@ -1608,13 +1806,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/167407291/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Turdus_pilaris2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 99790,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 17013,
@@ -1624,13 +1824,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1856836/medium.JPG",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/af/Black_Phoebe_%2824228820137%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 99566,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 3751,
@@ -1646,7 +1848,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 10373,
@@ -1662,7 +1866,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 8088,
@@ -1678,7 +1884,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 6990,
@@ -1694,7 +1902,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144514,
@@ -1710,7 +1920,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 411086,
@@ -1726,7 +1938,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4246,
@@ -1742,7 +1956,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 336399,
@@ -1758,7 +1974,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 16447,
@@ -1774,7 +1992,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 6993,
@@ -1790,7 +2010,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7018,
@@ -1806,7 +2028,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 145360,
@@ -1822,7 +2046,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 1289388,
@@ -1838,7 +2064,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 6432,
@@ -1854,7 +2082,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 72486,
@@ -1870,7 +2100,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 20044,
@@ -1886,7 +2118,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 13632,
@@ -1902,7 +2136,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 17855,
@@ -1918,7 +2154,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7120,
@@ -1934,7 +2172,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4836,
@@ -1950,7 +2190,9 @@
       "méxico",
       "latinoamérica",
       "centroamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4999,
@@ -1960,13 +2202,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/214692577/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/00/Nycticorax_violaceus_%28at_beach%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 85731,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4334,
@@ -1976,13 +2220,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/31268696/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/White_pelican02_-_natures_pics.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 85666,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 14824,
@@ -1998,7 +2244,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 13000,
@@ -2008,13 +2256,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/175707288/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hausrotschwanz_Brutpflege_2006-05-21-05.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 85428,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 72458,
@@ -2030,7 +2280,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 2548,
@@ -2040,13 +2292,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/244248986/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Belted_Kingfisher.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 85311,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 1578489,
@@ -2062,7 +2316,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9462,
@@ -2078,7 +2334,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 11935,
@@ -2094,7 +2352,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 204496,
@@ -2104,13 +2364,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/451700759/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Carrion_crow_2022_04_05_05_02.jpg/3840px-Carrion_crow_2022_04_05_05_02.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 82481,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 3849,
@@ -2120,13 +2382,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/232281217/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/27/Calidris-alba-001.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 82333,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 508048,
@@ -2136,13 +2400,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/153611231/medium.gif",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/94/Sandhill_Crane_with_baby.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 81732,
     "countries": [
       "estados unidos",
       "canadá",
       "norteamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7046,
@@ -2158,7 +2424,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 16956,
@@ -2174,7 +2442,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 485176,
@@ -2184,13 +2454,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1595002/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c2/American_Wigeon.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 80721,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 9981,
@@ -2206,7 +2478,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4733,
@@ -2222,7 +2496,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144491,
@@ -2238,7 +2514,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4937,
@@ -2248,13 +2526,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/106796895/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/77/Egretta_caerulea_-Cananeia%2C_Sao_Paulo%2C_Brasil-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 79375,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7109,
@@ -2270,7 +2550,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 19893,
@@ -2286,7 +2568,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 1188207,
@@ -2302,7 +2586,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144479,
@@ -2318,7 +2604,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 506118,
@@ -2334,7 +2622,9 @@
       "estados unidos",
       "canadá",
       "norteamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9721,
@@ -2344,13 +2634,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://static.inaturalist.org/photos/111434260/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/17/Common_yellowthroat.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 77217,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 9420,
@@ -2360,13 +2652,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30818274/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/69/Spotted_Towhee.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 76458,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4345,
@@ -2382,7 +2676,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7044,
@@ -2398,7 +2694,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 3938,
@@ -2408,13 +2706,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/7007254/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Arenaria_interpres_%28habitus%29.jpg/3840px-Arenaria_interpres_%28habitus%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 72262,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7278,
@@ -2430,7 +2730,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 204533,
@@ -2445,7 +2747,9 @@
     "countries": [
       "españa",
       "europa"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 117016,
@@ -2461,7 +2765,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 1651487,
@@ -2477,7 +2783,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 16782,
@@ -2487,13 +2795,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://static.inaturalist.org/photos/23726266/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Eastern_Kingbird_%2834190350870%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 70022,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 12937,
@@ -2509,7 +2819,9 @@
       "méxico",
       "latinoamérica",
       "centroamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9346,
@@ -2525,7 +2837,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 5063,
@@ -2541,7 +2855,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 18209,
@@ -2557,7 +2873,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12748,
@@ -2573,7 +2891,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 59202,
@@ -2583,13 +2903,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12831/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Larus_michahellis_LC0046.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 67685,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 3892,
@@ -2599,13 +2921,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30952870/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/20/Greater_Yellowlegs2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 67351,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 981,
@@ -2621,7 +2945,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 204454,
@@ -2631,13 +2957,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/38102301/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Common_Myna_%28Acridotheres_tristis%29_on_Kapok_%28Ceiba_pentandra%29_in_Kolkata_W_IMG_4297.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 66550,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 558433,
@@ -2653,7 +2981,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 1289601,
@@ -2663,13 +2993,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/35436369/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/31/Neotropic_cormorant_%28Nannopterum_brasilianum_mexicanum%29_Peten.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 66125,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4715,
@@ -2679,13 +3011,15 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/344678876/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Schopfkarakara.jpg/3840px-Schopfkarakara.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 65908,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 8575,
@@ -2695,13 +3029,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://static.inaturalist.org/photos/457196436/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/77/Cracticus_tibicen.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 65663,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 3864,
@@ -2717,7 +3053,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 144814,
@@ -2727,13 +3065,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3053969/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Carolina_on_my_Mind.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 65288,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4626,
@@ -2743,13 +3083,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2960972/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Gavia_immer_-Minocqua%2C_Wisconsin%2C_USA_-swimming-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 65070,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 6933,
@@ -2759,13 +3101,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/353707196/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Northern_Pintails_%28Male_%26_Female%29_I_IMG_0911.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 64995,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4857,
@@ -2775,12 +3119,14 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "Europa",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/96099602/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Northern_Lapwing.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 63627,
     "countries": [
       "españa",
       "europa"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 5173,
@@ -2796,7 +3142,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 201192,
@@ -2806,12 +3154,14 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "Europa",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393828349/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/34/Malestonechatseaham_Cropped.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 62493,
     "countries": [
       "españa",
       "europa"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 8234,
@@ -2821,13 +3171,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/462234787/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Stellers_jay_-_natures_pics.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 62178,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 4835,
@@ -2843,7 +3195,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 3978,
@@ -2859,7 +3213,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4450,
@@ -2875,7 +3231,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12890,
@@ -2891,7 +3249,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4938,
@@ -2907,7 +3267,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 1455918,
@@ -2923,7 +3285,9 @@
       "asia",
       "japón",
       "china"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 850859,
@@ -2939,7 +3303,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 73044,
@@ -2949,13 +3315,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1004/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Pipilo_crissalis_-San_Luis_Obispo%2C_California%2C_USA-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 58963,
     "countries": [
       "estados unidos",
       "canadá",
       "norteamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7493,
@@ -2965,13 +3333,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://static.inaturalist.org/photos/497197980/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Blue-Gray_Gnatcatcher_%2827541488515%29.jpg/3840px-Blue-Gray_Gnatcatcher_%2827541488515%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 58704,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 558446,
@@ -2981,13 +3351,15 @@
     "group": "Rapaces",
     "habitat": "Aéreo / Cazador",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/114355770/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Northern_%28Hen%29_Harrier.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 58422,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 18463,
@@ -3003,7 +3375,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4237,
@@ -3019,7 +3393,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4647,
@@ -3035,7 +3411,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4381,
@@ -3051,7 +3429,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 6893,
@@ -3067,7 +3447,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 10227,
@@ -3083,7 +3465,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 145242,
@@ -3099,7 +3483,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 558634,
@@ -3115,7 +3501,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 8029,
@@ -3131,7 +3519,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 4892,
@@ -3141,13 +3531,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/19442682/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Pluvialis_squatarola_%28summer_plumage%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 54984,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 16787,
@@ -3157,13 +3549,15 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/254986834/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Flickr_-_Dario_Sanches_-_SUIRIRI_%28Tyrannus_melancholicus%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 54930,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 6996,
@@ -3179,7 +3573,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 15282,
@@ -3195,7 +3591,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9195,
@@ -3211,7 +3609,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 10271,
@@ -3227,7 +3627,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 979757,
@@ -3243,7 +3645,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 14823,
@@ -3259,7 +3663,9 @@
       "estados unidos",
       "canadá",
       "norteamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 10247,
@@ -3275,7 +3681,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 3857,
@@ -3291,7 +3699,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12038,
@@ -3307,7 +3717,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 3544,
@@ -3323,7 +3735,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9915,
@@ -3339,7 +3753,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 5267,
@@ -3355,7 +3771,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 1409,
@@ -3371,7 +3789,9 @@
       "estados unidos",
       "canadá",
       "norteamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7562,
@@ -3381,13 +3801,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/313822957/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Troglodytes_aedon%2C_Rutgers_1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 50168,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 17009,
@@ -3403,7 +3825,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 2413,
@@ -3419,7 +3843,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 20969,
@@ -3429,13 +3855,15 @@
     "group": "Aves Generales",
     "habitat": "Terrestre",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/60494705/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Wiedehopf_mit_Puppe_als_Futter.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 49393,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 10286,
@@ -3451,7 +3879,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 12822,
@@ -3467,7 +3897,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 6915,
@@ -3477,13 +3909,15 @@
     "group": "Acuáticas y Costeras",
     "habitat": "Costero / Marino / Humedal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/255698492/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/NPS_Wildlife._Trumpeter_Swan_on_Nest.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 48573,
     "countries": [
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 7576,
@@ -3499,7 +3933,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 9864,
@@ -3509,7 +3945,7 @@
     "group": "Cantoras y Jardín",
     "habitat": "Jardín / Bosque / Pastizal",
     "region": "América",
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/220765971/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Saffron_Finch_%28Sicalis_flaveola%29_%285440647576%29_%28cropped%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 48524,
     "countries": [
       "uruguay",
@@ -3518,7 +3954,9 @@
       "chile",
       "latinoamérica",
       "sudamérica"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "wikipedia"
   },
   {
     "id": 14898,
@@ -3534,7 +3972,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "inaturalist"
   },
   {
     "id": 7266,
