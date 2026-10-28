@@ -1,12 +1,19 @@
 import {
   createSeededRng,
   sampleCandidates,
+  generateSeed,
   buildChallengeUrl,
+  buildCompactChallengeUrl,
+  buildSeedChallengeUrl,
   parseChallengeUrl,
-  interleavedBisectSortAsync
+  interleavedBisectSortAsync,
+  preloadImagePair,
+  preloadCandidatePool,
+  animateDuelTransition
 } from '../core/tournament.js';
 import { bindThemeButton } from '../core/theme.js';
 import { renderRankingCard, exportRankingCard } from '../core/canvas.js';
+import { saveRankingToCloud, fetchRankingFromCloud } from '../core/supabase.js';
 import { POKEMON_TYPES, GENERATIONS, getTypeBadge } from './types.js';
 
 // Preset IDs
@@ -26,7 +33,7 @@ const app = {
     currentRight: null,
     battleStep: 0,
     estimatedTotalSteps: 0,
-    battleSeed: 1337,
+    battleSeed: generateSeed('p'),
     choiceHistory: [],
     replayDecisions: [],
     pendingResolver: null,
@@ -60,7 +67,7 @@ const app = {
     await this.loadDataset();
     this.renderWizardFilters();
     this.setSamplingMode(this.state.samplingMode);
-    this.checkIncomingChallenge();
+    await this.checkIncomingChallenge();
   },
 
   syncPixelUi() {
@@ -195,9 +202,16 @@ const app = {
     }
   },
 
-  checkIncomingChallenge() {
+  async checkIncomingChallenge() {
     const challenge = parseChallengeUrl();
-    if (challenge && challenge.ids && challenge.ids.length >= 2) {
+    if (challenge && challenge.seed && challenge.seed.length === 8 && !challenge.seed.includes('.')) {
+      const cloud = await fetchRankingFromCloud(challenge.seed);
+      if (cloud && cloud.ids && cloud.ids.length >= 2) {
+        challenge.ids = cloud.ids;
+        if (cloud.author) challenge.author = cloud.author;
+      }
+    }
+    if (challenge && (challenge.seed || (challenge.ids && challenge.ids.length >= 2))) {
       this.state.incomingChallenge = challenge;
       const banner = document.getElementById('challengeBanner');
       if (banner) banner.classList.remove('hidden');
@@ -209,15 +223,31 @@ const app = {
     if (banner) banner.classList.add('hidden');
   },
 
-  acceptChallenge() {
+  async acceptChallenge() {
     this.dismissChallengeBanner();
     if (!this.state.incomingChallenge) return;
-    const candidates = this.state.incomingChallenge.ids
-      .map(rawId => this.state.pokemonMap.get(parseInt(rawId, 10)))
-      .filter(Boolean);
-    if (candidates.length >= 2) {
-      this.state.candidatePool = candidates;
-      this.state.limit = candidates.length;
+    if (this.state.incomingChallenge.ids && this.state.incomingChallenge.ids.length >= 2) {
+      const candidates = this.state.incomingChallenge.ids
+        .map(rawId => this.state.pokemonMap.get(parseInt(rawId, 10)))
+        .filter(Boolean);
+      if (candidates.length >= 2) {
+        this.state.candidatePool = candidates;
+        this.state.limit = candidates.length;
+        if (this.state.incomingChallenge.seed) {
+          this.state.battleSeed = this.state.incomingChallenge.seed;
+        }
+        this.startBattleGame(true);
+        return;
+      }
+    }
+    if (this.state.incomingChallenge.seed) {
+      this.state.battleSeed = this.state.incomingChallenge.seed;
+      const count = 16;
+      this.state.limit = count;
+      const rng = createSeededRng(this.state.battleSeed);
+      const mode = String(this.state.battleSeed).startsWith('p') ? 'popular' : 'random';
+      const catalog = (this.state.allPokemon && this.state.allPokemon.length >= 16) ? this.state.allPokemon : this.state.fullCatalog;
+      this.state.candidatePool = sampleCandidates(catalog, count, mode, { rng });
       this.startBattleGame(true);
     }
   },
@@ -481,6 +511,9 @@ const app = {
   },
 
   getHumanSummary() {
+    if (this.state.isChaosPool) {
+      return 'Chaos Pool (16 al azar)';
+    }
     const genObj = GENERATIONS.find(g => g.id === this.state.selectedGen);
     const genTxt = genObj ? genObj.name : 'Todas las regiones';
     const typeTxt = this.state.selectedType !== 'all' ? `Tipo ${POKEMON_TYPES[this.state.selectedType]?.name}` : 'Todos los tipos';
@@ -488,8 +521,24 @@ const app = {
     return [genTxt, typeTxt, rarityTxt].filter(Boolean).join(' · ');
   },
 
-  // Presets
+  // Presets & Chaos Pool
+  launchSurpriseMe() {
+    this.state.isChaosPool = true;
+    this.state.selectedGen = 'all';
+    this.state.selectedType = 'all';
+    this.state.selectedRarity = 'all';
+    this.state.limit = 16;
+    this.state.samplingMode = 'random';
+    this.state.battleSeed = generateSeed('r');
+
+    const rng = createSeededRng(this.state.battleSeed);
+    const catalog = (this.state.allPokemon && this.state.allPokemon.length >= 16) ? this.state.allPokemon : this.state.fullCatalog;
+    this.state.candidatePool = sampleCandidates(catalog, 16, 'random', { rng });
+    this.startBattleGame(true);
+  },
+
   launchPreset(presetName) {
+    this.state.isChaosPool = false;
     let ids = PRESET_KANTO_IDS;
     if (presetName === 'starters') ids = PRESET_STARTERS_IDS;
     else if (presetName === 'legendaries') ids = PRESET_LEGENDARIES_IDS;
@@ -499,7 +548,8 @@ const app = {
     const candidates = ids.map(id => this.state.pokemonMap.get(id)).filter(Boolean);
     this.state.candidatePool = candidates;
     this.state.limit = candidates.length;
-    this.startBattleGame(false);
+    this.state.battleSeed = generateSeed('p');
+    this.startBattleGame(true);
   },
 
   // ============================================================
@@ -508,21 +558,20 @@ const app = {
   async startBattleGame(fromChallenge = false) {
     if (this.state.candidatePool.length < 2) return;
 
-    let pool = [...this.state.candidatePool];
-    const n = Math.min(pool.length, this.state.limit);
-
-    if (fromChallenge) {
-      this.shuffle(pool);
-      pool = pool.slice(0, n);
-    } else {
-      pool = sampleCandidates(pool, n, this.state.samplingMode, {
+    if (!fromChallenge) {
+      if (!this.state.battleSeed || typeof this.state.battleSeed !== 'string' || this.state.battleSeed.length !== 8) {
+        this.state.battleSeed = generateSeed(this.state.samplingMode === 'random' ? 'r' : 'p');
+      }
+      const rng = createSeededRng(this.state.battleSeed);
+      this.state.candidatePool = sampleCandidates(this.state.candidatePool, this.state.limit, this.state.samplingMode, {
+        rng,
         compareFn: (a, b) => (a.id || 0) - (b.id || 0)
       });
     }
 
+    let pool = [...this.state.candidatePool];
     this.state.candidatePool = [...pool];
     this.state.initialBattlePool = [...pool];
-    this.state.battleSeed = Math.floor(Math.random() * 2147483646) + 1;
     this.state.choiceHistory = [];
     this.state.replayDecisions = [];
     this.state.battleStep = 0;
@@ -534,10 +583,18 @@ const app = {
     const estWrap = document.getElementById('battleTotalEstWrap');
     if (estWrap) estWrap.textContent = `/~${this.state.estimatedTotalSteps}`;
 
-    // Preload candidate sprites in background
-    this.preloadPoolImagesInBackground(pool);
+    // Precargar de inmediato el primer duelo antes de mostrar la pantalla
+    if (pool[0] && pool[1]) {
+      const s0 = this.getPokemonSprite(pool[0], this.state.spriteMode);
+      const s1 = this.getPokemonSprite(pool[1], this.state.spriteMode);
+      await preloadImagePair(s0, s1, 1600);
+    }
 
     this.goToView('viewBattle');
+
+    // Preload candidate sprites in background
+    preloadCandidatePool(pool, p => this.getPokemonSprite(p, this.state.spriteMode));
+
     await this.runTournamentSortFromHistory();
   },
 
@@ -600,7 +657,7 @@ const app = {
     return interleavedBisectSortAsync(arr, (left, right) => this.askUserPreference(left, right), seed);
   },
 
-  askUserPreference(leftPokemon, rightPokemon) {
+  async askUserPreference(leftPokemon, rightPokemon) {
     this.state.battleStep++;
 
     // Fast-forward through recorded decisions when undoing a step
@@ -630,53 +687,59 @@ const app = {
       undoBtn.classList.toggle('inline-flex', Boolean(hasHistory));
     }
 
-    // Show loaders while sprites swap
-    document.getElementById('loaderLeft')?.classList.remove('hidden');
-    document.getElementById('loaderRight')?.classList.remove('hidden');
+    const spriteL = this.getPokemonSprite(leftPokemon, this.state.spriteMode);
+    const spriteR = this.getPokemonSprite(rightPokemon, this.state.spriteMode);
 
-    const isArtwork = this.state.spriteMode === 'artwork';
+    const grid = document.getElementById('battleCardsGrid');
+    const winner = this.state.lastWinnerSide;
+    this.state.lastWinnerSide = null;
+    await animateDuelTransition(grid, () => {
+      // Show loaders while sprites swap
+      document.getElementById('loaderLeft')?.classList.remove('hidden');
+      document.getElementById('loaderRight')?.classList.remove('hidden');
 
-    // Update Left
-    const imgL = document.getElementById('imgLeft');
-    if (imgL) {
-      if (!imgL.dataset) imgL.dataset = {};
-      imgL.dataset.fallbackStage = '0';
-      imgL.onerror = () => this.handleImgError('left');
-      imgL.alt = leftPokemon.name;
-      imgL.src = this.getPokemonSprite(leftPokemon, this.state.spriteMode);
-      imgL.classList.toggle('pixel-sprite', !isArtwork);
-    }
-    const nameL = document.getElementById('nameLeft');
-    if (nameL) nameL.textContent = leftPokemon.name;
-    const dexL = document.getElementById('dexLeft');
-    if (dexL) dexL.textContent = `No. ${String(leftPokemon.id).padStart(3, '0')}`;
-    const regL = document.getElementById('regLeft');
-    if (regL) regL.textContent = `${leftPokemon.region} · Gen ${leftPokemon.gen}`;
-    const typesL = document.getElementById('typesLeft');
-    if (typesL) typesL.innerHTML = leftPokemon.types.map(t => getTypeBadge(t)).join('');
+      const isArtwork = this.state.spriteMode === 'artwork';
 
-    // Update Right
-    const imgR = document.getElementById('imgRight');
-    if (imgR) {
-      if (!imgR.dataset) imgR.dataset = {};
-      imgR.dataset.fallbackStage = '0';
-      imgR.onerror = () => this.handleImgError('right');
-      imgR.alt = rightPokemon.name;
-      imgR.src = this.getPokemonSprite(rightPokemon, this.state.spriteMode);
-      imgR.classList.toggle('pixel-sprite', !isArtwork);
-    }
-    const nameR = document.getElementById('nameRight');
-    if (nameR) nameR.textContent = rightPokemon.name;
-    const dexR = document.getElementById('dexRight');
-    if (dexR) dexR.textContent = `No. ${String(rightPokemon.id).padStart(3, '0')}`;
-    const regR = document.getElementById('regRight');
-    if (regR) regR.textContent = `${rightPokemon.region} · Gen ${rightPokemon.gen}`;
-    const typesR = document.getElementById('typesRight');
-    if (typesR) typesR.innerHTML = rightPokemon.types.map(t => getTypeBadge(t)).join('');
+      // Update Left
+      const imgL = document.getElementById('imgLeft');
+      if (imgL) {
+        if (!imgL.dataset) imgL.dataset = {};
+        imgL.dataset.fallbackStage = '0';
+        imgL.onerror = () => this.handleImgError('left');
+        imgL.alt = leftPokemon.name;
+        imgL.src = spriteL;
+        imgL.classList.toggle('pixel-sprite', !isArtwork);
+        if (imgL.complete) this.onBattleImgLoad('left');
+      }
+      const nameL = document.getElementById('nameLeft');
+      if (nameL) nameL.textContent = leftPokemon.name;
+      const dexL = document.getElementById('dexLeft');
+      if (dexL) dexL.textContent = `No. ${String(leftPokemon.id).padStart(3, '0')}`;
+      const regL = document.getElementById('regLeft');
+      if (regL) regL.textContent = `${leftPokemon.region} · Gen ${leftPokemon.gen}`;
+      const typesL = document.getElementById('typesLeft');
+      if (typesL) typesL.innerHTML = leftPokemon.types.map(t => getTypeBadge(t)).join('');
 
-    // If images were already pre-cached in memory, hide loaders immediately
-    if (imgL && imgL.complete) this.onBattleImgLoad('left');
-    if (imgR && imgR.complete) this.onBattleImgLoad('right');
+      // Update Right
+      const imgR = document.getElementById('imgRight');
+      if (imgR) {
+        if (!imgR.dataset) imgR.dataset = {};
+        imgR.dataset.fallbackStage = '0';
+        imgR.onerror = () => this.handleImgError('right');
+        imgR.alt = rightPokemon.name;
+        imgR.src = spriteR;
+        imgR.classList.toggle('pixel-sprite', !isArtwork);
+        if (imgR.complete) this.onBattleImgLoad('right');
+      }
+      const nameR = document.getElementById('nameRight');
+      if (nameR) nameR.textContent = rightPokemon.name;
+      const dexR = document.getElementById('dexRight');
+      if (dexR) dexR.textContent = `No. ${String(rightPokemon.id).padStart(3, '0')}`;
+      const regR = document.getElementById('regRight');
+      if (regR) regR.textContent = `${rightPokemon.region} · Gen ${rightPokemon.gen}`;
+      const typesR = document.getElementById('typesRight');
+      if (typesR) typesR.innerHTML = rightPokemon.types.map(t => getTypeBadge(t)).join('');
+    }, [spriteL, spriteR], winner);
 
     return new Promise((resolve, reject) => {
       this.state.pendingResolver = { resolve, reject };
@@ -747,6 +810,7 @@ const app = {
 
   chooseCandidate(side) {
     if (!this.state.pendingResolver) return;
+    this.state.lastWinnerSide = side;
     this.unlockWinnerAudioOnGesture();
 
     // Visual card click flash
@@ -879,14 +943,27 @@ const app = {
   },
 
   async shareChallenge() {
-    const pool = this.state.initialBattlePool;
-    if (!pool || pool.length === 0) return;
-    const ids = pool.map(p => p.id);
-    const challengeUrl = buildChallengeUrl({
-      baseUrl: window.location.origin + window.location.pathname,
-      ids,
-      category: 'pokemon'
-    });
+    const base = `${window.location.origin}${window.location.pathname}`;
+    const ranking = this.state.finalRanking || [];
+    let challengeUrl;
+    if (ranking.length >= 2) {
+      if (!this.state.cloudShortCode) {
+        this.state.cloudShortCode = await saveRankingToCloud({
+          packId: 'pokemon',
+          rankingIds: ranking.map(p => p.id),
+          author: (document.getElementById('posterAuthorInput')?.value || '').trim()
+        });
+      }
+      if (this.state.cloudShortCode) {
+        challengeUrl = `${base}?s=${this.state.cloudShortCode}`;
+      } else {
+        const ids = ranking.map(p => p.id).join('.');
+        challengeUrl = `${base}?r=${ids}`;
+      }
+    } else {
+      const seed = this.state.battleSeed || generateSeed('r');
+      challengeUrl = `${base}?s=${seed}`;
+    }
 
     try {
       await navigator.clipboard.writeText(challengeUrl);

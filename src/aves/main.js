@@ -1,4 +1,17 @@
 import { bindThemeButton } from '../core/theme.js';
+import { saveRankingToCloud, fetchRankingFromCloud } from '../core/supabase.js';
+import {
+  createSeededRng,
+  sampleCandidates,
+  preloadImagePair,
+  preloadCandidatePool,
+  animateDuelTransition,
+  buildChallengeUrl,
+  buildCompactChallengeUrl,
+  buildSeedChallengeUrl,
+  parseChallengeUrl,
+  generateSeed
+} from '../core/tournament.js';
 
 const I18N = {
       es: {
@@ -378,22 +391,22 @@ const I18N = {
     const HOME_PRESET_FIXED = ["extintas", "famosas_mundo"];
     const HOME_PRESET_LOCAL = ["uruguay", "argentina"];
     const CURATED_WORLD_ICONS_FALLBACK = [
-      { id: "18793", nombre: "Tucán Toco", nombreEs: "Tucán Toco", nombreIngles: "Toco Toucan", nombreCientifico: "Ramphastos toco", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/107775986/medium.jpg", popularidad: 4500 },
-      { id: "19022", nombre: "Guacamayo Rojo", nombreEs: "Guacamayo Rojo", nombreIngles: "Scarlet Macaw", nombreCientifico: "Ara macao", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/20348705/medium.jpg", popularidad: 3800 },
-      { id: "19018", nombre: "Guacamayo Azul y Amarillo", nombreEs: "Guacamayo Azul y Amarillo", nombreIngles: "Blue-and-yellow Macaw", nombreCientifico: "Ara ararauna", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/33890374/medium.jpg", popularidad: 3600 },
-      { id: "20856", nombre: "Quetzal Resplandeciente", nombreEs: "Quetzal Resplandeciente", nombreIngles: "Resplendent Quetzal", nombreCientifico: "Pharomachrus mocinno", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/14878275/medium.jpg", popularidad: 2900 },
-      { id: "1204", nombre: "Pavo Real", nombreEs: "Pavo Real", nombreIngles: "Indian Peafowl", nombreCientifico: "Pavo cristatus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/24185203/medium.jpg", popularidad: 5200 },
-      { id: "5305", nombre: "Águila Calva", nombreEs: "Águila Calva", nombreIngles: "Bald Eagle", nombreCientifico: "Haliaeetus leucocephalus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/54316135/medium.jpg", popularidad: 8900 },
-      { id: "5321", nombre: "Águila Harpía", nombreEs: "Águila Harpía", nombreIngles: "Harpy Eagle", nombreCientifico: "Harpia harpyja", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/4014138/medium.jpg", popularidad: 1200 },
-      { id: "4747", nombre: "Cóndor Andino", nombreEs: "Cóndor Andino", nombreIngles: "Andean Condor", nombreCientifico: "Vultur gryphus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/16886478/medium.jpg", popularidad: 3100 },
-      { id: "73222", nombre: "Flamenco", nombreEs: "Flamenco", nombreIngles: "Greater Flamingo", nombreCientifico: "Phoenicopterus roseus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/37748446/medium.jpg", popularidad: 4700 },
-      { id: "3820", nombre: "Pingüino Emperador", nombreEs: "Pingüino Emperador", nombreIngles: "Emperor Penguin", nombreCientifico: "Aptenodytes forsteri", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/65171780/medium.jpg", popularidad: 2100 },
-      { id: "144594", nombre: "Búho Nival", nombreEs: "Búho Nival", nombreIngles: "Snowy Owl", nombreCientifico: "Bubo scandiacus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/25925345/medium.jpg", popularidad: 3400 },
-      { id: "4504", nombre: "Frailecillo Atlántico", nombreEs: "Frailecillo Atlántico", nombreIngles: "Atlantic Puffin", nombreCientifico: "Fratercula arctica", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/3055415/medium.jpg", popularidad: 4100 },
-      { id: "2599", nombre: "Martín Pescador", nombreEs: "Martín Pescador", nombreIngles: "Common Kingfisher", nombreCientifico: "Alcedo atthis", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/56084560/medium.jpg", popularidad: 6800 },
-      { id: "7106", nombre: "Pato Mandarín", nombreEs: "Pato Mandarín", nombreIngles: "Mandarin Duck", nombreCientifico: "Aix galericulata", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/10328905/medium.jpg", popularidad: 5400 },
-      { id: "10254", nombre: "Cardenal Copete Rojo", nombreEs: "Cardenal Copete Rojo", nombreIngles: "Red-crested Cardinal", nombreCientifico: "Paroaria coronata", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/3983758/medium.jpg", popularidad: 2800 },
-      { id: "1230", nombre: "Faisán Dorado", nombreEs: "Faisán Dorado", nombreIngles: "Golden Pheasant", nombreCientifico: "Chrysolophus pictus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/16605797/medium.jpg", popularidad: 3300 }
+      { id: "18793", nombre: "Tucán Toco", nombreEs: "Tucán Toco", nombreIngles: "Toco Toucan", nombreCientifico: "Ramphastos toco", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/243841806/medium.jpg", popularidad: 4500 },
+      { id: "19022", nombre: "Guacamayo Rojo", nombreEs: "Guacamayo Rojo", nombreIngles: "Scarlet Macaw", nombreCientifico: "Ara macao", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/96975665/medium.jpg", popularidad: 3800 },
+      { id: "19018", nombre: "Guacamayo Azul y Amarillo", nombreEs: "Guacamayo Azul y Amarillo", nombreIngles: "Blue-and-yellow Macaw", nombreCientifico: "Ara ararauna", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/104183129/medium.jpeg", popularidad: 3600 },
+      { id: "20856", nombre: "Quetzal Resplandeciente", nombreEs: "Quetzal Resplandeciente", nombreIngles: "Resplendent Quetzal", nombreCientifico: "Pharomachrus mocinno", imagen: "https://static.inaturalist.org/photos/10967112/medium.jpg", popularidad: 2900 },
+      { id: "1204", nombre: "Pavo Real", nombreEs: "Pavo Real", nombreIngles: "Indian Peafowl", nombreCientifico: "Pavo cristatus", imagen: "https://static.inaturalist.org/photos/28617120/medium.jpg", popularidad: 5200 },
+      { id: "5305", nombre: "Águila Calva", nombreEs: "Águila Calva", nombreIngles: "Bald Eagle", nombreCientifico: "Haliaeetus leucocephalus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/107638203/medium.jpg", popularidad: 8900 },
+      { id: "5321", nombre: "Águila Harpía", nombreEs: "Águila Harpía", nombreIngles: "Harpy Eagle", nombreCientifico: "Harpia harpyja", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/154445790/medium.jpeg", popularidad: 1200 },
+      { id: "4747", nombre: "Cóndor Andino", nombreEs: "Cóndor Andino", nombreIngles: "Andean Condor", nombreCientifico: "Vultur gryphus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/28100377/medium.jpg", popularidad: 3100 },
+      { id: "73222", nombre: "Flamenco", nombreEs: "Flamenco", nombreIngles: "Greater Flamingo", nombreCientifico: "Phoenicopterus roseus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/187242272/medium.jpg", popularidad: 4700 },
+      { id: "3820", nombre: "Pingüino Emperador", nombreEs: "Pingüino Emperador", nombreIngles: "Emperor Penguin", nombreCientifico: "Aptenodytes forsteri", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/6000054/medium.jpg", popularidad: 2100 },
+      { id: "144594", nombre: "Búho Nival", nombreEs: "Búho Nival", nombreIngles: "Snowy Owl", nombreCientifico: "Bubo scandiacus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/620604941/medium.jpg", popularidad: 3400 },
+      { id: "4504", nombre: "Frailecillo Atlántico", nombreEs: "Frailecillo Atlántico", nombreIngles: "Atlantic Puffin", nombreCientifico: "Fratercula arctica", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/63139388/medium.jpg", popularidad: 4100 },
+      { id: "2599", nombre: "Martín Pescador", nombreEs: "Martín Pescador", nombreIngles: "Common Kingfisher", nombreCientifico: "Alcedo atthis", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/12584278/medium.jpg", popularidad: 6800 },
+      { id: "7106", nombre: "Pato Mandarín", nombreEs: "Pato Mandarín", nombreIngles: "Mandarin Duck", nombreCientifico: "Aix galericulata", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/170995013/medium.jpg", popularidad: 5400 },
+      { id: "10254", nombre: "Cardenal Copete Rojo", nombreEs: "Cardenal Copete Rojo", nombreIngles: "Red-crested Cardinal", nombreCientifico: "Paroaria coronata", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/239810/medium.jpg", popularidad: 2800 },
+      { id: "1230", nombre: "Faisán Dorado", nombreEs: "Faisán Dorado", nombreIngles: "Golden Pheasant", nombreCientifico: "Chrysolophus pictus", imagen: "https://inaturalist-open-data.s3.amazonaws.com/photos/233914195/medium.jpeg", popularidad: 3300 }
     ];
 
     const CATALOG_DATA = {
@@ -595,6 +608,33 @@ const I18N = {
         return dict[key] || I18N.es[key] || key;
       },
 
+      async loadCatalogData() {
+        if (this.state.catalog && this.state.catalog.length >= 16) return;
+        try {
+          const res = await fetch('/data/aves.json');
+          if (res.ok) {
+            const raw = await res.json();
+            this.state.catalog = raw.map(b => ({
+              id: String(b.id),
+              nombre: b.name,
+              nombreEs: b.name,
+              nombreIngles: b.name,
+              nombreCientifico: b.sci_name,
+              imagen: b.photo,
+              popularidad: b.observations_count || 100,
+              family: b.family,
+              group: b.group,
+              habitat: b.habitat,
+              region: b.region,
+              countries: b.countries || []
+            }));
+          }
+        } catch (_) {}
+        if (!this.state.catalog || this.state.catalog.length < 16) {
+          this.state.catalog = [...CURATED_WORLD_ICONS_FALLBACK];
+        }
+      },
+
       async init() {
         bindThemeButton({
           buttonId: 'themeToggleAves',
@@ -616,7 +656,8 @@ const I18N = {
           }
         });
 
-        // Check if URL contains an embedded challenge (?r=18793.19022...)
+        await this.loadCatalogData();
+        // Check if URL contains an embedded challenge (?s=... o ?r=...)
         await this.checkIncomingChallengeUrl();
       },
 
@@ -629,45 +670,81 @@ const I18N = {
       // ============================================================
       async checkIncomingChallengeUrl() {
         try {
-          const params = new URLSearchParams(window.location.search);
-          const rawIds = params.get("r");
-          if (!rawIds) return;
+          const challenge = parseChallengeUrl(window.location.search);
+          if (!challenge) return;
 
-          const idList = rawIds
-            .split(".")
-            .map(s => s.trim())
-            .filter(s => /^\d+$/.test(s))
-            .slice(0, 64);
-
-          if (idList.length < 2) return;
-
-          const catParam = params.get("c") || "";
-          const authParam = params.get("a") || "";
-          const langParam = params.get("l");
-          if (langParam === "en" || langParam === "es") {
-            await this.setLanguage(langParam);
+          if (challenge.lang === "en" || challenge.lang === "es") {
+            await this.setLanguage(challenge.lang);
           }
 
-          const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${idList.join(",")}&per_page=64&locale=es&preferred_place_id=7259`);
-          if (!res.ok) return;
-          const data = await res.json();
-          const byId = new Map();
-          (data.results || []).forEach(t => {
-            const formatted = this.formatBird(t, t.observations_count);
-            if (formatted && formatted.imagen) {
-              byId.set(String(t.id), formatted);
+          // Check if ?s= is an 8-character cloud short_code
+          if (challenge.seed && challenge.seed.length === 8 && !challenge.seed.includes('.')) {
+            const cloud = await fetchRankingFromCloud(challenge.seed);
+            if (cloud && cloud.ids && cloud.ids.length >= 2) {
+              challenge.ids = cloud.ids;
+              if (cloud.author) challenge.author = cloud.author;
             }
-          });
+          }
 
-          // Preserve the exact #1..#N order of the friend's ranking
-          const ordered = idList.map(id => byId.get(id)).filter(Boolean);
-          if (ordered.length < 2) return;
+          // Case A: The challenge contains explicit ranking IDs (from Supabase or URL ?r=)
+          if (challenge.ids && challenge.ids.length >= 2) {
+            await this.loadCatalogData();
+            const idList = challenge.ids;
+            const byId = new Map();
 
-          this.state.incomingChallengeBirds = ordered;
-          this.state.incomingChallengeCategory = catParam || `${ordered.length} ${this.t("birdsUnit")}`;
-          this.state.incomingChallengeAuthor = authParam;
+            // First index birds from local curated catalog (aves.json)
+            (this.state.catalog || []).forEach(b => {
+              byId.set(String(b.id), b);
+            });
+            CURATED_WORLD_ICONS_FALLBACK.forEach(b => {
+              if (!byId.has(String(b.id))) byId.set(String(b.id), b);
+            });
 
-          this.renderIncomingChallengeBanner();
+            // If any bird is not in local catalog, fetch taxa from iNaturalist
+            const missingIds = idList.filter(id => !byId.has(String(id)));
+            if (missingIds.length > 0) {
+              try {
+                const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${missingIds.join(",")}&per_page=64&locale=es&preferred_place_id=7259`);
+                if (res.ok) {
+                  const data = await res.json();
+                  (data.results || []).forEach(t => {
+                    const formatted = this.formatBird(t, t.observations_count);
+                    if (formatted && formatted.imagen) {
+                      byId.set(String(t.id), formatted);
+                    }
+                  });
+                }
+              } catch (_) {}
+            }
+
+            // Preserve the exact #1..#N order of the friend's ranking
+            const ordered = idList.map(id => byId.get(String(id))).filter(Boolean);
+            if (ordered.length >= 2) {
+              this.state.incomingChallengeBirds = ordered;
+              this.state.incomingChallengeCategory = challenge.category || `${ordered.length} ${this.t("birdsUnit")}`;
+              this.state.incomingChallengeAuthor = challenge.author || '';
+              if (challenge.seed) {
+                this.state.battleSeed = challenge.seed;
+              }
+              this.renderIncomingChallengeBanner();
+              return;
+            }
+          }
+
+          // Case B: Standalone seed-only challenge (?s=8chars)
+          if (challenge.seed) {
+            this.state.battleSeed = challenge.seed;
+            await this.loadCatalogData();
+            const catalog = (this.state.catalog && this.state.catalog.length >= 16) ? this.state.catalog : CURATED_WORLD_ICONS_FALLBACK;
+            const rng = createSeededRng(this.state.battleSeed);
+            const mode = String(this.state.battleSeed).startsWith('p') ? 'popular' : 'random';
+            const ordered = sampleCandidates(catalog, 16, mode, { rng });
+            this.state.incomingChallengeBirds = ordered;
+            this.state.incomingChallengeCategory = mode === 'popular' ? 'Top 16 Más Famosas' : 'Chaos Pool (16 al azar)';
+            this.state.incomingChallengeAuthor = '';
+            this.renderIncomingChallengeBanner();
+            return;
+          }
         } catch (e) {
           console.error(e);
         }
@@ -766,40 +843,55 @@ const I18N = {
        * BUILDS THE EMBEDDED CHALLENGE URL & CASUAL WHATSAPP COPYWRITING
        */
       buildShareChallengeUrl() {
-        const base = window.location.origin + window.location.pathname;
+        const base = `${window.location.origin}${window.location.pathname}`;
+        if (this.state.cloudShortCode) {
+          return `${base}?s=${this.state.cloudShortCode}`;
+        }
         const ranking = this.state.finalRanking || [];
-        if (ranking.length === 0) return base;
+        if (ranking.length >= 2) {
+          const ids = ranking.map(b => b.id).join(".");
+          return `${base}?r=${ids}`;
+        }
+        const seed = this.state.battleSeed || generateSeed('r');
+        return `${base}?s=${seed}`;
+      },
 
-        const ids = ranking.map(b => b.id).join(".");
-        const params = new URLSearchParams();
-        params.set("r", ids);
-        params.set("c", this.getHumanSummary());
-        const author = (document.getElementById("posterAuthorInput").value || "").trim();
-        if (author) params.set("a", author);
-        if (this.state.lang === "en") params.set("l", "en");
-
-        return `${base}?${params.toString()}`;
+      async ensureCloudSaved() {
+        if (!this.state.cloudShortCode && this.state.finalRanking && this.state.finalRanking.length >= 2) {
+          const code = await saveRankingToCloud({
+            packId: 'aves',
+            rankingIds: this.state.finalRanking.map(b => b.id),
+            author: (document.getElementById("posterAuthorInput")?.value || "").trim()
+          });
+          if (code) {
+            this.state.cloudShortCode = code;
+            try {
+              window.history.replaceState({}, "", `${window.location.origin}${window.location.pathname}?s=${code}`);
+            } catch (_) {}
+          }
+        }
       },
 
       buildWhatsAppChallengeText() {
         const url = this.buildShareChallengeUrl();
         const ranking = this.state.finalRanking || [];
-        const summary = this.getHumanSummary();
         const top3 = ranking.slice(0, 3).map((b, i) => `${i + 1}. ${b.nombre}`).join("\n");
 
         if (this.state.lang === "en") {
-          return `Look at the bird ranking I just put together (${summary}):\n${top3}\n\nMake yours with the exact same birds and let's compare:\n${url}`;
+          return `Look at my top 3 birds:\n${top3}\n\nMake your ranking with the exact same birds:\n${url}`;
         }
-        return `Mirá el ranking de aves que armé (${summary}):\n${top3}\n\nHacé el tuyo con estas mismas aves y comparémoslo:\n${url}`;
+        return `Mirá mi podio de aves:\n${top3}\n\nArmá tu ranking con estas mismas aves y comparamos:\n${url}`;
       },
 
-      shareChallengeOnWhatsApp() {
+      async shareChallengeOnWhatsApp() {
+        await this.ensureCloudSaved();
         const msg = this.buildWhatsAppChallengeText();
         const waUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
         window.open(waUrl, "_blank", "noopener");
       },
 
-      copyChallengeMessage() {
+      async copyChallengeMessage() {
+        await this.ensureCloudSaved();
         const msg = this.buildWhatsAppChallengeText();
         navigator.clipboard.writeText(msg).then(() => {
           this.showShareFeedback(
@@ -1042,8 +1134,17 @@ const I18N = {
         this.state.keyword = "";
         this.state.useCuratedWorldIcons = true;
         this.state.useCuratedExtinctBirds = false;
+        this.state.isChaosPool = false;
         this.state.samplingMode = "popular";
         this.state.limit = 16;
+        this.state.battleSeed = generateSeed('p');
+
+        await this.loadCatalogData();
+        const catalog = (this.state.catalog && this.state.catalog.length >= 16) ? this.state.catalog : CURATED_WORLD_ICONS_FALLBACK;
+        const rng = createSeededRng(this.state.battleSeed);
+        this.state.candidatePool = sampleCandidates(catalog, 16, 'popular', { rng });
+        this.state.totalFound = catalog.length;
+
         await this.goToStep3(true);
       },
 
@@ -1055,39 +1156,21 @@ const I18N = {
         this.state.keyword = "";
         this.state.useCuratedWorldIcons = false;
         this.state.useCuratedExtinctBirds = false;
-
-        const isEn = this.state.lang === "en";
-        const livingGuilds = CATALOG_DATA.guilds.filter(g => g.key !== "extintas");
-        const modeRoll = Math.random();
-        if (modeRoll < 0.45) {
-          const g = livingGuilds[Math.floor(Math.random() * livingGuilds.length)];
-          this.state.guilds.add(g.key);
-          if (Math.random() < 0.65) {
-            const p = CATALOG_DATA.places[Math.floor(Math.random() * CATALOG_DATA.places.length)];
-            this.state.places.set(p.id, isEn ? p.labelEn : p.labelEs);
-          }
-        } else if (modeRoll < 0.8) {
-          const c = CATALOG_DATA.colors[Math.floor(Math.random() * CATALOG_DATA.colors.length)];
-          this.state.colors.add(c.key);
-          const broadRegions = CATALOG_DATA.places.filter(p =>
-            ["Toda Latinoamérica", "Sudamérica", "Uruguay", "Argentina", "Brasil", "Chile", "Perú", "Colombia", "Asia", "África", "Australia"].includes(p.labelEs)
-          );
-          if (Math.random() < 0.7 && broadRegions.length > 0) {
-            const p = broadRegions[Math.floor(Math.random() * broadRegions.length)];
-            this.state.places.set(p.id, isEn ? p.labelEn : p.labelEs);
-          }
-        } else {
-          const p = CATALOG_DATA.places[Math.floor(Math.random() * CATALOG_DATA.places.length)];
-          this.state.places.set(p.id, isEn ? p.labelEn : p.labelEs);
-        }
-
+        this.state.isChaosPool = true;
         this.state.samplingMode = "random";
         this.state.limit = 16;
+        this.state.battleSeed = generateSeed('r');
+
+        await this.loadCatalogData();
+        const catalog = (this.state.catalog && this.state.catalog.length >= 16) ? this.state.catalog : CURATED_WORLD_ICONS_FALLBACK;
+        const rng = createSeededRng(this.state.battleSeed);
+        this.state.candidatePool = sampleCandidates(catalog, 16, 'random', { rng });
+        this.state.totalFound = catalog.length;
 
         this.renderStep1Places();
         this.renderStep2Traits();
         this.setSamplingMode("random");
-        await this.goToStep3();
+        await this.goToStep3(true);
       },
 
       randomizeTraitsStep() {
@@ -1458,7 +1541,11 @@ const I18N = {
         document.getElementById("btnLaunchGame").disabled = true;
         document.getElementById("btnLaunchGame").textContent = this.t("searchingBtn");
 
-        await this.fetchMatchingSpecies();
+        if (!this.state.isChaosPool && (!this.state.useCuratedWorldIcons || !this.state.candidatePool || this.state.candidatePool.length < 2)) {
+          await this.fetchMatchingSpecies();
+        } else {
+          this.updateStep3UI();
+        }
 
         document.getElementById("step3LoadingOverlay").classList.add("hidden");
         document.getElementById("btnLaunchGame").disabled = false;
@@ -1747,6 +1834,9 @@ const I18N = {
           return this.state.incomingChallengeCategory;
         }
         const isEn = this.state.lang === "en";
+        if (this.state.isChaosPool) {
+          return isEn ? "Chaos Pool (16 random birds)" : "Chaos Pool (16 al azar)";
+        }
         if (this.state.useCuratedWorldIcons) {
           return this.t("world16Summary");
         }
@@ -1798,18 +1888,17 @@ const I18N = {
         let pool = [...this.state.candidatePool];
         const n = this.state.limit;
 
-        if (!fromChallenge && this.state.samplingMode === "popular" && !this.state.useCuratedWorldIcons && !this.state.useCuratedExtinctBirds) {
-          pool.sort((a, b) => (b.popularidad || 0) - (a.popularidad || 0));
-          pool = pool.slice(0, n);
-          this.shuffle(pool);
-        } else {
-          this.shuffle(pool);
-          this.shuffle(pool);
-          pool = pool.slice(0, n);
+        if (!fromChallenge) {
+          if (!this.state.battleSeed || typeof this.state.battleSeed !== 'string' || this.state.battleSeed.length !== 8) {
+            this.state.battleSeed = generateSeed(this.state.samplingMode === 'random' ? 'r' : 'p');
+          }
+          if (pool.length > n) {
+            const rng = createSeededRng(this.state.battleSeed);
+            pool = sampleCandidates(pool, n, this.state.samplingMode, { rng });
+          }
         }
 
         this.state.initialBattlePool = [...pool];
-        this.state.battleSeed = Math.floor(Math.random() * 2147483646) + 1;
         this.state.choiceHistory = [];
         this.state.replayDecisions = [];
         this.state.battleStep = 0;
@@ -1820,9 +1909,13 @@ const I18N = {
         const estWrap = document.getElementById("battleTotalEstWrap");
         if (estWrap) estWrap.textContent = `/~${this.state.estimatedTotalSteps}`;
 
-        this.preloadPoolImagesInBackground(pool);
+        // Precargar el primer duelo antes de cambiar de vista
+        if (pool[0] && pool[1]) {
+          await preloadImagePair(pool[0].imagen, pool[1].imagen, 1600);
+        }
 
         this.goToView("viewBattle");
+        preloadCandidatePool(pool, b => b.imagen);
         await this.runTournamentSortFromHistory();
       },
 
@@ -2016,7 +2109,7 @@ const I18N = {
         return runs[0];
       },
 
-      askUserPreference(leftBird, rightBird) {
+      async askUserPreference(leftBird, rightBird) {
         this.state.battleStep++;
 
         // Fast-forward through recorded decisions when undoing a step
@@ -2042,40 +2135,47 @@ const I18N = {
           undoBtn.classList.toggle("inline-flex", Boolean(hasHistory));
         }
 
-        document.getElementById("loaderLeft").classList.remove("hidden");
-        document.getElementById("loaderRight").classList.remove("hidden");
+        const grid = document.getElementById("battleCardsGrid");
+        const winner = this.state.lastWinnerSide;
+        this.state.lastWinnerSide = null;
+        await animateDuelTransition(grid, () => {
+          document.getElementById("loaderLeft").classList.remove("hidden");
+          document.getElementById("loaderRight").classList.remove("hidden");
 
-        document.getElementById("imgLeftBg").src = leftBird.imagen;
-        const imgL = document.getElementById("imgLeft");
-        imgL.alt = leftBird.nombre;
-        imgL.src = leftBird.imagen;
-        document.getElementById("nameLeft").textContent = leftBird.nombre;
-        document.getElementById("sciLeft").textContent = leftBird.nombreCientifico;
+          document.getElementById("imgLeftBg").src = leftBird.imagen;
+          const imgL = document.getElementById("imgLeft");
+          imgL.alt = leftBird.nombre;
+          imgL.src = leftBird.imagen;
+          if (imgL.complete) document.getElementById("loaderLeft")?.classList.add("hidden");
+          document.getElementById("nameLeft").textContent = leftBird.nombre;
+          document.getElementById("sciLeft").textContent = leftBird.nombreCientifico;
 
-        document.getElementById("imgRightBg").src = rightBird.imagen;
-        const imgR = document.getElementById("imgRight");
-        imgR.alt = rightBird.nombre;
-        imgR.src = rightBird.imagen;
-        document.getElementById("nameRight").textContent = rightBird.nombre;
-        document.getElementById("sciRight").textContent = rightBird.nombreCientifico;
+          document.getElementById("imgRightBg").src = rightBird.imagen;
+          const imgR = document.getElementById("imgRight");
+          imgR.alt = rightBird.nombre;
+          imgR.src = rightBird.imagen;
+          if (imgR.complete) document.getElementById("loaderRight")?.classList.add("hidden");
+          document.getElementById("nameRight").textContent = rightBird.nombre;
+          document.getElementById("sciRight").textContent = rightBird.nombreCientifico;
 
-        // Nivel 3: Reflect active species filter dynamically on battle cards
-        const kwTrim = this.state.keyword.trim();
-        const isEn = this.state.lang === "en";
-        const tagL = document.getElementById("filterTagLeft");
-        const tagR = document.getElementById("filterTagRight");
-        if (tagL && tagR) {
-          if (kwTrim) {
-            const labelTxt = isEn ? `Filtered species: "${kwTrim}"` : `Especie filtrada: "${kwTrim}"`;
-            tagL.querySelector("span").textContent = labelTxt;
-            tagR.querySelector("span").textContent = labelTxt;
-            tagL.classList.remove("hidden");
-            tagR.classList.remove("hidden");
-          } else {
-            tagL.classList.add("hidden");
-            tagR.classList.add("hidden");
+          // Nivel 3: Reflect active species filter dynamically on battle cards
+          const kwTrim = this.state.keyword.trim();
+          const isEn = this.state.lang === "en";
+          const tagL = document.getElementById("filterTagLeft");
+          const tagR = document.getElementById("filterTagRight");
+          if (tagL && tagR) {
+            if (kwTrim) {
+              const labelTxt = isEn ? `Filtered species: "${kwTrim}"` : `Especie filtrada: "${kwTrim}"`;
+              tagL.querySelector("span").textContent = labelTxt;
+              tagR.querySelector("span").textContent = labelTxt;
+              tagL.classList.remove("hidden");
+              tagR.classList.remove("hidden");
+            } else {
+              tagL.classList.add("hidden");
+              tagR.classList.add("hidden");
+            }
           }
-        }
+        }, [leftBird.imagen, rightBird.imagen], winner);
 
         return new Promise((resolve, reject) => {
           this.state.pendingResolver = { resolve, reject };
@@ -2110,6 +2210,7 @@ const I18N = {
 
       chooseBird(side) {
         if (!this.state.pendingResolver) return;
+        this.state.lastWinnerSide = side;
         this.unlockWinnerAudioOnGesture();
         if (!this.state.choiceHistory) this.state.choiceHistory = [];
         this.state.choiceHistory.push(side);
@@ -2543,6 +2644,9 @@ const I18N = {
           const shareUrl = this.buildShareChallengeUrl();
           window.history.replaceState({}, "", shareUrl);
         } catch (_) {}
+
+        // Persist to Supabase in background to obtain 8-character clean short_code
+        this.ensureCloudSaved().catch(() => {});
 
         // Render Comparison Box if the user played a shared challenge
         this.renderChallengeComparisonBox();

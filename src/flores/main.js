@@ -1,12 +1,20 @@
 import {
   createSeededRng,
+  sampleCandidates,
+  generateSeed,
   buildChallengeUrl,
+  buildCompactChallengeUrl,
+  buildSeedChallengeUrl,
   parseChallengeUrl,
-  interleavedBisectSortAsync
+  interleavedBisectSortAsync,
+  preloadImagePair,
+  preloadCandidatePool,
+  animateDuelTransition
 } from '../core/tournament.js';
 import { bindThemeButton } from '../core/theme.js';
 import { renderRankingCard, exportRankingCard } from '../core/canvas.js';
 import { filterCandidatesByTerritory } from '../core/territory.js';
+import { saveRankingToCloud, fetchRankingFromCloud } from '../core/supabase.js';
 
 const FALLBACK_FLOWER_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%23047857" stroke-width="2"><circle cx="50" cy="50" r="14" fill="%23EAF2EC"/><circle cx="50" cy="26" r="10" fill="%23D1E0D7"/><circle cx="50" cy="74" r="10" fill="%23D1E0D7"/><circle cx="26" cy="50" r="10" fill="%23D1E0D7"/><circle cx="74" cy="50" r="10" fill="%23D1E0D7"/><circle cx="33" cy="33" r="10" fill="%23D1E0D7"/><circle cx="67" cy="33" r="10" fill="%23D1E0D7"/><circle cx="33" cy="67" r="10" fill="%23D1E0D7"/><circle cx="67" cy="67" r="10" fill="%23D1E0D7"/><circle cx="50" cy="50" r="8" fill="%23047857"/></svg>`;
 
@@ -81,7 +89,7 @@ const app = {
     currentRight: null,
     battleStep: 0,
     estimatedTotalSteps: 0,
-    battleSeed: 1337,
+    battleSeed: generateSeed('p'),
     choiceHistory: [],
     replayDecisions: [],
     pendingResolver: null,
@@ -110,7 +118,7 @@ const app = {
 
     this.bindKeyboard();
     await this.loadDataset();
-    this.checkIncomingChallenge();
+    await this.checkIncomingChallenge();
   },
 
   async loadDataset() {
@@ -133,17 +141,28 @@ const app = {
   // WIZARD DE 3 PASOS (LUGAR, TIPO/COLOR, CONFIRMAR)
   // ============================================================
   quickStartWorldTop() {
-    this.state.candidatePool = this.state.pool.slice(0, 16);
+    this.state.isChaosPool = false;
+    this.state.samplingMode = 'popular';
     this.state.limit = 16;
-    this.startBattleGame();
+    this.state.battleSeed = generateSeed('p');
+    const rng = createSeededRng(this.state.battleSeed);
+    this.state.candidatePool = sampleCandidates(this.state.pool, 16, 'popular', { rng });
+    this.startBattleGame(true);
   },
 
   launchSurpriseMe() {
-    const list = [...this.state.pool];
-    this.shuffle(list);
-    this.state.candidatePool = list.slice(0, 16);
+    this.state.places.clear();
+    this.state.usages.clear();
+    this.state.colors.clear();
+    this.state.keyword = '';
+    this.state.isChaosPool = true;
+    this.state.samplingMode = 'random';
     this.state.limit = 16;
-    this.startBattleGame();
+    this.state.battleSeed = generateSeed('r');
+
+    const rng = createSeededRng(this.state.battleSeed);
+    this.state.candidatePool = sampleCandidates(this.state.pool, 16, 'random', { rng });
+    this.startBattleGame(true);
   },
 
   launchRandomGame() {
@@ -646,15 +665,16 @@ const app = {
   // ============================================================
   // BATALLA & DUELOS
   // ============================================================
-  startBattleGame(isChallenge = false) {
-    let candidates = [...this.state.candidatePool];
+  async startBattleGame(isChallenge = false) {
     if (!isChallenge) {
-      if (this.state.samplingMode === 'random') {
-        this.shuffle(candidates);
+      if (!this.state.battleSeed || typeof this.state.battleSeed !== 'string' || this.state.battleSeed.length !== 8) {
+        this.state.battleSeed = generateSeed(this.state.samplingMode === 'random' ? 'r' : 'p');
       }
-      candidates = candidates.slice(0, this.state.limit);
+      const rng = createSeededRng(this.state.battleSeed);
+      this.state.candidatePool = sampleCandidates(this.state.candidatePool, this.state.limit, this.state.samplingMode, { rng });
     }
 
+    let candidates = [...this.state.candidatePool];
     if (candidates.length < 2) return;
 
     this.state.initialBattlePool = [...candidates];
@@ -662,12 +682,20 @@ const app = {
     this.state.choiceHistory = [];
     this.state.replayDecisions = [];
     this.state.estimatedTotalSteps = Math.max(1, Math.round(candidates.length * Math.log2(candidates.length) * 0.82));
-    this.state.battleSeed = Math.floor(Math.random() * 1000000);
 
     const undoBtn = document.getElementById('btnUndoBattleChoice');
     if (undoBtn) undoBtn.disabled = true;
 
+    // Precargar de inmediato el primer duelo para que aparezca instantáneamente sin flicker
+    if (candidates[0] && candidates[1]) {
+      await preloadImagePair(candidates[0].photo, candidates[1].photo, 1600);
+    }
+
     this.goToView('viewBattle');
+
+    // Precargar todo el pool restante en segundo plano de manera progresiva
+    preloadCandidatePool(candidates, f => f.photo);
+
     this.runTournament(candidates);
   },
 
@@ -684,8 +712,14 @@ const app = {
       this.state.currentRight = right;
       this.state.battleStep++;
       this.updateBattleProgress();
-      this.renderBattleCard('Left', left);
-      this.renderBattleCard('Right', right);
+
+      const grid = document.getElementById('battleCardsGrid');
+      const winner = this.state.lastWinnerSide;
+      this.state.lastWinnerSide = null;
+      await animateDuelTransition(grid, () => {
+        this.renderBattleCard('Left', left);
+        this.renderBattleCard('Right', right);
+      }, [left.photo, right.photo], winner);
 
       return new Promise(resolve => {
         this.state.pendingResolver = choice => {
@@ -721,6 +755,7 @@ const app = {
       if (loader) loader.classList.remove('hidden');
       imgEl.src = flower.photo;
       imgEl.alt = flower.name;
+      if (imgEl.complete && loader) loader.classList.add('hidden');
       imgEl.onerror = () => {
         imgEl.src = FALLBACK_FLOWER_SVG;
         if (loader) loader.classList.add('hidden');
@@ -740,6 +775,7 @@ const app = {
   },
 
   chooseCandidate(side) {
+    this.state.lastWinnerSide = side;
     if (this.state.pendingResolver) {
       this.state.pendingResolver(side);
     }
@@ -870,9 +906,16 @@ const app = {
   // ============================================================
   // DESAFÍO Y CANVAS 2.0
   // ============================================================
-  checkIncomingChallenge() {
+  async checkIncomingChallenge() {
     const challenge = parseChallengeUrl();
-    if (challenge && challenge.ids && challenge.ids.length >= 2) {
+    if (challenge && challenge.seed && challenge.seed.length === 8 && !challenge.seed.includes('.')) {
+      const cloud = await fetchRankingFromCloud(challenge.seed);
+      if (cloud && cloud.ids && cloud.ids.length >= 2) {
+        challenge.ids = cloud.ids;
+        if (cloud.author) challenge.author = cloud.author;
+      }
+    }
+    if (challenge && (challenge.seed || (challenge.ids && challenge.ids.length >= 2))) {
       const banner = document.getElementById('challengeBanner');
       if (banner) banner.classList.remove('hidden');
     }
@@ -882,26 +925,64 @@ const app = {
     document.getElementById('challengeBanner')?.classList.add('hidden');
   },
 
-  acceptChallenge() {
+  async acceptChallenge() {
     this.dismissChallengeBanner();
     const challenge = parseChallengeUrl();
     if (!challenge) return;
-    const candidates = challenge.ids
-      .map(rawId => this.state.pool.find(p => String(p.id) === String(rawId)))
-      .filter(Boolean);
-    if (candidates.length >= 2) {
-      this.state.candidatePool = candidates;
-      this.state.limit = candidates.length;
-      if (challenge.seed) {
-        this.state.battleSeed = Number(challenge.seed) || this.state.battleSeed;
+    if (challenge.seed && challenge.seed.length === 8 && !challenge.seed.includes('.')) {
+      const cloud = await fetchRankingFromCloud(challenge.seed);
+      if (cloud && cloud.ids && cloud.ids.length >= 2) {
+        challenge.ids = cloud.ids;
+        if (cloud.author) challenge.author = cloud.author;
       }
+    }
+    if (challenge.ids && challenge.ids.length >= 2) {
+      const candidates = challenge.ids
+        .map(rawId => this.state.pool.find(p => String(p.id) === String(rawId)))
+        .filter(Boolean);
+      if (candidates.length >= 2) {
+        this.state.candidatePool = candidates;
+        this.state.limit = candidates.length;
+        if (challenge.seed) {
+          this.state.battleSeed = challenge.seed;
+        }
+        this.startBattleGame(true);
+        return;
+      }
+    }
+    if (challenge.seed) {
+      this.state.battleSeed = challenge.seed;
+      const count = 16;
+      this.state.limit = count;
+      const rng = createSeededRng(this.state.battleSeed);
+      const mode = String(challenge.seed).startsWith('p') ? 'popular' : 'random';
+      this.state.candidatePool = sampleCandidates(this.state.pool, count, mode, { rng });
       this.startBattleGame(true);
     }
   },
 
-  shareChallengeLink() {
-    const ids = this.state.finalRanking.slice(0, 16).map(f => f.id);
-    const url = buildChallengeUrl(ids, 'Herbario Floral', 'Rankea2', this.state.battleSeed);
+  async shareChallengeLink() {
+    const base = `${window.location.origin}${window.location.pathname}`;
+    const ranking = this.state.finalRanking || [];
+    let url;
+    if (ranking.length >= 2) {
+      if (!this.state.cloudShortCode) {
+        this.state.cloudShortCode = await saveRankingToCloud({
+          packId: 'flores',
+          rankingIds: ranking.map(f => f.id),
+          author: (document.getElementById('posterAuthorInput')?.value || '').trim()
+        });
+      }
+      if (this.state.cloudShortCode) {
+        url = `${base}?s=${this.state.cloudShortCode}`;
+      } else {
+        const ids = ranking.map(f => f.id).join('.');
+        url = `${base}?r=${ids}`;
+      }
+    } else {
+      const seed = this.state.battleSeed || generateSeed('r');
+      url = `${base}?s=${seed}`;
+    }
     navigator.clipboard.writeText(url).then(() => {
       const lbl = document.getElementById('shareBtnLabel');
       if (lbl) {

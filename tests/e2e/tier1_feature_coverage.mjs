@@ -19,6 +19,9 @@ import {
   sampleCandidates,
   interleavedBisectSortAsync,
   buildChallengeUrl,
+  buildCompactChallengeUrl,
+  encodeCID,
+  decodeCID,
   parseChallengeUrl
 } from '../../src/core/tournament.js';
 
@@ -499,6 +502,23 @@ export async function runTier1() {
       assert.deepStrictEqual(parsed.ids, ids);
       assert.strictEqual(parsed.category, 'pokemon');
       assert.strictEqual(parsed.author, 'Ash');
+
+      // Compact CID URL validation (Fase 2.1)
+      const compactUrl = buildCompactChallengeUrl({
+        baseUrl: 'https://rankea2.pages.dev/pokemon/',
+        ids,
+        category: 'pokemon',
+        author: 'Ash',
+        seed: 48291,
+        lang: 'es'
+      });
+      assert.ok(compactUrl.includes('cid='), 'Compact URL must use ?cid= parameter');
+      const parsedCompact = parseChallengeUrl(compactUrl.slice(compactUrl.indexOf('?')));
+      assert.ok(parsedCompact, 'Parsed compact challenge must not be null');
+      assert.deepStrictEqual(parsedCompact.ids, ids);
+      assert.strictEqual(parsedCompact.category, 'pokemon');
+      assert.strictEqual(parsedCompact.author, 'Ash');
+      assert.strictEqual(Number(parsedCompact.seed), 48291);
     });
 
     harness.it('8.5: Theme manager persists state in localStorage and updates document classes', ({ assert }) => {

@@ -158,10 +158,43 @@ function loadDilemma(dilemma) {
   }
 }
 
+function buildBalancedQueue() {
+  const competitive = [];
+  const inclined = [];
+
+  allDilemmas.forEach(d => {
+    const diff = Math.abs((d.porcentajeA || 50) - (d.porcentajeB || 50));
+    if (diff <= 40) {
+      competitive.push(d.id);
+    } else {
+      inclined.push(d.id);
+    }
+  });
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  shuffle(competitive);
+  shuffle(inclined);
+
+  const queue = [];
+  while (competitive.length > 0 || inclined.length > 0) {
+    if (competitive.length > 0) queue.push(competitive.pop());
+    if (competitive.length > 0 && Math.random() < 0.65) queue.push(competitive.pop());
+    if (inclined.length > 0) queue.push(inclined.pop());
+  }
+
+  return queue;
+}
+
 function pickNextDilemma() {
   if (remainingIds.length === 0) {
-    // Reshuffle all
-    remainingIds = allDilemmas.map(d => d.id).sort(() => Math.random() - 0.5);
+    remainingIds = buildBalancedQueue();
   }
   const nextId = remainingIds.pop();
   const nextDilemma = allDilemmas.find(d => d.id === nextId) || allDilemmas[0];
@@ -320,8 +353,8 @@ async function init() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     allDilemmas = await res.json();
 
-    // Prepare pool
-    remainingIds = allDilemmas.map(d => d.id).sort(() => Math.random() - 0.5);
+    // Prepare balanced pool
+    remainingIds = buildBalancedQueue();
 
     // Check URL param ?id=
     const params = new URLSearchParams(window.location.search);

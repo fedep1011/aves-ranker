@@ -102,30 +102,30 @@ export const ARENA_CONFIG = {
   aves: {
     brand: 'AVES',
     tagline: 'Ranking Ornitológico',
-    accent: '#1D3B2A',
+    accent: '#0284C7',
     displayFont: "'Instrument Serif', Georgia, serif",
     bodyFont: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
     light: {
-      bg: '#F6F4EF',
+      bg: '#F0F6FA',
       card: '#FFFFFF',
-      border: '#DEDAD0',
-      ink: '#161816',
-      muted: '#696B65',
-      heroBorder: '#1D3B2A',
-      badgeBg: '#1D3B2A',
+      border: '#BAE6FD',
+      ink: '#0F1E29',
+      muted: '#5C7280',
+      heroBorder: '#0284C7',
+      badgeBg: '#0284C7',
       badgeText: '#FFFFFF',
-      platformBg: '#EDEAE1'
+      platformBg: '#E0F2FE'
     },
     dark: {
-      bg: '#111613',
-      card: '#1A211D',
-      border: '#2B352F',
-      ink: '#F5F5F0',
-      muted: '#9CA39E',
-      heroBorder: '#E5C170',
-      badgeBg: '#E5C170',
-      badgeText: '#111613',
-      platformBg: '#151D18'
+      bg: '#0A1118',
+      card: '#101C26',
+      border: '#1F3140',
+      ink: '#F0F8FF',
+      muted: '#829AA8',
+      heroBorder: '#38BDF8',
+      badgeBg: '#38BDF8',
+      badgeText: '#0A1118',
+      platformBg: '#142938'
     }
   }
 };
@@ -244,6 +244,66 @@ export function drawRoundRect(ctx, x, y, w, h, r, fill, stroke, strokeWidth = 1)
 /**
  * Zero-crop photo drawer: Contain mode over ambient blurred backdrop
  */
+
+/**
+ * Draws Aves specific corner ornaments on the card perimeter
+ */
+function drawAvesCorners(ctx, x, y, w, h, color, goldColor) {
+  const corners = [
+    { cx: x, cy: y, sx: 1, sy: 1 },
+    { cx: x + w, cy: y, sx: -1, sy: 1 },
+    { cx: x, cy: y + h, sx: 1, sy: -1 },
+    { cx: x + w, cy: y + h, sx: -1, sy: -1 }
+  ];
+
+  ctx.save();
+  for (const { cx, cy, sx, sy } of corners) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(sx, sy);
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(6, 26);
+    ctx.quadraticCurveTo(8, 8, 26, 6);
+    ctx.stroke();
+
+    ctx.strokeStyle = goldColor;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(12, 22);
+    ctx.quadraticCurveTo(14, 14, 22, 12);
+    ctx.stroke();
+
+    ctx.fillStyle = goldColor;
+    ctx.beginPath();
+    ctx.arc(8, 8, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+  ctx.restore();
+}
+
+/**
+ * Draws Aves watermark silhouette behind the podium
+ */
+function drawAvesWatermark(ctx, cx, cy, size, color) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.fillStyle = color;
+  ctx.globalAlpha = 0.045;
+  ctx.beginPath();
+  ctx.moveTo(0, -size * 0.1);
+  ctx.bezierCurveTo(-size * 0.4, -size * 0.5, -size * 0.8, -size * 0.3, -size, -size * 0.45);
+  ctx.bezierCurveTo(-size * 0.6, -size * 0.1, -size * 0.3, size * 0.1, 0, size * 0.5);
+  ctx.bezierCurveTo(size * 0.3, size * 0.1, size * 0.6, -size * 0.1, size, -size * 0.45);
+  ctx.bezierCurveTo(size * 0.8, -size * 0.3, size * 0.4, -size * 0.5, 0, -size * 0.1);
+  ctx.fill();
+  ctx.restore();
+}
+
 export function drawUncroppedPhoto(ctx, img, x, y, w, h, { isPixelArt = false, blurBackdrop = true } = {}) {
   if (!img || !img.width || !img.height) {
     ctx.fillStyle = 'rgba(0,0,0,0.15)';
@@ -463,6 +523,11 @@ export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
   ctx.lineWidth = 2;
   ctx.strokeRect(36, 36, W - 72, H - 72);
 
+  if (arena === 'aves') {
+    drawAvesCorners(ctx, 36, 36, W - 72, H - 72, pal.heroBorder, '#D97706');
+    drawAvesWatermark(ctx, W / 2, H * 0.54, W * 0.45, pal.heroBorder);
+  }
+
   // 2. Header
   const padX = 72;
   const innerW = W - padX * 2;
@@ -525,6 +590,14 @@ export async function renderRankingCard(paramsOrCanvas, maybeOptions = {}) {
     ctx.fillStyle = '#1C1917';
     ctx.font = `700 15px ${config.bodyFont}`;
     ctx.fillText('1° · CAMPEÓN', medalX + 18, medalY + 24);
+    if (arena === 'aves') {
+      ctx.strokeStyle = '#92400E';
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(medalX + 130, medalY + 24);
+      ctx.quadraticCurveTo(medalX + 136, medalY + 16, medalX + 140, medalY + 14);
+      ctx.stroke();
+    }
 
     // Hero Candidate details
     ctx.fillStyle = pal.ink;

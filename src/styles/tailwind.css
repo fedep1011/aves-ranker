@@ -84,9 +84,43 @@ html.dark body.arena-mamiferos, html.dark [data-arena="mamiferos"] {
 
 /* ARENA AVES PALETTE */
 body.arena-aves, [data-arena="aves"] {
-  --color-primary: var(--color-forest);
-  --color-primary-hover: var(--color-forest-hover);
-  --color-primary-soft: var(--color-forest-soft);
+  --color-canvas: #F0F6FA;
+  --color-surface: #FAFDFE;
+  --color-ink: #0F1E29;
+  --color-muted: #5C7280;
+  --color-line: #D4E2EB;
+  --color-forest: #0284C7;
+  --color-forest-hover: #0369A1;
+  --color-forest-soft: #E0F2FE;
+  --color-primary: #0284C7;
+  --color-primary-hover: #0369A1;
+  --color-primary-soft: #E0F2FE;
+  background-color: var(--color-canvas);
+  background-image:
+    radial-gradient(at 10% 12%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+    radial-gradient(at 88% 22%, rgba(2, 132, 199, 0.08) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(56, 189, 248, 0.05) 0px, transparent 60%);
+  background-attachment: fixed;
+}
+
+html.dark body.arena-aves, html.dark [data-arena="aves"] {
+  --color-canvas: #0A1118;
+  --color-surface: #101C26;
+  --color-ink: #F0F8FF;
+  --color-muted: #829AA8;
+  --color-line: #1F3140;
+  --color-forest: #38BDF8;
+  --color-forest-hover: #0EA5E9;
+  --color-forest-soft: #142938;
+  --color-primary: #38BDF8;
+  --color-primary-hover: #0EA5E9;
+  --color-primary-soft: #142938;
+  background-color: var(--color-canvas);
+  background-image:
+    radial-gradient(at 10% 12%, rgba(56, 189, 248, 0.18) 0px, transparent 50%),
+    radial-gradient(at 88% 22%, rgba(14, 165, 233, 0.12) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(2, 132, 199, 0.1) 0px, transparent 60%);
+  background-attachment: fixed;
 }
 
 /* ARENA QUE PREFIERES PALETTE */

@@ -15,29 +15,33 @@ Este documento define las reglas de diseño, tipografía, paleta de colores y co
   * **Selector de Tema (Claro / Oscuro):** Botón redondeado (`rounded-full`) con borde sutil (`border-line`), fondo `bg-surface`. Alterna ícono SVG limpio de luna (`path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"`) y sol.
   * **Selector de Idioma (i18n · ES / EN):** Pastilla encapsulada (`p-0.5 rounded-full border border-line bg-surface`). El botón activo lleva fondo `bg-forest text-white`, mientras el inactivo permanece en `text-muted hover:text-ink`.
   * **Indicador de Paso Activo:** Texto truncado con la etapa actual (`headerStepLabel`) y botón de retorno al inicio (`btnHeaderHome`) estilizado como pastilla `border border-line bg-surface/80 hover:text-forest`.
-* **Tokens de Color y Tema:**
+* **Tokens de Color y Tema (Identidad Celeste Aero / Cielo Ornitológico):**
   * Modo Claro:
-    * Fondo general (`--color-canvas`): `#F6F4EF` (pergamino natural suave).
-    * Superficie (`--color-surface`): `#FAF9F6` (blanco hueso cálido).
-    * Texto principal (`--color-ink`): `#161816` (carbón botánico).
-    * Texto secundario (`--color-muted`): `#696B65` (musgo grisáceo).
-    * Borde / División (`--color-line`): `#E4E0D6` (arena pálido).
-    * Acento primario (`--color-forest`): `#1D3B2A` (verde bosque profundo).
-    * Hover acento (`--color-forest-hover`): `#14291D`.
-    * Acento suave (`--color-forest-soft`): `#EBF1EC`.
+    * Fondo general (`--color-canvas`): `#F0F6FA` (cielo marfil suave).
+    * Superficie (`--color-surface`): `#FAFDFE` (blanco pluma).
+    * Texto principal (`--color-ink`): `#0F1E29` (azul petróleo muy oscuro, legible y sobrio).
+    * Texto secundario (`--color-muted`): `#5C7280` (niebla celeste).
+    * Borde / División (`--color-line`): `#D4E2EB` (hielo suave).
+    * Acento primario (`--color-forest` / `--color-primary`): `#0284C7` (celeste ornitológico / sky 600).
+    * Hover acento (`--color-forest-hover`): `#0369A1` (sky 700).
+    * Acento suave (`--color-forest-soft`): `#E0F2FE` (sky 100).
   * Modo Oscuro:
-    * Fondo general (`--color-canvas`): `#121513` (humus nocturno).
-    * Superficie (`--color-surface`): `#1B211E` (follaje sombrío).
-    * Texto principal (`--color-ink`): `#EEF3EE` (pluma marfil).
-    * Texto secundario (`--color-muted`): `#9BA39D` (niebla alpina).
-    * Borde / División (`--color-line`): `#29342B`.
-    * Acento primario (`--color-forest`): `#2F6946` (verde pino vivo).
-    * Hover acento (`--color-forest-hover`): `#3C8358`.
-    * Acento suave (`--color-forest-soft`): `#1B271F`.
+    * Fondo general (`--color-canvas`): `#0A1118` (cielo nocturno profundo).
+    * Superficie (`--color-surface`): `#101C26` (nube nocturna).
+    * Texto principal (`--color-ink`): `#F0F8FF` (marfil cielo).
+    * Texto secundario (`--color-muted`): `#829AA8` (bruma alpina).
+    * Borde / División (`--color-line`): `#1F3140`.
+    * Acento primario (`--color-forest` / `--color-primary`): `#38BDF8` (celeste cielo vivo / sky 400).
+    * Hover acento (`--color-forest-hover`): `#0EA5E9` (sky 500).
+    * Acento suave (`--color-forest-soft`): `#142938`.
+* **Atmósfera y Spot Art:**
+  * Cero wallpapers o patrones SVG repetitivos de azulejos (manteniendo máxima elegancia y legibilidad editorial).
+  * Spot Art focal: Silueta sutil de ave en vuelo como marca de agua única en el Hero de la portada.
 * **Pastilla del Hub Principal (`index.html`):**
   * Clase base: `.arena-aves`.
-  * Tarjeta partida diagonal (`half-split-left` con Tucán Toco y `half-split-right` con Guacamayo Rojo) cortada por línea diagonal en ángulo de $1.8\text{px}$ en tono pergamino (`#F6F4EF`).
-  * Contenedor inferior: Título en `font-aves` (`Instrument Serif`) 36px y botón circular en `bg-[#1D3B2A]` con flecha vectorial `→` en color blanco.
+  * Borde orgánico doble: Borde exterior celeste sólido de 2px + línea interna punteada (`dashed`) sutil.
+  * Micro-decoración: Pluma vectorial oficial de Lucide (`lucide-feather`) en la esquina superior derecha con micro-interacción de rotación/escala en hover.
+  * Pastilla de categoría `Ornitología` en `bg-sky-700/90 dark:bg-sky-500/90 text-white` y botón circular `→` en celeste.
 
 ---
 

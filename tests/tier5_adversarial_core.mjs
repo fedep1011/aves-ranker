@@ -189,7 +189,12 @@ function createMockCanvasContext() {
     save() { calls.push({ op: 'save' }); },
     restore() { calls.push({ op: 'restore' }); },
     clip() { calls.push({ op: 'clip' }); },
-    drawImage(...args) { calls.push({ op: 'drawImage', args }); }
+    drawImage(...args) { calls.push({ op: 'drawImage', args }); },
+    translate(x, y) { calls.push({ op: 'translate', x, y }); },
+    rotate(angle) { calls.push({ op: 'rotate', angle }); },
+    scale(x, y) { calls.push({ op: 'scale', x, y }); },
+    arc(x, y, r, sa, ea) { calls.push({ op: 'arc', x, y, r, sa, ea }); },
+    bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) { calls.push({ op: 'bezierCurveTo', cp1x, cp1y, cp2x, cp2y, x, y }); }
   };
 }
 

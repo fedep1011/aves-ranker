@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "hero-patterns": "^2.1.0",
+    "lucide-static": "^1.62.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.10"

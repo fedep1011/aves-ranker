@@ -100,22 +100,34 @@
     }
 
     .arena-aves {
-      background-color: #F7F9F6;
-      color: #161816;
-      border: 2px solid #1D3B2A;
+      background-color: #F0F6FA;
+      color: #0F1E29;
+      border: 2px solid #0284C7;
+      position: relative;
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
     }
+    .arena-aves::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px dashed rgba(2, 132, 199, 0.35);
+      border-radius: 23px;
+      pointer-events: none;
+    }
     html.dark .arena-aves {
-      background-color: #0E1511;
-      border-color: #2D5A3F;
-      color: #EDF3EE;
+      background-color: #0A1118;
+      border-color: #38BDF8;
+      color: #F0F8FF;
+    }
+    html.dark .arena-aves::after {
+      border-color: rgba(56, 189, 248, 0.35);
     }
     .arena-aves:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 32px -10px rgba(29, 59, 42, 0.3);
+      box-shadow: 0 16px 32px -10px rgba(2, 132, 199, 0.35);
     }
     html.dark .arena-aves:hover {
-      box-shadow: 0 16px 32px -10px rgba(45, 90, 63, 0.35);
+      box-shadow: 0 16px 32px -10px rgba(56, 189, 248, 0.4);
     }
 
     .arena-poke {
@@ -352,8 +364,17 @@
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
         <!-- 1. AVES DEL MUNDO -->
-        <a href="/aves/" class="arena-aves rounded-[26px] overflow-hidden flex flex-col justify-between group">
-          <div class="relative h-32 sm:h-36 w-full bg-[#1C241E] overflow-hidden">
+        <a href="/aves/" class="arena-aves rounded-[26px] overflow-hidden flex flex-col justify-between group relative">
+          <!-- Pluma ornitológica estilizada en esquina -->
+          <div class="absolute top-2.5 right-2.5 z-20 pointer-events-none drop-shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" aria-hidden="true">
+            <svg class="w-6 h-6 text-sky-600 dark:text-sky-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L3 12.5V21h8.5z"/>
+              <line x1="16" y1="8" x2="2" y2="22"/>
+              <line x1="17.5" y1="15" x2="9" y2="15"/>
+            </svg>
+          </div>
+
+          <div class="relative h-32 sm:h-36 w-full bg-[#0C1A24] overflow-hidden">
             <div id="avesHeroSplitLeft" class="half-split-left">
               <img id="avesHeroImgLeft"
                    src="https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg"
@@ -369,21 +390,21 @@
                    style="object-position: 70% center;" />
             </div>
             <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-              <line x1="55" y1="0" x2="44" y2="100" stroke="#F6F4EF" stroke-width="1.8" />
+              <line x1="55" y1="0" x2="44" y2="100" stroke="#BAE6FD" stroke-width="1.8" />
             </svg>
-            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-[#1D3B2A]/90 text-white backdrop-blur-xs">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider font-semibold bg-sky-700/90 dark:bg-sky-500/90 text-white backdrop-blur-xs">
               Ornitología
             </span>
           </div>
 
-          <div class="p-4 flex items-center justify-between gap-2">
+          <div class="p-4 flex items-center justify-between gap-2 relative z-10">
             <div>
               <h3 class="font-aves text-2xl leading-none">
                 Aves
               </h3>
               <span class="text-[11px] text-muted block mt-1">11.000 especies del mundo</span>
             </div>
-            <span class="w-8 h-8 rounded-full bg-[#1D3B2A] text-white flex items-center justify-center text-xs font-medium group-hover:translate-x-1 transition shrink-0">
+            <span class="w-8 h-8 rounded-full bg-sky-600 dark:bg-sky-500 text-white flex items-center justify-center text-xs font-medium group-hover:translate-x-1 transition shrink-0">
               →
             </span>
           </div>
@@ -466,10 +487,10 @@
           <div class="relative h-32 sm:h-36 w-full bg-[#141210] overflow-hidden">
             <div id="faunaHeroSplitLeft" class="half-split-left">
               <img id="faunaHeroImgLeft"
-                   src="https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg"
+                   src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG/3840px-Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
                    alt="Jaguar"
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                   style="object-position: 30% center;" />
+                   style="object-position: 45% 35%;" />
             </div>
             <div id="faunaHeroSplitRight" class="half-split-right">
               <img id="faunaHeroImgRight"
@@ -650,7 +671,7 @@
               <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80"
                    alt="Golden Retriever"
                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                   style="object-position: 30% center;" />
+                   style="object-position: 45% 35%;" />
             </div>
             <div class="half-split-right">
               <img src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=600&q=80"
@@ -884,17 +905,102 @@
       }
     ];
 
-    function setupAvesHeroCard() {
+    let heroRollCounter = 0;
+
+    function slideSplitRoll(splitEl, createIncomingFn, direction = 'up', duration = 520) {
+      if (!splitEl) return;
+
+      const isUp = direction === 'up';
+      const exitY = isUp ? '-100%' : '100%';
+      const enterY = isUp ? '100%' : '-100%';
+
+      // Obtener o crear capa activa actual
+      let currentLayer = splitEl.querySelector('.split-reel-layer');
+      if (!currentLayer) {
+        currentLayer = document.createElement('div');
+        currentLayer.className = 'split-reel-layer absolute inset-0 w-full h-full';
+        while (splitEl.firstChild) {
+          currentLayer.appendChild(splitEl.firstChild);
+        }
+        splitEl.appendChild(currentLayer);
+      }
+
+      // Crear nueva capa entrante desde el extremo opuesto
+      const incomingLayer = document.createElement('div');
+      incomingLayer.className = 'split-reel-layer absolute inset-0 w-full h-full';
+      incomingLayer.style.transform = `translateY(${enterY})`;
+      incomingLayer.style.willChange = 'transform';
+      incomingLayer.style.zIndex = '2';
+      currentLayer.style.zIndex = '1';
+      currentLayer.style.willChange = 'transform';
+
+      createIncomingFn(incomingLayer);
+      splitEl.appendChild(incomingLayer);
+
+      // Forzar layout para registrar la posición inicial
+      void incomingLayer.offsetWidth;
+
+      const ease = `transform ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+      currentLayer.style.transition = ease;
+      incomingLayer.style.transition = ease;
+
+      requestAnimationFrame(() => {
+        currentLayer.style.transform = `translateY(${exitY})`;
+        incomingLayer.style.transform = 'translateY(0%)';
+      });
+
+      setTimeout(() => {
+        if (currentLayer && currentLayer.parentNode === splitEl) {
+          splitEl.removeChild(currentLayer);
+        }
+        incomingLayer.style.transition = '';
+        incomingLayer.style.transform = '';
+        incomingLayer.style.willChange = '';
+        incomingLayer.style.zIndex = '';
+      }, duration + 60);
+    }
+
+    function setupAvesHeroCard(animate = false) {
       const pair = AVES_CARD_PAIRS[Math.floor(Math.random() * AVES_CARD_PAIRS.length)];
-      const imgL = document.getElementById('avesHeroImgLeft');
-      const imgR = document.getElementById('avesHeroImgRight');
-      if (imgL && imgR) {
-        imgL.src = pair.left.url;
-        imgL.alt = pair.left.name;
-        imgL.style.objectPosition = pair.left.pos || '40% center';
-        imgR.src = pair.right.url;
-        imgR.alt = pair.right.name;
-        imgR.style.objectPosition = pair.right.pos || '60% center';
+      const splitL = document.getElementById('avesHeroSplitLeft');
+      const splitR = document.getElementById('avesHeroSplitRight');
+      if (!splitL || !splitR) return pair;
+
+      const i1 = new Image(); i1.src = pair.left.url;
+      const i2 = new Image(); i2.src = pair.right.url;
+
+      const dirL = (heroRollCounter % 2 === 0) ? 'up' : 'down';
+      const dirR = (heroRollCounter % 2 === 0) ? 'down' : 'up';
+
+      const makeLeft = (layer) => {
+        layer.innerHTML = `
+          <img id="avesHeroImgLeft"
+               src="${pair.left.url}"
+               alt="${pair.left.name}"
+               class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+               style="object-position: ${pair.left.pos || '40% center'};" />
+        `;
+      };
+
+      const makeRight = (layer) => {
+        layer.innerHTML = `
+          <img id="avesHeroImgRight"
+               src="${pair.right.url}"
+               alt="${pair.right.name}"
+               class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+               style="object-position: ${pair.right.pos || '60% center'};" />
+        `;
+      };
+
+      if (animate) {
+        heroRollCounter++;
+        slideSplitRoll(splitL, makeLeft, dirL);
+        slideSplitRoll(splitR, makeRight, dirR);
+      } else {
+        const imgL = document.getElementById('avesHeroImgLeft');
+        const imgR = document.getElementById('avesHeroImgRight');
+        if (imgL) { imgL.src = pair.left.url; imgL.alt = pair.left.name; imgL.style.objectPosition = pair.left.pos || '40% center'; }
+        if (imgR) { imgR.src = pair.right.url; imgR.alt = pair.right.name; imgR.style.objectPosition = pair.right.pos || '60% center'; }
       }
       return pair;
     }
@@ -947,46 +1053,73 @@
       return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
     }
 
-    function setupPokemonHeroCard() {
+    function setupPokemonHeroCard(animate = false) {
       const pair = POKEMON_CARD_PAIRS[Math.floor(Math.random() * POKEMON_CARD_PAIRS.length)];
       const modeObj = POKEMON_SPRITE_MODES[pokeSpriteModeIdx % POKEMON_SPRITE_MODES.length];
       pokeSpriteModeIdx++;
 
       const splitL = document.getElementById('pokeHeroSplitLeft');
       const splitR = document.getElementById('pokeHeroSplitRight');
-      const imgL = document.getElementById('pokeHeroImgLeft');
-      const imgR = document.getElementById('pokeHeroImgRight');
       const badge = document.getElementById('pokeHeroBadge');
+      if (!splitL || !splitR) return { pair, mode: modeObj };
 
-      if (splitL && splitR && imgL && imgR) {
+      const urlL = getPokemonSpriteUrl(pair.left.id, modeObj.key);
+      const urlR = getPokemonSpriteUrl(pair.right.id, modeObj.key);
+      const i1 = new Image(); i1.src = urlL;
+      const i2 = new Image(); i2.src = urlR;
+
+      const dirL = (heroRollCounter % 2 === 0) ? 'up' : 'down';
+      const dirR = (heroRollCounter % 2 === 0) ? 'down' : 'up';
+
+      const makeLeft = (layer) => {
+        layer.className = 'split-reel-layer absolute inset-0 w-full h-full flex items-center justify-center p-3';
+        layer.style.backgroundColor = pair.left.bg;
+        layer.innerHTML = `
+          <img id="pokeHeroImgLeft"
+               src="${urlL}"
+               alt="${pair.left.name}"
+               class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300 ${modeObj.isPixel ? 'pixel-sprite' : ''}" />
+        `;
+      };
+
+      const makeRight = (layer) => {
+        layer.className = 'split-reel-layer absolute inset-0 w-full h-full flex items-center justify-center p-3';
+        layer.style.backgroundColor = pair.right.bg;
+        layer.innerHTML = `
+          <img id="pokeHeroImgRight"
+               src="${urlR}"
+               alt="${pair.right.name}"
+               class="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)] group-hover:scale-105 transition duration-300 ${modeObj.isPixel ? 'pixel-sprite' : ''}" />
+        `;
+      };
+
+      if (animate) {
+        heroRollCounter++;
+        slideSplitRoll(splitL, makeLeft, dirL);
+        slideSplitRoll(splitR, makeRight, dirR);
+        if (badge) {
+          badge.style.transition = 'opacity 200ms ease';
+          badge.style.opacity = '0';
+          setTimeout(() => {
+            badge.textContent = modeObj.badge;
+            badge.style.opacity = '1';
+          }, 240);
+        }
+      } else {
         splitL.style.backgroundColor = pair.left.bg;
         splitR.style.backgroundColor = pair.right.bg;
-
-        imgL.classList.toggle('pixel-sprite', modeObj.isPixel);
-        imgR.classList.toggle('pixel-sprite', modeObj.isPixel);
-
-        imgL.onerror = () => {
-          imgL.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pair.left.id}.png`;
-        };
-        imgR.onerror = () => {
-          imgR.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pair.right.id}.png`;
-        };
-
-        imgL.src = getPokemonSpriteUrl(pair.left.id, modeObj.key);
-        imgL.alt = pair.left.name;
-        imgR.src = getPokemonSpriteUrl(pair.right.id, modeObj.key);
-        imgR.alt = pair.right.name;
-
-        if (badge) {
-          badge.textContent = modeObj.badge;
-        }
+        const imgL = document.getElementById('pokeHeroImgLeft');
+        const imgR = document.getElementById('pokeHeroImgRight');
+        if (imgL) { imgL.src = urlL; imgL.alt = pair.left.name; imgL.classList.toggle('pixel-sprite', modeObj.isPixel); }
+        if (imgR) { imgR.src = urlR; imgR.alt = pair.right.name; imgR.classList.toggle('pixel-sprite', modeObj.isPixel); }
+        if (badge) badge.textContent = modeObj.badge;
       }
       return { pair, mode: modeObj };
     }
 
     const currentPokeHero = setupPokemonHeroCard();
 
-    // Versus emblemáticos para la pastilla de Flores en portada (fotos oficiales default iNaturalist calibradas a mano)
+    // Versus emblemáticos para la pastilla de Flores en portada
     const FLORA_CARD_PAIRS = [
       {
         left: { name: 'Rosa', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/236476292/medium.jpg', pos: '35% center' },
@@ -1050,27 +1183,57 @@
       }
     ];
 
-    function setupFloraHeroCard() {
+    function setupFloraHeroCard(animate = false) {
       const pair = FLORA_CARD_PAIRS[Math.floor(Math.random() * FLORA_CARD_PAIRS.length)];
-      const imgL = document.getElementById('floraHeroImgLeft');
-      const imgR = document.getElementById('floraHeroImgRight');
-      if (imgL && imgR) {
-        imgL.src = pair.left.url;
-        imgL.alt = pair.left.name;
-        imgL.style.objectPosition = pair.left.pos || '45% center';
-        imgR.src = pair.right.url;
-        imgR.alt = pair.right.name;
-        imgR.style.objectPosition = pair.right.pos || '55% center';
+      const splitL = document.getElementById('floraHeroSplitLeft');
+      const splitR = document.getElementById('floraHeroSplitRight');
+      if (!splitL || !splitR) return pair;
+
+      const i1 = new Image(); i1.src = pair.left.url;
+      const i2 = new Image(); i2.src = pair.right.url;
+
+      const dirL = (heroRollCounter % 2 === 0) ? 'up' : 'down';
+      const dirR = (heroRollCounter % 2 === 0) ? 'down' : 'up';
+
+      const makeLeft = (layer) => {
+        layer.innerHTML = `
+          <img id="floraHeroImgLeft"
+               src="${pair.left.url}"
+               alt="${pair.left.name}"
+               class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+               style="object-position: ${pair.left.pos || '45% center'};" />
+        `;
+      };
+
+      const makeRight = (layer) => {
+        layer.innerHTML = `
+          <img id="floraHeroImgRight"
+               src="${pair.right.url}"
+               alt="${pair.right.name}"
+               class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+               style="object-position: ${pair.right.pos || '55% center'};" />
+        `;
+      };
+
+      if (animate) {
+        heroRollCounter++;
+        slideSplitRoll(splitL, makeLeft, dirL);
+        slideSplitRoll(splitR, makeRight, dirR);
+      } else {
+        const imgL = document.getElementById('floraHeroImgLeft');
+        const imgR = document.getElementById('floraHeroImgRight');
+        if (imgL) { imgL.src = pair.left.url; imgL.alt = pair.left.name; imgL.style.objectPosition = pair.left.pos || '45% center'; }
+        if (imgR) { imgR.src = pair.right.url; imgR.alt = pair.right.name; imgR.style.objectPosition = pair.right.pos || '55% center'; }
       }
       return pair;
     }
 
     const currentFloraHero = setupFloraHeroCard();
 
-    // Versus emblemáticos para la pastilla de Mamíferos en portada (fauna salvaje y felinos de mamiferos.json)
+    // Versus emblemáticos para la pastilla de Mamíferos en portada
     const FAUNA_CARD_PAIRS = [
       {
-        left: { name: 'Jaguar', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/754622110/medium.jpg', pos: '40% center' },
+        left: { name: 'Jaguar', url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG/3840px-Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail', pos: '40% center' },
         right: { name: 'Tigre de Bengala', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg', pos: '60% center' }
       },
       {
@@ -1103,17 +1266,47 @@
       }
     ];
 
-    function setupFaunaHeroCard() {
+    function setupFaunaHeroCard(animate = false) {
       const pair = FAUNA_CARD_PAIRS[Math.floor(Math.random() * FAUNA_CARD_PAIRS.length)];
-      const imgL = document.getElementById('faunaHeroImgLeft');
-      const imgR = document.getElementById('faunaHeroImgRight');
-      if (imgL && imgR) {
-        imgL.src = pair.left.url;
-        imgL.alt = pair.left.name;
-        imgL.style.objectPosition = pair.left.pos || '40% center';
-        imgR.src = pair.right.url;
-        imgR.alt = pair.right.name;
-        imgR.style.objectPosition = pair.right.pos || '60% center';
+      const splitL = document.getElementById('faunaHeroSplitLeft');
+      const splitR = document.getElementById('faunaHeroSplitRight');
+      if (!splitL || !splitR) return pair;
+
+      const i1 = new Image(); i1.src = pair.left.url;
+      const i2 = new Image(); i2.src = pair.right.url;
+
+      const dirL = (heroRollCounter % 2 === 0) ? 'up' : 'down';
+      const dirR = (heroRollCounter % 2 === 0) ? 'down' : 'up';
+
+      const makeLeft = (layer) => {
+        layer.innerHTML = `
+          <img id="faunaHeroImgLeft"
+               src="${pair.left.url}"
+               alt="${pair.left.name}"
+               class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+               style="object-position: ${pair.left.pos || '40% center'};" />
+        `;
+      };
+
+      const makeRight = (layer) => {
+        layer.innerHTML = `
+          <img id="faunaHeroImgRight"
+               src="${pair.right.url}"
+               alt="${pair.right.name}"
+               class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+               style="object-position: ${pair.right.pos || '60% center'};" />
+        `;
+      };
+
+      if (animate) {
+        heroRollCounter++;
+        slideSplitRoll(splitL, makeLeft, dirL);
+        slideSplitRoll(splitR, makeRight, dirR);
+      } else {
+        const imgL = document.getElementById('faunaHeroImgLeft');
+        const imgR = document.getElementById('faunaHeroImgRight');
+        if (imgL) { imgL.src = pair.left.url; imgL.alt = pair.left.name; imgL.style.objectPosition = pair.left.pos || '40% center'; }
+        if (imgR) { imgR.src = pair.right.url; imgR.alt = pair.right.name; imgR.style.objectPosition = pair.right.pos || '60% center'; }
       }
       return pair;
     }
@@ -1252,13 +1445,19 @@
 
     renderQuickDuel();
 
-    // Actualización periódica sutil de las pastillas para rotar duelos
+    // Rotación escalonada dinámica con animación de empuje cada 3.8s
+    const heroCardRotators = [
+      () => setupAvesHeroCard(true),
+      () => setupPokemonHeroCard(true),
+      () => setupFloraHeroCard(true),
+      () => setupFaunaHeroCard(true)
+    ];
+
+    let heroCardRotatorIdx = 0;
     setInterval(() => {
-      setupAvesHeroCard();
-      setupPokemonHeroCard();
-      setupFloraHeroCard();
-      setupFaunaHeroCard();
-    }, 12000);
+      heroCardRotators[heroCardRotatorIdx % heroCardRotators.length]();
+      heroCardRotatorIdx++;
+    }, 3800);
   </script>
 
 </body>

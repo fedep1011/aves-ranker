@@ -208,6 +208,10 @@ Utiliza el algoritmo centralizado en `src/core/tournament.js` basado en **Interl
 - **Complejidad óptima**: Resuelve un ordenamiento estricto de N elementos en $\approx N \log_2 N \cdot 0.82$ comparaciones (ej. ~42 duelos para N=16).
 - **Determinismo estricto**: Gobernado por una semilla PRNG (`battleSeed`), lo que permite reproducibilidad idéntica y serialización por URL.
 - **Deshacer (`Undo`) no destructivo**: El botón `Deshacer` (`#btnUndoBattleChoice`) hace `pop()` del historial en `choiceHistory`, reinicia el árbol de ordenamiento y replaya automáticamente las decisiones hasta el estado anterior instantáneamente.
+- **Precarga Anticipada del Primer Duelo**: Antes de conmutar a `viewBattle`, se ejecuta obligatoriamente `await preloadImagePair(candidates[0].photo, candidates[1].photo)` para garantizar que el primer enfrentamiento aparezca sin flash blanco ni spinner.
+- **Precarga en Background del Pool**: Justo al iniciar el juego se invoca `preloadCandidatePool(candidates)` para descargar asíncronamente las imágenes de los siguientes duelos en memoria.
+- **Transición Sincronizada y Dinámica de Duelos**: Para evitar que una tarjeta se actualice antes que la otra (izq y luego der) o cambios estáticos, se utiliza `await animateDuelTransition(container, updateDomFn, [leftPhoto, rightPhoto], winnerSide)` en `#battleCardsGrid`. Ejecuta una física de empuje visible (la carta ganadora embiste con scale, rotación y sombra profunda noqueando a la perdedora fuera de pantalla en horizontal en PC o vertical en Mobile), seguida de una entrada convergente elástica con spring hacia el centro con las nuevas imágenes precargadas.
+- **Carrete Vertical Continuo en Portada (`slideSplitRoll`)**: Las tarjetas divididas diagonalmente del hub (`half-split-left` y `half-split-right`) rotan enfrentamientos emblemáticos mediante un deslizamiento opuesto continuo: mientras una mitad sale hacia arriba, la otra sale hacia abajo y sus reemplazos entran en ese mismo deslizamiento continuo desde los extremos opuestos.
 
 ---
 
@@ -280,20 +284,23 @@ Para evitar desfases entre tarjetas y que las fotos deformen el layout, el conte
      - Si se dibuja una imagen remota directamente en el canvas sin CORS válido, el navegador marca el canvas como *tainted* (contaminado) y bloquea `toDataURL()` o `toBlob()` con un error `SecurityError`.
      - **Regla de oro**: `src/core/canvas.js` debe usar un proxy seguro (ej. `https://wsrv.nl/?url=...` o proxy propio) o un fallback vectorial/gradiente para que el canvas siempre pueda exportarse, copiarse y descargarse limpiamente.
 4. **Semillas Deterministas (`battleSeed`) y Desafíos**:
-   - Persistir `state.battleSeed` numérico al inicio de cada partida.
-   - Sincronizar la semilla en la query string de desafíos compartidos (`?r=id1.id2...&s=123456`) para que el desafiado juegue exactamente los mismos emparejamientos que el creador.
+   - Generar `state.battleSeed` como cadena alfanumérica de 8 caracteres con prefijo funcional (`generateSeed('r')` para azar o `'p'` para populares) antes de muestrear candidatos.
+   - Sincronizar la semilla en la URL del desafío compartido strictly como `?s=r7x9b2kf` mediante `buildSeedChallengeUrl` (~43 caracteres, sin query params innecesarios).
+   - Al abrir la URL, regenerar el pool con `createSeededRng(state.battleSeed)` y `sampleCandidates`, garantizando que ambos jugadores reciban exactamente los mismos candidatos y el mismo orden inicial de duelos.
 
 ---
 
 ## 9. Desafío Compartido por URL (Sin Base de Datos)
 
-El estado viaja comprimido en la query string de la URL:
-- `?r=4183.1205.992...`: Lista de IDs en el orden del ranking.
-- `?s=74921`: Semilla determinista del torneo para cruces idénticos.
-- `?c=Nombre+de+la+Categoria`: Título de la partida.
-- `?a=Nombre+del+Autor`: Nombre de quien creó el desafío.
+El estado viaja en la query string de la URL:
+- **Compartir Resultado / Podio Final**: `?r=id1.id2.id3...` (secuencia ordenada de las especies del ranking final, ej. `?r=5020.4981.144455...`). Esto permite que el receptor vea de inmediato en el banner el podio idéntico del creador (#1 ORO, #2 PLATA, #3 BRONCE) y juegue con esas mismas especies para comparar decisiones.
+- **Desafío por Semilla (Partida Virgen / Chaos Pool)**: `?s=r7x9b2kf` (URL ultra-corta de ~43 caracteres para sortear 16 especies al azar idénticas).
+- **Formatos y Parámetros Soportados**:
+  - `?r=...`: IDs ordenados del ranking.
+  - `?s=...`: Semilla de 8 caracteres o lista de IDs dot-separated.
+  - `?cid=...`: Formato comprimido base64.
 
-Al ingresar con un link de desafío, la app abre `viewChallenge`, precarga esos candidatos exactos y permite al invitado jugar con el mismo pool para comparar su Top 3 contra el del retador al finalizar.
+Al ingresar con un link de desafío, la app abre el banner de desafío, precarga los candidatos exactos y permite al invitado jugar con el mismo pool para comparar su Top 3 contra el del retador al finalizar.
 
 ---
 
@@ -388,8 +395,8 @@ Al implementar **Insectos**, **Razas de Perros**, **Dinosaurios**, **Maravillas 
 - [ ] **3. Controlador y Lógica (`src/<arena>/main.js`)**:
   - [ ] Carga asíncrona de `public/data/<arena>.json` con fallback seguro.
   - [ ] Conexión del algoritmo determinista `interleavedBisectSortAsync` de `src/core/tournament.js`.
-  - [ ] Generación y persistencia de `state.battleSeed` numérico determinista.
-  - [ ] Generación y decodificación de URLs de desafío con semillas (`?r=...&s=...`).
+  - [ ] Generación y persistencia de `state.battleSeed` alfanumérico canónico de 8 caracteres (`generateSeed` / `parseSeed`).
+  - [ ] Generación y decodificación de URLs de desafío ultra-cortas (`?s=a7x9b2kf`) mediante `buildSeedChallengeUrl` y `parseChallengeUrl` (con soporte retrocompatible para `?cid=` y `?r=`).
   - [ ] Motor de jerarquía territorial con herencia (`País -> Subregión -> Continente -> Global`).
   - [ ] Conexión de Dark Mode e iconos reactivos con `bindThemeButton` e `initTheme` de `src/core/theme.js`.
   - [ ] Modal y exportación Canvas 2.0 (Story 9:16 y Tarjeta 4:5) conectado a `src/core/canvas.js` con protocolo anti-tainted canvas.

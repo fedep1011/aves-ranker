@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kurador · Duelo de Fuentes Visuales (1 vs 1)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Instrument Serif', 'serif'],
+            mono: ['Space Grotesk', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .photo-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: #0b0f17;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-ambient {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(24px);
+      opacity: 0.35;
+      transform: scale(1.15);
+      pointer-events: none;
+    }
+    .photo-main {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    .selected-card-a {
+      ring: 4px solid #0284c7;
+      box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.4);
+    }
+    .selected-card-b {
+      ring: 4px solid #10b981;
+      box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-stone-900 text-stone-100 min-h-full flex flex-col font-sans selection:bg-sky-600 selection:text-white">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-40 bg-stone-950/95 backdrop-blur border-b border-stone-800 px-4 py-3 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand & Mode -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 font-mono font-bold text-sky-400">
+          <svg class="w-6 h-6 text-sky-500" viewBox="0 0 256 256" fill="currentColor">
+            <path d="M64 32 H184 L104 112 H136 L40 208 V56 A24 24 0 0 1 64 32 Z"/>
+          </svg>
+          <span class="tracking-wider uppercase text-base">Kurador</span>
+        </div>
+        <span class="text-stone-700">/</span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-stone-800 text-stone-300 border border-stone-700">
+          Shootout 1 vs 1 Privado
+        </span>
+      </div>
+
+      <!-- Category Selector & View Switcher -->
+      <div class="flex flex-wrap items-center gap-2">
+        <select id="arenaSelect" onchange="kurador.setArena(this.value)" class="text-xs font-bold px-3 py-1.5 rounded-lg border border-stone-700 bg-stone-800 text-stone-100 cursor-pointer hover:border-sky-500 transition">
+          <option value="aves" selected>🐦 Aves (/data/aves.json)</option>
+          <option value="flores">🌸 Flores (/data/flores.json)</option>
+          <option value="mamiferos">🐆 Mamíferos (/data/mamiferos.json)</option>
+        </select>
+
+        <!-- View Switcher -->
+        <div class="flex items-center bg-stone-800 p-0.5 rounded-lg border border-stone-700 text-xs font-medium">
+          <button id="tabBtnDuel" onclick="kurador.setView('duel')" class="px-3 py-1 rounded-md bg-stone-900 text-white font-bold shadow-xs">
+            ⚔️ Duelo 1 vs 1
+          </button>
+          <button id="tabBtnCatalog" onclick="kurador.setView('catalog')" class="px-3 py-1 rounded-md text-stone-400 hover:text-white">
+            📋 Catálogo
+          </button>
+          <button id="tabBtnHub" onclick="kurador.setView('hub')" class="px-3 py-1 rounded-md text-stone-400 hover:text-white">
+            🖼️ Unificación Portadas
+          </button>
+        </div>
+
+        <button onclick="kurador.downloadUpdatedJson()" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1.5 shadow-sm">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Descargar JSON
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SUBHEADER STATUS & PROGRESS BAR -->
+  <div class="bg-stone-950 border-b border-stone-800/80 px-4 py-2 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-3">
+        <span id="progressText" class="font-mono text-stone-400">Cargando catálogo...</span>
+        <div class="w-28 sm:w-44 h-2 bg-stone-800 rounded-full overflow-hidden">
+          <div id="progressBar" class="h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 text-[11px] font-mono">
+        <span id="syncBadge" class="flex items-center gap-1.5 text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Autoguardado Activo
+        </span>
+        <span id="statsA" class="text-sky-400 font-semibold">Fuente A: 0</span>
+        <span id="statsB" class="text-emerald-400 font-semibold">Fuente B: 0</span>
+        <button onclick="kurador.resetCurrentArena()" class="text-stone-500 hover:text-rose-400 transition" title="Reiniciar votos de esta categoría">
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 flex flex-col justify-start">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: DUELO DE FOTOS 1 VS 1 (SHOOTOUT)   -->
+    <!-- ========================================== -->
+    <section id="viewDuel" class="space-y-4">
+      
+      <!-- Current Item Info Card -->
+      <div class="bg-stone-800/60 border border-stone-700/70 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span id="itemIndexBadge" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-950 text-sky-400 border border-sky-800/50">#1</span>
+            <h2 id="itemName" class="font-serif text-2xl sm:text-3xl text-white font-bold leading-none">Cargando especie...</h2>
+          </div>
+          <p id="itemSciName" class="text-xs sm:text-sm text-stone-400 font-mono italic">...</p>
+        </div>
+        <div id="itemTags" class="flex flex-wrap items-center gap-1.5 text-[11px] font-mono text-stone-300">
+          <!-- Dynamically injected badges (Familia, Hábitat, Región) -->
+        </div>
+      </div>
+
+      <!-- Shootout Battle Area (A vs B) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        
+        <!-- CARD A: Fuente iNaturalist S3 / Actual -->
+        <div id="cardA" class="bg-stone-800/40 border-2 border-stone-700 rounded-2xl p-4 flex flex-col justify-between gap-3 transition-all duration-200">
+          
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-sky-600 text-white font-bold text-xs flex items-center justify-center">A</span>
+              <span class="text-xs font-bold text-sky-400 uppercase tracking-wider font-mono">Fuente A · Foto Actual</span>
+            </div>
+            <span id="badgeCurrentSource" class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-400 border border-stone-700">iNaturalist S3</span>
+          </div>
+
+          <!-- Photo Container -->
+          <div class="photo-container group">
+            <img id="imgAmbientA" src="" alt="" class="photo-ambient" />
+            <img id="imgMainA" src="" alt="" class="photo-main" />
+            <div id="loaderA" class="hidden absolute inset-0 flex items-center justify-center bg-stone-950/80 z-20">
+              <span class="text-xs text-sky-400 font-mono animate-pulse">Cargando foto A...</span>
+            </div>
+          </div>
+
+          <!-- Action Button A -->
+          <button id="btnVoteA" onclick="kurador.vote('A')" class="w-full py-3.5 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 active:scale-[0.98] text-white font-bold text-sm tracking-wide shadow-md transition flex items-center justify-center gap-2">
+            <span>Elegir Fuente A</span>
+            <kbd class="px-1.5 py-0.5 text-[10px] rounded bg-sky-800/80 font-mono border border-sky-400/30">1</kbd>
+            <span class="text-xs opacity-75">o [←]</span>
+          </button>
+
+          <div class="flex items-center justify-between text-[10px] font-mono text-stone-400 truncate">
+            <span id="urlPreviewA" class="truncate max-w-[280px]">...</span>
+            <a id="linkA" href="#" target="_blank" class="hover:text-sky-400 underline shrink-0">Abrir original ↗</a>
+          </div>
+
+        </div>
+
+        <!-- CARD B: Fuente Wikipedia / Wikimedia Commons -->
+        <div id="cardB" class="bg-stone-800/40 border-2 border-stone-700 rounded-2xl p-4 flex flex-col justify-between gap-3 transition-all duration-200">
+          
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center">B</span>
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono">Fuente B · Wikipedia / Commons</span>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-400 border border-stone-700">REST API</span>
+          </div>
+
+          <!-- Photo Container -->
+          <div class="photo-container group">
+            <img id="imgAmbientB" src="" alt="" class="photo-ambient" />
+            <img id="imgMainB" src="" alt="" class="photo-main" />
+            
+            <div id="loaderB" class="absolute inset-0 flex items-center justify-center bg-stone-950/80 z-20">
+              <span class="text-xs text-emerald-400 font-mono animate-pulse flex items-center gap-2">
+                <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="3" stroke-dasharray="32" stroke-linecap="round"/></svg>
+                Buscando en Wikipedia...
+              </span>
+            </div>
+
+            <div id="errorB" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-stone-950 p-4 text-center z-20 space-y-2">
+              <span class="text-xs font-mono text-rose-400">Wikipedia no tiene foto disponible para esta especie</span>
+              <button onclick="kurador.searchAlternativeWikipedia()" class="px-2.5 py-1 text-xs rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono">
+                Reintentar con otro término
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Button B -->
+          <button id="btnVoteB" onclick="kurador.vote('B')" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white font-bold text-sm tracking-wide shadow-md transition flex items-center justify-center gap-2">
+            <span>Elegir Fuente B</span>
+            <kbd class="px-1.5 py-0.5 text-[10px] rounded bg-emerald-800/80 font-mono border border-emerald-400/30">2</kbd>
+            <span class="text-xs opacity-75">o [→]</span>
+          </button>
+
+          <div class="flex items-center justify-between text-[10px] font-mono text-stone-400 truncate">
+            <span id="urlPreviewB" class="truncate max-w-[280px]">...</span>
+            <a id="linkB" href="#" target="_blank" class="hover:text-emerald-400 underline shrink-0">Abrir original ↗</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Quick Bottom Controls (Keyboard bar) -->
+      <div class="bg-stone-950/80 border border-stone-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-3 text-xs">
+        
+        <div class="flex items-center gap-2">
+          <button onclick="kurador.prevItem()" class="px-3 py-1.5 rounded-lg border border-stone-700 bg-stone-800 hover:bg-stone-700 text-stone-300 transition flex items-center gap-1.5 font-medium">
+            <span>← Anterior</span>
+            <kbd class="px-1 text-[10px] bg-stone-900 rounded font-mono">Z</kbd>
+          </button>
+          <button onclick="kurador.nextItem()" class="px-3 py-1.5 rounded-lg border border-stone-700 bg-stone-800 hover:bg-stone-700 text-stone-300 transition flex items-center gap-1.5 font-medium">
+            <span>Saltar / Siguiente →</span>
+            <kbd class="px-1 text-[10px] bg-stone-900 rounded font-mono">Espacio</kbd>
+          </button>
+        </div>
+
+        <!-- Custom URL Input fallback -->
+        <div class="flex-1 max-w-md flex items-center gap-2">
+          <input id="inputCustomUrl" type="url" placeholder="O pegar URL personalizada y Enter..." class="flex-1 text-xs px-3 py-1.5 rounded-lg bg-stone-900 border border-stone-700 text-stone-100 placeholder:text-stone-500 font-mono focus:border-sky-500 outline-none" onkeydown="if(event.key==='Enter') kurador.voteCustom(this.value)" />
+          <button onclick="kurador.voteCustom(document.getElementById('inputCustomUrl').value)" class="px-2.5 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-bold shrink-0">
+            Aplicar
+          </button>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-2 text-[11px] font-mono text-stone-500">
+          <span>Atajos: [1] Fuente A · [2] Fuente B · [Z] Deshacer</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: CATÁLOGO Y BUSCADOR COMPLETO       -->
+    <!-- ========================================== -->
+    <section id="viewCatalog" class="hidden space-y-4">
+      
+      <div class="flex flex-wrap items-center justify-between gap-3 bg-stone-950/70 p-4 rounded-2xl border border-stone-800">
+        <div class="flex-1 max-w-md">
+          <input id="catalogSearchInput" oninput="kurador.renderCatalog()" type="search" placeholder="Buscar especie por nombre o nombre científico..." class="w-full px-3.5 py-2 rounded-xl bg-stone-900 border border-stone-700 text-stone-100 text-xs font-mono placeholder:text-stone-500 outline-none focus:border-sky-500" />
+        </div>
+        <div class="flex items-center gap-2 text-xs font-mono">
+          <button onclick="kurador.setCatalogFilter('all')" class="px-2.5 py-1 rounded bg-stone-800 text-white font-bold" id="filterBtnAll">Todas</button>
+          <button onclick="kurador.setCatalogFilter('pending')" class="px-2.5 py-1 rounded text-stone-400 hover:text-white" id="filterBtnPending">Pendientes</button>
+          <button onclick="kurador.setCatalogFilter('curated')" class="px-2.5 py-1 rounded text-stone-400 hover:text-white" id="filterBtnCurated">Curadas</button>
+        </div>
+      </div>
+
+      <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Rendered items in grid -->
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: UNIFICACIÓN CON PORTADAS (HUB)     -->
+    <!-- ========================================== -->
+    <section id="viewHub" class="hidden space-y-4">
+      
+      <div class="bg-stone-950/70 p-5 rounded-2xl border border-stone-800 space-y-3">
+        <h3 class="font-serif text-2xl text-white">Especies de Portada en el Hub (`index.html`)</h3>
+        <p class="text-xs text-stone-400 max-w-2xl leading-relaxed">
+          Regla de oro: Si una especie protagoniza el duelo de portada en la página de inicio, debe usar exactamente la misma foto que se coronó como la mejor en este curador.
+        </p>
+      </div>
+
+      <div id="hubCoversList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Rendered Hub Cover pairs -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module">
+    import { SUPABASE_URL, SUPABASE_ANON_KEY } from '/src/core/supabase.js';
+
+    class KuradorApp {
+      constructor() {
+        this.arena = 'aves';
+        this.items = [];
+        this.currentIndex = 0;
+        this.choices = new Map(); // id -> { source: 'A'|'B'|'custom', photo: string, wikiPhoto: string }
+        this.wikiCache = new Map(); // id -> string (url)
+        this.view = 'duel';
+        this.catalogFilter = 'all';
+
+        // Hub Cover Species IDs to guarantee 100% visual unification
+        this.hubHighlights = {
+          aves: [
+            { id: 2455, name: 'Tucán Toco', side: 'Izquierda', currentHubPhoto: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg' },
+            { id: 1888, name: 'Guacamayo Rojo', side: 'Derecha', currentHubPhoto: 'https://static.inaturalist.org/photos/67503679/medium.jpg' }
+          ],
+          mamiferos: [
+            { id: 41970, name: 'Jaguar', side: 'Izquierda', currentHubPhoto: 'https://inaturalist-open-data.s3.amazonaws.com/photos/20325515/medium.jpg' },
+            { id: 41967, name: 'Tigre', side: 'Derecha', currentHubPhoto: 'https://inaturalist-open-data.s3.amazonaws.com/photos/157091494/medium.jpg' }
+          ],
+          flores: [
+            { id: 47607, name: 'Rosa Silvestre', side: 'Izquierda', currentHubPhoto: 'https://inaturalist-open-data.s3.amazonaws.com/photos/12345/medium.jpg' },
+            { id: 50714, name: 'Orquídea Cattleya', side: 'Derecha', currentHubPhoto: 'https://inaturalist-open-data.s3.amazonaws.com/photos/67890/medium.jpg' }
+          ]
+        };
+
+        this.init();
+      }
+
+      async init() {
+        this.loadStorage();
+        await this.loadArenaData();
+        this.bindKeyboard();
+        this.render();
+        // Cloud-first: sync with Supabase in background
+        await this.loadFromSupabase();
+      }
+
+      loadStorage() {
+        try {
+          const raw = localStorage.getItem(`rankea2_kurador_${this.arena}`);
+          if (raw) {
+            const arr = JSON.parse(raw);
+            this.choices = new Map(arr);
+          } else {
+            this.choices = new Map();
+          }
+        } catch (_) {
+          this.choices = new Map();
+        }
+      }
+
+      saveStorage() {
+        try {
+          const arr = Array.from(this.choices.entries());
+          localStorage.setItem(`rankea2_kurador_${this.arena}`, JSON.stringify(arr));
+        } catch (_) {}
+      }
+
+      async loadFromSupabase() {
+        const syncBadge = document.getElementById('syncBadge');
+        if (syncBadge) {
+          syncBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-spin"></span> Sincronizando con Supabase...';
+        }
+        try {
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/rankings?pack_id=eq.curation_${this.arena}&select=*`, {
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+            }
+          });
+          if (res.ok) {
+            const rows = await res.json();
+            let newLoaded = 0;
+            for (const r of rows) {
+              try {
+                const parsed = JSON.parse(r.author);
+                const itemId = Number(r.ranking_ids[0]) || r.ranking_ids[0];
+                this.choices.set(itemId, {
+                  source: parsed.source,
+                  photo: parsed.photo,
+                  wikiPhoto: parsed.wikiPhoto || ''
+                });
+                newLoaded++;
+              } catch (_) {}
+            }
+            this.saveStorage();
+            if (syncBadge) {
+              syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Supabase en la nube (${this.choices.size} curadas)`;
+            }
+            this.render();
+          }
+        } catch (err) {
+          console.warn('Supabase cloud fetch fallback:', err);
+          if (syncBadge) {
+            syncBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Modo Local (Offline)';
+          }
+        }
+      }
+
+      async setArena(arenaKey) {
+        this.arena = arenaKey;
+        this.currentIndex = 0;
+        this.loadStorage();
+        await this.loadArenaData();
+        this.render();
+        await this.loadFromSupabase();
+      }
+
+      async loadArenaData() {
+        try {
+          const res = await fetch(`/data/${this.arena}.json`);
+          if (!res.ok) throw new Error('Data file not found');
+          this.items = await res.json();
+          // Normalize items
+          this.items = this.items.map(it => ({
+            id: it.id,
+            name: it.name || it.common_name || 'Sin nombre',
+            sciName: it.sci_name || it.scientific_name || '',
+            family: it.family || it.group || '',
+            habitat: it.habitat || it.region || '',
+            photo: it.photo || it.image || ''
+          }));
+        } catch (err) {
+          console.error('Error loading arena data:', err);
+          this.items = [];
+        }
+      }
+
+      bindKeyboard() {
+        window.addEventListener('keydown', (e) => {
+          // Ignore if focused on inputs
+          if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+
+          if (this.view !== 'duel') return;
+
+          if (e.key === '1' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            this.vote('A');
+          } else if (e.key === '2' || e.key === 'ArrowRight') {
+            e.preventDefault();
+            this.vote('B');
+          } else if (e.key === ' ' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            this.nextItem();
+          } else if (e.key.toLowerCase() === 'z' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            this.prevItem();
+          }
+        });
+      }
+
+      setView(viewMode) {
+        this.view = viewMode;
+        document.getElementById('viewDuel').classList.toggle('hidden', viewMode !== 'duel');
+        document.getElementById('viewCatalog').classList.toggle('hidden', viewMode !== 'catalog');
+        document.getElementById('viewHub').classList.toggle('hidden', viewMode !== 'hub');
+
+        // Style buttons
+        const tabs = ['duel', 'catalog', 'hub'];
+        for (const t of tabs) {
+          const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+          if (btn) {
+            btn.classList.toggle('bg-stone-900', t === viewMode);
+            btn.classList.toggle('text-white', t === viewMode);
+            btn.classList.toggle('font-bold', t === viewMode);
+            btn.classList.toggle('text-stone-400', t !== viewMode);
+          }
+        }
+
+        if (viewMode === 'catalog') this.renderCatalog();
+        if (viewMode === 'hub') this.renderHub();
+      }
+
+      async fetchWikipediaPhoto(item) {
+        if (!item) return null;
+        if (this.wikiCache.has(item.id)) {
+          return this.wikiCache.get(item.id);
+        }
+
+        const queries = [
+          item.sciName,
+          item.name
+        ].filter(Boolean);
+
+        for (const q of queries) {
+          const clean = q.replace(/[()]/g, '').trim().replace(/ /g, '_');
+          const endpoints = [
+            `https://es.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`,
+            `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`
+          ];
+
+          for (const ep of endpoints) {
+            try {
+              const res = await fetch(ep);
+              if (res.ok) {
+                const data = await res.json();
+                const src = data.originalimage?.source || data.thumbnail?.source;
+                if (src && !src.endsWith('.svg')) {
+                  this.wikiCache.set(item.id, src);
+                  return src;
+                }
+              }
+            } catch (_) {}
+          }
+        }
+
+        return null;
+      }
+
+      async render() {
+        if (!this.items.length) {
+          document.getElementById('itemName').textContent = 'No se encontraron especies.';
+          return;
+        }
+
+        const item = this.items[this.currentIndex];
+        const total = this.items.length;
+        const curadas = this.choices.size;
+
+        // Progress Text & Bar
+        document.getElementById('progressText').textContent = `Especie ${this.currentIndex + 1} de ${total} (${curadas} curadas)`;
+        document.getElementById('progressBar').style.width = `${Math.round(((this.currentIndex + 1) / total) * 100)}%`;
+
+        // Stats
+        let countA = 0;
+        let countB = 0;
+        for (const val of this.choices.values()) {
+          if (val.source === 'A') countA++;
+          if (val.source === 'B') countB++;
+        }
+        document.getElementById('statsA').textContent = `Fuente A: ${countA}`;
+        document.getElementById('statsB').textContent = `Fuente B: ${countB}`;
+
+        // Header Card info
+        document.getElementById('itemIndexBadge').textContent = `#${this.currentIndex + 1}`;
+        document.getElementById('itemName').textContent = item.name;
+        document.getElementById('itemSciName').textContent = item.sciName || 'Nombre científico no especificado';
+
+        const tagsContainer = document.getElementById('itemTags');
+        tagsContainer.innerHTML = '';
+        if (item.family) {
+          tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded bg-stone-800 border border-stone-700">${item.family}</span>`;
+        }
+        if (item.habitat) {
+          tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded bg-stone-800 border border-stone-700">${item.habitat}</span>`;
+        }
+        if (this.choices.has(item.id)) {
+          const chosen = this.choices.get(item.id);
+          const badgeColor = chosen.source === 'A' ? 'bg-sky-950 text-sky-400 border-sky-800' : 'bg-emerald-950 text-emerald-400 border-emerald-800';
+          tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded ${badgeColor} border font-bold">✓ Curada (Fuente ${chosen.source})</span>`;
+        }
+
+        // Render Card A (Foto Actual / iNaturalist)
+        const photoA = item.photo || '';
+        document.getElementById('imgAmbientA').src = photoA;
+        document.getElementById('imgMainA').src = photoA;
+        document.getElementById('urlPreviewA').textContent = photoA;
+        document.getElementById('linkA').href = photoA;
+
+        // Render Card B (Wikipedia)
+        const loaderB = document.getElementById('loaderB');
+        const errorB = document.getElementById('errorB');
+        const imgMainB = document.getElementById('imgMainB');
+        const imgAmbientB = document.getElementById('imgAmbientB');
+        const urlPreviewB = document.getElementById('urlPreviewB');
+        const linkB = document.getElementById('linkB');
+
+        loaderB.classList.remove('hidden');
+        errorB.classList.add('hidden');
+        imgMainB.src = '';
+        imgAmbientB.src = '';
+
+        // Check if user previously had wikiPhoto saved or in cache
+        let wikiUrl = this.choices.get(item.id)?.wikiPhoto || this.wikiCache.get(item.id);
+        if (!wikiUrl) {
+          wikiUrl = await this.fetchWikipediaPhoto(item);
+        }
+
+        loaderB.classList.add('hidden');
+        if (wikiUrl) {
+          imgMainB.src = wikiUrl;
+          imgAmbientB.src = wikiUrl;
+          urlPreviewB.textContent = wikiUrl;
+          linkB.href = wikiUrl;
+        } else {
+          errorB.classList.remove('hidden');
+          urlPreviewB.textContent = 'Sin foto en Wikipedia';
+          linkB.href = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(item.name + ' ' + item.sciName)}`;
+        }
+
+        // Highlight active choice if already curated
+        const choice = this.choices.get(item.id);
+        document.getElementById('cardA').classList.toggle('selected-card-a', choice?.source === 'A');
+        document.getElementById('cardB').classList.toggle('selected-card-b', choice?.source === 'B');
+
+        // Preload next species photos in background
+        this.preloadNext(this.currentIndex + 1);
+      }
+
+      preloadNext(idx) {
+        if (idx >= this.items.length) return;
+        const nextItem = this.items[idx];
+        if (nextItem && nextItem.photo) {
+          const img = new Image();
+          img.src = nextItem.photo;
+        }
+        // Background Wikipedia query
+        this.fetchWikipediaPhoto(nextItem);
+      }
+
+      async vote(source) {
+        const item = this.items[this.currentIndex];
+        if (!item) return;
+
+        let chosenUrl = '';
+        const wikiUrl = this.wikiCache.get(item.id) || '';
+
+        if (source === 'A') {
+          chosenUrl = item.photo;
+        } else if (source === 'B') {
+          chosenUrl = wikiUrl;
+          if (!chosenUrl) {
+            alert('Wikipedia no tiene foto disponible para esta especie. Puedes pegar una URL manual abajo.');
+            return;
+          }
+        }
+
+        this.choices.set(item.id, {
+          source,
+          photo: chosenUrl,
+          wikiPhoto: wikiUrl
+        });
+
+        this.saveStorage();
+        this.syncSupabase(item, source, chosenUrl);
+
+        // Visual flash feedback
+        const card = source === 'A' ? document.getElementById('cardA') : document.getElementById('cardB');
+        card.classList.add(source === 'A' ? 'selected-card-a' : 'selected-card-b');
+
+        setTimeout(() => {
+          this.nextItem();
+        }, 120);
+      }
+
+      voteCustom(url) {
+        if (!url || !url.trim().startsWith('http')) {
+          alert('Ingresa una URL válida que empiece con http/https');
+          return;
+        }
+        const cleanUrl = url.trim();
+        const item = this.items[this.currentIndex];
+        if (!item) return;
+
+        this.choices.set(item.id, {
+          source: 'custom',
+          photo: cleanUrl,
+          wikiPhoto: this.wikiCache.get(item.id) || ''
+        });
+
+        this.saveStorage();
+        this.syncSupabase(item, 'custom', cleanUrl);
+        document.getElementById('inputCustomUrl').value = '';
+        this.nextItem();
+      }
+
+      async syncSupabase(item, source, chosenUrl) {
+        const short_code = `c_${this.arena}_${item.id}`;
+        const wikiUrl = this.wikiCache.get(item.id) || '';
+        const payload = {
+          short_code,
+          pack_id: `curation_${this.arena}`,
+          ranking_ids: [String(item.id), source, chosenUrl],
+          author: JSON.stringify({
+            name: item.name,
+            source,
+            photo: chosenUrl,
+            wikiPhoto: wikiUrl
+          })
+        };
+
+        const syncBadge = document.getElementById('syncBadge');
+        if (syncBadge) {
+          syncBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-spin"></span> Guardando en Supabase...';
+        }
+
+        try {
+          // 1. Try to update existing record via PATCH
+          const patchRes = await fetch(`${SUPABASE_URL}/rest/v1/rankings?short_code=eq.${encodeURIComponent(short_code)}`, {
+            method: 'PATCH',
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json',
+              'Prefer': 'return=representation'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (patchRes.ok) {
+            const patched = await patchRes.json();
+            if (Array.isArray(patched) && patched.length > 0) {
+              if (syncBadge) {
+                syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Guardado en Supabase (${this.choices.size} curadas)`;
+              }
+              return;
+            }
+          }
+
+          // 2. If not existing yet, insert via POST
+          const postRes = await fetch(`${SUPABASE_URL}/rest/v1/rankings`, {
+            method: 'POST',
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (postRes.ok && syncBadge) {
+            syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Guardado en Supabase (${this.choices.size} curadas)`;
+          }
+        } catch (err) {
+          console.warn('Supabase curation sync error:', err);
+          if (syncBadge) {
+            syncBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Guardado localmente (reintentando Supabase)';
+          }
+        }
+      }
+
+      nextItem() {
+        if (this.currentIndex < this.items.length - 1) {
+          this.currentIndex++;
+          this.render();
+        } else {
+          alert('¡Llegaste al final de la categoría! Puedes descargar el JSON actualizado desde el botón superior.');
+        }
+      }
+
+      prevItem() {
+        if (this.currentIndex > 0) {
+          this.currentIndex--;
+          this.render();
+        }
+      }
+
+      searchAlternativeWikipedia() {
+        const item = this.items[this.currentIndex];
+        const newQuery = prompt('Ingresa nombre o término de búsqueda para Wikipedia:', item.sciName || item.name);
+        if (newQuery) {
+          this.wikiCache.delete(item.id);
+          item.sciName = newQuery;
+          this.render();
+        }
+      }
+
+      resetCurrentArena() {
+        if (confirm(`¿Reiniciar las elecciones guardadas de ${this.arena}?`)) {
+          this.choices.clear();
+          localStorage.removeItem(`rankea2_kurador_${this.arena}`);
+          this.currentIndex = 0;
+          this.render();
+        }
+      }
+
+      // ==========================================
+      // VIEW 2: RENDER CATALOG GRID
+      // ==========================================
+      renderCatalog() {
+        const container = document.getElementById('catalogGrid');
+        container.innerHTML = '';
+        const search = (document.getElementById('catalogSearchInput')?.value || '').toLowerCase().trim();
+
+        const filtered = this.items.filter(it => {
+          const matchesSearch = !search || it.name.toLowerCase().includes(search) || it.sciName.toLowerCase().includes(search);
+          const hasCurated = this.choices.has(it.id);
+          if (this.catalogFilter === 'pending') return matchesSearch && !hasCurated;
+          if (this.catalogFilter === 'curated') return matchesSearch && hasCurated;
+          return matchesSearch;
+        });
+
+        if (!filtered.length) {
+          container.innerHTML = `<div class="col-span-full py-12 text-center text-stone-500 font-mono text-sm">No se encontraron especies en este filtro.</div>`;
+          return;
+        }
+
+        for (const it of filtered.slice(0, 100)) {
+          const choice = this.choices.get(it.id);
+          const activePhoto = choice?.photo || it.photo;
+          const card = document.createElement('div');
+          card.className = `p-3 rounded-xl border bg-stone-900 flex flex-col justify-between gap-2.5 transition ${choice ? 'border-emerald-500/50' : 'border-stone-800'}`;
+          
+          card.innerHTML = `
+            <div class="photo-container !aspect-[4/3] rounded-lg">
+              <img src="${activePhoto}" alt="${it.name}" class="photo-main" />
+            </div>
+            <div>
+              <div class="flex items-center justify-between gap-1 text-[10px] font-mono text-stone-400">
+                <span>#${it.id}</span>
+                <span class="${choice ? 'text-emerald-400 font-bold' : 'text-stone-500'}">${choice ? `Fuente ${choice.source}` : 'Pendiente'}</span>
+              </div>
+              <h4 class="font-bold text-sm text-white truncate" title="${it.name}">${it.name}</h4>
+              <p class="text-[11px] text-stone-400 font-mono italic truncate">${it.sciName}</p>
+            </div>
+            <button onclick="kurador.jumpToItem(${it.id})" class="w-full py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-xs font-mono text-stone-200 transition">
+              Curar en Duelo →
+            </button>
+          `;
+          container.appendChild(card);
+        }
+      }
+
+      setCatalogFilter(filter) {
+        this.catalogFilter = filter;
+        this.renderCatalog();
+      }
+
+      jumpToItem(id) {
+        const idx = this.items.findIndex(it => it.id === id);
+        if (idx !== -1) {
+          this.currentIndex = idx;
+          this.setView('duel');
+        }
+      }
+
+      // ==========================================
+      // VIEW 3: UNIFICACIÓN CON PORTADAS
+      // ==========================================
+      renderHub() {
+        const container = document.getElementById('hubCoversList');
+        container.innerHTML = '';
+        const list = this.hubHighlights[this.arena] || [];
+
+        for (const item of list) {
+          const choice = this.choices.get(item.id);
+          const rankingPhoto = choice?.photo || this.items.find(it => it.id === item.id)?.photo || item.currentHubPhoto;
+          const isUnified = item.currentHubPhoto === rankingPhoto;
+
+          const card = document.createElement('div');
+          card.className = 'bg-stone-900 border border-stone-800 rounded-2xl p-4 space-y-3';
+          card.innerHTML = `
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-mono text-sky-400 font-bold uppercase tracking-wider">${item.side} de la Portada</span>
+                <h4 class="font-bold text-base text-white">${item.name}</h4>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${isUnified ? 'bg-emerald-950 text-emerald-400 border border-emerald-800' : 'bg-amber-950 text-amber-400 border border-amber-800'}">
+                ${isUnified ? '✓ Unificada' : '⚠️ Foto Diferente'}
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-center text-xs">
+              <div class="space-y-1">
+                <span class="text-[10px] font-mono text-stone-400">Foto Actual en Portada</span>
+                <div class="photo-container !aspect-[4/3] rounded-lg">
+                  <img src="${item.currentHubPhoto}" alt="" class="photo-main" />
+                </div>
+              </div>
+              <div class="space-y-1">
+                <span class="text-[10px] font-mono text-stone-400">Foto Ganadora en Ranking</span>
+                <div class="photo-container !aspect-[4/3] rounded-lg">
+                  <img src="${rankingPhoto}" alt="" class="photo-main" />
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-stone-800 text-[11px] font-mono">
+              <span class="text-stone-400">ID #${item.id}</span>
+              <button onclick="kurador.jumpToItem(${item.id})" class="text-sky-400 hover:underline">
+                Re-curar en Duelo →
+              </button>
+            </div>
+          `;
+          container.appendChild(card);
+        }
+      }
+
+      // ==========================================
+      // EXPORT UPDATED DATASET (.JSON)
+      // ==========================================
+      downloadUpdatedJson() {
+        if (!this.items.length) return;
+
+        // Build new array keeping all original fields but replacing photo with curated choice
+        const updated = this.items.map(it => {
+          const choice = this.choices.get(it.id);
+          return {
+            ...it,
+            photo: choice ? choice.photo : it.photo,
+            curated_source: choice ? choice.source : 'default'
+          };
+        });
+
+        const blob = new Blob([JSON.stringify(updated, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${this.arena}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    window.kurador = new KuradorApp();
+  </script>
+
+</body>
+</html>

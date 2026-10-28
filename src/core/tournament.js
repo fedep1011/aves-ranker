@@ -3,8 +3,36 @@
  * Reusable across any category (Aves, Pokémon, Flores, Mamíferos, etc.)
  */
 
+/**
+ * Converts any seed (number, 8-character alphanumeric string, etc.) into an unsigned 32-bit integer.
+ */
+export function parseSeed(seed) {
+  if (typeof seed === 'number') return (seed >>> 0) || 1;
+  if (!seed || typeof seed !== 'string') return 1;
+  if (/^\d+$/.test(seed)) return (parseInt(seed, 10) >>> 0) || 1;
+  let h = 0x811c9dc5;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return (h >>> 0) || 1;
+}
+
+/**
+ * Generates a clean 8-character alphanumeric lowercase seed (e.g. "k8f3m9zq").
+ * Optional prefix allows encoding mode (e.g. 'r' for random/chaos, 'p' for popular).
+ */
+export function generateSeed(prefix = '') {
+  const chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+  let s = String(prefix || '');
+  while (s.length < 8) {
+    s += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return s.slice(0, 8);
+}
+
 export function createSeededRng(seed) {
-  let s = (seed >>> 0) || 1;
+  let s = parseSeed(seed);
   return () => {
     s = (s + 0x6D2B79F5) >>> 0;
     let t = Math.imul(s ^ (s >>> 15), 1 | s);
@@ -190,6 +218,108 @@ export async function interleavedBisectSortAsync(arr, askUserPreference, seed = 
   return runs[0] || [];
 }
 
+/**
+ * Encodes a challenge payload into an ultra-compact, URL-safe alphanumeric string (CID).
+ * Numbers are converted to Base36 to minimize length.
+ */
+export function encodeCID({ ids = [], category = '', author = '', seed = null, lang = 'es' } = {}) {
+  const idStr = ids.map(id => {
+    const s = String(id).trim();
+    return /^\d+$/.test(s) ? Number(s).toString(36) : `_${encodeURIComponent(s)}`;
+  }).join('.');
+
+  const parts = [
+    idStr,
+    encodeURIComponent(category || ''),
+    encodeURIComponent(author || ''),
+    (seed !== null && seed !== undefined && seed !== '') ? Number(seed).toString(36) : '',
+    lang === 'en' ? 'en' : ''
+  ];
+  while (parts.length > 1 && parts[parts.length - 1] === '') parts.pop();
+  return parts.join('~');
+}
+
+/**
+ * Decodes a compact CID string back into the canonical challenge object.
+ */
+export function decodeCID(cid) {
+  if (!cid || typeof cid !== 'string') return null;
+  const parts = cid.split('~');
+  if (!parts[0]) return null;
+
+  const ids = parts[0].split('.').map(chunk => {
+    if (chunk.startsWith('_')) {
+      return decodeURIComponent(chunk.slice(1));
+    }
+    const n = parseInt(chunk, 36);
+    return isNaN(n) ? chunk : String(n);
+  }).filter(Boolean);
+
+  if (ids.length < 2) return null;
+
+  return {
+    ids,
+    category: parts[1] ? decodeURIComponent(parts[1]) : '',
+    author: parts[2] ? decodeURIComponent(parts[2]) : '',
+    seed: parts[3] ? (parseInt(parts[3], 36) || parts[3]) : null,
+    lang: parts[4] || 'es'
+  };
+}
+
+/**
+ * Generates an ultra-concise, clean 8-character alphanumeric seed challenge URL (?s=k8f3m9zq).
+ */
+export function buildSeedChallengeUrl(optionsOrSeed = {}) {
+  let baseUrl = (typeof window !== 'undefined' ? window.location.href : 'http://localhost/');
+  let seed = '';
+
+  if (typeof optionsOrSeed === 'string' || typeof optionsOrSeed === 'number') {
+    seed = String(optionsOrSeed);
+  } else if (typeof optionsOrSeed === 'object' && optionsOrSeed !== null) {
+    baseUrl = optionsOrSeed.baseUrl || baseUrl;
+    seed = optionsOrSeed.seed || generateSeed();
+  } else {
+    seed = generateSeed();
+  }
+
+  const url = new URL(baseUrl);
+  url.search = '';
+  url.searchParams.set('s', String(seed));
+  return url.toString();
+}
+
+/**
+ * Generates an ultra-compact challenge URL using the ?cid= parameter.
+ */
+export function buildCompactChallengeUrl(optionsOrIds = {}, maybeCategory = '', maybeAuthor = '', maybeSeed = null) {
+  let baseUrl = (typeof window !== 'undefined' ? window.location.href : 'http://localhost/');
+  let ids = [];
+  let category = '';
+  let author = '';
+  let lang = 'es';
+  let seed = null;
+
+  if (Array.isArray(optionsOrIds)) {
+    ids = optionsOrIds;
+    category = maybeCategory || '';
+    author = maybeAuthor || '';
+    seed = maybeSeed;
+  } else if (typeof optionsOrIds === 'object' && optionsOrIds !== null) {
+    baseUrl = optionsOrIds.baseUrl || baseUrl;
+    ids = optionsOrIds.ids || [];
+    category = optionsOrIds.category || '';
+    author = optionsOrIds.author || '';
+    lang = optionsOrIds.lang || 'es';
+    seed = optionsOrIds.seed !== undefined ? optionsOrIds.seed : null;
+  }
+
+  const url = new URL(baseUrl);
+  url.search = '';
+  const cid = encodeCID({ ids, category, author, seed, lang });
+  url.searchParams.set('cid', cid);
+  return url.toString();
+}
+
 export function buildChallengeUrl(optionsOrIds = {}, maybeCategory = '', maybeAuthor = '', maybeSeed = null) {
   let baseUrl = (typeof window !== 'undefined' ? window.location.href : 'http://localhost/');
   let ids = [];
@@ -222,16 +352,257 @@ export function buildChallengeUrl(optionsOrIds = {}, maybeCategory = '', maybeAu
 }
 
 export function parseChallengeUrl(search = (typeof window !== 'undefined' ? window.location.search : '')) {
+  if (!search) return null;
   const params = new URLSearchParams(search);
+
   const rawIds = params.get('r');
-  if (!rawIds) return null;
-  const ids = rawIds.split('.').map(s => s.trim()).filter(Boolean);
-  if (ids.length < 2) return null;
-  return {
-    ids,
-    category: params.get('c') || '',
-    author: params.get('a') || '',
-    lang: params.get('l') || 'es',
-    seed: params.get('s') || null
-  };
+  const cid = params.get('cid');
+  const seedParam = params.get('s') || params.get('seed');
+
+  // 1. Try compact CID format first
+  if (cid) {
+    const decoded = decodeCID(cid);
+    if (decoded && decoded.ids && decoded.ids.length >= 2) {
+      if (params.get('c')) decoded.category = params.get('c');
+      if (params.get('a')) decoded.author = params.get('a');
+      if (params.get('l')) decoded.lang = params.get('l');
+      if (seedParam && !seedParam.includes('.')) decoded.seed = seedParam;
+      return decoded;
+    }
+  }
+
+  // 2. Explicit ID list via ?r= or ?s= with dots (e.g. ?r=5020.4981.144455 or ?s=5020.4981.144455)
+  const candidateIdsStr = rawIds || (seedParam && seedParam.includes('.') ? seedParam : null);
+  if (candidateIdsStr) {
+    const ids = candidateIdsStr.split('.').map(s => s.trim()).filter(Boolean);
+    if (ids.length >= 2) {
+      return {
+        ids,
+        category: params.get('c') || '',
+        author: params.get('a') || '',
+        lang: params.get('l') || 'es',
+        seed: (seedParam && !seedParam.includes('.')) ? seedParam : null
+      };
+    }
+  }
+
+  // 3. Direct seed challenge (?s=... or ?seed=...) without custom item lists
+  if (seedParam) {
+    return {
+      seed: seedParam,
+      category: params.get('c') || '',
+      author: params.get('a') || '',
+      lang: params.get('l') || 'es',
+      ids: null
+    };
+  }
+
+  return null;
 }
+
+/**
+ * Preloads a single image and waits for decode.
+ * Resolves safely on error or timeout so it never blocks gameplay.
+ */
+export function preloadImage(url, timeoutMs = 2000) {
+  if (!url || typeof window === 'undefined') return Promise.resolve(null);
+  return new Promise((resolve) => {
+    const img = new Image();
+    let settled = false;
+    const finish = (res) => {
+      if (settled) return;
+      settled = true;
+      resolve(res);
+    };
+
+    const timer = setTimeout(() => finish(null), timeoutMs);
+
+    img.onload = async () => {
+      clearTimeout(timer);
+      if (typeof img.decode === 'function') {
+        try {
+          await img.decode();
+        } catch (_) {}
+      }
+      finish(img);
+    };
+    img.onerror = () => {
+      clearTimeout(timer);
+      finish(null);
+    };
+    img.src = url;
+  });
+}
+
+/**
+ * Preloads both images in a duel pair simultaneously.
+ * Resolves only when BOTH images have loaded/decoded or timed out.
+ */
+export function preloadImagePair(urlA, urlB, timeoutMs = 2000) {
+  return Promise.all([
+    preloadImage(urlA, timeoutMs),
+    preloadImage(urlB, timeoutMs)
+  ]);
+}
+
+/**
+ * Preloads the entire tournament candidate pool in progressive background batches
+ * so upcoming duels are already in memory before the player reaches them.
+ */
+export function preloadCandidatePool(candidates, getUrlFn, batchSize = 4) {
+  if (!Array.isArray(candidates) || candidates.length === 0 || typeof window === 'undefined') return;
+  const extractUrl = getUrlFn || ((it) => it?.photo || it?.imagen || it?.sprite);
+  const urls = candidates.map(extractUrl).filter(Boolean);
+
+  let cursor = 0;
+  function processBatch() {
+    if (cursor >= urls.length) return;
+    const batch = urls.slice(cursor, cursor + batchSize);
+    cursor += batchSize;
+    Promise.all(batch.map(u => preloadImage(u, 3500))).then(() => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(processBatch, { timeout: 600 });
+      } else {
+        setTimeout(processBatch, 80);
+      }
+    });
+  }
+  processBatch();
+}
+
+/**
+ * Executes a dynamic duel transition with physical "push & clash" momentum:
+ * - On Desktop/PC (horizontal columns): winning card pushes opponent sideways off-screen,
+ *   and the incoming contenders slide inward from opposite horizontal edges.
+ * - On Mobile (stacked vertical cards): winning card pushes opponent vertically off-screen,
+ *   and the incoming contenders slide inward from top/bottom.
+ */
+export async function animateDuelTransition(container, updateDomFn, [urlA, urlB] = [], winnerSide = null) {
+  if (!container || typeof window === 'undefined') {
+    if (typeof updateDomFn === 'function') updateDomFn();
+    return;
+  }
+
+  const cardLeft = document.getElementById('cardLeftBtn');
+  const cardRight = document.getElementById('cardRightBtn');
+
+  if (cardLeft && cardRight) {
+    // Detect layout orientation (PC horizontal vs Mobile vertical stack)
+    const rectL = cardLeft.getBoundingClientRect();
+    const rectR = cardRight.getBoundingClientRect();
+    const isVertical = Math.abs(rectR.top - rectL.top) > 50;
+
+    // FASE 1: Push & Knockout exit (220ms)
+    cardLeft.style.transition = 'transform 220ms cubic-bezier(0.2, 0, 0, 1), opacity 200ms ease-out, box-shadow 220ms ease-out';
+    cardRight.style.transition = 'transform 220ms cubic-bezier(0.2, 0, 0, 1), opacity 200ms ease-out, box-shadow 220ms ease-out';
+
+    if (isVertical) {
+      // Mobile: Vertical axis (stacked cards)
+      if (winnerSide === 'left') {
+        cardLeft.style.zIndex = '30';
+        cardLeft.style.transform = 'translateY(36px) scale(1.035)';
+        cardLeft.style.boxShadow = '0 16px 28px -6px rgba(0,0,0,0.3)';
+        cardRight.style.zIndex = '1';
+        cardRight.style.transform = 'translateY(80px) scale(0.90)';
+        cardRight.style.opacity = '0';
+      } else if (winnerSide === 'right') {
+        cardRight.style.zIndex = '30';
+        cardRight.style.transform = 'translateY(-36px) scale(1.035)';
+        cardRight.style.boxShadow = '0 16px 28px -6px rgba(0,0,0,0.3)';
+        cardLeft.style.zIndex = '1';
+        cardLeft.style.transform = 'translateY(-80px) scale(0.90)';
+        cardLeft.style.opacity = '0';
+      } else {
+        cardLeft.style.transform = 'translateY(-28px) scale(0.95)';
+        cardLeft.style.opacity = '0';
+        cardRight.style.transform = 'translateY(28px) scale(0.95)';
+        cardRight.style.opacity = '0';
+      }
+    } else {
+      // Desktop / PC: Horizontal axis (side-by-side cards)
+      if (winnerSide === 'left') {
+        cardLeft.style.zIndex = '30';
+        cardLeft.style.transform = 'translateX(45px) scale(1.04) rotate(1.2deg)';
+        cardLeft.style.boxShadow = '0 20px 32px -8px rgba(0,0,0,0.35)';
+        cardRight.style.zIndex = '1';
+        cardRight.style.transform = 'translateX(95px) scale(0.90) rotate(3deg)';
+        cardRight.style.opacity = '0';
+      } else if (winnerSide === 'right') {
+        cardRight.style.zIndex = '30';
+        cardRight.style.transform = 'translateX(-45px) scale(1.04) rotate(-1.2deg)';
+        cardRight.style.boxShadow = '0 20px 32px -8px rgba(0,0,0,0.35)';
+        cardLeft.style.zIndex = '1';
+        cardLeft.style.transform = 'translateX(-95px) scale(0.90) rotate(-3deg)';
+        cardLeft.style.opacity = '0';
+      } else {
+        cardLeft.style.transform = 'translateX(-32px) scale(0.95)';
+        cardLeft.style.opacity = '0';
+        cardRight.style.transform = 'translateX(32px) scale(0.95)';
+        cardRight.style.opacity = '0';
+      }
+    }
+
+    // Await push completion and preloads
+    const pushWait = new Promise(r => setTimeout(r, 220));
+    const preloadWait = (urlA && urlB) ? preloadImagePair(urlA, urlB, 1200) : Promise.resolve();
+    await Promise.all([pushWait, preloadWait]);
+
+    // FASE 2: Position outside bounds without visible jump
+    cardLeft.style.transition = 'none';
+    cardRight.style.transition = 'none';
+    cardLeft.style.opacity = '0';
+    cardRight.style.opacity = '0';
+    cardLeft.style.boxShadow = '';
+    cardRight.style.boxShadow = '';
+
+    if (isVertical) {
+      cardLeft.style.transform = 'translateY(-48px) scale(0.96)';
+      cardRight.style.transform = 'translateY(48px) scale(0.96)';
+    } else {
+      cardLeft.style.transform = 'translateX(-60px) scale(0.96)';
+      cardRight.style.transform = 'translateX(60px) scale(0.96)';
+    }
+
+    // Mutate DOM
+    if (typeof updateDomFn === 'function') {
+      updateDomFn();
+    }
+
+    // Force frame layout
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+    // FASE 3: Converging entrance into center with smooth elastic settling
+    cardLeft.style.zIndex = '1';
+    cardRight.style.zIndex = '1';
+    cardLeft.style.transition = 'transform 260ms cubic-bezier(0.18, 0.89, 0.32, 1.15), opacity 200ms ease-out';
+    cardRight.style.transition = 'transform 260ms cubic-bezier(0.18, 0.89, 0.32, 1.15), opacity 200ms ease-out';
+    cardLeft.style.transform = 'translate(0, 0) scale(1) rotate(0deg)';
+    cardRight.style.transform = 'translate(0, 0) scale(1) rotate(0deg)';
+    cardLeft.style.opacity = '1';
+    cardRight.style.opacity = '1';
+
+    // Cleanup inline styles after animation settles so native CSS hover states take over cleanly
+    setTimeout(() => {
+      cardLeft.style.transition = '';
+      cardRight.style.transition = '';
+      cardLeft.style.transform = '';
+      cardRight.style.transform = '';
+      cardLeft.style.zIndex = '';
+      cardRight.style.zIndex = '';
+    }, 280);
+  } else {
+    // Fallback if individual buttons are not present
+    container.style.transition = 'opacity 110ms ease-out, transform 110ms ease-out';
+    container.style.opacity = '0';
+    container.style.transform = 'scale(0.985)';
+    const exitTimer = new Promise(r => setTimeout(r, 110));
+    const preloadWait = (urlA && urlB) ? preloadImagePair(urlA, urlB, 1800) : Promise.resolve();
+    await Promise.all([exitTimer, preloadWait]);
+    if (typeof updateDomFn === 'function') updateDomFn();
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    container.style.transition = 'opacity 170ms cubic-bezier(0.16, 1, 0.3, 1), transform 170ms cubic-bezier(0.16, 1, 0.3, 1)';
+    container.style.opacity = '1';
+    container.style.transform = 'scale(1)';
+  }
+}
+
