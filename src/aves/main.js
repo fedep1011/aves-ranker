@@ -3023,6 +3023,43 @@ const I18N = {
         })();
       },
 
+            drawAvesPosterCorners(ctx, x, y, w, h, color, goldColor) {
+        const corners = [
+          { cx: x, cy: y, sx: 1, sy: 1 },
+          { cx: x + w, cy: y, sx: -1, sy: 1 },
+          { cx: x, cy: y + h, sx: 1, sy: -1 },
+          { cx: x + w, cy: y + h, sx: -1, sy: -1 }
+        ];
+        ctx.save();
+        for (const { cx, cy, sx, sy } of corners) {
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.scale(sx, sy);
+
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(6, 26);
+          ctx.quadraticCurveTo(8, 8, 26, 6);
+          ctx.stroke();
+
+          ctx.strokeStyle = goldColor;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(12, 22);
+          ctx.quadraticCurveTo(14, 14, 22, 12);
+          ctx.stroke();
+
+          ctx.fillStyle = goldColor;
+          ctx.beginPath();
+          ctx.arc(8, 8, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        }
+        ctx.restore();
+      },
+
       drawCompleteBirdPhoto(ctx, img, x, y, w, h) {
         ctx.save();
         const ir = img.width / img.height;
@@ -3095,16 +3132,53 @@ const I18N = {
         const isLight = this.state.posterStyle === "light";
 
         const pal = isLight
-          ? { bg: "#F6F4EF", card: "#FFFFFF", border: "#DEDAD0", ink: "#161816", muted: "#696B65", badge: "#1D3B2A", badgeText: "#FFFFFF", factBg: "#EBF1EC" }
-          : { bg: "#111613", card: "#1A211D", border: "#2B352F", ink: "#F5F5F0", muted: "#9CA39E", badge: "#E5C170", badgeText: "#111613", factBg: "#212B25" };
+          ? {
+              bg: "#F1F6F9",
+              card: "#FFFFFF",
+              border: "#D5E2EC",
+              accent: "#0284C7",
+              heroBorder: "#0284C7",
+              ink: "#0F172A",
+              muted: "#536B7E",
+              badge: "#0284C7",
+              badgeText: "#FFFFFF",
+              factBg: "#E0F2FE",
+              gold: "#D97706"
+            }
+          : {
+              bg: "#0B0F17",
+              card: "#111827",
+              border: "#1E293B",
+              accent: "#38BDF8",
+              heroBorder: "#38BDF8",
+              ink: "#F1F5F9",
+              muted: "#8295A8",
+              badge: "#38BDF8",
+              badgeText: "#0B0F17",
+              factBg: "#0F2538",
+              gold: "#F59E0B"
+            };
 
         ctx.fillStyle = pal.bg;
         ctx.fillRect(0, 0, W, H);
 
+        // Marco exterior Audubon
         const pad = 44;
         ctx.strokeStyle = pal.border;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 2.5;
         ctx.strokeRect(pad, pad, W - pad * 2, H - pad * 2);
+
+        // Filete interior decorativo punteado estilo lámina Audubon
+        ctx.save();
+        ctx.strokeStyle = pal.accent;
+        ctx.globalAlpha = isLight ? 0.38 : 0.28;
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([8, 6]);
+        ctx.strokeRect(pad + 10, pad + 10, W - (pad + 10) * 2, H - (pad + 10) * 2);
+        ctx.restore();
+
+        // Esquinas orladas ornitológicas en los 4 vértices
+        this.drawAvesPosterCorners(ctx, pad, pad, W - pad * 2, H - pad * 2, pal.accent, pal.gold);
 
         const title = document.getElementById("posterTitleInput").value || this.t("defaultPosterTitle");
         const sub = document.getElementById("posterSubInput").value || this.getHumanSummary();
@@ -3136,11 +3210,15 @@ const I18N = {
           ctx.font = "400 68px 'Instrument Serif', Georgia, serif";
           ctx.fillText(title.slice(0, 32), sx, 178);
 
-          ctx.strokeStyle = pal.border;
+          ctx.save();
+          ctx.strokeStyle = pal.accent;
+          ctx.globalAlpha = 0.45;
+          ctx.lineWidth = 1.5;
           ctx.beginPath();
           ctx.moveTo(sx, 206);
           ctx.lineTo(W - sx, 206);
           ctx.stroke();
+          ctx.restore();
 
           // #1 HERO CARD WITH FULL UNCROPPED PHOTO + GOLD MEDAL + NON-OVERLAPPING SCIENTIFIC NAME + FUN FACT
           const b1 = slice[0];
@@ -3148,7 +3226,7 @@ const I18N = {
             const y1 = 228;
             const h1 = 505;
             const m1 = this.getPodiumMedalMeta(1);
-            this.roundRect(ctx, sx, y1, innerW, h1, 22, pal.card, m1.canvasStroke, 3);
+            this.roundRect(ctx, sx, y1, innerW, h1, 22, pal.card, pal.heroBorder, 3);
 
             ctx.save();
             this.roundRectPath(ctx, sx + 14, y1 + 14, innerW - 28, 294, 14);
@@ -3288,11 +3366,15 @@ const I18N = {
         ctx.font = "400 64px 'Instrument Serif', Georgia, serif";
         ctx.fillText(title, 84, 170);
 
-        ctx.strokeStyle = pal.border;
+        ctx.save();
+        ctx.strokeStyle = pal.accent;
+        ctx.globalAlpha = 0.45;
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(84, 198);
         ctx.lineTo(W - 84, 198);
         ctx.stroke();
+        ctx.restore();
 
         const top3 = slice.slice(0, 3);
         const cardW = 330;
