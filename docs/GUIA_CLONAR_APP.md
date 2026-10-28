@@ -373,6 +373,37 @@ Para asegurar el cumplimiento normativo internacional, proteger la autoría de t
 
 ---
 
+## 11.4 Triple Frente de Identidad Visual Canónica por Ranking
+
+Cada arena del ecosistema Rankea2 debe crearse o actualizarse resolviendo **los tres frentes de identidad visual**:
+
+1. **Página de la Arena (`/<ranking>/`)**:
+   - Paleta temática exclusiva (Light y Dark mode sin colisión de tokens con otras arenas).
+   - Filigranas vectoriales de fondo anti-slop SVG puras (`currentColor`) con opacidades sutiles (`0.10` en claro, `0.08` en oscuro) ubicadas en capa `z-0 pointer-events-none`.
+   - Orientación coherente de los vectores (ej. aves mirando hacia el centro/frente, no hacia los márgenes).
+   - Cero dependencias de iconos pesados o emojis en la UI.
+2. **Tarjeta en el Hub Principal (`index.html`)**:
+   - Tarjeta interactiva con split dinámico o estático de especies representativas.
+   - Borde y acento temático acorde a la paleta de la arena.
+   - La foto utilizada en el split debe ser idéntica a la foto canónica curada de esa especie en el ranking.
+3. **Tarjeta de Exportación Canvas 2.0 (`src/core/canvas.js`)**:
+   - Renderizado en alta definición para Story (9:16) y Poster (4:5 / 1:1).
+   - Marco temático distintivo, medallas vectoriales de podio (#1, #2, #3) y tipografía concisa.
+
+---
+
+## 11.5 Protocolo de Curaduría Fotográfica y Unificación (`/kurador.html`)
+
+- **Herramienta Kurador**: Acceso en `/kurador.html` para shootouts 1 vs 1 entre fuentes fotográficas (iNaturalist S3 actual vs Wikipedia REST API vs carga manual).
+- **Persistencia Cloud-First**: Se guarda en Supabase (`pack_id = curation_<arena>`) con respaldo en `localStorage`.
+- **Regla de Oro de Unificación**: La foto ganadora seleccionada en Kurador se propaga sin excepción a:
+  1. El archivo de datos de la arena (`public/data/<arena>.json`).
+  2. La portada y split de la arena en el Hub (`index.html`).
+  3. La tarjeta descargable Canvas 2.0 (`src/core/canvas.js`).
+- **Curaduría Colaborativa**: Si dos personas curan simultáneamente, el flujo estándar es asignar categorías diferentes (ej. Usuario A en Mamíferos, Usuario B en Aves) para lograr 100% de velocidad con cero colisiones.
+
+---
+
 ## 12. Checklist Exhaustiva para Clonar o Crear una Nueva Arena
 
 Al implementar **Insectos**, **Razas de Perros**, **Dinosaurios**, **Maravillas del Mundo** o auditar las existentes (Aves, Mamíferos, Flores, Pokémon):
