@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Kurador 3.0 · Duelo Visual de 3 Vías</title>
+  <title>Kurador 3.0 Pro · Duelo Visual Rígido de 3 Vías</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,50 +23,78 @@
     };
   </script>
   <style>
+    /* =======================================================
+       ESTRUCTURA RÍGIDA INMUTABLE: CERO SALTOS DE CONTENEDOR
+       ======================================================= */
     .photo-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      background-color: #0b0f17;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative !important;
+      width: 100% !important;
+      flex: 1 1 0% !important;
+      min-height: 0 !important;
+      height: 100% !important;
+      border-radius: 0.75rem !important;
+      overflow: hidden !important;
+      background-color: #070a10 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
     .photo-ambient {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(20px);
-      opacity: 0.35;
-      transform: scale(1.15);
-      pointer-events: none;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      filter: blur(24px) !important;
+      opacity: 0.35 !important;
+      transform: scale(1.15) !important;
+      pointer-events: none !important;
+      user-select: none !important;
     }
     .photo-main {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 10 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      pointer-events: none !important;
+      user-select: none !important;
     }
+
     .selected-card-a {
       border-color: #0284c7 !important;
-      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.4), 0 8px 24px -4px rgba(2, 132, 199, 0.35);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.4), 0 8px 24px -4px rgba(2, 132, 199, 0.35) !important;
     }
     .selected-card-b {
       border-color: #10b981 !important;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4), 0 8px 24px -4px rgba(16, 185, 129, 0.35);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4), 0 8px 24px -4px rgba(16, 185, 129, 0.35) !important;
     }
     .selected-card-c {
       border-color: #f59e0b !important;
-      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4), 0 8px 24px -4px rgba(245, 158, 11, 0.35);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4), 0 8px 24px -4px rgba(245, 158, 11, 0.35) !important;
     }
 
-    /* OPTIMIZACIÓN EXTREMA: CELULAR EN HORIZONTAL (LANDSCAPE MOBILE) */
+    .duel-card {
+      height: 100% !important;
+      min-height: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+
+    /* MODO RETRATO (PORTRAIT) */
+    @media (orientation: portrait), (min-height: 551px) {
+      .duel-card .photo-container {
+        aspect-ratio: 4 / 3 !important;
+        height: auto !important;
+        flex: none !important;
+        min-height: 220px !important;
+      }
+    }
+
+    /* MODO CELULAR APAISADO (LANDSCAPE MOBILE ULTRA-OPTIMIZADO) */
     @media (orientation: landscape) and (max-height: 550px) {
       body {
         overflow: hidden !important;
@@ -76,34 +104,40 @@
         display: none !important;
       }
       #subHeader {
-        padding: 0.25rem 0.75rem !important;
-        font-size: 11px !important;
+        padding: 0.2rem 0.6rem !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
       }
-      #subHeader .landscape-sub-hide {
+      .landscape-hide {
         display: none !important;
       }
       #mainContainer {
-        padding: 0.25rem 0.5rem 0.5rem 0.5rem !important;
-        height: calc(100dvh - 36px) !important;
+        padding: 0.25rem 0.5rem 0.35rem 0.5rem !important;
+        height: calc(100dvh - 32px) !important;
         display: flex !important;
         flex-direction: column !important;
+        overflow: hidden !important;
       }
       #viewDuel {
         height: 100% !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.35rem !important;
+        gap: 0.25rem !important;
+        overflow: hidden !important;
       }
       #itemInfoCard {
-        padding: 0.3rem 0.75rem !important;
+        padding: 0.2rem 0.6rem !important;
+        height: 36px !important;
+        flex-shrink: 0 !important;
         margin-bottom: 0 !important;
       }
       #itemInfoCard h2 {
-        font-size: 1.15rem !important;
+        font-size: 1.05rem !important;
         line-height: 1.1 !important;
       }
       #itemInfoCard p {
-        font-size: 0.75rem !important;
+        font-size: 0.72rem !important;
       }
       #landscapeNotice {
         display: none !important;
@@ -111,31 +145,37 @@
       #duelGrid {
         display: grid !important;
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-        gap: 0.5rem !important;
+        gap: 0.45rem !important;
         flex: 1 1 0% !important;
         min-height: 0 !important;
+        height: auto !important;
       }
       .duel-card {
-        padding: 0.4rem !important;
-        gap: 0.25rem !important;
+        padding: 0.35rem !important;
+        gap: 0.2rem !important;
         height: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-      }
-      .duel-card .photo-container {
-        flex: 1 1 0% !important;
         min-height: 0 !important;
-        aspect-ratio: auto !important;
       }
-      .duel-card .card-action-btn {
-        padding: 0.35rem 0.5rem !important;
-        font-size: 0.75rem !important;
+      .card-header-bar {
+        font-size: 10px !important;
+        padding-bottom: 0.15rem !important;
+        flex-shrink: 0 !important;
       }
-      .duel-card .card-footer-info {
+      .card-action-btn {
+        height: 32px !important;
+        padding: 0 0.5rem !important;
+        font-size: 11px !important;
+        flex-shrink: 0 !important;
+      }
+      .card-footer-info {
         display: none !important;
       }
       #quickControlBar {
-        padding: 0.25rem 0.5rem !important;
+        height: 32px !important;
+        padding: 0 0.5rem !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        align-items: center !important;
       }
       #quickControlBar input {
         display: none !important;
@@ -145,8 +185,8 @@
 </head>
 <body class="bg-stone-950 text-stone-100 min-h-full flex flex-col font-sans selection:bg-sky-600 selection:text-white">
 
-  <!-- TOP HEADER (Visible en Portrait / Desktop) -->
-  <header id="topHeader" class="sticky top-0 z-40 bg-stone-900/95 backdrop-blur border-b border-stone-800 px-4 py-2.5 sm:px-6">
+  <!-- TOP HEADER (Visible en Desktop / Portrait) -->
+  <header id="topHeader" class="sticky top-0 z-40 bg-stone-900/95 backdrop-blur border-b border-stone-800 px-4 py-2 sm:px-6">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
       
       <!-- Brand & Mode -->
@@ -159,22 +199,28 @@
         </a>
         <span class="text-stone-700">/</span>
         <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-sky-950/80 text-sky-300 border border-sky-800/60">
-          Duelo de 3 Vías
+          3 Vías Rígidas
         </span>
       </div>
 
-      <!-- Category Selector & View Switcher -->
+      <!-- Category Selector, Priority Pool & View Switcher -->
       <div class="flex flex-wrap items-center gap-2">
-        <select id="arenaSelect" onchange="kurador.setArena(this.value)" class="text-xs font-bold px-3 py-1.5 rounded-lg border border-stone-700 bg-stone-800 text-stone-100 cursor-pointer hover:border-sky-500 transition">
-          <option value="aves" selected>🐦 Aves (Inicio & Ranking)</option>
-          <option value="flores">🌸 Flores (Botánica)</option>
-          <option value="mamiferos">🐆 Mamíferos (Fauna)</option>
+        <select id="arenaSelect" onchange="kurador.setArena(this.value)" class="text-xs font-bold px-2.5 py-1.5 rounded-lg border border-stone-700 bg-stone-800 text-stone-100 cursor-pointer hover:border-sky-500 transition">
+          <option value="aves" selected>🐦 Aves (609)</option>
+          <option value="flores">🌸 Flores (1.458)</option>
+          <option value="mamiferos">🐆 Mamíferos (2.277)</option>
+        </select>
+
+        <select id="prioritySelect" onchange="kurador.setPriority(this.value)" class="text-xs font-bold px-2.5 py-1.5 rounded-lg border border-amber-600/70 bg-amber-950/50 text-amber-300 cursor-pointer hover:border-amber-400 transition" title="Filtrar por lote de impacto">
+          <option value="top64" selected>⭐ Top 64 Superestrellas</option>
+          <option value="top128">🌎 Top 128 Famosas</option>
+          <option value="all">📋 Catálogo Completo</option>
         </select>
 
         <!-- View Switcher -->
         <div class="flex items-center bg-stone-800 p-0.5 rounded-lg border border-stone-700 text-xs font-medium">
           <button id="tabBtnDuel" onclick="kurador.setView('duel')" class="px-2.5 py-1 rounded-md bg-stone-900 text-white font-bold shadow-xs">
-            ⚔️ Duelo 3 Vías
+            ⚔️ Duelo
           </button>
           <button id="tabBtnCatalog" onclick="kurador.setView('catalog')" class="px-2.5 py-1 rounded-md text-stone-400 hover:text-white">
             📋 Catálogo
@@ -194,11 +240,11 @@
   </header>
 
   <!-- SUBHEADER STATUS & PROGRESS BAR (Compacto en Landscape) -->
-  <div id="subHeader" class="bg-stone-900/90 border-b border-stone-800/80 px-4 py-1.5 sm:px-6">
+  <div id="subHeader" class="bg-stone-900/90 border-b border-stone-800/80 px-4 py-1 sm:px-6">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs">
       <div class="flex items-center gap-2 sm:gap-3">
-        <span id="progressText" class="font-mono text-stone-300 font-semibold">Cargando...</span>
-        <div class="w-20 sm:w-36 h-1.5 bg-stone-800 rounded-full overflow-hidden">
+        <span id="progressText" class="font-mono text-stone-300 font-semibold text-[11px] sm:text-xs">Cargando...</span>
+        <div class="w-16 sm:w-32 h-1.5 bg-stone-800 rounded-full overflow-hidden">
           <div id="progressBar" class="h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
         </div>
       </div>
@@ -208,11 +254,11 @@
         <span id="statsB" class="text-emerald-400 font-semibold">B: 0</span>
         <span id="statsC" class="text-amber-400 font-semibold">C: 0</span>
         <span class="text-stone-700">|</span>
-        <span id="syncBadge" class="flex items-center gap-1.5 text-emerald-400">
+        <span id="syncBadge" class="flex items-center gap-1 text-emerald-400">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          <span class="landscape-sub-hide">Nube Activa</span>
+          <span class="landscape-hide">Nube OK</span>
         </span>
-        <button onclick="kurador.resetCurrentArena()" class="text-rose-400 hover:text-rose-300 font-semibold transition px-1.5 py-0.5 rounded border border-rose-900/60 bg-rose-950/40" title="Reiniciar curación y empezar de 0">
+        <button onclick="kurador.resetCurrentArena()" class="text-rose-400 hover:text-rose-300 font-semibold transition px-1.5 py-0.5 rounded border border-rose-900/60 bg-rose-950/40 text-[10px]" title="Reiniciar curación y empezar de 0">
           🔄 Empezar de 0
         </button>
       </div>
@@ -220,48 +266,57 @@
   </div>
 
   <!-- MAIN CONTAINER -->
-  <main id="mainContainer" class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-5 flex flex-col justify-start">
+  <main id="mainContainer" class="flex-1 max-w-7xl w-full mx-auto p-2.5 sm:p-4 flex flex-col justify-start">
 
     <!-- ========================================== -->
-    <!-- VIEW 1: DUELO DE 3 VÍAS (SHOOTOUT 3-WAY)   -->
+    <!-- VIEW 1: DUELO DE 3 VÍAS RÍGIDO             -->
     <!-- ========================================== -->
-    <section id="viewDuel" class="space-y-3">
+    <section id="viewDuel" class="space-y-2">
       
       <!-- Aviso de Modo Horizontal en Mobile Portrait -->
-      <div id="landscapeNotice" class="block sm:hidden bg-sky-950/50 border border-sky-800/60 rounded-xl p-2.5 text-center text-xs text-sky-200">
-        <span>🔄 <strong>Pon tu teléfono en horizontal</strong> para comparar las 3 fotos al mismo tiempo en pantalla completa.</span>
+      <div id="landscapeNotice" class="block sm:hidden bg-sky-950/50 border border-sky-800/60 rounded-xl p-2 text-center text-xs text-sky-200">
+        <span>🔄 <strong>Acuesta tu celular</strong> para comparar las 3 fotos al mismo tiempo con contenedores rígidos.</span>
       </div>
 
       <!-- Current Item Info Card -->
-      <div id="itemInfoCard" class="bg-stone-900/80 border border-stone-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2">
-        <div class="flex items-center gap-2.5 min-w-0">
-          <span id="itemIndexBadge" class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-sky-950 text-sky-400 border border-sky-800/50 shrink-0">#1</span>
+      <div id="itemInfoCard" class="bg-stone-900/80 border border-stone-800 rounded-xl px-3 py-1.5 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 min-w-0">
+          <span id="itemIndexBadge" class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-950 text-sky-400 border border-sky-800/50 shrink-0">#1</span>
           <div class="truncate">
-            <h2 id="itemName" class="font-serif text-xl sm:text-2xl text-white font-bold leading-tight truncate">Cargando especie...</h2>
-            <p id="itemSciName" class="text-xs text-stone-400 font-mono italic truncate">...</p>
+            <h2 id="itemName" class="font-serif text-lg sm:text-xl text-white font-bold leading-tight truncate">Cargando especie...</h2>
+            <p id="itemSciName" class="text-[11px] text-stone-400 font-mono italic truncate">...</p>
           </div>
         </div>
-        <div id="itemTags" class="flex items-center gap-1.5 text-[10px] font-mono text-stone-300">
-          <!-- Dynamically injected badges -->
+
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button onclick="kurador.cyclePage()" class="px-2 py-1 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-[11px] font-mono border border-stone-700 flex items-center gap-1 transition shadow-xs" title="Rotar a la siguiente terna de fotos de esta especie">
+            <span>🔄</span>
+            <span class="font-medium">Otras 3 fotos</span>
+          </button>
+          <div id="itemTags" class="hidden sm:flex items-center gap-1 text-[10px] font-mono text-stone-300">
+            <!-- Tags dynamically injected -->
+          </div>
         </div>
       </div>
 
       <!-- Shootout Battle Area (A vs B vs C) -->
-      <div id="duelGrid" class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 flex-1">
+      <div id="duelGrid" class="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-3 flex-1 min-h-0">
         
         <!-- CARD A: Fuente iNaturalist S3 / Actual -->
-        <div id="cardA" onclick="kurador.vote('A')" class="duel-card cursor-pointer group bg-stone-900/50 hover:bg-stone-900 border-2 border-stone-800 hover:border-sky-600 rounded-2xl p-3 flex flex-col justify-between gap-2 transition-all duration-200">
+        <div id="cardA" onclick="kurador.vote('A')" class="duel-card cursor-pointer group bg-stone-900/60 hover:bg-stone-900 border-2 border-stone-800 hover:border-sky-600 rounded-2xl p-2.5 flex flex-col justify-between gap-1.5 transition-all duration-200">
           
-          <div class="flex items-center justify-between gap-1 text-xs">
+          <div class="card-header-bar flex items-center justify-between gap-1 text-xs">
             <div class="flex items-center gap-1.5">
               <span class="w-5 h-5 rounded-full bg-sky-600 text-white font-bold text-[11px] flex items-center justify-center">A</span>
-              <span class="text-[11px] font-bold text-sky-400 uppercase tracking-wider font-mono">Opción A · iNaturalist</span>
+              <span id="labelSourceA" class="text-[11px] font-bold text-sky-400 uppercase tracking-wider font-mono">Opción A</span>
             </div>
-            <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-stone-800 text-stone-400 border border-stone-700">Actual</span>
+            <button onclick="event.stopPropagation(); kurador.cycleSlot('A')" class="text-[10px] text-stone-400 hover:text-sky-300 px-1.5 py-0.5 rounded bg-stone-800 border border-stone-700 font-mono flex items-center gap-0.5" title="Cambiar solo esta foto">
+              <span>🔄</span> <span>Otra</span>
+            </button>
           </div>
 
-          <!-- Photo Container -->
-          <div class="photo-container aspect-[4/3] rounded-xl overflow-hidden relative">
+          <!-- Photo Container RÍGIDO (inmóvil ante cualquier aspecto) -->
+          <div class="photo-container rounded-xl overflow-hidden relative">
             <img id="imgAmbientA" src="" alt="" class="photo-ambient" />
             <img id="imgMainA" src="" alt="" class="photo-main" />
             <div id="loaderA" class="hidden absolute inset-0 flex items-center justify-center bg-stone-950/80 z-20">
@@ -270,101 +325,105 @@
           </div>
 
           <!-- Action Button A -->
-          <button onclick="event.stopPropagation(); kurador.vote('A')" class="card-action-btn w-full py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 active:scale-[0.98] text-white font-bold text-xs tracking-wide shadow-md transition flex items-center justify-center gap-2">
+          <button onclick="event.stopPropagation(); kurador.vote('A')" class="card-action-btn w-full h-9 rounded-xl bg-sky-600 hover:bg-sky-500 active:scale-[0.98] text-white font-bold text-xs tracking-wide shadow-md transition flex items-center justify-center gap-1.5">
             <span>Elegir Opción A</span>
             <kbd class="px-1.5 py-0.2 rounded bg-sky-800 font-mono text-[10px] border border-sky-400/40">1</kbd>
           </button>
 
           <div class="card-footer-info flex items-center justify-between text-[9px] font-mono text-stone-500 truncate">
-            <span id="urlPreviewA" class="truncate max-w-[200px]">...</span>
+            <span id="urlPreviewA" class="truncate max-w-[180px]">...</span>
             <a id="linkA" href="#" target="_blank" onclick="event.stopPropagation()" class="hover:text-sky-400 underline shrink-0">Abrir ↗</a>
           </div>
 
         </div>
 
-        <!-- CARD B: Fuente Wikipedia Portada -->
-        <div id="cardB" onclick="kurador.vote('B')" class="duel-card cursor-pointer group bg-stone-900/50 hover:bg-stone-900 border-2 border-stone-800 hover:border-emerald-600 rounded-2xl p-3 flex flex-col justify-between gap-2 transition-all duration-200">
+        <!-- CARD B: Fuente Wikipedia Portada / Candidato 2 -->
+        <div id="cardB" onclick="kurador.vote('B')" class="duel-card cursor-pointer group bg-stone-900/60 hover:bg-stone-900 border-2 border-stone-800 hover:border-emerald-600 rounded-2xl p-2.5 flex flex-col justify-between gap-1.5 transition-all duration-200">
           
-          <div class="flex items-center justify-between gap-1 text-xs">
+          <div class="card-header-bar flex items-center justify-between gap-1 text-xs">
             <div class="flex items-center gap-1.5">
               <span class="w-5 h-5 rounded-full bg-emerald-600 text-white font-bold text-[11px] flex items-center justify-center">B</span>
-              <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider font-mono">Opción B · Wikipedia</span>
+              <span id="labelSourceB" class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider font-mono">Opción B</span>
             </div>
-            <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-stone-800 text-stone-400 border border-stone-700">Portada</span>
+            <button onclick="event.stopPropagation(); kurador.cycleSlot('B')" class="text-[10px] text-stone-400 hover:text-emerald-300 px-1.5 py-0.5 rounded bg-stone-800 border border-stone-700 font-mono flex items-center gap-0.5" title="Cambiar solo esta foto">
+              <span>🔄</span> <span>Otra</span>
+            </button>
           </div>
 
-          <!-- Photo Container -->
-          <div class="photo-container aspect-[4/3] rounded-xl overflow-hidden relative">
+          <!-- Photo Container RÍGIDO (inmóvil ante cualquier aspecto) -->
+          <div class="photo-container rounded-xl overflow-hidden relative">
             <img id="imgAmbientB" src="" alt="" class="photo-ambient" />
             <img id="imgMainB" src="" alt="" class="photo-main" />
             
             <div id="loaderB" class="absolute inset-0 flex items-center justify-center bg-stone-950/80 z-20">
-              <span class="text-xs text-emerald-400 font-mono animate-pulse flex items-center gap-1.5">
+              <span class="text-xs text-emerald-400 font-mono animate-pulse flex items-center gap-1">
                 <svg class="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="3" stroke-dasharray="32" stroke-linecap="round"/></svg>
-                Buscando en Wiki...
+                Cargando B...
               </span>
             </div>
 
-            <div id="errorB" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-stone-950 p-2 text-center z-20 space-y-1.5">
-              <span class="text-[11px] font-mono text-rose-400">Sin foto en Wikipedia</span>
-              <button onclick="event.stopPropagation(); kurador.searchAlternativeWikipedia()" class="px-2 py-0.5 text-[10px] rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono">
-                Reintentar término
+            <div id="errorB" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-stone-950 p-2 text-center z-20 space-y-1">
+              <span class="text-[11px] font-mono text-rose-400">Sin foto alternativa</span>
+              <button onclick="event.stopPropagation(); kurador.cycleSlot('B')" class="px-2 py-0.5 text-[10px] rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono">
+                Buscar otra
               </button>
             </div>
           </div>
 
           <!-- Action Button B -->
-          <button onclick="event.stopPropagation(); kurador.vote('B')" class="card-action-btn w-full py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white font-bold text-xs tracking-wide shadow-md transition flex items-center justify-center gap-2">
+          <button onclick="event.stopPropagation(); kurador.vote('B')" class="card-action-btn w-full h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white font-bold text-xs tracking-wide shadow-md transition flex items-center justify-center gap-1.5">
             <span>Elegir Opción B</span>
             <kbd class="px-1.5 py-0.2 rounded bg-emerald-800 font-mono text-[10px] border border-emerald-400/40">2</kbd>
           </button>
 
           <div class="card-footer-info flex items-center justify-between text-[9px] font-mono text-stone-500 truncate">
-            <span id="urlPreviewB" class="truncate max-w-[200px]">...</span>
+            <span id="urlPreviewB" class="truncate max-w-[180px]">...</span>
             <a id="linkB" href="#" target="_blank" onclick="event.stopPropagation()" class="hover:text-emerald-400 underline shrink-0">Abrir ↗</a>
           </div>
 
         </div>
 
-        <!-- CARD C: Fuente Wikimedia Commons Galería -->
-        <div id="cardC" onclick="kurador.vote('C')" class="duel-card cursor-pointer group bg-stone-900/50 hover:bg-stone-900 border-2 border-stone-800 hover:border-amber-500 rounded-2xl p-3 flex flex-col justify-between gap-2 transition-all duration-200">
+        <!-- CARD C: Fuente Wikimedia Commons Galería / Candidato 3 -->
+        <div id="cardC" onclick="kurador.vote('C')" class="duel-card cursor-pointer group bg-stone-900/60 hover:bg-stone-900 border-2 border-stone-800 hover:border-amber-500 rounded-2xl p-2.5 flex flex-col justify-between gap-1.5 transition-all duration-200">
           
-          <div class="flex items-center justify-between gap-1 text-xs">
+          <div class="card-header-bar flex items-center justify-between gap-1 text-xs">
             <div class="flex items-center gap-1.5">
               <span class="w-5 h-5 rounded-full bg-amber-500 text-stone-950 font-bold text-[11px] flex items-center justify-center">C</span>
-              <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider font-mono">Opción C · Commons</span>
+              <span id="labelSourceC" class="text-[11px] font-bold text-amber-400 uppercase tracking-wider font-mono">Opción C</span>
             </div>
-            <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-stone-800 text-stone-400 border border-stone-700">Galería</span>
+            <button onclick="event.stopPropagation(); kurador.cycleSlot('C')" class="text-[10px] text-stone-400 hover:text-amber-300 px-1.5 py-0.5 rounded bg-stone-800 border border-stone-700 font-mono flex items-center gap-0.5" title="Cambiar solo esta foto">
+              <span>🔄</span> <span>Otra</span>
+            </button>
           </div>
 
-          <!-- Photo Container -->
-          <div class="photo-container aspect-[4/3] rounded-xl overflow-hidden relative">
+          <!-- Photo Container RÍGIDO (inmóvil ante cualquier aspecto) -->
+          <div class="photo-container rounded-xl overflow-hidden relative">
             <img id="imgAmbientC" src="" alt="" class="photo-ambient" />
             <img id="imgMainC" src="" alt="" class="photo-main" />
             
             <div id="loaderC" class="absolute inset-0 flex items-center justify-center bg-stone-950/80 z-20">
-              <span class="text-xs text-amber-400 font-mono animate-pulse flex items-center gap-1.5">
+              <span class="text-xs text-amber-400 font-mono animate-pulse flex items-center gap-1">
                 <svg class="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="3" stroke-dasharray="32" stroke-linecap="round"/></svg>
-                Buscando en Commons...
+                Cargando C...
               </span>
             </div>
 
-            <div id="errorC" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-stone-950 p-2 text-center z-20 space-y-1.5">
-              <span class="text-[11px] font-mono text-rose-400">Sin foto en Commons</span>
-              <button onclick="event.stopPropagation(); kurador.searchAlternativeCommons()" class="px-2 py-0.5 text-[10px] rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono">
-                Reintentar término
+            <div id="errorC" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-stone-950 p-2 text-center z-20 space-y-1">
+              <span class="text-[11px] font-mono text-rose-400">Sin foto alternativa</span>
+              <button onclick="event.stopPropagation(); kurador.cycleSlot('C')" class="px-2 py-0.5 text-[10px] rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono">
+                Buscar otra
               </button>
             </div>
           </div>
 
           <!-- Action Button C -->
-          <button onclick="event.stopPropagation(); kurador.vote('C')" class="card-action-btn w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-stone-950 font-bold text-xs tracking-wide shadow-md transition flex items-center justify-center gap-2">
+          <button onclick="event.stopPropagation(); kurador.vote('C')" class="card-action-btn w-full h-9 rounded-xl bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-stone-950 font-bold text-xs tracking-wide shadow-md transition flex items-center justify-center gap-1.5">
             <span>Elegir Opción C</span>
             <kbd class="px-1.5 py-0.2 rounded bg-amber-600 text-white font-mono text-[10px] border border-amber-300/40">3</kbd>
           </button>
 
           <div class="card-footer-info flex items-center justify-between text-[9px] font-mono text-stone-500 truncate">
-            <span id="urlPreviewC" class="truncate max-w-[200px]">...</span>
+            <span id="urlPreviewC" class="truncate max-w-[180px]">...</span>
             <a id="linkC" href="#" target="_blank" onclick="event.stopPropagation()" class="hover:text-amber-400 underline shrink-0">Abrir ↗</a>
           </div>
 
@@ -373,32 +432,32 @@
       </div>
 
       <!-- Quick Bottom Controls Bar -->
-      <div id="quickControlBar" class="bg-stone-900/90 border border-stone-800 rounded-xl p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div id="quickControlBar" class="bg-stone-900/90 border border-stone-800 rounded-xl px-2.5 py-1.5 flex flex-wrap items-center justify-between gap-2 text-xs">
         
-        <div class="flex items-center gap-2">
-          <button onclick="kurador.prevItem()" class="px-2.5 py-1.5 rounded-lg border border-stone-700 bg-stone-800 hover:bg-stone-700 text-stone-200 transition flex items-center gap-1 font-medium">
-            <span>← Anterior</span>
+        <div class="flex items-center gap-1.5">
+          <button onclick="kurador.prevItem()" class="px-2.5 py-1 rounded-lg border border-stone-700 bg-stone-800 hover:bg-stone-700 text-stone-200 transition flex items-center gap-1 font-medium text-xs">
+            <span>← Ant</span>
             <kbd class="px-1 text-[9px] bg-stone-900 rounded font-mono">Z</kbd>
           </button>
-          <button onclick="kurador.nextItem()" class="px-2.5 py-1.5 rounded-lg border border-stone-700 bg-stone-800 hover:bg-stone-700 text-stone-200 transition flex items-center gap-1 font-medium">
-            <span>Saltar →</span>
+          <button onclick="kurador.nextItem()" class="px-2.5 py-1 rounded-lg border border-stone-700 bg-stone-800 hover:bg-stone-700 text-stone-200 transition flex items-center gap-1 font-medium text-xs">
+            <span>Sig →</span>
             <kbd class="px-1 text-[9px] bg-stone-900 rounded font-mono">Espacio</kbd>
           </button>
-          <button onclick="kurador.nextPendingItem()" class="px-2.5 py-1.5 rounded-lg border border-sky-800 bg-sky-950/70 hover:bg-sky-900 text-sky-300 transition flex items-center gap-1 font-medium text-xs shadow-xs" title="Saltar a la próxima especie sin curar">
-            <span>⚡ Siguiente sin curar</span>
+          <button onclick="kurador.nextPendingItem()" class="px-2 py-1 rounded-lg border border-sky-800 bg-sky-950/70 hover:bg-sky-900 text-sky-300 transition flex items-center gap-1 font-medium text-[11px] shadow-xs" title="Saltar a la próxima especie sin curar">
+            <span>⚡ Sin curar</span>
           </button>
         </div>
 
         <!-- Custom URL Input fallback -->
         <div class="flex-1 max-w-sm flex items-center gap-1.5">
-          <input id="inputCustomUrl" type="url" placeholder="O pegar URL personalizada y Enter..." class="flex-1 text-xs px-2.5 py-1.5 rounded-lg bg-stone-950 border border-stone-700 text-stone-100 placeholder:text-stone-600 font-mono focus:border-sky-500 outline-none" onkeydown="if(event.key==='Enter') kurador.voteCustom(this.value)" />
-          <button onclick="kurador.voteCustom(document.getElementById('inputCustomUrl').value)" class="px-2.5 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-bold shrink-0">
-            Aplicar
+          <input id="inputCustomUrl" type="url" placeholder="Pegar URL y Enter..." class="flex-1 text-xs px-2 py-1 rounded-lg bg-stone-950 border border-stone-700 text-stone-100 placeholder:text-stone-600 font-mono focus:border-sky-500 outline-none" onkeydown="if(event.key==='Enter') kurador.voteCustom(this.value)" />
+          <button onclick="kurador.voteCustom(document.getElementById('inputCustomUrl').value)" class="px-2 py-1 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-bold shrink-0">
+            OK
           </button>
         </div>
 
-        <div class="hidden lg:flex items-center gap-2 text-[11px] font-mono text-stone-500">
-          <span>Atajos: [1] Opción A · [2] Opción B · [3] Opción C · [Z] Deshacer</span>
+        <div class="hidden lg:flex items-center gap-2 text-[10px] font-mono text-stone-500">
+          <span>Atajos: [1] A · [2] B · [3] C · [Z] Anterior</span>
         </div>
 
       </div>
@@ -450,16 +509,17 @@
     class KuradorApp {
       constructor() {
         this.arena = 'aves';
-        this.version = 'v2'; // Empezar de 0 con curación de 3 vías
+        this.version = 'v2';
+        this.priority = 'top64'; // 'top64' | 'top128' | 'all'
         this.items = [];
+        this.activePool = [];
         this.currentIndex = 0;
-        this.choices = new Map(); // id -> { source: 'A'|'B'|'C'|'custom', photo: string, wikiPhoto: string, commonsPhoto: string }
-        this.wikiCache = new Map(); // id -> string (url)
-        this.commonsCache = new Map(); // id -> string (url)
+        this.choices = new Map(); // id -> { source: 'A'|'B'|'C'|'custom', photo: string, candidates: [] }
+        this.candidatesCache = new Map(); // id -> string[]
+        this.slotIndices = { A: 0, B: 1, C: 2 };
         this.view = 'duel';
         this.catalogFilter = 'all';
 
-        // Parejas emblemáticas de portada para chequear unificación visual
         this.hubHighlights = {
           aves: [
             { id: 2455, name: 'Tucán Toco', side: 'Izquierda', currentHubPhoto: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg' },
@@ -489,35 +549,68 @@
       async init() {
         this.loadStorage();
         await this.loadArenaData();
+        await this.loadCandidatesCache();
+        this.updateActivePool();
         this.bindKeyboard();
         this.jumpToFirstPending();
         this.render();
-        // Carga cloud-first desde Supabase para la versión actual
         await this.loadFromSupabase();
       }
 
-      jumpToFirstPending() {
-        if (!this.items.length) return;
-        const pendingIdx = this.items.findIndex(it => !this.choices.has(it.id));
-        if (pendingIdx !== -1) {
-          this.currentIndex = pendingIdx;
+      updateActivePool() {
+        if (!this.items.length) {
+          this.activePool = [];
+          return;
+        }
+        if (this.priority === 'top64') {
+          this.activePool = this.items.slice(0, 64);
+        } else if (this.priority === 'top128') {
+          this.activePool = this.items.slice(0, 128);
         } else {
-          this.currentIndex = 0;
+          this.activePool = this.items;
         }
       }
 
+      setPriority(val) {
+        this.priority = val;
+        this.updateActivePool();
+        this.jumpToFirstPending();
+        this.render();
+      }
+
+      async loadCandidatesCache() {
+        try {
+          const res = await fetch(`/data/curation_candidates_${this.arena}.json`);
+          if (res.ok) {
+            const data = await res.json();
+            for (const [idStr, arr] of Object.entries(data)) {
+              this.candidatesCache.set(Number(idStr) || idStr, arr);
+            }
+          }
+        } catch (_) {}
+      }
+
+      jumpToFirstPending() {
+        if (!this.activePool.length) return;
+        const pendingIdx = this.activePool.findIndex(it => !this.choices.has(it.id));
+        this.currentIndex = pendingIdx !== -1 ? pendingIdx : 0;
+        this.resetSlots();
+      }
+
       nextPendingItem() {
-        const nextPending = this.items.findIndex((it, idx) => idx > this.currentIndex && !this.choices.has(it.id));
+        const nextPending = this.activePool.findIndex((it, idx) => idx > this.currentIndex && !this.choices.has(it.id));
         if (nextPending !== -1) {
           this.currentIndex = nextPending;
+          this.resetSlots();
           this.render();
         } else {
-          const anyPending = this.items.findIndex(it => !this.choices.has(it.id));
+          const anyPending = this.activePool.findIndex(it => !this.choices.has(it.id));
           if (anyPending !== -1) {
             this.currentIndex = anyPending;
+            this.resetSlots();
             this.render();
           } else {
-            alert('¡Todas las especies de esta categoría ya fueron curadas!');
+            alert(`¡Todas las especies de este lote (${this.activePool.length}) ya fueron curadas!`);
           }
         }
       }
@@ -526,8 +619,7 @@
         try {
           const raw = localStorage.getItem(this.storageKey);
           if (raw) {
-            const arr = JSON.parse(raw);
-            this.choices = new Map(arr);
+            this.choices = new Map(JSON.parse(raw));
           } else {
             this.choices = new Map();
           }
@@ -538,8 +630,7 @@
 
       saveStorage() {
         try {
-          const arr = Array.from(this.choices.entries());
-          localStorage.setItem(this.storageKey, JSON.stringify(arr));
+          localStorage.setItem(this.storageKey, JSON.stringify(Array.from(this.choices.entries())));
         } catch (_) {}
       }
 
@@ -564,16 +655,15 @@
                 this.choices.set(itemId, {
                   source: parsed.source,
                   photo: parsed.photo,
-                  wikiPhoto: parsed.wikiPhoto || '',
-                  commonsPhoto: parsed.commonsPhoto || ''
+                  candidates: parsed.candidates || []
                 });
               } catch (_) {}
             }
             this.saveStorage();
             if (syncBadge) {
-              syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Supabase (${this.choices.size} curadas)`;
+              syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Nube OK (${this.choices.size})`;
             }
-            if (this.choices.has(this.items[this.currentIndex]?.id)) {
+            if (this.choices.has(this.activePool[this.currentIndex]?.id)) {
               this.jumpToFirstPending();
             }
             this.render();
@@ -581,7 +671,7 @@
         } catch (err) {
           console.warn('Supabase fetch fallback:', err);
           if (syncBadge) {
-            syncBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Modo Local';
+            syncBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Local';
           }
         }
       }
@@ -589,8 +679,11 @@
       async setArena(arenaKey) {
         this.arena = arenaKey;
         this.currentIndex = 0;
+        this.resetSlots();
         this.loadStorage();
         await this.loadArenaData();
+        await this.loadCandidatesCache();
+        this.updateActivePool();
         this.jumpToFirstPending();
         this.render();
         await this.loadFromSupabase();
@@ -635,6 +728,9 @@
           } else if (e.key.toLowerCase() === 'z' || e.key === 'ArrowUp') {
             e.preventDefault();
             this.prevItem();
+          } else if (e.key.toLowerCase() === 'r') {
+            e.preventDefault();
+            this.cyclePage();
           }
         });
       }
@@ -660,86 +756,127 @@
         if (viewMode === 'hub') this.renderHub();
       }
 
-      // ----------------------------------------------------
-      // FUENTE B: WIKIPEDIA SUMMARY API (ES & EN)
-      // ----------------------------------------------------
-      async fetchWikipediaPhoto(item) {
-        if (!item) return null;
-        if (this.wikiCache.has(item.id)) return this.wikiCache.get(item.id);
+      resetSlots() {
+        this.slotIndices = { A: 0, B: 1, C: 2 };
+      }
 
+      cyclePage() {
+        const item = this.activePool[this.currentIndex];
+        if (!item) return;
+        const candidates = this.getCandidatesForItem(item);
+        if (candidates.length <= 3) {
+          alert('Esta especie tiene solo 3 opciones disponibles.');
+          return;
+        }
+
+        // Rotar las 3 ranuras a la siguiente terna
+        const nextBase = (this.slotIndices.A + 3) % candidates.length;
+        this.slotIndices = {
+          A: nextBase,
+          B: (nextBase + 1) % candidates.length,
+          C: (nextBase + 2) % candidates.length
+        };
+        this.renderDuelCards(item, candidates);
+      }
+
+      cycleSlot(slotKey) {
+        const item = this.activePool[this.currentIndex];
+        if (!item) return;
+        const candidates = this.getCandidatesForItem(item);
+        if (candidates.length <= 1) return;
+
+        // Buscar siguiente índice no ocupado por otros slots
+        let nextIdx = (this.slotIndices[slotKey] + 1) % candidates.length;
+        while (Object.entries(this.slotIndices).some(([k, idx]) => k !== slotKey && idx === nextIdx)) {
+          nextIdx = (nextIdx + 1) % candidates.length;
+          if (nextIdx === this.slotIndices[slotKey]) break;
+        }
+
+        this.slotIndices[slotKey] = nextIdx;
+        this.renderDuelCards(item, candidates);
+      }
+
+      getCandidatesForItem(item) {
+        if (this.candidatesCache.has(item.id)) {
+          return this.candidatesCache.get(item.id);
+        }
+        // Fallback básico si aún no fue pre-procesada
+        const list = [];
+        if (item.photo) list.push(item.photo);
+        return list;
+      }
+
+      async fetchDynamicCandidatesIfNeeded(item) {
+        if (this.candidatesCache.has(item.id) && this.candidatesCache.get(item.id).length >= 3) {
+          return this.candidatesCache.get(item.id);
+        }
+
+        const candidates = this.getCandidatesForItem(item).slice();
         const queries = [item.sciName, item.name].filter(Boolean);
+
+        // 1. Wikipedia Summary
         for (const q of queries) {
           const clean = q.replace(/[()]/g, '').trim().replace(/ /g, '_');
-          const endpoints = [
-            `https://es.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`,
-            `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`
-          ];
-
-          for (const ep of endpoints) {
+          for (const lang of ['es', 'en']) {
             try {
-              const res = await fetch(ep);
+              const res = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`);
               if (res.ok) {
-                const data = await res.json();
-                let src = data.originalimage?.source || data.thumbnail?.source;
-                if (src && !src.endsWith('.svg')) {
-                  src = src.replace(/^http:\/\//, 'https://');
-                  this.wikiCache.set(item.id, src);
-                  return src;
+                const d = await res.json();
+                const src = d.originalimage?.source || d.thumbnail?.source;
+                if (src && !src.endsWith('.svg') && !candidates.includes(src)) {
+                  candidates.push(src);
+                  break;
                 }
               }
             } catch (_) {}
           }
+          if (candidates.length >= 2) break;
         }
-        return null;
-      }
 
-      // ----------------------------------------------------
-      // FUENTE C: WIKIMEDIA COMMONS SEARCH API (GALERÍA ALTERNATIVA)
-      // ----------------------------------------------------
-      async fetchCommonsPhoto(item, excludeUrl = '') {
-        if (!item) return null;
-        if (this.commonsCache.has(item.id)) return this.commonsCache.get(item.id);
-
-        const queries = [item.sciName, item.name].filter(Boolean);
+        // 2. Commons Search
         for (const q of queries) {
           const clean = q.replace(/[()]/g, '').trim();
-          const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(clean)}&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url&iiurlwidth=960&format=json&origin=*`;
           try {
+            const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(clean)}&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url&iiurlwidth=960&format=json&origin=*`;
             const res = await fetch(url);
-            if (!res.ok) continue;
-            const data = await res.json();
-            const pages = data.query ? Object.values(data.query.pages) : [];
-            for (const p of pages) {
-              const info = p.imageinfo && p.imageinfo[0];
-              const thumb = info && (info.thumburl || info.url);
-              if (!thumb) continue;
-              const lower = thumb.toLowerCase();
-              if (lower.endsWith('.svg') || lower.endsWith('.tif') || lower.endsWith('.ogg') || lower.endsWith('.webm') || lower.includes('map') || lower.includes('distribution')) continue;
-              if (excludeUrl && (thumb === excludeUrl || info.url === excludeUrl)) continue;
-              
-              this.commonsCache.set(item.id, thumb);
-              return thumb;
+            if (res.ok) {
+              const d = await res.json();
+              const pages = d.query ? Object.values(d.query.pages) : [];
+              for (const p of pages) {
+                const info = p.imageinfo && p.imageinfo[0];
+                const u = info && (info.thumburl || info.url);
+                if (u && !u.endsWith('.svg') && !candidates.includes(u)) {
+                  candidates.push(u);
+                  if (candidates.length >= 5) break;
+                }
+              }
             }
           } catch (_) {}
+          if (candidates.length >= 3) break;
         }
-        return null;
+
+        this.candidatesCache.set(item.id, candidates);
+        return candidates;
       }
 
       async render() {
-        if (!this.items.length) {
-          document.getElementById('itemName').textContent = 'No se encontraron especies.';
+        if (!this.activePool.length) {
+          document.getElementById('itemName').textContent = 'No hay especies en este lote.';
           return;
         }
 
-        const item = this.items[this.currentIndex];
-        const total = this.items.length;
-        const curadas = this.choices.size;
+        const item = this.activePool[this.currentIndex];
+        const total = this.activePool.length;
+        let curadasInPool = 0;
+        for (const it of this.activePool) {
+          if (this.choices.has(it.id)) curadasInPool++;
+        }
 
         // Progress Text & Bar
-        document.getElementById('progressText').textContent = `#${this.currentIndex + 1} de ${total} (${curadas} curadas)`;
+        document.getElementById('progressText').textContent = `#${this.currentIndex + 1} de ${total} (${curadasInPool} curadas en este lote)`;
         document.getElementById('progressBar').style.width = `${Math.round(((this.currentIndex + 1) / total) * 100)}%`;
 
-        // Stats
+        // Stats globales
         let countA = 0, countB = 0, countC = 0;
         for (const val of this.choices.values()) {
           if (val.source === 'A') countA++;
@@ -750,7 +887,7 @@
         document.getElementById('statsB').textContent = `B: ${countB}`;
         document.getElementById('statsC').textContent = `C: ${countC}`;
 
-        // Header Card info
+        // Header Info
         document.getElementById('itemIndexBadge').textContent = `#${this.currentIndex + 1}`;
         document.getElementById('itemName').textContent = item.name;
         document.getElementById('itemSciName').textContent = item.sciName || 'Sin clasificar';
@@ -771,149 +908,121 @@
           tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded ${badgeColor} border font-bold">✓ Opción ${chosen.source}</span>`;
         }
 
-        // ===================================
-        // CARD A: FOTO ACTUAL (iNaturalist S3)
-        // ===================================
-        const photoA = item.photo || '';
-        document.getElementById('imgAmbientA').src = photoA;
-        document.getElementById('imgMainA').src = photoA;
-        document.getElementById('urlPreviewA').textContent = photoA;
-        document.getElementById('linkA').href = photoA;
-
-        // ===================================
-        // CARD B: WIKIPEDIA PORTADA
-        // ===================================
-        const loaderB = document.getElementById('loaderB');
-        const errorB = document.getElementById('errorB');
-        const imgMainB = document.getElementById('imgMainB');
-        const imgAmbientB = document.getElementById('imgAmbientB');
-        const urlPreviewB = document.getElementById('urlPreviewB');
-        const linkB = document.getElementById('linkB');
-
-        loaderB.classList.remove('hidden');
-        errorB.classList.add('hidden');
-        imgMainB.src = '';
-        imgAmbientB.src = '';
-
-        let wikiUrl = this.choices.get(item.id)?.wikiPhoto || this.wikiCache.get(item.id);
-        if (!wikiUrl) {
-          wikiUrl = await this.fetchWikipediaPhoto(item);
+        // Obtener candidatos (de caché o fetch dinámico)
+        let candidates = this.getCandidatesForItem(item);
+        if (candidates.length < 3) {
+          this.renderDuelCards(item, candidates);
+          candidates = await this.fetchDynamicCandidatesIfNeeded(item);
         }
 
-        loaderB.classList.add('hidden');
-        if (wikiUrl) {
-          imgMainB.onload = () => { loaderB.classList.add('hidden'); errorB.classList.add('hidden'); };
-          imgMainB.onerror = () => { loaderB.classList.add('hidden'); errorB.classList.remove('hidden'); };
-          imgMainB.src = wikiUrl;
-          imgAmbientB.src = wikiUrl;
-          urlPreviewB.textContent = wikiUrl;
-          linkB.href = wikiUrl;
-        } else {
-          errorB.classList.remove('hidden');
-          urlPreviewB.textContent = 'Sin foto en Wikipedia';
-          linkB.href = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(item.name + ' ' + item.sciName)}`;
-        }
+        this.renderDuelCards(item, candidates);
 
-        // ===================================
-        // CARD C: WIKIMEDIA COMMONS GALERÍA
-        // ===================================
-        const loaderC = document.getElementById('loaderC');
-        const errorC = document.getElementById('errorC');
-        const imgMainC = document.getElementById('imgMainC');
-        const imgAmbientC = document.getElementById('imgAmbientC');
-        const urlPreviewC = document.getElementById('urlPreviewC');
-        const linkC = document.getElementById('linkC');
-
-        loaderC.classList.remove('hidden');
-        errorC.classList.add('hidden');
-        imgMainC.src = '';
-        imgAmbientC.src = '';
-
-        let commonsUrl = this.choices.get(item.id)?.commonsPhoto || this.commonsCache.get(item.id);
-        if (!commonsUrl) {
-          commonsUrl = await this.fetchCommonsPhoto(item, wikiUrl);
-        }
-
-        loaderC.classList.add('hidden');
-        if (commonsUrl) {
-          imgMainC.onload = () => { loaderC.classList.add('hidden'); errorC.classList.add('hidden'); };
-          imgMainC.onerror = () => { loaderC.classList.add('hidden'); errorC.classList.remove('hidden'); };
-          imgMainC.src = commonsUrl;
-          imgAmbientC.src = commonsUrl;
-          urlPreviewC.textContent = commonsUrl;
-          linkC.href = commonsUrl;
-        } else {
-          errorC.classList.remove('hidden');
-          urlPreviewC.textContent = 'Sin foto en Commons';
-          linkC.href = `https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(item.sciName || item.name)}`;
-        }
-
-        // Highlight active choice if already curated
-        const choice = this.choices.get(item.id);
-        document.getElementById('cardA').classList.toggle('selected-card-a', choice?.source === 'A');
-        document.getElementById('cardB').classList.toggle('selected-card-b', choice?.source === 'B');
-        document.getElementById('cardC').classList.toggle('selected-card-c', choice?.source === 'C');
-
-        // Preload next species in background
+        // Pre-cargar la siguiente especie
         this.preloadNext(this.currentIndex + 1);
       }
 
-      preloadNext(idx) {
-        if (idx >= this.items.length) return;
-        const nextItem = this.items[idx];
-        if (nextItem && nextItem.photo) {
-          const img = new Image();
-          img.src = nextItem.photo;
+      renderDuelCards(item, candidates) {
+        const slots = ['A', 'B', 'C'];
+        const chosen = this.choices.get(item.id);
+
+        for (const s of slots) {
+          const idx = this.slotIndices[s] % Math.max(1, candidates.length);
+          const url = candidates[idx] || '';
+
+          const card = document.getElementById(`card${s}`);
+          const imgMain = document.getElementById(`imgMain${s}`);
+          const imgAmbient = document.getElementById(`imgAmbient${s}`);
+          const loader = document.getElementById(`loader${s}`);
+          const error = document.getElementById(`error${s}`);
+          const urlPreview = document.getElementById(`urlPreview${s}`);
+          const link = document.getElementById(`link${s}`);
+          const labelSource = document.getElementById(`labelSource${s}`);
+
+          if (labelSource) {
+            labelSource.textContent = `Opción ${s} (#${idx + 1}/${candidates.length})`;
+          }
+
+          if (card) {
+            card.classList.toggle(`selected-card-${s.toLowerCase()}`, chosen?.source === s);
+          }
+
+          if (!url) {
+            if (loader) loader.classList.add('hidden');
+            if (error) error.classList.remove('hidden');
+            if (imgMain) imgMain.src = '';
+            if (imgAmbient) imgAmbient.src = '';
+            if (urlPreview) urlPreview.textContent = 'Sin foto disponible';
+            continue;
+          }
+
+          if (error) error.classList.add('hidden');
+          if (loader) loader.classList.remove('hidden');
+
+          if (imgMain) {
+            imgMain.onload = () => {
+              if (loader) loader.classList.add('hidden');
+            };
+            imgMain.onerror = () => {
+              if (loader) loader.classList.add('hidden');
+              if (error) error.classList.remove('hidden');
+            };
+            imgMain.src = url;
+          }
+          if (imgAmbient) imgAmbient.src = url;
+          if (urlPreview) urlPreview.textContent = url;
+          if (link) link.href = url;
         }
-        this.fetchWikipediaPhoto(nextItem).then(wUrl => {
-          this.fetchCommonsPhoto(nextItem, wUrl);
-        });
       }
 
-      async vote(source) {
-        const item = this.items[this.currentIndex];
+      preloadNext(idx) {
+        if (idx >= this.activePool.length) return;
+        const nextItem = this.activePool[idx];
+        if (!nextItem) return;
+
+        let nextCandidates = this.getCandidatesForItem(nextItem);
+        if (nextCandidates.length > 0) {
+          for (const u of nextCandidates.slice(0, 3)) {
+            const im = new Image(); im.src = u;
+          }
+        } else {
+          this.fetchDynamicCandidatesIfNeeded(nextItem).then(cands => {
+            for (const u of (cands || []).slice(0, 3)) {
+              const im = new Image(); im.src = u;
+            }
+          });
+        }
+      }
+
+      async vote(slotKey) {
+        const item = this.activePool[this.currentIndex];
         if (!item) return;
 
-        let chosenUrl = '';
-        const wikiUrl = this.wikiCache.get(item.id) || '';
-        const commonsUrl = this.commonsCache.get(item.id) || '';
+        const candidates = this.getCandidatesForItem(item);
+        const activeIdx = this.slotIndices[slotKey] % Math.max(1, candidates.length);
+        const chosenUrl = candidates[activeIdx];
 
-        if (source === 'A') {
-          chosenUrl = item.photo;
-        } else if (source === 'B') {
-          chosenUrl = wikiUrl;
-          if (!chosenUrl) {
-            alert('Wikipedia no tiene foto disponible para esta especie. Elige A, C o pega una URL.');
-            return;
-          }
-        } else if (source === 'C') {
-          chosenUrl = commonsUrl;
-          if (!chosenUrl) {
-            alert('Commons no tiene foto alternativa disponible. Elige A, B o pega una URL.');
-            return;
-          }
+        if (!chosenUrl) {
+          alert(`No hay foto disponible en la ranura ${slotKey}.`);
+          return;
         }
 
         this.choices.set(item.id, {
-          source,
+          source: slotKey,
           photo: chosenUrl,
-          wikiPhoto: wikiUrl,
-          commonsPhoto: commonsUrl
+          candidates
         });
 
         this.saveStorage();
-        this.syncSupabase(item, source, chosenUrl);
+        this.syncSupabase(item, slotKey, chosenUrl, candidates);
 
-        // Visual flash feedback
-        const cardId = source === 'A' ? 'cardA' : (source === 'B' ? 'cardB' : 'cardC');
-        const card = document.getElementById(cardId);
+        const card = document.getElementById(`card${slotKey}`);
         if (card) {
-          card.classList.add(`selected-card-${source.toLowerCase()}`);
+          card.classList.add(`selected-card-${slotKey.toLowerCase()}`);
         }
 
         setTimeout(() => {
           this.nextItem();
-        }, 110);
+        }, 90);
       }
 
       voteCustom(url) {
@@ -922,26 +1031,26 @@
           return;
         }
         const cleanUrl = url.trim();
-        const item = this.items[this.currentIndex];
+        const item = this.activePool[this.currentIndex];
         if (!item) return;
+
+        const candidates = this.getCandidatesForItem(item);
+        if (!candidates.includes(cleanUrl)) candidates.unshift(cleanUrl);
 
         this.choices.set(item.id, {
           source: 'custom',
           photo: cleanUrl,
-          wikiPhoto: this.wikiCache.get(item.id) || '',
-          commonsPhoto: this.commonsCache.get(item.id) || ''
+          candidates
         });
 
         this.saveStorage();
-        this.syncSupabase(item, 'custom', cleanUrl);
+        this.syncSupabase(item, 'custom', cleanUrl, candidates);
         document.getElementById('inputCustomUrl').value = '';
         this.nextItem();
       }
 
-      async syncSupabase(item, source, chosenUrl) {
+      async syncSupabase(item, source, chosenUrl, candidates) {
         const short_code = `c_${this.arena}_${this.version}_${item.id}`;
-        const wikiUrl = this.wikiCache.get(item.id) || '';
-        const commonsUrl = this.commonsCache.get(item.id) || '';
         const payload = {
           short_code,
           pack_id: this.packId,
@@ -950,8 +1059,7 @@
             name: item.name,
             source,
             photo: chosenUrl,
-            wikiPhoto: wikiUrl,
-            commonsPhoto: commonsUrl
+            candidates: (candidates || []).slice(0, 5)
           })
         };
 
@@ -976,7 +1084,7 @@
             const patched = await patchRes.json();
             if (Array.isArray(patched) && patched.length > 0) {
               if (syncBadge) {
-                syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Guardado (${this.choices.size} curadas)`;
+                syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Nube OK (${this.choices.size})`;
               }
               return;
             }
@@ -993,7 +1101,7 @@
           });
 
           if (postRes.ok && syncBadge) {
-            syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Guardado (${this.choices.size} curadas)`;
+            syncBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Nube OK (${this.choices.size})`;
           }
         } catch (err) {
           console.warn('Supabase sync error:', err);
@@ -1004,36 +1112,19 @@
       }
 
       nextItem() {
-        if (this.currentIndex < this.items.length - 1) {
+        if (this.currentIndex < this.activePool.length - 1) {
           this.currentIndex++;
+          this.resetSlots();
           this.render();
         } else {
-          alert('¡Llegaste al final de la categoría! Puedes descargar el JSON actualizado con el botón superior.');
+          alert(`¡Llegaste al final de este lote (${this.activePool.length})! Puedes cambiar al siguiente lote o descargar el JSON.`);
         }
       }
 
       prevItem() {
         if (this.currentIndex > 0) {
           this.currentIndex--;
-          this.render();
-        }
-      }
-
-      searchAlternativeWikipedia() {
-        const item = this.items[this.currentIndex];
-        const newQuery = prompt('Ingresa nombre o término de búsqueda para Wikipedia:', item.sciName || item.name);
-        if (newQuery) {
-          this.wikiCache.delete(item.id);
-          item.sciName = newQuery;
-          this.render();
-        }
-      }
-
-      searchAlternativeCommons() {
-        const item = this.items[this.currentIndex];
-        const newQuery = prompt('Ingresa nombre o término de búsqueda para Wikimedia Commons:', item.sciName || item.name);
-        if (newQuery) {
-          this.commonsCache.delete(item.id);
+          this.resetSlots();
           this.render();
         }
       }
@@ -1043,6 +1134,7 @@
           this.choices.clear();
           localStorage.removeItem(this.storageKey);
           this.currentIndex = 0;
+          this.resetSlots();
           this.render();
         }
       }
@@ -1100,9 +1192,14 @@
       }
 
       jumpToItem(id) {
-        const idx = this.items.findIndex(it => it.id === id);
+        let idx = this.activePool.findIndex(it => it.id === id);
+        if (idx === -1) {
+          this.setPriority('all');
+          idx = this.activePool.findIndex(it => it.id === id);
+        }
         if (idx !== -1) {
           this.currentIndex = idx;
+          this.resetSlots();
           this.setView('duel');
         }
       }
