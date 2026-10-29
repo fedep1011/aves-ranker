@@ -864,66 +864,216 @@
 
     // Versus emblemáticos para la pastilla de Aves en portada (fotos oficiales default iNaturalist calibradas a mano)
     const AVES_CARD_PAIRS = [
-      {
-        left: { name: 'Águila Real', url: 'https://static.inaturalist.org/photos/168362446/medium.jpg', pos: '35% 25%' },
-        right: { name: 'Halcón Peregrino', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/212499566/medium.jpg', pos: '60% 25%' }
-      },
-      {
-        left: { name: 'Pavo Real', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/165318600/medium.jpg', pos: '35% 20%' },
-        right: { name: 'Ave del Paraíso', url: 'https://static.inaturalist.org/photos/51251186/medium.jpeg', pos: '65% 25%' }
-      },
-      {
-        left: { name: 'Búho Real', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/1840610/medium.jpg', pos: '35% 20%' },
-        right: { name: 'Cuervo Común', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/54389687/medium.jpg', pos: '60% 30%' }
-      },
-      {
-        left: { name: 'Colibrí Topacio', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/112388258/medium.jpeg', pos: '35% 35%' },
-        right: { name: 'Martín Pescador', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/61266631/medium.jpg', pos: '60% 35%' }
-      },
-      {
-        left: { name: 'Cacatúa Ninfa', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/260517157/medium.jpg', pos: '35% 20%' },
-        right: { name: 'Agapornis', url: 'https://static.inaturalist.org/photos/397224666/medium.jpeg', pos: '60% 30%' }
-      },
-      {
-        left: { name: 'Cisne Vulgar', url: 'https://static.inaturalist.org/photos/264781420/medium.jpg', pos: '35% 30%' },
-        right: { name: 'Flamenco del Caribe', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/108374016/medium.jpg', pos: '65% 20%' }
-      },
-      {
-        left: { name: 'Tucán Toco', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63281117/medium.jpg', pos: '30% center' },
-        right: { name: 'Guacamayo Azul y Amarillo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/414331079/medium.jpeg', pos: '70% center' }
-      },
-      {
-        left: { name: 'Pelícano Pardo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/74013719/medium.jpg', pos: '35% 25%' },
-        right: { name: 'Alcatraz Patas Azules', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/184079683/medium.jpg', pos: '60% 25%' }
-      },
-      {
-        left: { name: 'Cardenal Rojo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/189434971/medium.jpg', pos: '35% 30%' },
-        right: { name: 'Azulejo Índigo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/168808461/medium.jpeg', pos: '60% 30%' }
-      },
-      {
-        left: { name: 'Avestruz', url: 'https://static.inaturalist.org/photos/2568822/medium.jpg', pos: '35% 15%' },
-        right: { name: 'Casuario del Sur', url: 'https://static.inaturalist.org/photos/292195634/medium.jpg', pos: '60% 20%' }
-      },
-      {
-        left: { name: 'Cóndor de los Andes', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/74741181/medium.jpg', pos: '35% 30%' },
-        right: { name: 'Quebrantahuesos', url: 'https://static.inaturalist.org/photos/65759335/medium.jpg', pos: '60% 30%' }
-      },
-      {
-        left: { name: 'Pingüino Emperador', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/7229/medium.jpg', pos: '35% 20%' },
-        right: { name: 'Puffin Atlántico', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/63139388/medium.jpg', pos: '60% 25%' }
-      },
-      {
-        left: { name: 'Grulla Coronada', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/261339008/medium.jpg', pos: '35% 20%' },
-        right: { name: 'Cigüeña Blanca', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/269104502/medium.jpg', pos: '60% 25%' }
-      },
-      {
-        left: { name: 'Faisán Dorado', url: 'https://static.inaturalist.org/photos/437939340/medium.jpg', pos: '35% 30%' },
-        right: { name: 'Gallo de la Peña', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/17912813/medium.jpeg', pos: '65% 30%' }
-      },
-      {
-        left: { name: 'Correcaminos', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/128132945/medium.jpg', pos: '35% 35%' },
-        right: { name: 'Secretario', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/116433622/medium.jpeg', pos: '60% 20%' }
-      }
+          {
+                "left": {
+                      "id": 5074,
+                      "name": "Águila real",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Aquila_chrysaetos_%28Linnaeus_1758%29.jpg/960px-Aquila_chrysaetos_%28Linnaeus_1758%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                      "pos": "35% 25%"
+                },
+                "right": {
+                      "id": 4647,
+                      "name": "Halcón Peregrino",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/212499566/medium.jpg",
+                      "pos": "60% 25%"
+                }
+          },
+          {
+                "left": {
+                      "id": 1204,
+                      "name": "Pavo Real",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Pfau_imponierend.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "35% 20%"
+                },
+                "right": {
+                      "id": 1584281,
+                      "name": "Ave del Paraíso Soberbia",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/59228131/medium.jpg",
+                      "pos": "65% 25%"
+                }
+          },
+          {
+                "left": {
+                      "id": 20059,
+                      "name": "Búho Real",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1840610/medium.jpg",
+                      "pos": "35% 20%"
+                },
+                "right": {
+                      "id": 8010,
+                      "name": "Cuervo Común",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54389687/medium.jpg",
+                      "pos": "60% 30%"
+                }
+          },
+          {
+                "left": {
+                      "id": 6126,
+                      "name": "Colibrí Topacio",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112388258/medium.jpeg",
+                      "pos": "35% 35%"
+                },
+                "right": {
+                      "id": 2599,
+                      "name": "Martín Pescador",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Common_Kingfisher_Alcedo_atthis.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "60% 35%"
+                }
+          },
+          {
+                "left": {
+                      "id": 116993,
+                      "name": "Cacatúa Ninfa",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/260517157/medium.jpg",
+                      "pos": "35% 20%"
+                },
+                "right": {
+                      "id": 19079,
+                      "name": "Agapornis (Inseparable)",
+                      "url": "https://static.inaturalist.org/photos/397224666/medium.jpeg",
+                      "pos": "60% 30%"
+                }
+          },
+          {
+                "left": {
+                      "id": 6921,
+                      "name": "Cisne vulgar",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/253529360/medium.jpg",
+                      "pos": "35% 30%"
+                },
+                "right": {
+                      "id": 73222,
+                      "name": "Flamenco del Caribe (Flamenco rojo)",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Phoenicopterus_roseus_%28Walvis_bay%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "65% 20%"
+                }
+          },
+          {
+                "left": {
+                      "id": 18793,
+                      "name": "Tucán Toco",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/006_Toco_toucan_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent_%28cropped%29.jpg/3840px-006_Toco_toucan_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent_%28cropped%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+                      "pos": "30% center"
+                },
+                "right": {
+                      "id": 19018,
+                      "name": "Guacamayo Azul y Amarillo",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Ara_ararauna_Luc_Viatour.jpg/960px-Ara_ararauna_Luc_Viatour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                      "pos": "70% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 4328,
+                      "name": "Pelícano café",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/74013719/medium.jpg",
+                      "pos": "35% 25%"
+                },
+                "right": {
+                      "id": 3786,
+                      "name": "Piquero Patiazul",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/184079683/medium.jpg",
+                      "pos": "60% 25%"
+                }
+          },
+          {
+                "left": {
+                      "id": 9083,
+                      "name": "Cardenal rojo",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/189434971/medium.jpg",
+                      "pos": "35% 30%"
+                },
+                "right": {
+                      "id": 10227,
+                      "name": "Colorín azul",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/168808461/medium.jpeg",
+                      "pos": "60% 30%"
+                }
+          },
+          {
+                "left": {
+                      "id": 20526,
+                      "name": "Avestruz Común",
+                      "url": "https://static.inaturalist.org/photos/2568822/medium.jpg",
+                      "pos": "35% 15%"
+                },
+                "right": {
+                      "id": 20500,
+                      "name": "Casuario del Sur",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Southern_Cassowary_7071.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "60% 20%"
+                }
+          },
+          {
+                "left": {
+                      "id": 4747,
+                      "name": "Cóndor Andino",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/AndeanCondorMale.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "35% 30%"
+                },
+                "right": {
+                      "id": 5379,
+                      "name": "Quebrantahuesos",
+                      "url": "https://static.inaturalist.org/photos/65759335/medium.jpg",
+                      "pos": "60% 30%"
+                }
+          },
+          {
+                "left": {
+                      "id": 3820,
+                      "name": "Pingüino Emperador",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "35% 20%"
+                },
+                "right": {
+                      "id": 4504,
+                      "name": "Frailecillo Atlántico",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Papageitaucher_Fratercula_arctica.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "60% 25%"
+                }
+          },
+          {
+                "left": {
+                      "id": 53,
+                      "name": "Grulla Coronada Cuelligrís",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/261339008/medium.jpg",
+                      "pos": "35% 20%"
+                },
+                "right": {
+                      "id": 4733,
+                      "name": "Cigüeña blanca",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Stork_%28Palic%2C_Serbia%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "60% 25%"
+                }
+          },
+          {
+                "left": {
+                      "id": 1230,
+                      "name": "Faisán Dorado",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/233914195/medium.jpeg",
+                      "pos": "35% 30%"
+                },
+                "right": {
+                      "id": 8877,
+                      "name": "Gallito de las rocas (Ave nacional del Perú)",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/17912813/medium.jpeg",
+                      "pos": "65% 30%"
+                }
+          },
+          {
+                "left": {
+                      "id": 1986,
+                      "name": "Correcaminos norteño",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Correcaminos_Norte%C3%B1o_-_panoramio_%281%29.jpg/960px-Correcaminos_Norte%C3%B1o_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                      "pos": "35% 35%"
+                },
+                "right": {
+                      "id": 117214,
+                      "name": "Ave Secretario",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/116433622/medium.jpeg",
+                      "pos": "60% 20%"
+                }
+          }
     ];
 
     let heroRollCounter = 0;
@@ -1142,66 +1292,216 @@
 
     // Versus emblemáticos para la pastilla de Flores en portada
     const FLORA_CARD_PAIRS = [
-      {
-        left: { name: 'Rosa', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/236476292/medium.jpg', pos: '35% center' },
-        right: { name: 'Orquídea', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/256523606/medium.jpeg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Girasol', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/323768714/medium.jpg', pos: '35% center' },
-        right: { name: 'Flor de Loto', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/116385724/medium.jpeg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Lavanda', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/157057/medium.jpg', pos: '35% center' },
-        right: { name: 'Jacinto', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/42029432/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Tulipán', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/20539855/medium.jpg', pos: '35% center' },
-        right: { name: 'Ave del Paraíso', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/375256909/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Lirio', url: 'https://static.inaturalist.org/photos/166792719/medium.jpg', pos: '35% center' },
-        right: { name: 'Calla (Cartucho)', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/10183/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Hortensia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/45518546/medium.jpg', pos: '35% center' },
-        right: { name: 'Clavel', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/73534073/medium.jpeg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Cerezo en Flor (Sakura)', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/90432717/medium.jpeg', pos: '35% center' },
-        right: { name: 'Magnolia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/82254330/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Dalia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/571049090/medium.jpg', pos: '35% center' },
-        right: { name: 'Crisantemo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/236151541/medium.jpeg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Amapola', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/682825136/medium.jpg', pos: '35% center' },
-        right: { name: 'Violeta', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/622851735/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Anturio', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/336703418/medium.jpeg', pos: '35% center' },
-        right: { name: 'Hibisco', url: 'https://static.inaturalist.org/photos/115046668/medium.jpeg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Flor de Lis', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/8096074/medium.jpg', pos: '35% center' },
-        right: { name: 'Peonía', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/113190686/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Orquídea Fantasma', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/146926803/medium.jpg', pos: '35% center' },
-        right: { name: 'Flor de Cadáver (Rafflesia)', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/3035040/medium.JPG', pos: '65% center' }
-      },
-      {
-        left: { name: 'Narciso', url: 'https://static.inaturalist.org/photos/119190821/medium.jpg', pos: '35% center' },
-        right: { name: 'Azucena', url: 'https://static.inaturalist.org/photos/71246658/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Margarita', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/515847774/medium.jpg', pos: '35% center' },
-        right: { name: 'Diente de León', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/35280454/medium.jpg', pos: '65% center' }
-      },
-      {
-        left: { name: 'Camelia', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/114800079/medium.jpg', pos: '35% center' },
-        right: { name: 'Jazmín', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/185690403/medium.jpg', pos: '65% center' }
-      }
+          {
+                "left": {
+                      "id": 167982,
+                      "name": "Rosa de jardín (Rosa de Provenza)",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30934790/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 83085,
+                      "name": "Orquídea piramidal",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/128723699/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 57983,
+                      "name": "Girasol",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Sonnenblume_Helianthus_1.JPG/960px-Sonnenblume_Helianthus_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 82814,
+                      "name": "Loto sagrado",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/116385724/medium.jpeg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 61904,
+                      "name": "Cantueso",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/660488975/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 126637,
+                      "name": "Jacinto",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/42029432/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 129054,
+                      "name": "Tulipán de jardín",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/20539855/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 49143,
+                      "name": "Ave del Paraíso (Flor)",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/375256909/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 85027,
+                      "name": "Azucena silvestre",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/51715/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 56006,
+                      "name": "Alcatraz sudafricano",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10183/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 122034,
+                      "name": "Hortensia japonesa",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/45518546/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 83063,
+                      "name": "Clavel común",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/561998166/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 125742,
+                      "name": "Sakura (Cerezo de flor japonés)",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/90432717/medium.jpeg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 83074,
+                      "name": "Magnolia común",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/82254330/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 161582,
+                      "name": "Dalia de jardín",
+                      "url": "https://static.inaturalist.org/photos/212806147/medium.jpeg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 53806,
+                      "name": "Crisantemo de jardín",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/236151541/medium.jpeg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 54404,
+                      "name": "Amapola silvestre",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/682825136/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 55845,
+                      "name": "Violeta común",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Viola_odorata_Garden_060402Aw.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 69235,
+                      "name": "Anturio rojo (Flor de flamenco)",
+                      "url": "https://static.inaturalist.org/photos/173364227/medium.jpeg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 1628098,
+                      "name": "Rosa de China (Hibisco común)",
+                      "url": "https://static.inaturalist.org/photos/115046668/medium.jpeg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 1640238,
+                      "name": "Flor de Lis de Santiago",
+                      "url": "https://static.inaturalist.org/photos/221298314/medium.jpeg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 127857,
+                      "name": "Peonía china",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113190686/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 131250,
+                      "name": "Orquídea Fantasma",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/146926803/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 337568,
+                      "name": "Rafflesia (Flor cadáver gigante)",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3035040/medium.JPG",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 55848,
+                      "name": "Narciso trompón",
+                      "url": "https://static.inaturalist.org/photos/119190821/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 223666,
+                      "name": "Azucena blanca (Lirio de San Antonio)",
+                      "url": "https://static.inaturalist.org/photos/166792719/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 55563,
+                      "name": "Margarita común europea",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Pink_twinged_daisy_on_table_edit.jpg/960px-Pink_twinged_daisy_on_table_edit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 47602,
+                      "name": "Diente de león",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/23575133/medium.jpg",
+                      "pos": "65% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 83056,
+                      "name": "Camelia común",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/114800079/medium.jpg",
+                      "pos": "35% center"
+                },
+                "right": {
+                      "id": 164233,
+                      "name": "Jazmín común (Jazmín del país)",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/437364703/medium.jpeg",
+                      "pos": "65% center"
+                }
+          }
     ];
 
     function setupFloraHeroCard(animate = false) {
@@ -1253,38 +1553,118 @@
 
     // Versus emblemáticos para la pastilla de Mamíferos en portada
     const FAUNA_CARD_PAIRS = [
-      {
-        left: { name: 'Jaguar', url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG/3840px-Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail', pos: '40% center' },
-        right: { name: 'Tigre de Bengala', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/13207883/medium.jpg', pos: '60% center' }
-      },
-      {
-        left: { name: 'León Africano', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/9225318/medium.jpg', pos: '40% center' },
-        right: { name: 'Leopardo de las Nieves', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/16308659/medium.jpg', pos: '60% center' }
-      },
-      {
-        left: { name: 'Guepardo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/57582224/medium.jpg', pos: '40% center' },
-        right: { name: 'Puma', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/9834553/medium.jpg', pos: '60% center' }
-      },
-      {
-        left: { name: 'Lobo Gris', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/43410580/medium.jpg', pos: '40% center' },
-        right: { name: 'Zorro Rojo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/754793247/medium.jpg', pos: '60% center' }
-      },
-      {
-        left: { name: 'Oso Polar', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/102785980/medium.jpg', pos: '40% center' },
-        right: { name: 'Oso Pardo', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/1491897/medium.jpg', pos: '60% center' }
-      },
-      {
-        left: { name: 'Elefante Africano', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/93674728/medium.jpg', pos: '40% center' },
-        right: { name: 'Rinoceronte Blanco', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/57287523/medium.jpg', pos: '60% center' }
-      },
-      {
-        left: { name: 'Panda Gigante', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/150277588/medium.jpg', pos: '40% center' },
-        right: { name: 'Gorila de Montaña', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/109860139/medium.jpg', pos: '60% center' }
-      },
-      {
-        left: { name: 'Jirafa', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/753693022/medium.jpg', pos: '40% center' },
-        right: { name: 'Nutria Gigante', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/227172098/medium.jpeg', pos: '60% center' }
-      }
+          {
+                "left": {
+                      "id": 41970,
+                      "name": "Jaguar",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG/3840px-Jaguar_%28Panthera_onca_palustris%29_female_Piquiri_River_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 41967,
+                      "name": "Tigre",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Panthera_tigris_sumatran_subspecies.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+                      "pos": "60% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 41964,
+                      "name": "León",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/3840px-002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 74831,
+                      "name": "Leopardo de las nieves",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/16308659/medium.jpg",
+                      "pos": "60% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 41955,
+                      "name": "Guepardo",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57582224/medium.jpg",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 42007,
+                      "name": "Puma",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9834553/medium.jpg",
+                      "pos": "60% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 42048,
+                      "name": "Lobo gris",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Canis_lupus_265b.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 42069,
+                      "name": "Zorro Rojo",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Vulpes_vulpes_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "60% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 41644,
+                      "name": "Oso Polar",
+                      "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Polar_Bear_-_Alaska.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 41641,
+                      "name": "Oso Pardo",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Brown_bear_%28Ursus_arctos%29%2C_Viiksimo%2C_Kainuu_region%2C_Finland%2C_16_June_2018_%2843094873292%29.jpg/3840px-Brown_bear_%28Ursus_arctos%29%2C_Viiksimo%2C_Kainuu_region%2C_Finland%2C_16_June_2018_%2843094873292%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+                      "pos": "60% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 43694,
+                      "name": "Elefante africano de sabana",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Elefante_africano_de_sabana_%28Loxodonta_africana%29%2C_parque_nacional_Kruger%2C_Sud%C3%A1frica%2C_2018-07-25%2C_DD_12.jpg/3840px-Elefante_africano_de_sabana_%28Loxodonta_africana%29%2C_parque_nacional_Kruger%2C_Sud%C3%A1frica%2C_2018-07-25%2C_DD_12.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 43348,
+                      "name": "Rinoceronte Blanco",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57287523/medium.jpg",
+                      "pos": "60% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 41659,
+                      "name": "Panda gigante",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/150277588/medium.jpg",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 68790,
+                      "name": "Gorila oriental",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/109860139/medium.jpg",
+                      "pos": "60% center"
+                }
+          },
+          {
+                "left": {
+                      "id": 1510571,
+                      "name": "Jirafa del Sur",
+                      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Giraffe_Ithala_KZN_South_Africa_Luca_Galuzzi_2004.JPG/960px-Giraffe_Ithala_KZN_South_Africa_Luca_Galuzzi_2004.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+                      "pos": "40% center"
+                },
+                "right": {
+                      "id": 41845,
+                      "name": "Lobo Grande de Río",
+                      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/227172098/medium.jpeg",
+                      "pos": "60% center"
+                }
+          }
     ];
 
     function setupFaunaHeroCard(animate = false) {

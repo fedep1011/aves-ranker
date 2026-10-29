@@ -20544,5 +20544,43 @@
     "observations_count": 1137,
     "curated": true,
     "curated_source": "A"
+  },
+  {
+    "id": 6126,
+    "name": "Colibrí Topacio",
+    "sci_name": "Topaza pella",
+    "family": "Trochilidae",
+    "diet": "Néctar",
+    "biome": "Selva húmeda",
+    "region": "América",
+    "countries": [
+      "Brasil",
+      "Venezuela",
+      "Colombia",
+      "Guyana",
+      "Surinam"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/112388258/medium.jpeg",
+    "observations_count": 1420,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 19079,
+    "name": "Agapornis (Inseparable)",
+    "sci_name": "Agapornis roseicollis",
+    "family": "Psittaculidae",
+    "diet": "Semillas",
+    "biome": "Sabana y matorral",
+    "region": "África",
+    "countries": [
+      "Namibia",
+      "Sudáfrica",
+      "Angola"
+    ],
+    "photo": "https://static.inaturalist.org/photos/397224666/medium.jpeg",
+    "observations_count": 12580,
+    "curated": true,
+    "curated_source": "curated_master"
   }
 ]

@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { syncHomePairs } from './sync_home_pairs.mjs';
 
 const SUPABASE_URL = 'https://xomkdblwsmuphbkppvpu.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhvbWtkYmx3c211cGhia3BwdnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2OTkwOTMsImV4cCI6MjEwODI3NTA5M30.yqzCo9EJ8BrHereirVUdVDWqWfXbBDS5uItEr76-pwI';
@@ -92,6 +93,7 @@ async function run() {
   await syncArena('mamiferos', 'curation_mamiferos_v2');
   await syncArena('flores', 'curation_flores_v2');
   console.log('\n✓ ¡Todos los JSONs fueron unificados y actualizados exitosamente!');
+  syncHomePairs();
 }
 
 run().catch(console.error);

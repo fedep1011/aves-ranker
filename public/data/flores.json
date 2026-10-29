@@ -318,7 +318,7 @@
     "curated_source": "enriched_master"
   },
   {
-    "id": 56057,
+    "id": 53806,
     "name": "Crisantemo de jardín",
     "sci_name": "Chrysanthemum morifolium",
     "family": "Asteraceae",
@@ -332,7 +332,7 @@
       "España",
       "Estados Unidos"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/385004026/medium.jpg",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/236151541/medium.jpeg",
     "observations_count": 156052,
     "curated": true,
     "curated_source": "A"
@@ -26528,5 +26528,172 @@
     ],
     "curated": false,
     "curated_source": "default"
+  },
+  {
+    "id": 129054,
+    "name": "Tulipán de jardín",
+    "sci_name": "Tulipa gesneriana",
+    "family": "Liliaceae",
+    "color": "Rojo",
+    "usage": "Jardín y ornamental",
+    "climate": "Templado",
+    "region": "Eurasia",
+    "countries": [
+      "mundial",
+      "europa",
+      "asia"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/20539855/medium.jpg",
+    "observations_count": 38400,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 49143,
+    "name": "Ave del Paraíso (Flor)",
+    "sci_name": "Strelitzia reginae",
+    "family": "Strelitziaceae",
+    "color": "Naranja",
+    "usage": "Jardín y ornamental",
+    "climate": "Tropical / Subtropical",
+    "region": "África",
+    "countries": [
+      "sudáfrica",
+      "mundial"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375256909/medium.jpg",
+    "observations_count": 42100,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 83063,
+    "name": "Clavel común",
+    "sci_name": "Dianthus caryophyllus",
+    "family": "Caryophyllaceae",
+    "color": "Rosa",
+    "usage": "Jardín y flor cortada",
+    "climate": "Mediterráneo",
+    "region": "Europa",
+    "countries": [
+      "españa",
+      "italia",
+      "mundial"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/561998166/medium.jpg",
+    "observations_count": 16900,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 1628098,
+    "name": "Rosa de China (Hibisco común)",
+    "sci_name": "Hibiscus rosa-sinensis",
+    "family": "Malvaceae",
+    "color": "Rojo",
+    "usage": "Jardín y ornamental",
+    "climate": "Tropical",
+    "region": "Asia",
+    "countries": [
+      "china",
+      "latinoamérica",
+      "mundial"
+    ],
+    "photo": "https://static.inaturalist.org/photos/115046668/medium.jpeg",
+    "observations_count": 51200,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 131250,
+    "name": "Orquídea Fantasma",
+    "sci_name": "Dendrophylax lindenii",
+    "family": "Orchidaceae",
+    "color": "Blanco",
+    "usage": "Epífita rara",
+    "climate": "Subtropical húmedo",
+    "region": "América",
+    "countries": [
+      "estados unidos",
+      "cuba"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/146926803/medium.jpg",
+    "observations_count": 890,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 337568,
+    "name": "Rafflesia (Flor cadáver gigante)",
+    "sci_name": "Rafflesia arnoldii",
+    "family": "Rafflesiaceae",
+    "color": "Rojo",
+    "usage": "Parásita gigante",
+    "climate": "Selva ecuatorial",
+    "region": "Asia",
+    "countries": [
+      "indonesia",
+      "malasia"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3035040/medium.JPG",
+    "observations_count": 420,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 1640238,
+    "name": "Flor de Lis de Santiago",
+    "sci_name": "Zephyranthes formosissima",
+    "family": "Amaryllidaceae",
+    "color": "Rojo",
+    "usage": "Bulbosa silvestre",
+    "climate": "Templado",
+    "region": "América",
+    "countries": [
+      "méxico",
+      "guatemala"
+    ],
+    "photo": "https://static.inaturalist.org/photos/221298314/medium.jpeg",
+    "observations_count": 3200,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 55848,
+    "name": "Narciso trompón",
+    "sci_name": "Narcissus pseudonarcissus",
+    "family": "Amaryllidaceae",
+    "color": "Amarillo",
+    "usage": "Jardín y silvestre",
+    "climate": "Templado frío",
+    "region": "Europa",
+    "countries": [
+      "españa",
+      "reino unido",
+      "francia"
+    ],
+    "photo": "https://static.inaturalist.org/photos/119190821/medium.jpg",
+    "observations_count": 27800,
+    "curated": true,
+    "curated_source": "curated_master"
+  },
+  {
+    "id": 223666,
+    "name": "Azucena blanca (Lirio de San Antonio)",
+    "sci_name": "Lilium candidum",
+    "family": "Liliaceae",
+    "color": "Blanco",
+    "usage": "Jardín y ceremonial",
+    "climate": "Mediterráneo",
+    "region": "Europa",
+    "countries": [
+      "grecia",
+      "italia",
+      "mundial"
+    ],
+    "photo": "https://static.inaturalist.org/photos/166792719/medium.jpg",
+    "observations_count": 6500,
+    "curated": true,
+    "curated_source": "curated_master"
   }
 ]
