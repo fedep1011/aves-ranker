@@ -10,7 +10,7 @@ async function fetchAllRows(packId) {
 
   while (true) {
     const to = from + batchSize - 1;
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/rankings?pack_id=eq.${encodeURIComponent(packId)}&select=*`, {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rankings?pack_id=eq.${encodeURIComponent(packId)}&order=created_at.asc&select=*`, {
       headers: {
         'apikey': SUPABASE_ANON_KEY,
         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,

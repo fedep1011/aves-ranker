@@ -323,10 +323,10 @@
       "Colombia",
       "Venezuela"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/187242272/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Phoenicopterus_roseus_%28Walvis_bay%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 41157,
     "curated": true,
-    "curated_source": "enriched_master"
+    "curated_source": "B"
   },
   {
     "id": 1626,
@@ -342,10 +342,10 @@
       "Colombia",
       "Venezuela"
     ],
-    "photo": "https://static.inaturalist.org/photos/30204299/medium.jpeg",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/335722298/medium.jpg",
     "observations_count": 4472,
     "curated": true,
-    "curated_source": "enriched_master"
+    "curated_source": "A"
   },
   {
     "id": 338311,
@@ -361,10 +361,10 @@
       "Perú",
       "Bolivia"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/180072230/medium.jpeg",
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/244391180/medium.jpg",
     "observations_count": 1687,
     "curated": true,
-    "curated_source": "enriched_master"
+    "curated_source": "C"
   },
   {
     "id": 1505670,
@@ -381,10 +381,10 @@
       "Sudáfrica",
       "Botsuana"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13402714/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Schreiseeadler_Haliaeetus_vocifer_2_amk.jpg/960px-Schreiseeadler_Haliaeetus_vocifer_2_amk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "observations_count": 11787,
     "curated": true,
-    "curated_source": "enriched_master"
+    "curated_source": "C"
   },
   {
     "id": 6930,
