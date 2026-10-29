@@ -16,7 +16,7 @@ Plataforma web interactiva para descubrir, rankear y compartir tus favoritos en 
 Rankea2 cuenta con cuatro arenas temáticas activas conectadas al hub central (`/`), cada una con identidad visual propia y adaptación especializada de datos:
 
 1. **Aves del Mundo (`/aves/`) · Activa**
-   - Catálogo de más de 11.000 especies mundiales con fotografías en alta definición y cantos en vivo provistos por iNaturalist y xeno-canto.
+   - Catálogo de más de 1.200 especies mundiales sin sesgo geográfico, con fotografías en alta definición y cantos en vivo provistos por iNaturalist y xeno-canto.
    - Filtros por país, continente, bioma y color dominante.
    - Encuadre fotográfico *zero-crop* en batallas, podio y lista de candidatos, garantizando que ninguna cabeza, cuerpo o plumaje quede recortado.
 

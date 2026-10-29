@@ -290,6 +290,103 @@
     "curated_source": "B"
   },
   {
+    "id": 8877,
+    "name": "Gallito de las rocas (Ave nacional del Perú)",
+    "sci_name": "Rupicola peruvianus",
+    "family": "Cotingidae",
+    "group": "Aves de bosque",
+    "habitat": "Bosques de neblina andinos",
+    "region": "América del Sur",
+    "countries": [
+      "Perú",
+      "Colombia",
+      "Ecuador",
+      "Bolivia"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/17912813/medium.jpeg",
+    "observations_count": 3240,
+    "curated": true,
+    "curated_source": "enriched_master"
+  },
+  {
+    "id": 73222,
+    "name": "Flamenco del Caribe (Flamenco rojo)",
+    "sci_name": "Phoenicopterus ruber",
+    "family": "Phoenicopteridae",
+    "group": "Aves acuáticas",
+    "habitat": "Lagunas salobres y costas",
+    "region": "América",
+    "countries": [
+      "México",
+      "Cuba",
+      "Bahamas",
+      "Colombia",
+      "Venezuela"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/187242272/medium.jpg",
+    "observations_count": 41157,
+    "curated": true,
+    "curated_source": "enriched_master"
+  },
+  {
+    "id": 1626,
+    "name": "Hoatzín (Pájaro dinosaurio)",
+    "sci_name": "Opisthocomus hoazin",
+    "family": "Opisthocomidae",
+    "group": "Aves tropicales",
+    "habitat": "Pantanos y riberas amazónicas",
+    "region": "América del Sur",
+    "countries": [
+      "Brasil",
+      "Perú",
+      "Colombia",
+      "Venezuela"
+    ],
+    "photo": "https://static.inaturalist.org/photos/30204299/medium.jpeg",
+    "observations_count": 4472,
+    "curated": true,
+    "curated_source": "enriched_master"
+  },
+  {
+    "id": 338311,
+    "name": "Colibrí pico espada",
+    "sci_name": "Ensifera ensifera",
+    "family": "Trochilidae",
+    "group": "Colibríes",
+    "habitat": "Bosques altos andinos",
+    "region": "América del Sur",
+    "countries": [
+      "Colombia",
+      "Ecuador",
+      "Perú",
+      "Bolivia"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/180072230/medium.jpeg",
+    "observations_count": 1687,
+    "curated": true,
+    "curated_source": "enriched_master"
+  },
+  {
+    "id": 1505670,
+    "name": "Pigargo vocinglero (Águila pescadora africana)",
+    "sci_name": "Haliaeetus vocifer",
+    "family": "Accipitridae",
+    "group": "Rapaces",
+    "habitat": "Lagos y ríos africanos",
+    "region": "África",
+    "countries": [
+      "Kenia",
+      "Uganda",
+      "Tanzania",
+      "Sudáfrica",
+      "Botsuana"
+    ],
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13402714/medium.jpeg",
+    "observations_count": 11787,
+    "curated": true,
+    "curated_source": "enriched_master"
+  },
+  {
     "id": 6930,
     "name": "Pato cabeza verde",
     "sci_name": "Anas platyrhynchos",
@@ -5433,7 +5530,9 @@
       "latinoamérica",
       "sudamérica",
       "global"
-    ]
+    ],
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3893,
@@ -11003,7 +11102,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/46952988/medium.jpg",
     "observations_count": 630,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 117214,
@@ -11018,7 +11118,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/116433622/medium.jpeg",
     "observations_count": 5472,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20500,
@@ -11031,9 +11132,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://static.inaturalist.org/photos/292195634/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Southern_Cassowary_7071.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 3719,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 20526,
@@ -11048,7 +11150,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/2568822/medium.jpg",
     "observations_count": 16138,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20504,
@@ -11061,9 +11164,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/187562017/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Emu_1_-_Tidbinbilla.jpg/3840px-Emu_1_-_Tidbinbilla.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 13455,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 1584019,
@@ -11076,9 +11180,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/592580290/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Sirocco_full_length_portrait.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 73,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 18941,
@@ -11093,7 +11198,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/487649966/medium.jpg",
     "observations_count": 4595,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20496,
@@ -11108,7 +11214,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/534304980/medium.jpg",
     "observations_count": 624,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12700,
@@ -11123,7 +11230,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/204606779/medium.jpeg",
     "observations_count": 6668,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1289379,
@@ -11136,9 +11244,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/209771912/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Male_adult_Gouldian_Finch.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 867,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 116993,
@@ -11153,7 +11262,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/260517157/medium.jpg",
     "observations_count": 6681,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2266,
@@ -11168,7 +11278,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/100389614/medium.jpg",
     "observations_count": 12336,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5379,
@@ -11183,7 +11294,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65759335/medium.jpg",
     "observations_count": 8301,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1026,
@@ -11198,7 +11310,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/92441326/medium.jpeg",
     "observations_count": 4949,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20059,
@@ -11213,7 +11326,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1840610/medium.jpg",
     "observations_count": 7887,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14840,
@@ -11228,7 +11342,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/600349296/medium.jpg",
     "observations_count": 2309,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 339684,
@@ -11243,7 +11358,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/268681418/medium.jpeg",
     "observations_count": 6934,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5536,
@@ -11258,7 +11374,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/712118462/medium.jpg",
     "observations_count": 2657,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5532,
@@ -11273,7 +11390,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/20302331/medium.jpg",
     "observations_count": 1988,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144281,
@@ -11286,9 +11404,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://static.inaturalist.org/photos/64757984/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Ground_Hornbill%2C_Chobe_National_Park%2C_Botswana_%2836427414050%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4987,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 53,
@@ -11303,7 +11422,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/261339008/medium.jpg",
     "observations_count": 6456,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 39,
@@ -11318,7 +11438,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/122932380/medium.jpg",
     "observations_count": 1787,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5413,
@@ -11333,7 +11454,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/190832498/medium.jpeg",
     "observations_count": 135,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5344,
@@ -11348,7 +11470,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/372073926/medium.jpg",
     "observations_count": 4626,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505670,
@@ -11361,9 +11484,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://static.inaturalist.org/photos/339871833/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Schreiseeadler_Haliaeetus_vocifer_2_amk.jpg/960px-Schreiseeadler_Haliaeetus_vocifer_2_amk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "observations_count": 11781,
-    "curated": false
+    "curated": true,
+    "curated_source": "C"
   },
   {
     "id": 7196,
@@ -11376,9 +11500,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/579363721/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Tauraco_livingstonii_20090110.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "observations_count": 318,
-    "curated": false
+    "curated": true,
+    "curated_source": "C"
   },
   {
     "id": 4870,
@@ -11393,7 +11518,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/259641949/medium.jpg",
     "observations_count": 13249,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1736,
@@ -11408,7 +11534,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8193410/medium.jpg",
     "observations_count": 472,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13956,
@@ -11423,7 +11550,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/268028389/medium.jpg",
     "observations_count": 2193,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4259,
@@ -11438,7 +11566,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/89723844/medium.jpg",
     "observations_count": 4866,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1584281,
@@ -11453,7 +11582,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59228131/medium.jpg",
     "observations_count": 54,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8183,
@@ -11468,7 +11598,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/51251186/medium.jpeg",
     "observations_count": 160,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8365,
@@ -11481,9 +11612,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59166008/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/df/Cicinnurus_regius-20031005.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 137,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 14458,
@@ -11498,7 +11630,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/77312623/medium.jpg",
     "observations_count": 821,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204517,
@@ -11513,7 +11646,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/397624902/medium.jpg",
     "observations_count": 3404,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1096,
@@ -11528,7 +11662,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/115182958/medium.jpeg",
     "observations_count": 2300,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1231,
@@ -11543,7 +11678,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/67441066/medium.jpg",
     "observations_count": 673,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1175,
@@ -11558,7 +11694,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/374965708/medium.jpg",
     "observations_count": 762,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3774,
@@ -11573,7 +11710,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/85404012/medium.jpeg",
     "observations_count": 317,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3753,
@@ -11588,7 +11726,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/330765224/medium.jpg",
     "observations_count": 2180,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1528569,
@@ -11603,7 +11742,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/445953950/medium.jpeg",
     "observations_count": 3039,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144433,
@@ -11618,7 +11758,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/171871704/medium.jpg",
     "observations_count": 5558,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3821,
@@ -11633,7 +11774,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/602978114/medium.jpg",
     "observations_count": 3101,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3810,
@@ -11648,7 +11790,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/49209619/medium.jpg",
     "observations_count": 2338,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3808,
@@ -11663,7 +11806,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/44210941/medium.jpg",
     "observations_count": 5690,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3814,
@@ -11678,7 +11822,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/106273398/medium.jpg",
     "observations_count": 3066,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3812,
@@ -11693,7 +11838,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/345378562/medium.jpg",
     "observations_count": 9139,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3817,
@@ -11708,7 +11854,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/85115528/medium.jpg",
     "observations_count": 8150,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3827,
@@ -11723,7 +11870,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/112102893/medium.jpg",
     "observations_count": 749,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3786,
@@ -11738,7 +11886,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/184079683/medium.jpg",
     "observations_count": 10250,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3793,
@@ -11751,9 +11900,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://static.inaturalist.org/photos/596795527/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/45/Sula_sula_by_Gregg_Yan_01.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 7853,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 4317,
@@ -11768,7 +11918,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/437472712/medium.jpg",
     "observations_count": 2419,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 18938,
@@ -11783,7 +11934,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/144156185/medium.jpg",
     "observations_count": 2389,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 19343,
@@ -11798,7 +11950,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/157825506/medium.jpg",
     "observations_count": 11,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8848,
@@ -11813,7 +11966,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/400726180/medium.jpg",
     "observations_count": 50,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8808,
@@ -11828,7 +11982,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/104818772/medium.jpeg",
     "observations_count": 304,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204531,
@@ -11843,7 +11998,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/284099565/medium.jpeg",
     "observations_count": 9647,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13804,
@@ -11858,7 +12014,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/333356/medium.JPG",
     "observations_count": 11004,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13699,
@@ -11873,7 +12030,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54496010/medium.jpg",
     "observations_count": 8635,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2988,
@@ -11888,7 +12046,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/736383407/medium.jpg",
     "observations_count": 11660,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13853,
@@ -11903,7 +12062,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/11707802/medium.jpg",
     "observations_count": 8865,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13801,
@@ -11918,7 +12078,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/22757/medium.jpg",
     "observations_count": 7941,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204554,
@@ -11931,9 +12092,10 @@
     "countries": [
       "sudáfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/355116921/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Red-winged_Starling_%28Onychognathus_morio%29_%286042010966%29.jpg/960px-Red-winged_Starling_%28Onychognathus_morio%29_%286042010966%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "observations_count": 8094,
-    "curated": false
+    "curated": true,
+    "curated_source": "C"
   },
   {
     "id": 145157,
@@ -11948,7 +12110,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12098817/medium.jpg",
     "observations_count": 7037,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1585912,
@@ -11963,7 +12126,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/257266823/medium.jpg",
     "observations_count": 7428,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8268,
@@ -11978,7 +12142,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/689750121/medium.jpg",
     "observations_count": 11205,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508246,
@@ -11993,7 +12158,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/434048496/medium.jpeg",
     "observations_count": 11058,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13251,
@@ -12008,7 +12174,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/59900970/medium.jpg",
     "observations_count": 6321,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 472770,
@@ -12023,7 +12190,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/545801809/medium.jpg",
     "observations_count": 6385,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13962,
@@ -12038,7 +12206,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/264253885/medium.jpg",
     "observations_count": 7184,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3036,
@@ -12053,7 +12222,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1954837/medium.jpg",
     "observations_count": 9316,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 487,
@@ -12068,7 +12238,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/622069483/medium.jpg",
     "observations_count": 8083,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 6965,
@@ -12083,7 +12254,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1284618/medium.jpg",
     "observations_count": 6798,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14594,
@@ -12098,7 +12270,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1366561/medium.jpg",
     "observations_count": 5904,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4972,
@@ -12113,7 +12286,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/194664553/medium.jpg",
     "observations_count": 9991,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5198,
@@ -12128,7 +12302,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6330504/medium.jpeg",
     "observations_count": 5856,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2346,
@@ -12143,7 +12318,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/740247/medium.jpg",
     "observations_count": 6992,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 343746,
@@ -12158,7 +12334,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2018016/medium.jpg",
     "observations_count": 5331,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3704,
@@ -12173,7 +12350,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/245848834/medium.jpg",
     "observations_count": 8650,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3813,
@@ -12188,7 +12366,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/79056615/medium.jpg",
     "observations_count": 6811,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13442,
@@ -12203,7 +12382,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/728414837/medium.jpg",
     "observations_count": 5103,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13300,
@@ -12218,7 +12398,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25812/medium.jpg",
     "observations_count": 5132,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 55371,
@@ -12231,9 +12412,10 @@
     "countries": [
       "sudáfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2644120/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/62/African_Stonechat%2C_Saxicola_torquatus_at_Rietvlei_Nature_Reserve%2C_South_Africa_%2810055073394%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 6563,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 980204,
@@ -12248,7 +12430,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/241175544/medium.jpeg",
     "observations_count": 6054,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8038,
@@ -12263,7 +12446,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/177161231/medium.jpg",
     "observations_count": 10410,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144509,
@@ -12278,7 +12462,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/552100936/medium.jpg",
     "observations_count": 5282,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4839,
@@ -12293,7 +12478,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13539497/medium.jpg",
     "observations_count": 4791,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14930,
@@ -12308,7 +12494,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/169122406/medium.jpg",
     "observations_count": 6176,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7730,
@@ -12323,7 +12510,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/64726020/medium.jpg",
     "observations_count": 4588,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204470,
@@ -12338,7 +12526,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/252378479/medium.jpg",
     "observations_count": 5302,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5066,
@@ -12353,7 +12542,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/107850993/medium.jpg",
     "observations_count": 6753,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145142,
@@ -12368,7 +12558,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/16169724/medium.jpg",
     "observations_count": 4619,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145130,
@@ -12383,7 +12574,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/33691/medium.jpg",
     "observations_count": 3884,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5363,
@@ -12396,9 +12588,10 @@
     "countries": [
       "sudáfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/150470465/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/2012-white-backed-vulture.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 9350,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 2959,
@@ -12413,7 +12606,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/22114928/medium.jpeg",
     "observations_count": 7383,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1580335,
@@ -12428,7 +12622,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/579440579/medium.jpg",
     "observations_count": 5447,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 73152,
@@ -12443,7 +12638,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/333703657/medium.jpg",
     "observations_count": 4942,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4922,
@@ -12458,7 +12654,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/63245571/medium.jpg",
     "observations_count": 4632,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 47,
@@ -12473,7 +12670,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/66601/medium.jpg",
     "observations_count": 4034,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7660,
@@ -12488,7 +12686,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/581441165/medium.jpg",
     "observations_count": 3711,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2269,
@@ -12503,7 +12702,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/689801400/medium.jpg",
     "observations_count": 9852,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8224,
@@ -12518,7 +12718,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25006748/medium.jpg",
     "observations_count": 3573,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145163,
@@ -12533,7 +12734,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/23540317/medium.jpeg",
     "observations_count": 3551,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14069,
@@ -12548,7 +12750,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54760845/medium.jpeg",
     "observations_count": 14280,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13510,
@@ -12563,7 +12766,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/229083706/medium.jpg",
     "observations_count": 13843,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4243,
@@ -12578,7 +12782,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/444374366/medium.jpg",
     "observations_count": 13618,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 19009,
@@ -12591,9 +12796,10 @@
     "countries": [
       "australia"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/242426579/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Psephotus_haematonotus_-near_Lake_Ginninderra%2C_Canberra%2C_Australia_-male-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 13365,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 3335,
@@ -12608,7 +12814,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54313636/medium.jpg",
     "observations_count": 12798,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13468,
@@ -12623,7 +12830,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/700704544/medium.jpg",
     "observations_count": 13375,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 73407,
@@ -12638,7 +12846,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/342620418/medium.jpg",
     "observations_count": 12857,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7990,
@@ -12653,7 +12862,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/319271448/medium.jpeg",
     "observations_count": 12882,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12659,
@@ -12668,7 +12878,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/149111364/medium.jpg",
     "observations_count": 12092,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4846,
@@ -12683,7 +12894,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/4339890/medium.jpg",
     "observations_count": 11919,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5080,
@@ -12698,7 +12910,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/124639106/medium.jpg",
     "observations_count": 12400,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5407,
@@ -12713,7 +12926,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/153075408/medium.jpeg",
     "observations_count": 12009,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4925,
@@ -12728,7 +12942,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/29852529/medium.jpeg",
     "observations_count": 11471,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 6969,
@@ -12743,7 +12958,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/415251777/medium.jpeg",
     "observations_count": 12903,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2238,
@@ -12758,7 +12974,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/350708162/medium.jpg",
     "observations_count": 11520,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12238,
@@ -12771,9 +12988,10 @@
     "countries": [
       "australia"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/299032725/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Acanthorhynchus_tenuirostris_-_Mogo_Campground.jpg/3840px-Acanthorhynchus_tenuirostris_-_Mogo_Campground.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 11287,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 7920,
@@ -12788,7 +13006,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/42490066/medium.jpg",
     "observations_count": 11286,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12626,
@@ -12803,7 +13022,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/99168434/medium.jpg",
     "observations_count": 11085,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508969,
@@ -12818,7 +13038,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58945535/medium.jpg",
     "observations_count": 10849,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14539,
@@ -12833,7 +13054,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/304567604/medium.jpg",
     "observations_count": 10867,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8493,
@@ -12848,7 +13070,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/7570534/medium.jpg",
     "observations_count": 10656,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12580,
@@ -12863,7 +13086,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/463261137/medium.jpg",
     "observations_count": 40178,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 244276,
@@ -12878,7 +13102,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/463499217/medium.jpg",
     "observations_count": 17371,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7072,
@@ -12893,7 +13118,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/463428163/medium.jpg",
     "observations_count": 11206,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4848,
@@ -12908,7 +13134,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/227875037/medium.jpg",
     "observations_count": 9599,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12612,
@@ -12923,7 +13150,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/630813930/medium.jpg",
     "observations_count": 10253,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 410743,
@@ -12936,9 +13164,10 @@
     "countries": [
       "nueva zelanda"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1894548/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Pacific_black_duck_%28Anas_superciliosa%29_male_swimming_Sydney.jpg/3840px-Pacific_black_duck_%28Anas_superciliosa%29_male_swimming_Sydney.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 9529,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 18943,
@@ -12953,7 +13182,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/336381381/medium.jpg",
     "observations_count": 6953,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7058,
@@ -12968,7 +13198,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/441173056/medium.jpg",
     "observations_count": 5633,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 436,
@@ -12983,7 +13214,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/204782403/medium.jpg",
     "observations_count": 8617,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14175,
@@ -12998,7 +13230,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/219857/medium.jpg",
     "observations_count": 5887,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4478,
@@ -13013,7 +13246,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/314547296/medium.jpg",
     "observations_count": 5477,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4832,
@@ -13026,9 +13260,10 @@
     "countries": [
       "nueva zelanda"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/152322352/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Himantopus_himantopus_leucocephalus_-_Lake_Joondalup.jpg/960px-Himantopus_himantopus_leucocephalus_-_Lake_Joondalup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "observations_count": 14652,
-    "curated": false
+    "curated": true,
+    "curated_source": "C"
   },
   {
     "id": 14170,
@@ -13043,7 +13278,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/358190180/medium.jpg",
     "observations_count": 5091,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3733,
@@ -13058,7 +13294,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/338718729/medium.jpg",
     "observations_count": 14618,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505632,
@@ -13073,7 +13310,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/392741396/medium.jpg",
     "observations_count": 3977,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4851,
@@ -13088,7 +13326,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/554887341/medium.jpg",
     "observations_count": 4071,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 492519,
@@ -13103,7 +13342,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/461117969/medium.jpg",
     "observations_count": 3675,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13494,
@@ -13118,7 +13358,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/538335436/medium.jpg",
     "observations_count": 5412,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5168,
@@ -13133,7 +13374,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/656956862/medium.jpg",
     "observations_count": 8510,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4292,
@@ -13148,7 +13390,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/539326341/medium.jpg",
     "observations_count": 3306,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144505,
@@ -13163,7 +13406,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/1190875/medium.jpg",
     "observations_count": 3345,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505639,
@@ -13178,7 +13422,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/428504672/medium.jpg",
     "observations_count": 4297,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3801,
@@ -13193,7 +13438,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/446195135/medium.jpg",
     "observations_count": 6569,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204462,
@@ -13208,7 +13454,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/412538283/medium.jpg",
     "observations_count": 2842,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4690,
@@ -13223,7 +13470,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/70658079/medium.jpg",
     "observations_count": 4751,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 979817,
@@ -13238,7 +13486,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/415290539/medium.jpg",
     "observations_count": 2772,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 464301,
@@ -13253,7 +13502,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/72192142/medium.jpg",
     "observations_count": 2258,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 558437,
@@ -13268,7 +13518,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/203103357/medium.jpg",
     "observations_count": 4642,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7254,
@@ -13283,7 +13534,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/43464881/medium.jpeg",
     "observations_count": 2113,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8324,
@@ -13298,7 +13550,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12830328/medium.jpg",
     "observations_count": 1880,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204498,
@@ -13313,7 +13566,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/409524714/medium.jpg",
     "observations_count": 2044,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 72502,
@@ -13328,7 +13582,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/468209644/medium.jpg",
     "observations_count": 1641,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4231,
@@ -13343,7 +13598,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/438377961/medium.jpg",
     "observations_count": 1479,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144910,
@@ -13358,7 +13614,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/20566056/medium.jpg",
     "observations_count": 19902,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 547179,
@@ -13373,7 +13630,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/303411015/medium.jpg",
     "observations_count": 12638,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 980262,
@@ -13388,7 +13646,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/254445706/medium.jpg",
     "observations_count": 13127,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145087,
@@ -13403,7 +13662,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65759435/medium.jpg",
     "observations_count": 7814,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 518169,
@@ -13418,7 +13678,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58182987/medium.jpg",
     "observations_count": 7862,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12051,
@@ -13433,7 +13694,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/182529242/medium.jpg",
     "observations_count": 7240,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13702,
@@ -13448,7 +13710,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/337608889/medium.jpg",
     "observations_count": 5657,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145361,
@@ -13463,7 +13726,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/34996415/medium.jpg",
     "observations_count": 11823,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 9216,
@@ -13478,7 +13742,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/126910030/medium.jpg",
     "observations_count": 8495,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 792952,
@@ -13493,7 +13758,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/72200/medium.jpg",
     "observations_count": 6631,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4370,
@@ -13506,9 +13772,10 @@
     "countries": [
       "japón"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/211931298/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Laridae_in_Beijing_Zoo.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 10027,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 1437051,
@@ -13523,7 +13790,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/137133557/medium.jpg",
     "observations_count": 4611,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1446088,
@@ -13538,7 +13806,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/260997979/medium.jpeg",
     "observations_count": 2279,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 15156,
@@ -13553,7 +13822,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/26597643/medium.jpg",
     "observations_count": 3047,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 72785,
@@ -13568,7 +13838,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/442589325/medium.jpeg",
     "observations_count": 10528,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12779,
@@ -13583,7 +13854,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/463893066/medium.jpeg",
     "observations_count": 5635,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 980065,
@@ -13598,7 +13870,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/112707405/medium.jpg",
     "observations_count": 6846,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 486630,
@@ -13613,7 +13886,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/137329571/medium.jpg",
     "observations_count": 8129,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4366,
@@ -13628,7 +13902,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/330345362/medium.jpg",
     "observations_count": 3899,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 558440,
@@ -13643,7 +13918,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/620218844/medium.jpg",
     "observations_count": 3974,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 533231,
@@ -13658,7 +13934,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/179906850/medium.jpeg",
     "observations_count": 1009,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13128,
@@ -13673,7 +13950,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/137007417/medium.jpg",
     "observations_count": 3783,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2229,
@@ -13688,7 +13966,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/7578971/medium.jpg",
     "observations_count": 14615,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 497004,
@@ -13703,7 +13982,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/52656025/medium.jpg",
     "observations_count": 14382,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145193,
@@ -13718,7 +13998,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/139909094/medium.jpg",
     "observations_count": 11359,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1289423,
@@ -13733,7 +14014,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/55685037/medium.png",
     "observations_count": 7866,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1583224,
@@ -13748,7 +14030,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/26286/medium.jpg",
     "observations_count": 10377,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4743,
@@ -13763,7 +14046,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/84838910/medium.jpeg",
     "observations_count": 10514,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 6925,
@@ -13778,7 +14062,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4569448/medium.jpeg",
     "observations_count": 6765,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145031,
@@ -13793,7 +14078,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/79214417/medium.jpg",
     "observations_count": 7423,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204510,
@@ -13808,7 +14094,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/360494940/medium.jpeg",
     "observations_count": 16525,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145146,
@@ -13823,7 +14110,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/172538925/medium.jpeg",
     "observations_count": 7719,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13794,
@@ -13838,7 +14126,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/535894219/medium.jpg",
     "observations_count": 8727,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7711,
@@ -13853,7 +14142,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/77218788/medium.jpg",
     "observations_count": 6574,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 474332,
@@ -13868,7 +14158,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/344911929/medium.jpg",
     "observations_count": 11846,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8305,
@@ -13883,7 +14174,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/80011347/medium.jpg",
     "observations_count": 6116,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20012,
@@ -13898,7 +14190,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/89909173/medium.jpg",
     "observations_count": 7382,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12910,
@@ -13913,7 +14206,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14006651/medium.jpg",
     "observations_count": 8092,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1677,
@@ -13928,7 +14222,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/50398236/medium.jpg",
     "observations_count": 11210,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 558550,
@@ -13943,7 +14238,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/445414639/medium.jpeg",
     "observations_count": 5187,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3738,
@@ -13958,7 +14254,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/259008/medium.jpg",
     "observations_count": 6369,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 6891,
@@ -13973,7 +14270,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9952794/medium.jpg",
     "observations_count": 7723,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367521,
@@ -13988,7 +14286,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/184439367/medium.jpg",
     "observations_count": 10701,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 979697,
@@ -14003,7 +14302,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/41039760/medium.jpg",
     "observations_count": 4857,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 979665,
@@ -14018,7 +14318,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/289373974/medium.jpeg",
     "observations_count": 6009,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13709,
@@ -14033,7 +14334,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/175991823/medium.jpeg",
     "observations_count": 8717,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5062,
@@ -14048,7 +14350,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/233463646/medium.jpg",
     "observations_count": 7764,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2212,
@@ -14063,7 +14366,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/41165864/medium.jpg",
     "observations_count": 11264,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 15347,
@@ -14078,7 +14382,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/271256208/medium.jpg",
     "observations_count": 14039,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145350,
@@ -14093,7 +14398,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/329734652/medium.jpg",
     "observations_count": 6478,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 549464,
@@ -14108,7 +14414,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/6761392/medium.jpg",
     "observations_count": 4890,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7710,
@@ -14123,7 +14430,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/335903437/medium.jpeg",
     "observations_count": 14264,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5540,
@@ -14138,7 +14446,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/310601654/medium.jpg",
     "observations_count": 4015,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144458,
@@ -14153,7 +14462,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/292463004/medium.jpeg",
     "observations_count": 14504,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512092,
@@ -14168,7 +14478,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/282961525/medium.jpeg",
     "observations_count": 3705,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4576,
@@ -14183,7 +14494,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/230157220/medium.jpg",
     "observations_count": 4577,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 980260,
@@ -14198,7 +14510,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/157901084/medium.jpeg",
     "observations_count": 4903,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 472778,
@@ -14213,7 +14526,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/29725106/medium.jpeg",
     "observations_count": 8680,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 4990,
@@ -14228,7 +14542,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/42885489/medium.jpg",
     "observations_count": 10860,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14872,
@@ -14243,7 +14558,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/454090450/medium.jpeg",
     "observations_count": 10823,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 495200,
@@ -14258,7 +14574,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/64874232/medium.jpg",
     "observations_count": 7756,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145068,
@@ -14273,7 +14590,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/133101052/medium.jpg",
     "observations_count": 6832,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 10534,
@@ -14288,7 +14606,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/113441901/medium.jpg",
     "observations_count": 4200,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1289401,
@@ -14303,7 +14622,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/642877879/medium.jpg",
     "observations_count": 2451,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505899,
@@ -14318,7 +14638,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/431243/medium.jpg",
     "observations_count": 4778,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7277,
@@ -14331,9 +14652,10 @@
     "countries": [
       "china"
     ],
-    "photo": "https://static.inaturalist.org/photos/246382401/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Black-throated_Tit_%28Aegithalos_concinnus%29_-on_branch.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 4032,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 547178,
@@ -14348,7 +14670,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2722579/medium.jpg",
     "observations_count": 3234,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14658,
@@ -14363,7 +14686,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/634661958/medium.jpg",
     "observations_count": 3186,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 210941,
@@ -14378,7 +14702,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/244039552/medium.jpg",
     "observations_count": 6376,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 980257,
@@ -14393,7 +14718,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/20010236/medium.jpg",
     "observations_count": 14226,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13724,
@@ -14408,7 +14734,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/131708891/medium.jpg",
     "observations_count": 8802,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1289400,
@@ -14423,7 +14750,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/555195/medium.jpg",
     "observations_count": 5201,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 339693,
@@ -14438,7 +14766,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/690637070/medium.jpg",
     "observations_count": 1843,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 9204,
@@ -14453,7 +14782,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/202678941/medium.jpg",
     "observations_count": 5877,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145098,
@@ -14468,7 +14798,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/146525/medium.jpg",
     "observations_count": 14619,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14615,
@@ -14483,7 +14814,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/21378720/medium.jpg",
     "observations_count": 1853,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144792,
@@ -14498,7 +14830,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/194352839/medium.jpg",
     "observations_count": 9289,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204524,
@@ -14513,7 +14846,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/76309732/medium.jpg",
     "observations_count": 11294,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14626,
@@ -14528,7 +14862,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/619737317/medium.jpg",
     "observations_count": 10334,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1286913,
@@ -14543,7 +14878,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/137327314/medium.jpg",
     "observations_count": 7583,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 9197,
@@ -14558,7 +14894,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1939351/medium.jpg",
     "observations_count": 4580,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13887,
@@ -14573,7 +14910,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/92430486/medium.jpeg",
     "observations_count": 7890,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5382,
@@ -14588,7 +14926,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/192396793/medium.jpeg",
     "observations_count": 11944,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12039,
@@ -14603,7 +14942,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/376219537/medium.jpeg",
     "observations_count": 12027,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 867,
@@ -14618,7 +14958,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/200447159/medium.jpeg",
     "observations_count": 11413,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144522,
@@ -14633,7 +14974,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/107270089/medium.jpg",
     "observations_count": 5752,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1506034,
@@ -14648,7 +14990,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/756546676/medium.jpg",
     "observations_count": 4940,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7248,
@@ -14663,7 +15006,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/696607058/medium.jpg",
     "observations_count": 1801,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505988,
@@ -14678,7 +15022,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/28052669/medium.jpg",
     "observations_count": 1688,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7205,
@@ -14693,7 +15038,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/353002846/medium.jpg",
     "observations_count": 1622,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1506031,
@@ -14708,7 +15054,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/35673977/medium.jpg",
     "observations_count": 1196,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7250,
@@ -14723,7 +15070,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/61581334/medium.jpg",
     "observations_count": 926,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1506033,
@@ -14738,7 +15086,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/654973/medium.jpg",
     "observations_count": 886,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7247,
@@ -14753,7 +15102,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/246229780/medium.jpg",
     "observations_count": 553,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1585428,
@@ -14768,7 +15118,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/742646866/medium.jpg",
     "observations_count": 542,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1585429,
@@ -14783,7 +15134,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/204853194/medium.jpeg",
     "observations_count": 462,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7200,
@@ -14798,7 +15150,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/620993139/medium.jpg",
     "observations_count": 336,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7204,
@@ -14813,7 +15166,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/697409063/medium.jpg",
     "observations_count": 330,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7215,
@@ -14828,7 +15182,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/452171412/medium.jpg",
     "observations_count": 315,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7227,
@@ -14843,7 +15198,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/60749907/medium.jpg",
     "observations_count": 314,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505994,
@@ -14858,7 +15214,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54356115/medium.jpg",
     "observations_count": 299,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7220,
@@ -14873,7 +15230,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/5822472/medium.jpg",
     "observations_count": 124,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7211,
@@ -14888,7 +15246,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/742658248/medium.jpg",
     "observations_count": 112,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144573,
@@ -14903,7 +15262,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/502982588/medium.jpg",
     "observations_count": 91,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7216,
@@ -14918,7 +15278,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/153887857/medium.jpg",
     "observations_count": 64,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505974,
@@ -14933,7 +15294,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/383959057/medium.jpg",
     "observations_count": 40,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505992,
@@ -14948,7 +15310,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1430199/medium.jpg",
     "observations_count": 37,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 7219,
@@ -14963,7 +15326,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9114978/medium.jpeg",
     "observations_count": 6,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5551,
@@ -14978,7 +15342,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/208950228/medium.jpeg",
     "observations_count": 9833,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5479,
@@ -14993,7 +15358,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/687083936/medium.jpg",
     "observations_count": 5047,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512166,
@@ -15008,7 +15374,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/469944595/medium.jpg",
     "observations_count": 4228,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144663,
@@ -15023,7 +15390,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/301475/medium.JPG",
     "observations_count": 3621,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512160,
@@ -15038,7 +15406,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1499044/medium.jpg",
     "observations_count": 2332,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 203820,
@@ -15053,7 +15422,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/53391387/medium.jpg",
     "observations_count": 2186,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 507913,
@@ -15068,7 +15438,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65829389/medium.jpg",
     "observations_count": 2025,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5554,
@@ -15083,7 +15454,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/81221924/medium.jpg",
     "observations_count": 1739,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5555,
@@ -15098,7 +15470,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/65756331/medium.jpg",
     "observations_count": 1699,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5483,
@@ -15113,7 +15486,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/172053736/medium.jpg",
     "observations_count": 1680,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 514339,
@@ -15128,7 +15502,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/368722700/medium.jpg",
     "observations_count": 1503,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5538,
@@ -15143,7 +15518,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/20708459/medium.jpeg",
     "observations_count": 1279,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 507912,
@@ -15158,7 +15534,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/646026/medium.jpg",
     "observations_count": 1104,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5437,
@@ -15173,7 +15550,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/53947440/medium.jpg",
     "observations_count": 1014,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144661,
@@ -15188,7 +15566,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/184809062/medium.jpeg",
     "observations_count": 834,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5539,
@@ -15203,7 +15582,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/87161748/medium.jpg",
     "observations_count": 761,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 507916,
@@ -15218,7 +15598,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/60900146/medium.jpg",
     "observations_count": 729,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 496008,
@@ -15233,7 +15614,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/13808689/medium.jpg",
     "observations_count": 695,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 514337,
@@ -15248,7 +15630,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/253225748/medium.jpg",
     "observations_count": 665,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505274,
@@ -15263,7 +15646,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/64625048/medium.jpg",
     "observations_count": 632,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5547,
@@ -15278,7 +15662,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4162128/medium.jpg",
     "observations_count": 561,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 514326,
@@ -15293,7 +15678,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/4778668/medium.jpg",
     "observations_count": 478,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5478,
@@ -15308,7 +15694,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/686515489/medium.jpg",
     "observations_count": 449,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 514334,
@@ -15323,7 +15710,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/56136447/medium.jpg",
     "observations_count": 407,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512162,
@@ -15338,7 +15726,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/465288388/medium.jpg",
     "observations_count": 403,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512161,
@@ -15353,7 +15742,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/82081/medium.jpg",
     "observations_count": 354,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5558,
@@ -15368,7 +15758,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/61001660/medium.jpg",
     "observations_count": 352,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 507915,
@@ -15383,7 +15774,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/339544766/medium.jpeg",
     "observations_count": 336,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144664,
@@ -15398,7 +15790,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/143539463/medium.jpg",
     "observations_count": 308,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5523,
@@ -15413,7 +15806,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/110097347/medium.jpg",
     "observations_count": 297,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 5484,
@@ -15428,7 +15822,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/76887041/medium.jpg",
     "observations_count": 278,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3722,
@@ -15443,7 +15838,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/412106124/medium.jpg",
     "observations_count": 2622,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3689,
@@ -15458,7 +15854,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/118432499/medium.jpg",
     "observations_count": 2351,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3695,
@@ -15473,7 +15870,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/612935362/medium.jpg",
     "observations_count": 1005,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3723,
@@ -15488,7 +15886,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8202841/medium.jpg",
     "observations_count": 134,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 3703,
@@ -15503,7 +15902,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8415613/medium.jpg",
     "observations_count": 60,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8188,
@@ -15518,7 +15918,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/289499293/medium.jpeg",
     "observations_count": 3171,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8296,
@@ -15533,7 +15934,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/331342507/medium.jpg",
     "observations_count": 3023,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8211,
@@ -15548,7 +15950,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/689659602/medium.jpg",
     "observations_count": 1924,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 73475,
@@ -15563,7 +15966,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54678220/medium.jpeg",
     "observations_count": 1456,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8446,
@@ -15578,7 +15982,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/797350/medium.jpg",
     "observations_count": 1366,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 597463,
@@ -15593,7 +15998,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/103333945/medium.jpeg",
     "observations_count": 1220,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8257,
@@ -15608,7 +16014,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/389065741/medium.jpeg",
     "observations_count": 1113,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1586878,
@@ -15623,7 +16030,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/691971375/medium.jpg",
     "observations_count": 1021,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8580,
@@ -15638,7 +16046,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/63584528/medium.jpg",
     "observations_count": 850,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8209,
@@ -15653,7 +16062,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/356721/medium.jpg",
     "observations_count": 698,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8214,
@@ -15668,7 +16078,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/24100/medium.jpg",
     "observations_count": 648,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8208,
@@ -15683,7 +16094,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/190301893/medium.jpeg",
     "observations_count": 486,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8295,
@@ -15698,7 +16110,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/90569/medium.jpg",
     "observations_count": 472,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1586888,
@@ -15713,7 +16126,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/90573/medium.jpg",
     "observations_count": 423,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8451,
@@ -15728,7 +16142,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/15793102/medium.jpg",
     "observations_count": 395,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8217,
@@ -15743,7 +16158,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/31406777/medium.jpg",
     "observations_count": 375,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8593,
@@ -15758,7 +16174,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/649519/medium.jpg",
     "observations_count": 362,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8194,
@@ -15773,7 +16190,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/105685291/medium.jpg",
     "observations_count": 215,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1446025,
@@ -15788,7 +16206,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/253514665/medium.jpeg",
     "observations_count": 129,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1586909,
@@ -15803,7 +16222,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/171801315/medium.jpg",
     "observations_count": 107,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8207,
@@ -15818,7 +16238,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2435603/medium.jpg",
     "observations_count": 94,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8221,
@@ -15833,7 +16254,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/24103/medium.jpg",
     "observations_count": 74,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 597464,
@@ -15848,7 +16270,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13402787/medium.jpg",
     "observations_count": 73,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1586869,
@@ -15863,7 +16286,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13595274/medium.jpg",
     "observations_count": 54,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144721,
@@ -15878,7 +16302,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/190405468/medium.jpeg",
     "observations_count": 38,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8293,
@@ -15893,7 +16318,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/110934632/medium.jpg",
     "observations_count": 37,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8297,
@@ -15908,7 +16334,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/73782446/medium.jpg",
     "observations_count": 36,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8222,
@@ -15923,7 +16350,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9114976/medium.jpeg",
     "observations_count": 32,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8298,
@@ -15938,7 +16366,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13387374/medium.jpg",
     "observations_count": 29,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8216,
@@ -15953,7 +16382,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13894300/medium.jpg",
     "observations_count": 29,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8294,
@@ -15968,7 +16398,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/53790407/medium.jpg",
     "observations_count": 25,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8258,
@@ -15983,7 +16414,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/53552343/medium.jpg",
     "observations_count": 24,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8450,
@@ -15998,7 +16430,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1461043/medium.jpg",
     "observations_count": 24,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8213,
@@ -16013,7 +16446,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1461011/medium.jpg",
     "observations_count": 23,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13796,
@@ -16028,7 +16462,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/64914742/medium.jpg",
     "observations_count": 9565,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14115,
@@ -16043,7 +16478,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/425636002/medium.jpg",
     "observations_count": 5548,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14005,
@@ -16058,7 +16494,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/782446/medium.jpg",
     "observations_count": 4358,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13876,
@@ -16073,7 +16510,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/476759493/medium.jpg",
     "observations_count": 3350,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14064,
@@ -16088,7 +16526,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/93937914/medium.jpeg",
     "observations_count": 2874,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13964,
@@ -16103,7 +16542,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/17780507/medium.jpg",
     "observations_count": 2848,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13805,
@@ -16118,7 +16558,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/779488/medium.jpg",
     "observations_count": 2425,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13842,
@@ -16133,7 +16574,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8157386/medium.jpg",
     "observations_count": 2191,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13837,
@@ -16148,7 +16590,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/26203/medium.jpg",
     "observations_count": 2182,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13966,
@@ -16163,7 +16606,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/239601764/medium.jpg",
     "observations_count": 1841,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14087,
@@ -16176,9 +16620,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/464030935/medium.jpeg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Dinemellia_dinemelli_-Serengeti_National_Park%2C_Tanzania-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 1647,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 14143,
@@ -16193,7 +16638,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/258466/medium.jpg",
     "observations_count": 1644,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14148,
@@ -16208,7 +16654,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/776680/medium.jpg",
     "observations_count": 1590,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13793,
@@ -16223,7 +16670,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4725762/medium.jpg",
     "observations_count": 1561,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13974,
@@ -16238,7 +16686,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/238441274/medium.jpg",
     "observations_count": 1430,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13977,
@@ -16253,7 +16702,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/183526953/medium.jpeg",
     "observations_count": 1419,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13809,
@@ -16268,7 +16718,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/142848314/medium.jpg",
     "observations_count": 1409,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13836,
@@ -16283,7 +16734,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/776700/medium.jpg",
     "observations_count": 1337,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13970,
@@ -16298,7 +16750,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/609976140/medium.jpg",
     "observations_count": 1312,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13820,
@@ -16313,7 +16766,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/745705281/medium.jpg",
     "observations_count": 1227,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13965,
@@ -16328,7 +16782,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/146165763/medium.jpg",
     "observations_count": 1174,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13921,
@@ -16343,7 +16798,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/697168157/medium.jpg",
     "observations_count": 1108,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13798,
@@ -16358,7 +16814,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/99324341/medium.jpeg",
     "observations_count": 1007,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13790,
@@ -16373,7 +16830,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/142848724/medium.jpg",
     "observations_count": 981,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13978,
@@ -16388,7 +16846,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/159327817/medium.jpg",
     "observations_count": 943,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13788,
@@ -16403,7 +16862,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8219904/medium.jpg",
     "observations_count": 756,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145332,
@@ -16416,9 +16876,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/7667084/medium.jpg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Weaver_bird.jpg/3840px-Weaver_bird.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "observations_count": 714,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 13920,
@@ -16433,7 +16894,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/665150/medium.jpg",
     "observations_count": 712,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13791,
@@ -16448,7 +16910,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/452203850/medium.jpg",
     "observations_count": 712,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13872,
@@ -16463,7 +16926,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/776698/medium.jpg",
     "observations_count": 689,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505007,
@@ -16478,7 +16942,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/82110786/medium.jpg",
     "observations_count": 13016,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 979598,
@@ -16493,7 +16958,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14339536/medium.jpg",
     "observations_count": 8700,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204458,
@@ -16508,7 +16974,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/29795999/medium.jpeg",
     "observations_count": 4652,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1504995,
@@ -16523,7 +16990,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/447878080/medium.jpeg",
     "observations_count": 4063,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145143,
@@ -16538,7 +17006,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/91605291/medium.jpg",
     "observations_count": 3297,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145188,
@@ -16553,7 +17022,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/131985847/medium.jpg",
     "observations_count": 3030,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145122,
@@ -16568,7 +17038,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/35728612/medium.jpeg",
     "observations_count": 2858,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145187,
@@ -16583,7 +17054,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/149594922/medium.jpeg",
     "observations_count": 2787,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13428,
@@ -16598,7 +17070,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14518145/medium.jpg",
     "observations_count": 2656,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145203,
@@ -16613,7 +17086,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/698898291/medium.jpg",
     "observations_count": 2115,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 202484,
@@ -16628,7 +17102,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/140140131/medium.jpg",
     "observations_count": 1873,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145180,
@@ -16643,7 +17118,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/326756160/medium.jpg",
     "observations_count": 1698,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145170,
@@ -16658,7 +17134,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/93150654/medium.jpg",
     "observations_count": 1507,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145118,
@@ -16673,7 +17150,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/350475585/medium.jpg",
     "observations_count": 1494,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145194,
@@ -16688,7 +17166,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/597836560/medium.jpg",
     "observations_count": 1364,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145169,
@@ -16703,7 +17182,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/82507587/medium.jpg",
     "observations_count": 1324,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13432,
@@ -16718,7 +17198,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/5576859/medium.jpg",
     "observations_count": 1316,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13416,
@@ -16733,7 +17214,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/59895093/medium.jpg",
     "observations_count": 1302,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13350,
@@ -16748,7 +17230,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/33698/medium.jpg",
     "observations_count": 1301,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13418,
@@ -16763,7 +17246,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/7458696/medium.jpg",
     "observations_count": 1185,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 13417,
@@ -16778,7 +17262,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30030747/medium.jpg",
     "observations_count": 1145,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145136,
@@ -16793,7 +17278,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/181542496/medium.jpeg",
     "observations_count": 1140,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145175,
@@ -16808,7 +17294,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/31406789/medium.jpg",
     "observations_count": 985,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 558549,
@@ -16823,7 +17310,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/179144840/medium.jpg",
     "observations_count": 977,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145151,
@@ -16838,7 +17326,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/46285675/medium.jpg",
     "observations_count": 855,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145189,
@@ -16853,7 +17342,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/605050770/medium.jpg",
     "observations_count": 850,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 145148,
@@ -16866,9 +17356,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://static.inaturalist.org/photos/307000734/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Leptocoma_brasiliana_%28male%29_-Singapore-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 834,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 145147,
@@ -16883,7 +17374,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/297789054/medium.jpg",
     "observations_count": 783,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8248,
@@ -16898,7 +17390,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/182384/medium.jpg",
     "observations_count": 991,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8249,
@@ -16913,7 +17406,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/262728068/medium.jpg",
     "observations_count": 596,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8177,
@@ -16928,7 +17422,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3232017/medium.jpg",
     "observations_count": 275,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1506100,
@@ -16941,9 +17436,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://static.inaturalist.org/photos/391359474/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/15/Wilson%27s_Bird_of_Paradise.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 183,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 8182,
@@ -16958,7 +17454,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58802968/medium.jpeg",
     "observations_count": 165,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 73006,
@@ -16973,7 +17470,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/345800949/medium.jpg",
     "observations_count": 152,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 604103,
@@ -16988,7 +17486,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/99947343/medium.jpg",
     "observations_count": 132,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1506102,
@@ -17003,7 +17502,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65167260/medium.jpeg",
     "observations_count": 128,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8608,
@@ -17018,7 +17518,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59228142/medium.jpg",
     "observations_count": 113,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8553,
@@ -17031,9 +17532,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://static.inaturalist.org/photos/305214314/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Astrapia_mayeri_-Papua_New_Guinea-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 99,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 73387,
@@ -17048,7 +17550,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65191888/medium.jpeg",
     "observations_count": 81,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8439,
@@ -17063,7 +17566,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/234504209/medium.jpeg",
     "observations_count": 76,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8165,
@@ -17078,7 +17582,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/50198870/medium.jpg",
     "observations_count": 76,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 339687,
@@ -17093,7 +17598,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3315360/medium.jpg",
     "observations_count": 72,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144758,
@@ -17108,7 +17614,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/350977261/medium.jpg",
     "observations_count": 61,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8551,
@@ -17123,7 +17630,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/86410039/medium.jpg",
     "observations_count": 59,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8636,
@@ -17138,7 +17646,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/67592295/medium.jpg",
     "observations_count": 56,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1584277,
@@ -17153,7 +17662,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/10775185/medium.jpg",
     "observations_count": 55,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1506107,
@@ -17168,7 +17678,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/67592753/medium.jpg",
     "observations_count": 43,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8178,
@@ -17183,7 +17694,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/102389588/medium.jpg",
     "observations_count": 42,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 73007,
@@ -17198,7 +17710,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/64855499/medium.jpeg",
     "observations_count": 29,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8464,
@@ -17213,7 +17726,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375145945/medium.jpeg",
     "observations_count": 29,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 111215,
@@ -17228,7 +17742,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/612948061/medium.jpg",
     "observations_count": 22,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8226,
@@ -17243,7 +17758,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/664933283/medium.jpg",
     "observations_count": 18,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8227,
@@ -17258,7 +17774,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/10775186/medium.jpg",
     "observations_count": 16,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8554,
@@ -17273,7 +17790,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/29025850/medium.jpeg",
     "observations_count": 15,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8550,
@@ -17288,7 +17806,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/54257525/medium.jpg",
     "observations_count": 15,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 201167,
@@ -17303,7 +17822,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59228242/medium.jpg",
     "observations_count": 14,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 201168,
@@ -17318,7 +17838,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/68221609/medium.jpg",
     "observations_count": 12,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8611,
@@ -17333,7 +17854,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9520020/medium.jpeg",
     "observations_count": 12,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1507855,
@@ -17348,7 +17870,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/91949867/medium.jpeg",
     "observations_count": 10,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8329,
@@ -17363,7 +17886,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/393810263/medium.jpeg",
     "observations_count": 7,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14547,
@@ -17378,7 +17902,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/57257557/medium.jpeg",
     "observations_count": 2539,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14505,
@@ -17393,7 +17918,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/243289625/medium.jpg",
     "observations_count": 2460,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14514,
@@ -17408,7 +17934,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/32259536/medium.jpg",
     "observations_count": 1770,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512103,
@@ -17423,7 +17950,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/182252/medium.jpg",
     "observations_count": 680,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14501,
@@ -17438,7 +17966,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/356245224/medium.jpg",
     "observations_count": 603,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14497,
@@ -17453,7 +17982,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/425382457/medium.jpg",
     "observations_count": 492,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14549,
@@ -17468,7 +17998,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/177308057/medium.jpg",
     "observations_count": 288,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 72493,
@@ -17483,7 +18014,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/4346145/medium.jpg",
     "observations_count": 211,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14500,
@@ -17498,7 +18030,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9466792/medium.jpeg",
     "observations_count": 147,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14528,
@@ -17513,7 +18046,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/382050548/medium.jpg",
     "observations_count": 53,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512108,
@@ -17528,7 +18062,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/701123533/medium.jpg",
     "observations_count": 27,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 979945,
@@ -17543,7 +18078,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/44039144/medium.jpg",
     "observations_count": 25,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512096,
@@ -17558,7 +18094,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/11978368/medium.jpg",
     "observations_count": 19,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 956134,
@@ -17573,7 +18110,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/399320469/medium.jpg",
     "observations_count": 16,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14551,
@@ -17588,7 +18126,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/238899803/medium.jpeg",
     "observations_count": 14,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14529,
@@ -17603,7 +18142,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9997136/medium.jpeg",
     "observations_count": 10,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14502,
@@ -17618,7 +18158,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2607679/medium.jpg",
     "observations_count": 8,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512098,
@@ -17633,7 +18174,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65186391/medium.jpeg",
     "observations_count": 3,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 512097,
@@ -17648,7 +18190,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/82238767/medium.jpg",
     "observations_count": 3,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14527,
@@ -17661,9 +18204,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/258122346/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Amblyornisflavifrons.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "observations_count": 1200,
-    "curated": false
+    "curated": true,
+    "curated_source": "C"
   },
   {
     "id": 14537,
@@ -17678,7 +18222,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/60036677/medium.jpg",
     "observations_count": 1200,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14380,
@@ -17693,7 +18238,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/290766872/medium.jpeg",
     "observations_count": 1475,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14388,
@@ -17708,7 +18254,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/5719826/medium.jpg",
     "observations_count": 1450,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14415,
@@ -17723,7 +18270,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/182302378/medium.jpg",
     "observations_count": 1100,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14389,
@@ -17738,7 +18286,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/587331543/medium.jpg",
     "observations_count": 854,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14454,
@@ -17751,9 +18300,10 @@
     "countries": [
       "asia"
     ],
-    "photo": "https://static.inaturalist.org/photos/117756819/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/87/Mangrove_Pitta_%28Pitta_megarhyncha%29%2C_Singapore_Botanic_Gardens_-_20140303.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 322,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 367607,
@@ -17768,7 +18318,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/46681963/medium.jpg",
     "observations_count": 253,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14421,
@@ -17783,7 +18334,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/427041011/medium.jpeg",
     "observations_count": 239,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367611,
@@ -17798,7 +18350,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/105703081/medium.jpeg",
     "observations_count": 219,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367595,
@@ -17813,7 +18366,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/347258309/medium.jpg",
     "observations_count": 208,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 522292,
@@ -17828,7 +18382,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/257120450/medium.jpg",
     "observations_count": 181,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367603,
@@ -17843,7 +18398,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/158455132/medium.jpg",
     "observations_count": 157,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367606,
@@ -17858,7 +18414,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/97678623/medium.jpg",
     "observations_count": 155,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367588,
@@ -17873,7 +18430,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/296778031/medium.jpeg",
     "observations_count": 106,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367583,
@@ -17888,7 +18446,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/232754381/medium.jpg",
     "observations_count": 105,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367598,
@@ -17903,7 +18462,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/261346845/medium.jpg",
     "observations_count": 102,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367601,
@@ -17918,7 +18478,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/546188776/medium.jpg",
     "observations_count": 90,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367608,
@@ -17933,7 +18494,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/245955622/medium.jpg",
     "observations_count": 85,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367602,
@@ -17948,7 +18510,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/259926437/medium.jpeg",
     "observations_count": 82,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367609,
@@ -17963,7 +18526,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/55454866/medium.jpg",
     "observations_count": 82,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367599,
@@ -17978,7 +18542,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/138544788/medium.jpeg",
     "observations_count": 74,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1286997,
@@ -17993,7 +18558,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/266102976/medium.jpg",
     "observations_count": 70,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367578,
@@ -18008,7 +18574,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/336281572/medium.jpg",
     "observations_count": 58,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1508572,
@@ -18023,7 +18590,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/313626389/medium.jpg",
     "observations_count": 51,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14384,
@@ -18038,7 +18606,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/176877645/medium.jpg",
     "observations_count": 50,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14402,
@@ -18053,7 +18622,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65371894/medium.jpg",
     "observations_count": 50,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14441,
@@ -18068,7 +18638,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/51885129/medium.jpg",
     "observations_count": 48,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367605,
@@ -18083,7 +18654,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/222435381/medium.jpg",
     "observations_count": 40,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367597,
@@ -18098,7 +18670,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/295977945/medium.jpg",
     "observations_count": 40,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367585,
@@ -18113,7 +18686,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/340265792/medium.jpg",
     "observations_count": 39,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14446,
@@ -18128,7 +18702,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/230147964/medium.jpg",
     "observations_count": 34,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 14433,
@@ -18143,7 +18718,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/337787996/medium.jpeg",
     "observations_count": 27,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367594,
@@ -18158,7 +18734,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2004948/medium.jpg",
     "observations_count": 25,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367584,
@@ -18173,7 +18750,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/312452879/medium.jpg",
     "observations_count": 22,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 367612,
@@ -18188,7 +18766,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/90010206/medium.jpg",
     "observations_count": 21,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12526,
@@ -18203,7 +18782,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/345066189/medium.jpg",
     "observations_count": 11129,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12305,
@@ -18218,7 +18798,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/327617080/medium.jpeg",
     "observations_count": 10553,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508976,
@@ -18233,7 +18814,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/450560617/medium.jpg",
     "observations_count": 9796,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 370319,
@@ -18248,7 +18830,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/266780710/medium.jpg",
     "observations_count": 7964,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12329,
@@ -18263,7 +18846,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/11160609/medium.jpg",
     "observations_count": 7614,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12443,
@@ -18278,7 +18862,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/105366110/medium.jpg",
     "observations_count": 5175,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508981,
@@ -18293,7 +18878,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/32510906/medium.jpg",
     "observations_count": 4600,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 603527,
@@ -18308,7 +18894,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/190574877/medium.jpg",
     "observations_count": 4169,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12677,
@@ -18323,7 +18910,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13799381/medium.jpg",
     "observations_count": 3998,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12638,
@@ -18338,7 +18926,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/360647924/medium.jpg",
     "observations_count": 3778,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12223,
@@ -18353,7 +18942,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/44504233/medium.jpg",
     "observations_count": 3180,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12246,
@@ -18368,7 +18958,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/21484280/medium.jpg",
     "observations_count": 3122,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 501272,
@@ -18383,7 +18974,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/256196659/medium.jpeg",
     "observations_count": 3064,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12230,
@@ -18396,9 +18988,10 @@
     "countries": [
       "oceanía"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/53169470/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/35/Bell_Miner2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 3040,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 12641,
@@ -18413,7 +19006,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54398341/medium.jpg",
     "observations_count": 2822,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12651,
@@ -18428,7 +19022,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/163060608/medium.jpg",
     "observations_count": 2466,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12254,
@@ -18443,7 +19038,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/23773512/medium.jpg",
     "observations_count": 2249,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12345,
@@ -18458,7 +19054,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30856764/medium.jpeg",
     "observations_count": 2249,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12204,
@@ -18473,7 +19070,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/375990818/medium.jpg",
     "observations_count": 1937,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12376,
@@ -18488,7 +19086,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/210519316/medium.jpeg",
     "observations_count": 1550,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508975,
@@ -18503,7 +19102,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/279876123/medium.jpg",
     "observations_count": 1318,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12618,
@@ -18518,7 +19118,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/243764039/medium.jpg",
     "observations_count": 1203,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508978,
@@ -18533,7 +19134,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/145083686/medium.jpg",
     "observations_count": 1187,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508968,
@@ -18548,7 +19150,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/134758952/medium.jpeg",
     "observations_count": 1104,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 508982,
@@ -18563,7 +19166,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/481744171/medium.jpg",
     "observations_count": 1097,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 12657,
@@ -18578,7 +19182,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/425324059/medium.jpeg",
     "observations_count": 1089,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 9002,
@@ -18593,7 +19198,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/162226460/medium.jpeg",
     "observations_count": 1584,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8993,
@@ -18608,7 +19214,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/64801633/medium.jpeg",
     "observations_count": 1178,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8947,
@@ -18621,9 +19228,10 @@
     "countries": [
       "asia"
     ],
-    "photo": "https://static.inaturalist.org/photos/266086767/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/15/Long-tailed_Broadbill_-_Kang_Kra_Chan_NP_-_Thailand_S4E4808_%2814235250116%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 862,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 8978,
@@ -18638,7 +19246,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8562783/medium.jpg",
     "observations_count": 563,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8988,
@@ -18653,7 +19262,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/18070430/medium.jpg",
     "observations_count": 545,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 8972,
@@ -18668,7 +19278,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/236258430/medium.jpg",
     "observations_count": 353,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1507112,
@@ -18683,7 +19294,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/245267422/medium.jpg",
     "observations_count": 94,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 9010,
@@ -18698,7 +19310,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4835769/medium.jpg",
     "observations_count": 30,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1289558,
@@ -18713,7 +19326,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/51885048/medium.jpg",
     "observations_count": 26,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1289557,
@@ -18728,7 +19342,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/403469453/medium.png",
     "observations_count": 12,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2185,
@@ -18743,7 +19358,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/571442519/medium.jpg",
     "observations_count": 6430,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2248,
@@ -18758,7 +19374,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/174390405/medium.jpg",
     "observations_count": 4426,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204541,
@@ -18773,7 +19390,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/85045627/medium.jpeg",
     "observations_count": 4138,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2208,
@@ -18788,7 +19406,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/116972511/medium.jpg",
     "observations_count": 3817,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2245,
@@ -18803,7 +19422,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/131752926/medium.jpg",
     "observations_count": 3676,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2203,
@@ -18818,7 +19438,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/258431601/medium.jpg",
     "observations_count": 1709,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2240,
@@ -18833,7 +19454,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/321483575/medium.jpeg",
     "observations_count": 1522,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 67434,
@@ -18848,7 +19470,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/211685045/medium.jpeg",
     "observations_count": 1507,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1430301,
@@ -18863,7 +19486,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/238849002/medium.jpg",
     "observations_count": 1381,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2250,
@@ -18878,7 +19502,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/200242094/medium.jpg",
     "observations_count": 1223,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2223,
@@ -18893,7 +19518,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/82358967/medium.jpg",
     "observations_count": 1086,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2226,
@@ -18908,7 +19534,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/629553/medium.jpg",
     "observations_count": 1021,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2239,
@@ -18923,7 +19550,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/163303071/medium.jpg",
     "observations_count": 888,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2220,
@@ -18938,7 +19566,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13860219/medium.jpg",
     "observations_count": 822,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1430300,
@@ -18953,7 +19582,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/611024028/medium.jpg",
     "observations_count": 667,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2253,
@@ -18968,7 +19598,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/362543433/medium.jpg",
     "observations_count": 657,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2192,
@@ -18983,7 +19614,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/111229758/medium.jpg",
     "observations_count": 333,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2241,
@@ -18998,7 +19630,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/477637407/medium.jpg",
     "observations_count": 292,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 201077,
@@ -19013,7 +19646,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/206277216/medium.jpg",
     "observations_count": 279,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1435814,
@@ -19028,7 +19662,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/195284888/medium.jpeg",
     "observations_count": 232,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2244,
@@ -19043,7 +19678,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/629494/medium.jpg",
     "observations_count": 229,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2201,
@@ -19058,7 +19694,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6056133/medium.jpg",
     "observations_count": 153,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2200,
@@ -19073,7 +19710,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/752392679/medium.jpg",
     "observations_count": 90,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2202,
@@ -19088,7 +19726,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/419414093/medium.jpg",
     "observations_count": 71,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2197,
@@ -19103,7 +19742,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/517545225/medium.jpg",
     "observations_count": 65,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2255,
@@ -19118,7 +19758,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/598240666/medium.jpg",
     "observations_count": 53,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 105605,
@@ -19133,7 +19774,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/181190211/medium.jpg",
     "observations_count": 41,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2293,
@@ -19148,7 +19790,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/238508830/medium.jpg",
     "observations_count": 8630,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 485365,
@@ -19163,7 +19806,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/197472135/medium.jpg",
     "observations_count": 3744,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2288,
@@ -19178,7 +19822,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/802988/medium.jpg",
     "observations_count": 2087,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144659,
@@ -19193,7 +19838,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/45650/medium.jpg",
     "observations_count": 1683,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2265,
@@ -19208,7 +19854,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1958039/medium.jpg",
     "observations_count": 1523,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2264,
@@ -19223,7 +19870,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59623943/medium.jpg",
     "observations_count": 760,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2279,
@@ -19238,7 +19886,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/448213884/medium.jpg",
     "observations_count": 195,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2285,
@@ -19253,7 +19902,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6211408/medium.jpg",
     "observations_count": 177,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2282,
@@ -19268,7 +19918,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/64432190/medium.jpg",
     "observations_count": 127,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 2284,
@@ -19283,7 +19934,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/65387201/medium.jpg",
     "observations_count": 16,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20934,
@@ -19298,7 +19950,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/156649321/medium.jpg",
     "observations_count": 3774,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20964,
@@ -19313,7 +19966,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/205464278/medium.jpeg",
     "observations_count": 1037,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20956,
@@ -19328,7 +19982,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/634120926/medium.jpg",
     "observations_count": 165,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20945,
@@ -19343,7 +19998,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/118019382/medium.jpeg",
     "observations_count": 112,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20959,
@@ -19358,7 +20014,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58203094/medium.jpg",
     "observations_count": 96,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20948,
@@ -19373,7 +20030,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/223330434/medium.jpg",
     "observations_count": 87,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 20941,
@@ -19388,7 +20046,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/606201010/medium.jpg",
     "observations_count": 66,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1425705,
@@ -19403,7 +20062,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/224993204/medium.jpeg",
     "observations_count": 28,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 115,
@@ -19416,9 +20076,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/73258609/medium.jpeg",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Ardeotis_kori_Etosha.JPG/960px-Ardeotis_kori_Etosha.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "observations_count": 5426,
-    "curated": false
+    "curated": true,
+    "curated_source": "C"
   },
   {
     "id": 77,
@@ -19431,9 +20092,10 @@
     "countries": [
       "áfrica"
     ],
-    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/102883570/medium.jpg",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/90/Drop_f%C3%BAzat%C3%BD_%28Otis_tarda%29_%282416576086%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "observations_count": 3766,
-    "curated": false
+    "curated": true,
+    "curated_source": "B"
   },
   {
     "id": 132,
@@ -19448,7 +20110,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/144406705/medium.jpg",
     "observations_count": 2782,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 108,
@@ -19463,7 +20126,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/105669156/medium.jpg",
     "observations_count": 2069,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505971,
@@ -19478,7 +20142,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/687054721/medium.jpg",
     "observations_count": 1919,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505966,
@@ -19493,7 +20158,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/55823895/medium.jpg",
     "observations_count": 1778,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144472,
@@ -19508,7 +20174,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/248740322/medium.jpg",
     "observations_count": 1624,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 85,
@@ -19523,7 +20190,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/253383350/medium.jpeg",
     "observations_count": 1121,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 95,
@@ -19538,7 +20206,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/33617/medium.jpg",
     "observations_count": 1121,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 91,
@@ -19553,7 +20222,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/133770001/medium.jpg",
     "observations_count": 724,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505970,
@@ -19568,7 +20238,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54472393/medium.jpg",
     "observations_count": 657,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505960,
@@ -19583,7 +20254,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/673649330/medium.jpg",
     "observations_count": 611,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505956,
@@ -19598,7 +20270,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3717644/medium.jpg",
     "observations_count": 518,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 204484,
@@ -19613,7 +20286,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/33560249/medium.jpg",
     "observations_count": 508,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505964,
@@ -19628,7 +20302,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/261189722/medium.jpg",
     "observations_count": 406,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144471,
@@ -19643,7 +20318,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/34897825/medium.jpg",
     "observations_count": 224,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 144473,
@@ -19658,7 +20334,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8197951/medium.jpg",
     "observations_count": 211,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 94,
@@ -19673,7 +20350,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/165992055/medium.jpeg",
     "observations_count": 210,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 114,
@@ -19688,7 +20366,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/371741555/medium.jpeg",
     "observations_count": 174,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 81,
@@ -19703,7 +20382,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/632128491/medium.jpg",
     "observations_count": 101,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 109,
@@ -19718,7 +20398,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/154789695/medium.jpeg",
     "observations_count": 97,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 90,
@@ -19733,7 +20414,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/260834331/medium.jpg",
     "observations_count": 49,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 130,
@@ -19748,7 +20430,8 @@
     ],
     "photo": "https://static.inaturalist.org/photos/147720761/medium.jpeg",
     "observations_count": 40,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505963,
@@ -19763,7 +20446,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/182686085/medium.jpg",
     "observations_count": 28,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 1505962,
@@ -19778,7 +20462,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/62611506/medium.jpg",
     "observations_count": 4,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 89,
@@ -19793,7 +20478,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/108018150/medium.jpeg",
     "observations_count": 3,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 117083,
@@ -19808,7 +20494,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/337774868/medium.jpg",
     "observations_count": 1243,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 117088,
@@ -19823,7 +20510,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/135811/medium.jpg",
     "observations_count": 1213,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 117079,
@@ -19838,7 +20526,8 @@
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/625324168/medium.jpg",
     "observations_count": 1207,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   },
   {
     "id": 117078,
@@ -19853,6 +20542,7 @@
     ],
     "photo": "https://static.inaturalist.org/photos/608496063/medium.jpg",
     "observations_count": 1137,
-    "curated": false
+    "curated": true,
+    "curated_source": "A"
   }
 ]

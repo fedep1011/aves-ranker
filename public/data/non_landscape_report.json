@@ -1,0 +1,4503 @@
+{
+  "generated_at": "2026-10-29T22:49:48.738Z",
+  "totals": {
+    "aves": {
+      "total": 1200,
+      "nonLandscape": 111
+    },
+    "mamiferos": {
+      "total": 750,
+      "nonLandscape": 67
+    },
+    "flores": {
+      "total": 846,
+      "nonLandscape": 270
+    }
+  },
+  "aves": [
+    {
+      "id": 3820,
+      "name": "Pingüino Emperador",
+      "sci_name": "Aptenodytes forsteri",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 872,
+      "height": 1400,
+      "aspectRatio": 0.62,
+      "type": "vertical"
+    },
+    {
+      "id": 19022,
+      "name": "Guacamayo Rojo",
+      "sci_name": "Ara macao",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/96975665/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 5305,
+      "name": "Águila Calva",
+      "sci_name": "Haliaeetus leucocephalus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Bald_Eagle_-_%22Helga%22_-_Haliaeetus_leucocephalus2.jpg/960px-Bald_Eagle_-_%22Helga%22_-_Haliaeetus_leucocephalus2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1444,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 20044,
+      "name": "Ñacurutú",
+      "sci_name": "Bubo virginianus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Bubo_virginianus_-Canada-6.jpg/960px-Bubo_virginianus_-Canada-6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1035,
+      "aspectRatio": 0.93,
+      "type": "vertical"
+    },
+    {
+      "id": 144514,
+      "name": "Gaviota reidora",
+      "sci_name": "Leucophaeus atricilla",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4196757/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 5063,
+      "name": "Aninga",
+      "sci_name": "Anhinga anhinga",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/195512943/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 3544,
+      "name": "Tortolita Cola Larga",
+      "sci_name": "Columbina inca",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1442236/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 506118,
+      "name": "Chara californiana",
+      "sci_name": "Aphelocoma californica",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Aphelocoma_californica_in_Seattle_cropped.jpg/960px-Aphelocoma_californica_in_Seattle_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1022,
+      "aspectRatio": 0.94,
+      "type": "vertical"
+    },
+    {
+      "id": 41,
+      "name": "Grulla común",
+      "sci_name": "Grus grus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Grus_antigone_Luc_viatour.jpg/960px-Grus_antigone_Luc_viatour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 955,
+      "aspectRatio": 1.01,
+      "type": "cuadrada"
+    },
+    {
+      "id": 5366,
+      "name": "Buitre leonado",
+      "sci_name": "Gyps fulvus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/202775885/medium.jpeg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 18204,
+      "name": "Carpintero de cabeza roja",
+      "sci_name": "Melanerpes erythrocephalus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/593038831/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 16028,
+      "name": "Papamoscas viajero",
+      "sci_name": "Myiarchus crinitus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/202717991/medium.jpeg",
+      "width": 500,
+      "height": 464,
+      "aspectRatio": 1.08,
+      "type": "cuadrada"
+    },
+    {
+      "id": 9921,
+      "name": "Piranga escarlata",
+      "sci_name": "Piranga olivacea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/42961581/medium.jpeg",
+      "width": 489,
+      "height": 500,
+      "aspectRatio": 0.98,
+      "type": "cuadrada"
+    },
+    {
+      "id": 144243,
+      "name": "Carpintero verde",
+      "sci_name": "Picus viridis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/242668015/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 5277,
+      "name": "Halcón Blanco",
+      "sci_name": "Elanus leucurus",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Elanus_leucurus_%28Aguililla_blanca_-_Gavil%C3%A1n_maromero%29_%2824907842044%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "width": 2108,
+      "height": 2696,
+      "aspectRatio": 0.78,
+      "type": "vertical"
+    },
+    {
+      "id": 4235,
+      "name": "Achichilique pico amarillo",
+      "sci_name": "Aechmophorus occidentalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/470828134/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 5200,
+      "name": "Aguililla ártica",
+      "sci_name": "Buteo lagopus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/347229914/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 17835,
+      "name": "Picamaderos negro",
+      "sci_name": "Dryocopus martius",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/31574109/medium.jpg",
+      "width": 399,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 14884,
+      "name": "Centzontle tropical",
+      "sci_name": "Mimus gilvus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58167145/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 117002,
+      "name": "Capulinero negro",
+      "sci_name": "Phainopepla nitens",
+      "photo": "https://static.inaturalist.org/photos/6478570/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 1972,
+      "name": "Garrapatero pijuy",
+      "sci_name": "Crotophaga sulcirostris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/32407763/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 19898,
+      "name": "Cárabo",
+      "sci_name": "Strix aluco",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/451350360/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 7486,
+      "name": "Saltapared de Rocas",
+      "sci_name": "Salpinctes obsoletus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/5824/medium.jpg",
+      "width": 500,
+      "height": 470,
+      "aspectRatio": 1.06,
+      "type": "cuadrada"
+    },
+    {
+      "id": 14593,
+      "name": "Bulbul asiático de vientre rojo",
+      "sci_name": "Pycnonotus cafer",
+      "photo": "https://static.inaturalist.org/photos/66856364/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 14153,
+      "name": "Petroica amarilla",
+      "sci_name": "Eopsaltria australis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/225195867/medium.jpg",
+      "width": 411,
+      "height": 500,
+      "aspectRatio": 0.82,
+      "type": "vertical"
+    },
+    {
+      "id": 1289472,
+      "name": "Curruca cabecinegra",
+      "sci_name": "Curruca melanocephala",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/556159344/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 8277,
+      "name": "Drongo real",
+      "sci_name": "Dicrurus macrocercus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Black_drongo_%28Dicrurus_macrocercus_minor%29_juvenile.jpg/960px-Black_drongo_%28Dicrurus_macrocercus_minor%29_juvenile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1440,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 199916,
+      "name": "Chipe azulnegro",
+      "sci_name": "Setophaga caerulescens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/101579504/medium.jpg",
+      "width": 391,
+      "height": 500,
+      "aspectRatio": 0.78,
+      "type": "vertical"
+    },
+    {
+      "id": 792987,
+      "name": "Carpintero californiano",
+      "sci_name": "Dryobates nuttallii",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Picoides_nuttallii_1.jpg/960px-Picoides_nuttallii_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 986,
+      "aspectRatio": 0.97,
+      "type": "cuadrada"
+    },
+    {
+      "id": 20315,
+      "name": "Lechuzón de campo",
+      "sci_name": "Asio flammeus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/340017487/medium.jpg",
+      "width": 489,
+      "height": 500,
+      "aspectRatio": 0.98,
+      "type": "cuadrada"
+    },
+    {
+      "id": 2669,
+      "name": "Martín pescador chico",
+      "sci_name": "Chloroceryle americana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30793136/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 18161,
+      "name": "Carpintero del desierto",
+      "sci_name": "Melanerpes uropygialis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/472414000/medium.jpeg",
+      "width": 402,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 18301,
+      "name": "Pito cano",
+      "sci_name": "Picus canus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/355914852/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 4952,
+      "name": "Garza mora",
+      "sci_name": "Ardea cocoi",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/150223557/medium.jpg",
+      "width": 464,
+      "height": 500,
+      "aspectRatio": 0.93,
+      "type": "vertical"
+    },
+    {
+      "id": 18464,
+      "name": "Carpintero Pecho Rojo",
+      "sci_name": "Sphyrapicus ruber",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1153/medium.jpg",
+      "width": 364,
+      "height": 500,
+      "aspectRatio": 0.73,
+      "type": "vertical"
+    },
+    {
+      "id": 116993,
+      "name": "Cacatúa Ninfa",
+      "sci_name": "Nymphicus hollandicus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/260517157/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 53,
+      "name": "Grulla Coronada Cuelligrís",
+      "sci_name": "Balearica regulorum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/261339008/medium.jpg",
+      "width": 470,
+      "height": 500,
+      "aspectRatio": 0.94,
+      "type": "vertical"
+    },
+    {
+      "id": 3753,
+      "name": "Ibis Eremita",
+      "sci_name": "Geronticus eremita",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/330765224/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 3827,
+      "name": "Pingüino de Penacho Amarillo",
+      "sci_name": "Eudyptes chrysocome",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/112102893/medium.jpg",
+      "width": 411,
+      "height": 500,
+      "aspectRatio": 0.82,
+      "type": "vertical"
+    },
+    {
+      "id": 14458,
+      "name": "Pita Ninfa",
+      "sci_name": "Pitta nympha",
+      "photo": "https://static.inaturalist.org/photos/77312623/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 145157,
+      "name": "Suimanga acerado",
+      "sci_name": "Cinnyris chalybeus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12098817/medium.jpg",
+      "width": 386,
+      "height": 500,
+      "aspectRatio": 0.77,
+      "type": "vertical"
+    },
+    {
+      "id": 7730,
+      "name": "Prinia del Karoo",
+      "sci_name": "Prinia maculosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/64726020/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 13510,
+      "name": "Sericornis de Cejas Blancas",
+      "sci_name": "Sericornis frontalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/229083706/medium.jpg",
+      "width": 437,
+      "height": 500,
+      "aspectRatio": 0.87,
+      "type": "vertical"
+    },
+    {
+      "id": 2238,
+      "name": "Abejaruco australiano",
+      "sci_name": "Merops ornatus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/350708162/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 5407,
+      "name": "Milano silbador",
+      "sci_name": "Haliastur sphenurus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/153075408/medium.jpeg",
+      "width": 334,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 7920,
+      "name": "Silbador Rufo",
+      "sci_name": "Pachycephala rufiventris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/42490066/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 4690,
+      "name": "Halcón maorí",
+      "sci_name": "Falco novaeseelandiae",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/70658079/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 13794,
+      "name": "Tejedor Baya",
+      "sci_name": "Ploceus philippinus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/535894219/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 979697,
+      "name": "Pito Bengalí",
+      "sci_name": "Dinopium benghalense",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/41039760/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 2212,
+      "name": "Abejaruco coliazul",
+      "sci_name": "Merops philippinus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/41165864/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 495200,
+      "name": "Urraca piquirroja",
+      "sci_name": "Urocissa erythroryncha",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/64874232/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 7215,
+      "name": "Turaco de Schalow",
+      "sci_name": "Tauraco schalowi",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/452171412/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 7211,
+      "name": "Turaco crestiblanco",
+      "sci_name": "Tauraco leucolophus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/742658248/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 7204,
+      "name": "Turaco de Hartlaub",
+      "sci_name": "Tauraco hartlaubi",
+      "photo": "https://static.inaturalist.org/photos/697409063/medium.jpg",
+      "width": 411,
+      "height": 500,
+      "aspectRatio": 0.82,
+      "type": "vertical"
+    },
+    {
+      "id": 5554,
+      "name": "Cálao Malayo",
+      "sci_name": "Anthracoceros malayanus",
+      "photo": "https://static.inaturalist.org/photos/81221924/medium.jpg",
+      "width": 332,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 5555,
+      "name": "Cálao coronado",
+      "sci_name": "Anthracoceros coronatus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/65756331/medium.jpg",
+      "width": 323,
+      "height": 500,
+      "aspectRatio": 0.65,
+      "type": "vertical"
+    },
+    {
+      "id": 5539,
+      "name": "Cálao Gris Cingalés",
+      "sci_name": "Ocyceros gingalensis",
+      "photo": "https://static.inaturalist.org/photos/87161748/medium.jpg",
+      "width": 435,
+      "height": 500,
+      "aspectRatio": 0.87,
+      "type": "vertical"
+    },
+    {
+      "id": 5547,
+      "name": "Cálao Crestado",
+      "sci_name": "Anorrhinus galeritus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4162128/medium.jpg",
+      "width": 331,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 3689,
+      "name": "Pájaro ratón carirrojo",
+      "sci_name": "Urocolius indicus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/118432499/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 597463,
+      "name": "Bubú tropical",
+      "sci_name": "Laniarius major",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/103333945/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 73475,
+      "name": "Chagra del Senegal",
+      "sci_name": "Tchagra senegalus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/54678220/medium.jpeg",
+      "width": 360,
+      "height": 500,
+      "aspectRatio": 0.72,
+      "type": "vertical"
+    },
+    {
+      "id": 1586878,
+      "name": "Bubú azufrado",
+      "sci_name": "Chlorophoneus sulfureopectus",
+      "photo": "https://static.inaturalist.org/photos/691971375/medium.jpg",
+      "width": 479,
+      "height": 500,
+      "aspectRatio": 0.96,
+      "type": "cuadrada"
+    },
+    {
+      "id": 8451,
+      "name": "Tchagra tchagra",
+      "sci_name": "Tchagra tchagra",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/15793102/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 8297,
+      "name": "Cubla Patirrosada",
+      "sci_name": "Dryoscopus angolensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/73782446/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 13842,
+      "name": "Tejedor intermedio",
+      "sci_name": "Ploceus intermedius",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8157386/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 13820,
+      "name": "Tejedor azafranado",
+      "sci_name": "Ploceus xanthops",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/745705281/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 13788,
+      "name": "Tejedor Bicolor",
+      "sci_name": "Ploceus bicolor",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8219904/medium.jpg",
+      "width": 398,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 13978,
+      "name": "Obispo Acollarado",
+      "sci_name": "Euplectes ardens",
+      "photo": "https://static.inaturalist.org/photos/159327817/medium.jpg",
+      "width": 500,
+      "height": 483,
+      "aspectRatio": 1.04,
+      "type": "cuadrada"
+    },
+    {
+      "id": 13791,
+      "name": "Tejedor vitelino",
+      "sci_name": "Ploceus vitellinus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/452203850/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 73006,
+      "name": "Manucodia ater",
+      "sci_name": "Manucodia ater",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/345800949/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 604103,
+      "name": "Ptiloris magnificus",
+      "sci_name": "Ptiloris magnificus",
+      "photo": "https://static.inaturalist.org/photos/99947343/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 144758,
+      "name": "Phonygammus keraudrenii",
+      "sci_name": "Phonygammus keraudrenii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/350977261/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 73387,
+      "name": "Ave del paraíso filamentosa",
+      "sci_name": "Seleucidis melanoleucus",
+      "photo": "https://static.inaturalist.org/photos/65191888/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 8551,
+      "name": "Ave del paraíso de Estefanía",
+      "sci_name": "Astrapia stephaniae",
+      "photo": "https://static.inaturalist.org/photos/86410039/medium.jpg",
+      "width": 343,
+      "height": 500,
+      "aspectRatio": 0.69,
+      "type": "vertical"
+    },
+    {
+      "id": 111215,
+      "name": "Ptiloris intercedens",
+      "sci_name": "Ptiloris intercedens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/612948061/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 201168,
+      "name": "Drepanornis bruijnii",
+      "sci_name": "Drepanornis bruijnii",
+      "photo": "https://static.inaturalist.org/photos/68221609/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 14501,
+      "name": "Chlamydera maculata",
+      "sci_name": "Chlamydera maculata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/356245224/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 14549,
+      "name": "Scenopoeetes dentirostris",
+      "sci_name": "Scenopoeetes dentirostris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/177308057/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 512108,
+      "name": "Maullador Orejinegro",
+      "sci_name": "Ailuroedus melanotis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/701123533/medium.jpg",
+      "width": 370,
+      "height": 500,
+      "aspectRatio": 0.74,
+      "type": "vertical"
+    },
+    {
+      "id": 14537,
+      "name": "Amblyornis subalaris",
+      "sci_name": "Amblyornis subalaris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/60036677/medium.jpg",
+      "width": 451,
+      "height": 500,
+      "aspectRatio": 0.9,
+      "type": "vertical"
+    },
+    {
+      "id": 14502,
+      "name": "Chlamydera lauterbachi",
+      "sci_name": "Chlamydera lauterbachi",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2607679/medium.jpg",
+      "width": 358,
+      "height": 500,
+      "aspectRatio": 0.72,
+      "type": "vertical"
+    },
+    {
+      "id": 14380,
+      "name": "Pìta bulliciosa",
+      "sci_name": "Pitta versicolor",
+      "photo": "https://static.inaturalist.org/photos/290766872/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 14421,
+      "name": "Pitta iris",
+      "sci_name": "Pitta iris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/427041011/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 367601,
+      "name": "Pita rojiza",
+      "sci_name": "Hydrornis oatesi",
+      "photo": "https://static.inaturalist.org/photos/546188776/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 14402,
+      "name": "Pita de Halmahera",
+      "sci_name": "Pitta maxima",
+      "photo": "https://static.inaturalist.org/photos/65371894/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 14384,
+      "name": "Pita Angoleña",
+      "sci_name": "Pitta angolensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/176877645/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 367597,
+      "name": "Pita Bandeada",
+      "sci_name": "Erythropitta arquata",
+      "photo": "https://static.inaturalist.org/photos/295977945/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 12223,
+      "name": "Mielero goligualdo",
+      "sci_name": "Manorina flavigula",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/44504233/medium.jpg",
+      "width": 478,
+      "height": 500,
+      "aspectRatio": 0.96,
+      "type": "cuadrada"
+    },
+    {
+      "id": 603527,
+      "name": "Philemon citreogularis",
+      "sci_name": "Philemon citreogularis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/190574877/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 12246,
+      "name": "Melithreptus albogularis",
+      "sci_name": "Melithreptus albogularis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/21484280/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 12638,
+      "name": "Phylidonyris niger",
+      "sci_name": "Phylidonyris niger",
+      "photo": "https://static.inaturalist.org/photos/360647924/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 8993,
+      "name": "Eurilaimo Negrigualdo",
+      "sci_name": "Eurylaimus ochromalus",
+      "photo": "https://static.inaturalist.org/photos/64801633/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 8978,
+      "name": "Eurilaimo Pechoplata",
+      "sci_name": "Serilophus lunatus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/8562783/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 2248,
+      "name": "Abejaruco Frentiblanco",
+      "sci_name": "Merops bullockoides",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/174390405/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 2185,
+      "name": "Abejaruco chico",
+      "sci_name": "Merops pusillus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/571442519/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 1289557,
+      "name": "Eurilaimo del Mindanao",
+      "sci_name": "Sarcophanops steerii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/403469453/medium.png",
+      "width": 500,
+      "height": 472,
+      "aspectRatio": 1.06,
+      "type": "cuadrada"
+    },
+    {
+      "id": 8972,
+      "name": "Eurilaimo Sombrío",
+      "sci_name": "Corydon sumatranus",
+      "photo": "https://static.inaturalist.org/photos/236258430/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 2208,
+      "name": "Abejaruco Cabecirrufo",
+      "sci_name": "Merops leschenaulti",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/116972511/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 2245,
+      "name": "Abejaruco Persa",
+      "sci_name": "Merops persicus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/131752926/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 1430300,
+      "name": "Abejaruco Esmeralda Africano",
+      "sci_name": "Merops viridissimus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/611024028/medium.jpg",
+      "width": 433,
+      "height": 500,
+      "aspectRatio": 0.87,
+      "type": "vertical"
+    },
+    {
+      "id": 1435814,
+      "name": "Abejaruco etíope",
+      "sci_name": "Merops lafresnayii",
+      "photo": "https://static.inaturalist.org/photos/195284888/medium.jpeg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 2197,
+      "name": "Abejaruco cabeciazul oriental",
+      "sci_name": "Merops muelleri",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/517545225/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 2200,
+      "name": "Abejaruco Somalí",
+      "sci_name": "Merops revoilii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/752392679/medium.jpg",
+      "width": 394,
+      "height": 500,
+      "aspectRatio": 0.79,
+      "type": "vertical"
+    },
+    {
+      "id": 20934,
+      "name": "Abubilla arbórea verde",
+      "sci_name": "Phoeniculus purpureus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/156649321/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 2285,
+      "name": "Carraca Gorgiazul",
+      "sci_name": "Eurystomus gularis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6211408/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 20959,
+      "name": "Abubilla arbórea negra",
+      "sci_name": "Rhinopomastus aterrimus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58203094/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 81,
+      "name": "Sisón bengalí",
+      "sci_name": "Houbaropsis bengalensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/632128491/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 1505963,
+      "name": "Sisón moñudo del Sahel",
+      "sci_name": "Lophotis savilei",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/182686085/medium.jpg",
+      "width": 329,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 114,
+      "name": "Avutarda india",
+      "sci_name": "Ardeotis nigriceps",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/371741555/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 117079,
+      "name": "Ganga bicinta",
+      "sci_name": "Pterocles bicinctus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/625324168/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 130,
+      "name": "Sisón de penacho",
+      "sci_name": "Sypheotides indicus",
+      "photo": "https://static.inaturalist.org/photos/147720761/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    }
+  ],
+  "mamiferos": [
+    {
+      "id": 180007,
+      "name": "Ardillón de California",
+      "sci_name": "Otospermophilus beecheyi",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1353651/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 44576,
+      "name": "Rata gris asiática",
+      "sci_name": "Rattus norvegicus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1937462/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 46023,
+      "name": "Ardilla gris",
+      "sci_name": "Sciurus griseus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/266432875/medium.jpg",
+      "width": 500,
+      "height": 477,
+      "aspectRatio": 1.05,
+      "type": "cuadrada"
+    },
+    {
+      "id": 57556,
+      "name": "Papión chacma",
+      "sci_name": "Papio ursinus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Papi%C3%B3n_chacma_%28Papio_ursinus%29%2C_parque_nacional_de_Chobe%2C_Botsuana%2C_2018-07-28%2C_DD_92.jpg/3840px-Papi%C3%B3n_chacma_%28Papio_ursinus%29%2C_parque_nacional_de_Chobe%2C_Botsuana%2C_2018-07-28%2C_DD_92.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 3840,
+      "height": 4637,
+      "aspectRatio": 0.83,
+      "type": "vertical"
+    },
+    {
+      "id": 42339,
+      "name": "Gran Kudú",
+      "sci_name": "Tragelaphus strepsiceros",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Tragelaphus_strepsiceros_%E2%99%82_%28head%29.jpg/960px-Tragelaphus_strepsiceros_%E2%99%82_%28head%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1280,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 43374,
+      "name": "Tití de pincel negro",
+      "sci_name": "Callithrix penicillata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/17876736/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 42183,
+      "name": "Corzo Siberiano",
+      "sci_name": "Capreolus pygargus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/47528555/medium.jpg",
+      "width": 449,
+      "height": 500,
+      "aspectRatio": 0.9,
+      "type": "vertical"
+    },
+    {
+      "id": 43116,
+      "name": "Conejo de pantano",
+      "sci_name": "Sylvilagus aquaticus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1759567/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 41796,
+      "name": "Marta",
+      "sci_name": "Martes martes",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/192797246/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 852334,
+      "name": "Chinchillón",
+      "sci_name": "Lagidium viscacia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/139632810/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 183166,
+      "name": "Pipistrelo del este americano",
+      "sci_name": "Perimyotis subflavus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/570756095/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 41541,
+      "name": "Calderón gris",
+      "sci_name": "Grampus griseus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/142809664/medium.jpg",
+      "width": 500,
+      "height": 472,
+      "aspectRatio": 1.06,
+      "type": "cuadrada"
+    },
+    {
+      "id": 1431239,
+      "name": "Ratón norteño de campo",
+      "sci_name": "Peromyscus sonoriensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14784248/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 1624661,
+      "name": "Tuza norteña",
+      "sci_name": "Megascapheus bottae",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754846232/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 41625,
+      "name": "Civeta de las Palmeras Enmascarada",
+      "sci_name": "Paguma larvata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25629960/medium.jpg",
+      "width": 481,
+      "height": 500,
+      "aspectRatio": 0.96,
+      "type": "cuadrada"
+    },
+    {
+      "id": 74532,
+      "name": "Macaco cola de cerdo norteño",
+      "sci_name": "Macaca leonina",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/753833738/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 42657,
+      "name": "Comadreja Orejas Negras",
+      "sci_name": "Didelphis aurita",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754980319/medium.jpg",
+      "width": 281,
+      "height": 500,
+      "aspectRatio": 0.56,
+      "type": "vertical"
+    },
+    {
+      "id": 42157,
+      "name": "Jirafa",
+      "sci_name": "Giraffa camelopardalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754828171/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 46296,
+      "name": "Tupaya del norte",
+      "sci_name": "Tupaia belangeri",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/621418492/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 81542,
+      "name": "Dromedario",
+      "sci_name": "Camelus dromedarius",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/07._Camel_Profile%2C_near_Silverton%2C_NSW%2C_07.07.2007.jpg/960px-07._Camel_Profile%2C_near_Silverton%2C_NSW%2C_07.07.2007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1182,
+      "aspectRatio": 0.81,
+      "type": "vertical"
+    },
+    {
+      "id": 46014,
+      "name": "Ardilla de Nuevo León",
+      "sci_name": "Sciurus alleni",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/750921301/medium.jpg",
+      "width": 281,
+      "height": 500,
+      "aspectRatio": 0.56,
+      "type": "vertical"
+    },
+    {
+      "id": 44761,
+      "name": "Rata Cambalachera de Cola Peluda",
+      "sci_name": "Neotoma cinerea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/178872/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 43088,
+      "name": "Damán de Bruce",
+      "sci_name": "Heterohyrax brucei",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/650600/medium.jpg",
+      "width": 500,
+      "height": 466,
+      "aspectRatio": 1.07,
+      "type": "cuadrada"
+    },
+    {
+      "id": 45836,
+      "name": "Hámster europeo",
+      "sci_name": "Cricetus cricetus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/527994804/medium.jpg",
+      "width": 360,
+      "height": 500,
+      "aspectRatio": 0.72,
+      "type": "vertical"
+    },
+    {
+      "id": 74413,
+      "name": "Mangosta gris del Cabo",
+      "sci_name": "Herpestes pulverulentus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14613537/medium.jpg",
+      "width": 500,
+      "height": 482,
+      "aspectRatio": 1.04,
+      "type": "cuadrada"
+    },
+    {
+      "id": 424254,
+      "name": "Murciélago ratonero ribereño",
+      "sci_name": "Myotis daubentonii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4627741/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 225755,
+      "name": "Ardilla de San Bernardino",
+      "sci_name": "Neotamias speciosus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/68325/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 44282,
+      "name": "Topillo Agreste",
+      "sci_name": "Microtus agrestis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/281300362/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 45316,
+      "name": "Ratón espiguero",
+      "sci_name": "Micromys minutus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2799230/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 41778,
+      "name": "Lobito de Río",
+      "sci_name": "Lontra longicaudis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/460766073/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 43600,
+      "name": "Indri Colicorto",
+      "sci_name": "Indri indri",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754899612/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 42935,
+      "name": "Ualabí Rupestre de las Montañas Blancas",
+      "sci_name": "Petrogale assimilis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/567524716/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 40281,
+      "name": "Murciélago ratonero pardo",
+      "sci_name": "Myotis emarginatus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/165391253/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 43517,
+      "name": "Douc de canillas rojas",
+      "sci_name": "Pygathrix nemaeus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/511123312/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 47007,
+      "name": "Topo del Pacifico",
+      "sci_name": "Scapanus orarius",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/480951598/medium.jpg",
+      "width": 365,
+      "height": 500,
+      "aspectRatio": 0.73,
+      "type": "vertical"
+    },
+    {
+      "id": 58393,
+      "name": "Zorrillo manchado occidental",
+      "sci_name": "Spilogale gracilis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/235211061/medium.jpeg",
+      "width": 493,
+      "height": 500,
+      "aspectRatio": 0.99,
+      "type": "cuadrada"
+    },
+    {
+      "id": 326032,
+      "name": "Colobo rojo de Zanzíbar",
+      "sci_name": "Piliocolobus kirkii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754493340/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 42771,
+      "name": "Possum de Cola de Anillo Verde",
+      "sci_name": "Pseudochirops archeri",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754854857/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 41387,
+      "name": "Murciélago gris de saco",
+      "sci_name": "Balantiopteryx plicata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1048736/medium.JPG",
+      "width": 447,
+      "height": 500,
+      "aspectRatio": 0.89,
+      "type": "vertical"
+    },
+    {
+      "id": 43457,
+      "name": "Macaco Negro",
+      "sci_name": "Macaca nigra",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/286403208/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 853952,
+      "name": "Lobo ciervo",
+      "sci_name": "Canis lycaon",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/339268646/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 1637732,
+      "name": "Mofeta del Desierto",
+      "sci_name": "Spilogale leucoparia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754201849/medium.jpg",
+      "width": 429,
+      "height": 500,
+      "aspectRatio": 0.86,
+      "type": "vertical"
+    },
+    {
+      "id": 46183,
+      "name": "Ardilla pigmea normal",
+      "sci_name": "Exilisciurus exilis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/256561388/medium.jpg",
+      "width": 430,
+      "height": 500,
+      "aspectRatio": 0.86,
+      "type": "vertical"
+    },
+    {
+      "id": 40383,
+      "name": "Murciélago de borde claro",
+      "sci_name": "Pipistrellus kuhlii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/976599/medium.jpg",
+      "width": 418,
+      "height": 500,
+      "aspectRatio": 0.84,
+      "type": "vertical"
+    },
+    {
+      "id": 57534,
+      "name": "Murciélago de cueva",
+      "sci_name": "Miniopterus schreibersii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6097950/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 40719,
+      "name": "Murciélago Nariz de Hoja Diademado",
+      "sci_name": "Hipposideros diadema",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/753710167/medium.jpg",
+      "width": 414,
+      "height": 500,
+      "aspectRatio": 0.83,
+      "type": "vertical"
+    },
+    {
+      "id": 75042,
+      "name": "Murciélago frugívoro de Egipto",
+      "sci_name": "Rousettus aegyptiacus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/189330/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 46008,
+      "name": "Ardilla de Peters",
+      "sci_name": "Sciurus oculatus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30950812/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 41328,
+      "name": "Murciélago de alas amarillas",
+      "sci_name": "Lavia frons",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/183606/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 42513,
+      "name": "Topo Dorado de El Cabo",
+      "sci_name": "Chrysochloris asiatica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14901484/medium.jpg",
+      "width": 481,
+      "height": 500,
+      "aspectRatio": 0.96,
+      "type": "cuadrada"
+    },
+    {
+      "id": 44431,
+      "name": "Ratón cosechero común",
+      "sci_name": "Reithrodontomys megalotis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/162514/medium.jpg",
+      "width": 438,
+      "height": 500,
+      "aspectRatio": 0.88,
+      "type": "vertical"
+    },
+    {
+      "id": 1369303,
+      "name": "Langur Negro de la Península Malaya Occidental",
+      "sci_name": "Trachypithecus selangorensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/31409112/medium.jpeg",
+      "width": 362,
+      "height": 500,
+      "aspectRatio": 0.72,
+      "type": "vertical"
+    },
+    {
+      "id": 1369294,
+      "name": "Capuchino frentiblanco de Santa Marta",
+      "sci_name": "Cebus malitiosus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/11184920/medium.jpeg",
+      "width": 360,
+      "height": 500,
+      "aspectRatio": 0.72,
+      "type": "vertical"
+    },
+    {
+      "id": 1369286,
+      "name": "Tarsero filipino",
+      "sci_name": "Carlito syrichta",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/51885186/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 43736,
+      "name": "Castor de montaña",
+      "sci_name": "Aplodontia rufa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/388838686/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 43658,
+      "name": "Guigó de frente negra",
+      "sci_name": "Callicebus nigrifrons",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14935478/medium.jpg",
+      "width": 361,
+      "height": 500,
+      "aspectRatio": 0.72,
+      "type": "vertical"
+    },
+    {
+      "id": 43580,
+      "name": "Gorila Occidental",
+      "sci_name": "Gorilla gorilla",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/282241201/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 112853,
+      "name": "Delfín costero",
+      "sci_name": "Sotalia guianensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/110630841/medium.jpeg",
+      "width": 500,
+      "height": 468,
+      "aspectRatio": 1.07,
+      "type": "cuadrada"
+    },
+    {
+      "id": 74139,
+      "name": "Cabra Salvaje de Persia",
+      "sci_name": "Capra aegagrus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/64708895/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 575103,
+      "name": "Bufeo Sahuliano",
+      "sci_name": "Sousa sahulensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/451779662/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 1075512,
+      "name": "Colobo Blanquinegro del Kilimanjaro",
+      "sci_name": "Colobus caudatus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Colobus_guereza_Mantelaffen.JPG/960px-Colobus_guereza_Mantelaffen.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 984,
+      "aspectRatio": 0.98,
+      "type": "cuadrada"
+    },
+    {
+      "id": 502997,
+      "name": "Colobo rojo ugandés",
+      "sci_name": "Piliocolobus tephrosceles",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/275324/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 43621,
+      "name": "Lemur cariancho",
+      "sci_name": "Hapalemur aureus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Hapalemur_aureus_001.jpg/960px-Hapalemur_aureus_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 968,
+      "aspectRatio": 0.99,
+      "type": "cuadrada"
+    },
+    {
+      "id": 1698436,
+      "name": "Socayo",
+      "sci_name": "Plecturocebus leucometopus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/1095068/medium.jpg",
+      "width": 332,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 74962,
+      "name": "Sifaka de Milne-Edwards",
+      "sci_name": "Propithecus edwardsi",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/753637139/medium.jpg",
+      "width": 457,
+      "height": 500,
+      "aspectRatio": 0.91,
+      "type": "vertical"
+    },
+    {
+      "id": 74069,
+      "name": "Mico De Noche Chocoano",
+      "sci_name": "Aotus zonalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/458242585/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 41124,
+      "name": "Vampiro falso lanudo",
+      "sci_name": "Chrotopterus auritus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/402513159/medium.jpeg",
+      "width": 356,
+      "height": 500,
+      "aspectRatio": 0.71,
+      "type": "vertical"
+    }
+  ],
+  "flores": [
+    {
+      "id": 58907,
+      "name": "Meliloto blanco",
+      "sci_name": "Melilotus albus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/88013456/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 53178,
+      "name": "Llantén menor",
+      "sci_name": "Plantago lanceolata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/384758481/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 48225,
+      "name": "Amapola de California",
+      "sci_name": "Eschscholzia californica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/67227218/medium.jpg",
+      "width": 500,
+      "height": 469,
+      "aspectRatio": 1.07,
+      "type": "cuadrada"
+    },
+    {
+      "id": 47911,
+      "name": "Algodoncillo común",
+      "sci_name": "Asclepias syriaca",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/99923276/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 83085,
+      "name": "Orquídea piramidal",
+      "sci_name": "Anacamptis pyramidalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/128723699/medium.jpg",
+      "width": 335,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 564969,
+      "name": "Adelfilla de hoja estrecha",
+      "sci_name": "Chamaenerion angustifolium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/710323133/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 58732,
+      "name": "Hiedra venenosa",
+      "sci_name": "Toxicodendron radicans",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2237896/medium.jpg",
+      "width": 335,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 48599,
+      "name": "Hierba carmín",
+      "sci_name": "Phytolacca americana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/164206478/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 55851,
+      "name": "Lamio púrpura",
+      "sci_name": "Lamium purpureum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/371086451/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 60132,
+      "name": "Cardo cundidor",
+      "sci_name": "Cirsium arvense",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/333452083/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 52856,
+      "name": "Artemisa",
+      "sci_name": "Artemisia vulgaris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/50326984/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 50278,
+      "name": "Parra virgen",
+      "sci_name": "Parthenocissus quinquefolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/428768/medium.jpg",
+      "width": 281,
+      "height": 500,
+      "aspectRatio": 0.56,
+      "type": "vertical"
+    },
+    {
+      "id": 50790,
+      "name": "Linaria común",
+      "sci_name": "Linaria vulgaris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/542354433/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 49477,
+      "name": "Pipa de indio",
+      "sci_name": "Monotropa uniflora",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4319833/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 53983,
+      "name": "Dedalera",
+      "sci_name": "Digitalis purpurea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/179728943/medium.jpeg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 950603,
+      "name": "Anémona de bosque",
+      "sci_name": "Anemonoides nemorosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/732011/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 56121,
+      "name": "Bolsa de pastor",
+      "sci_name": "Capsella bursa-pastoris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/23130/medium.jpg",
+      "width": 430,
+      "height": 500,
+      "aspectRatio": 0.86,
+      "type": "vertical"
+    },
+    {
+      "id": 56099,
+      "name": "Consuelda media",
+      "sci_name": "Ajuga reptans",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/28863996/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 56057,
+      "name": "Margarita",
+      "sci_name": "Leucanthemum vulgare",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/385004026/medium.jpg",
+      "width": 350,
+      "height": 500,
+      "aspectRatio": 0.7,
+      "type": "vertical"
+    },
+    {
+      "id": 49658,
+      "name": "Liquidámbar",
+      "sci_name": "Liquidambar styraciflua",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/239888168/medium.jpeg",
+      "width": 500,
+      "height": 482,
+      "aspectRatio": 1.04,
+      "type": "cuadrada"
+    },
+    {
+      "id": 83799,
+      "name": "Mora de codorniz",
+      "sci_name": "Mitchella repens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/40064/medium.jpg",
+      "width": 376,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53587,
+      "name": "Altamisa",
+      "sci_name": "Ambrosia artemisiifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/382193593/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55459,
+      "name": "Minutisa",
+      "sci_name": "Lamium amplexicaule",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/552968312/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 76907,
+      "name": "Hierba carnicera",
+      "sci_name": "Erigeron canadensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/332330653/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53211,
+      "name": "Hierba cana",
+      "sci_name": "Senecio vulgaris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/354387481/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 52899,
+      "name": "Ortiga de Carolina",
+      "sci_name": "Solanum carolinense",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/721564878/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 56154,
+      "name": "Saponaria",
+      "sci_name": "Saponaria officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/83287876/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 1024536,
+      "name": "Estrellada",
+      "sci_name": "Rabelera holostea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/731378/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 49662,
+      "name": "Sicómoro Americano",
+      "sci_name": "Platanus occidentalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/204738082/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 914922,
+      "name": "Hierba nudosa japonesa",
+      "sci_name": "Reynoutria japonica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/74418856/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 119791,
+      "name": "Arce sicómoro",
+      "sci_name": "Acer pseudoplatanus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754960403/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 119450,
+      "name": "Biércol",
+      "sci_name": "Calluna vulgaris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/523311698/medium.jpg",
+      "width": 357,
+      "height": 500,
+      "aspectRatio": 0.71,
+      "type": "vertical"
+    },
+    {
+      "id": 127029,
+      "name": "Mora azul",
+      "sci_name": "Vaccinium myrtillus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/191246192/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 52992,
+      "name": "Gamarza",
+      "sci_name": "Matricaria discoidea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/34171885/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 64697,
+      "name": "Fresa de Otoño",
+      "sci_name": "Elaeagnus umbellata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/575611447/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53169,
+      "name": "Choquita amarilla",
+      "sci_name": "Oxalis pes-caprae",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/454705867/medium.jpg",
+      "width": 500,
+      "height": 469,
+      "aspectRatio": 1.07,
+      "type": "cuadrada"
+    },
+    {
+      "id": 158615,
+      "name": "Argentina plateada",
+      "sci_name": "Argentina anserina",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/43334473/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 51080,
+      "name": "Roble venenoso del pacífico",
+      "sci_name": "Toxicodendron diversilobum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754867591/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53107,
+      "name": "Escariola mediterránea",
+      "sci_name": "Lactuca serriola",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/5228/medium.jpg",
+      "width": 472,
+      "height": 500,
+      "aspectRatio": 0.94,
+      "type": "vertical"
+    },
+    {
+      "id": 52998,
+      "name": "Cicuta",
+      "sci_name": "Conium maculatum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/18903781/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 49463,
+      "name": "Trillium del Pacífico",
+      "sci_name": "Trillium ovatum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/483944196/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 48625,
+      "name": "Onagra",
+      "sci_name": "Oenothera speciosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754735616/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55981,
+      "name": "Hierba pezonera",
+      "sci_name": "Lapsana communis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/20407734/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 57066,
+      "name": "Meliloto amarillo",
+      "sci_name": "Melilotus officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/79309141/medium.jpg",
+      "width": 318,
+      "height": 500,
+      "aspectRatio": 0.64,
+      "type": "vertical"
+    },
+    {
+      "id": 64540,
+      "name": "Celastro",
+      "sci_name": "Celastrus orbiculatus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59337841/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 60438,
+      "name": "Berro amargo de Virginia",
+      "sci_name": "Cardamine concatenata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/5903049/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 83653,
+      "name": "Rosa japonesa",
+      "sci_name": "Rosa rugosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/394868328/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 69624,
+      "name": "Vinagrera blanca",
+      "sci_name": "Oxalis acetosella",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/392547631/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 84517,
+      "name": "Epilobio velludo",
+      "sci_name": "Epilobium hirsutum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/83743780/medium.jpg",
+      "width": 340,
+      "height": 500,
+      "aspectRatio": 0.68,
+      "type": "vertical"
+    },
+    {
+      "id": 160697,
+      "name": "Clemátide",
+      "sci_name": "Clematis vitalba",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/218591388/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 49325,
+      "name": "Ocotillo",
+      "sci_name": "Fouquieria splendens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/443239410/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 84405,
+      "name": "Garañona",
+      "sci_name": "Calyptocarpus vialis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/65071471/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 169944,
+      "name": "Hierba del toro",
+      "sci_name": "Tridax procumbens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/67288325/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 48523,
+      "name": "Perlita blanca",
+      "sci_name": "Symphoricarpos albus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/85721930/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 57283,
+      "name": "Valeriana roja",
+      "sci_name": "Centranthus ruber",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/524544102/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 127345,
+      "name": "Veza",
+      "sci_name": "Vicia sepium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/18515325/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 58795,
+      "name": "Cáñamo americano",
+      "sci_name": "Apocynum cannabinum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754707415/medium.jpg",
+      "width": 281,
+      "height": 500,
+      "aspectRatio": 0.56,
+      "type": "vertical"
+    },
+    {
+      "id": 79141,
+      "name": "Tomatillo del diablo",
+      "sci_name": "Solanum nigrum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/250702428/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 56152,
+      "name": "Ajo de oso",
+      "sci_name": "Allium ursinum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/10674/medium.jpg",
+      "width": 374,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53197,
+      "name": "Lengua de vaca eurasiática",
+      "sci_name": "Rumex crispus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/447224091/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 127907,
+      "name": "Guisante de Perdiz Vistoso",
+      "sci_name": "Chamaecrista fasciculata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2203983/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 62338,
+      "name": "Lisimaquia",
+      "sci_name": "Lysimachia vulgaris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/80592838/medium.jpg",
+      "width": 374,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 125440,
+      "name": "Fresno de hoja ancha",
+      "sci_name": "Fraxinus excelsior",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/218128525/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 55829,
+      "name": "Berro amargo",
+      "sci_name": "Cardamine hirsuta",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/181993101/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 117433,
+      "name": "Arbusto encendido",
+      "sci_name": "Euonymus alatus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/70163421/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 59778,
+      "name": "Chirivía",
+      "sci_name": "Pastinaca sativa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/170345028/medium.jpeg",
+      "width": 415,
+      "height": 500,
+      "aspectRatio": 0.83,
+      "type": "vertical"
+    },
+    {
+      "id": 84281,
+      "name": "Albahaca Morada",
+      "sci_name": "Clinopodium vulgare",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/229234412/medium.jpg",
+      "width": 357,
+      "height": 500,
+      "aspectRatio": 0.71,
+      "type": "vertical"
+    },
+    {
+      "id": 51970,
+      "name": "Avellano de bruja",
+      "sci_name": "Hamamelis virginiana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/406249359/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 53195,
+      "name": "Lengua de pájaro",
+      "sci_name": "Rumex acetosella",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/203599374/medium.jpg",
+      "width": 373,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 54924,
+      "name": "Pepino indio",
+      "sci_name": "Medeola virginiana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/81800/medium.jpg",
+      "width": 394,
+      "height": 500,
+      "aspectRatio": 0.79,
+      "type": "vertical"
+    },
+    {
+      "id": 129850,
+      "name": "Ortiga hedionda",
+      "sci_name": "Stachys sylvatica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25239458/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 53478,
+      "name": "Cantillo",
+      "sci_name": "Commelina erecta",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/481102528/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 1493134,
+      "name": "Mezquite dulce",
+      "sci_name": "Neltuma glandulosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/263622625/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55722,
+      "name": "Geranio de prado",
+      "sci_name": "Geranium pratense",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/212095179/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55749,
+      "name": "Verónica",
+      "sci_name": "Veronica serpyllifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/7749660/medium.jpg",
+      "width": 443,
+      "height": 500,
+      "aspectRatio": 0.89,
+      "type": "vertical"
+    },
+    {
+      "id": 59549,
+      "name": "Garbancillo",
+      "sci_name": "Lupinus polyphyllus",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Lupinus_polyphyllus_in_Canterbury_Region_07.jpg/960px-Lupinus_polyphyllus_in_Canterbury_Region_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1440,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 61906,
+      "name": "Abrojo europeo",
+      "sci_name": "Helminthotheca echioides",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/308108757/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 61318,
+      "name": "Aro",
+      "sci_name": "Arum maculatum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/510161894/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 59318,
+      "name": "Compañón",
+      "sci_name": "Anacamptis morio",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13062/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 60350,
+      "name": "Ajenjo euroasiático",
+      "sci_name": "Artemisia absinthium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/323796606/medium.jpg",
+      "width": 300,
+      "height": 500,
+      "aspectRatio": 0.6,
+      "type": "vertical"
+    },
+    {
+      "id": 127010,
+      "name": "Bambú asiático sagrado",
+      "sci_name": "Nandina domestica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/71351881/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 54605,
+      "name": "Marrubio de monte",
+      "sci_name": "Marrubium vulgare",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/34608821/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 60881,
+      "name": "Madreselva",
+      "sci_name": "Lonicera involucrata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/52126544/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 125787,
+      "name": "Arvejana",
+      "sci_name": "Lathyrus pratensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/253778567/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 143799,
+      "name": "Saúco azul",
+      "sci_name": "Sambucus cerulea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/136505248/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 158380,
+      "name": "Aguatocho",
+      "sci_name": "Angelica sylvestris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/221779099/medium.jpeg",
+      "width": 493,
+      "height": 500,
+      "aspectRatio": 0.99,
+      "type": "cuadrada"
+    },
+    {
+      "id": 166466,
+      "name": "Lengua de buey",
+      "sci_name": "Pentaglottis sempervirens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/124523689/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 57457,
+      "name": "Ortiga hedionda",
+      "sci_name": "Stachys palustris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/250702345/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 58205,
+      "name": "Naranjo de Luisiana",
+      "sci_name": "Maclura pomifera",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/52688312/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 79025,
+      "name": "Uva de gato",
+      "sci_name": "Sedum album",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/43927616/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 67808,
+      "name": "Solidago",
+      "sci_name": "Solidago canadensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/309294858/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 58738,
+      "name": "Agrito",
+      "sci_name": "Rhus aromatica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/310253516/medium.jpg",
+      "width": 500,
+      "height": 473,
+      "aspectRatio": 1.06,
+      "type": "cuadrada"
+    },
+    {
+      "id": 60218,
+      "name": "Higuera",
+      "sci_name": "Ficus carica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/87770239/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 79156,
+      "name": "Cardincha",
+      "sci_name": "Sonchus arvensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/535906408/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 53348,
+      "name": "Castaño de California",
+      "sci_name": "Aesculus californica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/72460428/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 133036,
+      "name": "Menta de lobo",
+      "sci_name": "Lycopus europaeus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/402544083/medium.jpeg",
+      "width": 376,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 50616,
+      "name": "Don Diego de Noche",
+      "sci_name": "Mirabilis jalapa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/226608079/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 54854,
+      "name": "Tilo americano",
+      "sci_name": "Tilia americana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754823704/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 58362,
+      "name": "Yuca de chaparral",
+      "sci_name": "Hesperoyucca whipplei",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/122618669/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 119792,
+      "name": "Árbol chino de la Emperatriz",
+      "sci_name": "Paulownia tomentosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/118596314/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 52287,
+      "name": "Borraja",
+      "sci_name": "Borago officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/60861953/medium.jpg",
+      "width": 395,
+      "height": 500,
+      "aspectRatio": 0.79,
+      "type": "vertical"
+    },
+    {
+      "id": 51048,
+      "name": "Corazón De La Virgen Occidental",
+      "sci_name": "Dicentra formosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/76022505/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 63886,
+      "name": "Chilillo blanco",
+      "sci_name": "Persicaria lapathifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/157824424/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 85027,
+      "name": "Azucena silvestre",
+      "sci_name": "Lilium martagon",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/51715/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 51655,
+      "name": "Tellima de Flor Grande",
+      "sci_name": "Tellima grandiflora",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/143999155/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 61369,
+      "name": "Pepino cimarrón",
+      "sci_name": "Momordica charantia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/269347188/medium.jpg",
+      "width": 335,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 47146,
+      "name": "Chamizo",
+      "sci_name": "Adenostoma fasciculatum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/621330016/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 62312,
+      "name": "Campanillas",
+      "sci_name": "Campanula rotundifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/65358586/medium.jpg",
+      "width": 479,
+      "height": 500,
+      "aspectRatio": 0.96,
+      "type": "cuadrada"
+    },
+    {
+      "id": 122587,
+      "name": "Orégano",
+      "sci_name": "Monarda citriodora",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/659956450/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 56158,
+      "name": "Balota",
+      "sci_name": "Ballota nigra",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/10811/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 906118,
+      "name": "Betónica",
+      "sci_name": "Betonica officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4785/medium.jpg",
+      "width": 334,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 68400,
+      "name": "Yuca de Mojave",
+      "sci_name": "Yucca schidigera",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/25587/medium.jpg",
+      "width": 371,
+      "height": 500,
+      "aspectRatio": 0.74,
+      "type": "vertical"
+    },
+    {
+      "id": 78016,
+      "name": "Trébol acuático",
+      "sci_name": "Menyanthes trifoliata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/504446458/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 60265,
+      "name": "Espárrago",
+      "sci_name": "Asparagus officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/285678052/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 62671,
+      "name": "Kudzu Común",
+      "sci_name": "Pueraria montana",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Flowering_kudzu.jpg/960px-Flowering_kudzu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 1473,
+      "aspectRatio": 0.65,
+      "type": "vertical"
+    },
+    {
+      "id": 56160,
+      "name": "Valeriana",
+      "sci_name": "Valeriana officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/293453309/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55893,
+      "name": "Hierba de San Guillermo",
+      "sci_name": "Agrimonia eupatoria",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/592307268/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 60214,
+      "name": "Hoja de terciopelo asiática",
+      "sci_name": "Abutilon theophrasti",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/222832154/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 119793,
+      "name": "Peral de flor",
+      "sci_name": "Pyrus calleryana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/269351075/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 81792,
+      "name": "Palo blanco",
+      "sci_name": "Celtis laevigata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/75312504/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 52118,
+      "name": "Andrómeda de pino",
+      "sci_name": "Pterospora andromedea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/113501396/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 79016,
+      "name": "Hierba de la celada",
+      "sci_name": "Scutellaria galericulata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/143255406/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 119805,
+      "name": "Aligustre",
+      "sci_name": "Ligustrum vulgare",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/291303580/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 76365,
+      "name": "Jaguarzo morisco",
+      "sci_name": "Cistus salviifolius",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/345722976/medium.jpg",
+      "width": 500,
+      "height": 475,
+      "aspectRatio": 1.05,
+      "type": "cuadrada"
+    },
+    {
+      "id": 75598,
+      "name": "Artemisa",
+      "sci_name": "Artemisia tridentata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/63823446/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 63352,
+      "name": "Coroneta",
+      "sci_name": "Lepidium draba",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/269822904/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 204355,
+      "name": "Alfalfa amarilla",
+      "sci_name": "Medicago falcata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/37673057/medium.jpeg",
+      "width": 471,
+      "height": 500,
+      "aspectRatio": 0.94,
+      "type": "vertical"
+    },
+    {
+      "id": 64549,
+      "name": "Niéspola",
+      "sci_name": "Sanguisorba officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/565681113/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 133031,
+      "name": "Doradillo de hojas alternas",
+      "sci_name": "Chrysosplenium alternifolium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/66810187/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 126583,
+      "name": "Lirio asiático naranja",
+      "sci_name": "Hemerocallis fulva",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Daylily_%28Hemerocallis_fulva%29_v2.jpg/960px-Daylily_%28Hemerocallis_fulva%29_v2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 912,
+      "aspectRatio": 1.05,
+      "type": "cuadrada"
+    },
+    {
+      "id": 83914,
+      "name": "Mazo del diablo",
+      "sci_name": "Oplopanax horridus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/88963272/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 59570,
+      "name": "Lampazo",
+      "sci_name": "Arctium minus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/609518792/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 64694,
+      "name": "Árbol del paraíso",
+      "sci_name": "Elaeagnus angustifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/57604163/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55022,
+      "name": "Botón azul",
+      "sci_name": "Jasione montana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/295586910/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 48070,
+      "name": "Bayoneta",
+      "sci_name": "Sagittaria latifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/89848802/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 123481,
+      "name": "Palma de Florida",
+      "sci_name": "Sabal palmetto",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/217939258/medium.jpg",
+      "width": 376,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 64134,
+      "name": "Salvia blanca",
+      "sci_name": "Salvia apiana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/199444254/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 48363,
+      "name": "Timboco",
+      "sci_name": "Tecoma stans",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/248877294/medium.jpeg",
+      "width": 376,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 48622,
+      "name": "Hierba del gato",
+      "sci_name": "Nepeta cataria",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4209829/medium.JPG",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 243623,
+      "name": "Orquídeas arañas y relacionados",
+      "sci_name": "Ophrys sphegodes",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/132070082/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 62020,
+      "name": "Filipéndula",
+      "sci_name": "Filipendula vulgaris",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3858503/medium.JPG",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 170387,
+      "name": "Cortadillo",
+      "sci_name": "Yucca elata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754139712/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 130374,
+      "name": "Pequeña hierba asiática de hierro",
+      "sci_name": "Cyanthillium cinereum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/52748913/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 78451,
+      "name": "Nudosilla africana",
+      "sci_name": "Persicaria capitata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/178183105/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 58138,
+      "name": "Calabacilla loca",
+      "sci_name": "Cucurbita foetidissima",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/44844839/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 51843,
+      "name": "Hierba de San Simón",
+      "sci_name": "Circaea lutetiana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/408962444/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 55935,
+      "name": "Nueza",
+      "sci_name": "Bryonia cretica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/167382272/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 60129,
+      "name": "Altamisa",
+      "sci_name": "Ambrosia psilostachya",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/303178849/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 47785,
+      "name": "Izote",
+      "sci_name": "Yucca brevifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754784454/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 77496,
+      "name": "Bejuco blanco",
+      "sci_name": "Ipomoea indica",
+      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Bons-dias_%28Ipomoea_indica%29_em_terreno_baldio_em_Bag%C3%A9_-_54958650515.jpg/1920px-Bons-dias_%28Ipomoea_indica%29_em_terreno_baldio_em_Bag%C3%A9_-_54958650515.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "width": 1920,
+      "height": 2560,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55826,
+      "name": "Nomeolvides",
+      "sci_name": "Myosotis sylvatica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/363401670/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 54802,
+      "name": "Tupelo",
+      "sci_name": "Nyssa sylvatica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/197904434/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 470643,
+      "name": "Lantén cimarrón",
+      "sci_name": "Erythranthe guttata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/80360799/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 62221,
+      "name": "Clavel del monte",
+      "sci_name": "Silene laciniata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/17675043/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 76445,
+      "name": "Ojos de poeta",
+      "sci_name": "Coreopsis tinctoria",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/384754031/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 116361,
+      "name": "Arce de montaña",
+      "sci_name": "Acer spicatum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/296005759/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 57418,
+      "name": "Sello de Salomón",
+      "sci_name": "Polygonatum multiflorum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/69095534/medium.jpeg",
+      "width": 445,
+      "height": 500,
+      "aspectRatio": 0.89,
+      "type": "vertical"
+    },
+    {
+      "id": 82689,
+      "name": "Madroño europeo",
+      "sci_name": "Arbutus unedo",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/587076789/medium.jpg",
+      "width": 428,
+      "height": 500,
+      "aspectRatio": 0.86,
+      "type": "vertical"
+    },
+    {
+      "id": 55739,
+      "name": "Violeta persa",
+      "sci_name": "Viola tricolor",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9555/medium.jpg",
+      "width": 331,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 128652,
+      "name": "Mirto coral",
+      "sci_name": "Salvia coccinea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14351934/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 51286,
+      "name": "Gallocresta",
+      "sci_name": "Bellardia trixago",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/21292015/medium.jpeg",
+      "width": 308,
+      "height": 500,
+      "aspectRatio": 0.62,
+      "type": "vertical"
+    },
+    {
+      "id": 55977,
+      "name": "Malva moscada",
+      "sci_name": "Malva moschata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/138963389/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 61470,
+      "name": "Cresta de gallo",
+      "sci_name": "Rhinanthus minor",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/15760/medium.jpg",
+      "width": 331,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 49351,
+      "name": "Choya güera",
+      "sci_name": "Cylindropuntia bigelovii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/358164937/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 78174,
+      "name": "Berro blanco",
+      "sci_name": "Nasturtium officinale",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/203236672/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 56163,
+      "name": "Verbena común",
+      "sci_name": "Verbena officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/113679899/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 71127,
+      "name": "Estafiate",
+      "sci_name": "Artemisia ludoviciana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/169500458/medium.jpg",
+      "width": 353,
+      "height": 500,
+      "aspectRatio": 0.71,
+      "type": "vertical"
+    },
+    {
+      "id": 62859,
+      "name": "Guayaba dulce",
+      "sci_name": "Psidium guajava",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/751951189/medium.jpg",
+      "width": 332,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 64293,
+      "name": "Soplillo",
+      "sci_name": "Triodanis perfoliata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/7717458/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 128717,
+      "name": "Hierba de colorín",
+      "sci_name": "Erythrina herbacea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/39154052/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 49472,
+      "name": "Flor de la nieve",
+      "sci_name": "Sarcodes sanguinea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/135586759/medium.jpg",
+      "width": 461,
+      "height": 500,
+      "aspectRatio": 0.92,
+      "type": "vertical"
+    },
+    {
+      "id": 131557,
+      "name": "Sandía de ratón",
+      "sci_name": "Melothria pendula",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2470550/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 61010,
+      "name": "Garbancillo Dorado de chaparral",
+      "sci_name": "Lupinus arboreus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/120260472/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 123049,
+      "name": "Ginseng enano",
+      "sci_name": "Panax trifolius",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/98671/medium.jpg",
+      "width": 496,
+      "height": 500,
+      "aspectRatio": 0.99,
+      "type": "cuadrada"
+    },
+    {
+      "id": 127355,
+      "name": "Artánita",
+      "sci_name": "Cyclamen hederifolium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/110836055/medium.jpg",
+      "width": 364,
+      "height": 500,
+      "aspectRatio": 0.73,
+      "type": "vertical"
+    },
+    {
+      "id": 68846,
+      "name": "Cebollita de milano",
+      "sci_name": "Muscari neglectum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/65190404/medium.jpeg",
+      "width": 427,
+      "height": 500,
+      "aspectRatio": 0.85,
+      "type": "vertical"
+    },
+    {
+      "id": 49354,
+      "name": "Cholla espinosa",
+      "sci_name": "Cylindropuntia acanthocarpa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/34758935/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 58113,
+      "name": "Cenizo",
+      "sci_name": "Atriplex canescens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/135327420/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 58831,
+      "name": "Margarita telégrafo",
+      "sci_name": "Heterotheca grandiflora",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/446618024/medium.jpeg",
+      "width": 446,
+      "height": 500,
+      "aspectRatio": 0.89,
+      "type": "vertical"
+    },
+    {
+      "id": 120917,
+      "name": "Algodoncillo gigante",
+      "sci_name": "Calotropis procera",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/33028448/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53266,
+      "name": "Jaramago",
+      "sci_name": "Sisymbrium officinale",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/279110497/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55858,
+      "name": "Cornejo macho",
+      "sci_name": "Cornus mas",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/753869814/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 286324,
+      "name": "Jaboncillo",
+      "sci_name": "Sapindus drummondii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/93470217/medium.jpg",
+      "width": 411,
+      "height": 500,
+      "aspectRatio": 0.82,
+      "type": "vertical"
+    },
+    {
+      "id": 75255,
+      "name": "Acacia de hoja azul",
+      "sci_name": "Acacia saligna",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/98405423/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53315,
+      "name": "Ortiga menor",
+      "sci_name": "Urtica urens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/346153612/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53403,
+      "name": "Escobilla francesa",
+      "sci_name": "Genista monspessulana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/111354296/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55821,
+      "name": "Acedera común",
+      "sci_name": "Rumex acetosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/130014502/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 52621,
+      "name": "Cardo del oeste",
+      "sci_name": "Cirsium occidentale",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/42197035/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 75771,
+      "name": "Trébol hediondo",
+      "sci_name": "Bituminaria bituminosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/385551323/medium.jpeg",
+      "width": 414,
+      "height": 500,
+      "aspectRatio": 0.83,
+      "type": "vertical"
+    },
+    {
+      "id": 83070,
+      "name": "Bejuco colorado",
+      "sci_name": "Gelsemium sempervirens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/60591012/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 1320685,
+      "name": "Énula de prado",
+      "sci_name": "Pentanema britannica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/157589421/medium.jpeg",
+      "width": 414,
+      "height": 500,
+      "aspectRatio": 0.83,
+      "type": "vertical"
+    },
+    {
+      "id": 56299,
+      "name": "Carlina angélica",
+      "sci_name": "Carlina acaulis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/5200445/medium.jpg",
+      "width": 500,
+      "height": 491,
+      "aspectRatio": 1.02,
+      "type": "cuadrada"
+    },
+    {
+      "id": 77990,
+      "name": "Menta acuática",
+      "sci_name": "Mentha aquatica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/58267279/medium.jpg",
+      "width": 402,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 75499,
+      "name": "Tasi",
+      "sci_name": "Araujia sericifera",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/460531248/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 53065,
+      "name": "Galio perfumado",
+      "sci_name": "Galium triflorum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/344310633/medium.jpg",
+      "width": 500,
+      "height": 464,
+      "aspectRatio": 1.08,
+      "type": "cuadrada"
+    },
+    {
+      "id": 148006,
+      "name": "Mirto morado",
+      "sci_name": "Salvia farinacea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3172028/medium.jpg",
+      "width": 332,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 56129,
+      "name": "Hiedrezuela terrestre",
+      "sci_name": "Veronica hederifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/67478465/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 52990,
+      "name": "Cardo negro",
+      "sci_name": "Carduus pycnocephalus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4287278/medium.jpeg",
+      "width": 500,
+      "height": 463,
+      "aspectRatio": 1.08,
+      "type": "cuadrada"
+    },
+    {
+      "id": 121022,
+      "name": "Noni asiático",
+      "sci_name": "Morinda citrifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/99909871/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 78678,
+      "name": "Sanguinaria europea",
+      "sci_name": "Polygonum aviculare",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/61530524/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 51893,
+      "name": "Pie de gato",
+      "sci_name": "Antennaria dioica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/283607825/medium.png",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 78589,
+      "name": "Lechuguilla de agua",
+      "sci_name": "Pistia stratiotes",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/309359974/medium.jpeg",
+      "width": 281,
+      "height": 500,
+      "aspectRatio": 0.56,
+      "type": "vertical"
+    },
+    {
+      "id": 58224,
+      "name": "Amapola arbustiva",
+      "sci_name": "Dendromecon rigida",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/81017660/medium.jpg",
+      "width": 415,
+      "height": 500,
+      "aspectRatio": 0.83,
+      "type": "vertical"
+    },
+    {
+      "id": 125379,
+      "name": "Algodoncillo blanco",
+      "sci_name": "Asclepias verticillata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/4647603/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 57439,
+      "name": "Escorodonia",
+      "sci_name": "Teucrium scorodonia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/11987/medium.jpg",
+      "width": 334,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 60490,
+      "name": "Lino enano",
+      "sci_name": "Linum lewisii",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14428/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 78243,
+      "name": "Amapola",
+      "sci_name": "Oenothera laciniata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/131827252/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 47788,
+      "name": "Yuca de dátiles",
+      "sci_name": "Yucca baccata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/162596242/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 76904,
+      "name": "Hierba carnicera",
+      "sci_name": "Erigeron bonariensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/161275782/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 158753,
+      "name": "Hierba de zizotes",
+      "sci_name": "Asclepias oenotheroides",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/9260293/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 60541,
+      "name": "Yuca de las grandes planicies",
+      "sci_name": "Yucca glauca",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/277447800/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 57852,
+      "name": "Fumaria blanca",
+      "sci_name": "Fumaria capreolata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/355020276/medium.jpeg",
+      "width": 401,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 163951,
+      "name": "Beleño negro",
+      "sci_name": "Hyoscyamus niger",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/318097960/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 79487,
+      "name": "Verbena argentina",
+      "sci_name": "Verbena bonariensis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/283884295/medium.jpg",
+      "width": 499,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 54141,
+      "name": "Salsifí",
+      "sci_name": "Tragopogon porrifolius",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/298145572/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 59339,
+      "name": "Abejera Amarilla",
+      "sci_name": "Ophrys lutea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/13103/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 124135,
+      "name": "Saxífraga blanca",
+      "sci_name": "Saxifraga granulata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/111369220/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 143859,
+      "name": "Gordolobo",
+      "sci_name": "Pseudognaphalium obtusifolium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/50664937/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 55441,
+      "name": "Esparceta",
+      "sci_name": "Onobrychis viciifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/385130341/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 62850,
+      "name": "Mangle Botoncillo",
+      "sci_name": "Conocarpus erectus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/99889650/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 54639,
+      "name": "Satirión verde",
+      "sci_name": "Platanthera chlorantha",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/545528122/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 54982,
+      "name": "Laurel de las Indias",
+      "sci_name": "Ficus microcarpa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/59896114/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 81831,
+      "name": "Alambrillo",
+      "sci_name": "Smilax glauca",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/55664916/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 210513,
+      "name": "Esparraguera Silvestre",
+      "sci_name": "Asparagus acutifolius",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/452053466/medium.jpeg",
+      "width": 416,
+      "height": 500,
+      "aspectRatio": 0.83,
+      "type": "vertical"
+    },
+    {
+      "id": 154776,
+      "name": "Lágrimas de San Juan",
+      "sci_name": "Alpinia zerumbet",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/18060908/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 57723,
+      "name": "Orgullo de Madeira",
+      "sci_name": "Echium candicans",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/213798634/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 76290,
+      "name": "Mimbre",
+      "sci_name": "Chilopsis linearis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3032409/medium.jpg",
+      "width": 494,
+      "height": 500,
+      "aspectRatio": 0.99,
+      "type": "cuadrada"
+    },
+    {
+      "id": 50203,
+      "name": "Acahual blanco",
+      "sci_name": "Bidens pilosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/121375780/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 60241,
+      "name": "Hierba mansa",
+      "sci_name": "Anemopsis californica",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14904/medium.jpg",
+      "width": 368,
+      "height": 500,
+      "aspectRatio": 0.74,
+      "type": "vertical"
+    },
+    {
+      "id": 54518,
+      "name": "Lenteja de agua",
+      "sci_name": "Lemna minor",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754571716/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 243627,
+      "name": "Orquídea Araña",
+      "sci_name": "Ophrys fuciflora",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/377190519/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 75732,
+      "name": "Verdolaga de puerco",
+      "sci_name": "Bacopa monnieri",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/83112331/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 318952,
+      "name": "Melisa bastarda",
+      "sci_name": "Melittis melissophyllum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/511956819/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 57116,
+      "name": "Poleo",
+      "sci_name": "Mentha pulegium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/86016750/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 160818,
+      "name": "Hierba del pollo",
+      "sci_name": "Commelina diffusa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/634653961/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 57510,
+      "name": "Copo de nieve primaveral",
+      "sci_name": "Leucojum vernum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/474290861/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 55918,
+      "name": "Amapola oblonga",
+      "sci_name": "Papaver dubium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/345577480/medium.jpeg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 75606,
+      "name": "Gamoncillo",
+      "sci_name": "Asphodelus fistulosus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/122896829/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 126485,
+      "name": "Clavero de Carolina",
+      "sci_name": "Calycanthus floridus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/93751/medium.jpg",
+      "width": 440,
+      "height": 500,
+      "aspectRatio": 0.88,
+      "type": "vertical"
+    },
+    {
+      "id": 168387,
+      "name": "Salvia del bosque",
+      "sci_name": "Salvia nemorosa",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/200741444/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 77312,
+      "name": "Hierba de San Nicolás",
+      "sci_name": "Gutierrezia sarothrae",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/11161458/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 58361,
+      "name": "Lirio mariposa",
+      "sci_name": "Calochortus splendens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/69773162/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 82838,
+      "name": "Gordolobo sinuado",
+      "sci_name": "Verbascum sinuatum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/664537/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 203827,
+      "name": "Alheña Hoja de Cera",
+      "sci_name": "Ligustrum quihoui",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754241394/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 60153,
+      "name": "Rompepiedras",
+      "sci_name": "Lepidium latifolium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/85209536/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 78839,
+      "name": "Acelguilla euroasiática",
+      "sci_name": "Reseda luteola",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/180588/medium.jpg",
+      "width": 400,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    },
+    {
+      "id": 121287,
+      "name": "Pincel",
+      "sci_name": "Emilia sonchifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/11022639/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 78445,
+      "name": "Manzanilla blanca",
+      "sci_name": "Perityle emoryi",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/6057749/medium.jpeg",
+      "width": 500,
+      "height": 476,
+      "aspectRatio": 1.05,
+      "type": "cuadrada"
+    },
+    {
+      "id": 55667,
+      "name": "Perla",
+      "sci_name": "Sagina procumbens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/754696172/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 450330,
+      "name": "Olmo temblón",
+      "sci_name": "Ulmus laevis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/38966872/medium.jpeg",
+      "width": 332,
+      "height": 500,
+      "aspectRatio": 0.66,
+      "type": "vertical"
+    },
+    {
+      "id": 360160,
+      "name": "Hierba de la perlesía",
+      "sci_name": "Stachys recta",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/48844566/medium.jpeg",
+      "width": 484,
+      "height": 500,
+      "aspectRatio": 0.97,
+      "type": "cuadrada"
+    },
+    {
+      "id": 58876,
+      "name": "Policarpo",
+      "sci_name": "Polycarpon tetraphyllum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/130192283/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 209238,
+      "name": "Lino de sapo",
+      "sci_name": "Linaria texana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/116771/medium.jpg",
+      "width": 334,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 57468,
+      "name": "Orquídea Mosca",
+      "sci_name": "Ophrys insectifera",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12044/medium.jpg",
+      "width": 308,
+      "height": 500,
+      "aspectRatio": 0.62,
+      "type": "vertical"
+    },
+    {
+      "id": 82663,
+      "name": "Rapónchigo",
+      "sci_name": "Campanula rapunculus",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/43321377/medium.jpeg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 84436,
+      "name": "Rodiola rosa",
+      "sci_name": "Rhodiola rosea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/44172824/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 133951,
+      "name": "Énula",
+      "sci_name": "Inula helenium",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/542852762/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 59901,
+      "name": "Balsamita mayor",
+      "sci_name": "Melissa officinalis",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/612537976/medium.jpg",
+      "width": 333,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 210510,
+      "name": "Abejera Oscura",
+      "sci_name": "Ophrys fusca",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30857229/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 78090,
+      "name": "Viuxito",
+      "sci_name": "Mollugo verticillata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/48120167/medium.jpg",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1,
+      "type": "cuadrada"
+    },
+    {
+      "id": 168843,
+      "name": "Retama",
+      "sci_name": "Senna lindheimeriana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/48670646/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 52495,
+      "name": "Jengibre hawaiano",
+      "sci_name": "Hedychium gardnerianum",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/61310433/medium.jpg",
+      "width": 352,
+      "height": 500,
+      "aspectRatio": 0.7,
+      "type": "vertical"
+    },
+    {
+      "id": 77663,
+      "name": "Pólvora de jardín",
+      "sci_name": "Lepidium campestre",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/39438427/medium.jpeg",
+      "width": 281,
+      "height": 500,
+      "aspectRatio": 0.56,
+      "type": "vertical"
+    },
+    {
+      "id": 147990,
+      "name": "Trompetilla",
+      "sci_name": "Bouvardia ternifolia",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/2542181/medium.JPG",
+      "width": 500,
+      "height": 491,
+      "aspectRatio": 1.02,
+      "type": "cuadrada"
+    },
+    {
+      "id": 59320,
+      "name": "Orquídea mariposa",
+      "sci_name": "Anacamptis papilionacea",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/120333127/medium.jpg",
+      "width": 334,
+      "height": 500,
+      "aspectRatio": 0.67,
+      "type": "vertical"
+    },
+    {
+      "id": 199206,
+      "name": "Cardón",
+      "sci_name": "Pachycereus pringlei",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/14294258/medium.jpg",
+      "width": 374,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 126808,
+      "name": "Mahaleb",
+      "sci_name": "Prunus mahaleb",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/595804246/medium.jpg",
+      "width": 466,
+      "height": 500,
+      "aspectRatio": 0.93,
+      "type": "vertical"
+    },
+    {
+      "id": 51988,
+      "name": "Uchuva",
+      "sci_name": "Physalis peruviana",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12025454/medium.jpg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 138980,
+      "name": "Chícharo escarlata",
+      "sci_name": "Indigofera miniata",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/409148906/medium.jpeg",
+      "width": 375,
+      "height": 500,
+      "aspectRatio": 0.75,
+      "type": "vertical"
+    },
+    {
+      "id": 82160,
+      "name": "Heleborina rojo oscuro",
+      "sci_name": "Epipactis atrorubens",
+      "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/28500636/medium.jpg",
+      "width": 402,
+      "height": 500,
+      "aspectRatio": 0.8,
+      "type": "vertical"
+    }
+  ]
+}

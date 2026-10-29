@@ -215,6 +215,7 @@
           <option value="top64" selected>⭐ Top 64 Superestrellas</option>
           <option value="top128">🌎 Top 128 Famosas</option>
           <option value="all">📋 Catálogo Completo</option>
+          <option value="non_landscape">⚠️ Solo No-Apaisadas (Vertical/Cuadrada)</option>
         </select>
 
         <!-- View Switcher -->
@@ -476,6 +477,7 @@
           <button onclick="kurador.setCatalogFilter('all')" class="px-2.5 py-1 rounded bg-stone-800 text-white font-bold" id="filterBtnAll">Todas</button>
           <button onclick="kurador.setCatalogFilter('pending')" class="px-2.5 py-1 rounded text-stone-400 hover:text-white" id="filterBtnPending">Pendientes</button>
           <button onclick="kurador.setCatalogFilter('curated')" class="px-2.5 py-1 rounded text-stone-400 hover:text-white" id="filterBtnCurated">Curadas</button>
+          <button onclick="kurador.setCatalogFilter('non_landscape')" class="px-2.5 py-1 rounded text-amber-400 hover:text-amber-300 font-bold" id="filterBtnNonLandscape">⚠️ No Apaisadas</button>
         </div>
       </div>
 
@@ -550,11 +552,21 @@
         this.loadStorage();
         await this.loadArenaData();
         await this.loadCandidatesCache();
+        await this.loadNonLandscapeReport();
         this.updateActivePool();
         this.bindKeyboard();
         this.jumpToFirstPending();
         this.render();
         await this.loadFromSupabase();
+      }
+
+      async loadNonLandscapeReport() {
+        try {
+          const res = await fetch('/data/non_landscape_report.json');
+          if (res.ok) {
+            this.nonLandscapeData = await res.json();
+          }
+        } catch (_) {}
       }
 
       updateActivePool() {
@@ -566,6 +578,10 @@
           this.activePool = this.items.slice(0, 64);
         } else if (this.priority === 'top128') {
           this.activePool = this.items.slice(0, 128);
+        } else if (this.priority === 'non_landscape') {
+          const list = this.nonLandscapeData?.[this.arena] || [];
+          const set = new Set(list.map(x => x.id));
+          this.activePool = this.items.filter(it => set.has(it.id));
         } else {
           this.activePool = this.items;
         }
@@ -1147,11 +1163,14 @@
         container.innerHTML = '';
         const search = (document.getElementById('catalogSearchInput')?.value || '').toLowerCase().trim();
 
+        const nonLandscapeMap = new Map((this.nonLandscapeData?.[this.arena] || []).map(x => [x.id, x]));
+
         const filtered = this.items.filter(it => {
           const matchesSearch = !search || it.name.toLowerCase().includes(search) || it.sciName.toLowerCase().includes(search);
           const hasCurated = this.choices.has(it.id);
           if (this.catalogFilter === 'pending') return matchesSearch && !hasCurated;
           if (this.catalogFilter === 'curated') return matchesSearch && hasCurated;
+          if (this.catalogFilter === 'non_landscape') return matchesSearch && nonLandscapeMap.has(it.id);
           return matchesSearch;
         });
 
@@ -1163,17 +1182,19 @@
         for (const it of filtered.slice(0, 100)) {
           const choice = this.choices.get(it.id);
           const activePhoto = choice?.photo || it.photo;
+          const nl = nonLandscapeMap.get(it.id);
           const card = document.createElement('div');
-          card.className = `p-3 rounded-xl border bg-stone-900 flex flex-col justify-between gap-2.5 transition ${choice ? 'border-emerald-500/50' : 'border-stone-800'}`;
+          card.className = `p-3 rounded-xl border bg-stone-900 flex flex-col justify-between gap-2.5 transition ${nl ? 'border-amber-500/60 shadow-[0_0_12px_rgba(245,158,11,0.15)]' : (choice ? 'border-emerald-500/50' : 'border-stone-800')}`;
           
           card.innerHTML = `
-            <div class="photo-container !aspect-[4/3] rounded-lg">
+            <div class="photo-container !aspect-[4/3] rounded-lg relative">
               <img src="${activePhoto}" alt="${it.name}" class="photo-main" />
+              ${nl ? `<span class="absolute top-2 left-2 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-950/90 text-amber-300 border border-amber-500/50 backdrop-blur-xs">${nl.type === 'vertical' ? '📐 Vertical' : '⬛ Cuadrada'} (${nl.aspectRatio})</span>` : ''}
             </div>
             <div>
               <div class="flex items-center justify-between gap-1 text-[10px] font-mono text-stone-400">
                 <span>#${it.id}</span>
-                <span class="${choice ? 'text-emerald-400 font-bold' : 'text-stone-500'}">${choice ? `Opción ${choice.source}` : 'Pendiente'}</span>
+                <span class="${nl ? 'text-amber-400 font-bold' : (choice ? 'text-emerald-400 font-bold' : 'text-stone-500')}">${nl ? `${nl.width}x${nl.height}` : (choice ? `Opción ${choice.source}` : 'Pendiente')}</span>
               </div>
               <h4 class="font-bold text-sm text-white truncate" title="${it.name}">${it.name}</h4>
               <p class="text-[11px] text-stone-400 font-mono italic truncate">${it.sciName}</p>
@@ -1188,6 +1209,20 @@
 
       setCatalogFilter(filter) {
         this.catalogFilter = filter;
+        const filters = ['all', 'pending', 'curated', 'non_landscape'];
+        for (const f of filters) {
+          const btn = document.getElementById(f === 'all' ? 'filterBtnAll' : (f === 'pending' ? 'filterBtnPending' : (f === 'curated' ? 'filterBtnCurated' : 'filterBtnNonLandscape')));
+          if (btn) {
+            btn.classList.toggle('bg-stone-800', f === filter);
+            btn.classList.toggle('text-white', f === filter && f !== 'non_landscape');
+            btn.classList.toggle('text-stone-400', f !== filter && f !== 'non_landscape');
+            if (f === 'non_landscape') {
+              btn.classList.toggle('bg-amber-950/70', filter === 'non_landscape');
+              btn.classList.toggle('border', filter === 'non_landscape');
+              btn.classList.toggle('border-amber-500/50', filter === 'non_landscape');
+            }
+          }
+        }
         this.renderCatalog();
       }
 

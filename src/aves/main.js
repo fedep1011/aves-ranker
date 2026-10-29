@@ -1325,7 +1325,7 @@ const I18N = {
         const isEn = this.state.lang === "en";
 
         const placeCount = this.state.places.size;
-        let estimateText = "~11.000";
+        let estimateText = "1.200";
         let labelText = isEn ? "Birds available with photo worldwide:" : "Aves disponibles con foto en todo el mundo:";
 
         if (placeCount === 1) {
@@ -1506,7 +1506,7 @@ const I18N = {
           btnNext.classList.remove("opacity-50", "cursor-not-allowed");
         }
         if (btnText) btnText.textContent = isEn ? "Next: Confirm" : "Siguiente: Confirmar";
-        if (btnCount) btnCount.textContent = hasTraits ? "(OK)" : "(~11.000)";
+        if (btnCount) btnCount.textContent = hasTraits ? "(OK)" : "(1.200)";
       },
 
       clearTraitsAndColors() {
