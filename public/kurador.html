@@ -206,16 +206,14 @@
       <!-- Category Selector, Priority Pool & View Switcher -->
       <div class="flex flex-wrap items-center gap-2">
         <select id="arenaSelect" onchange="kurador.setArena(this.value)" class="text-xs font-bold px-2.5 py-1.5 rounded-lg border border-stone-700 bg-stone-800 text-stone-100 cursor-pointer hover:border-sky-500 transition">
-          <option value="aves" selected>🐦 Aves (1.200)</option>
-          <option value="flores">🌸 Flores (1.458)</option>
-          <option value="mamiferos">🐆 Mamíferos (2.277)</option>
+          <option value="aves" selected>🐦 Aves (111 no-apaisadas)</option>
+          <option value="mamiferos">🐆 Mamíferos (67 no-apaisadas)</option>
+          <option value="flores">🌸 Flores (270 no-apaisadas)</option>
         </select>
 
-        <select id="prioritySelect" onchange="kurador.setPriority(this.value)" class="text-xs font-bold px-2.5 py-1.5 rounded-lg border border-amber-600/70 bg-amber-950/50 text-amber-300 cursor-pointer hover:border-amber-400 transition" title="Filtrar por lote de impacto">
-          <option value="top64" selected>⭐ Top 64 Superestrellas</option>
-          <option value="top128">🌎 Top 128 Famosas</option>
-          <option value="all">📋 Catálogo Completo</option>
-          <option value="non_landscape">⚠️ Solo No-Apaisadas (Vertical/Cuadrada)</option>
+        <select id="prioritySelect" onchange="kurador.setPriority(this.value)" class="text-xs font-bold px-2.5 py-1.5 rounded-lg border border-amber-600/70 bg-amber-950/50 text-amber-300 cursor-pointer hover:border-amber-400 transition" title="Lote exclusivo de revisión">
+          <option value="non_landscape" selected>⚠️ Solo No-Apaisadas (Revisión)</option>
+          <option value="pending">🆕 Solo Pendientes / Nuevas</option>
         </select>
 
         <!-- View Switcher -->
@@ -444,8 +442,11 @@
             <span>Sig →</span>
             <kbd class="px-1 text-[9px] bg-stone-900 rounded font-mono">Espacio</kbd>
           </button>
-          <button onclick="kurador.nextPendingItem()" class="px-2 py-1 rounded-lg border border-sky-800 bg-sky-950/70 hover:bg-sky-900 text-sky-300 transition flex items-center gap-1 font-medium text-[11px] shadow-xs" title="Saltar a la próxima especie sin curar">
-            <span>⚡ Sin curar</span>
+          <button onclick="kurador.markKeepAndNext()" class="px-2 py-1 rounded-lg border border-amber-800 bg-amber-950/70 hover:bg-amber-900 text-amber-300 transition flex items-center gap-1 font-medium text-[11px] shadow-xs" title="Mantener foto actual y saltar a la próxima no-apaisada">
+            <span>✓ Conservar y Sig →</span>
+          </button>
+          <button onclick="kurador.nextPendingItem()" class="px-2 py-1 rounded-lg border border-sky-800 bg-sky-950/70 hover:bg-sky-900 text-sky-300 transition flex items-center gap-1 font-medium text-[11px] shadow-xs" title="Saltar a la próxima no-apaisada sin revisar">
+            <span>⚡ Próxima pendiente</span>
           </button>
         </div>
 
@@ -512,15 +513,16 @@
       constructor() {
         this.arena = 'aves';
         this.version = 'v2';
-        this.priority = 'top64'; // 'top64' | 'top128' | 'all'
+        this.priority = 'non_landscape'; // Default: Solo no-apaisadas
         this.items = [];
         this.activePool = [];
         this.currentIndex = 0;
         this.choices = new Map(); // id -> { source: 'A'|'B'|'C'|'custom', photo: string, candidates: [] }
         this.candidatesCache = new Map(); // id -> string[]
+        this.reviewedNL = new Set();
         this.slotIndices = { A: 0, B: 1, C: 2 };
         this.view = 'duel';
-        this.catalogFilter = 'all';
+        this.catalogFilter = 'non_landscape'; // Default en catalogo: Solo no-apaisadas
 
         this.hubHighlights = {
           aves: [
@@ -574,16 +576,13 @@
           this.activePool = [];
           return;
         }
-        if (this.priority === 'top64') {
-          this.activePool = this.items.slice(0, 64);
-        } else if (this.priority === 'top128') {
-          this.activePool = this.items.slice(0, 128);
-        } else if (this.priority === 'non_landscape') {
+        if (this.priority === 'pending') {
+          this.activePool = this.items.filter(it => !this.choices.has(it.id));
+        } else {
+          // Por defecto: EXCLUSIVAMENTE especies no-apaisadas (reportadas como verticales o cuadradas)
           const list = this.nonLandscapeData?.[this.arena] || [];
           const set = new Set(list.map(x => x.id));
           this.activePool = this.items.filter(it => set.has(it.id));
-        } else {
-          this.activePool = this.items;
         }
       }
 
@@ -608,27 +607,36 @@
 
       jumpToFirstPending() {
         if (!this.activePool.length) return;
-        const pendingIdx = this.activePool.findIndex(it => !this.choices.has(it.id));
+        const pendingIdx = this.activePool.findIndex(it => !this.reviewedNL.has(it.id));
         this.currentIndex = pendingIdx !== -1 ? pendingIdx : 0;
         this.resetSlots();
       }
 
       nextPendingItem() {
-        const nextPending = this.activePool.findIndex((it, idx) => idx > this.currentIndex && !this.choices.has(it.id));
+        const nextPending = this.activePool.findIndex((it, idx) => idx > this.currentIndex && !this.reviewedNL.has(it.id));
         if (nextPending !== -1) {
           this.currentIndex = nextPending;
           this.resetSlots();
           this.render();
         } else {
-          const anyPending = this.activePool.findIndex(it => !this.choices.has(it.id));
+          const anyPending = this.activePool.findIndex(it => !this.reviewedNL.has(it.id));
           if (anyPending !== -1) {
             this.currentIndex = anyPending;
             this.resetSlots();
             this.render();
           } else {
-            alert(`¡Todas las especies de este lote (${this.activePool.length}) ya fueron curadas!`);
+            alert(`¡Completaste la revisión de todas las especies no-apaisadas de ${this.arena} (${this.activePool.length})!`);
           }
         }
+      }
+
+      markKeepAndNext() {
+        const item = this.activePool[this.currentIndex];
+        if (item) {
+          this.reviewedNL.add(item.id);
+          this.saveReviewedNL();
+        }
+        this.nextPendingItem();
       }
 
       loadStorage() {
@@ -639,9 +647,18 @@
           } else {
             this.choices = new Map();
           }
+          const rawNL = localStorage.getItem(`rankea2_nl_done_${this.arena}_${this.version}`);
+          this.reviewedNL = new Set(rawNL ? JSON.parse(rawNL) : []);
         } catch (_) {
           this.choices = new Map();
+          this.reviewedNL = new Set();
         }
+      }
+
+      saveReviewedNL() {
+        try {
+          localStorage.setItem(`rankea2_nl_done_${this.arena}_${this.version}`, JSON.stringify([...this.reviewedNL]));
+        } catch (_) {}
       }
 
       saveStorage() {
@@ -699,6 +716,7 @@
         this.loadStorage();
         await this.loadArenaData();
         await this.loadCandidatesCache();
+        await this.loadNonLandscapeReport();
         this.updateActivePool();
         this.jumpToFirstPending();
         this.render();
@@ -883,13 +901,10 @@
 
         const item = this.activePool[this.currentIndex];
         const total = this.activePool.length;
-        let curadasInPool = 0;
-        for (const it of this.activePool) {
-          if (this.choices.has(it.id)) curadasInPool++;
-        }
+        const reviewedInPool = this.activePool.filter(it => this.reviewedNL.has(it.id)).length;
 
         // Progress Text & Bar
-        document.getElementById('progressText').textContent = `#${this.currentIndex + 1} de ${total} (${curadasInPool} curadas en este lote)`;
+        document.getElementById('progressText').textContent = `#${this.currentIndex + 1} de ${total} (${reviewedInPool} revisadas en este lote)`;
         document.getElementById('progressBar').style.width = `${Math.round(((this.currentIndex + 1) / total) * 100)}%`;
 
         // Stats globales
@@ -913,7 +928,16 @@
         if (item.family) {
           tagsContainer.innerHTML += `<span class="px-1.5 py-0.5 rounded bg-stone-800 border border-stone-700">${item.family}</span>`;
         }
-        if (this.choices.has(item.id)) {
+
+        const nlList = this.nonLandscapeData?.[this.arena] || [];
+        const nlInfo = nlList.find(x => x.id === item.id);
+        if (nlInfo) {
+          tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded bg-amber-950/90 text-amber-300 border border-amber-500/60 font-bold font-mono text-[11px]">⚠️ Actual ${nlInfo.type === 'vertical' ? 'Vertical' : 'Cuadrada'}: ${nlInfo.width}x${nlInfo.height} (AR ${nlInfo.aspectRatio})</span>`;
+        }
+
+        if (this.reviewedNL.has(item.id)) {
+          tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold font-mono text-[11px]">✓ Revisada</span>`;
+        } else if (this.choices.has(item.id)) {
           const chosen = this.choices.get(item.id);
           const colorMap = {
             'A': 'bg-sky-950 text-sky-400 border-sky-800',
@@ -921,7 +945,7 @@
             'C': 'bg-amber-950 text-amber-400 border-amber-800'
           };
           const badgeColor = colorMap[chosen.source] || 'bg-stone-800 text-stone-300 border-stone-700';
-          tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded ${badgeColor} border font-bold">✓ Opción ${chosen.source}</span>`;
+          tagsContainer.innerHTML += `<span class="px-2 py-0.5 rounded ${badgeColor} border font-bold">Opción ${chosen.source} previa</span>`;
         }
 
         // Obtener candidatos (de caché o fetch dinámico)
@@ -1028,7 +1052,9 @@
           candidates
         });
 
+        this.reviewedNL.add(item.id);
         this.saveStorage();
+        this.saveReviewedNL();
         this.syncSupabase(item, slotKey, chosenUrl, candidates);
 
         const card = document.getElementById(`card${slotKey}`);
@@ -1037,7 +1063,7 @@
         }
 
         setTimeout(() => {
-          this.nextItem();
+          this.nextPendingItem();
         }, 90);
       }
 
@@ -1059,10 +1085,12 @@
           candidates
         });
 
+        this.reviewedNL.add(item.id);
         this.saveStorage();
+        this.saveReviewedNL();
         this.syncSupabase(item, 'custom', cleanUrl, candidates);
         document.getElementById('inputCustomUrl').value = '';
-        this.nextItem();
+        this.nextPendingItem();
       }
 
       async syncSupabase(item, source, chosenUrl, candidates) {
@@ -1229,7 +1257,7 @@
       jumpToItem(id) {
         let idx = this.activePool.findIndex(it => it.id === id);
         if (idx === -1) {
-          this.setPriority('all');
+          this.setPriority('non_landscape');
           idx = this.activePool.findIndex(it => it.id === id);
         }
         if (idx !== -1) {
