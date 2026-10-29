@@ -430,6 +430,25 @@
 
       </div>
 
+      <!-- Carrete de Candidatas (Tira de hasta 10-12 fotos seleccionables) -->
+      <div id="candidatesFilmstrip" class="bg-stone-900/90 border border-stone-800 rounded-2xl p-2.5 sm:p-3 flex flex-col gap-2 shadow-sm">
+        <div class="flex items-center justify-between text-xs font-mono">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span id="filmstripTitle" class="font-bold text-stone-200">10 Fotos Disponibles</span>
+            <span class="text-stone-500 hidden md:inline">· Clic en cualquier foto para elegirla de inmediato (o teclas 1 a 0)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="kurador.cyclePage()" class="hover:text-white px-2 py-0.5 rounded bg-stone-800 text-[11px] font-mono flex items-center gap-1 border border-stone-700 transition" title="Rotar las 3 cartas a las siguientes fotos">
+              <span>🔄 Rotar terna</span> <kbd class="px-1 text-[9px] bg-stone-900 rounded border border-stone-600">R</kbd>
+            </button>
+          </div>
+        </div>
+        <div id="filmstripList" class="flex items-center gap-2.5 overflow-x-auto pb-1.5 scrollbar-thin">
+          <!-- Rendered 10-12 thumbnails -->
+        </div>
+      </div>
+
       <!-- Quick Bottom Controls Bar -->
       <div id="quickControlBar" class="bg-stone-900/90 border border-stone-800 rounded-xl px-2.5 py-1.5 flex flex-wrap items-center justify-between gap-2 text-xs">
         
@@ -756,9 +775,22 @@
           } else if (e.key === '3' || e.key === 'ArrowRight') {
             e.preventDefault();
             this.vote('C');
+          } else if (['4', '5', '6', '7', '8', '9', '0'].includes(e.key)) {
+            const item = this.activePool[this.currentIndex];
+            if (item) {
+              const candidates = this.getCandidatesForItem(item);
+              const idx = e.key === '0' ? 9 : Number(e.key) - 1;
+              if (candidates[idx]) {
+                e.preventDefault();
+                this.voteDirect(candidates[idx], idx);
+              }
+            }
           } else if (e.key === ' ') {
             e.preventDefault();
-            this.nextItem();
+            this.markKeepAndNext();
+          } else if (e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            this.markKeepAndNext();
           } else if (e.key.toLowerCase() === 'z' || e.key === 'ArrowUp') {
             e.preventDefault();
             this.prevItem();
@@ -841,52 +873,77 @@
       }
 
       async fetchDynamicCandidatesIfNeeded(item) {
-        if (this.candidatesCache.has(item.id) && this.candidatesCache.get(item.id).length >= 3) {
+        if (this.candidatesCache.has(item.id) && this.candidatesCache.get(item.id).length >= 10) {
           return this.candidatesCache.get(item.id);
         }
 
         const candidates = this.getCandidatesForItem(item).slice();
         const queries = [item.sciName, item.name].filter(Boolean);
 
-        // 1. Wikipedia Summary
-        for (const q of queries) {
-          const clean = q.replace(/[()]/g, '').trim().replace(/ /g, '_');
-          for (const lang of ['es', 'en']) {
+        // 1. iNaturalist Research Observations API (obtiene hasta 10-12 fotos reales de la comunidad por votos)
+        try {
+          const inatId = typeof item.id === 'number' && item.id < 5000000 ? item.id : null;
+          const inatQuery = inatId ? `taxon_id=${inatId}` : `q=${encodeURIComponent(item.sciName || item.name)}`;
+          const inatUrl = `https://api.inaturalist.org/v1/observations?${inatQuery}&quality_grade=research&photos=true&per_page=15&order_by=votes`;
+          const res = await fetch(inatUrl);
+          if (res.ok) {
+            const data = await res.json();
+            for (const r of data.results || []) {
+              for (const p of r.photos || []) {
+                const u = p.url?.replace('square.', 'medium.');
+                if (u && !candidates.includes(u)) {
+                  candidates.push(u);
+                  if (candidates.length >= 12) break;
+                }
+              }
+              if (candidates.length >= 12) break;
+            }
+          }
+        } catch (_) {}
+
+        // 2. Wikipedia Summary
+        if (candidates.length < 10) {
+          for (const q of queries) {
+            const clean = q.replace(/[()]/g, '').trim().replace(/ /g, '_');
+            for (const lang of ['es', 'en']) {
+              try {
+                const res = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`);
+                if (res.ok) {
+                  const d = await res.json();
+                  const src = d.originalimage?.source || d.thumbnail?.source;
+                  if (src && !src.endsWith('.svg') && !candidates.includes(src)) {
+                    candidates.push(src);
+                    break;
+                  }
+                }
+              } catch (_) {}
+            }
+            if (candidates.length >= 10) break;
+          }
+        }
+
+        // 3. Commons Search
+        if (candidates.length < 10) {
+          for (const q of queries) {
+            const clean = q.replace(/[()]/g, '').trim();
             try {
-              const res = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`);
+              const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(clean)}&gsrnamespace=6&gsrlimit=12&prop=imageinfo&iiprop=url&iiurlwidth=960&format=json&origin=*`;
+              const res = await fetch(url);
               if (res.ok) {
                 const d = await res.json();
-                const src = d.originalimage?.source || d.thumbnail?.source;
-                if (src && !src.endsWith('.svg') && !candidates.includes(src)) {
-                  candidates.push(src);
-                  break;
+                const pages = d.query ? Object.values(d.query.pages) : [];
+                for (const p of pages) {
+                  const info = p.imageinfo && p.imageinfo[0];
+                  const u = info && (info.thumburl || info.url);
+                  if (u && !u.endsWith('.svg') && !candidates.includes(u)) {
+                    candidates.push(u);
+                    if (candidates.length >= 12) break;
+                  }
                 }
               }
             } catch (_) {}
+            if (candidates.length >= 10) break;
           }
-          if (candidates.length >= 2) break;
-        }
-
-        // 2. Commons Search
-        for (const q of queries) {
-          const clean = q.replace(/[()]/g, '').trim();
-          try {
-            const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(clean)}&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url&iiurlwidth=960&format=json&origin=*`;
-            const res = await fetch(url);
-            if (res.ok) {
-              const d = await res.json();
-              const pages = d.query ? Object.values(d.query.pages) : [];
-              for (const p of pages) {
-                const info = p.imageinfo && p.imageinfo[0];
-                const u = info && (info.thumburl || info.url);
-                if (u && !u.endsWith('.svg') && !candidates.includes(u)) {
-                  candidates.push(u);
-                  if (candidates.length >= 5) break;
-                }
-              }
-            }
-          } catch (_) {}
-          if (candidates.length >= 3) break;
         }
 
         this.candidatesCache.set(item.id, candidates);
@@ -1012,6 +1069,77 @@
           if (urlPreview) urlPreview.textContent = url;
           if (link) link.href = url;
         }
+
+        // Renderizar carrete de todas las 10+ fotos candidatas
+        const filmstrip = document.getElementById('filmstripList');
+        const filmstripTitle = document.getElementById('filmstripTitle');
+        if (filmstripTitle) {
+          filmstripTitle.textContent = `${candidates.length} Fotos Disponibles`;
+        }
+
+        if (filmstrip) {
+          filmstrip.innerHTML = '';
+          candidates.forEach((cUrl, cIdx) => {
+            const isSlotA = (this.slotIndices.A % candidates.length) === cIdx;
+            const isSlotB = (this.slotIndices.B % candidates.length) === cIdx;
+            const isSlotC = (this.slotIndices.C % candidates.length) === cIdx;
+            const isChosen = chosen?.photo === cUrl;
+
+            let borderClass = 'border-stone-800 hover:border-stone-500';
+            let badgeHtml = '';
+
+            if (isSlotA) {
+              borderClass = 'border-sky-500 ring-2 ring-sky-500/40';
+              badgeHtml = '<span class="absolute top-1 right-1 px-1 py-0.2 rounded text-[9px] font-mono font-bold bg-sky-600 text-white">A</span>';
+            } else if (isSlotB) {
+              borderClass = 'border-emerald-500 ring-2 ring-emerald-500/40';
+              badgeHtml = '<span class="absolute top-1 right-1 px-1 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-600 text-white">B</span>';
+            } else if (isSlotC) {
+              borderClass = 'border-amber-500 ring-2 ring-amber-500/40';
+              badgeHtml = '<span class="absolute top-1 right-1 px-1 py-0.2 rounded text-[9px] font-mono font-bold bg-amber-600 text-white">C</span>';
+            }
+
+            const itemDiv = document.createElement('div');
+            itemDiv.className = `relative group cursor-pointer shrink-0 w-24 h-18 rounded-lg overflow-hidden border-2 bg-stone-950 transition ${borderClass}`;
+            itemDiv.title = `Foto #${cIdx + 1} - Clic para elegir directamente`;
+            itemDiv.onclick = () => this.voteDirect(cUrl, cIdx);
+
+            itemDiv.innerHTML = `
+              <img src="${cUrl}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-200" loading="lazy" />
+              <span class="absolute top-1 left-1 px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-black/80 text-white">#${cIdx + 1}</span>
+              ${badgeHtml}
+              ${isChosen ? '<span class="absolute bottom-1 right-1 px-1 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-500 text-black">✓ Elegida</span>' : ''}
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                <span class="text-[10px] font-mono font-bold text-white bg-emerald-600 px-2 py-0.5 rounded shadow">Elegir ✓</span>
+              </div>
+            `;
+            filmstrip.appendChild(itemDiv);
+          });
+        }
+      }
+
+      voteDirect(chosenUrl, idx) {
+        const item = this.activePool[this.currentIndex];
+        if (!item || !chosenUrl) return;
+
+        const candidates = this.getCandidatesForItem(item);
+        const sourceLabel = `Foto #${idx + 1}`;
+
+        this.choices.set(item.id, {
+          source: sourceLabel,
+          photo: chosenUrl,
+          candidates
+        });
+
+        this.reviewedNL.add(item.id);
+        this.saveStorage();
+        this.saveReviewedNL();
+        this.syncSupabase(item, sourceLabel, chosenUrl, candidates);
+
+        this.render();
+        setTimeout(() => {
+          this.nextPendingItem();
+        }, 120);
       }
 
       preloadNext(idx) {
