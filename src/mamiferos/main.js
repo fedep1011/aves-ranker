@@ -103,6 +103,7 @@ const app = {
     places: new Map(),
     groups: new Set(),
     habitats: new Set(),
+    excludeBats: false,
     keyword: "",
     samplingMode: "popular",
     limit: 16,
@@ -310,7 +311,7 @@ const app = {
   renderStep2Traits() {
     const kwTrim = this.state.keyword.trim();
     const hasKw = kwTrim.length > 0;
-    const activeFilterCount = this.state.groups.size + this.state.habitats.size + (hasKw ? 1 : 0);
+    const activeFilterCount = this.state.groups.size + this.state.habitats.size + (hasKw ? 1 : 0) + (this.state.excludeBats ? 1 : 0);
     const hasAny = activeFilterCount > 0;
 
     const btnAll = document.getElementById('btnTraitsAll');
@@ -318,6 +319,38 @@ const app = {
       btnAll.className = !hasAny
         ? 'px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-amber-800 text-white'
         : 'px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-canvas text-ink border border-line hover:border-ink/40';
+    }
+
+    const btnCustom = document.getElementById('btnTraitsCustom');
+    if (btnCustom) {
+      btnCustom.classList.toggle('hidden', !hasAny);
+    }
+
+    const selWrap = document.getElementById('selectedTraitsWrap');
+    const selChips = document.getElementById('selectedTraitsChips');
+    if (selWrap && selChips) {
+      selChips.innerHTML = '';
+      this.state.groups.forEach(gKey => {
+        const gObj = CATALOG_DATA.groups.find(g => g.key === gKey);
+        if (!gObj) return;
+        const c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-800/10 text-amber-900 dark:text-amber-200 border border-amber-800/30';
+        c.innerHTML = `<span>${gObj.title}</span><span class="opacity-60">×</span>`;
+        c.onclick = () => { this.state.groups.delete(gKey); this.renderStep2Traits(); };
+        selChips.appendChild(c);
+      });
+      this.state.habitats.forEach(hKey => {
+        const hObj = CATALOG_DATA.habitats.find(h => h.key === hKey);
+        if (!hObj) return;
+        const c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-800/10 text-amber-900 dark:text-amber-200 border border-amber-800/30';
+        c.innerHTML = `<span>${hObj.label}</span><span class="opacity-60">×</span>`;
+        c.onclick = () => { this.state.habitats.delete(hKey); this.renderStep2Traits(); };
+        selChips.appendChild(c);
+      });
+      selWrap.classList.toggle('hidden', selChips.children.length === 0);
     }
 
     const hint = document.getElementById('traitsSummaryHint');
@@ -351,8 +384,14 @@ const app = {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.onclick = () => {
-          if (this.state.groups.has(g.key)) this.state.groups.delete(g.key);
-          else this.state.groups.add(g.key);
+          if (this.state.groups.has(g.key)) {
+            this.state.groups.delete(g.key);
+          } else {
+            this.state.groups.add(g.key);
+            if (g.key === 'murcielagos') {
+              this.state.excludeBats = false;
+            }
+          }
           this.renderStep2Traits();
         };
         btn.className = active
@@ -386,7 +425,30 @@ const app = {
       });
     }
 
+    const toggleBtn = document.getElementById('btnToggleExcludeBats');
+    const switchEl = document.getElementById('switchExcludeBats');
+    const switchKnob = document.getElementById('switchExcludeBatsKnob');
+    if (toggleBtn && switchEl && switchKnob) {
+      if (this.state.excludeBats) {
+        toggleBtn.className = 'w-full flex items-center justify-between p-3 rounded-xl border-2 border-amber-800 bg-amber-900/10 text-left transition';
+        switchEl.className = 'w-11 h-6 rounded-full transition-colors relative shrink-0 bg-amber-800';
+        switchKnob.className = 'w-5 h-5 rounded-full bg-white shadow-xs absolute top-0.5 left-0.5 transition-transform translate-x-5';
+      } else {
+        toggleBtn.className = 'w-full flex items-center justify-between p-3 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 text-left transition';
+        switchEl.className = 'w-11 h-6 rounded-full transition-colors relative shrink-0 bg-line';
+        switchKnob.className = 'w-5 h-5 rounded-full bg-white shadow-xs absolute top-0.5 left-0.5 transition-transform translate-x-0';
+      }
+    }
+
     this.updateStep2LiveFeedback();
+  },
+
+  toggleExcludeBats() {
+    this.state.excludeBats = !this.state.excludeBats;
+    if (this.state.excludeBats) {
+      this.state.groups.delete('murcielagos');
+    }
+    this.renderStep2Traits();
   },
 
   updateStep2LiveFeedback() {
@@ -408,7 +470,7 @@ const app = {
       banner.classList.add('bg-amber-900/10', 'border-amber-800/25', 'text-amber-800', 'dark:text-amber-200');
       if (iconEl) {
         iconEl.innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>';
-        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-amber-800 dark:text-amber-300';
+        iconEl.setAttribute('class', 'w-4 h-4 shrink-0 mt-0.5 text-amber-800 dark:text-amber-300');
       }
       if (count <= 3) {
         const names = matches.map(m => m.name).join(', ');
@@ -433,7 +495,7 @@ const app = {
       banner.classList.add('bg-amber-500/15', 'border-amber-500/40', 'text-amber-900', 'dark:text-amber-200');
       if (iconEl) {
         iconEl.innerHTML = '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>';
-        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400';
+        iconEl.setAttribute('class', 'w-4 h-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400');
       }
       if (titleEl) titleEl.textContent = `Solo hay 1 especie disponible: ${single.name}`;
       if (detailEl) detailEl.textContent = `${single.name} (${single.sci_name}). Para armar un torneo necesitas al menos 2 especies. Prueba sumando otro grupo o quitando algún filtro.`;
@@ -448,7 +510,7 @@ const app = {
       banner.classList.add('bg-rose-500/10', 'border-rose-500/30', 'text-rose-900', 'dark:text-rose-200');
       if (iconEl) {
         iconEl.innerHTML = '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>';
-        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400';
+        iconEl.setAttribute('class', 'w-4 h-4 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400');
       }
       if (titleEl) titleEl.textContent = 'No hay especies con foto para este filtro';
       if (detailEl) detailEl.textContent = 'Esa combinación no tiene especies registradas. Prueba cambiando de lugar o seleccionando otro grupo.';
@@ -466,6 +528,7 @@ const app = {
     this.state.groups.clear();
     this.state.habitats.clear();
     this.state.keyword = '';
+    this.state.excludeBats = false;
     const inp = document.getElementById('keywordInput');
     if (inp) inp.value = '';
     this.renderStep2Traits();
@@ -539,6 +602,11 @@ const app = {
       });
     }
 
+    // Exclusión de murciélagos
+    if (!placesOnly && this.state.excludeBats) {
+      subset = subset.filter(m => m.group !== 'Murciélagos');
+    }
+
     // Buscador
     if (this.state.keyword.trim()) {
       const q = this.state.keyword.trim().toLowerCase();
@@ -574,6 +642,7 @@ const app = {
         parts.push(gNames.join(', '));
       }
       if (this.state.keyword.trim()) parts.push(`"${this.state.keyword.trim()}"`);
+      if (this.state.excludeBats) parts.push('Sin murciélagos');
       summaryEl.textContent = parts.join(' · ');
     }
 
@@ -686,14 +755,9 @@ const app = {
     const undoBtn = document.getElementById('btnUndoBattleChoice');
     if (undoBtn) undoBtn.disabled = true;
 
-    // Precargar de inmediato el primer duelo para que aparezca instantáneamente sin flicker
-    if (candidates[0] && candidates[1]) {
-      await preloadImagePair(candidates[0].photo, candidates[1].photo, 1600);
-    }
-
     this.goToView('viewBattle');
 
-    // Precargar todo el pool restante en segundo plano de manera progresiva
+    // Precargar todo el pool en segundo plano de manera progresiva
     preloadCandidatePool(candidates, m => m.photo);
 
     this.runTournament(candidates);
@@ -775,6 +839,17 @@ const app = {
   },
 
   chooseCandidate(side) {
+    // Unlock audio element on user gesture so winner sound can autoplay on results view
+    if (!this.state.winnerAudioEl && typeof Audio !== 'undefined') {
+      try {
+        this.state.winnerAudioEl = new Audio();
+        this.state.winnerAudioEl.volume = 0;
+        this.state.winnerAudioEl.play().then(() => {
+          this.state.winnerAudioEl.pause();
+          this.state.winnerAudioEl.volume = 0.85;
+        }).catch(() => {});
+      } catch (_) {}
+    }
     this.state.lastWinnerSide = side;
     if (this.state.pendingResolver) {
       this.state.pendingResolver(side);
@@ -814,9 +889,22 @@ const app = {
     this.renderRestRanking(ranking.slice(3));
 
     const top1 = ranking[0];
-    const loreEl = document.getElementById('winnerLoreText');
-    if (top1 && loreEl) {
-      loreEl.textContent = `Llamada salvaje y rugido característico de ${top1.name} (${top1.sci_name}).`;
+    const banner = document.getElementById('winnerAudioPromptBanner');
+    const questionEl = document.getElementById('winnerAudioPromptQuestion');
+    const subEl = document.getElementById('winnerAudioPromptSub');
+    if (banner) banner.classList.remove('hidden');
+    if (top1) {
+      if (questionEl) questionEl.textContent = `¿Querés escuchar el sonido real de ${top1.name}?`;
+      if (subEl) subEl.textContent = `Grabación bioacústica de campo (${top1.sci_name}) · Podrás repetirlo cuando quieras`;
+      this.state.winnerAudioUrl = '';
+      this.updateWinnerAudioUI(false);
+      this.fetchWinnerMammalAudioUrl(top1).then(url => {
+        if (url) {
+          this.state.winnerAudioUrl = url;
+          // Auto-play real animal sound when crowning the winner
+          this.playWinnerAudioFromUser();
+        }
+      }).catch(() => {});
     }
   },
 
@@ -875,6 +963,153 @@ const app = {
   },
 
   playWinnerRoar() {
+    this.playWinnerAudioFromUser();
+  },
+
+  async fetchWinnerMammalAudioUrl(mammal) {
+    if (!mammal) return null;
+    // Tier 1: iNaturalist exact species observations with browser-playable sound files
+    if (mammal.id) {
+      try {
+        const res = await fetch(`https://api.inaturalist.org/v1/observations?taxon_id=${encodeURIComponent(mammal.id)}&sounds=true&per_page=10&order_by=votes`);
+        if (res.ok) {
+          const data = await res.json();
+          for (const o of (data.results || [])) {
+            const s = (o.sounds || []).find(x => x.file_url && /\.(mp3|m4a|wav|ogg)/i.test(x.file_url));
+            if (s) return s.file_url;
+          }
+        }
+      } catch (_) {}
+    }
+
+    // Tier 2: Wikimedia Commons audio by scientific name
+    if (mammal.sci_name) {
+      try {
+        const wRes = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=filetype:audio+${encodeURIComponent(mammal.sci_name)}&gsrlimit=5&prop=imageinfo&iiprop=url&format=json&origin=*`);
+        if (wRes.ok) {
+          const wData = await wRes.json();
+          if (wData.query && wData.query.pages) {
+            for (const p of Object.values(wData.query.pages)) {
+              const u = p.imageinfo?.[0]?.url;
+              if (u && /\.(ogg|oga|mp3|wav)/i.test(u)) return u;
+            }
+          }
+        }
+      } catch (_) {}
+    }
+
+    // Tier 3: iNaturalist genus or family fallback so closely related fauna vocalization is always available
+    const genus = (mammal.sci_name || '').split(' ')[0];
+    for (const q of [genus, mammal.family]) {
+      if (!q) continue;
+      try {
+        const tRes = await fetch(`https://api.inaturalist.org/v1/taxa?q=${encodeURIComponent(q)}&per_page=1`);
+        if (tRes.ok) {
+          const tData = await tRes.json();
+          const tid = tData.results?.[0]?.id;
+          if (tid) {
+            const r2 = await fetch(`https://api.inaturalist.org/v1/observations?taxon_id=${tid}&sounds=true&per_page=10&order_by=votes`);
+            if (r2.ok) {
+              const d2 = await r2.json();
+              for (const o of (d2.results || [])) {
+                const s = (o.sounds || []).find(x => x.file_url && /\.(mp3|m4a|wav|ogg)/i.test(x.file_url));
+                if (s) return s.file_url;
+              }
+            }
+          }
+        }
+      } catch (_) {}
+    }
+    return null;
+  },
+
+  async playWinnerAudioFromUser() {
+    this.stopWinnerAudio();
+    const winner = this.state.finalRanking?.[0];
+    if (!winner) return;
+
+    this.updateWinnerAudioUI(true);
+
+    let audioUrl = this.state.winnerAudioUrl;
+    if (!audioUrl) {
+      audioUrl = await this.fetchWinnerMammalAudioUrl(winner);
+      this.state.winnerAudioUrl = audioUrl;
+    }
+
+    if (audioUrl) {
+      if (!this.state.winnerAudioEl) {
+        this.state.winnerAudioEl = new Audio();
+      }
+      const audio = this.state.winnerAudioEl;
+      audio.src = audioUrl;
+      audio.volume = 0.85;
+
+      audio.onended = () => {
+        this.state.winnerAudioPlaying = false;
+        this.updateWinnerAudioUI(false);
+      };
+      audio.onerror = () => {
+        this.playSynthesizedRoar();
+        this.state.winnerAudioPlaying = false;
+        this.updateWinnerAudioUI(false);
+      };
+
+      try {
+        await audio.play();
+        this.state.winnerAudioPlaying = true;
+        this.updateWinnerAudioUI(true);
+      } catch (_) {
+        this.playSynthesizedRoar();
+        this.state.winnerAudioPlaying = false;
+        this.updateWinnerAudioUI(false);
+      }
+    } else {
+      this.playSynthesizedRoar();
+      this.state.winnerAudioPlaying = false;
+      this.updateWinnerAudioUI(false);
+    }
+  },
+
+  replayWinnerAudio() {
+    this.playWinnerAudioFromUser();
+  },
+
+  stopWinnerAudio() {
+    if (this.state.winnerAudioEl) {
+      this.state.winnerAudioEl.pause();
+      this.state.winnerAudioEl.currentTime = 0;
+    }
+    this.state.winnerAudioPlaying = false;
+    this.updateWinnerAudioUI(false);
+  },
+
+  dismissWinnerAudioPrompt() {
+    const banner = document.getElementById('winnerAudioPromptBanner');
+    if (banner) banner.classList.add('hidden');
+    this.stopWinnerAudio();
+  },
+
+  updateWinnerAudioUI(isPlaying) {
+    const btnPlay = document.getElementById('btnPromptPlayAudio');
+    const btnReplay = document.getElementById('btnPromptReplayAudio');
+    const btnStop = document.getElementById('btnPromptStopAudio');
+    const dot = document.getElementById('promptAudioPulseDot');
+
+    if (isPlaying) {
+      if (btnPlay) btnPlay.classList.add('hidden');
+      if (btnReplay) btnReplay.classList.add('hidden');
+      if (btnStop) btnStop.classList.remove('hidden');
+      if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0';
+    } else {
+      const hasPlayed = Boolean(this.state.winnerAudioUrl);
+      if (btnPlay) btnPlay.classList.toggle('hidden', hasPlayed);
+      if (btnReplay) btnReplay.classList.toggle('hidden', !hasPlayed);
+      if (btnStop) btnStop.classList.add('hidden');
+      if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-amber-600 shrink-0';
+    }
+  },
+
+  playSynthesizedRoar() {
     try {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!AudioCtx) return;

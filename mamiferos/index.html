@@ -51,7 +51,7 @@
         <button id="themeToggle" type="button" aria-label="Cambiar tema"
           class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5">
           <svg id="themeIconDark" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
           <svg id="themeIconLight" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="4"/>
@@ -245,12 +245,21 @@
               class="px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-amber-800 text-white">
               Cualquier tipo y hábitat
             </button>
+            <span id="btnTraitsCustom"
+              class="hidden px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-amber-800 text-white">
+              Personalizado
+            </span>
             <button id="btnTraitsRandom" type="button" onclick="app.randomizeTraitsStep()"
-              class="px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium border border-amber-800/40 bg-amber-800/10 text-amber-900 dark:text-amber-200 hover:bg-amber-800 hover:text-white transition">
-              Categoría al azar
+              class="px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium border border-line bg-canvas text-muted hover:text-ink hover:border-ink/40 transition">
+              Sortear 1 al azar
             </button>
           </div>
           <span id="traitsSummaryHint" class="text-[11px] text-muted">Todas las familias incluidas</span>
+        </div>
+
+        <div id="selectedTraitsWrap" class="hidden space-y-1.5">
+          <div id="step2SelectedLabel" class="text-[11px] text-muted">Categorías elegidas:</div>
+          <div id="selectedTraitsChips" class="flex flex-wrap gap-1.5"></div>
         </div>
 
         <div class="space-y-2">
@@ -275,6 +284,23 @@
           <input id="keywordInput" type="text" placeholder="Ej. Jaguar, Lobo, Ballena, Koala..."
             oninput="app.onKeywordChange(this.value)"
             class="w-full sm:w-80 rounded-full bg-canvas border border-line px-3.5 py-2 text-xs sm:text-sm text-ink placeholder:text-muted focus:outline-hidden focus:border-amber-800 transition" />
+        </div>
+
+                <div class="space-y-2 pt-3 border-t border-line">
+          <label class="block text-[11px] uppercase tracking-wider text-muted">Filtro de exclusión</label>
+          <button type="button" id="btnToggleExcludeBats" onclick="app.toggleExcludeBats()"
+            class="w-full flex items-center justify-between p-3 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 transition text-left">
+            <div class="space-y-0.5 pr-2">
+              <div class="text-xs sm:text-sm font-semibold flex items-center gap-2 text-ink">
+                <span>Excluir murciélagos (Quirópteros)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-800/15 text-amber-900 dark:text-amber-200 font-semibold">313 spp</span>
+              </div>
+              <div class="text-[11px] text-muted">Jugar solo con fauna terrestre y marina emblemática</div>
+            </div>
+            <div id="switchExcludeBats" class="w-11 h-6 rounded-full transition-colors relative shrink-0 bg-line">
+              <div id="switchExcludeBatsKnob" class="w-5 h-5 rounded-full bg-white shadow-xs absolute top-0.5 left-0.5 transition-transform translate-x-0"></div>
+            </div>
+          </button>
         </div>
 
         <!-- Feedback reactivo en vivo Paso 2 -->
@@ -449,7 +475,7 @@
               <span class="text-[10px] font-medium text-stone-300">Cargando foto...</span>
             </div>
             <img id="imgLeftBg" src="" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-60 pointer-events-none" aria-hidden="true" />
-            <img id="imgLeft" src="" alt="Candidato 1" onload="app.onBattleImgLoad('left')" class="absolute inset-0 w-full h-full object-contain object-center z-10 transition duration-300 group-hover:scale-105" />
+            <img id="imgLeft" src="" alt="Candidato 1" onload="app.onBattleImgLoad('left')" class="absolute inset-0 w-full h-full object-contain object-center z-10 " />
             <span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/75 text-white backdrop-blur-xs">A</span>
           </div>
           <div class="p-3 sm:p-4 space-y-1 flex-1 flex flex-col justify-center">
@@ -471,7 +497,7 @@
               <span class="text-[10px] font-medium text-stone-300">Cargando foto...</span>
             </div>
             <img id="imgRightBg" src="" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-60 pointer-events-none" aria-hidden="true" />
-            <img id="imgRight" src="" alt="Candidato 2" onload="app.onBattleImgLoad('right')" class="absolute inset-0 w-full h-full object-contain object-center z-10 transition duration-300 group-hover:scale-105" />
+            <img id="imgRight" src="" alt="Candidato 2" onload="app.onBattleImgLoad('right')" class="absolute inset-0 w-full h-full object-contain object-center z-10 " />
             <span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/75 text-white backdrop-blur-xs">B</span>
           </div>
           <div class="p-3 sm:p-4 space-y-1 flex-1 flex flex-col justify-center">
@@ -507,15 +533,38 @@
       <div id="podiumContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 items-end pt-2"></div>
 
       <!-- Banner Audio / Rugido sintetizado -->
-      <div id="winnerAudioPromptBanner" class="p-4 rounded-2xl border border-line bg-surface flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
-        <div>
-          <span class="text-[10px] font-mono uppercase tracking-wider text-amber-800 font-bold block">Acústica de Fauna</span>
-          <p id="winnerLoreText" class="text-xs text-muted mt-0.5">Escucha la llamada del campeón indiscutido de tu expedición.</p>
+      <div id="winnerAudioPromptBanner" class="bg-amber-50/90 dark:bg-amber-950/40 border border-amber-300/90 dark:border-amber-800/50 rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-xs text-left">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="promptAudioPulseDot" class="w-2.5 h-2.5 rounded-full bg-amber-600 shrink-0"></span>
+          <div class="min-w-0">
+            <div id="winnerAudioPromptQuestion" class="text-xs sm:text-sm font-semibold text-stone-900 dark:text-amber-100 truncate">
+              ¿Querés escuchar el sonido real de tu mamífero #1?
+            </div>
+            <div id="winnerAudioPromptSub" class="text-[11px] text-stone-600 dark:text-amber-200/80 truncate">
+              Grabación bioacústica de campo · Podrás repetirlo cuando quieras
+            </div>
+          </div>
         </div>
-        <button id="winnerAudioPromptBtn" onclick="app.playWinnerRoar()" class="px-4 py-2 rounded-full bg-amber-800 hover:bg-amber-900 text-white font-medium text-xs transition shrink-0 flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-          <span id="winnerAudioBtnText">Reproducir rugido</span>
-        </button>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <button id="btnPromptPlayAudio" type="button" onclick="app.playWinnerAudioFromUser()"
+            class="px-3.5 py-1.5 rounded-full bg-amber-800 hover:bg-amber-900 text-white text-xs font-medium transition shadow-xs flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <span>Escuchar sonido</span>
+          </button>
+          <button id="btnPromptReplayAudio" type="button" onclick="app.replayWinnerAudio()"
+            class="hidden px-3.5 py-1.5 rounded-full bg-surface hover:bg-stone-100 dark:hover:bg-stone-800 text-ink border border-line text-xs font-medium transition">
+            Repetir sonido
+          </button>
+          <button id="btnPromptStopAudio" type="button" onclick="app.stopWinnerAudio()"
+            class="hidden px-3 py-1.5 rounded-full bg-stone-900 text-white text-xs font-medium transition">
+            Detener
+          </button>
+          <button id="btnPromptDismissAudio" type="button" onclick="app.dismissWinnerAudioPrompt()"
+            class="px-2.5 py-1.5 rounded-full text-[11px] font-medium text-muted hover:text-ink transition">
+            Ocultar
+          </button>
+        </div>
       </div>
 
       <!-- Botones de Acción -->

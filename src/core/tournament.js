@@ -404,7 +404,7 @@ export function parseChallengeUrl(search = (typeof window !== 'undefined' ? wind
  * Preloads a single image and waits for decode.
  * Resolves safely on error or timeout so it never blocks gameplay.
  */
-export function preloadImage(url, timeoutMs = 2000) {
+export function preloadImage(url, timeoutMs = 800) {
   if (!url || typeof window === 'undefined') return Promise.resolve(null);
   return new Promise((resolve) => {
     const img = new Image();
@@ -417,13 +417,8 @@ export function preloadImage(url, timeoutMs = 2000) {
 
     const timer = setTimeout(() => finish(null), timeoutMs);
 
-    img.onload = async () => {
+    img.onload = () => {
       clearTimeout(timer);
-      if (typeof img.decode === 'function') {
-        try {
-          await img.decode();
-        } catch (_) {}
-      }
       finish(img);
     };
     img.onerror = () => {
@@ -436,9 +431,9 @@ export function preloadImage(url, timeoutMs = 2000) {
 
 /**
  * Preloads both images in a duel pair simultaneously.
- * Resolves only when BOTH images have loaded/decoded or timed out.
+ * Resolves only when BOTH images have loaded or timed out.
  */
-export function preloadImagePair(urlA, urlB, timeoutMs = 2000) {
+export function preloadImagePair(urlA, urlB, timeoutMs = 800) {
   return Promise.all([
     preloadImage(urlA, timeoutMs),
     preloadImage(urlB, timeoutMs)
@@ -485,6 +480,20 @@ export async function animateDuelTransition(container, updateDomFn, [urlA, urlB]
 
   const cardLeft = document.getElementById('cardLeftBtn');
   const cardRight = document.getElementById('cardRightBtn');
+
+  // Primer duelo: sin ganador previo. Renderizar inmediatamente sin latencia ni esperas.
+  if (!winnerSide) {
+    if (typeof updateDomFn === 'function') updateDomFn();
+    if (cardLeft && cardRight) {
+      cardLeft.style.opacity = '1';
+      cardRight.style.opacity = '1';
+      cardLeft.style.transform = '';
+      cardRight.style.transform = '';
+      cardLeft.style.boxShadow = '';
+      cardRight.style.boxShadow = '';
+    }
+    return;
+  }
 
   if (cardLeft && cardRight) {
     // Detect layout orientation (PC horizontal vs Mobile vertical stack)
@@ -542,9 +551,9 @@ export async function animateDuelTransition(container, updateDomFn, [urlA, urlB]
       }
     }
 
-    // Await push completion and preloads
+    // Await push completion and snappy background preloads
     const pushWait = new Promise(r => setTimeout(r, 220));
-    const preloadWait = (urlA && urlB) ? preloadImagePair(urlA, urlB, 1200) : Promise.resolve();
+    const preloadWait = (urlA && urlB) ? preloadImagePair(urlA, urlB, 300) : Promise.resolve();
     await Promise.all([pushWait, preloadWait]);
 
     // FASE 2: Position outside bounds without visible jump

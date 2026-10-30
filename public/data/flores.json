@@ -32,7 +32,8 @@
     "countries": [
       "latinoamérica",
       "sudamérica",
-      "uruguay"
+      "uruguay",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -46,11 +47,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Prunus_virginiana_flowers.jpg/960px-Prunus_virginiana_flowers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Prunus_virginiana_flowers.jpg/960px-Prunus_virginiana_flowers.jpg",
     "observations_count": 49239,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -70,7 +72,12 @@
       "latinoamérica",
       "perú",
       "sudamérica",
-      "uruguay"
+      "uruguay",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -84,11 +91,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0d/20140509Rosa_multiflora04.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/20140509Rosa_multiflora04.jpg/960px-20140509Rosa_multiflora04.jpg",
     "observations_count": 103860,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -117,7 +125,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Mediterráneo",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Hyptis_emoryi_5.jpg/960px-Hyptis_emoryi_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Hyptis_emoryi_5.jpg/960px-Hyptis_emoryi_5.jpg",
     "observations_count": 9113,
     "countries": [
       "latinoamérica",
@@ -141,7 +149,8 @@
     "countries": [
       "latinoamérica",
       "sudamérica",
-      "uruguay"
+      "uruguay",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -155,7 +164,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Nuphar_lutea_Krumpendorf_02.jpg/960px-Nuphar_lutea_Krumpendorf_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Nuphar_lutea_Krumpendorf_02.jpg/960px-Nuphar_lutea_Krumpendorf_02.jpg",
     "observations_count": 20403,
     "countries": [
       "latinoamérica",
@@ -174,7 +183,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Hydrangea_quercifolia_BhamBotGdn.jpg/960px-Hydrangea_quercifolia_BhamBotGdn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Hydrangea_quercifolia_BhamBotGdn.jpg/960px-Hydrangea_quercifolia_BhamBotGdn.jpg",
     "observations_count": 5065,
     "countries": [
       "latinoamérica",
@@ -193,7 +202,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Cephalanthus_occidentalis.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Cephalanthus_occidentalis.jpg",
     "observations_count": 68986,
     "countries": [
       "latinoamérica",
@@ -234,7 +243,8 @@
     "observations_count": 89610,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -248,7 +258,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Misumena_vatia_on_Achillea_millefolium_qtl2.jpg/960px-Misumena_vatia_on_Achillea_millefolium_qtl2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Misumena_vatia_on_Achillea_millefolium_qtl2.jpg/960px-Misumena_vatia_on_Achillea_millefolium_qtl2.jpg",
     "observations_count": 274261,
     "countries": [
       "latinoamérica",
@@ -267,7 +277,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Mediterráneo",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Common_self-heal_%28Prunella_vulgaris%29_--_flower_head_closeup.JPG/960px-Common_self-heal_%28Prunella_vulgaris%29_--_flower_head_closeup.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Common_self-heal_%28Prunella_vulgaris%29_--_flower_head_closeup.JPG/960px-Common_self-heal_%28Prunella_vulgaris%29_--_flower_head_closeup.JPG",
     "observations_count": 201663,
     "countries": [
       "latinoamérica",
@@ -286,7 +296,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Mediterráneo",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Glechoma_hederacea_ENBLA10.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Glechoma_hederacea_ENBLA10.jpg",
     "observations_count": 205873,
     "countries": [
       "latinoamérica",
@@ -352,7 +362,13 @@
       "Uruguay",
       "México",
       "Colombia",
-      "España"
+      "España",
+      "paraguay",
+      "bolivia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "mexico"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/279592/medium.jpeg",
     "observations_count": 33331,
@@ -394,7 +410,8 @@
       "Francia",
       "Italia",
       "Argentina",
-      "Alemania"
+      "Alemania",
+      "estados unidos"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30934790/medium.jpg",
     "observations_count": 1955,
@@ -434,7 +451,8 @@
       "México",
       "Colombia",
       "España",
-      "Estados Unidos"
+      "Estados Unidos",
+      "mexico"
     ],
     "photo": "https://static.inaturalist.org/photos/212806147/medium.jpeg",
     "observations_count": 24127,
@@ -454,7 +472,9 @@
       "Colombia",
       "Ecuador",
       "Costa Rica",
-      "Brasil"
+      "Brasil",
+      "peru",
+      "venezuela"
     ],
     "photo": "https://static.inaturalist.org/photos/173364227/medium.jpeg",
     "observations_count": 19053,
@@ -515,7 +535,12 @@
       "Uruguay",
       "Brasil",
       "Bolivia",
-      "España"
+      "España",
+      "paraguay",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela"
     ],
     "photo": "https://static.inaturalist.org/photos/251075969/medium.jpg",
     "observations_count": 29522,
@@ -535,7 +560,12 @@
       "Paraguay",
       "Argentina",
       "Brasil",
-      "Bolivia"
+      "Bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "estados unidos"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/299095417/medium.jpeg",
     "observations_count": 3303,
@@ -555,7 +585,8 @@
       "México",
       "Costa Rica",
       "Estados Unidos",
-      "Tailandia"
+      "Tailandia",
+      "paraguay"
     ],
     "photo": "https://static.inaturalist.org/photos/70240531/medium.jpg",
     "observations_count": 31706,
@@ -617,7 +648,8 @@
       "Guatemala",
       "España",
       "Estados Unidos",
-      "Argentina"
+      "Argentina",
+      "mexico"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/467993798/medium.jpeg",
     "observations_count": 21467,
@@ -653,7 +685,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/White_Clover_%28Trifolium_repens%29.jpg/960px-White_Clover_%28Trifolium_repens%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/White_Clover_%28Trifolium_repens%29.jpg/960px-White_Clover_%28Trifolium_repens%29.jpg",
     "observations_count": 253990,
     "countries": [
       "latinoamérica",
@@ -677,7 +709,13 @@
     "countries": [
       "latinoamérica",
       "sudamérica",
-      "uruguay"
+      "uruguay",
+      "paraguay",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -729,7 +767,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Geranium_robertianum_-_Etropole.jpg/960px-Geranium_robertianum_-_Etropole.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Geranium_robertianum_-_Etropole.jpg/960px-Geranium_robertianum_-_Etropole.jpg",
     "observations_count": 142210,
     "countries": [
       "latinoamérica",
@@ -837,7 +875,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Bombus_veteranus_-_Cirsium_vulgare_-_Keila1.jpg/960px-Bombus_veteranus_-_Cirsium_vulgare_-_Keila1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Bombus_veteranus_-_Cirsium_vulgare_-_Keila1.jpg/960px-Bombus_veteranus_-_Cirsium_vulgare_-_Keila1.jpg",
     "observations_count": 162611,
     "countries": [
       "latinoamérica",
@@ -873,7 +911,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Pink_twinged_daisy_on_table_edit.jpg/960px-Pink_twinged_daisy_on_table_edit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Pink_twinged_daisy_on_table_edit.jpg/960px-Pink_twinged_daisy_on_table_edit.jpg",
     "observations_count": 152844,
     "countries": [
       "latinoamérica",
@@ -909,7 +947,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Ficaria_verna_20190401.jpg/960px-Ficaria_verna_20190401.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Ficaria_verna_20190401.jpg/960px-Ficaria_verna_20190401.jpg",
     "observations_count": 178010,
     "countries": [
       "latinoamérica",
@@ -945,7 +983,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Huflattich_Tussilago_farfara_001.jpg/960px-Huflattich_Tussilago_farfara_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Huflattich_Tussilago_farfara_001.jpg/960px-Huflattich_Tussilago_farfara_001.jpg",
     "observations_count": 137440,
     "countries": [
       "latinoamérica",
@@ -963,7 +1001,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Cichorium_intybus-alvesgaspar1.jpg/960px-Cichorium_intybus-alvesgaspar1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Cichorium_intybus-alvesgaspar1.jpg/960px-Cichorium_intybus-alvesgaspar1.jpg",
     "observations_count": 177319,
     "countries": [
       "latinoamérica",
@@ -981,7 +1019,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Grote_weegbree_bloeiwijze_Plantago_major_subsp._major.jpg/960px-Grote_weegbree_bloeiwijze_Plantago_major_subsp._major.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Grote_weegbree_bloeiwijze_Plantago_major_subsp._major.jpg/960px-Grote_weegbree_bloeiwijze_Plantago_major_subsp._major.jpg",
     "observations_count": 118115,
     "countries": [
       "latinoamérica",
@@ -999,7 +1037,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "Asia",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Convolvulus_arvensis_11.jpg/960px-Convolvulus_arvensis_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Convolvulus_arvensis_11.jpg/960px-Convolvulus_arvensis_11.jpg",
     "observations_count": 110315,
     "countries": [
       "asia"
@@ -1034,7 +1072,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Tanacetum_vulgare_%27crispum%27%2C_boerenwormkruid._Locatie_De_Kruidhof.JPG/960px-Tanacetum_vulgare_%27crispum%27%2C_boerenwormkruid._Locatie_De_Kruidhof.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Tanacetum_vulgare_%27crispum%27%2C_boerenwormkruid._Locatie_De_Kruidhof.JPG/960px-Tanacetum_vulgare_%27crispum%27%2C_boerenwormkruid._Locatie_De_Kruidhof.JPG",
     "observations_count": 121600,
     "countries": [
       "latinoamérica",
@@ -1052,11 +1090,22 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/SolanumDulcamara-bloem-sm.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/SolanumDulcamara-bloem-sm.jpg/500px-SolanumDulcamara-bloem-sm.jpg",
     "observations_count": 132015,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -1196,7 +1245,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Larrea_tridentata_Furnace_Creek.jpg/960px-Larrea_tridentata_Furnace_Creek.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Larrea_tridentata_Furnace_Creek.jpg/960px-Larrea_tridentata_Furnace_Creek.jpg",
     "observations_count": 107169,
     "countries": [
       "latinoamérica",
@@ -1214,7 +1263,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Bloodroot_%28Sanguinaria_canadensis%29.jpeg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Bloodroot_%28Sanguinaria_canadensis%29.jpeg/960px-Bloodroot_%28Sanguinaria_canadensis%29.jpeg",
     "observations_count": 102892,
     "countries": [
       "latinoamérica",
@@ -1304,7 +1353,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg",
     "observations_count": 104601,
     "countries": [
       "latinoamérica",
@@ -1322,7 +1371,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Ailanthus_altissima_august_2012_Sierra_Nevada_Andalusia_Spain.jpg/960px-Ailanthus_altissima_august_2012_Sierra_Nevada_Andalusia_Spain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Ailanthus_altissima_august_2012_Sierra_Nevada_Andalusia_Spain.jpg/960px-Ailanthus_altissima_august_2012_Sierra_Nevada_Andalusia_Spain.jpg",
     "observations_count": 118935,
     "countries": [
       "latinoamérica",
@@ -1376,7 +1425,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Lysimachia_foemina_002.jpg/960px-Lysimachia_foemina_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Lysimachia_foemina_002.jpg/960px-Lysimachia_foemina_002.jpg",
     "observations_count": 88012,
     "countries": [
       "latinoamérica",
@@ -1398,7 +1447,8 @@
     "observations_count": 84859,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -1538,7 +1588,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Veronica_chamaedrys_ziedas.JPG/960px-Veronica_chamaedrys_ziedas.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Veronica_chamaedrys_ziedas.JPG/960px-Veronica_chamaedrys_ziedas.JPG",
     "observations_count": 101094,
     "countries": [
       "latinoamérica",
@@ -1610,7 +1660,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Sumpfdotterblume_Portr%C3%A4t_Ausschnitt.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Sumpfdotterblume_Portr%C3%A4t_Ausschnitt.jpg/500px-Sumpfdotterblume_Portr%C3%A4t_Ausschnitt.jpg",
     "observations_count": 90817,
     "countries": [
       "latinoamérica",
@@ -1628,11 +1678,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Securigera_varia_in_Donetsk.jpg/960px-Securigera_varia_in_Donetsk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Securigera_varia_in_Donetsk.jpg/960px-Securigera_varia_in_Donetsk.jpg",
     "observations_count": 87592,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -1646,7 +1697,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Erodium_cicutarium_113791973.jpg/960px-Erodium_cicutarium_113791973.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Erodium_cicutarium_113791973.jpg/960px-Erodium_cicutarium_113791973.jpg",
     "observations_count": 99275,
     "countries": [
       "latinoamérica",
@@ -1682,7 +1733,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Bidens_alba_%28Spanish_needle%29_%286946051637%29.jpg/960px-Bidens_alba_%28Spanish_needle%29_%286946051637%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Bidens_alba_%28Spanish_needle%29_%286946051637%29.jpg/960px-Bidens_alba_%28Spanish_needle%29_%286946051637%29.jpg",
     "observations_count": 83923,
     "countries": [
       "latinoamérica",
@@ -1700,7 +1751,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/cf/%28MHNT%29_Hypericum_perforatum_flower_and_buttons.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/%28MHNT%29_Hypericum_perforatum_flower_and_buttons.jpg/500px-%28MHNT%29_Hypericum_perforatum_flower_and_buttons.jpg",
     "observations_count": 79731,
     "countries": [
       "latinoamérica",
@@ -1772,7 +1823,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/05/SKUNKCABBAGE-MOSS-400X575.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/05/SKUNKCABBAGE-MOSS-400X575.jpg",
     "observations_count": 78587,
     "countries": [
       "latinoamérica",
@@ -1790,7 +1841,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Vicia_sativa_LC0223.jpg/960px-Vicia_sativa_LC0223.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Vicia_sativa_LC0223.jpg/960px-Vicia_sativa_LC0223.jpg",
     "observations_count": 77199,
     "countries": [
       "latinoamérica",
@@ -1808,7 +1859,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Mockstrawberry.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Mockstrawberry.jpg",
     "observations_count": 83575,
     "countries": [
       "latinoamérica",
@@ -1862,7 +1913,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Erythronium_americanum_-_anterior.jpg/960px-Erythronium_americanum_-_anterior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Erythronium_americanum_-_anterior.jpg/960px-Erythronium_americanum_-_anterior.jpg",
     "observations_count": 74574,
     "countries": [
       "latinoamérica",
@@ -1916,7 +1967,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Anthriscus_sylvestris_-_Mets-harakputk.jpg/960px-Anthriscus_sylvestris_-_Mets-harakputk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Anthriscus_sylvestris_-_Mets-harakputk.jpg/960px-Anthriscus_sylvestris_-_Mets-harakputk.jpg",
     "observations_count": 74556,
     "countries": [
       "latinoamérica",
@@ -1934,7 +1985,7 @@
     "usage": "Selva Tropical",
     "climate": "Tropical",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Lonicera_japonica_%27hall%27s_prolific%27._14-06-2020_%28d.j.b.%29_01.jpg/960px-Lonicera_japonica_%27hall%27s_prolific%27._14-06-2020_%28d.j.b.%29_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Lonicera_japonica_%27hall%27s_prolific%27._14-06-2020_%28d.j.b.%29_01.jpg/960px-Lonicera_japonica_%27hall%27s_prolific%27._14-06-2020_%28d.j.b.%29_01.jpg",
     "observations_count": 83883,
     "countries": [
       "latinoamérica",
@@ -1988,7 +2039,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Mediterráneo",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Gele_dovenetel_DSCF3599.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Gele_dovenetel_DSCF3599.JPG/500px-Gele_dovenetel_DSCF3599.JPG",
     "observations_count": 72900,
     "countries": [
       "latinoamérica",
@@ -2010,7 +2061,8 @@
     "observations_count": 74001,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -2042,7 +2094,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Fragaria_vesca_LC0389.jpg/960px-Fragaria_vesca_LC0389.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Fragaria_vesca_LC0389.jpg/960px-Fragaria_vesca_LC0389.jpg",
     "observations_count": 68376,
     "countries": [
       "latinoamérica",
@@ -2096,7 +2148,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Creeping_butercup_close_800.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Creeping_butercup_close_800.jpg/500px-Creeping_butercup_close_800.jpg",
     "observations_count": 66919,
     "countries": [
       "latinoamérica",
@@ -2136,7 +2188,18 @@
     "observations_count": 68442,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -2150,7 +2213,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Campsis_radicans_0.4_R.jpg/960px-Campsis_radicans_0.4_R.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Campsis_radicans_0.4_R.jpg/960px-Campsis_radicans_0.4_R.jpg",
     "observations_count": 64820,
     "countries": [
       "latinoamérica",
@@ -2186,11 +2249,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Butterfly_Weed_Flower_and_Bud_Closeup_2408px.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Butterfly_Weed_Flower_and_Bud_Closeup_2408px.jpg",
     "observations_count": 66937,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -2258,7 +2322,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Mediterráneo",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Monarda-fistulosa.jpg/960px-Monarda-fistulosa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Monarda-fistulosa.jpg/960px-Monarda-fistulosa.jpg",
     "observations_count": 64057,
     "countries": [
       "latinoamérica",
@@ -2348,7 +2412,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Filipendula_ulmaria_kz04.jpg/960px-Filipendula_ulmaria_kz04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Filipendula_ulmaria_kz04.jpg/960px-Filipendula_ulmaria_kz04.jpg",
     "observations_count": 62765,
     "countries": [
       "latinoamérica",
@@ -2366,7 +2430,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Eriogonum_fasciculatum_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Eriogonum_fasciculatum_5.jpg",
     "observations_count": 60279,
     "countries": [
       "latinoamérica",
@@ -2424,7 +2488,11 @@
     "observations_count": 63543,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "A"
@@ -2438,7 +2506,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Jacobaea_vulgaris-3235.jpg/960px-Jacobaea_vulgaris-3235.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Jacobaea_vulgaris-3235.jpg/960px-Jacobaea_vulgaris-3235.jpg",
     "observations_count": 63839,
     "countries": [
       "latinoamérica",
@@ -2478,7 +2546,18 @@
     "observations_count": 60507,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -2622,7 +2701,8 @@
     "observations_count": 55852,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -2654,7 +2734,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Cytisus_scoparius_001.jpg/960px-Cytisus_scoparius_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Cytisus_scoparius_001.jpg/960px-Cytisus_scoparius_001.jpg",
     "observations_count": 57664,
     "countries": [
       "latinoamérica",
@@ -2821,7 +2901,11 @@
     "observations_count": 53449,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "A"
@@ -2961,7 +3045,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Salmonberry_Blossom.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Salmonberry_Blossom.jpg",
     "observations_count": 52231,
     "countries": [
       "latinoamérica",
@@ -2979,11 +3063,14 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Lupinus_polyphyllus_in_Canterbury_Region_07.jpg/960px-Lupinus_polyphyllus_in_Canterbury_Region_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Lupinus_polyphyllus_in_Canterbury_Region_07.jpg/960px-Lupinus_polyphyllus_in_Canterbury_Region_07.jpg",
     "observations_count": 49231,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "bolivia",
+      "chile",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -3037,7 +3124,8 @@
     "observations_count": 50827,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3073,7 +3161,11 @@
     "observations_count": 53423,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3127,7 +3219,8 @@
     "observations_count": 49054,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3141,7 +3234,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Lobelia_cardinalis_-_Cardinal_Flower.jpg/960px-Lobelia_cardinalis_-_Cardinal_Flower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Lobelia_cardinalis_-_Cardinal_Flower.jpg/960px-Lobelia_cardinalis_-_Cardinal_Flower.jpg",
     "observations_count": 53249,
     "countries": [
       "latinoamérica",
@@ -3177,7 +3270,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/36/Dichelostemma_capitatum_2003-02-04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/36/Dichelostemma_capitatum_2003-02-04.jpg",
     "observations_count": 46527,
     "countries": [
       "latinoamérica",
@@ -3213,7 +3306,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Typha_latifolia_Library_Garden.JPG/960px-Typha_latifolia_Library_Garden.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Typha_latifolia_Library_Garden.JPG/960px-Typha_latifolia_Library_Garden.JPG",
     "observations_count": 44821,
     "countries": [
       "latinoamérica",
@@ -3235,7 +3328,8 @@
     "observations_count": 44940,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3267,7 +3361,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Linnaea_borealis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/Linnaea_borealis.jpg",
     "observations_count": 47774,
     "countries": [
       "latinoamérica",
@@ -3320,7 +3414,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Fragaria_virginiana_2400.JPG/960px-Fragaria_virginiana_2400.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Fragaria_virginiana_2400.JPG/960px-Fragaria_virginiana_2400.JPG",
     "observations_count": 46345,
     "countries": [
       "latinoamérica",
@@ -3338,7 +3432,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/61/Datura_wrightii_flower2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/61/Datura_wrightii_flower2.jpg",
     "observations_count": 47934,
     "countries": [
       "latinoamérica",
@@ -3410,7 +3504,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Euphorbia_cyparissias_02_bgiu.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Euphorbia_cyparissias_02_bgiu.jpg",
     "observations_count": 46040,
     "countries": [
       "latinoamérica",
@@ -3468,7 +3562,8 @@
     "observations_count": 47186,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3504,7 +3599,8 @@
     "observations_count": 44181,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3518,7 +3614,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Gesse_%C3%A0_larges_feuilles_%28Lathyrus_latifolius%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Gesse_%C3%A0_larges_feuilles_%28Lathyrus_latifolius%29.jpg/500px-Gesse_%C3%A0_larges_feuilles_%28Lathyrus_latifolius%29.jpg",
     "observations_count": 43623,
     "countries": [
       "latinoamérica",
@@ -3626,7 +3722,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/12/Eupatorium_coelestinum3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/12/Eupatorium_coelestinum3.jpg",
     "observations_count": 43143,
     "countries": [
       "latinoamérica",
@@ -3680,7 +3776,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Buddleja_davidii_inflorescence_high-detail_DSC1696-1.jpg/960px-Buddleja_davidii_inflorescence_high-detail_DSC1696-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Buddleja_davidii_inflorescence_high-detail_DSC1696-1.jpg/960px-Buddleja_davidii_inflorescence_high-detail_DSC1696-1.jpg",
     "observations_count": 43841,
     "countries": [
       "latinoamérica",
@@ -3716,7 +3812,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Tripleurospermum_inodorum-1.jpg/960px-Tripleurospermum_inodorum-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Tripleurospermum_inodorum-1.jpg/960px-Tripleurospermum_inodorum-1.jpg",
     "observations_count": 43433,
     "countries": [
       "latinoamérica",
@@ -3752,7 +3848,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Trifolium_arvense_2005.07.11_09.23.43.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Trifolium_arvense_2005.07.11_09.23.43.jpg",
     "observations_count": 44717,
     "countries": [
       "latinoamérica",
@@ -3774,7 +3870,18 @@
     "observations_count": 41703,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3828,7 +3935,15 @@
     "observations_count": 41947,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3882,7 +3997,8 @@
     "observations_count": 41289,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -3896,7 +4012,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Mycelis_muralis.jpeg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Mycelis_muralis.jpeg",
     "observations_count": 40797,
     "countries": [
       "latinoamérica",
@@ -3950,11 +4066,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Sonnenblume_Helianthus_1.JPG/960px-Sonnenblume_Helianthus_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Sonnenblume_Helianthus_1.JPG/960px-Sonnenblume_Helianthus_1.JPG",
     "observations_count": 40977,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -3968,7 +4085,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Commelina_communis_bgiu_02.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Commelina_communis_bgiu_02.jpg",
     "observations_count": 40952,
     "countries": [
       "latinoamérica",
@@ -3986,7 +4103,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Thlaspi_arvense1_eF.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Thlaspi_arvense1_eF.jpg",
     "observations_count": 40868,
     "countries": [
       "latinoamérica",
@@ -4040,7 +4157,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/47/Ratibidacolumnifera.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/47/Ratibidacolumnifera.jpg",
     "observations_count": 41302,
     "countries": [
       "latinoamérica",
@@ -4058,7 +4175,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Trifolium_campestre_-_Flickr_-_Kevin_Thiele.jpg/960px-Trifolium_campestre_-_Flickr_-_Kevin_Thiele.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Trifolium_campestre_-_Flickr_-_Kevin_Thiele.jpg/960px-Trifolium_campestre_-_Flickr_-_Kevin_Thiele.jpg",
     "observations_count": 40518,
     "countries": [
       "latinoamérica",
@@ -4184,7 +4301,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Rubus_ursinus_flower.jpg/960px-Rubus_ursinus_flower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Rubus_ursinus_flower.jpg/960px-Rubus_ursinus_flower.jpg",
     "observations_count": 38650,
     "countries": [
       "latinoamérica",
@@ -4256,7 +4373,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Acer_pensylvanicum_flowers.JPG/960px-Acer_pensylvanicum_flowers.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Acer_pensylvanicum_flowers.JPG/960px-Acer_pensylvanicum_flowers.JPG",
     "observations_count": 40426,
     "countries": [
       "latinoamérica",
@@ -4274,7 +4391,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/RaphanusRaphanistrum001.jpg/960px-RaphanusRaphanistrum001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/RaphanusRaphanistrum001.jpg/960px-RaphanusRaphanistrum001.jpg",
     "observations_count": 40476,
     "countries": [
       "latinoamérica",
@@ -4292,7 +4409,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Gleditsia_triacanthos_in_Donetsk_2.jpg/960px-Gleditsia_triacanthos_in_Donetsk_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Gleditsia_triacanthos_in_Donetsk_2.jpg/500px-Gleditsia_triacanthos_in_Donetsk_2.jpg",
     "observations_count": 39976,
     "countries": [
       "latinoamérica",
@@ -4328,14 +4445,21 @@
     "usage": "Selva Tropical",
     "climate": "Tropical",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Passiflora_incarnata_003.JPG/960px-Passiflora_incarnata_003.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Passiflora_incarnata_003.JPG/960px-Passiflora_incarnata_003.JPG",
     "observations_count": 37060,
     "countries": [
       "argentina",
       "brasil",
       "latinoamérica",
       "sudamérica",
-      "uruguay"
+      "uruguay",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela"
     ],
     "curated": true,
     "curated_source": "C"
@@ -4385,7 +4509,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Nymphaea_odorata_PP.jpg/960px-Nymphaea_odorata_PP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Nymphaea_odorata_PP.jpg/960px-Nymphaea_odorata_PP.jpg",
     "observations_count": 37966,
     "countries": [
       "latinoamérica",
@@ -4439,7 +4563,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Holodiscus_discolor_3007.JPG/960px-Holodiscus_discolor_3007.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Holodiscus_discolor_3007.JPG/960px-Holodiscus_discolor_3007.JPG",
     "observations_count": 36261,
     "countries": [
       "latinoamérica",
@@ -4511,11 +4635,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/SpreadingDogbane.JPG/960px-SpreadingDogbane.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/SpreadingDogbane.JPG/960px-SpreadingDogbane.JPG",
     "observations_count": 36494,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -4619,7 +4744,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Tropaeolum_majus_2005_G1.jpg/960px-Tropaeolum_majus_2005_G1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Tropaeolum_majus_2005_G1.jpg/500px-Tropaeolum_majus_2005_G1.jpg",
     "observations_count": 37883,
     "countries": [
       "latinoamérica",
@@ -4673,7 +4798,7 @@
     "usage": "Selva Tropical",
     "climate": "Tropical",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Orchis_mascula_flowers1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Orchis_mascula_flowers1.jpg",
     "observations_count": 34629,
     "countries": [
       "latinoamérica",
@@ -4803,7 +4928,8 @@
     "observations_count": 35365,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -4835,7 +4961,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Italiaanse_aronskelk_%28Arum_italicum%29._Locatie%2C_Tuinreservaat_Jonkervallei_01.JPG/960px-Italiaanse_aronskelk_%28Arum_italicum%29._Locatie%2C_Tuinreservaat_Jonkervallei_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Italiaanse_aronskelk_%28Arum_italicum%29._Locatie%2C_Tuinreservaat_Jonkervallei_01.JPG/960px-Italiaanse_aronskelk_%28Arum_italicum%29._Locatie%2C_Tuinreservaat_Jonkervallei_01.JPG",
     "observations_count": 34261,
     "countries": [
       "latinoamérica",
@@ -4871,7 +4997,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Mimulus_aurantiacus-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Mimulus_aurantiacus-2.jpg",
     "observations_count": 34873,
     "countries": [
       "latinoamérica",
@@ -4893,7 +5019,8 @@
     "observations_count": 34009,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -4907,7 +5034,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Vitis_rotundifolia.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Vitis_rotundifolia.jpg",
     "observations_count": 34189,
     "countries": [
       "latinoamérica",
@@ -4925,7 +5052,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Conopholis_americana_83801.jpg/960px-Conopholis_americana_83801.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Conopholis_americana_83801.jpg/960px-Conopholis_americana_83801.jpg",
     "observations_count": 35436,
     "countries": [
       "latinoamérica",
@@ -4997,7 +5124,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/31/Anemone_ranunculoides_bgiu.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/31/Anemone_ranunculoides_bgiu.jpg",
     "observations_count": 33801,
     "countries": [
       "latinoamérica",
@@ -5019,7 +5146,8 @@
     "observations_count": 32476,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -5033,7 +5161,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "Europa",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Starr_030405-0004_Ulex_europaeus.jpg/960px-Starr_030405-0004_Ulex_europaeus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Starr_030405-0004_Ulex_europaeus.jpg/960px-Starr_030405-0004_Ulex_europaeus.jpg",
     "observations_count": 33796,
     "countries": [
       "españa",
@@ -5051,7 +5179,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Glandularia_bipinnatifida_Riippaverbena_Rautayrtti_I9761_C.JPG/960px-Glandularia_bipinnatifida_Riippaverbena_Rautayrtti_I9761_C.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Glandularia_bipinnatifida_Riippaverbena_Rautayrtti_I9761_C.JPG/960px-Glandularia_bipinnatifida_Riippaverbena_Rautayrtti_I9761_C.JPG",
     "observations_count": 31836,
     "countries": [
       "latinoamérica",
@@ -5177,7 +5305,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Anthyllis_vulneraria_%28flower_head%29.jpg/960px-Anthyllis_vulneraria_%28flower_head%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Anthyllis_vulneraria_%28flower_head%29.jpg/960px-Anthyllis_vulneraria_%28flower_head%29.jpg",
     "observations_count": 32927,
     "countries": [
       "latinoamérica",
@@ -5285,11 +5413,15 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/35/Oxalis_corymbosa_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/35/Oxalis_corymbosa_2.jpg",
     "observations_count": 33270,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "B"
@@ -5392,11 +5524,14 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/33/Texas_Bluebonnet_%28Lupinus_texensis%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/33/Texas_Bluebonnet_%28Lupinus_texensis%29.jpg",
     "observations_count": 30333,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "bolivia",
+      "chile",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -5410,11 +5545,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Cornus_sanguinea0.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Cornus_sanguinea0.jpg",
     "observations_count": 31061,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -5432,7 +5568,15 @@
     "observations_count": 30449,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -5464,7 +5608,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/59/Persicaria_amphibia.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/59/Persicaria_amphibia.jpg",
     "observations_count": 30760,
     "countries": [
       "latinoamérica",
@@ -5482,7 +5626,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/65/Chrysothamnus_nauseosus_7991.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/65/Chrysothamnus_nauseosus_7991.jpg",
     "observations_count": 31018,
     "countries": [
       "latinoamérica",
@@ -5500,7 +5644,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/58/Viola_odorata_Garden_060402Aw.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Viola_odorata_Garden_060402Aw.jpg/960px-Viola_odorata_Garden_060402Aw.jpg",
     "observations_count": 30215,
     "countries": [
       "latinoamérica",
@@ -5573,7 +5717,8 @@
     "observations_count": 30729,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -5713,7 +5858,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Asclepias_asperula_-_Antelope_Horns.jpg/960px-Asclepias_asperula_-_Antelope_Horns.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Asclepias_asperula_-_Antelope_Horns.jpg/960px-Asclepias_asperula_-_Antelope_Horns.jpg",
     "observations_count": 29489,
     "countries": [
       "latinoamérica",
@@ -5821,7 +5966,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Eichhornia_crassipes_002.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Eichhornia_crassipes_002.JPG/500px-Eichhornia_crassipes_002.JPG",
     "observations_count": 28717,
     "countries": [
       "latinoamérica",
@@ -5860,7 +6005,8 @@
     "observations_count": 28799,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -5927,7 +6073,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Asclepias_viridis.jpg/960px-Asclepias_viridis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Asclepias_viridis.jpg/960px-Asclepias_viridis.jpg",
     "observations_count": 29668,
     "countries": [
       "latinoamérica",
@@ -5967,7 +6113,15 @@
     "observations_count": 28198,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -5985,7 +6139,18 @@
     "observations_count": 28050,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -6053,12 +6218,17 @@
     "usage": "Selva Tropical",
     "climate": "Tropical",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/98/Ophrys_apifera_flower2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Ophrys_apifera_flower2.jpg/500px-Ophrys_apifera_flower2.jpg",
     "observations_count": 27278,
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "B"
@@ -6126,7 +6296,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/06/20140919Senecio_inaequidens.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/06/20140919Senecio_inaequidens.jpg",
     "observations_count": 26509,
     "countries": [
       "latinoamérica",
@@ -6216,7 +6386,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Rubus_trivialis_258349257.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Rubus_trivialis_258349257.jpg",
     "observations_count": 28116,
     "countries": [
       "latinoamérica",
@@ -6252,7 +6422,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Maianthemum_dilatatum_0764.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Maianthemum_dilatatum_0764.JPG",
     "observations_count": 26252,
     "countries": [
       "latinoamérica",
@@ -6324,11 +6494,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Aquilegia_vulgaris9_ies.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Aquilegia_vulgaris9_ies.jpg",
     "observations_count": 25720,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -6378,7 +6549,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Euphorbia_helioscopia_flowers.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Euphorbia_helioscopia_flowers.jpg/500px-Euphorbia_helioscopia_flowers.jpg",
     "observations_count": 26144,
     "countries": [
       "latinoamérica",
@@ -6417,7 +6588,13 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/94974/medium.jpg",
     "observations_count": 26128,
     "countries": [
-      "asia"
+      "asia",
+      "paraguay",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -6467,7 +6644,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/be/Lonicera_xylosteum_flowers.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/be/Lonicera_xylosteum_flowers.jpg",
     "observations_count": 25748,
     "countries": [
       "latinoamérica",
@@ -6485,11 +6662,19 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Bons-dias_%28Ipomoea_indica%29_em_terreno_baldio_em_Bag%C3%A9_-_54958650515.jpg/1920px-Bons-dias_%28Ipomoea_indica%29_em_terreno_baldio_em_Bag%C3%A9_-_54958650515.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Bons-dias_%28Ipomoea_indica%29_em_terreno_baldio_em_Bag%C3%A9_-_54958650515.jpg/1920px-Bons-dias_%28Ipomoea_indica%29_em_terreno_baldio_em_Bag%C3%A9_-_54958650515.jpg",
     "observations_count": 26195,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "B"
@@ -6507,7 +6692,8 @@
     "observations_count": 24816,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -6575,11 +6761,19 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Ipomoea_cairica.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Ipomoea_cairica.jpg",
     "observations_count": 24915,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "B"
@@ -6611,7 +6805,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Erophila_verna_210406c.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Erophila_verna_210406c.jpg",
     "observations_count": 25253,
     "countries": [
       "latinoamérica",
@@ -6665,7 +6859,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mauve_%C3%A0_feuilles_rondes.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Mauve_%C3%A0_feuilles_rondes.JPG",
     "observations_count": 25026,
     "countries": [
       "latinoamérica",
@@ -6683,12 +6877,17 @@
     "usage": "Selva Tropical",
     "climate": "Tropical",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Orchis_purpurea6.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Orchis_purpurea6.jpg",
     "observations_count": 24359,
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "B"
@@ -6702,7 +6901,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Brombeerlaub.jpg/960px-Brombeerlaub.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Brombeerlaub.jpg/960px-Brombeerlaub.jpg",
     "observations_count": 24174,
     "countries": [
       "latinoamérica",
@@ -6738,11 +6937,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ruellia_simplex_02.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Ruellia_simplex_02.JPG/960px-Ruellia_simplex_02.JPG",
     "observations_count": 25182,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "B"
@@ -6774,7 +6974,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Malvaviscus_arboreus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Malvaviscus_arboreus.jpg",
     "observations_count": 25165,
     "countries": [
       "latinoamérica",
@@ -6792,7 +6992,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Oenothera_biennis_20050825_962.jpg/960px-Oenothera_biennis_20050825_962.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Oenothera_biennis_20050825_962.jpg/960px-Oenothera_biennis_20050825_962.jpg",
     "observations_count": 23237,
     "countries": [
       "latinoamérica",
@@ -6814,7 +7014,8 @@
     "observations_count": 23683,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -6828,7 +7029,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/64/Cocculus_carolinus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/64/Cocculus_carolinus.jpg",
     "observations_count": 23367,
     "countries": [
       "latinoamérica",
@@ -6846,7 +7047,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Amorpha_fruticosa_05.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Amorpha_fruticosa_05.JPG",
     "observations_count": 22918,
     "countries": [
       "latinoamérica",
@@ -6918,11 +7119,19 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Tievine_%28Ipomoea_cordatotriloba%29_%286804020555%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Tievine_%28Ipomoea_cordatotriloba%29_%286804020555%29.jpg",
     "observations_count": 23867,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "B"
@@ -6954,7 +7163,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Dodonaea_viscosa_%28Hopbush%29_in_Hyderabad%2C_AP_W_IMG_9820.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Dodonaea_viscosa_%28Hopbush%29_in_Hyderabad%2C_AP_W_IMG_9820.jpg",
     "observations_count": 22956,
     "countries": [
       "latinoamérica",
@@ -6972,7 +7181,7 @@
     "usage": "Silvestre de campo",
     "climate": "Árido / Desértico",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Umbilicus_rupestris_red.jpg/960px-Umbilicus_rupestris_red.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Umbilicus_rupestris_red.jpg/960px-Umbilicus_rupestris_red.jpg",
     "observations_count": 23521,
     "countries": [
       "latinoamérica",
@@ -7116,7 +7325,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Plantago_coronopus_in_California_kz12.jpg/960px-Plantago_coronopus_in_California_kz12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Plantago_coronopus_in_California_kz12.jpg/960px-Plantago_coronopus_in_California_kz12.jpg",
     "observations_count": 23456,
     "countries": [
       "latinoamérica",
@@ -7224,7 +7433,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Melilotus_indicus_%28Flower%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Melilotus_indicus_%28Flower%29.jpg",
     "observations_count": 22100,
     "countries": [
       "latinoamérica",
@@ -7242,7 +7451,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Polygonum_persicaria2p.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Polygonum_persicaria2p.jpg/500px-Polygonum_persicaria2p.jpg",
     "observations_count": 22327,
     "countries": [
       "latinoamérica",
@@ -7260,7 +7469,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Saururus_cernuus.jpg/960px-Saururus_cernuus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Saururus_cernuus.jpg/960px-Saururus_cernuus.jpg",
     "observations_count": 22904,
     "countries": [
       "latinoamérica",
@@ -7296,7 +7505,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Parkinsonia_aculeata_4.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Parkinsonia_aculeata_4.jpg/500px-Parkinsonia_aculeata_4.jpg",
     "observations_count": 21461,
     "countries": [
       "latinoamérica",
@@ -7336,7 +7545,8 @@
     "observations_count": 21931,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -7404,7 +7614,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Flowering_kudzu.jpg/960px-Flowering_kudzu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Flowering_kudzu.jpg/500px-Flowering_kudzu.jpg",
     "observations_count": 21464,
     "countries": [
       "latinoamérica",
@@ -7458,7 +7668,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/da/Alliumvineale1web.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/da/Alliumvineale1web.jpg",
     "observations_count": 22264,
     "countries": [
       "latinoamérica",
@@ -7476,7 +7686,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Tribulus_terrestris_%28Family_Zygophyllaceae%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Tribulus_terrestris_%28Family_Zygophyllaceae%29.jpg/500px-Tribulus_terrestris_%28Family_Zygophyllaceae%29.jpg",
     "observations_count": 21300,
     "countries": [
       "latinoamérica",
@@ -7498,7 +7708,8 @@
     "observations_count": 20354,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -7515,7 +7726,8 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/433818/medium.jpg",
     "observations_count": 20387,
     "countries": [
-      "asia"
+      "asia",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -7583,11 +7795,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Eriophyllum_confertiflorum_2003-04-07.jpg/960px-Eriophyllum_confertiflorum_2003-04-07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Eriophyllum_confertiflorum_2003-04-07.jpg/960px-Eriophyllum_confertiflorum_2003-04-07.jpg",
     "observations_count": 21073,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -7637,11 +7850,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Flowers_of_Viburnum_lantana_01.jpg/960px-Flowers_of_Viburnum_lantana_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Flowers_of_Viburnum_lantana_01.jpg/960px-Flowers_of_Viburnum_lantana_01.jpg",
     "observations_count": 20644,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": true,
     "curated_source": "C"
@@ -7655,7 +7869,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Medicago_polymorpha_kz3.JPG/960px-Medicago_polymorpha_kz3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Medicago_polymorpha_kz3.JPG/960px-Medicago_polymorpha_kz3.JPG",
     "observations_count": 21108,
     "countries": [
       "latinoamérica",
@@ -7763,7 +7977,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Amaranthus_retroflexus_flower1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Amaranthus_retroflexus_flower1.jpg",
     "observations_count": 20397,
     "countries": [
       "latinoamérica",
@@ -7781,7 +7995,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Chrysanthemoides_monilifera_subsp_rotundata%2C_blomme_en_vrugte%2C_Iphithi_NR.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Chrysanthemoides_monilifera_subsp_rotundata%2C_blomme_en_vrugte%2C_Iphithi_NR.jpg",
     "observations_count": 20306,
     "countries": [
       "latinoamérica",
@@ -7799,7 +8013,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Fraxinus_pensylvanica_a1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Fraxinus_pensylvanica_a1.jpg",
     "observations_count": 19994,
     "countries": [
       "latinoamérica",
@@ -7817,7 +8031,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Eclipta_prostrata_in_AP_W2_IMG_9785.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Eclipta_prostrata_in_AP_W2_IMG_9785.jpg",
     "observations_count": 19683,
     "countries": [
       "latinoamérica",
@@ -7889,7 +8103,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Phacelia_tanacetifolia_2_2003-04-07.jpg/960px-Phacelia_tanacetifolia_2_2003-04-07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Phacelia_tanacetifolia_2_2003-04-07.jpg/960px-Phacelia_tanacetifolia_2_2003-04-07.jpg",
     "observations_count": 19638,
     "countries": [
       "latinoamérica",
@@ -7929,7 +8143,18 @@
     "observations_count": 20032,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -7947,7 +8172,18 @@
     "observations_count": 20091,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -7994,7 +8230,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Bombus_hypnorum_-_Tilia_cordata_-_Keila.jpg/960px-Bombus_hypnorum_-_Tilia_cordata_-_Keila.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Bombus_hypnorum_-_Tilia_cordata_-_Keila.jpg/960px-Bombus_hypnorum_-_Tilia_cordata_-_Keila.jpg",
     "observations_count": 19495,
     "countries": [
       "latinoamérica",
@@ -8012,7 +8248,7 @@
     "usage": "Silvestre de campo",
     "climate": "Mediterráneo",
     "region": "Europa",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Chrysanthemum_coronarium_May_2008.jpg/960px-Chrysanthemum_coronarium_May_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Chrysanthemum_coronarium_May_2008.jpg/960px-Chrysanthemum_coronarium_May_2008.jpg",
     "observations_count": 19988,
     "countries": [
       "españa",
@@ -8030,7 +8266,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/67/Parietaria_judaica_000.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/67/Parietaria_judaica_000.jpg",
     "observations_count": 19729,
     "countries": [
       "latinoamérica",
@@ -8066,7 +8302,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Erodium_moschatum-2.jpg/960px-Erodium_moschatum-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Erodium_moschatum-2.jpg/960px-Erodium_moschatum-2.jpg",
     "observations_count": 20129,
     "countries": [
       "latinoamérica",
@@ -8102,7 +8338,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/0_Dianthus_deltoides_alpinus_-_Yvoire.JPG/960px-0_Dianthus_deltoides_alpinus_-_Yvoire.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/0_Dianthus_deltoides_alpinus_-_Yvoire.JPG/960px-0_Dianthus_deltoides_alpinus_-_Yvoire.JPG",
     "observations_count": 18912,
     "countries": [
       "latinoamérica",
@@ -8174,7 +8410,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Daylily_%28Hemerocallis_fulva%29_v2.jpg/960px-Daylily_%28Hemerocallis_fulva%29_v2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Daylily_%28Hemerocallis_fulva%29_v2.jpg/960px-Daylily_%28Hemerocallis_fulva%29_v2.jpg",
     "observations_count": 19302,
     "countries": [
       "latinoamérica",
@@ -8250,7 +8486,18 @@
     "observations_count": 18659,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8321,7 +8568,8 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3585567/medium.jpg",
     "observations_count": 19023,
     "countries": [
-      "asia"
+      "asia",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8375,7 +8623,9 @@
     "observations_count": 18678,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8393,7 +8643,8 @@
     "observations_count": 18818,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8407,7 +8658,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/36/Wild_yam_in_woods_-_young_plants.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/36/Wild_yam_in_woods_-_young_plants.jpg",
     "observations_count": 18575,
     "countries": [
       "latinoamérica",
@@ -8448,7 +8699,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8462,7 +8718,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Erigeron_karvinskianus_-_blossom_top_%28aka%29.jpg/960px-Erigeron_karvinskianus_-_blossom_top_%28aka%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Erigeron_karvinskianus_-_blossom_top_%28aka%29.jpg/960px-Erigeron_karvinskianus_-_blossom_top_%28aka%29.jpg",
     "observations_count": 18480,
     "countries": [
       "latinoamérica",
@@ -8498,11 +8754,15 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Violet_Wood-Sorrel_-_Oxalis_violacea.JPG/960px-Violet_Wood-Sorrel_-_Oxalis_violacea.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Violet_Wood-Sorrel_-_Oxalis_violacea.JPG/960px-Violet_Wood-Sorrel_-_Oxalis_violacea.JPG",
     "observations_count": 17857,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "C"
@@ -8538,7 +8798,18 @@
     "observations_count": 17905,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8552,7 +8823,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Rhododendron_maximum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Rhododendron_maximum.jpg",
     "observations_count": 17999,
     "countries": [
       "latinoamérica",
@@ -8606,7 +8877,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Urena_lobata_at_Kadavoor.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Urena_lobata_at_Kadavoor.jpg",
     "observations_count": 18288,
     "countries": [
       "latinoamérica",
@@ -8679,7 +8950,18 @@
     "observations_count": 18288,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8715,7 +8997,8 @@
     "observations_count": 18596,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -8747,7 +9030,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Isomeris_arborea_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Isomeris_arborea_3.jpg",
     "observations_count": 17262,
     "countries": [
       "latinoamérica",
@@ -8818,7 +9101,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Sisymbriumloeselii.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Sisymbriumloeselii.jpg",
     "observations_count": 17227,
     "countries": [
       "latinoamérica",
@@ -8962,7 +9245,7 @@
     "usage": "Silvestre de campo",
     "climate": "Árido / Desértico",
     "region": "Asia",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Echinocereus_triglochidiatus_17.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Echinocereus_triglochidiatus_17.jpg",
     "observations_count": 17619,
     "countries": [
       "asia"
@@ -9033,7 +9316,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Verbesina_encelioides_2004-08-22.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Verbesina_encelioides_2004-08-22.jpg",
     "observations_count": 17649,
     "countries": [
       "latinoamérica",
@@ -9051,7 +9334,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ad/MilkmaidsFlowers_crwb.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ad/MilkmaidsFlowers_crwb.jpg",
     "observations_count": 17109,
     "countries": [
       "latinoamérica",
@@ -9213,7 +9496,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Ptelea_trifoliata_Arkansas.jpg/3840px-Ptelea_trifoliata_Arkansas.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Ptelea_trifoliata_Arkansas.jpg/3840px-Ptelea_trifoliata_Arkansas.jpg",
     "observations_count": 16849,
     "countries": [
       "latinoamérica",
@@ -9321,7 +9604,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Eryngium_maritimum_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Eryngium_maritimum_2.jpg",
     "observations_count": 16053,
     "countries": [
       "latinoamérica",
@@ -9346,7 +9629,16 @@
       "brasil",
       "latinoamérica",
       "sudamérica",
-      "uruguay"
+      "uruguay",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -9360,7 +9652,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Ludwigia_octovalvis5.jpg/960px-Ludwigia_octovalvis5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Ludwigia_octovalvis5.jpg/960px-Ludwigia_octovalvis5.jpg",
     "observations_count": 15905,
     "countries": [
       "latinoamérica",
@@ -9378,7 +9670,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Adonis_vernalis_gonsenheim.jpg/960px-Adonis_vernalis_gonsenheim.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Adonis_vernalis_gonsenheim.jpg/960px-Adonis_vernalis_gonsenheim.jpg",
     "observations_count": 15574,
     "countries": [
       "latinoamérica",
@@ -9400,7 +9692,8 @@
     "observations_count": 15638,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -9414,7 +9707,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Calia_secundiflora_flowers.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Calia_secundiflora_flowers.jpg",
     "observations_count": 15795,
     "countries": [
       "latinoamérica",
@@ -9450,7 +9743,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Inula_viscosa_flowers.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Inula_viscosa_flowers.jpg",
     "observations_count": 15737,
     "countries": [
       "latinoamérica",
@@ -9490,7 +9783,8 @@
     "observations_count": 15842,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "A"
@@ -9504,7 +9798,7 @@
     "usage": "Silvestre de campo",
     "climate": "Árido / Desértico",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Escobaria_viviparap-500px.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Escobaria_viviparap-500px.jpg",
     "observations_count": 15672,
     "countries": [
       "latinoamérica",
@@ -9540,7 +9834,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/87/Gaillardia_aristata%2C_centro_de_Tallinn%2C_Estonia%2C_2012-08-05%2C_DD_02.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/87/Gaillardia_aristata%2C_centro_de_Tallinn%2C_Estonia%2C_2012-08-05%2C_DD_02.JPG",
     "observations_count": 16031,
     "countries": [
       "latinoamérica",
@@ -9558,7 +9852,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Erysimum_capitatum_8S6A0648.jpg/3840px-Erysimum_capitatum_8S6A0648.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Erysimum_capitatum_8S6A0648.jpg/3840px-Erysimum_capitatum_8S6A0648.jpg",
     "observations_count": 15309,
     "countries": [
       "latinoamérica",
@@ -9594,7 +9888,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Hypoxis_hirsuta.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Hypoxis_hirsuta.jpg",
     "observations_count": 15558,
     "countries": [
       "latinoamérica",
@@ -9702,7 +9996,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/17/Leontodon_autumnalis_detail.jpeg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/17/Leontodon_autumnalis_detail.jpeg",
     "observations_count": 15187,
     "countries": [
       "latinoamérica",
@@ -9757,7 +10051,8 @@
     "observations_count": 15103,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -9825,7 +10120,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "África",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Arctotheca_calendula_2.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Arctotheca_calendula_2.JPG",
     "observations_count": 15209,
     "countries": [],
     "curated": true,
@@ -9876,7 +10171,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Sphaeralcea_ambigua_kz01.jpg/960px-Sphaeralcea_ambigua_kz01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Sphaeralcea_ambigua_kz01.jpg/960px-Sphaeralcea_ambigua_kz01.jpg",
     "observations_count": 15307,
     "countries": [
       "latinoamérica",
@@ -9898,7 +10193,8 @@
     "observations_count": 15012,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": true,
     "curated_source": "A"
@@ -9970,7 +10266,10 @@
     "observations_count": 14875,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "bolivia",
+      "chile",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -10035,7 +10334,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Chamomile%40original_size.jpg/960px-Chamomile%40original_size.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Chamomile%40original_size.jpg/960px-Chamomile%40original_size.jpg",
     "observations_count": 14817,
     "countries": [
       "latinoamérica",
@@ -10053,7 +10352,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Colchicum_autumnale.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Colchicum_autumnale.jpg",
     "observations_count": 14809,
     "countries": [
       "latinoamérica",
@@ -10147,7 +10446,8 @@
     "observations_count": 15027,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -10201,7 +10501,8 @@
     "observations_count": 14801,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -10215,7 +10516,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Starr_040723-0302_Modiola_caroliniana.jpg/960px-Starr_040723-0302_Modiola_caroliniana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Starr_040723-0302_Modiola_caroliniana.jpg/960px-Starr_040723-0302_Modiola_caroliniana.jpg",
     "observations_count": 14639,
     "countries": [
       "latinoamérica",
@@ -10286,7 +10587,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Toothwort_%28Dentaria_diphylla%29.jpg/960px-Toothwort_%28Dentaria_diphylla%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Toothwort_%28Dentaria_diphylla%29.jpg/960px-Toothwort_%28Dentaria_diphylla%29.jpg",
     "observations_count": 14335,
     "countries": [
       "latinoamérica",
@@ -10304,7 +10605,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Morus-alba.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Morus-alba.jpg/500px-Morus-alba.jpg",
     "observations_count": 14361,
     "countries": [
       "latinoamérica",
@@ -10340,7 +10641,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Carduus_crispus_002.JPG/960px-Carduus_crispus_002.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Carduus_crispus_002.JPG/960px-Carduus_crispus_002.JPG",
     "observations_count": 14353,
     "countries": [
       "latinoamérica",
@@ -10358,7 +10659,7 @@
     "usage": "Aromática y Medicinal",
     "climate": "Mediterráneo",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Leonotis_nepetifolia_in_Ecuador.jpg/960px-Leonotis_nepetifolia_in_Ecuador.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Leonotis_nepetifolia_in_Ecuador.jpg/960px-Leonotis_nepetifolia_in_Ecuador.jpg",
     "observations_count": 14188,
     "countries": [
       "latinoamérica",
@@ -10448,7 +10749,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/37/Primula_elatior_170405a.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/37/Primula_elatior_170405a.jpg",
     "observations_count": 14618,
     "countries": [
       "latinoamérica",
@@ -10631,7 +10932,8 @@
     "observations_count": 14026,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": true,
     "curated_source": "A"
@@ -10663,7 +10965,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Plucheaodorata.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Plucheaodorata.jpg",
     "observations_count": 13890,
     "countries": [
       "latinoamérica",
@@ -10735,7 +11037,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mountainavens2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mountainavens2.jpg",
     "observations_count": 13960,
     "countries": [
       "latinoamérica",
@@ -10753,7 +11055,7 @@
     "usage": "Silvestre de campo",
     "climate": "Árido / Desértico",
     "region": "Asia",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Echinocereus_coccineus_20080405-2.jpg/960px-Echinocereus_coccineus_20080405-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Echinocereus_coccineus_20080405-2.jpg/960px-Echinocereus_coccineus_20080405-2.jpg",
     "observations_count": 13981,
     "countries": [
       "asia"
@@ -10788,11 +11090,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Prunus_cerasifera_LC0385.jpg/960px-Prunus_cerasifera_LC0385.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Prunus_cerasifera_LC0385.jpg/960px-Prunus_cerasifera_LC0385.jpg",
     "observations_count": 14034,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -10986,7 +11289,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Hyacinthoides_non-scripta_%28Common_Bluebell%29.jpg/960px-Hyacinthoides_non-scripta_%28Common_Bluebell%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Hyacinthoides_non-scripta_%28Common_Bluebell%29.jpg/960px-Hyacinthoides_non-scripta_%28Common_Bluebell%29.jpg",
     "observations_count": 13599,
     "countries": [
       "latinoamérica",
@@ -11076,11 +11379,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Helianthus_tuberosus_controluce.jpg/960px-Helianthus_tuberosus_controluce.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Helianthus_tuberosus_controluce.jpg/960px-Helianthus_tuberosus_controluce.jpg",
     "observations_count": 13470,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -11098,7 +11402,18 @@
     "observations_count": 13627,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -11170,7 +11485,8 @@
     "observations_count": 13131,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -11202,7 +11518,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Lotus_pedunculatus_-_blossom_%28aka%29.jpg/960px-Lotus_pedunculatus_-_blossom_%28aka%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Lotus_pedunculatus_-_blossom_%28aka%29.jpg/960px-Lotus_pedunculatus_-_blossom_%28aka%29.jpg",
     "observations_count": 12905,
     "countries": [
       "latinoamérica",
@@ -11259,7 +11575,8 @@
     "observations_count": 13181,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -11277,7 +11594,18 @@
     "observations_count": 13078,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -11398,10 +11726,11 @@
     "usage": "Silvestre de campo",
     "climate": "Árido / Desértico",
     "region": "Asia",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/52/Echinocactus_horizontalonius.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/52/Echinocactus_horizontalonius.jpg",
     "observations_count": 13194,
     "countries": [
-      "asia"
+      "asia",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "B"
@@ -11433,7 +11762,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/MHNT_Viburnum_tinus.jpg/960px-MHNT_Viburnum_tinus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/MHNT_Viburnum_tinus.jpg/960px-MHNT_Viburnum_tinus.jpg",
     "observations_count": 12847,
     "countries": [
       "latinoamérica",
@@ -11545,7 +11874,8 @@
     "observations_count": 12780,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": true,
     "curated_source": "A"
@@ -11595,7 +11925,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/56/Consolida_regalis_9102.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/56/Consolida_regalis_9102.jpg",
     "observations_count": 12518,
     "countries": [
       "latinoamérica",
@@ -11667,7 +11997,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Pancratium_maritimum2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Pancratium_maritimum2.jpg",
     "observations_count": 12872,
     "countries": [
       "latinoamérica",
@@ -11721,7 +12051,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/20/Neem_%28Azadirachta_indica%29_in_Hyderabad_W_IMG_6976.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/20/Neem_%28Azadirachta_indica%29_in_Hyderabad_W_IMG_6976.jpg",
     "observations_count": 12901,
     "countries": [
       "latinoamérica",
@@ -11905,7 +12235,8 @@
     "observations_count": 12196,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -11955,7 +12286,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Ranunculus_bulbosus_aleae.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Ranunculus_bulbosus_aleae.JPG/500px-Ranunculus_bulbosus_aleae.JPG",
     "observations_count": 11977,
     "countries": [
       "latinoamérica",
@@ -11973,7 +12304,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Nuphar_advena_263442397.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Nuphar_advena_263442397.jpg",
     "observations_count": 11973,
     "countries": [
       "latinoamérica",
@@ -12031,7 +12362,8 @@
     "observations_count": 12085,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -12045,7 +12377,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Alcea_rosea_habito.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Alcea_rosea_habito.JPG",
     "observations_count": 11943,
     "countries": [
       "latinoamérica",
@@ -12063,11 +12395,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Rosa_californica_2004-07-20.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Rosa_californica_2004-07-20.jpg",
     "observations_count": 11855,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -12176,7 +12509,11 @@
     "observations_count": 11886,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "A"
@@ -12223,7 +12560,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Justicia_americana_flower.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Justicia_americana_flower.jpg",
     "observations_count": 11655,
     "countries": [
       "latinoamérica",
@@ -12245,7 +12582,16 @@
     "observations_count": 11650,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -12295,7 +12641,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Myriophyllum_aquaticum_-_side_%28aka%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Myriophyllum_aquaticum_-_side_%28aka%29.jpg",
     "observations_count": 11632,
     "countries": [
       "latinoamérica",
@@ -12457,7 +12803,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Borrichia_frutescens_%28Bushy_seaside_oxeye%29_%287028865977%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Borrichia_frutescens_%28Bushy_seaside_oxeye%29_%287028865977%29.jpg",
     "observations_count": 11286,
     "countries": [
       "latinoamérica",
@@ -12584,7 +12930,8 @@
     "observations_count": 11307,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -12670,7 +13017,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Smallanthus_uvedalius_flower.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Smallanthus_uvedalius_flower.jpg",
     "observations_count": 11182,
     "countries": [
       "latinoamérica",
@@ -12693,7 +13040,8 @@
     "observations_count": 11180,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": true,
     "curated_source": "A"
@@ -12743,7 +13091,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Cynara_cardunculus0.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Cynara_cardunculus0.jpg/500px-Cynara_cardunculus0.jpg",
     "observations_count": 11088,
     "countries": [
       "latinoamérica",
@@ -12886,7 +13234,7 @@
     "usage": "Silvestre de campo",
     "climate": "Mediterráneo",
     "region": "Europa",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Calendula_in_Autumn.jpg/960px-Calendula_in_Autumn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Calendula_in_Autumn.jpg/960px-Calendula_in_Autumn.jpg",
     "observations_count": 11104,
     "countries": [
       "españa",
@@ -12904,7 +13252,7 @@
     "usage": "Acuática / Loto",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/88/Nelumbo_lutea_blossom.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/88/Nelumbo_lutea_blossom.jpg",
     "observations_count": 11112,
     "countries": [
       "latinoamérica",
@@ -13030,7 +13378,7 @@
     "usage": "Silvestre de campo",
     "climate": "Árido / Desértico",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Dudleya_pulverulenta_1.jpg/960px-Dudleya_pulverulenta_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Dudleya_pulverulenta_1.jpg/960px-Dudleya_pulverulenta_1.jpg",
     "observations_count": 10836,
     "countries": [
       "latinoamérica",
@@ -13048,11 +13396,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Symphyotrichum_pilosum_237289574.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Symphyotrichum_pilosum_237289574.jpg",
     "observations_count": 10627,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "B"
@@ -13066,11 +13415,12 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Prunus_ilicifolia_ne1.jpg/960px-Prunus_ilicifolia_ne1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Prunus_ilicifolia_ne1.jpg/960px-Prunus_ilicifolia_ne1.jpg",
     "observations_count": 10737,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "C"
@@ -13138,7 +13488,7 @@
     "usage": "Silvestre de campo",
     "climate": "Árido / Desértico",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/79/Sedum_fabaria_a1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/79/Sedum_fabaria_a1.jpg",
     "observations_count": 10817,
     "countries": [
       "latinoamérica",
@@ -13192,7 +13542,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Saxifraga_aizoides_%28flowers%29.jpg/960px-Saxifraga_aizoides_%28flowers%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Saxifraga_aizoides_%28flowers%29.jpg/960px-Saxifraga_aizoides_%28flowers%29.jpg",
     "observations_count": 10785,
     "countries": [
       "latinoamérica",
@@ -13268,7 +13618,18 @@
     "observations_count": 10612,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -13300,7 +13661,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Ungnadia_speciosa_flowers.jpg/960px-Ungnadia_speciosa_flowers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Ungnadia_speciosa_flowers.jpg/960px-Ungnadia_speciosa_flowers.jpg",
     "observations_count": 10635,
     "countries": [
       "latinoamérica",
@@ -13323,7 +13684,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -13355,11 +13721,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Zinnia_elegans_with_Bombus_01.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Zinnia_elegans_with_Bombus_01.JPG",
     "observations_count": 10493,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "B"
@@ -13391,7 +13758,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Fumaria_officinalis_-_Earth_smoke_02.jpg/960px-Fumaria_officinalis_-_Earth_smoke_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Fumaria_officinalis_-_Earth_smoke_02.jpg/960px-Fumaria_officinalis_-_Earth_smoke_02.jpg",
     "observations_count": 10475,
     "countries": [
       "latinoamérica",
@@ -13409,7 +13776,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/St._Andrews-cross_%28Hypericum_hypericoides%29_%286757577093%29.jpg/960px-St._Andrews-cross_%28Hypericum_hypericoides%29_%286757577093%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/St._Andrews-cross_%28Hypericum_hypericoides%29_%286757577093%29.jpg/960px-St._Andrews-cross_%28Hypericum_hypericoides%29_%286757577093%29.jpg",
     "observations_count": 10362,
     "countries": [
       "latinoamérica",
@@ -13481,7 +13848,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/55/Leucophyllum_frutescens_Green_Cloud.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/55/Leucophyllum_frutescens_Green_Cloud.jpg",
     "observations_count": 10340,
     "countries": [
       "latinoamérica",
@@ -13499,7 +13866,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/52/Zexmenia_hispida_flower_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/52/Zexmenia_hispida_flower_2.jpg",
     "observations_count": 10161,
     "countries": [
       "latinoamérica",
@@ -13643,7 +14010,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Fragariachileonsis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Fragariachileonsis.jpg",
     "observations_count": 10128,
     "countries": [
       "latinoamérica",
@@ -13913,7 +14280,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Allium_schoenoprasum_001.JPG/960px-Allium_schoenoprasum_001.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Allium_schoenoprasum_001.JPG/960px-Allium_schoenoprasum_001.JPG",
     "observations_count": 9938,
     "countries": [
       "latinoamérica",
@@ -13931,7 +14298,7 @@
     "usage": "Jardín Ornamental",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Calochortus_luteus_MtTam.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Calochortus_luteus_MtTam.jpg",
     "observations_count": 9840,
     "countries": [
       "latinoamérica",
@@ -14079,7 +14446,18 @@
     "observations_count": 9564,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -14133,7 +14511,18 @@
     "observations_count": 9583,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -14147,7 +14536,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/de/Malacothamfasc2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/de/Malacothamfasc2.jpg",
     "observations_count": 9638,
     "countries": [
       "latinoamérica",
@@ -14187,7 +14576,18 @@
     "observations_count": 9611,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -14314,7 +14714,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -14346,7 +14751,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/57/Argemone_mexicana_flower_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/57/Argemone_mexicana_flower_2.jpg",
     "observations_count": 9413,
     "countries": [
       "latinoamérica",
@@ -14454,11 +14859,12 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Abronia_villosa_1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Abronia_villosa_1.jpg",
     "observations_count": 9294,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "argentina"
     ],
     "curated": true,
     "curated_source": "B"
@@ -14477,7 +14883,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -14581,7 +14992,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Nigella_damascena_2012.jpg/960px-Nigella_damascena_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Nigella_damascena_2012.jpg/960px-Nigella_damascena_2012.jpg",
     "observations_count": 9480,
     "countries": [
       "latinoamérica",
@@ -14617,7 +15028,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Crassocephalum_crepidioides_by_kadavoor.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Crassocephalum_crepidioides_by_kadavoor.JPG",
     "observations_count": 9170,
     "countries": [
       "latinoamérica",
@@ -14747,7 +15158,8 @@
     "observations_count": 9031,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -14815,7 +15227,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Ceanothus_americanus1.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Ceanothus_americanus1.jpg",
     "observations_count": 9005,
     "countries": [
       "latinoamérica",
@@ -14869,7 +15281,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/15/Hippobroma_longiflora_Belize.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/15/Hippobroma_longiflora_Belize.jpg",
     "observations_count": 9034,
     "countries": [
       "latinoamérica",
@@ -14995,7 +15407,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/63/Delairea_scandens.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/63/Delairea_scandens.jpg",
     "observations_count": 8988,
     "countries": [
       "latinoamérica",
@@ -15103,7 +15515,7 @@
     "usage": "Selva Tropical",
     "climate": "Tropical",
     "region": "América",
-    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/YellowAlderKeyWest.JPG/3840px-YellowAlderKeyWest.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/YellowAlderKeyWest.JPG/3840px-YellowAlderKeyWest.JPG",
     "observations_count": 8976,
     "countries": [
       "latinoamérica",
@@ -15125,7 +15537,8 @@
     "observations_count": 8979,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": true,
     "curated_source": "A"
@@ -15196,7 +15609,16 @@
     "observations_count": 8865,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -15264,7 +15686,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Merremia_dissecta.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Merremia_dissecta.jpg",
     "observations_count": 8790,
     "countries": [
       "latinoamérica",
@@ -15287,7 +15709,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": true,
     "curated_source": "A"
@@ -15341,7 +15768,8 @@
     "observations_count": 8667,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -15395,7 +15823,8 @@
     "observations_count": 8689,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": true,
     "curated_source": "A"
@@ -15445,7 +15874,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Rorippa_palustris_R0016754.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Rorippa_palustris_R0016754.JPG",
     "observations_count": 8684,
     "countries": [
       "latinoamérica",
@@ -15485,7 +15914,8 @@
     "observations_count": 8754,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": true,
     "curated_source": "A"
@@ -15517,7 +15947,7 @@
     "usage": "Silvestre de campo",
     "climate": "Templado",
     "region": "América",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Erica_tetralix_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Erica_tetralix_2.jpg",
     "observations_count": 8820,
     "countries": [
       "latinoamérica",
@@ -15592,7 +16022,8 @@
     "observations_count": 8614,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -15610,7 +16041,12 @@
     "observations_count": 8432,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -15915,7 +16351,8 @@
     "observations_count": 8138,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": false,
     "curated_source": "default"
@@ -15933,7 +16370,18 @@
     "observations_count": 8136,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16181,7 +16629,8 @@
     "observations_count": 7959,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16325,7 +16774,12 @@
     "observations_count": 8016,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16379,7 +16833,8 @@
     "observations_count": 7890,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16487,7 +16942,15 @@
     "observations_count": 7854,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16574,7 +17037,15 @@
     "observations_count": 7738,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16646,7 +17117,18 @@
     "observations_count": 7725,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16701,7 +17183,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -16914,7 +17401,15 @@
     "observations_count": 7467,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -17292,7 +17787,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -17310,7 +17810,12 @@
     "observations_count": 7091,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -17399,7 +17904,8 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/128326280/medium.jpg",
     "observations_count": 7077,
     "countries": [
-      "asia"
+      "asia",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -17417,7 +17923,14 @@
     "observations_count": 6983,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "bolivia",
+      "chile",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -17684,7 +18197,8 @@
     "observations_count": 6884,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -17972,7 +18486,18 @@
     "observations_count": 6676,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18026,7 +18551,8 @@
     "observations_count": 6666,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18295,7 +18821,9 @@
     "observations_count": 6553,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "argentina",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18331,7 +18859,16 @@
     "observations_count": 6447,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18439,7 +18976,10 @@
     "observations_count": 6402,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "bolivia",
+      "chile",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18457,7 +18997,15 @@
     "observations_count": 6312,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18511,7 +19059,16 @@
     "observations_count": 6442,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18547,7 +19104,18 @@
     "observations_count": 6421,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18565,7 +19133,15 @@
     "observations_count": 6309,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -18780,7 +19356,16 @@
     "observations_count": 6187,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -19013,7 +19598,8 @@
     "observations_count": 6071,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -19067,7 +19653,8 @@
     "observations_count": 6142,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -19141,7 +19728,8 @@
     "observations_count": 6089,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": false,
     "curated_source": "default"
@@ -19231,7 +19819,8 @@
     "observations_count": 5958,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -19429,7 +20018,8 @@
     "observations_count": 5886,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -19681,7 +20271,8 @@
     "observations_count": 5680,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -19861,7 +20452,8 @@
     "observations_count": 5573,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -20021,7 +20613,13 @@
     "region": "África",
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/234452590/medium.jpeg",
     "observations_count": 5634,
-    "countries": [],
+    "countries": [
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
+    ],
     "curated": false,
     "curated_source": "default"
   },
@@ -20164,7 +20762,13 @@
     "observations_count": 5522,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -20218,7 +20822,18 @@
     "observations_count": 5427,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -20254,7 +20869,15 @@
     "observations_count": 5505,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -20345,7 +20968,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -20722,7 +21350,8 @@
     "observations_count": 5232,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -20794,7 +21423,8 @@
     "observations_count": 5225,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21078,7 +21708,11 @@
     "observations_count": 5194,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21096,7 +21730,15 @@
     "observations_count": 5059,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21186,7 +21828,8 @@
     "observations_count": 5160,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21204,7 +21847,8 @@
     "observations_count": 5114,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21240,7 +21884,8 @@
     "observations_count": 5033,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21669,7 +22314,16 @@
     "observations_count": 4880,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21778,7 +22432,12 @@
     "observations_count": 4861,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21814,7 +22473,11 @@
     "observations_count": 4808,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21832,7 +22495,8 @@
     "observations_count": 4819,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21849,7 +22513,8 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/27278434/medium.jpeg",
     "observations_count": 4767,
     "countries": [
-      "asia"
+      "asia",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21921,7 +22586,8 @@
     "observations_count": 4785,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -21939,7 +22605,18 @@
     "observations_count": 4834,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -22101,7 +22778,9 @@
     "observations_count": 4814,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "argentina"
     ],
     "curated": false,
     "curated_source": "default"
@@ -22298,7 +22977,8 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/341770/medium.jpg",
     "observations_count": 4685,
     "countries": [
-      "asia"
+      "asia",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -22676,7 +23356,8 @@
     "observations_count": 4657,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -22892,7 +23573,8 @@
     "observations_count": 4502,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -22928,7 +23610,18 @@
     "observations_count": 4444,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "chile",
+      "argentina",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -23018,7 +23711,8 @@
     "observations_count": 4434,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -23201,7 +23895,8 @@
       "brasil",
       "latinoamérica",
       "sudamérica",
-      "uruguay"
+      "uruguay",
+      "paraguay"
     ],
     "curated": false,
     "curated_source": "default"
@@ -23413,7 +24108,8 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/12977203/medium.jpeg",
     "observations_count": 4275,
     "countries": [
-      "asia"
+      "asia",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -23593,7 +24289,10 @@
     "observations_count": 4192,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "bolivia",
+      "chile",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -23683,7 +24382,8 @@
     "observations_count": 4257,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -23896,7 +24596,8 @@
     "observations_count": 4137,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24040,7 +24741,8 @@
     "observations_count": 4099,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24058,7 +24760,8 @@
     "observations_count": 4156,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24233,7 +24936,8 @@
     "observations_count": 4040,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24449,7 +25153,15 @@
     "observations_count": 3899,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay",
+      "bolivia",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24467,7 +25179,8 @@
     "observations_count": 3905,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24629,7 +25342,8 @@
     "observations_count": 3833,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24786,7 +25500,8 @@
     "observations_count": 3849,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -24859,7 +25574,11 @@
     "countries": [
       "brasil",
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela"
     ],
     "curated": false,
     "curated_source": "default"
@@ -25001,7 +25720,13 @@
     "region": "África",
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/22739965/medium.jpg",
     "observations_count": 3743,
-    "countries": [],
+    "countries": [
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
+    ],
     "curated": false,
     "curated_source": "default"
   },
@@ -25036,7 +25761,8 @@
     "observations_count": 3738,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -25288,7 +26014,8 @@
     "observations_count": 3651,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "argentina"
     ],
     "curated": false,
     "curated_source": "default"
@@ -25412,7 +26139,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -25447,7 +26179,8 @@
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/3063854/medium.jpg",
     "observations_count": 3687,
     "countries": [
-      "asia"
+      "asia",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -25483,7 +26216,8 @@
     "observations_count": 3632,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "argentina"
     ],
     "curated": false,
     "curated_source": "default"
@@ -25519,7 +26253,8 @@
     "observations_count": 3633,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -25966,7 +26701,8 @@
     "observations_count": 3518,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26056,7 +26792,8 @@
     "observations_count": 3506,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26110,7 +26847,8 @@
     "observations_count": 3504,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26218,7 +26956,8 @@
     "observations_count": 3439,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26289,7 +27028,8 @@
     "observations_count": 3394,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "paraguay"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26343,7 +27083,8 @@
     "observations_count": 3427,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "estados unidos"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26397,7 +27138,8 @@
     "observations_count": 3374,
     "countries": [
       "latinoamérica",
-      "sudamérica"
+      "sudamérica",
+      "mexico"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26470,7 +27212,12 @@
     "countries": [
       "latinoamérica",
       "perú",
-      "sudamérica"
+      "sudamérica",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "curated": false,
     "curated_source": "default"
@@ -26597,7 +27344,14 @@
     "countries": [
       "china",
       "latinoamérica",
-      "mundial"
+      "mundial",
+      "paraguay",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil",
+      "estados unidos"
     ],
     "photo": "https://static.inaturalist.org/photos/115046668/medium.jpeg",
     "observations_count": 51200,
@@ -26615,7 +27369,12 @@
     "region": "América",
     "countries": [
       "estados unidos",
-      "cuba"
+      "cuba",
+      "colombia",
+      "peru",
+      "ecuador",
+      "venezuela",
+      "brasil"
     ],
     "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/146926803/medium.jpg",
     "observations_count": 890,
@@ -26651,7 +27410,8 @@
     "region": "América",
     "countries": [
       "méxico",
-      "guatemala"
+      "guatemala",
+      "paraguay"
     ],
     "photo": "https://static.inaturalist.org/photos/221298314/medium.jpeg",
     "observations_count": 3200,

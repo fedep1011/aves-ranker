@@ -32,6 +32,21 @@ async function fetchAllRows(packId) {
   return allRows;
 }
 
+function normalizeCuratedPhoto(url) {
+  if (!url || typeof url !== 'string') return url;
+  const clean = url.split('?')[0];
+  const mThumb = clean.match(/^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\/thumb\/([0-9a-f]\/[0-9a-f]{2}\/([^/]+))\/\d+px-(.+)$/i);
+  if (mThumb) {
+    return `https://thumb.wikimedia.org/wikipedia/commons/thumb/${mThumb[1]}/960px-${mThumb[3]}`;
+  }
+  const mRaw = clean.match(/^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\/([0-9a-f]\/[0-9a-f]{2}\/([^/]+))$/i);
+  if (mRaw && /\.(jpe?g|png|webp|gif|tif|tiff)$/i.test(mRaw[2])) {
+    const suffix = /\.(tif|tiff)$/i.test(mRaw[2]) ? `${mRaw[2]}.jpg` : mRaw[2];
+    return `https://thumb.wikimedia.org/wikipedia/commons/thumb/${mRaw[1]}/960px-${suffix}`;
+  }
+  return url;
+}
+
 function parseChoices(rows) {
   const map = new Map();
   for (const r of rows) {
@@ -40,7 +55,7 @@ function parseChoices(rows) {
       const itemId = Number(r.ranking_ids[0]) || r.ranking_ids[0];
       map.set(itemId, {
         source: parsed.source,
-        photo: parsed.photo,
+        photo: normalizeCuratedPhoto(parsed.photo),
         name: parsed.name
       });
     } catch (e) {

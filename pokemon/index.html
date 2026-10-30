@@ -229,7 +229,7 @@
         <button id="themeToggle" type="button" aria-label="Cambiar tema"
           class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5">
           <svg id="themeIconDark" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
           <svg id="themeIconLight" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="4"/>
@@ -275,81 +275,74 @@
         <p class="text-sm sm:text-base text-muted max-w-xl mx-auto font-pixel">
           Duelos directos sin empates. Enfrentá criaturas de todas las generaciones hasta coronar a tu campeón.
         </p>
+
+        <!-- 3 BOTONES PRINCIPALES CANÓNICOS -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
+          <button id="btnHomeQuick16" onclick="app.launchPreset('kanto')"
+            class="w-full sm:w-auto px-6 py-3.5 rounded-xl retro-btn bg-rose-600 hover:bg-rose-700 text-white font-pixel text-xs sm:text-sm font-bold transition shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] flex items-center justify-center gap-2">
+            <span>Jugar con los 16 más famosos</span>
+            <span>→</span>
+          </button>
+          <button id="btnHomeSurprise" onclick="app.launchSurpriseMe()"
+            class="w-full sm:w-auto px-6 py-3.5 rounded-xl retro-btn bg-[#FFDE59] text-[#111111] hover:bg-[#FFE57F] font-pixel text-xs sm:text-sm font-bold transition shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
+            Sorpréndeme (16 al azar)
+          </button>
+          <button id="btnHomeCustom" onclick="app.goToView('viewWizard')"
+            class="w-full sm:w-auto px-6 py-3.5 rounded-xl retro-btn bg-surface text-ink font-pixel text-xs sm:text-sm font-medium border border-line hover:border-rose-500 transition">
+            Armar mi búsqueda
+          </button>
+        </div>
       </div>
 
-      <!-- Quick presets -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 text-left">
-        <button onclick="app.launchPreset('kanto')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-[#FFDE59] text-[#111111] border-ink text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
+      <!-- 4 PASTILLAS DE PARTIDA RÁPIDA (SIEMPRE VISIBLES ABAJO) -->
+      <div id="homePresetGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left pt-2">
+        <button onclick="app.launchPreset('starters')" class="group p-4 rounded-xl retro-btn bg-surface border-rose-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:border-rose-600 transition">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-pixel font-bold uppercase tracking-wider text-[#111111]/80">Kanto · Gen 1</span>
-              <span class="text-[10px] font-pixel text-[#111111]/75 font-semibold">16 PKMN</span>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-pixel font-bold uppercase tracking-wider text-rose-500">Iniciales</span>
+              <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
             </div>
-            <h3 class="font-pixel-title text-sm sm:text-base text-[#111111] font-bold">Los 16 Clásicos</h3>
-            <p class="text-xs text-[#111111]/80 mt-2">Pikachu, Charizard, Gengar, Mewtwo y los pilares originales.</p>
+            <h3 class="font-pixel-title text-sm text-ink group-hover:text-rose-500 transition-colors">Iniciales Icónicos</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Planta, Fuego y Agua de todas las regiones enfrentados.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-pixel font-bold text-[#111111] mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel font-bold text-rose-500 mt-3 group-hover:translate-x-1 transition-transform">Elegir →</span>
         </button>
 
-        <button onclick="app.launchPreset('starters')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-[#EF4444] text-white border-ink text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
+        <button onclick="app.launchPreset('legendaries')" class="group p-4 rounded-xl retro-btn bg-surface border-purple-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:border-purple-600 transition">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-pixel font-bold uppercase tracking-wider text-rose-100">Iniciales</span>
-              <span class="text-[10px] font-pixel text-rose-100 font-semibold">16 PKMN</span>
-            </div>
-            <h3 class="font-pixel-title text-sm sm:text-base text-white font-bold">Iniciales Icónicos</h3>
-            <p class="text-xs text-rose-100 mt-2">Planta, Fuego y Agua de todas las regiones enfrentados.</p>
-          </div>
-          <span class="inline-flex items-center text-xs font-pixel font-bold text-white mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
-        </button>
-
-        <button onclick="app.launchPreset('legendaries')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-purple-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
-          <div>
-            <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center justify-between mb-1.5">
               <span class="text-[10px] font-pixel font-bold text-purple-500 uppercase tracking-wider">Mitos y Leyendas</span>
               <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
             </div>
-            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-purple-500 transition-colors">Legendarios</h3>
-            <p class="text-xs text-muted mt-2">Rayquaza, Lugia, Arceus, Giratina y el poder absoluto.</p>
+            <h3 class="font-pixel-title text-sm text-ink group-hover:text-purple-500 transition-colors">Legendarios</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Rayquaza, Lugia, Arceus, Giratina y el poder absoluto.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-pixel text-purple-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel text-purple-500 mt-3 group-hover:translate-x-1 transition-transform">Elegir →</span>
         </button>
 
-        <button onclick="app.launchPreset('eeveelutions')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-amber-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
+        <button onclick="app.launchPreset('eeveelutions')" class="group p-4 rounded-xl retro-btn bg-surface border-amber-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:border-amber-600 transition">
           <div>
-            <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center justify-between mb-1.5">
               <span class="text-[10px] font-pixel font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Evolución</span>
               <span class="text-[10px] font-pixel text-muted">9 PKMN</span>
             </div>
-            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-amber-600 transition-colors">Eeveeluciones</h3>
-            <p class="text-xs text-muted mt-2">Eevee y sus 8 evoluciones elementales en batalla directa.</p>
+            <h3 class="font-pixel-title text-sm text-ink group-hover:text-amber-600 transition-colors">Eeveelutions</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Eevee y sus 8 evoluciones elementales en batalla directa.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-pixel text-amber-600 dark:text-amber-400 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel text-amber-600 dark:text-amber-400 mt-3 group-hover:translate-x-1 transition-transform">Elegir →</span>
         </button>
 
-        <button onclick="app.launchPreset('dragons')" class="group p-4 sm:p-5 rounded-xl retro-btn bg-surface border-indigo-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] sm:col-span-2 lg:col-span-2">
+        <button onclick="app.launchPreset('dragons')" class="group p-4 rounded-xl retro-btn bg-surface border-indigo-500 text-left flex flex-col justify-between shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] hover:border-indigo-600 transition">
           <div>
-            <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center justify-between mb-1.5">
               <span class="text-[10px] font-pixel font-bold text-indigo-500 uppercase tracking-wider">Dragón y Espectro</span>
               <span class="text-[10px] font-pixel text-muted">16 PKMN</span>
             </div>
-            <h3 class="font-pixel-title text-sm sm:text-base text-ink group-hover:text-indigo-500 transition-colors">Dragones y Fantasmas</h3>
-            <p class="text-xs text-muted mt-2">Garchomp, Dragapult, Mimikyu, Aegislash y las fuerzas sombrías más letales.</p>
+            <h3 class="font-pixel-title text-sm text-ink group-hover:text-indigo-500 transition-colors">Dragones y Fantasma</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Garchomp, Dragapult, Mimikyu y fuerzas sombrías.</p>
           </div>
-          <span class="inline-flex items-center text-xs font-pixel text-indigo-500 mt-4 group-hover:translate-x-1 transition-transform">Jugar ahora →</span>
+          <span class="inline-flex items-center text-xs font-pixel text-indigo-500 mt-3 group-hover:translate-x-1 transition-transform">Elegir →</span>
         </button>
-      </div>
-
-      <!-- Custom tournament launcher -->
-      <div class="pt-2">
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <button id="btnHomeSurprise" onclick="app.launchSurpriseMe()" class="w-full sm:w-auto px-6 py-3 rounded-xl retro-btn bg-rose-600 hover:bg-rose-700 text-white font-pixel text-xs transition shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]">
-            Sorpréndeme (16 al azar · Chaos Pool)
-          </button>
-          <button onclick="app.goToView('viewWizard')" class="w-full sm:w-auto px-6 py-3 rounded-xl retro-btn bg-surface text-ink font-pixel text-xs transition">
-            Armar torneo personalizado (Filtros por Tipo, Gen y Cantidad) →
-          </button>
-        </div>
       </div>
     </section>
 

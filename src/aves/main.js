@@ -1,5 +1,6 @@
 import { bindThemeButton } from '../core/theme.js';
 import { saveRankingToCloud, fetchRankingFromCloud } from '../core/supabase.js';
+import { filterCandidatesByTerritory } from '../core/territory.js';
 import {
   createSeededRng,
   sampleCandidates,
@@ -1231,40 +1232,20 @@ const I18N = {
 
         if (presetName === "famosas_mundo") {
           this.state.useCuratedWorldIcons = true;
-        } else if (presetName === "extintas") {
-          this.state.useCuratedExtinctBirds = true;
-          this.state.guilds.add("extintas");
-        } else if (presetName === "aves_selva") {
-          this.state.places.set("97389", isEn ? "South America" : "Sudamérica");
-          this.state.guilds.add("frugivoras");
-        } else if (presetName === "rapaces_nocturnas") {
-          this.state.guilds.add("rapaces");
-        } else if (presetName === "acuaticas_costeras") {
-          this.state.guilds.add("acuaticas");
-        } else if (presetName === "jardin_patio") {
-          this.state.guilds.add("cantoras");
-        } else if (presetName === "argentina") {
-          this.state.places.set("7190", "Argentina");
-        } else if (presetName === "azules_mundo") {
-          this.state.colors.add("azul");
-        } else if (presetName === "rosas_mundo") {
-          this.state.colors.add("rosa");
         } else if (presetName === "rapaces_mundo") {
           this.state.guilds.add("rapaces");
-        } else if (presetName === "uruguay") {
-          this.state.places.set("7259", "Uruguay");
+        } else if (presetName === "coloridas_latam") {
+          this.state.places.set("sudamerica", isEn ? "South America" : "Sudamérica");
+          this.state.guilds.add("loros");
+          this.state.guilds.add("tucanes");
+        } else if (presetName === "canoras_campo") {
+          this.state.guilds.add("cantoras");
+        } else if (presetName === "acuaticas_costeras") {
+          this.state.guilds.add("acuaticas");
         } else if (presetName === "rapaces_uruguay") {
-          this.state.places.set("7259", "Uruguay");
           this.state.guilds.add("rapaces");
         } else if (presetName === "carrona_uy") {
-          this.state.places.set("97389", isEn ? "South America" : "Sudamérica");
           this.state.guilds.add("carrona");
-        } else if (presetName === "coloridas_latam") {
-          this.state.places.set("7259,7190,6878,7182,7513,7512,7196,7254,6783,1303,6924,6793,7003,6940", isEn ? "All Latin America" : "Toda Latinoamérica");
-          this.state.guilds.add("frugivoras");
-        } else if (presetName === "rojas_latam") {
-          this.state.places.set("7259,7190,6878,7182,7513,7512,7196,7254,6783,1303,6924,6793,7003,6940", isEn ? "All Latin America" : "Toda Latinoamérica");
-          this.state.colors.add("rojo");
         }
 
         this.renderStep1Places();
@@ -1318,33 +1299,29 @@ const I18N = {
         this.updateStep1LiveCount();
       },
 
-      updateStep1LiveCount() {
+      async updateStep1LiveCount() {
+        await this.loadCatalogData();
         const numEl = document.getElementById("step1CountNumber");
         const lblEl = document.getElementById("step1CountLabel");
         const btnCountEl = document.getElementById("btnStep1NextCount");
         const isEn = this.state.lang === "en";
 
-        const placeCount = this.state.places.size;
-        let estimateText = "1.200";
-        let labelText = isEn ? "Birds available with photo worldwide:" : "Aves disponibles con foto en todo el mundo:";
+        const places = Array.from(this.state.places.values());
+        const totalWorld = this.state.catalog ? this.state.catalog.length : 1207;
+        let count = totalWorld;
 
-        if (placeCount === 1) {
-          const firstPlace = Array.from(this.state.places.values())[0];
-          labelText = isEn ? `Birds registered in ${firstPlace}:` : `Aves registradas con foto en ${firstPlace}:`;
-          if (firstPlace.includes("Uruguay")) estimateText = "~480";
-          else if (firstPlace.includes("Argentina")) estimateText = "~1.050";
-          else if (firstPlace.includes("Brasil") || firstPlace.includes("Brazil")) estimateText = "~1.900";
-          else if (firstPlace.includes("Chile")) estimateText = "~530";
-          else if (firstPlace.includes("Perú") || firstPlace.includes("Peru")) estimateText = "~1.880";
-          else estimateText = "~600+";
-        } else if (placeCount > 1) {
-          labelText = isEn ? "Birds registered in selected locations:" : "Aves registradas en las regiones elegidas:";
-          estimateText = "~2.500+";
+        if (places.length > 0 && this.state.catalog) {
+          const filtered = filterCandidatesByTerritory(this.state.catalog, places, 16);
+          count = filtered.length;
         }
 
-        if (numEl) numEl.textContent = `${estimateText} ${isEn ? "species" : "especies"}`;
+        let labelText = places.length === 0
+          ? (isEn ? "Birds available with photo worldwide:" : "Aves disponibles con foto en todo el mundo:")
+          : (isEn ? `Birds registered in selected locations (${places.join(", ")}):` : `Aves registradas en las regiones elegidas (${places.join(", ")}):`);
+
+        if (numEl) numEl.textContent = `${count.toLocaleString("es-UY")} ${isEn ? "species" : "especies"}`;
         if (lblEl) lblEl.textContent = labelText;
-        if (btnCountEl) btnCountEl.textContent = `(${estimateText})`;
+        if (btnCountEl) btnCountEl.textContent = `(${count.toLocaleString("es-UY")})`;
       },
 
       togglePlace(id, label) {
@@ -1414,6 +1391,40 @@ const I18N = {
           ? "px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-forest text-white"
           : "px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-canvas text-ink border border-line hover:border-ink/40";
 
+        const btnCustom = document.getElementById("btnTraitsCustom");
+        if (btnCustom) {
+          btnCustom.classList.toggle("hidden", !hasAny);
+          btnCustom.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>${isEn ? "Custom" : "Personalizado"} (${activeFilterCount})</span>`;
+        }
+
+        const traitsWrap = document.getElementById("selectedTraitsWrap");
+        const traitsChips = document.getElementById("selectedTraitsChips");
+        if (traitsWrap && traitsChips) {
+          const chipItems = [];
+          for (const gId of this.state.guilds) {
+            const gObj = GUILD_CATALOG.find(x => x.id === gId);
+            if (gObj) chipItems.push({ label: isEn ? gObj.name_en : gObj.name, action: `app.toggleGuild('${gId}')` });
+          }
+          for (const cId of this.state.colors) {
+            const cObj = COLOR_CATALOG.find(x => x.id === cId);
+            if (cObj) chipItems.push({ label: isEn ? cObj.name_en : cObj.name, action: `app.toggleColor('${cId}')` });
+          }
+          if (chipItems.length > 0) {
+            traitsWrap.classList.remove("hidden");
+            traitsWrap.classList.add("flex");
+            traitsChips.innerHTML = chipItems.map(item => `
+              <button onclick="${item.action}" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-soft text-forest border border-forest/20 text-xs font-medium hover:bg-forest hover:text-white transition">
+                <span>${item.label}</span>
+                <span class="opacity-70">✕</span>
+              </button>
+            `).join("");
+          } else {
+            traitsWrap.classList.add("hidden");
+            traitsWrap.classList.remove("flex");
+            traitsChips.innerHTML = "";
+          }
+        }
+
         document.getElementById("traitsSummaryHint").textContent = hasAny
           ? `${activeFilterCount} ${this.t("activeFiltersSuffix")}${hasKw ? ` (${isEn ? "Species" : "Especie"}: "${kwTrim}")` : ""}`
           : this.t("allFamiliesIncluded");
@@ -1482,7 +1493,59 @@ const I18N = {
         this.updateStep2LiveFeedback();
       },
 
-      updateStep2LiveFeedback() {
+      matchesBirdGuild(b, gKey) {
+        const text = `${b.nombre || ''} ${b.nombreEs || ''} ${b.nombreCientifico || ''} ${b.family || ''} ${b.group || ''} ${b.habitat || ''}`.toLowerCase();
+        switch (gKey) {
+          case 'rapaces':
+            return text.includes('rapaces') || text.includes('águila') || text.includes('aguila') || text.includes('halcón') || text.includes('halcon') || text.includes('gavilán') || text.includes('busardo') || text.includes('milano') || text.includes('carancho') || text.includes('accipitr') || text.includes('falcon');
+          case 'nocturnas':
+            return text.includes('búho') || text.includes('buho') || text.includes('lechuza') || text.includes('autillo') || text.includes('mochuelo') || text.includes('strig') || text.includes('tyton');
+          case 'acuaticas':
+            return text.includes('acuátic') || text.includes('pato') || text.includes('ganso') || text.includes('cisne') || text.includes('garza') || text.includes('espátula') || text.includes('flamenco') || text.includes('cormorán') || text.includes('anatid') || text.includes('ardeid');
+          case 'marinas':
+            return text.includes('marina') || text.includes('costero') || text.includes('pingüino') || text.includes('pinguino') || text.includes('frailecillo') || text.includes('albatros') || text.includes('gaviota') || text.includes('pelícano') || text.includes('sphenisc') || text.includes('larid');
+          case 'loros':
+            return text.includes('loro') || text.includes('guacamayo') || text.includes('cotorra') || text.includes('perico') || text.includes('cacatúa') || text.includes('psittac');
+          case 'colibries':
+            return text.includes('colibrí') || text.includes('colibri') || text.includes('picaflor') || text.includes('ermitaño') || text.includes('trochil');
+          case 'tucanes':
+            return text.includes('tucán') || text.includes('tucan') || text.includes('arasarí') || text.includes('ramphast');
+          case 'cantoras':
+            return text.includes('hornero') || text.includes('cardenal') || text.includes('benteveo') || text.includes('zorzal') || text.includes('jilguero') || text.includes('calandria') || text.includes('tangara') || text.includes('golondrina') || text.includes('passer');
+          case 'carrona':
+            return text.includes('cóndor') || text.includes('condor') || text.includes('jote') || text.includes('cuervo') || text.includes('buitre') || text.includes('zopilote') || text.includes('cathart');
+          case 'gigantes':
+            return text.includes('ñandú') || text.includes('nandu') || text.includes('avestruz') || text.includes('casuario') || text.includes('kiwi') || text.includes('emú');
+          case 'herbivoras':
+            return text.includes('semiller') || text.includes('frugívor') || text.includes('faisán') || text.includes('pavo') || text.includes('paloma') || text.includes('tórtola') || text.includes('perdiz');
+          default:
+            return true;
+        }
+      },
+
+      async updateStep2LiveFeedback() {
+        await this.loadCatalogData();
+        let pool = [...(this.state.catalog || [])];
+        const places = Array.from(this.state.places.values());
+        if (places.length > 0) {
+          pool = filterCandidatesByTerritory(pool, places, 16);
+        }
+        if (this.state.guilds.size > 0 && !this.state.guilds.has("todas")) {
+          const activeGuilds = Array.from(this.state.guilds);
+          pool = pool.filter(b => activeGuilds.some(gKey => this.matchesBirdGuild(b, gKey)));
+        }
+        const kw = this.state.keyword.trim().toLowerCase();
+        if (kw) {
+          pool = pool.filter(b =>
+            (b.nombre || '').toLowerCase().includes(kw) ||
+            (b.nombreCientifico || '').toLowerCase().includes(kw)
+          );
+        }
+        if (this.state.colors.size > 0) {
+          const byColor = pool.filter(b => this.matchesColors(b));
+          if (byColor.length >= 4) pool = byColor;
+        }
+
         const banner = document.getElementById("step2FeedbackBanner");
         const titleEl = document.getElementById("step2FeedbackTitle");
         const detailEl = document.getElementById("step2FeedbackDetail");
@@ -1492,21 +1555,20 @@ const I18N = {
         const isEn = this.state.lang === "en";
 
         if (!banner) return;
-
-        const hasTraits = this.state.guilds.size > 0 || this.state.colors.size > 0 || this.state.keyword.trim().length > 0;
-
-        if (titleEl) titleEl.textContent = isEn ? "Species with photos ready for duels" : "Especies con foto listas para el duelo";
+        const count = pool.length;
+        if (titleEl) titleEl.textContent = `${count.toLocaleString("es-UY")} ${isEn ? "species ready" : "especies listas"}`;
         if (detailEl) {
-          detailEl.textContent = hasTraits
-            ? (isEn ? "Your filtered combination has dozens of verified species for 8, 16, or more." : "Tu combinación filtrada tiene decenas de especies verificadas para torneos de 8, 16 o más.")
-            : (isEn ? "Hundreds of world species ready for your custom tournament." : "Cientos de especies de todo el mundo listas para armar tu torneo.");
+          detailEl.textContent = isEn
+            ? `${count.toLocaleString("es-UY")} verified species available for your custom duel pool.`
+            : `${count.toLocaleString("es-UY")} especies verificadas disponibles para armar tu partida.`;
         }
         if (btnNext) {
-          btnNext.disabled = false;
-          btnNext.classList.remove("opacity-50", "cursor-not-allowed");
+          btnNext.disabled = count < 2;
+          btnNext.classList.toggle("opacity-50", count < 2);
+          btnNext.classList.toggle("cursor-not-allowed", count < 2);
         }
         if (btnText) btnText.textContent = isEn ? "Next: Confirm" : "Siguiente: Confirmar";
-        if (btnCount) btnCount.textContent = hasTraits ? "(OK)" : "(1.200)";
+        if (btnCount) btnCount.textContent = `(${count.toLocaleString("es-UY")})`;
       },
 
       clearTraitsAndColors() {
@@ -1560,143 +1622,48 @@ const I18N = {
       // @@JS:DATA-FETCH : iNaturalist fetch, formatBird, filters, limit, summary
       // ============================================================
       async fetchMatchingSpecies() {
-        try {
-          const isUnfilteredWorld =
-            this.state.places.size === 0 &&
-            this.state.guilds.size === 0 &&
-            this.state.colors.size === 0 &&
-            !this.state.keyword.trim();
+        await this.loadCatalogData();
+        let pool = [...(this.state.catalog || [])];
 
-          const localeParams = "locale=es&preferred_place_id=7259";
-
-          // Special Curated Extinct Birds Collection (18 legendary extinct birds with full illustrations)
-          const isExtinctOnly =
-            this.state.useCuratedExtinctBirds ||
-            (this.state.guilds.size === 1 && this.state.guilds.has("extintas") && !this.state.keyword.trim());
-
-          if (isExtinctOnly) {
-            const idsParam = CATALOG_DATA.curatedExtinctBirdsIds.join(",");
-            const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${idsParam}&per_page=30&${localeParams}`);
-            const data = await res.json();
-            const byId = new Map();
-            (data.results || []).forEach(t => {
-              const b = this.formatBird(t, t.observations_count || 100, true);
-              if (b && b.imagen) byId.set(Number(t.id), b);
-            });
-            const list = CATALOG_DATA.curatedExtinctBirdsIds.map(id => byId.get(id)).filter(Boolean);
-
-            this.state.totalFound = list.length;
-            this.state.candidatePool = list;
-            this.updateStep3UI();
-            return;
-          }
-
-          if (this.state.useCuratedWorldIcons || (isUnfilteredWorld && this.state.samplingMode === "popular")) {
-            const idsParam = CATALOG_DATA.curatedWorldIconsIds.join(",");
-            const res = await fetch(`${CATALOG_DATA.baseUrl}/taxa?id=${idsParam}&per_page=30&${localeParams}`);
-            const data = await res.json();
-            const list = (data.results || [])
-              .map(t => this.formatBird(t, t.observations_count, false))
-              .filter(b => Boolean(b.imagen));
-
-            this.state.totalFound = 11359;
-            this.state.candidatePool = list;
-            this.updateStep3UI();
-            return;
-          }
-
-          const allowExtinct = this.state.guilds.has("extintas");
-
-          let taxonIds = new Set();
-          if (this.state.guilds.size > 0) {
-            this.state.guilds.forEach(k => {
-              const g = CATALOG_DATA.guilds.find(x => x.key === k);
-              if (g) g.taxonIds.forEach(id => taxonIds.add(id));
-            });
-          }
-          if (taxonIds.size === 0 && this.state.colors.size > 0) {
-            this.state.colors.forEach(k => {
-              const c = CATALOG_DATA.colors.find(x => x.key === k);
-              if (c) c.taxonIds.forEach(id => taxonIds.add(id));
-            });
-          }
-          if (taxonIds.size === 0) {
-            taxonIds.add(CATALOG_DATA.rootAvesId);
-          }
-
-          const placeIds = Array.from(this.state.places.keys()).join(",");
-          const kw = this.state.keyword.trim();
-
-          const params = new URLSearchParams();
-          params.set("taxon_id", Array.from(taxonIds).join(","));
-          params.set("locale", "es");
-          params.set("preferred_place_id", "7259");
-          params.set("per_page", "200");
-          params.set("page", "1");
-
-          if (placeIds) params.set("place_id", placeIds);
-          if (kw) params.set("q", kw);
-
-          let url = `${CATALOG_DATA.baseUrl}/observations/species_counts?${params.toString()}`;
-          let useTaxa = false;
-          if (kw && !placeIds) {
-            params.set("rank", "species");
-            params.set("order_by", "observations_count");
-            url = `${CATALOG_DATA.baseUrl}/taxa?${params.toString()}`;
-            useTaxa = true;
-          }
-
-          const res = await fetch(url);
-          const data = await res.json();
-
-          let list = [];
-          let total = data.total_results || 0;
-
-          if (useTaxa) {
-            list = (data.results || []).map(t => this.formatBird(t, t.observations_count, allowExtinct));
-          } else {
-            list = (data.results || []).map(e => this.formatBird(e.taxon, e.count, allowExtinct));
-          }
-
-          // Exclude extinct/fossil taxa (e.g. Struthio daberasensis eggshell fossils) unless extinct guild is explicitly chosen
-          const seenSci = new Set();
-          list = list.filter(b => {
-            if (!b || !b.imagen) return false;
-            if (b.extinct && !allowExtinct) return false;
-            if (!allowExtinct && (b.popularidad || 0) < 15) return false;
-            if (seenSci.has(b.nombreCientifico)) return false;
-            seenSci.add(b.nombreCientifico);
-            return true;
-          });
-
-          if (kw && placeIds) {
-            const lowerKw = kw.toLowerCase();
-            list = list.filter(b =>
-              b.nombre.toLowerCase().includes(lowerKw) ||
-              b.nombreCientifico.toLowerCase().includes(lowerKw) ||
-              b.nombreIngles.toLowerCase().includes(lowerKw)
-            );
-          }
-
-          if (this.state.colors.size > 0) {
-            const byColor = list.filter(b => this.matchesColors(b));
-            if (byColor.length >= 4) {
-              list = byColor;
-              total = Math.max(byColor.length, Math.round(total * 0.25));
-            }
-          }
-
-          this.state.totalFound = total;
-          this.state.candidatePool = list;
+        if (this.state.useCuratedWorldIcons) {
+          this.state.candidatePool = pool.slice(0, 16);
+          this.state.totalFound = this.state.catalog.length;
           this.updateStep3UI();
-        } catch (err) {
-          console.warn('Error cargando especies desde iNaturalist, usando respaldo curado:', err);
-          if (this.state.candidatePool.length === 0) {
-            this.state.candidatePool = [...CURATED_WORLD_ICONS_FALLBACK];
-            this.state.totalFound = CURATED_WORLD_ICONS_FALLBACK.length;
-            this.updateStep3UI();
+          return;
+        }
+
+        // 1. Filtrar por territorio
+        const places = Array.from(this.state.places.values());
+        if (places.length > 0) {
+          pool = filterCandidatesByTerritory(pool, places, 16);
+        }
+
+        // 2. Filtrar por alimentación / familia
+        if (this.state.guilds.size > 0 && !this.state.guilds.has("todas")) {
+          const activeGuilds = Array.from(this.state.guilds);
+          pool = pool.filter(b => activeGuilds.some(gKey => this.matchesBirdGuild(b, gKey)));
+        }
+
+        // 3. Filtrar por especie puntual (Keyword)
+        const kw = this.state.keyword.trim().toLowerCase();
+        if (kw) {
+          pool = pool.filter(b =>
+            (b.nombre || '').toLowerCase().includes(kw) ||
+            (b.nombreCientifico || '').toLowerCase().includes(kw)
+          );
+        }
+
+        // 4. Filtrar por color
+        if (this.state.colors.size > 0) {
+          const byColor = pool.filter(b => this.matchesColors(b));
+          if (byColor.length >= 4) {
+            pool = byColor;
           }
         }
+
+        this.state.candidatePool = pool;
+        this.state.totalFound = pool.length;
+        this.updateStep3UI();
       },
 
       formatBird(taxon, count = 0, allowExtinct = true) {
@@ -1821,7 +1788,7 @@ const I18N = {
         } else {
           badge.textContent = isEn ? "Long Match" : "Partida Larga";
           badge.className = "text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-700 text-white";
-          box.className = "rounded-xl bg-amber-50 border border-amber-300/80 p-3.5 flex items-center justify-between gap-3";
+          box.className = "rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300/80 dark:border-amber-800/50 p-3.5 flex items-center justify-between gap-3";
         }
 
         document.getElementById("durationHintText").textContent = isEn
@@ -1908,11 +1875,6 @@ const I18N = {
         document.getElementById("battleCategoryBadge").textContent = summary;
         const estWrap = document.getElementById("battleTotalEstWrap");
         if (estWrap) estWrap.textContent = `/~${this.state.estimatedTotalSteps}`;
-
-        // Precargar el primer duelo antes de cambiar de vista
-        if (pool[0] && pool[1]) {
-          await preloadImagePair(pool[0].imagen, pool[1].imagen, 1600);
-        }
 
         this.goToView("viewBattle");
         preloadCandidatePool(pool, b => b.imagen);

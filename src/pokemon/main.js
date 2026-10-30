@@ -583,13 +583,6 @@ const app = {
     const estWrap = document.getElementById('battleTotalEstWrap');
     if (estWrap) estWrap.textContent = `/~${this.state.estimatedTotalSteps}`;
 
-    // Precargar de inmediato el primer duelo antes de mostrar la pantalla
-    if (pool[0] && pool[1]) {
-      const s0 = this.getPokemonSprite(pool[0], this.state.spriteMode);
-      const s1 = this.getPokemonSprite(pool[1], this.state.spriteMode);
-      await preloadImagePair(s0, s1, 1600);
-    }
-
     this.goToView('viewBattle');
 
     // Preload candidate sprites in background

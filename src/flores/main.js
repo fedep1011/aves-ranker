@@ -80,6 +80,23 @@ const CATALOG_DATA = {
   ]
 };
 
+const NON_SHOWY_GENERA = new Set([
+  'Acer', 'Ulmus', 'Fraxinus', 'Celtis', 'Platanus', 'Populus', 'Salix', 'Alnus', 'Betula', 'Fagus', 'Quercus',
+  'Juglans', 'Carya', 'Carpinus', 'Corylus', 'Ailanthus', 'Tilia',
+  'Typha', 'Sparganium', 'Plantago', 'Ambrosia', 'Artemisia', 'Rumex', 'Chenopodium', 'Dysphania', 'Atriplex',
+  'Urtica', 'Parietaria', 'Ficus', 'Humulus', 'Cannabis'
+]);
+
+const NON_SHOWY_FAMILIES = new Set([
+  'Ulmaceae', 'Platanaceae', 'Typhaceae', 'Betulaceae', 'Fagaceae', 'Juglandaceae', 'Salicaceae',
+  'Pinaceae', 'Cupressaceae', 'Taxaceae', 'Ginkgoaceae', 'Poaceae', 'Cyperaceae', 'Juncaceae', 'Urticaceae'
+]);
+
+function isNonShowyOrTree(f) {
+  const genus = (f.sci_name || '').split(' ')[0];
+  return NON_SHOWY_FAMILIES.has(f.family) || NON_SHOWY_GENERA.has(genus);
+}
+
 const app = {
   state: {
     pool: [],
@@ -99,6 +116,7 @@ const app = {
     places: new Map(),
     usages: new Set(),
     colors: new Set(),
+    onlyShowyFlowers: false,
     keyword: "",
     samplingMode: "popular",
     limit: 16,
@@ -306,7 +324,7 @@ const app = {
   renderStep2Traits() {
     const kwTrim = this.state.keyword.trim();
     const hasKw = kwTrim.length > 0;
-    const activeFilterCount = this.state.usages.size + this.state.colors.size + (hasKw ? 1 : 0);
+    const activeFilterCount = this.state.usages.size + this.state.colors.size + (hasKw ? 1 : 0) + (this.state.onlyShowyFlowers ? 1 : 0);
     const hasAny = activeFilterCount > 0;
 
     const btnAll = document.getElementById('btnTraitsAll');
@@ -314,6 +332,38 @@ const app = {
       btnAll.className = !hasAny
         ? 'px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-emerald-700 text-white'
         : 'px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-canvas text-ink border border-line hover:border-ink/40';
+    }
+
+    const btnCustom = document.getElementById('btnTraitsCustom');
+    if (btnCustom) {
+      btnCustom.classList.toggle('hidden', !hasAny);
+    }
+
+    const selWrap = document.getElementById('selectedTraitsWrap');
+    const selChips = document.getElementById('selectedTraitsChips');
+    if (selWrap && selChips) {
+      selChips.innerHTML = '';
+      this.state.usages.forEach(uKey => {
+        const uObj = CATALOG_DATA.usages.find(u => u.key === uKey);
+        if (!uObj) return;
+        const c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-700/10 text-emerald-800 dark:text-emerald-200 border border-emerald-700/30';
+        c.innerHTML = `<span>${uObj.title}</span><span class="opacity-60">×</span>`;
+        c.onclick = () => { this.state.usages.delete(uKey); this.renderStep2Traits(); };
+        selChips.appendChild(c);
+      });
+      this.state.colors.forEach(cKey => {
+        const cObj = CATALOG_DATA.colors.find(col => col.key === cKey);
+        if (!cObj) return;
+        const c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-700/10 text-emerald-800 dark:text-emerald-200 border border-emerald-700/30';
+        c.innerHTML = `<span>${cObj.label}</span><span class="opacity-60">×</span>`;
+        c.onclick = () => { this.state.colors.delete(cKey); this.renderStep2Traits(); };
+        selChips.appendChild(c);
+      });
+      selWrap.classList.toggle('hidden', selChips.children.length === 0);
     }
 
     const hint = document.getElementById('traitsSummaryHint');
@@ -382,7 +432,27 @@ const app = {
       });
     }
 
+    const toggleBtn = document.getElementById('btnToggleOnlyShowy');
+    const switchEl = document.getElementById('switchOnlyShowy');
+    const switchKnob = document.getElementById('switchOnlyShowyKnob');
+    if (toggleBtn && switchEl && switchKnob) {
+      if (this.state.onlyShowyFlowers) {
+        toggleBtn.className = 'w-full flex items-center justify-between p-3 rounded-xl border-2 border-emerald-700 bg-emerald-900/10 text-left transition';
+        switchEl.className = 'w-11 h-6 rounded-full transition-colors relative shrink-0 bg-emerald-700';
+        switchKnob.className = 'w-5 h-5 rounded-full bg-white shadow-xs absolute top-0.5 left-0.5 transition-transform translate-x-5';
+      } else {
+        toggleBtn.className = 'w-full flex items-center justify-between p-3 rounded-xl border border-line bg-canvas/50 hover:border-ink/40 text-left transition';
+        switchEl.className = 'w-11 h-6 rounded-full transition-colors relative shrink-0 bg-line';
+        switchKnob.className = 'w-5 h-5 rounded-full bg-white shadow-xs absolute top-0.5 left-0.5 transition-transform translate-x-0';
+      }
+    }
+
     this.updateStep2LiveFeedback();
+  },
+
+  toggleOnlyShowy() {
+    this.state.onlyShowyFlowers = !this.state.onlyShowyFlowers;
+    this.renderStep2Traits();
   },
 
   updateStep2LiveFeedback() {
@@ -404,7 +474,7 @@ const app = {
       banner.classList.add('bg-emerald-900/10', 'border-emerald-800/25', 'text-emerald-800', 'dark:text-emerald-200');
       if (iconEl) {
         iconEl.innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>';
-        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-emerald-700 dark:text-emerald-300';
+        iconEl.setAttribute('class', 'w-4 h-4 shrink-0 mt-0.5 text-emerald-700 dark:text-emerald-300');
       }
       if (count <= 3) {
         const names = matches.map(f => f.name).join(', ');
@@ -429,7 +499,7 @@ const app = {
       banner.classList.add('bg-amber-500/15', 'border-amber-500/40', 'text-amber-900', 'dark:text-amber-200');
       if (iconEl) {
         iconEl.innerHTML = '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>';
-        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400';
+        iconEl.setAttribute('class', 'w-4 h-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400');
       }
       if (titleEl) titleEl.textContent = `Solo hay 1 flor disponible: ${single.name}`;
       if (detailEl) detailEl.textContent = `${single.name} (${single.sci_name}). Para armar un torneo necesitas al menos 2 especies. Prueba cambiando de lugar o quitando algún filtro.`;
@@ -444,7 +514,7 @@ const app = {
       banner.classList.add('bg-rose-500/10', 'border-rose-500/30', 'text-rose-900', 'dark:text-rose-200');
       if (iconEl) {
         iconEl.innerHTML = '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>';
-        iconEl.className = 'w-4 h-4 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400';
+        iconEl.setAttribute('class', 'w-4 h-4 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400');
       }
       if (titleEl) titleEl.textContent = 'No hay flores con foto para este filtro';
       if (detailEl) detailEl.textContent = 'Esa combinación no tiene especies registradas. Prueba cambiando de lugar o seleccionando otro color.';
@@ -462,6 +532,7 @@ const app = {
     this.state.usages.clear();
     this.state.colors.clear();
     this.state.keyword = '';
+    this.state.onlyShowyFlowers = false;
     const inp = document.getElementById('keywordInput');
     if (inp) inp.value = '';
     this.renderStep2Traits();
@@ -533,6 +604,11 @@ const app = {
       });
     }
 
+    // Exclusión de árboles y plantas sin flor / follaje neutro
+    if (!placesOnly && this.state.onlyShowyFlowers) {
+      subset = subset.filter(f => !isNonShowyOrTree(f));
+    }
+
     // Buscador
     if (this.state.keyword.trim()) {
       const q = this.state.keyword.trim().toLowerCase();
@@ -572,6 +648,7 @@ const app = {
         parts.push(cNames.join(', '));
       }
       if (this.state.keyword.trim()) parts.push(`"${this.state.keyword.trim()}"`);
+      if (this.state.onlyShowyFlowers) parts.push('Solo flores vistosas');
       summaryEl.textContent = parts.join(' · ');
     }
 
@@ -686,14 +763,9 @@ const app = {
     const undoBtn = document.getElementById('btnUndoBattleChoice');
     if (undoBtn) undoBtn.disabled = true;
 
-    // Precargar de inmediato el primer duelo para que aparezca instantáneamente sin flicker
-    if (candidates[0] && candidates[1]) {
-      await preloadImagePair(candidates[0].photo, candidates[1].photo, 1600);
-    }
-
     this.goToView('viewBattle');
 
-    // Precargar todo el pool restante en segundo plano de manera progresiva
+    // Precargar todo el pool en segundo plano de manera progresiva
     preloadCandidatePool(candidates, f => f.photo);
 
     this.runTournament(candidates);

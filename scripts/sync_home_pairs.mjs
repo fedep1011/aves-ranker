@@ -55,15 +55,33 @@ const FLORA_DEFS = [
   { leftId: 83056, rightId: 164233, leftPos: '35% center', rightPos: '65% center' } // Camelia común vs Jazmín común
 ];
 
+function toHomeCardThumb(url) {
+  if (!url || typeof url !== 'string') return url;
+  // For 250px half-split hero cards, 500px (2x Retina) gives 1:1 bilinear sampling with zero Nyquist aliasing on fur/feathers
+  const clean = url.split('?')[0];
+  const mThumb = clean.match(/^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\/thumb\/([0-9a-f]\/[0-9a-f]{2}\/([^/]+))\/\d+px-(.+)$/i);
+  if (mThumb) {
+    return `https://thumb.wikimedia.org/wikipedia/commons/thumb/${mThumb[1]}/500px-${mThumb[3]}`;
+  }
+  const mRaw = clean.match(/^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\/([0-9a-f]\/[0-9a-f]{2}\/([^/]+))$/i);
+  if (mRaw) {
+    const suffix = /\.(tif|tiff)$/i.test(mRaw[2]) ? `${mRaw[2]}.jpg` : mRaw[2];
+    return `https://thumb.wikimedia.org/wikipedia/commons/thumb/${mRaw[1]}/500px-${suffix}`;
+  }
+  return url.replace('/large.jpg', '/medium.jpg').replace('/large.jpeg', '/medium.jpeg');
+}
+
 function buildPairsArray(defs, map) {
   return defs.map(d => {
     const l = map.get(d.leftId);
     const r = map.get(d.rightId);
     if (!l) throw new Error(`Missing item id ${d.leftId}`);
     if (!r) throw new Error(`Missing item id ${d.rightId}`);
+    const leftUrl = toHomeCardThumb(l.photo || l.imagen || '');
+    const rightUrl = toHomeCardThumb(r.photo || r.imagen || '');
     return {
-      left: { id: l.id, name: l.name, url: l.photo, pos: d.leftPos },
-      right: { id: r.id, name: r.name, url: r.photo, pos: d.rightPos }
+      left: { id: l.id, name: l.name, url: leftUrl, pos: d.leftPos },
+      right: { id: r.id, name: r.name, url: rightUrl, pos: d.rightPos }
     };
   });
 }

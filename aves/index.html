@@ -230,7 +230,7 @@
         <button id="themeToggleAves" type="button" aria-label="Cambiar tema"
           class="p-1.5 sm:px-2.5 sm:py-1 rounded-full border border-line bg-surface text-ink hover:opacity-80 transition text-xs font-medium flex items-center gap-1.5 shrink-0">
           <svg id="themeIconDarkAves" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
           <svg id="themeIconLightAves" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="4"/>
@@ -326,23 +326,11 @@
 
       <!-- Pastillas abajo / Presets (Siempre visibles en Portada) -->
       <div id="homePresetGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left pt-2">
-        <button onclick="app.launchPreset('rapaces_uruguay')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
+        <button onclick="app.launchPreset('rapaces_mundo')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
           <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Falconidae y Rapaces</span>
-            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Rapaces del Sur</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Caranchos, chimangos, halcones peregrinos y gavilanes de pastizal.</p>
-          </div>
-          <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
-            <span>Elegir</span>
-            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-          </span>
-        </button>
-
-        <button onclick="app.launchPreset('carrona_uy')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
-          <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Cathartidae</span>
-            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Carroñeras y Cóndores</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Cóndor andino, jote cabeza negra, carancho y jote cabeza colorada.</p>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Grandes Cazadoras</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Rapaces y Águilas</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Águila harpía, cóndor andino, halcón peregrino, águila calva y búho nival.</p>
           </div>
           <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
             <span>Elegir</span>
@@ -352,9 +340,21 @@
 
         <button onclick="app.launchPreset('coloridas_latam')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
           <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Neotrópico</span>
-            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Coloridas de Latinoamérica</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Tucanes toco, guacamayos rojos, colibríes esmeralda y cardenales.</p>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Neotrópico y Selvas</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Exóticas y Tropicales</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Tucanes toco, guacamayos rojos, quetzales, pavos reales y colibríes.</p>
+          </div>
+          <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
+            <span>Elegir</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+          </span>
+        </button>
+
+        <button onclick="app.launchPreset('canoras_campo')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Passeriformes</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Canoras y de Jardín</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Horneros, cardenales copete rojo, benteveos, zorzales y calandrias.</p>
           </div>
           <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
             <span>Elegir</span>
@@ -364,9 +364,9 @@
 
         <button onclick="app.launchPreset('acuaticas_costeras')" class="p-4 rounded-xl border border-line bg-surface hover:border-forest hover:bg-forest/5 transition flex flex-col justify-between group">
           <div>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Costas y Océanos</span>
-            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Aves Costeras y Marinas</h3>
-            <p class="text-xs text-muted mt-1 leading-relaxed">Pingüinos de Magallanes, albatros de ceja negra, gaviotines y petreles.</p>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-forest font-bold">Humedales y Costas</span>
+            <h3 class="font-serif text-lg text-ink group-hover:text-forest transition-colors mt-1">Acuáticas y Marinas</h3>
+            <p class="text-xs text-muted mt-1 leading-relaxed">Pingüinos emperador, frailecillos, flamencos, pelícanos y cisnes.</p>
           </div>
           <span class="text-xs font-medium text-forest mt-3 flex items-center justify-between">
             <span>Elegir</span>
@@ -463,12 +463,21 @@
               class="px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition bg-forest text-white">
               Cualquier tipo y color
             </button>
+            <span id="btnTraitsCustom"
+              class="hidden px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-forest text-white">
+              Personalizado
+            </span>
             <button id="btnTraitsRandom" type="button" onclick="app.randomizeTraitsStep()"
-              class="px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium border border-forest/40 bg-forest-soft text-forest hover:bg-forest hover:text-white transition">
-              Categoría al azar
+              class="px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium border border-line bg-canvas text-muted hover:text-ink hover:border-ink/40 transition">
+              Sortear 1 al azar
             </button>
           </div>
           <span id="traitsSummaryHint" class="text-[11px] text-muted">Todas las familias incluidas</span>
+        </div>
+
+        <div id="selectedTraitsWrap" class="hidden space-y-1.5">
+          <div id="step2SelectedLabel" class="text-[11px] text-muted">Categorías elegidas:</div>
+          <div id="selectedTraitsChips" class="flex flex-wrap gap-1.5"></div>
         </div>
 
         <div class="space-y-2">
@@ -617,7 +626,7 @@
           </div>
         </div>
 
-        <div id="noBirdsWarning" class="hidden p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900">
+        <div id="noBirdsWarning" class="hidden p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200">
           Esa combinación casi no tiene aves registradas con foto. Vuelve un paso atrás o prueba con otro filtro.
         </div>
 
@@ -681,7 +690,7 @@
             <img id="imgLeftBg" src="" alt="" aria-hidden="true"
               class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
             <img id="imgLeft" src="" alt="" onload="app.onBattleImgLoad('left')" onerror="app.handleImgFallback(this, 'left')"
-              class="absolute inset-0 z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
+              class="absolute inset-0 z-10 w-full h-full object-contain object-center " />
           </div>
           <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface flex-1">
             <div class="min-w-0 flex-1 space-y-0.5">
@@ -708,7 +717,7 @@
             <img id="imgRightBg" src="" alt="" aria-hidden="true"
               class="absolute inset-0 w-full h-full object-cover object-center scale-110 blur-xl opacity-65 brightness-75 pointer-events-none" />
             <img id="imgRight" src="" alt="" onload="app.onBattleImgLoad('right')" onerror="app.handleImgFallback(this, 'right')"
-              class="absolute inset-0 z-10 w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500" />
+              class="absolute inset-0 z-10 w-full h-full object-contain object-center " />
           </div>
           <div class="px-3.5 py-2.5 sm:p-4 flex items-center justify-between gap-2.5 bg-surface flex-1">
             <div class="min-w-0 flex-1 space-y-0.5">
@@ -783,14 +792,14 @@
       <div class="space-y-3">
 
         <!-- Interactive Prompt asking the user if they want to play & repeat the #1 bird's real sound -->
-        <div id="winnerAudioPromptBanner" class="bg-amber-50/90 border border-amber-300/90 rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+        <div id="winnerAudioPromptBanner" class="bg-amber-50/90 dark:bg-amber-950/40 border border-amber-300/90 dark:border-amber-800/50 rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-xs">
           <div class="flex items-center gap-2.5 min-w-0">
             <span id="promptAudioPulseDot" class="w-2.5 h-2.5 rounded-full bg-amber-600 shrink-0"></span>
             <div class="min-w-0">
-              <div id="winnerAudioPromptQuestion" class="text-xs sm:text-sm font-semibold text-stone-900 truncate">
+              <div id="winnerAudioPromptQuestion" class="text-xs sm:text-sm font-semibold text-stone-900 dark:text-amber-100 truncate">
                 ¿Querés escuchar el sonido real de tu ave #1?
               </div>
-              <div id="winnerAudioPromptSub" class="text-[11px] text-stone-600 truncate">
+              <div id="winnerAudioPromptSub" class="text-[11px] text-stone-600 dark:text-amber-200/80 truncate">
                 Grabación ornitológica de campo · Puedes repetirlo cuando quieras
               </div>
             </div>
